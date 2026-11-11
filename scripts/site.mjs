@@ -164,7 +164,7 @@ footer{margin-top:var(--space-1000);color:var(--color-text-subtlest);font:var(--
 </header>
 <h1>Pepla design system</h1>
 <p class="lead">Foundations for every Pepla screen: the rules, colour in light and dark, type, space, shape, elevation, motion, icons and the mark.</p>
-<p><a class="pp-button pp-button--primary pp-button--large" href="components.html">See all components</a></p>
+<p class="pp-button-group"><a class="pp-button pp-button--primary pp-button--large" href="components.html">See all components</a><a class="pp-button pp-button--default pp-button--large" href="kits.html">See the UI kits</a></p>
 <nav class="toc" aria-label="Sections"><a href="components.html">All components</a><a href="#rules">Rules</a><a href="#colour">Colour</a><a href="#palette">Palette</a><a href="#type">Type</a><a href="#space">Space</a><a href="#shape">Shape</a><a href="#elevation">Elevation</a><a href="#motion">Motion</a><a href="#icons">Icons</a><a href="#logo">Logo</a></nav>
 
 <h2 id="rules">The rules that govern everything</h2>

@@ -9,7 +9,7 @@ replaces: the separate shells (shared sidebar and topbar, TalentFlow shell, Tale
 
 # App shell
 
-The app shell is the frame of every Pepla page. It places the side navigation, the top navigation, a banner slot, the main content and the flag group, so each product only fills the main area. It brings no new look of its own: every part is an existing component.
+The app shell is the frame of every Pepla page. It places the side navigation, the top navigation, a banner slot, the main content and the flag group, so each module only fills the main area. It brings no new look of its own: every part is an existing component.
 
 ## Anatomy
 
@@ -46,7 +46,8 @@ The app shell is the frame of every Pepla page. It places the side navigation, t
 
 ## Behaviour
 
-- One shell for every product. The product switcher in the sidebar changes the areas it lists; the frame stays the same.
+- One Pepla, one shell. Everyone signs in once and lands on **Today**: what needs them across every module (approvals, Pepla's proposals, people starting soon, overdue items). Every module (Hire, Onboard, Requests, Help desk and the rest) is a section of the same sidebar, so moving between them never changes the frame, the patterns or the look.
+- Inside a module, pages use the same patterns as everywhere else: a list (Table or Pipeline board), a record page (Person header and Tabs), a Drawer to edit, the Agent proposal card for Pepla's suggestions, and Deadline chips.
 - On desktop the sidebar and top bar stay put and only main scrolls. On phone the whole page scrolls and the top bar sticks to the top, so the browser bar can hide.
 - The collapse toggle (`panel-left`) sits at the start of the top bar on desktop.
 - When the content column is narrower than 400px (a tablet with the sidebar open), search moves behind its icon button. The top bar's markup carries both.
@@ -57,7 +58,7 @@ The app shell is the frame of every Pepla page. It places the side navigation, t
 
 ## Content
 
-- The browser tab title is "Page, Product, pepla": "Approvals, HR, pepla".
+- The browser tab title is "Page, Module, pepla": "Pipeline, Hire, pepla". Today is "Today, pepla".
 - The bottom bar's buttons follow the Button rules: a verb and an object, "Upload document", never "Next" or "Submit".
 - Banner text says what is wrong for everyone and what to do; see Banner.
 
@@ -105,7 +106,7 @@ There is no single shell. What exists:
 
 ## Do and don't
 
-- **Do** use one shell for every product and switch products in the sidebar. **Don't** build a new shell for a new area or for admin.
+- **Do** use one shell for all of Pepla and add a module as a sidebar section. **Don't** build a new shell, a product switcher or a separate menu for a module or for admin.
 - **Do** keep page actions in the Page header inside main. **Don't** put them in the top bar.
 - **Do** keep one banner for account-wide problems. **Don't** stack banners or use the slot for page messages.
 - **Do** use the bottom action bar for the one main action on phone. **Don't** put navigation tabs in it.

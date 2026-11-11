@@ -79,6 +79,17 @@ Pepla is the HR platform for teams under 100 in South Africa, Zimbabwe and Zambi
 | Search | `search` |
 | More actions | `ellipsis` |
 
+## One Pepla: how the platform fits together
+
+Pepla is one product with modules inside it, not a set of apps. Every module feels the same because it is built from the same shell, components and patterns.
+
+- **One way in.** The marketing site, then one sign-in, then **Today**: what needs the person across every module (approvals, Pepla's proposals, people starting soon, overdue items).
+- **One sidebar.** Today and People, then a section per module in a fixed order (Hire, Onboard, Time off, Requests, Help desk, Move and exit, Comply), then Settings at the bottom. A person sees only the modules their company has and their role allows. See Side navigation and App shell.
+- **One set of patterns.** A list, a record page, a drawer to edit, an Agent proposal card, a Deadline chip and an Audit event row look and behave the same in every module.
+- **Names.** "Pepla Hire" and "Pepla Onboard" are what a company buys. On screen the module is just "Hire" or "Onboard" under the Pepla mark.
+- **The switcher** at the top of the sidebar changes company, for people who belong to more than one. With one company it is just the name.
+- **Journeys and screens** (sign-up, company setup, sign-in, Today, each module's flows on web and phone) are designed on the product canvas from this system. The UI kits here are today's screens redrawn as reference; the journey designs are the target.
+
 ## Index
 
 | Folder | What |
