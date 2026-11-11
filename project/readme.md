@@ -10,6 +10,37 @@ Pepla is the HR platform for teams under 100 in South Africa, Zimbabwe and Zambi
 - Structure: modelled on the structure and depth of large public design systems (Atlassian's in particular): layered tokens, foundations, component anatomy, content and accessibility rules. **No Atlassian code, styles, icons, assets or text are used**; their licence only covers products that integrate with Atlassian.
 - Examples: the existing TalentFlow and Onboarding screens in `obsydian-tech/hr-portal`, redrawn in Pepla.
 
+## The only way to build UI
+
+Every Pepla surface is built from this system and nothing else. There is no second style, no one-off and no "just this once". A screen that looks right but was built around the system is wrong, because the next screen will copy it.
+
+1. **Compose components.** A screen is `pp-*` components and the Layout primitives (`pp-stack`, `pp-inline`, `pp-columns`, `pp-grid`, `pp-gap-*`). Screens style nothing else.
+2. **A missing component is added here first.** If nothing fits, do not build it in the screen. Add the component, or a modifier to an existing one, with its spec (anatomy, states, behaviour, content, accessibility) and an example. Then use it.
+3. **Layout only, with tokens.** Arranging, spacing and sizing come from Layout and component modifiers. No `style=""`: the only inline values are component inputs named `--_*` (a progress `--_pct`, a frame `--_height`).
+4. **Every value comes from a token or the vocabulary.** Colour, type, space, radius, shadow, motion, layer and icon each have one source: `tokens/` and the icon vocabulary below. A value that is not there is added there first, with a name that says its use.
+5. **A part stays in its component.** `pp-form__footer` lives in a `pp-form`, `pp-tabs__tab` in `pp-tabs`. Borrowing a part for another meaning is a one-off; use the component that means it, or add one.
+6. **The spec and the code agree.** Every class a spec names exists, and every kit screen follows the spec. When they differ, fix one of them in the same change.
+
+### Enforced in CI
+
+`npm run verify:design` (`scripts/verify-design.mjs`) runs first in `npm run build`, and `npm test` runs it with the other checks, so a violation fails the build. There is no ignore comment and no allowlist in screens. Never weaken a check to get green.
+
+| Check | Fails on |
+| --- | --- |
+| Colour | A hex, `rgb()`, `hsl()`, `oklch()` or named colour anywhere; a palette step (`--palette-*`) in a component or screen |
+| Type | A font family, size, weight, line height or letter spacing that is not a token (`em` sizes inside a component are allowed) |
+| Shape | A border radius that is not a `--radius-*` token (0 and 50% allowed) |
+| Motion | A literal easing or duration; animations use `--motion-*` |
+| Layers | A `z-index` that is not a `--layer-*` token |
+| Markup | Any static `style=""` (only `--_*` inputs); a `<style>` or `<script>` block in a screen; a class that is not `pp-` or that no component defines; a `<button>`, `<input>`, `<select>`, `<textarea>` or `<table>` without its `pp-` class |
+| Anatomy | A part (`pp-block__part`) outside its block (`pp-block`) |
+| Icons | A glyph or emoji used as an icon; an arrow character used as an icon; a hand-written `<svg>` (the mark is `<i data-pepla-mark></i>`); a Lucide name not in the vocabulary |
+| Specs | A spec that names a `pp-` class no CSS defines |
+| Content (`scripts/content-audit.mjs`) | A lozenge without an icon and a word, or with an icon that does not fit its status; a deadline that is not a `<time>` said in words; an icon-only button without a name; "OK", "Submit" or capitals on a button; a form that mixes `*` and "(optional)"; a word we avoid; a date not in the house format; an unmasked 13-digit ID |
+| Contrast | Any promised colour pair below WCAG 2.2 AA, light or dark; coral too close to danger |
+
+The Angular app runs the same rules on its templates and stylesheets, plus a ban on PrimeNG outside the few components that wrap it: see [`docs/verify-design-angular.md`](../docs/verify-design-angular.md).
+
 ## The rules that govern everything
 
 1. **Mint means the agent did it.** Mint is only for work Pepla's AI agents did or propose. Never success, never a link, never decoration.
@@ -213,7 +244,6 @@ Pepla is one product with modules inside it, not a set of apps. Every module fee
 | --- | --- |
 | `tokens/` | CSS variables (generated) and `tokens.json`, light and dark |
 | `assets/` | the mark, the app icon, light and dark |
-| `components/` | components grouped as core, actions, forms, status, messages, overlays, navigation, data, agent, records |
-| `guidelines/` | one page per foundation |
+| `components/` | components grouped as core, layout, actions, forms, status, messages, overlays, navigation, data, agent, records |
 | `ui_kits/` | full example screens per product area |
 | `SKILL.md` | how coding and design agents must use this system |
