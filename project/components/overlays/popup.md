@@ -29,6 +29,7 @@ A popup is a small floating panel tied to the control that opened it: a filter, 
 | `pp-popup--flush` | No padding: lists that run edge to edge (notifications); header and footer get their own padding and borders |
 | `pp-popup--wide` | Up to 420px, for the notification list |
 | `pp-popup--inline` | Rendered in place, for docs only |
+| `pp-popup--floating` | Placed by the app in a top-layer overlay (no absolute position of its own) |
 
 ## States
 

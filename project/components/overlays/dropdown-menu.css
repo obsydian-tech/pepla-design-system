@@ -19,6 +19,8 @@
 }
 .pp-dropdown-menu--end { left: auto; right: 0; }
 .pp-dropdown-menu--inline { position: relative; inset: auto; z-index: auto; display: block; width: max-content; animation: none; }
+/* Floating: an app places the menu itself (a top-layer overlay), so it sits where it is put. */
+.pp-dropdown-menu--floating { position: relative; inset: auto; z-index: auto; }
 
 .pp-dropdown-menu__section { margin: 0; padding: 0; list-style: none; }
 .pp-dropdown-menu__section + .pp-dropdown-menu__section { margin-top: var(--space-075); padding-top: var(--space-075); border-top: var(--border-width) solid var(--color-border); }

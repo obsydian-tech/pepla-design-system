@@ -24,6 +24,9 @@
 .pp-popup--wide { max-width: min(420px, calc(100vw - 2 * var(--layout-gutter-phone))); width: 100vw; }
 .pp-popup--inline { position: relative; inset: auto; z-index: auto; display: block; animation: none; }
 
+/* Floating: an app places the popup itself (a top-layer overlay), so it sits where it is put. */
+.pp-popup--floating { position: relative; inset: auto; z-index: auto; }
+
 .pp-popup__header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-100); margin-bottom: var(--space-150); }
 .pp-popup__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
 .pp-popup__footer { display: flex; justify-content: flex-end; gap: var(--space-100); margin-top: var(--space-200); padding-top: var(--space-150); border-top: var(--border-width) solid var(--color-border); }

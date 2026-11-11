@@ -28,6 +28,7 @@ A dropdown menu lists actions or choices behind a button: row actions behind "Mo
 | `pp-dropdown-menu__item--danger` | Removes or ends something; opens a confirm. Always last |
 | `pp-dropdown-menu--end` | Aligned to the trigger's end (row actions at the right edge) |
 | `pp-dropdown-menu--inline` | Rendered in place, for docs only |
+| `pp-dropdown-menu--floating` | Placed by the app in a top-layer overlay (no absolute position of its own) |
 
 ## States
 
