@@ -1,0 +1,45 @@
+/* Audit event row. Spec: audit-event-row.md
+   A <details> row: summary on one line, details below. The log is a size container. */
+.pp-audit-log { container-type: inline-size; display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); overflow: hidden; color: var(--color-text); }
+.pp-audit-log > li { max-width: none; margin: 0; font: var(--font-body); letter-spacing: var(--font-body-tracking); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-audit-log > li:last-child { border-bottom: 0; }
+
+.pp-audit-event__summary {
+  display: grid;
+  grid-template-columns: minmax(0, 8rem) minmax(0, 1fr) minmax(0, 10rem) minmax(0, 8rem) var(--size-icon-medium);
+  align-items: center;
+  gap: var(--space-050) var(--space-200);
+  min-height: var(--size-touch-target);
+  padding: var(--space-150) var(--space-200);
+  cursor: pointer;
+  list-style: none;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-audit-event__summary::-webkit-details-marker { display: none; }
+.pp-audit-event__summary:hover { background: var(--elevation-surface-raised-hovered); }
+.pp-audit-event__when { font: var(--font-body-small); color: var(--color-text-subtle); font-variant-numeric: tabular-nums; }
+.pp-audit-event__what { display: flex; align-items: center; gap: var(--space-100); min-width: 0; }
+.pp-audit-event__sentence { min-width: 0; overflow-wrap: anywhere; }
+.pp-audit-event__sentence strong { font-weight: var(--font-weight-semibold); }
+.pp-audit-event__where { font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-audit-event__outcome { justify-self: start; }
+.pp-audit-event__chevron { display: grid; place-items: center; color: var(--color-icon-subtle); transition: transform var(--motion-duration-medium) var(--motion-easing-standard); }
+.pp-audit-event__chevron > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
+.pp-audit-event[open] .pp-audit-event__chevron { transform: rotate(180deg); }
+.pp-audit-event[open] > .pp-audit-event__summary { background: var(--elevation-surface-raised-hovered); }
+.pp-audit-event__details { display: flex; flex-direction: column; gap: var(--space-150); padding: var(--space-150) var(--space-200) var(--space-250) calc(8rem + var(--space-400)); background: var(--elevation-surface-sunken); border-top: var(--border-width) solid var(--color-border); }
+.pp-audit-event__change { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-075); }
+.pp-audit-event__change > svg { width: var(--size-icon-small); height: var(--size-icon-small); color: var(--color-icon-subtle); }
+.pp-audit-event__change del { color: var(--color-text-subtlest); }
+.pp-audit-event__change ins { text-decoration: none; font-weight: var(--font-weight-semibold); color: var(--color-text); }
+
+@container (max-width: 719px) {
+  .pp-audit-event__summary { grid-template-columns: minmax(0, 1fr) auto var(--size-icon-medium); grid-template-areas: "what what chevron" "when outcome chevron" "where where chevron"; padding: var(--space-150); }
+  .pp-audit-event__what { grid-area: what; align-items: flex-start; }
+  .pp-audit-event__when { grid-area: when; }
+  .pp-audit-event__where { grid-area: where; }
+  .pp-audit-event__outcome { grid-area: outcome; justify-self: end; }
+  .pp-audit-event__chevron { grid-area: chevron; }
+  .pp-audit-event__details { padding: var(--space-150); }
+}
+@media (prefers-reduced-motion: reduce) { .pp-audit-event__chevron { transition: none; } }

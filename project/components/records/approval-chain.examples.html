@@ -1,0 +1,38 @@
+<section data-example="Offer approval, second step waiting">
+  <ol class="pp-approval-chain" aria-label="Approvals for Lerato Mokoena's offer" style="max-width:600px">
+    <li class="pp-approval-chain__step pp-approval-chain__step--approved">
+      <span class="pp-approval-chain__marker" aria-hidden="true"><i data-lucide="check"></i></span>
+      <div class="pp-approval-chain__body"><span class="pp-approval-chain__who"><strong>Sipho Ndlovu</strong>, hiring manager</span><span class="pp-approval-chain__detail">Approved 3 Nov 2026, 10:12</span></div>
+      <span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Approved</span>
+    </li>
+    <li class="pp-approval-chain__step pp-approval-chain__step--current" aria-current="step">
+      <span class="pp-approval-chain__marker" aria-hidden="true">2</span>
+      <div class="pp-approval-chain__body"><span class="pp-approval-chain__who"><strong>Thandeka Dlamini</strong>, HR director</span><span class="pp-approval-chain__detail">Asked 3 Nov 2026, 10:12 · <span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Pepla reminded her today</span></span></div>
+      <span class="pp-lozenge pp-lozenge--information"><i data-lucide="clock"></i>Waiting 8 days</span>
+    </li>
+    <li class="pp-approval-chain__step">
+      <span class="pp-approval-chain__marker" aria-hidden="true">3</span>
+      <div class="pp-approval-chain__body"><span class="pp-approval-chain__who"><strong>Chipo Banda</strong>, finance</span><span class="pp-approval-chain__detail">After Thandeka</span></div>
+      <span class="pp-lozenge"><i data-lucide="circle-dashed"></i>Not yet</span>
+    </li>
+  </ol>
+</section>
+<section data-example="Declined and skipped">
+  <ol class="pp-approval-chain" aria-label="Approvals for Bongani Mthembu's offer" style="max-width:600px">
+    <li class="pp-approval-chain__step pp-approval-chain__step--skipped">
+      <span class="pp-approval-chain__marker" aria-hidden="true"><i data-lucide="skip-forward"></i></span>
+      <div class="pp-approval-chain__body"><span class="pp-approval-chain__who"><strong>Thabo Khumalo</strong>, TA specialist</span><span class="pp-approval-chain__detail">Skipped by Thandeka Dlamini, 4 Nov 2026. Thabo is on leave.</span></div>
+      <span class="pp-lozenge"><i data-lucide="skip-forward"></i>Skipped</span>
+    </li>
+    <li class="pp-approval-chain__step pp-approval-chain__step--approved">
+      <span class="pp-approval-chain__marker" aria-hidden="true"><i data-lucide="check"></i></span>
+      <div class="pp-approval-chain__body"><span class="pp-approval-chain__who"><strong>Sipho Ndlovu</strong>, hiring manager</span><span class="pp-approval-chain__detail">Approved 4 Nov 2026, 15:30</span></div>
+      <span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Approved</span>
+    </li>
+    <li class="pp-approval-chain__step pp-approval-chain__step--declined pp-approval-chain__step--current" aria-current="step">
+      <span class="pp-approval-chain__marker" aria-hidden="true"><i data-lucide="x"></i></span>
+      <div class="pp-approval-chain__body"><span class="pp-approval-chain__who"><strong>Chipo Banda</strong>, finance</span><span class="pp-approval-chain__detail">Declined 5 Nov 2026, 09:05</span><span class="pp-approval-chain__reason">The salary is above the band for this role. Please offer R 18 500 or ask for an exception.</span></div>
+      <span class="pp-lozenge pp-lozenge--danger"><i data-lucide="circle-x"></i>Declined</span>
+    </li>
+  </ol>
+</section>

@@ -1,0 +1,8 @@
+/* Offer summary. Spec: offer-summary.md
+   Built on pp-card, pp-dl and pp-approval-chain--compact. */
+.pp-offer__section { display: flex; flex-direction: column; gap: var(--space-100); }
+.pp-offer__section-title { margin: 0; font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); color: var(--color-text-subtlest); }
+.pp-offer__salary { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); font-variant-numeric: tabular-nums; }
+.pp-offer__salary-note { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-offer__salary-note > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
+.pp-offer .pp-dl { grid-template-columns: minmax(96px, 160px) 1fr; }

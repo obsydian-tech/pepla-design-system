@@ -1,0 +1,13 @@
+/* Restricted value. Spec: restricted-value.md. A value the viewer may not see. */
+.pp-restricted { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); max-width: 100%; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-restricted__label { display: inline-flex; align-items: center; gap: var(--space-050); color: var(--color-text-subtle); font-weight: var(--font-weight-semibold); }
+.pp-restricted__label > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
+.pp-restricted__reason { color: var(--color-text-subtle); }
+.pp-restricted__status { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-restricted__status > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-information); }
+
+/* Block: a whole section the viewer may not see */
+.pp-restricted--block { display: grid; grid-template-columns: var(--size-icon-large) minmax(0, 1fr); gap: var(--space-050) var(--space-150); padding: var(--space-250); border: var(--border-width) dashed var(--color-border-bold); border-radius: var(--radius-large); background: var(--elevation-surface-sunken); }
+.pp-restricted--block > svg { grid-row: span 3; width: var(--size-icon-large); height: var(--size-icon-large); color: var(--color-icon-subtle); }
+.pp-restricted__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); color: var(--color-text); }
+.pp-restricted__actions { display: flex; flex-wrap: wrap; gap: var(--space-100); align-items: center; margin-top: var(--space-100); }

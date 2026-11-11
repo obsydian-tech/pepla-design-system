@@ -1,0 +1,30 @@
+/* Provisioning bundle. Spec: provisioning-bundle.md
+   Built on pp-card. The item list is a size container; items stack below 560px. */
+.pp-bundle__items { container-type: inline-size; display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.pp-bundle__items > .pp-bundle__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(0, 12rem) minmax(0, max-content);
+  grid-template-areas: "icon body owner status";
+  align-items: center;
+  gap: var(--space-100) var(--space-200);
+  max-width: none;
+  margin: 0;
+  padding: var(--space-150) 0;
+  border-bottom: var(--border-width) solid var(--color-border);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+}
+.pp-bundle__items > .pp-bundle__item:first-child { padding-top: 0; }
+.pp-bundle__items > .pp-bundle__item:last-child { padding-bottom: 0; border-bottom: 0; }
+.pp-bundle__item > .pp-icon-tile { grid-area: icon; }
+.pp-bundle__body { grid-area: body; display: flex; flex-direction: column; gap: var(--space-025); min-width: 0; }
+.pp-bundle__name { color: var(--color-text); font: var(--font-body-strong); letter-spacing: var(--font-body-strong-tracking); overflow-wrap: anywhere; }
+.pp-bundle__detail { font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
+.pp-bundle__owner { grid-area: owner; min-width: 0; }
+.pp-bundle__unowned { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-body-small); color: var(--color-text-danger); }
+.pp-bundle__unowned > svg { width: var(--size-icon-small); height: var(--size-icon-small); color: var(--color-icon-danger); }
+.pp-bundle__status { grid-area: status; display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-050); }
+@container (max-width: 559px) {
+  .pp-bundle__items > .pp-bundle__item { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon body" ". owner" ". status"; }
+  .pp-bundle__status { flex-direction: row; flex-wrap: wrap; align-items: center; }
+}

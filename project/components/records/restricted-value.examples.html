@@ -1,0 +1,27 @@
+<section data-example="Inline, in a record">
+  <dl class="pp-dl" style="max-width:600px">
+    <dt>Job title</dt>
+    <dd>Bookkeeper</dd>
+    <dt>Monthly salary</dt>
+    <dd><span class="pp-restricted"><span class="pp-restricted__label"><i data-lucide="lock"></i>Restricted</span><span class="pp-restricted__reason" id="rv-sal-why">Only payroll admins see salaries.</span><a class="pp-link" href="#request-salary" aria-describedby="rv-sal-why">Request access</a></span></dd>
+    <dt>Disciplinary record</dt>
+    <dd><span class="pp-restricted"><span class="pp-restricted__label"><i data-lucide="lock"></i>Restricted</span><span class="pp-restricted__reason">Only Kagiso's manager and HR see this.</span></span></dd>
+  </dl>
+</section>
+<section data-example="Access requested">
+  <dl class="pp-dl" style="max-width:600px">
+    <dt>Monthly salary</dt>
+    <dd><span class="pp-restricted"><span class="pp-restricted__label"><i data-lucide="lock"></i>Restricted</span><span class="pp-restricted__status" role="status"><i data-lucide="clock"></i>You asked Lerato Mokoena for access, 11 Nov 2026, 10:20</span></span></dd>
+  </dl>
+</section>
+<section data-example="Block, for a whole section">
+  <div class="pp-restricted pp-restricted--block" role="region" aria-labelledby="rv-b-t" style="max-width:560px">
+    <i data-lucide="lock"></i>
+    <span class="pp-restricted__title" role="heading" aria-level="3" id="rv-b-t">Health information is restricted</span>
+    <span class="pp-restricted__reason">Only the HR manager sees medical notes and sick-leave reasons. Ask Thandeka Dlamini if you need them for this case.</span>
+    <div class="pp-restricted__actions">
+      <button class="pp-button pp-button--default pp-button--small" type="button">Request access</button>
+      <a class="pp-link" href="#why-restricted">Why some data is restricted</a>
+    </div>
+  </div>
+</section>

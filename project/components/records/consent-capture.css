@@ -1,0 +1,27 @@
+/* Consent capture. Spec: consent-capture.md. POPIA consent for a new hire. */
+.pp-consent { display: flex; flex-direction: column; gap: var(--space-250); min-width: 0; padding: var(--space-300); background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); color: var(--color-text); font: var(--font-body); }
+.pp-consent__header { display: flex; flex-direction: column; gap: var(--space-050); }
+.pp-consent__title { margin: 0; font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); color: var(--color-text); }
+.pp-consent__intro { color: var(--color-text-subtle); }
+
+/* What, why, who, how long */
+.pp-consent__terms { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--space-150) var(--space-250); margin: 0; padding: var(--space-200); border-radius: var(--radius-medium); background: var(--elevation-surface-sunken); }
+.pp-consent__terms > dt { display: flex; align-items: flex-start; gap: var(--space-075); font: var(--font-label); letter-spacing: var(--font-label-tracking); color: var(--color-text); }
+.pp-consent__terms > dt > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; margin-top: var(--space-025); color: var(--color-icon-subtle); }
+.pp-consent__terms > dd { margin: 0; min-width: 0; color: var(--color-text-subtle); overflow-wrap: anywhere; }
+
+.pp-consent__choices { display: flex; flex-direction: column; gap: var(--space-050); }
+.pp-consent__footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-150); padding-top: var(--space-200); border-top: var(--border-width) solid var(--color-border); }
+
+/* The record of who consented, when, to which version */
+.pp-consent__record { display: flex; align-items: flex-start; gap: var(--space-100); padding: var(--space-150) var(--space-200); border-radius: var(--radius-medium); background: var(--color-background-success-subtle); color: var(--color-text); }
+.pp-consent__record > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--color-icon-success); }
+.pp-consent__record-text { display: flex; flex-direction: column; gap: var(--space-025); }
+.pp-consent__record-meta { font: var(--font-body-small); color: var(--color-text-subtle); }
+
+@media (max-width: 479px) {
+  .pp-consent { padding: var(--space-200); }
+  .pp-consent__terms { grid-template-columns: minmax(0, 1fr); gap: var(--space-050); }
+  .pp-consent__terms > dd { margin-bottom: var(--space-150); }
+  .pp-consent__footer .pp-button { width: 100%; }
+}

@@ -1,0 +1,32 @@
+/* Person header. Spec: person-header.md
+   The root is a size container; below 600px the layout stacks for phones. */
+.pp-person-header { container-type: inline-size; color: var(--color-text); }
+.pp-person-header__layout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "avatar main actions";
+  align-items: start;
+  gap: var(--space-200) var(--space-300);
+}
+.pp-person-header__layout > .pp-avatar { grid-area: avatar; }
+.pp-person-header__main { grid-area: main; display: flex; flex-direction: column; gap: var(--space-075); min-width: 0; }
+.pp-person-header__name-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100) var(--space-150); }
+.pp-person-header__name { margin: 0; font: var(--font-heading-xlarge); letter-spacing: var(--font-heading-xlarge-tracking); color: var(--color-text); overflow-wrap: anywhere; }
+.pp-person-header__role { font: var(--font-body-large); letter-spacing: var(--font-body-large-tracking); color: var(--color-text-subtle); }
+.pp-person-header__facts { display: flex; flex-wrap: wrap; gap: var(--space-050) var(--space-250); margin: var(--space-050) 0 0; padding: 0; list-style: none; }
+.pp-person-header__facts > .pp-person-header__fact { display: inline-flex; align-items: center; gap: var(--space-075); max-width: none; margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-person-header__fact > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
+.pp-person-header__status { display: flex; flex-wrap: wrap; gap: var(--space-100); }
+.pp-person-header__actions { grid-area: actions; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-100); }
+
+/* Phone: avatar and name side by side, facts below, actions full width at the bottom */
+@container (max-width: 599px) {
+  .pp-person-header__layout { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "avatar main" "actions actions"; gap: var(--space-200) var(--space-150); }
+  .pp-person-header__layout > .pp-avatar { --_size: var(--size-control-large); }
+  .pp-person-header__name { font: var(--font-heading-large); letter-spacing: var(--font-heading-large-tracking); }
+  .pp-person-header__role { font: var(--font-body); }
+  .pp-person-header__facts { flex-direction: column; }
+  .pp-person-header__actions { justify-content: stretch; }
+  .pp-person-header__actions > .pp-button:not(.pp-button--icon) { flex: 1 1 0; min-height: var(--size-control-large); }
+  .pp-person-header__actions > .pp-button--icon { width: var(--size-control-large); min-height: var(--size-control-large); }
+}

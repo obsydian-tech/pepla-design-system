@@ -1,0 +1,66 @@
+<section data-example="Passed, checked by Pepla">
+  <article class="pp-card pp-verification" style="max-width:560px">
+    <div class="pp-card__header">
+      <span class="pp-icon-tile" aria-hidden="true"><i data-lucide="id-card"></i></span>
+      <div class="pp-card__titles"><span class="pp-card__title" role="heading" aria-level="3">ID check</span><span class="pp-card__subtitle">Kagiso Molefe · South African ID</span></div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--bold pp-lozenge--success"><i data-lucide="shield-check"></i>Passed</span></div>
+    </div>
+    <ul class="pp-verification__checks" aria-label="What was compared">
+      <li class="pp-verification__check"><i data-lucide="check"></i><span>Name matches</span></li>
+      <li class="pp-verification__check"><i data-lucide="check"></i><span>ID number matches</span></li>
+      <li class="pp-verification__check"><i data-lucide="check"></i><span>Date of birth matches</span></li>
+    </ul>
+    <dl class="pp-dl">
+      <dt>Checked</dt><dd><span class="pp-dl__masked">SA ID •••••••••0876<button class="pp-button pp-button--link pp-button--small" type="button">Show ID number</button></span></dd>
+      <dt>Against</dt><dd>Home Affairs identity record</dd>
+      <dt>When</dt><dd>9 Nov 2026, 08:15</dd>
+      <dt>By</dt><dd><span class="pp-verification__by"><span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Checked by Pepla</span><span>Approved by Lerato Mokoena, 9 Nov 2026, 09:02</span></span></dd>
+    </dl>
+  </article>
+</section>
+<section data-example="Needs a look">
+  <article class="pp-card pp-verification" style="max-width:560px">
+    <div class="pp-card__header">
+      <span class="pp-icon-tile" aria-hidden="true"><i data-lucide="landmark"></i></span>
+      <div class="pp-card__titles"><span class="pp-card__title" role="heading" aria-level="3">Bank account check</span><span class="pp-card__subtitle">Chipo Banda · Bank confirmation letter</span></div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--bold pp-lozenge--warning"><i data-lucide="triangle-alert"></i>Needs a look</span></div>
+    </div>
+    <ul class="pp-verification__checks" aria-label="What was compared">
+      <li class="pp-verification__check"><i data-lucide="check"></i><span>Account number matches</span></li>
+      <li class="pp-verification__check"><i data-lucide="check"></i><span>Account is open</span></li>
+      <li class="pp-verification__check pp-verification__check--unsure"><i data-lucide="triangle-alert"></i><span>Account holder is "C Banda". <span class="pp-verification__check-note">The full name could not be confirmed.</span></span></li>
+    </ul>
+    <dl class="pp-dl">
+      <dt>Checked</dt><dd><span class="pp-dl__masked">Account ••••••4521<button class="pp-button pp-button--link pp-button--small" type="button">Show account number</button></span></dd>
+      <dt>Against</dt><dd>The bank's account check</dd>
+      <dt>When</dt><dd>10 Nov 2026, 19:40</dd>
+      <dt>By</dt><dd><span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Checked by Pepla</span></dd>
+    </dl>
+    <div class="pp-card__footer pp-card__footer--end">
+      <button class="pp-button pp-button--default" type="button">Ask for a new letter</button>
+      <button class="pp-button pp-button--primary" type="button">Accept the letter</button>
+    </div>
+  </article>
+</section>
+<section data-example="Failed, checked by a person">
+  <article class="pp-card pp-verification" style="max-width:560px">
+    <div class="pp-card__header">
+      <span class="pp-icon-tile" aria-hidden="true"><i data-lucide="graduation-cap"></i></span>
+      <div class="pp-card__titles"><span class="pp-card__title" role="heading" aria-level="3">Qualification check</span><span class="pp-card__subtitle">Tariro Moyo · National Diploma in Logistics</span></div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--bold pp-lozenge--danger"><i data-lucide="octagon-alert"></i>Failed</span></div>
+    </div>
+    <ul class="pp-verification__checks" aria-label="What was compared">
+      <li class="pp-verification__check"><i data-lucide="check"></i><span>Name matches</span></li>
+      <li class="pp-verification__check pp-verification__check--mismatch"><i data-lucide="x"></i><span>Certificate number not found. <span class="pp-verification__check-note">The college has no record of ••••3390.</span></span></li>
+    </ul>
+    <dl class="pp-dl">
+      <dt>Checked</dt><dd>Certificate ••••3390</dd>
+      <dt>Against</dt><dd>The college's register of graduates</dd>
+      <dt>When</dt><dd>6 Nov 2026, 11:20</dd>
+      <dt>By</dt><dd><span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-person__text"><span class="pp-person__name">Lerato Mokoena</span></span></span></dd>
+    </dl>
+    <div class="pp-card__footer pp-card__footer--end">
+      <button class="pp-button pp-button--default" type="button">Talk to Tariro</button>
+    </div>
+  </article>
+</section>

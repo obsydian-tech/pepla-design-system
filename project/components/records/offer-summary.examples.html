@@ -1,0 +1,47 @@
+<section data-example="Waiting for approval, salary hidden">
+  <article class="pp-card pp-offer" style="max-width:600px">
+    <div class="pp-card__header">
+      <span class="pp-avatar pp-avatar--large pp-avatar--amber" aria-hidden="true">LM</span>
+      <div class="pp-card__titles"><span class="pp-card__title" role="heading" aria-level="3">Offer for Lerato Mokoena</span><span class="pp-card__subtitle">Sales rep, Durban · Created 3 Nov 2026</span></div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--information"><i data-lucide="clock"></i>Waiting for approval</span></div>
+    </div>
+    <dl class="pp-dl">
+      <dt>Role</dt><dd>Sales rep, reporting to Sipho Ndlovu</dd>
+      <dt>Start date</dt><dd>1 Dec 2026</dd>
+      <dt>Salary</dt><dd><span class="pp-offer__salary"><span>R ••• ••• a month</span><button class="pp-button pp-button--link pp-button--small" type="button"><i data-lucide="eye"></i><span>Show salary</span></button></span></dd>
+      <dt>Benefits</dt><dd>Medical aid, pension fund, 18 days' leave, cellphone allowance</dd>
+      <dt>Offer expires</dt><dd>7 days after it is sent</dd>
+    </dl>
+    <div class="pp-offer__section">
+      <span class="pp-offer__section-title" role="heading" aria-level="4">Approvals</span>
+      <ol class="pp-approval-chain pp-approval-chain--compact" aria-label="Approvals for Lerato Mokoena's offer">
+        <li class="pp-approval-chain__step pp-approval-chain__step--approved"><span class="pp-approval-chain__marker" aria-hidden="true"><i data-lucide="check"></i></span><div class="pp-approval-chain__body"><span class="pp-approval-chain__who"><strong>Sipho Ndlovu</strong>, hiring manager</span></div><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Approved 3 Nov</span></li>
+        <li class="pp-approval-chain__step pp-approval-chain__step--current" aria-current="step"><span class="pp-approval-chain__marker" aria-hidden="true">2</span><div class="pp-approval-chain__body"><span class="pp-approval-chain__who"><strong>Thandeka Dlamini</strong>, HR director</span></div><span class="pp-lozenge pp-lozenge--information"><i data-lucide="clock"></i>Waiting 8 days</span></li>
+      </ol>
+    </div>
+    <div class="pp-card__footer pp-card__footer--end">
+      <button class="pp-button pp-button--subtle" type="button">Edit offer</button>
+      <button class="pp-button pp-button--default" type="button">Remind Thandeka</button>
+    </div>
+  </article>
+</section>
+<section data-example="Sent, salary shown">
+  <article class="pp-card pp-offer" style="max-width:600px">
+    <div class="pp-card__header">
+      <span class="pp-avatar pp-avatar--large pp-avatar--violet" aria-hidden="true">CB</span>
+      <div class="pp-card__titles"><span class="pp-card__title" role="heading" aria-level="3">Offer for Chipo Banda</span><span class="pp-card__subtitle">Sales rep, Lusaka · Sent 9 Nov 2026</span></div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--information"><i data-lucide="send"></i>Sent</span></div>
+    </div>
+    <dl class="pp-dl">
+      <dt>Role</dt><dd>Sales rep, reporting to Sipho Ndlovu</dd>
+      <dt>Start date</dt><dd>7 Dec 2026</dd>
+      <dt>Salary</dt><dd><span class="pp-offer__salary"><span>ZK 24 000 a month</span><button class="pp-button pp-button--link pp-button--small" type="button"><i data-lucide="eye-off"></i><span>Hide salary</span></button><span class="pp-offer__salary-note"><i data-lucide="history"></i>You showed this at 14:02. It is logged.</span></span></dd>
+      <dt>Benefits</dt><dd>Medical cover, NAPSA, 24 days' leave</dd>
+      <dt>Reply</dt><dd><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-13" title="Due 13 Nov 2026"><i data-lucide="clock"></i>Reply due in 2 days</time></dd>
+    </dl>
+    <div class="pp-card__footer pp-card__footer--end">
+      <button class="pp-button pp-button--danger" type="button">Withdraw offer</button>
+      <button class="pp-button pp-button--default" type="button">Mark as accepted</button>
+    </div>
+  </article>
+</section>

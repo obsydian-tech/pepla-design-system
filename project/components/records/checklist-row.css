@@ -1,0 +1,34 @@
+/* Checklist row and checklist. Spec: checklist-row.md
+   Readiness steps, each with a done or due lozenge. */
+.pp-checklist { container-type: inline-size; display: flex; flex-direction: column; gap: var(--space-150); min-width: 0; color: var(--color-text); }
+.pp-checklist__header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-050) var(--space-200); }
+.pp-checklist__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); color: var(--color-text); }
+.pp-checklist__count { font: var(--font-body); color: var(--color-text-subtle); font-variant-numeric: tabular-nums; }
+.pp-checklist__list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.pp-checklist__list > .pp-checklist-row { max-width: none; margin: 0; font: var(--font-body); letter-spacing: var(--font-body-tracking); }
+
+.pp-checklist-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-050) var(--space-150);
+  min-height: var(--size-touch-target);
+  padding: var(--space-075) 0;
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+.pp-checklist__list > .pp-checklist-row:last-child { border-bottom: 0; }
+.pp-checklist-row__mark { display: grid; place-items: center; width: var(--size-icon-large); height: var(--size-icon-large); color: var(--color-icon-subtle); }
+.pp-checklist-row__mark > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); }
+.pp-checklist-row__body { display: flex; flex-direction: column; min-width: 0; }
+.pp-checklist-row__label { color: var(--color-text); overflow-wrap: anywhere; }
+.pp-checklist-row__owner { font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-checklist-row--done .pp-checklist-row__mark { color: var(--color-icon-success); }
+.pp-checklist-row--done .pp-checklist-row__label { color: var(--color-text-subtle); }
+.pp-checklist-row--agent .pp-checklist-row__mark { color: var(--color-icon-agent); }
+.pp-checklist-row--agent .pp-checklist-row__label { color: var(--color-text-subtle); }
+.pp-checklist-row--overdue .pp-checklist-row__mark { color: var(--color-icon-danger); }
+
+@container (max-width: 359px) {
+  .pp-checklist-row { grid-template-columns: auto minmax(0, 1fr); }
+  .pp-checklist-row > .pp-lozenge { grid-column: 2; justify-self: start; }
+}

@@ -1,0 +1,54 @@
+/* Agent panel. Spec: agent-panel.md. A side panel to talk to Pepla; a full-screen sheet on phone. */
+.pp-agent-panel {
+  position: fixed;
+  z-index: var(--layer-layer);
+  inset: 0 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, var(--layout-drawer-width-medium));
+  background: var(--elevation-surface-raised);
+  border-left: var(--border-width) solid var(--color-border);
+  box-shadow: var(--elevation-shadow-overlay);
+  color: var(--color-text);
+  font: var(--font-body);
+}
+.pp-agent-panel--inline { position: relative; inset: auto; z-index: auto; height: 640px; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); box-shadow: none; overflow: hidden; }
+.pp-agent-panel--sheet { width: 100%; max-width: 390px; border-radius: 0; }
+
+.pp-agent-panel__header { display: flex; align-items: center; gap: var(--space-150); padding: var(--space-200) var(--space-250); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-agent-panel__heading { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-025); }
+.pp-agent-panel__title { margin: 0; font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); color: var(--color-text); }
+.pp-agent-panel__context { font: var(--font-body-small); color: var(--color-text-subtle); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Conversation */
+.pp-agent-panel__log { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: var(--space-200); padding: var(--space-250); background: var(--elevation-surface); }
+.pp-agent-panel__day { align-self: center; font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-agent-panel__message { display: flex; flex-direction: column; gap: var(--space-050); max-width: 85%; }
+.pp-agent-panel__bubble { padding: var(--space-150) var(--space-200); border-radius: var(--radius-large); overflow-wrap: anywhere; }
+.pp-agent-panel__meta { font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-agent-panel__message--person { align-self: flex-end; align-items: flex-end; }
+.pp-agent-panel__message--person .pp-agent-panel__bubble { background: var(--color-background-neutral); border-bottom-right-radius: var(--radius-xsmall); }
+.pp-agent-panel__message--pepla { align-self: flex-start; }
+.pp-agent-panel__message--pepla .pp-agent-panel__bubble { background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-bottom-left-radius: var(--radius-xsmall); }
+.pp-agent-panel__message--proposal { align-self: stretch; max-width: none; }
+
+/* Pepla is working */
+.pp-agent-panel__working { display: flex; align-items: center; gap: var(--space-100); align-self: flex-start; padding: var(--space-100) var(--space-150); border-radius: var(--radius-full); background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-agent-panel__working .pp-button { margin-left: var(--space-050); }
+
+/* Composer */
+.pp-agent-panel__composer { display: flex; flex-direction: column; gap: var(--space-100); padding: var(--space-150) var(--space-250) var(--space-200); border-top: var(--border-width) solid var(--color-border); background: var(--elevation-surface-raised); }
+.pp-agent-panel__input-row { display: flex; align-items: flex-end; gap: var(--space-100); }
+.pp-agent-panel__input-row .pp-textarea { flex: 1; min-height: var(--size-control-large); resize: none; }
+.pp-agent-panel__hint { margin: 0; font: var(--font-body-small); color: var(--color-text-subtlest); }
+
+/* Phone: a full-screen sheet */
+@media (max-width: 767px) {
+  .pp-agent-panel:not(.pp-agent-panel--inline) { inset: 0; width: 100%; border: 0; box-shadow: none; }
+  .pp-agent-panel:not(.pp-agent-panel--inline) .pp-agent-panel__header { padding: var(--space-150) var(--layout-gutter-phone); }
+  .pp-agent-panel:not(.pp-agent-panel--inline) .pp-agent-panel__log { padding: var(--space-200) var(--layout-gutter-phone); }
+  .pp-agent-panel:not(.pp-agent-panel--inline) .pp-agent-panel__composer { padding: var(--space-150) var(--layout-gutter-phone) calc(var(--space-150) + env(safe-area-inset-bottom)); }
+}
+.pp-agent-panel--sheet .pp-agent-panel__header { padding: var(--space-150) var(--layout-gutter-phone); }
+.pp-agent-panel--sheet .pp-agent-panel__log { padding: var(--space-200) var(--layout-gutter-phone); }
+.pp-agent-panel--sheet .pp-agent-panel__composer { padding: var(--space-150) var(--layout-gutter-phone); }

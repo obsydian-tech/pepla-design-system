@@ -1,0 +1,17 @@
+/* Person progress row. Spec: person-progress.md
+   A list of people, each with document progress and a deadline. Stacks below 560px. */
+.pp-person-progress-list { container-type: inline-size; display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.pp-person-progress-list > .pp-person-progress { max-width: none; margin: 0; padding: var(--space-150) 0; border-bottom: var(--border-width) solid var(--color-border); font: var(--font-body); letter-spacing: var(--font-body-tracking); }
+.pp-person-progress-list > .pp-person-progress:first-child { padding-top: 0; }
+.pp-person-progress-list > .pp-person-progress:last-child { padding-bottom: 0; border-bottom: 0; }
+.pp-person-progress {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, max-content);
+  align-items: center;
+  gap: var(--space-100) var(--space-300);
+}
+.pp-person-progress__deadline { justify-self: end; max-width: 100%; }
+@container (max-width: 559px) {
+  .pp-person-progress { grid-template-columns: minmax(0, 1fr) minmax(0, max-content); }
+  .pp-person-progress > .pp-progress-bar { grid-column: 1 / -1; grid-row: 2; }
+}

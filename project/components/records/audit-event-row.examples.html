@@ -1,0 +1,78 @@
+<section data-example="Audit log, one row open">
+  <ul class="pp-audit-log" aria-label="Audit log">
+    <li>
+      <details class="pp-audit-event" open>
+        <summary class="pp-audit-event__summary">
+          <time class="pp-audit-event__when" datetime="2026-11-11T09:12">11 Nov 2026, 09:12</time>
+          <span class="pp-audit-event__what"><span class="pp-avatar pp-avatar--small pp-avatar--agent" aria-hidden="true"><i data-lucide="sparkles"></i></span><span class="pp-audit-event__sentence"><strong>Pepla</strong> sent Kagiso Molefe's offer letter, approved by Thandeka Dlamini</span></span>
+          <span class="pp-audit-event__where">Pepla agent · Offers</span>
+          <span class="pp-lozenge pp-lozenge--success pp-audit-event__outcome"><i data-lucide="circle-check"></i>Done</span>
+          <span class="pp-audit-event__chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
+        </summary>
+        <div class="pp-audit-event__details">
+          <dl class="pp-dl">
+            <dt>Record</dt><dd><a href="#kagiso">Kagiso Molefe</a>, offer for Sales rep</dd>
+            <dt>Done by</dt><dd><span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Pepla</span> after approval by Thandeka Dlamini, 09:10</dd>
+            <dt>What Pepla read</dt><dd>The approved offer, Kagiso's email address</dd>
+            <dt>Sent to</dt><dd>k•••••@gmail.com</dd>
+            <dt>Event ID</dt><dd>evt_8F2K91</dd>
+          </dl>
+        </div>
+      </details>
+    </li>
+    <li>
+      <details class="pp-audit-event" open>
+        <summary class="pp-audit-event__summary">
+          <time class="pp-audit-event__when" datetime="2026-11-10T16:05">10 Nov 2026, 16:05</time>
+          <span class="pp-audit-event__what"><span class="pp-avatar pp-avatar--small pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-audit-event__sentence"><strong>Lerato Mokoena</strong> changed the start date on Kagiso Molefe's record</span></span>
+          <span class="pp-audit-event__where">Web app · Durban</span>
+          <span class="pp-lozenge pp-lozenge--success pp-audit-event__outcome"><i data-lucide="circle-check"></i>Done</span>
+          <span class="pp-audit-event__chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
+        </summary>
+        <div class="pp-audit-event__details">
+          <span class="pp-audit-event__change"><span class="pp-visually-hidden">Start date changed from</span><del>9 Nov 2026</del><i data-lucide="arrow-right"></i><span class="pp-visually-hidden">to</span><ins>16 Nov 2026</ins></span>
+          <dl class="pp-dl">
+            <dt>Why</dt><dd>Kagiso asked for one more week at his old job.</dd>
+            <dt>From</dt><dd>Chrome on Windows · IP 102.65.•••.•••</dd>
+          </dl>
+        </div>
+      </details>
+    </li>
+    <li>
+      <details class="pp-audit-event">
+        <summary class="pp-audit-event__summary">
+          <time class="pp-audit-event__when" datetime="2026-11-10T11:40">10 Nov 2026, 11:40</time>
+          <span class="pp-audit-event__what"><span class="pp-avatar pp-avatar--small pp-avatar--blue" aria-hidden="true">TD</span><span class="pp-audit-event__sentence"><strong>Thandeka Dlamini</strong> showed Chipo Banda's salary</span></span>
+          <span class="pp-audit-event__where">Web app · Johannesburg</span>
+          <span class="pp-lozenge pp-lozenge--success pp-audit-event__outcome"><i data-lucide="circle-check"></i>Done</span>
+          <span class="pp-audit-event__chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
+        </summary>
+        <div class="pp-audit-event__details"><dl class="pp-dl"><dt>Record</dt><dd>Chipo Banda, offer</dd></dl></div>
+      </details>
+    </li>
+    <li>
+      <details class="pp-audit-event">
+        <summary class="pp-audit-event__summary">
+          <time class="pp-audit-event__when" datetime="2026-11-09T22:15">9 Nov 2026, 22:15</time>
+          <span class="pp-audit-event__what"><span class="pp-avatar pp-avatar--small pp-avatar--green" aria-hidden="true">SN</span><span class="pp-audit-event__sentence"><strong>Sipho Ndlovu</strong> tried to open the payroll settings</span></span>
+          <span class="pp-audit-event__where">Phone app · Harare</span>
+          <span class="pp-lozenge pp-lozenge--danger pp-audit-event__outcome"><i data-lucide="lock"></i>Not allowed</span>
+          <span class="pp-audit-event__chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
+        </summary>
+        <div class="pp-audit-event__details"><dl class="pp-dl"><dt>Why</dt><dd>Payroll settings need the HR admin role.</dd></dl></div>
+      </details>
+    </li>
+    <li>
+      <details class="pp-audit-event">
+        <summary class="pp-audit-event__summary">
+          <time class="pp-audit-event__when" datetime="2026-11-09T06:00">9 Nov 2026, 06:00</time>
+          <span class="pp-audit-event__what"><span class="pp-avatar pp-avatar--small pp-avatar--agent" aria-hidden="true"><i data-lucide="sparkles"></i></span><span class="pp-audit-event__sentence"><strong>Pepla</strong> created email accounts for 3 new starters</span></span>
+          <span class="pp-audit-event__where">Pepla agent · IT setup</span>
+          <span class="pp-lozenge pp-lozenge--warning pp-audit-event__outcome"><i data-lucide="triangle-alert"></i>2 of 3 done</span>
+          <span class="pp-audit-event__chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
+        </summary>
+        <div class="pp-audit-event__details"><dl class="pp-dl"><dt>Not done</dt><dd>Chipo Banda: the address is already taken. Sipho Ndlovu has the task.</dd></dl></div>
+      </details>
+    </li>
+  </ul>
+</section>

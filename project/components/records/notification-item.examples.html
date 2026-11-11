@@ -1,0 +1,49 @@
+<section data-example="Bell list">
+  <div class="pp-notifications-panel" role="region" aria-labelledby="nt-title">
+    <div class="pp-notifications-panel__header">
+      <span class="pp-notifications-panel__title" role="heading" aria-level="2" id="nt-title">Notifications</span>
+      <button class="pp-button pp-button--link pp-button--small" type="button">Mark all as read</button>
+    </div>
+    <ul class="pp-notifications">
+      <li class="pp-notification pp-notification--unread">
+        <span class="pp-avatar pp-avatar--agent" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+        <div class="pp-notification__body">
+          <span class="pp-notification__text"><span class="pp-visually-hidden">Unread. </span><strong>Pepla</strong> checked Kagiso Molefe's ID. It passed.</span>
+          <span class="pp-notification__meta"><time datetime="2026-11-11T09:40" title="11 Nov 2026, 09:40">20 min ago</time><a class="pp-notification__action" href="#kagiso-id">Approve result</a></span>
+        </div>
+        <span class="pp-notification__dot" aria-hidden="true"></span>
+      </li>
+      <li class="pp-notification pp-notification--unread">
+        <span class="pp-notification__icon pp-notification__icon--danger" aria-hidden="true"><i data-lucide="clock-alert"></i></span>
+        <div class="pp-notification__body">
+          <span class="pp-notification__text"><span class="pp-visually-hidden">Unread. </span><strong>Bongani Mthembu's</strong> scorecard is overdue by 1 day.</span>
+          <span class="pp-notification__meta"><time datetime="2026-11-11T08:00" title="11 Nov 2026, 08:00">2 hours ago</time><a class="pp-notification__action" href="#scorecard">Add scorecard</a></span>
+        </div>
+        <span class="pp-notification__dot" aria-hidden="true"></span>
+      </li>
+      <li class="pp-notification">
+        <span class="pp-avatar pp-avatar--amber" aria-hidden="true">LM</span>
+        <div class="pp-notification__body">
+          <span class="pp-notification__text"><strong>Lerato Mokoena</strong> asked you to approve Rudo Nyathi's offer.</span>
+          <span class="pp-notification__meta"><time datetime="2026-11-10T15:22" title="10 Nov 2026, 15:22">Yesterday</time><a class="pp-notification__action" href="#offer">Open offer</a></span>
+        </div>
+        <span class="pp-notification__dot" aria-hidden="true"></span>
+      </li>
+      <li class="pp-notification">
+        <span class="pp-notification__icon pp-notification__icon--success" aria-hidden="true"><i data-lucide="upload"></i></span>
+        <div class="pp-notification__body">
+          <span class="pp-notification__text"><strong>Chipo Banda</strong> uploaded her bank letter.</span>
+          <span class="pp-notification__meta"><time datetime="2026-11-09T19:15" title="9 Nov 2026, 19:15">2 days ago</time></span>
+        </div>
+        <span class="pp-notification__dot" aria-hidden="true"></span>
+      </li>
+    </ul>
+    <div class="pp-notifications-panel__footer"><a class="pp-button pp-button--link pp-button--small" href="#all">See all notifications</a></div>
+  </div>
+</section>
+<section data-example="Empty">
+  <div class="pp-notifications-panel" role="region" aria-labelledby="nt2-title">
+    <div class="pp-notifications-panel__header"><span class="pp-notifications-panel__title" role="heading" aria-level="2" id="nt2-title">Notifications</span></div>
+    <div style="padding:var(--space-400) var(--space-200);text-align:center;color:var(--color-text-subtle)">You are all caught up.</div>
+  </div>
+</section>

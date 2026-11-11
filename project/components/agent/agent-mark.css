@@ -1,0 +1,16 @@
+/* Agent mark. Spec: agent-mark.md. With the proposal card, the only mint in the product (rule 1). */
+.pp-agent-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-050);
+  vertical-align: middle;
+  border-radius: var(--radius-xsmall);
+  color: var(--color-text-agent);
+  font: var(--font-label-small);
+  letter-spacing: var(--font-label-small-tracking);
+  white-space: nowrap;
+  cursor: default;
+}
+.pp-agent-mark > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-agent); }
+.pp-agent-mark--suggested > span { text-decoration: underline dotted; text-underline-offset: 3px; }
+.pp-agent-mark--icon { justify-content: center; min-width: var(--size-icon-medium); min-height: var(--size-icon-medium); }

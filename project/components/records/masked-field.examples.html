@@ -1,0 +1,40 @@
+<section data-example="Read only, on a record">
+  <dl class="pp-dl" style="max-width:560px">
+    <dt>SA ID number</dt>
+    <dd><span class="pp-masked"><span class="pp-masked__value" id="mf-id-v">•••••••••0876</span><button class="pp-button pp-button--link pp-button--small" type="button" aria-describedby="mf-id-v mf-id-n">Show</button><span class="pp-masked__notice" id="mf-id-n"><i data-lucide="history"></i><span>Revealing is recorded</span></span></span></dd>
+    <dt>Bank account</dt>
+    <dd><span class="pp-masked"><span class="pp-masked__value" id="mf-bank-v">•••• •••• 4821</span><button class="pp-button pp-button--link pp-button--small" type="button" aria-describedby="mf-bank-v">Show</button></span></dd>
+    <dt>Monthly salary</dt>
+    <dd><span class="pp-masked"><span class="pp-masked__value" id="mf-sal-v" aria-label="Salary hidden">R •• •••</span><button class="pp-button pp-button--link pp-button--small" type="button" aria-describedby="mf-sal-v">Show</button></span></dd>
+    <dt>Health</dt>
+    <dd><span class="pp-masked"><span class="pp-masked__value pp-masked__value--hidden" id="mf-health-v"><i data-lucide="eye-off"></i>1 medical note, hidden</span><button class="pp-button pp-button--link pp-button--small" type="button" aria-describedby="mf-health-v">Show</button></span></dd>
+  </dl>
+</section>
+<section data-example="Revealing, revealed, and a reveal that could not be recorded">
+  <dl class="pp-dl" style="max-width:560px">
+    <dt>Bank account</dt>
+    <dd><span class="pp-masked"><span class="pp-masked__value">•••• •••• 4821</span><button class="pp-button pp-button--link pp-button--small" type="button" aria-busy="true"><span>Show</span><span class="pp-spinner pp-spinner--small" aria-hidden="true"></span></button></span></dd>
+    <dt>Bank account</dt>
+    <dd><span class="pp-masked pp-masked--revealed"><span class="pp-masked__value">6278 110 4821</span><button class="pp-button pp-button--link pp-button--small" type="button">Hide</button><span class="pp-masked__notice" role="status"><i data-lucide="history"></i><span>Shown to you, 11 Nov 2026, 14:30. Hides again in 60 seconds.</span></span></span></dd>
+    <dt>SA ID number</dt>
+    <dd><span class="pp-masked"><span class="pp-masked__value">•••••••••0876</span><button class="pp-button pp-button--link pp-button--small" type="button">Try again</button><span class="pp-masked__notice pp-masked__notice--error" role="alert"><i data-lucide="octagon-alert"></i><span>Pepla could not record the reveal, so the number stays hidden.</span></span></span></dd>
+  </dl>
+</section>
+<section data-example="In a form">
+  <div style="display:grid;gap:var(--space-300);max-width:420px">
+    <div class="pp-field">
+      <label class="pp-field__label" for="mf-f-acc">Bank account number</label>
+      <div class="pp-text-field pp-text-field--masked">
+        <span class="pp-text-field__prefix"><i data-lucide="eye-off"></i></span>
+        <input class="pp-text-field__input" id="mf-f-acc" type="text" value="•••• •••• 4821" readonly aria-describedby="mf-f-acc-help">
+        <button class="pp-text-field__action" type="button" aria-pressed="false" aria-label="Show bank account number"><i data-lucide="eye"></i></button>
+      </div>
+      <div class="pp-field__help" id="mf-f-acc-help">Hidden to protect Kagiso's privacy. Revealing is recorded. <button class="pp-button pp-button--link pp-button--small" type="button">Change account</button></div>
+    </div>
+    <div class="pp-field">
+      <label class="pp-field__label" for="mf-f-new">New bank account number</label>
+      <input class="pp-text-field" id="mf-f-new" type="text" inputmode="numeric" autocomplete="off" aria-describedby="mf-f-new-help">
+      <div class="pp-field__help" id="mf-f-new-help">You see what you type. It is hidden again once saved.</div>
+    </div>
+  </div>
+</section>

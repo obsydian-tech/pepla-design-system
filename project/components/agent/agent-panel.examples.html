@@ -1,0 +1,109 @@
+<section data-example="Side panel with a proposal inline">
+  <aside class="pp-agent-panel pp-agent-panel--inline" aria-labelledby="ap-1-t" style="max-width:440px">
+    <div class="pp-agent-panel__header">
+      <span class="pp-avatar pp-avatar--agent" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+      <div class="pp-agent-panel__heading">
+        <span class="pp-agent-panel__title" role="heading" aria-level="2" id="ap-1-t">Pepla</span>
+        <span class="pp-agent-panel__context">Looking at Kagiso Molefe</span>
+      </div>
+      <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Close Pepla"><i data-lucide="x"></i></button>
+    </div>
+    <div class="pp-agent-panel__log" role="log" aria-label="Conversation with Pepla">
+      <span class="pp-agent-panel__day">Today</span>
+      <div class="pp-agent-panel__message pp-agent-panel__message--person">
+        <span class="pp-visually-hidden">You said:</span>
+        <div class="pp-agent-panel__bubble">Is Kagiso ready for payroll?</div>
+        <span class="pp-agent-panel__meta">09:02</span>
+      </div>
+      <div class="pp-agent-panel__message pp-agent-panel__message--pepla">
+        <span class="pp-visually-hidden">Pepla said:</span>
+        <div class="pp-agent-panel__bubble">Nearly. His bank letter and ID check out. Payroll does not have his bank details yet. I can send them.</div>
+        <span class="pp-agent-panel__meta">09:02</span>
+      </div>
+      <div class="pp-agent-panel__message pp-agent-panel__message--proposal">
+        <article class="pp-proposal--compact" aria-labelledby="ap-1-p">
+          <div class="pp-proposal__titles">
+            <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+            <span class="pp-proposal__title" id="ap-1-p">Send Kagiso's bank details to payroll</span>
+            <span class="pp-proposal__meta">Payroll closes 20 Nov · Payroll system, South Africa: name, ID ending 0876, account ending 4821</span>
+          </div>
+          <div class="pp-proposal__row-actions">
+            <button class="pp-button pp-button--agent pp-button--small" type="button" aria-describedby="ap-1-p">Approve</button>
+            <button class="pp-button pp-button--default pp-button--small" type="button" aria-describedby="ap-1-p">Review</button>
+          </div>
+        </article>
+      </div>
+    </div>
+    <form class="pp-agent-panel__composer" aria-label="Message Pepla">
+      <div class="pp-agent-panel__input-row">
+        <label class="pp-visually-hidden" for="ap-1-in">Message Pepla</label>
+        <textarea class="pp-textarea" id="ap-1-in" rows="1" placeholder="Ask Pepla about Kagiso"></textarea>
+        <button class="pp-button pp-button--primary pp-button--icon" type="submit" aria-label="Send"><i data-lucide="send"></i></button>
+      </div>
+      <span class="pp-agent-panel__hint">Pepla changes nothing until you approve.</span>
+    </form>
+  </aside>
+</section>
+<section data-example="Pepla is working">
+  <aside class="pp-agent-panel pp-agent-panel--inline" aria-labelledby="ap-2-t" style="max-width:440px;height:420px">
+    <div class="pp-agent-panel__header">
+      <span class="pp-avatar pp-avatar--agent" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+      <div class="pp-agent-panel__heading">
+        <span class="pp-agent-panel__title" role="heading" aria-level="2" id="ap-2-t">Pepla</span>
+        <span class="pp-agent-panel__context">Looking at November new hires</span>
+      </div>
+      <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Close Pepla"><i data-lucide="x"></i></button>
+    </div>
+    <div class="pp-agent-panel__log" role="log" aria-label="Conversation with Pepla">
+      <div class="pp-agent-panel__message pp-agent-panel__message--person">
+        <span class="pp-visually-hidden">You said:</span>
+        <div class="pp-agent-panel__bubble">Who still owes us documents?</div>
+        <span class="pp-agent-panel__meta">10:14</span>
+      </div>
+      <div class="pp-agent-panel__working" role="status">
+        <span class="pp-spinner pp-spinner--small" aria-hidden="true"></span>
+        <span>Pepla is reading 6 onboarding checklists</span>
+        <button class="pp-button pp-button--subtle pp-button--small" type="button">Stop</button>
+      </div>
+    </div>
+    <form class="pp-agent-panel__composer" aria-label="Message Pepla">
+      <div class="pp-agent-panel__input-row">
+        <label class="pp-visually-hidden" for="ap-2-in">Message Pepla</label>
+        <textarea class="pp-textarea" id="ap-2-in" rows="1" placeholder="Ask Pepla"></textarea>
+        <button class="pp-button pp-button--primary pp-button--icon" type="submit" aria-label="Send" aria-disabled="true"><i data-lucide="send"></i></button>
+      </div>
+      <span class="pp-agent-panel__hint">Pepla changes nothing until you approve.</span>
+    </form>
+  </aside>
+</section>
+<section data-example="Phone: a full-screen sheet">
+  <aside class="pp-agent-panel pp-agent-panel--inline pp-agent-panel--sheet" aria-labelledby="ap-3-t" style="height:560px">
+    <div class="pp-agent-panel__header">
+      <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Close Pepla"><i data-lucide="x"></i></button>
+      <div class="pp-agent-panel__heading">
+        <span class="pp-agent-panel__title" role="heading" aria-level="2" id="ap-3-t">Pepla</span>
+        <span class="pp-agent-panel__context">Your onboarding</span>
+      </div>
+      <span class="pp-avatar pp-avatar--agent" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+    </div>
+    <div class="pp-agent-panel__log" role="log" aria-label="Conversation with Pepla">
+      <div class="pp-agent-panel__message pp-agent-panel__message--pepla">
+        <span class="pp-visually-hidden">Pepla said:</span>
+        <div class="pp-agent-panel__bubble">Hi Tariro. Two things left before your first day: your tax form and a bank letter. Want me to show you how to get the bank letter from your banking app?</div>
+        <span class="pp-agent-panel__meta">08:30</span>
+      </div>
+      <div class="pp-agent-panel__message pp-agent-panel__message--person">
+        <span class="pp-visually-hidden">You said:</span>
+        <div class="pp-agent-panel__bubble">Yes please. I bank with CBZ.</div>
+        <span class="pp-agent-panel__meta">08:31</span>
+      </div>
+    </div>
+    <form class="pp-agent-panel__composer" aria-label="Message Pepla">
+      <div class="pp-agent-panel__input-row">
+        <label class="pp-visually-hidden" for="ap-3-in">Message Pepla</label>
+        <textarea class="pp-textarea" id="ap-3-in" rows="1" placeholder="Ask Pepla"></textarea>
+        <button class="pp-button pp-button--primary pp-button--icon pp-button--large" type="submit" aria-label="Send"><i data-lucide="send"></i></button>
+      </div>
+    </form>
+  </aside>
+</section>
