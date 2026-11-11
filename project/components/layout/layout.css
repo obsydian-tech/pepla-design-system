@@ -22,8 +22,10 @@ ul.pp-stack, ol.pp-stack, ul.pp-inline, ol.pp-inline, ul.pp-grid, ol.pp-grid { l
 .pp-columns { display: grid; gap: var(--_gap, var(--space-300)); grid-template-columns: minmax(0, 1fr) var(--layout-aside-width); align-items: start; min-width: 0; }
 .pp-columns--aside-start { grid-template-columns: var(--layout-aside-width) minmax(0, 1fr); }
 .pp-columns--wide-aside { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.pp-columns--panel { grid-template-columns: minmax(0, 1fr) var(--layout-drawer-width-medium); }
 .pp-columns--even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 1023px) { .pp-columns { grid-template-columns: minmax(0, 1fr); } }
+@container (max-width: 860px) { .pp-columns { grid-template-columns: minmax(0, 1fr); } }
 
 /* Grid: equal tiles. Fixed counts fall back to fewer columns on narrow screens. */
 .pp-grid { display: grid; gap: var(--_gap, var(--space-200)); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--_min, 240px)), 1fr)); min-width: 0; }
@@ -34,6 +36,8 @@ ul.pp-stack, ol.pp-stack, ul.pp-inline, ol.pp-inline, ul.pp-grid, ol.pp-grid { l
 .pp-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .pp-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .pp-grid--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+@container (max-width: 640px) { .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container (max-width: 400px) { .pp-grid--2, .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 767px) { .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 479px) { .pp-grid--2, .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: minmax(0, 1fr); } }
 

@@ -17,3 +17,8 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
 .pp-field__options { display: flex; flex-direction: column; gap: var(--space-050); }
 .pp-field__options--inline { flex-direction: row; flex-wrap: wrap; column-gap: var(--space-300); }
 .pp-field__options--tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: var(--space-100); }
+
+/* Tiles in a fixed number of columns (a 4-point scale, a yes or no); one column on a phone */
+.pp-field__options--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pp-field__options--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@container (max-width: 480px) { .pp-field__options--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

@@ -29,7 +29,7 @@ Modifiers:
 | `pp-inline--between`, `--end`, `--center` | Spread a row to both ends, or push it to the end or centre |
 | `pp-inline--top`, `--bottom`, `--baseline`, `--stretch` | Line children up on their tops, bottoms, text baselines, or full height |
 | `pp-inline--nowrap`, `pp-inline--fit` | Keep a row on one line; make it only as wide as its content |
-| `pp-columns--aside-start`, `--wide-aside`, `--even` | Side column first; a 7 to 5 split; two equal columns |
+| `pp-columns--panel`, `--aside-start`, `--wide-aside`, `--even` | A 480px side column for the agent panel or a working card; side column first; a 7 to 5 split; two equal columns. A side column is 340px or 480px, nothing in between |
 | `pp-grid--2` … `pp-grid--6`, `pp-grid--small`, `pp-grid--large`, `pp-grid--bottom` | Fixed counts (fewer on a phone); 160px or 380px tiles; line tiles up on their bottoms |
 | `pp-grow`, `pp-grow--field`, `pp-fixed`, `pp-push`, `pp-shrink` | Inside a row: take the free space, take it but never under 120px, keep own size, push to the far end, allow shrinking below content width |
 | `pp-measure-narrow`, `pp-measure-form`, `pp-measure-reading` | At most 360px, 560px or 720px wide |

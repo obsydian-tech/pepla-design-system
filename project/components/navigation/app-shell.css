@@ -25,6 +25,7 @@
 }
 .pp-app-shell__main {
   grid-area: main;
+  container-type: inline-size; /* components inside respond to the page width, not the window */
   min-width: 0;
   min-height: 0;
   overflow-y: auto;

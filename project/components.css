@@ -178,8 +178,10 @@ ul.pp-stack, ol.pp-stack, ul.pp-inline, ol.pp-inline, ul.pp-grid, ol.pp-grid { l
 .pp-columns { display: grid; gap: var(--_gap, var(--space-300)); grid-template-columns: minmax(0, 1fr) var(--layout-aside-width); align-items: start; min-width: 0; }
 .pp-columns--aside-start { grid-template-columns: var(--layout-aside-width) minmax(0, 1fr); }
 .pp-columns--wide-aside { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.pp-columns--panel { grid-template-columns: minmax(0, 1fr) var(--layout-drawer-width-medium); }
 .pp-columns--even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 1023px) { .pp-columns { grid-template-columns: minmax(0, 1fr); } }
+@container (max-width: 860px) { .pp-columns { grid-template-columns: minmax(0, 1fr); } }
 
 /* Grid: equal tiles. Fixed counts fall back to fewer columns on narrow screens. */
 .pp-grid { display: grid; gap: var(--_gap, var(--space-200)); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--_min, 240px)), 1fr)); min-width: 0; }
@@ -190,6 +192,8 @@ ul.pp-stack, ol.pp-stack, ul.pp-inline, ol.pp-inline, ul.pp-grid, ol.pp-grid { l
 .pp-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .pp-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .pp-grid--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+@container (max-width: 640px) { .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container (max-width: 400px) { .pp-grid--2, .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 767px) { .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 479px) { .pp-grid--2, .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: minmax(0, 1fr); } }
 
@@ -567,6 +571,11 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
 .pp-field__options--inline { flex-direction: row; flex-wrap: wrap; column-gap: var(--space-300); }
 .pp-field__options--tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: var(--space-100); }
 
+/* Tiles in a fixed number of columns (a 4-point scale, a yes or no); one column on a phone */
+.pp-field__options--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pp-field__options--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@container (max-width: 480px) { .pp-field__options--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 /* ---- forms/file-upload ---- */
 /* File upload. Spec: file-upload.md */
 .pp-file-upload {
@@ -707,6 +716,9 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
 
 /* A row whose fields carry no help text lines up on their centres */
 .pp-form-row--center { align-items: center; }
+
+/* Three short fields in one row (city, province, postal code) */
+@media (min-width: 768px) { .pp-form-row--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 /* ---- forms/password ---- */
 /* Password. Spec: password.md
@@ -2180,6 +2192,7 @@ a.pp-tag:hover { text-decoration: underline; }
 }
 .pp-app-shell__main {
   grid-area: main;
+  container-type: inline-size; /* components inside respond to the page width, not the window */
   min-width: 0;
   min-height: 0;
   overflow-y: auto;
@@ -2723,6 +2736,11 @@ a.pp-stat:hover { background: var(--elevation-surface-raised-hovered); border-co
 .pp-stat__meta--agent { color: var(--color-text-agent); }
 .pp-stat-row { display: grid; gap: var(--space-150); grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); }
 
+/* Six compact stats in one row on a wide page (a dashboard strip); fewer on narrower pages */
+.pp-stat-row--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+@container (max-width: 760px) { .pp-stat-row--6 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@container (max-width: 420px) { .pp-stat-row--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 /* ---- data/table ---- */
 /* Dynamic table. Spec: table.md */
 .pp-table-wrap { width: 100%; overflow-x: auto; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); }
@@ -3229,6 +3247,13 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-consent__record-meta { font: var(--font-body-small); color: var(--color-text-subtle); }
 
 @media (max-width: 479px) {
+  .pp-consent { padding: var(--space-200); }
+  .pp-consent__terms { grid-template-columns: minmax(0, 1fr); gap: var(--space-050); }
+  .pp-consent__terms > dd { margin-bottom: var(--space-150); }
+  .pp-consent__footer .pp-button { width: 100%; }
+}
+/* The same inside a narrow page column (the phone frame of a UI kit, a side panel) */
+@container (max-width: 479px) {
   .pp-consent { padding: var(--space-200); }
   .pp-consent__terms { grid-template-columns: minmax(0, 1fr); gap: var(--space-050); }
   .pp-consent__terms > dd { margin-bottom: var(--space-150); }
