@@ -163,8 +163,9 @@ footer{margin-top:var(--space-1000);color:var(--color-text-subtlest);font:var(--
   <button class="btn" type="button" id="theme" aria-label="Switch light or dark"><i data-lucide="sun-moon"></i><span>Light / dark</span></button>
 </header>
 <h1>Pepla design system</h1>
-<p class="lead">Foundations for every Pepla screen: the rules, colour in light and dark, type, space, shape, elevation, motion, icons and the mark. Phase 1 of 5. Components and example screens follow.</p>
-<nav class="toc" aria-label="Sections"><a href="components/index.html">Components</a><a href="#rules">Rules</a><a href="#colour">Colour</a><a href="#palette">Palette</a><a href="#type">Type</a><a href="#space">Space</a><a href="#shape">Shape</a><a href="#elevation">Elevation</a><a href="#motion">Motion</a><a href="#icons">Icons</a><a href="#logo">Logo</a></nav>
+<p class="lead">Foundations for every Pepla screen: the rules, colour in light and dark, type, space, shape, elevation, motion, icons and the mark.</p>
+<p><a class="pp-button pp-button--primary pp-button--large" href="components.html">See all components</a></p>
+<nav class="toc" aria-label="Sections"><a href="components.html">All components</a><a href="#rules">Rules</a><a href="#colour">Colour</a><a href="#palette">Palette</a><a href="#type">Type</a><a href="#space">Space</a><a href="#shape">Shape</a><a href="#elevation">Elevation</a><a href="#motion">Motion</a><a href="#icons">Icons</a><a href="#logo">Logo</a></nav>
 
 <h2 id="rules">The rules that govern everything</h2>
 <p>Every component and screen obeys these. The first one is the reason mint exists.</p>

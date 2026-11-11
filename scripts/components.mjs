@@ -90,17 +90,20 @@ body{margin:0}
 .grp ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:var(--space-075)}
 .grp a{display:inline-flex;min-height:32px;align-items:center;padding:0 var(--space-150);border-radius:var(--radius-full);background:var(--color-background-neutral);color:var(--color-text);text-decoration:none;font:var(--font-label)}
 .grp a:hover{background:var(--color-background-neutral-hovered)}
+.one{border-top:var(--border-width) solid var(--color-border);margin-top:var(--space-800);padding-top:var(--space-300)}
+.doc h2.cname{font:var(--font-heading-xxlarge);letter-spacing:var(--font-heading-xxlarge-tracking);margin:0 0 var(--space-100)}
+.top{display:inline-block;margin-top:var(--space-300);font:var(--font-body-small);color:var(--color-link)}
 .grp .soon{color:var(--color-text-subtlest);font:var(--font-body-small)}
 </style>`;
 
-const page = (title, body) => `<!doctype html>
+const page = (title, body, up = '../') => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)} · Pepla design system</title>
-<link rel="icon" href="../assets/pepla-mark.svg">
-${CHROME}
+<link rel="icon" href="${up}assets/pepla-mark.svg">
+${up === '../' ? CHROME : CHROME.replace('href="../styles.css"', `href="${up}styles.css"`)}
 </head>
 <body>
 <div class="wrap">${body}</div>
@@ -120,6 +123,7 @@ function examplesHtml(c) {
 export function buildSite(list, DIST) {
   const out = new URL('components/', DIST);
   mkdirSync(out, { recursive: true });
+  const all = [];
   for (const c of list) {
     const body = c.body.replace(/^\s*# .+\n/, '');
     const parts = body.split(/^## /m);
@@ -134,7 +138,15 @@ ${examplesHtml(c)}
 ${marked.parse(parts.map((p) => '## ' + p).join(''))}
 </article>`;
     writeFileSync(new URL(`${c.slug}.html`, out), page(c.meta.name, inlineIcons(html)));
+    all.push(`<section class="one" id="${c.slug}">` + html.replace(/^<nav class="crumbs"[\s\S]*?<\/nav>\n/, '').replace('<h1>', '<h2 class="cname">').replace('</h1>', '</h2>') + `<a class="top" href="#top">Back to the list</a></section>`);
   }
+  // One page with every component, for previews where links to other pages do not work
+  const toc = GROUPS.map(([g, t]) => {
+    const items = list.filter((c) => c.group === g);
+    return `<section class="grp"><h2>${esc(t)}</h2>${items.length ? `<ul>${items.map((c) => `<li><a href="#${c.slug}">${esc(c.meta.name)}</a></li>`).join('')}</ul>` : '<span class="soon">Coming in a later phase</span>'}</section>`;
+  }).join('');
+  const allBody = `<article class="doc" id="top"><h1>Pepla components</h1><p>All ${list.length} components on one page, each with live examples in light and dark, then its full spec. Pick one below to jump to it. The foundations (colour, type, space and the rules) are on the <a href="index.html">foundations page</a>.</p></article><div class="groups">${toc}</div>` + all.join('');
+  writeFileSync(new URL('components.html', DIST), page('All components', inlineIcons(allBody).replace(/<article class="doc">/g, '<article class="doc">'), ''));
   const idx = `<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Pepla design system</a><span>/</span><span>Components</span></nav>
 <article class="doc"><h1>Components</h1><p>${list.length} components so far. Each has a spec, live examples in light and dark, its CSS and its PrimeNG mapping. Use them as they are; if something is missing, propose it for the system instead of building a one-off.</p></article>
 <div class="groups">${GROUPS.map(([g, t, d]) => {
