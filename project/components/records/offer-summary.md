@@ -2,7 +2,7 @@
 name: Offer summary
 group: records
 status: ready
-classes: pp-offer, pp-offer__section, __section-title, __salary, __salary-note (with pp-card, pp-dl, pp-approval-chain--compact)
+classes: pp-offer, pp-offer__section, __section-title (with pp-card, pp-dl, pp-masked, pp-approval-chain--compact)
 primeng: none (plain Angular template); Card pass-through if p-card is used
 replaces: the offer tab's summary blocks
 ---
@@ -15,7 +15,7 @@ A card with an offer's details: role, start date, salary (hidden until someone c
 
 1. **Card header**: the candidate's avatar, "Offer for Lerato Mokoena", role and place, and the status lozenge in `pp-card__aside`.
 2. **Facts** (`pp-dl`): Role, Start date, Salary, Benefits, and the expiry or reply deadline.
-3. **Salary** (`__salary`): masked by default, with a "Show salary" link button. After reveal: the amount, "Hide salary" and a note that it is logged.
+3. **Salary**: a Masked field (`pp-masked`), like every other personal value. "Show" reveals it in place and logs it; then "Hide" and a note that it was shown to you and hides again in 2 minutes.
 4. **Approvals** (`__section`): a compact Approval chain while the offer waits.
 5. **Footer**: actions for the current status.
 
@@ -34,8 +34,8 @@ A card with an offer's details: role, start date, salary (hidden until someone c
 
 ## Behaviour
 
-- Salary shows masked (`R ••• •••`) for everyone, including people allowed to see it (rule 6). "Show salary" reveals it in place and logs who and when; it hides again when they leave the page.
-- People without salary permission see "Hidden" with a `lock` icon and no button.
+- Salary shows masked (`R ••• •••`) for everyone, including people allowed to see it (rule 6). "Show" reveals it in place and logs who and when; it hides again after 2 minutes or when they leave the page, like every Masked field.
+- People without salary permission see a Restricted value (`pp-restricted`, "Only payroll admins see salaries.") and no Show button.
 - "Withdraw offer" opens a confirmation that names the candidate and says they will be told.
 - Editing an offer that is waiting for approval sends it back to the first approver.
 
@@ -47,7 +47,7 @@ A card with an offer's details: role, start date, salary (hidden until someone c
 
 ## Accessibility
 
-- The reveal button says what it reveals ("Show salary") and becomes "Hide salary". Announce nothing else; the amount appears where focus already is.
+- The reveal button is "Show", described by the masked value ("Salary hidden"), and becomes "Hide". The note is a status, so it is announced once.
 - The masked text is read as is; add `aria-label="Salary hidden"` on the masked span in the app.
 - Section titles are headings so screen-reader users can jump to "Approvals".
 
