@@ -2,7 +2,7 @@
 name: Document row
 group: records
 status: ready
-classes: pp-document-row, pp-document-row__body, __name, __meta, __reason, __status, __actions, pp-document-row--attention, pp-document-checklist, pp-document-checklist__header, __titles, __title, __subtitle, __list
+classes: pp-document-row, pp-document-row__body, __name, __meta, __reason, __status, __actions, pp-document-row--attention, pp-document-checklist, pp-document-checklist__header, __titles, __title, __subtitle, __list, __footer
 primeng: none (plain Angular template); upload uses File upload
 replaces: app-document-row and app-document-checklist; the HR document detail card's status block
 ---
@@ -26,6 +26,7 @@ One required document: what it is, where it stands, who did what and when, and w
 
 1. **Header**: title ("Kagiso's documents"), subtitle, and a progress bar: "2 of 6 documents".
 2. **List**: one row per required document, problems first.
+3. **Footer** (optional, `__footer`): one note under the list, such as an agent inline message saying what Pepla checks after upload.
 
 ## States
 
@@ -36,7 +37,7 @@ One required document: what it is, where it stands, who did what and when, and w
 | Checking | information, `hourglass`, "Checking" | agent lozenge "Pepla is checking", or the person checking | View |
 | Verified | success, `circle-check`, "Verified" | who uploaded it and who checked it (agent lozenge if Pepla) | View |
 | Rejected | danger, `circle-x`, "Rejected" | who rejected it, when; the reason line | View, Request again |
-| Expired | warning, `calendar-x`, "Expired 2 Oct" | "Valid until 2 Oct 2026" | View, Request again |
+| Expired | warning, `clock-alert`, "Expired 2 Oct" | "Valid until 2 Oct 2026" | View, Request again |
 
 `pp-document-row--attention` gives a rejected row a quiet danger wash so it stands out in a long list.
 

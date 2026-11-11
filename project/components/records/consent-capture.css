@@ -25,3 +25,10 @@
   .pp-consent__terms > dd { margin-bottom: var(--space-150); }
   .pp-consent__footer .pp-button { width: 100%; }
 }
+/* The same inside a narrow page column (the phone frame of a UI kit, a side panel) */
+@container (max-width: 479px) {
+  .pp-consent { padding: var(--space-200); }
+  .pp-consent__terms { grid-template-columns: minmax(0, 1fr); gap: var(--space-050); }
+  .pp-consent__terms > dd { margin-bottom: var(--space-150); }
+  .pp-consent__footer .pp-button { width: 100%; }
+}

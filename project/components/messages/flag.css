@@ -28,8 +28,8 @@
 }
 .pp-flag > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--_icon); }
 .pp-flag__content { flex: 1; min-width: 0; }
-.pp-flag__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
-.pp-flag__body { margin: var(--space-025) 0 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-flag__title { display: block; margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-flag__body { display: block; margin: var(--space-025) 0 0; font: var(--font-body); color: var(--color-text-subtle); }
 .pp-flag__actions { display: flex; flex-wrap: wrap; gap: var(--space-200); margin-top: var(--space-100); }
 .pp-flag__actions .pp-button--link { padding: 0; min-height: var(--size-icon-medium); }
 .pp-flag__dismiss { margin: calc(-1 * var(--space-075)) calc(-1 * var(--space-075)) 0 0; }
@@ -42,7 +42,7 @@
 
 /* Auto-dismiss timer (success only): a hairline that empties; paused on hover and focus */
 .pp-flag__timer { display: block; height: var(--space-025); margin-top: var(--space-150); border-radius: var(--radius-full); background: var(--color-border); overflow: hidden; }
-.pp-flag__timer::before { content: ""; display: block; height: 100%; background: var(--color-icon-success); transform-origin: left; animation: pp-flag-timer 8s linear forwards; }
+.pp-flag__timer::before { content: ""; display: block; height: 100%; background: var(--color-icon-success); transform-origin: left; animation: pp-flag-timer var(--motion-duration-flag-dismiss) linear forwards; }
 .pp-flag:hover .pp-flag__timer::before, .pp-flag:focus-within .pp-flag__timer::before { animation-play-state: paused; }
 
 @keyframes pp-flag-in { from { opacity: 0; transform: translateY(var(--space-100)); } }

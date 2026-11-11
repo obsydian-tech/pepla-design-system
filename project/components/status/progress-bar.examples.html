@@ -1,5 +1,5 @@
 <section data-example="With a label and the value in words">
-  <div style="display:flex;flex-direction:column;gap:var(--space-300);max-width:480px">
+  <div class="pp-stack pp-gap-300 pp-measure-form">
     <div class="pp-progress-bar">
       <div class="pp-progress-bar__header">
         <span class="pp-progress-bar__label" id="pb-docs-label">Lerato's documents</span>
@@ -18,7 +18,7 @@
   </div>
 </section>
 <section data-example="Agent work, warning and danger">
-  <div style="display:flex;flex-direction:column;gap:var(--space-300);max-width:480px">
+  <div class="pp-stack pp-gap-300 pp-measure-form">
     <div class="pp-progress-bar pp-progress-bar--agent">
       <div class="pp-progress-bar__header">
         <span class="pp-progress-bar__label" id="pb-agent-label">Pepla is checking the documents</span>
@@ -46,11 +46,11 @@
   </div>
 </section>
 <section data-example="Small, inside a row">
-  <div style="display:flex;align-items:center;gap:var(--space-200);max-width:480px">
-    <span style="flex:none">Thandeka Dlamini</span>
-    <div class="pp-progress-bar" style="flex:1">
+  <div class="pp-inline pp-gap-200 pp-measure-form">
+    <span class="pp-fixed">Thandeka Dlamini</span>
+    <div class="pp-progress-bar pp-grow">
       <progress class="pp-progress-bar__track pp-progress-bar__track--small" value="6" max="10" aria-label="Thandeka's onboarding, 6 of 10 steps">6 of 10</progress>
     </div>
-    <span class="pp-progress-bar__value" style="flex:none">6 of 10 steps</span>
+    <span class="pp-text pp-text--small pp-text--subtle pp-text--tabular pp-fixed">6 of 10 steps</span>
   </div>
 </section>

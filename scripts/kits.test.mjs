@@ -26,7 +26,6 @@ for (const k of kits) {
     assert.doesNotMatch(k.html, /<style|<script/, `${k.slug}.html must not carry its own CSS or scripts`);
     for (const [, v] of k.html.matchAll(/var\((--[a-z0-9-]+)/g)) if (!v.startsWith('--_')) assert.ok(defined.has(v), `${k.slug} uses ${v}, which is not a token`);
     for (const [, list] of k.html.matchAll(/class="([^"]*)"/g)) for (const c of list.split(/\s+/).filter(Boolean)) {
-      if (['c1', 'c2', 'c3'].includes(c)) continue; // the logo mark's three circles
       assert.ok(c.startsWith('pp-'), `${k.slug} uses class "${c}"; kits use only Pepla component classes`);
       assert.ok(known.has(c), `${k.slug} uses ${c}, which no component defines`);
     }

@@ -21,7 +21,7 @@
 .pp-scorecard__name { color: var(--color-text); }
 .pp-scorecard__weight { font: var(--font-body-small); color: var(--color-text-subtlest); }
 .pp-scorecard__bar { display: block; height: var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); overflow: hidden; }
-.pp-scorecard__fill { display: block; height: 100%; border-radius: var(--radius-full); background: var(--color-background-neutral-bold); }
+.pp-scorecard__fill { display: block; width: var(--_pct, 0%); height: 100%; border-radius: var(--radius-full); background: var(--color-background-neutral-bold); }
 .pp-scorecard__score { color: var(--color-text-subtle); font-variant-numeric: tabular-nums; text-align: right; }
 .pp-scorecard__score strong { color: var(--color-text); font-weight: var(--font-weight-semibold); }
 .pp-scorecard__note { padding: var(--space-150) var(--space-200); border-radius: var(--radius-medium); background: var(--color-background-neutral); color: var(--color-text-subtle); font: var(--font-body); }

@@ -1,5 +1,5 @@
 <section data-example="Appearances">
-  <div style="display:flex;flex-wrap:wrap;gap:var(--space-200);align-items:center">
+  <div class="pp-inline pp-gap-200">
     <span class="pp-badge">4</span>
     <span class="pp-badge pp-badge--primary">12</span>
     <span class="pp-badge pp-badge--danger">3</span>
@@ -9,14 +9,14 @@
   </div>
 </section>
 <section data-example="Beside a label">
-  <div style="display:flex;flex-direction:column;gap:var(--space-100);max-width:280px">
-    <a href="./" style="display:flex;justify-content:space-between;align-items:center;min-height:var(--size-control-medium);color:var(--color-text);text-decoration:none"><span>Approvals</span><span class="pp-badge pp-badge--agent">5<span class="pp-badge__label"> proposals from Pepla waiting for you</span></span></a>
-    <a href="./" style="display:flex;justify-content:space-between;align-items:center;min-height:var(--size-control-medium);color:var(--color-text);text-decoration:none"><span>Overdue documents</span><span class="pp-badge pp-badge--danger">3<span class="pp-badge__label"> overdue</span></span></a>
-    <a href="./" style="display:flex;justify-content:space-between;align-items:center;min-height:var(--size-control-medium);color:var(--color-text);text-decoration:none"><span>Candidates</span><span class="pp-badge">28</span></a>
+  <div class="pp-stack pp-gap-100 pp-measure-narrow">
+    <div class="pp-inline pp-inline--between"><span class="pp-text">Approvals</span><span class="pp-badge pp-badge--agent">5<span class="pp-badge__label"> proposals from Pepla waiting for you</span></span></div>
+    <div class="pp-inline pp-inline--between"><span class="pp-text">Overdue documents</span><span class="pp-badge pp-badge--danger">3<span class="pp-badge__label"> overdue</span></span></div>
+    <div class="pp-inline pp-inline--between"><span class="pp-text">Candidates</span><span class="pp-badge">28</span></div>
   </div>
 </section>
 <section data-example="On an icon button">
-  <div style="display:flex;gap:var(--space-300);align-items:center">
+  <div class="pp-inline pp-gap-300">
     <span class="pp-badge-anchor">
       <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Help desk, 2 new questions"><i data-lucide="life-buoy"></i></button>
       <span class="pp-badge pp-badge--primary" aria-hidden="true">2</span>

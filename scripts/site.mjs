@@ -22,7 +22,10 @@ const ratio = (fg, bg) => wcagContrast(fg, bg).toFixed(1);
 // ---------- rules, parsed from the readme so they cannot drift
 const readme = readFileSync(new URL('project/readme.md', ROOT), 'utf8');
 const rules = [...readme.split('## The rules that govern everything')[1].split('## ')[0].matchAll(/^\d+\.\s+\*\*(.+?)\*\*\s*(.*)$/gm)].map((m) => [m[1], m[2]]);
-const icons = [...readme.split('## Iconography')[1].split('## ')[0].matchAll(/^\| (.+?) \| `(.+?)`(?: \/ `(.+?)`)? \|$/gm)].map((m) => [m[1], m[2], m[3]]);
+const iconSection = readme.split('## Iconography')[1].split('\n## ')[0];
+const iconRe = /^\| (.+?) \| `(.+?)`(?: \/ `(.+?)`)? \|$/gm;
+const iconGroups = iconSection.split(/^\*\*(.+?)\*\*$/m).slice(1).reduce((acc, part, i, arr) => (i % 2 ? acc : [...acc, [part, [...arr[i + 1].matchAll(iconRe)].map((m) => [m[1], m[2], m[3]])]]), []);
+const icons = iconGroups.flatMap(([, rows]) => rows);
 
 // ---------- colour role tables
 const groups = [
@@ -59,7 +62,8 @@ const radiusCells = Object.entries(F.shape).filter(([k]) => k.startsWith('radius
 const shadowCells = Object.keys(F.shadows.light).map((k) => `<div class="sh" style="box-shadow:${v(k)}"><code>--${k.replace(/\./g, '-')}</code></div>`).join('');
 const motionRows = Object.entries(F.motion).map(([k, val]) => `<tr><td><code>--${k.replace(/\./g, '-')}</code></td><td><code>${val}</code></td></tr>`).join('');
 const layoutRows = Object.entries(F.layout).map(([k, val]) => `<tr><td><code>--${k.replace(/\./g, '-')}</code></td><td>${val}</td></tr>`).join('');
-const iconRows = icons.map(([m, a, b]) => `<div class="ic"><span><i data-lucide="${a}"></i>${b ? `<i data-lucide="${b}"></i>` : ''}</span><b>${esc(m)}</b><code>${a}${b ? ` / ${b}` : ''}</code></div>`).join('');
+const iconCard = ([m, a, b]) => `<div class="ic"><span><i data-lucide="${a}"></i>${b ? `<i data-lucide="${b}"></i>` : ''}</span><b>${esc(m)}</b><code>${a}${b ? ` / ${b}` : ''}</code></div>`;
+const iconRows = iconGroups.map(([g, rows]) => `<h3>${esc(g)}</h3><div class="ics">${rows.map(iconCard).join('')}</div>`).join('');
 
 const mark = (vio) => `<svg viewBox="0 0 76 64" aria-hidden="true"><circle cx="20" cy="38" r="18" fill="#ff7a59"/><circle cx="38" cy="24" r="18" fill="${vio}"/><circle cx="56" cy="38" r="18" fill="#2bb3a3"/></svg>`;
 
@@ -160,7 +164,7 @@ footer{margin-top:var(--space-1000);color:var(--color-text-subtlest);font:var(--
 <header class="top">
   <span class="lock"><span class="mark-light">${mark('#5b4bd6')}</span><span class="mark-dark">${mark('#7d6ff0')}</span><span class="word">pepla</span></span>
   <span class="spacer"></span>
-  <button class="btn" type="button" id="theme" aria-label="Switch light or dark"><i data-lucide="sun-moon"></i><span>Light / dark</span></button>
+  <button class="btn" type="button" id="theme" aria-label="Switch light or dark"><span>Light / dark</span></button>
 </header>
 <h1>Pepla design system</h1>
 <p class="lead">Foundations for every Pepla screen: the rules, colour in light and dark, type, space, shape, elevation, motion, icons and the mark.</p>
@@ -175,28 +179,34 @@ footer{margin-top:var(--space-1000);color:var(--color-text-subtlest);font:var(--
 <p>Components use roles, never raw colours. Violet acts, mint is the agent, coral is warmth, status colours always come with an icon and a word. Every text pair below is checked in CI against WCAG AA in both themes.</p>
 <div class="grid2">
   <div class="card demo">
-    <div style="display:flex;gap:var(--space-100);flex-wrap:wrap">
-      <button class="btn primary" type="button">Send contract</button>
-      <button class="btn" type="button">Edit</button>
-      <button class="btn danger" type="button">Withdraw offer</button>
+    <div class="pp-inline">
+      <button class="pp-button pp-button--primary" type="button">Send contract</button>
+      <button class="pp-button pp-button--default" type="button">Edit</button>
+      <button class="pp-button pp-button--danger" type="button">Withdraw offer</button>
     </div>
-    <div style="display:flex;gap:var(--space-100);flex-wrap:wrap">
-      <span class="due" style="background:var(--color-background-success-subtle);color:var(--color-text-success)"><i data-lucide="circle-check"></i>Done 3 Nov</span>
-      <span class="due" style="background:var(--color-background-warning-subtle);color:var(--color-text-warning)"><i data-lucide="clock"></i>Due in 2 days</span>
-      <span class="due" style="background:var(--color-background-danger-subtle);color:var(--color-text-danger)"><i data-lucide="clock-alert"></i>Overdue by 1 day</span>
-      <span class="due" style="background:var(--color-background-agent-subtle);color:var(--color-text-agent)"><i data-lucide="sparkles"></i>Checked by Pepla</span>
+    <div class="pp-inline">
+      <span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Done 3 Nov</span>
+      <time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-13"><i data-lucide="clock"></i>Due in 2 days</time>
+      <time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-10"><i data-lucide="clock-alert"></i>Overdue by 1 day</time>
+      <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Checked by Pepla</span></span>
     </div>
-    <div class="msg" style="background:var(--color-background-information-subtle)"><i data-lucide="info" style="color:var(--color-icon-information)"></i><div><b>Payroll connection</b>Connect Pepla to your payroll so new hires are added without retyping.</div></div>
-    <div class="msg" style="background:var(--color-background-danger-subtle)"><i data-lucide="octagon-alert" style="color:var(--color-icon-danger)"></i><div><b>That ID number has 12 digits</b>South African ID numbers have 13. Check the last digits.</div></div>
-    <div class="msg" style="background:var(--color-background-warmth-subtle);color:var(--color-text-warmth)"><i data-lucide="party-popper"></i><div><b>3 new starters this month</b>Every document in, nothing chased by hand.</div></div>
+    <div class="pp-section-message" role="region" aria-label="Payroll connection"><i data-lucide="info"></i><div class="pp-section-message__content"><h3 class="pp-section-message__title">Payroll connection</h3><div class="pp-section-message__body">Connect Pepla to your payroll so new hires are added without retyping.</div></div></div>
+    <div class="pp-section-message pp-section-message--danger" role="region" aria-label="ID number"><i data-lucide="octagon-alert"></i><div class="pp-section-message__content"><h3 class="pp-section-message__title">That ID number has 12 digits</h3><div class="pp-section-message__body">South African ID numbers have 13. Check the last digits.</div></div></div>
   </div>
-  <div class="card" style="display:flex;align-items:center;justify-content:center;background:var(--elevation-surface-sunken)">
-    <article class="agentcard" aria-label="Pepla suggests">
-      <span class="who"><i data-lucide="sparkles"></i>Pepla suggests</span>
-      <h4>Send Thandeka her contract and laptop request?</h4>
-      <p>Her ID checked out and she starts Monday.</p>
-      <div class="row"><button class="btn primary" type="button">Approve</button><button class="btn" type="button">Edit</button></div>
-    </article>
+  <div class="card">
+    <div class="pp-proposal-list" role="list" aria-label="Pepla suggests">
+      <article class="pp-proposal--compact" role="listitem" aria-labelledby="fd-p1">
+        <div class="pp-proposal__titles">
+          <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+          <span class="pp-proposal__title" id="fd-p1">Send Thandeka her contract and laptop request</span>
+          <span class="pp-proposal__meta">Her ID checked out and she starts Monday · Nothing leaves Pepla</span>
+        </div>
+        <div class="pp-proposal__row-actions">
+          <button class="pp-button pp-button--agent pp-button--small" type="button" aria-describedby="fd-p1">Approve</button>
+          <button class="pp-button pp-button--default pp-button--small" type="button" aria-describedby="fd-p1">Review</button>
+        </div>
+      </article>
+    </div>
   </div>
 </div>
 <h3>Roles</h3>
@@ -233,8 +243,8 @@ ${roleTables}
 <div class="tw"><table><thead><tr><th>Token</th><th>Value</th></tr></thead><tbody>${motionRows}</tbody></table></div>
 
 <h2 id="icons">Icons</h2>
-<p>Lucide only, 1.75px stroke. One meaning, one icon, everywhere.</p>
-<div class="ics">${iconRows}</div>
+<p>Lucide only, 1.75px stroke. One meaning, one icon, everywhere. This is the whole vocabulary: CI rejects any other icon in a component or UI kit.</p>
+${iconRows}
 
 <h2 id="logo">Logo</h2>
 <p>Three people side by side: coral, violet, mint. On dark, violet lifts to <code>#7d6ff0</code>. The wordmark is always lowercase, Manrope 800. Keep clear space of one circle radius around the lockup; the mark is never smaller than 20px wide.</p>

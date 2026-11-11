@@ -19,9 +19,11 @@ A small label for a person's role or permission in Pepla: HR admin, Hiring manag
 
 | Role | Icon | What it allows |
 | --- | --- | --- |
-| HR admin | `user-cog` | Everything, including settings, salaries and the audit log |
+| Workspace admin | `shield` | Workspace settings, users and roles |
+| HR admin, HR director | `user-cog` | Everything, including settings, salaries and the audit log |
 | Hiring manager | `user-plus` | Their roles' candidates, scorecards, offers and new starters |
-| IT | `laptop` | IT setup bundles and their items |
+| TA specialist | `user-search` | Candidates, pipelines and interviews across roles |
+| IT admin | `laptop` | IT setup bundles and their items |
 | Employee | `user` | Their own record, documents and requests |
 
 ## States

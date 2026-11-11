@@ -1,5 +1,5 @@
 <section data-example="Candidate history, grouped by day">
-  <ol class="pp-timeline" aria-label="History for Kagiso Molefe" style="max-width:520px">
+  <ol class="pp-timeline pp-measure-form" aria-label="History for Kagiso Molefe">
     <li class="pp-timeline__day"><span role="heading" aria-level="3">Today</span></li>
     <li class="pp-timeline__event">
       <span class="pp-timeline__marker" aria-hidden="true"><span class="pp-avatar pp-avatar--agent"><i data-lucide="sparkles"></i></span></span>
@@ -34,11 +34,11 @@
         <time class="pp-timeline__time" datetime="2026-11-03T10:20" title="3 Nov 2026, 10:20">3 Nov 2026, 10:20</time>
       </div>
     </li>
+    <li class="pp-timeline__more"><button class="pp-button pp-button--subtle pp-button--small" type="button">Show older events</button></li>
   </ol>
-  <div class="pp-timeline__more"><button class="pp-button pp-button--subtle pp-button--small" type="button">Show older events</button></div>
 </section>
 <section data-example="Audit trail: a correction sits beside the original">
-  <ol class="pp-timeline" aria-label="Changes to Thandeka Dlamini's record" style="max-width:520px">
+  <ol class="pp-timeline pp-measure-form" aria-label="Changes to Thandeka Dlamini's record">
     <li class="pp-timeline__event pp-timeline__event--new">
       <span class="pp-timeline__marker" aria-hidden="true"><span class="pp-avatar pp-avatar--amber">LM</span></span>
       <div class="pp-timeline__content">
@@ -66,7 +66,7 @@
   </ol>
 </section>
 <section data-example="Compact, for a side panel">
-  <ol class="pp-timeline pp-timeline--compact" aria-label="Activity for Tariro Moyo" style="max-width:320px">
+  <ol class="pp-timeline pp-timeline--compact pp-measure-narrow" aria-label="Activity for Tariro Moyo">
     <li class="pp-timeline__event">
       <span class="pp-timeline__marker" aria-hidden="true"><span class="pp-avatar pp-avatar--agent"><i data-lucide="sparkles"></i></span></span>
       <div class="pp-timeline__content">
@@ -92,12 +92,12 @@
   </ol>
 </section>
 <section data-example="Loading and empty">
-  <div style="display:grid;gap:var(--space-300);max-width:420px">
-    <div class="pp-timeline" role="status" aria-label="Loading history">
-      <div style="display:flex;gap:var(--space-150);margin-bottom:var(--space-200)"><span class="pp-skeleton pp-skeleton--avatar-small"></span><span style="flex:1"><span class="pp-skeleton pp-skeleton--text"></span><span class="pp-skeleton pp-skeleton--text pp-skeleton--text-short"></span></span></div>
-      <div style="display:flex;gap:var(--space-150);margin-bottom:var(--space-200)"><span class="pp-skeleton pp-skeleton--avatar-small"></span><span style="flex:1"><span class="pp-skeleton pp-skeleton--text"></span><span class="pp-skeleton pp-skeleton--text pp-skeleton--text-short"></span></span></div>
-      <div style="display:flex;gap:var(--space-150)"><span class="pp-skeleton pp-skeleton--avatar-small"></span><span style="flex:1"><span class="pp-skeleton pp-skeleton--text"></span><span class="pp-skeleton pp-skeleton--text pp-skeleton--text-short"></span></span></div>
+  <div class="pp-stack pp-gap-300 pp-measure-narrow">
+    <div class="pp-stack pp-gap-200" role="status" aria-label="Loading history">
+      <div class="pp-inline pp-inline--nowrap pp-inline--top pp-gap-150"><span class="pp-skeleton pp-skeleton--avatar-small"></span><span class="pp-grow"><span class="pp-skeleton pp-skeleton--text"></span><span class="pp-skeleton pp-skeleton--text pp-skeleton--text-short"></span></span></div>
+      <div class="pp-inline pp-inline--nowrap pp-inline--top pp-gap-150"><span class="pp-skeleton pp-skeleton--avatar-small"></span><span class="pp-grow"><span class="pp-skeleton pp-skeleton--text"></span><span class="pp-skeleton pp-skeleton--text pp-skeleton--text-short"></span></span></div>
+      <div class="pp-inline pp-gap-150"><span class="pp-skeleton pp-skeleton--avatar-small"></span><span class="pp-grow"><span class="pp-skeleton pp-skeleton--text"></span><span class="pp-skeleton pp-skeleton--text pp-skeleton--text-short"></span></span></div>
     </div>
-    <div class="pp-timeline__empty">No changes yet. Edits to Thandeka's record will show here.</div>
+    <ol class="pp-timeline"><li class="pp-timeline__empty">No changes yet. Edits to Thandeka's record will show here.</li></ol>
   </div>
 </section>

@@ -1,5 +1,5 @@
 <section data-example="Before consent: nothing is ticked">
-  <form class="pp-consent" aria-labelledby="cc-t" style="max-width:600px">
+  <form class="pp-consent pp-measure-form" aria-labelledby="cc-t">
     <div class="pp-consent__header">
       <span class="pp-consent__title" role="heading" aria-level="2" id="cc-t">How Mokoena Accounting uses your information</span>
       <span class="pp-consent__intro">Before you upload documents, here is what we keep and why. You can read the full notice at any time.</span>
@@ -34,7 +34,7 @@
   </form>
 </section>
 <section data-example="Continue pressed without agreeing">
-  <div class="pp-field" style="max-width:600px">
+  <div class="pp-field pp-measure-form">
     <div class="pp-checkbox">
       <input class="pp-checkbox__input" type="checkbox" id="cc-err" required aria-invalid="true" aria-describedby="cc-err-e">
       <label class="pp-checkbox__label" for="cc-err">I agree that Mokoena Accounting may use my information as described above</label>
@@ -43,7 +43,8 @@
   </div>
 </section>
 <section data-example="The record of consent">
-  <div style="display:flex;flex-direction:column;gap:var(--space-150);max-width:600px">
+  <div class="pp-stack pp-gap-150 pp-measure-form">
+    <div class="pp-consent">
     <div class="pp-consent__record" role="status">
       <i data-lucide="circle-check"></i>
       <span class="pp-consent__record-text">
@@ -51,12 +52,15 @@
         <span class="pp-consent__record-meta">11 Nov 2026, 08:42 · <a class="pp-link" href="#withdraw">Change or withdraw</a></span>
       </span>
     </div>
+    </div>
+    <div class="pp-consent">
     <div class="pp-consent__record">
       <i data-lucide="circle-check"></i>
       <span class="pp-consent__record-text">
         <span>Tariro Moyo agreed to the privacy notice, version 3 (2 Nov 2026). She did not agree to share with the medical aid.</span>
         <span class="pp-consent__record-meta">11 Nov 2026, 08:42, in the new-hire portal · <a class="pp-link" href="#consent-history">View consent history</a></span>
       </span>
+    </div>
     </div>
   </div>
 </section>

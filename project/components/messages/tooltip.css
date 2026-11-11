@@ -22,12 +22,16 @@
 
 /* Anchor: shows the tooltip on hover (after 300ms) and on keyboard focus (at once) */
 .pp-tooltip-anchor { position: relative; display: inline-flex; }
-.pp-tooltip-anchor > .pp-tooltip { opacity: 0; visibility: hidden; transition: opacity var(--motion-duration-fast) var(--motion-easing-standard), visibility 0s linear var(--motion-duration-fast); }
-.pp-tooltip-anchor:hover > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: 300ms, 300ms; }
-.pp-tooltip-anchor:has(:focus-visible) > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: 0s; }
+.pp-tooltip-anchor > .pp-tooltip { opacity: 0; visibility: hidden; transition: opacity var(--motion-duration-fast) var(--motion-easing-standard), visibility var(--motion-duration-instant) linear var(--motion-duration-fast); }
+.pp-tooltip-anchor:hover > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: var(--motion-delay-tooltip), var(--motion-delay-tooltip); }
+.pp-tooltip-anchor:has(:focus-visible) > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: var(--motion-duration-instant); }
 
 /* Shown in place (docs and specs) */
 .pp-tooltip--inline { position: relative; inset: auto; display: inline-block; transform: none; }
 
 @media (hover: none) { .pp-tooltip-anchor > .pp-tooltip { display: none; } }
 @media (prefers-reduced-motion: reduce) { .pp-tooltip-anchor > .pp-tooltip { transition: none; } }
+
+/* Open: shown without hover, for docs and walkthroughs; keeps room for the tip above and below */
+.pp-tooltip-anchor--open { margin-block: var(--space-500); }
+.pp-tooltip-anchor--open > .pp-tooltip { opacity: 1; visibility: visible; }

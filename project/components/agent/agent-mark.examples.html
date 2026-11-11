@@ -1,5 +1,5 @@
 <section data-example="Mark and tooltip">
-  <div style="display:flex;flex-wrap:wrap;gap:var(--space-300);align-items:center">
+  <div class="pp-inline pp-gap-300">
     <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla</span></span>
     <span class="pp-agent-mark pp-agent-mark--suggested"><i data-lucide="sparkles"></i><span>Suggested by Pepla</span></span>
     <span class="pp-agent-mark pp-agent-mark--icon" role="img" aria-label="Filled in by Pepla"><i data-lucide="sparkles"></i></span>
@@ -7,13 +7,13 @@
   </div>
 </section>
 <section data-example="On a record (hover or tab to the mark)">
-  <dl class="pp-dl" style="max-width:520px;padding-top:var(--space-600)">
+  <dl class="pp-dl pp-measure-form">
     <dt>Bank</dt>
     <dd>FNB, cheque account</dd>
     <dt>Account number</dt>
-    <dd>
-      <span style="font-variant-numeric:tabular-nums">•••• •••• 4821</span>
-      <span class="pp-tooltip-anchor" style="margin-left:var(--space-100)">
+    <dd class="pp-inline">
+      <span class="pp-text pp-text--tabular">•••• •••• 4821</span>
+      <span class="pp-tooltip-anchor">
         <span class="pp-agent-mark" tabindex="0" aria-describedby="am-acc"><i data-lucide="sparkles"></i><span>Pepla</span></span>
         <span class="pp-tooltip" role="tooltip" id="am-acc">Pepla read this from the bank letter, 3 Nov 2026, 10:20. Approved by Thandeka Dlamini.</span>
       </span>
@@ -21,9 +21,9 @@
     <dt>Start date</dt>
     <dd>1 Dec 2026</dd>
     <dt>Laptop bundle</dt>
-    <dd>
-      Office starter
-      <span class="pp-tooltip-anchor" style="margin-left:var(--space-100)">
+    <dd class="pp-inline">
+      <span class="pp-text">Office starter</span>
+      <span class="pp-tooltip-anchor">
         <span class="pp-agent-mark pp-agent-mark--suggested" tabindex="0" aria-describedby="am-bundle"><i data-lucide="sparkles"></i><span>Suggested by Pepla</span></span>
         <span class="pp-tooltip" role="tooltip" id="am-bundle">Pepla picked this from the role, 11 Nov 2026, 08:05. Not approved yet.</span>
       </span>
@@ -31,24 +31,17 @@
   </dl>
 </section>
 <section data-example="In a dense list row">
-  <div role="table" aria-label="New hires starting in November" style="display:grid;max-width:560px;font:var(--font-body)">
-    <div role="row" style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--space-150);padding:var(--space-100) 0;border-bottom:var(--border-width) solid var(--color-border);font:var(--font-heading-xxsmall);color:var(--color-text-subtlest)">
-      <span role="columnheader">Name</span><span role="columnheader">Tax number</span><span role="columnheader">Starts</span>
-    </div>
-    <div role="row" style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--space-150);padding:var(--space-100) 0;border-bottom:var(--border-width) solid var(--color-border)">
-      <span role="cell">Kagiso Molefe</span>
-      <span role="cell" style="display:inline-flex;gap:var(--space-075);align-items:center"><span style="font-variant-numeric:tabular-nums">••••••3307</span><span class="pp-agent-mark pp-agent-mark--icon" role="img" aria-label="Filled in by Pepla" title="Pepla read this from the tax form, 4 Nov 2026, 09:40"><i data-lucide="sparkles"></i></span></span>
-      <span role="cell">16 Nov 2026</span>
-    </div>
-    <div role="row" style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--space-150);padding:var(--space-100) 0">
-      <span role="cell">Tariro Moyo</span>
-      <span role="cell" style="font-variant-numeric:tabular-nums">••••••8812</span>
-      <span role="cell">1 Dec 2026</span>
-    </div>
-  </div>
+  <div class="pp-table-wrap pp-measure-form"><table class="pp-table pp-table--compact">
+    <caption class="pp-visually-hidden">New hires starting in November</caption>
+    <thead><tr><th scope="col">Name</th><th scope="col">Tax number</th><th scope="col">Starts</th></tr></thead>
+    <tbody>
+      <tr><td>Kagiso Molefe</td><td><span class="pp-inline pp-inline--nowrap pp-gap-075"><span class="pp-text pp-text--tabular">••••••3307</span><span class="pp-agent-mark pp-agent-mark--icon" role="img" aria-label="Filled in by Pepla" title="Pepla read this from the tax form, 4 Nov 2026, 09:40"><i data-lucide="sparkles"></i></span></span></td><td>16 Nov 2026</td></tr>
+      <tr><td>Tariro Moyo</td><td><span class="pp-text pp-text--tabular">••••••8812</span></td><td>1 Dec 2026</td></tr>
+    </tbody>
+  </table></div>
 </section>
 <section data-example="On a timeline item">
-  <ol class="pp-timeline pp-timeline--compact" aria-label="Activity for Kagiso Molefe" style="max-width:420px">
+  <ol class="pp-timeline pp-timeline--compact pp-measure-narrow" aria-label="Activity for Kagiso Molefe">
     <li class="pp-timeline__event">
       <span class="pp-timeline__marker" aria-hidden="true"><span class="pp-avatar pp-avatar--violet">TD</span></span>
       <div class="pp-timeline__content">

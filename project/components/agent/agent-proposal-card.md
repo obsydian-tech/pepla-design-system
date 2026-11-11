@@ -80,7 +80,7 @@ The proposal card is how Pepla asks a person to approve something. It is the sig
 
 ## PrimeNG mapping
 
-No PrimeNG component. The card is a plain Angular template (`pp-proposal-card`) composed from existing pieces: `pp-card`, `pp-lozenge`, `pp-tag`, `pp-confidence`, `pp-button` (PrimeNG `p-button` through the Button pass-through), and `pp-textarea` (`pTextarea`) for the reason.
+No PrimeNG component. The card is a plain Angular component (`<pp-proposal-card>`, root class `pp-proposal`) composed from existing pieces: `pp-card`, `pp-lozenge`, `pp-tag`, `pp-confidence`, `pp-button` (PrimeNG `p-button` through the Button pass-through), and `pp-textarea` (`pTextarea`) for the reason.
 
 ```html
 <article class="pp-card pp-proposal" [attr.aria-busy]="state() === 'working' || null" [attr.aria-labelledby]="id + '-t'">

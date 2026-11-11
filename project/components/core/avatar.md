@@ -16,7 +16,7 @@ A small picture of a person: their photo, or their initials on a colour. Paired 
 1. **Circle**: the person's photo, or two initials.
 2. **Colour**: an accent chosen from the person's ID, so the same person always gets the same colour.
 3. **Presence dot** (optional): online or away, only where people chat.
-4. **Person** (`pp-person`): avatar + name + one line of meta (role, team or start date).
+4. **Person** (`pp-person`): avatar + name + one line of meta (role, team or start date). When the name links to the record it is not underlined, so a list of people stays quiet; the underline shows on hover and focus.
 
 ## Appearances
 

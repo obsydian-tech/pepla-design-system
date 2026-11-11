@@ -29,7 +29,8 @@ The form around the fields (`pp-form`, `pp-form-section`, `pp-form-row`, the foo
 | `pp-field` | One label, one control | Around two controls with one label (use a `<fieldset>` with a legend) |
 | `fieldset.pp-field` + `legend.pp-field__label` | A group of checkboxes, radios or tiles under one question | For unrelated controls |
 | `pp-form-row` | Pairs that belong together: first name and surname, start date and end date | For three or more columns; split into rows |
-| `pp-field__label--hidden` | A label kept for screen readers where the field is already named on screen: a toolbar search | In forms; every form field shows its label |
+| `pp-visually-hidden` on the label | A label kept for screen readers where the field is already named on screen: a toolbar search, a table caption | In forms; every form field shows its label |
+| `pp-field--row` | A setting whose label (and a line about it) sits beside its control: time limits, weights | For ordinary form fields, which put the label above |
 | `pp-form--wide` | Forms inside a wide page where the 720px cap leaves a gap | In drawers (they are already narrow) |
 
 ## States

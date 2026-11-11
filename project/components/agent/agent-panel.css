@@ -12,7 +12,7 @@
   color: var(--color-text);
   font: var(--font-body);
 }
-.pp-agent-panel--inline { position: relative; inset: auto; z-index: auto; height: 640px; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); box-shadow: none; overflow: hidden; }
+.pp-agent-panel--inline { position: relative; inset: auto; z-index: auto; height: var(--_height, 640px); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); box-shadow: none; overflow: hidden; }
 .pp-agent-panel--sheet { width: 100%; max-width: 390px; border-radius: 0; }
 
 .pp-agent-panel__header { display: flex; align-items: center; gap: var(--space-150); padding: var(--space-200) var(--space-250); border-bottom: var(--border-width) solid var(--color-border); }
@@ -52,3 +52,11 @@
 .pp-agent-panel--sheet .pp-agent-panel__header { padding: var(--space-150) var(--layout-gutter-phone); }
 .pp-agent-panel--sheet .pp-agent-panel__log { padding: var(--space-200) var(--layout-gutter-phone); }
 .pp-agent-panel--sheet .pp-agent-panel__composer { padding: var(--space-150) var(--layout-gutter-phone); }
+
+/* Suggestions: what Pepla can do, as one quiet list (not a stack of cards) */
+.pp-agent-panel__suggestions { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); overflow: hidden; }
+.pp-agent-panel__suggestions > li + li { border-top: var(--border-width) solid var(--color-border); }
+.pp-agent-panel__suggestion { display: flex; align-items: center; gap: var(--space-150); min-height: 44px; padding: var(--space-100) var(--space-200); color: var(--color-text); font: var(--font-body); text-decoration: none; }
+.pp-agent-panel__suggestion > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--color-icon-subtle); }
+.pp-agent-panel__suggestion:hover { background: var(--color-background-neutral-subtle-hovered); }
+.pp-agent-panel__suggestion:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: calc(var(--border-width-focused) * -1); }

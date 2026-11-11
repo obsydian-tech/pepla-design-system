@@ -25,6 +25,7 @@
 }
 .pp-app-shell__main {
   grid-area: main;
+  container-type: inline-size; /* components inside respond to the page width, not the window */
   min-width: 0;
   min-height: 0;
   overflow-y: auto;
@@ -130,3 +131,9 @@
 @media (prefers-reduced-motion: reduce) {
   .pp-app-shell--phone > .pp-side-navigation { transition: none; }
 }
+
+/* The content column stacks the page header and the page's sections 24px apart */
+.pp-app-shell__content { display: grid; gap: var(--space-300); align-content: start; min-width: 0; }
+.pp-app-shell__content > .pp-page-header { margin-bottom: 0; }
+/* Full width: a board or a wide table that needs every pixel */
+.pp-app-shell__content--full { max-width: none; }

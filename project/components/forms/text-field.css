@@ -80,7 +80,7 @@ input.pp-text-field--numeric { font-variant-numeric: tabular-nums; }
 .pp-text-field--money .pp-text-field__input { text-align: right; }
 
 /* Masked personal data (rule 6): the value shows as dots and its last digits until revealed */
-.pp-text-field--masked .pp-text-field__input { font-variant-numeric: tabular-nums; letter-spacing: 0.08em; }
+.pp-text-field--masked .pp-text-field__input { font-variant-numeric: tabular-nums; letter-spacing: var(--size-tracking-masked); }
 
 /* An icon button inside the field: reveal, clear, open calendar */
 .pp-text-field__action {

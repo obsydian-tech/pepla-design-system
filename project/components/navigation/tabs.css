@@ -55,6 +55,8 @@
   text-align: center;
 }
 .pp-tabs__tab[aria-selected="true"] .pp-tabs__count { background: var(--color-background-selected); color: var(--color-text-selected); }
+/* Root: the tab list over its panel */
+.pp-tabs { display: grid; min-width: 0; }
 .pp-tabs__panel { padding-top: var(--space-300); }
 .pp-tabs__panel:focus-visible { outline-offset: var(--focus-ring-offset); border-radius: var(--radius-small); }
 
