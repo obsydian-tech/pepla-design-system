@@ -6,9 +6,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>
@@ -29,7 +27,7 @@
 </header>
 <div class="pp-stack pp-gap-200">
 <article class="pp-card">
-<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Pepla noticed</h2><p class="pp-card__subtitle">5 things in the pipeline need a look</p></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--danger"><i data-lucide="octagon-alert"></i>1 urgent</span><span class="pp-lozenge pp-lozenge--warning"><i data-lucide="triangle-alert"></i>2 high</span><a class="pp-button pp-button--link pp-button--small" href="#">View all 5</a></div></header>
+<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Pepla noticed</h2><p class="pp-card__subtitle">5 things in the pipeline need a look</p></div><div class="pp-card__aside"><a class="pp-button pp-button--link pp-button--small" href="#">View all 5</a></div></header>
 <div class="pp-proposal-list" role="list" aria-label="Pepla noticed">
 <article class="pp-proposal--compact" role="listitem" aria-labelledby="al1">
 <div class="pp-proposal__titles">
@@ -76,19 +74,9 @@
 <div class="pp-stat-row">
 <a class="pp-stat" href="#"><span class="pp-stat__label"><i data-lucide="clock-alert"></i>Overdue</span><span class="pp-stat__value">2</span><span class="pp-stat__meta pp-stat__meta--danger"><i data-lucide="octagon-alert"></i>Past their stage time limit</span></a>
 <a class="pp-stat" href="#"><span class="pp-stat__label"><i data-lucide="clock"></i>Due soon</span><span class="pp-stat__value">3</span><span class="pp-stat__meta pp-stat__meta--attention"><i data-lucide="clock"></i>Within a day of the limit</span></a>
-<div class="pp-stat"><span class="pp-stat__label"><i data-lucide="handshake"></i>Reach offer</span><span class="pp-stat__value">46%</span><span class="pp-stat__meta">6 of 13 reached the offer stage</span></div>
-<a class="pp-stat" href="#"><span class="pp-stat__label"><i data-lucide="users"></i>Active pipeline</span><span class="pp-stat__value">13</span><span class="pp-stat__meta">Open candidates</span></a>
+<a class="pp-stat" href="#"><span class="pp-stat__label"><i data-lucide="users"></i>Active pipeline</span><span class="pp-stat__value">13</span></a>
 </div>
 
-<article class="pp-card">
-<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Candidates at risk</h2><p class="pp-card__subtitle">The two who need you first</p></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--danger"><i data-lucide="clock-alert"></i>2 overdue</span><span class="pp-lozenge pp-lozenge--warning"><i data-lucide="clock"></i>3 due soon</span><a class="pp-button pp-button--link pp-button--small" href="#">View all 5</a></div></header>
-<div class="pp-table-wrap"><table class="pp-table pp-table--compact">
-<thead><tr><th scope="col">Candidate</th><th scope="col">Seniority and sentiment</th><th scope="col">Stage</th><th scope="col">Stage time</th></tr></thead>
-<tbody>
-<tr><td><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">BM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Bongani Mthembu</a><span class="pp-person__meta">Fleet controller</span></span></span></td><td><div class="pp-inline pp-gap-075"><span class="pp-tag">Mid</span><span class="pp-lozenge pp-lozenge--warning"><i data-lucide="triangle-alert"></i>Hesitant</span></div></td><td>Evaluation<br><span class="pp-text pp-text--small pp-text--subtle">Evaluation in progress</span></td><td><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-09" title="Stage limit was 9 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 2 days</time></td></tr>
-<tr><td><span class="pp-person"><span class="pp-avatar pp-avatar--violet" aria-hidden="true">CB</span><span class="pp-person__text"><a class="pp-person__name" href="#">Chipo Banda</a><span class="pp-person__meta">Sales rep, Lusaka</span></span></span></td><td><div class="pp-inline pp-gap-075"><span class="pp-tag">Mid</span><span class="pp-lozenge"><i data-lucide="minus"></i>Neutral</span></div></td><td>Offer approval<br><span class="pp-text pp-text--small pp-text--subtle">Offer awaiting approval</span></td><td><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-10" title="Stage limit was 10 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 1 day</time></td></tr>
-</tbody></table></div>
-</article>
 
 <div class="pp-columns pp-columns--even pp-gap-200">
 <article class="pp-card">
@@ -113,14 +101,13 @@
 </tbody></table></div>
 </article></div>
 
-<article class="pp-card">
-<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">This month</h2><p class="pp-card__subtitle">November 2026</p></div></header>
+<div class="pp-stack pp-gap-150"><h2 class="pp-heading pp-heading--small">This month</h2>
 <div class="pp-stat-row">
-<div class="pp-stat"><span class="pp-stat__label"><i data-lucide="send"></i>Offers sent</span><span class="pp-stat__value">6</span><span class="pp-stat__meta">At offer stage or beyond</span></div>
-<div class="pp-stat"><span class="pp-stat__label"><i data-lucide="circle-check"></i>Acceptance rate</span><span class="pp-stat__value">46%</span><span class="pp-stat__meta">Of the active pipeline beyond offer</span></div>
+<div class="pp-stat"><span class="pp-stat__label"><i data-lucide="send"></i>Offers sent</span><span class="pp-stat__value">6</span></div>
+<div class="pp-stat"><span class="pp-stat__label"><i data-lucide="circle-check"></i>Acceptance rate</span><span class="pp-stat__value">46%</span></div>
 <div class="pp-stat"><span class="pp-stat__label"><i data-lucide="triangle-alert"></i>Hesitant signals</span><span class="pp-stat__value">1</span><span class="pp-stat__meta pp-stat__meta--attention"><i data-lucide="triangle-alert"></i>Bongani Mthembu</span></div>
 </div>
-</article>
+</div>
 </div>
 </div>
 </main>
@@ -136,9 +123,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>
@@ -151,144 +136,112 @@
 <div class="pp-page-header__main">
 <div class="pp-page-header__text">
 <h1 class="pp-page-header__title">Pipeline</h1>
-<p class="pp-page-header__description">Every open candidate at Mokoena Logistics.</p><p class="pp-page-header__meta"><span><i data-lucide="clock-alert"></i>2 overdue</span></p>
+<p class="pp-page-header__description">Every open candidate at Mokoena Logistics.</p>
 </div>
 <div class="pp-page-header__actions"><div class="pp-button-group" role="group" aria-label="View">
 <button class="pp-button pp-button--default" type="button" aria-pressed="true"><i data-lucide="list"></i><span>List</span></button>
 <button class="pp-button pp-button--default" type="button" aria-pressed="false"><i data-lucide="columns-3"></i><span>Board</span></button>
-</div></div>
+</div><button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button></div>
 </div>
 
 </header>
-<div class="pp-stack pp-gap-200"><div class="pp-card pp-card--compact">
-<div class="pp-inline pp-gap-200"><div class="pp-grow--field pp-measure-narrow" role="search"><label class="pp-visually-hidden" for="pl-q">Search the pipeline</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="pl-q" type="search" placeholder="Search by name, email or role" autocomplete="off"><button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button></div></div>
-<div class="pp-inline pp-gap-075" role="group" aria-label="Stage"><span class="pp-text pp-text--small pp-text--strong">Stage</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All stages</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Interview and evaluation</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Offer stage</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Accepted</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Pre-onboarding</button></div></div>
-<div class="pp-inline pp-gap-200"><div class="pp-inline pp-gap-075" role="group" aria-label="Health"><span class="pp-text pp-text--small pp-text--strong">Health</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">On track</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Due soon</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Overdue</button></div>
-<div class="pp-inline pp-gap-075" role="group" aria-label="Seniority"><span class="pp-text pp-text--small pp-text--strong">Seniority</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Junior</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Mid</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Senior</button></div>
-<div class="pp-inline pp-gap-075" role="group" aria-label="Sentiment"><span class="pp-text pp-text--small pp-text--strong">Sentiment</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Positive</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Neutral</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Hesitant</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Excited</button></div></div>
-</div>
+<div class="pp-stack pp-gap-200"><div class="pp-inline pp-gap-150"><div class="pp-grow--field pp-measure-narrow" role="search"><label class="pp-visually-hidden" for="pl-q">Search the pipeline</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="pl-q" type="search" placeholder="Search by name, email or role" autocomplete="off"><button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button></div></div><div class="pp-inline pp-gap-075" role="group" aria-label="Stage"><span class="pp-text pp-text--small pp-text--strong">Stage</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All stages</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Interview and evaluation</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Offer stage</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Accepted</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Pre-onboarding</button></div><button class="pp-button pp-button--default pp-button--small" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="sliders-horizontal"></i><span>More filters</span></button></div>
 <div class="pp-inline pp-gap-150 pp-inline--between">
-<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--strong">13 candidates</span><span class="pp-lozenge pp-lozenge--danger"><i data-lucide="clock-alert"></i>2 overdue</span><span class="pp-lozenge pp-lozenge--warning"><i data-lucide="clock"></i>3 due soon</span></div>
+<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--strong">13 candidates</span><span class="pp-text pp-text--subtle">2 overdue, 3 due soon</span></div>
 <div class="pp-inline pp-gap-100"><label class="pp-text pp-text--small pp-text--subtle" for="pl-sort">Sort</label><div class="pp-select pp-select--small pp-select--fit"><select class="pp-select__input" id="pl-sort"><option selected>Most urgent first</option><option>Name, A to Z</option><option>Stage</option><option>Applied date</option></select><i data-lucide="chevron-down"></i></div></div>
 </div>
 <div class="pp-table-wrap"><table class="pp-table pp-table--stack">
 <caption>Pipeline, most urgent first</caption>
-<thead><tr><th scope="col">Candidate</th><th scope="col">Seniority</th><th scope="col">Sentiment</th><th scope="col">Stage</th><th scope="col" aria-sort="ascending"><button class="pp-table__sort" type="button">Stage time<i data-lucide="arrow-up"></i></button></th><th scope="col">Applied</th><th scope="col" class="pp-table__actions"><span aria-label="Open">&nbsp;</span></th></tr></thead>
+<thead><tr><th scope="col">Candidate</th><th scope="col">Stage</th><th scope="col" aria-sort="ascending"><button class="pp-table__sort" type="button">Stage time<i data-lucide="arrow-up"></i></button></th><th scope="col">Applied</th><th scope="col" class="pp-table__actions"><span aria-label="Open">&nbsp;</span></th></tr></thead>
 <tbody>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">BM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Bongani Mthembu</a><span class="pp-person__meta">Fleet controller</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge pp-lozenge--warning"><i data-lucide="triangle-alert"></i>Hesitant</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">BM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Bongani Mthembu</a><span class="pp-person__meta">Fleet controller · Mid</span></span></span></td>
 <td data-label="Stage">Evaluation</td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-09" title="Stage limit was 9 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 2 days</time></td>
 <td data-label="Applied">20 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Bongani Mthembu"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--violet" aria-hidden="true">CB</span><span class="pp-person__text"><a class="pp-person__name" href="#">Chipo Banda</a><span class="pp-person__meta">Sales rep, Lusaka</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="minus"></i>Neutral</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--violet" aria-hidden="true">CB</span><span class="pp-person__text"><a class="pp-person__name" href="#">Chipo Banda</a><span class="pp-person__meta">Sales rep, Lusaka · Mid</span></span></span></td>
 <td data-label="Stage">Offer approval</td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-10" title="Stage limit was 10 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 1 day</time></td>
 <td data-label="Applied">22 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Chipo Banda"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--sky" aria-hidden="true">TN</span><span class="pp-person__text"><a class="pp-person__name" href="#">Tendai Ncube</a><span class="pp-person__meta">Warehouse supervisor</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="thumbs-up"></i>Positive</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--sky" aria-hidden="true">TN</span><span class="pp-person__text"><a class="pp-person__name" href="#">Tendai Ncube</a><span class="pp-person__meta">Warehouse supervisor · Mid</span></span></span></td>
 <td data-label="Stage">Interviewing</td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-11" title="Stage limit is 11 Nov 2026"><i data-lucide="clock"></i>Due today</time></td>
 <td data-label="Applied">30 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Tendai Ncube"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--magenta" aria-hidden="true">KM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Kagiso Molefe</a><span class="pp-person__meta">Senior accountant</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Senior</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="thumbs-up"></i>Positive</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--magenta" aria-hidden="true">KM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Kagiso Molefe</a><span class="pp-person__meta">Senior accountant · Senior</span></span></span></td>
 <td data-label="Stage">Offer delivery</td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-12" title="Stage limit is 12 Nov 2026"><i data-lucide="clock"></i>Due in 1 day</time></td>
 <td data-label="Applied">28 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Kagiso Molefe"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">NK</span><span class="pp-person__text"><a class="pp-person__name" href="#">Nomvula Khumalo</a><span class="pp-person__meta">Dispatch clerk</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Junior</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="laugh"></i>Excited</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">NK</span><span class="pp-person__text"><a class="pp-person__name" href="#">Nomvula Khumalo</a><span class="pp-person__meta">Dispatch clerk · Junior</span></span></span></td>
 <td data-label="Stage">Pre-boarding</td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-12" title="Stage limit is 12 Nov 2026"><i data-lucide="clock"></i>Due in 1 day</time></td>
 <td data-label="Applied">1 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Nomvula Khumalo"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">RN</span><span class="pp-person__text"><a class="pp-person__name" href="#">Rudo Nyathi</a><span class="pp-person__meta">Sales rep, Harare</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Junior</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="laugh"></i>Excited</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">RN</span><span class="pp-person__text"><a class="pp-person__name" href="#">Rudo Nyathi</a><span class="pp-person__meta">Sales rep, Harare · Junior</span></span></span></td>
 <td data-label="Stage">Interviewing</td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-15" title="Stage limit is 15 Nov 2026"><i data-lucide="circle-check"></i>On track, 4 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-15" title="Stage limit is 15 Nov 2026"><i data-lucide="clock"></i>On track, 4 days left</time></td>
 <td data-label="Applied">2 Nov 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Rudo Nyathi"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">AM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Ayanda Mkhize</a><span class="pp-person__meta">HR officer</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="thumbs-up"></i>Positive</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">AM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Ayanda Mkhize</a><span class="pp-person__meta">HR officer · Mid</span></span></span></td>
 <td data-label="Stage">Evaluation</td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-14" title="Stage limit is 14 Nov 2026"><i data-lucide="circle-check"></i>On track, 3 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-14" title="Stage limit is 14 Nov 2026"><i data-lucide="clock"></i>On track, 3 days left</time></td>
 <td data-label="Applied">25 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Ayanda Mkhize"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">TK</span><span class="pp-person__text"><a class="pp-person__name" href="#">Thabo Khumalo</a><span class="pp-person__meta">Operations manager</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Senior</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="thumbs-up"></i>Positive</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">TK</span><span class="pp-person__text"><a class="pp-person__name" href="#">Thabo Khumalo</a><span class="pp-person__meta">Operations manager · Senior</span></span></span></td>
 <td data-label="Stage">Offer preparation</td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-16" title="Stage limit is 16 Nov 2026"><i data-lucide="circle-check"></i>On track, 5 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-16" title="Stage limit is 16 Nov 2026"><i data-lucide="clock"></i>On track, 5 days left</time></td>
 <td data-label="Applied">19 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Thabo Khumalo"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">TM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Tariro Moyo</a><span class="pp-person__meta">Storeman, Bulawayo</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Junior</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="minus"></i>Neutral</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">TM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Tariro Moyo</a><span class="pp-person__meta">Storeman, Bulawayo · Junior</span></span></span></td>
 <td data-label="Stage">Background check</td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-17" title="Stage limit is 17 Nov 2026"><i data-lucide="circle-check"></i>On track, 6 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-17" title="Stage limit is 17 Nov 2026"><i data-lucide="clock"></i>On track, 6 days left</time></td>
 <td data-label="Applied">27 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Tariro Moyo"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--violet" aria-hidden="true">FC</span><span class="pp-person__text"><a class="pp-person__name" href="#">Farai Chikwanha</a><span class="pp-person__meta">IT support technician, Harare</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="minus"></i>Neutral</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--violet" aria-hidden="true">FC</span><span class="pp-person__text"><a class="pp-person__name" href="#">Farai Chikwanha</a><span class="pp-person__meta">IT support technician, Harare · Mid</span></span></span></td>
 <td data-label="Stage">Interviewing</td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-17" title="Stage limit is 17 Nov 2026"><i data-lucide="circle-check"></i>On track, 6 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-17" title="Stage limit is 17 Nov 2026"><i data-lucide="clock"></i>On track, 6 days left</time></td>
 <td data-label="Applied">5 Nov 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Farai Chikwanha"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Lerato Mokoena</a><span class="pp-person__meta">Payroll administrator</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="thumbs-up"></i>Positive</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Lerato Mokoena</a><span class="pp-person__meta">Payroll administrator · Mid</span></span></span></td>
 <td data-label="Stage">Contract signing</td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-18" title="Stage limit is 18 Nov 2026"><i data-lucide="circle-check"></i>On track, 7 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-18" title="Stage limit is 18 Nov 2026"><i data-lucide="clock"></i>On track, 7 days left</time></td>
 <td data-label="Applied">15 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Lerato Mokoena"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--sky" aria-hidden="true">MP</span><span class="pp-person__text"><a class="pp-person__name" href="#">Mwila Phiri</a><span class="pp-person__meta">Driver, Lusaka</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Junior</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="minus"></i>Neutral</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--sky" aria-hidden="true">MP</span><span class="pp-person__text"><a class="pp-person__name" href="#">Mwila Phiri</a><span class="pp-person__meta">Driver, Lusaka · Junior</span></span></span></td>
 <td data-label="Stage">Application review</td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-19" title="Stage limit is 19 Nov 2026"><i data-lucide="circle-check"></i>On track, 8 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-19" title="Stage limit is 19 Nov 2026"><i data-lucide="clock"></i>On track, 8 days left</time></td>
 <td data-label="Applied">9 Nov 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Mwila Phiri"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">SZ</span><span class="pp-person__text"><a class="pp-person__name" href="#">Sizwe Zulu</a><span class="pp-person__meta">Senior accountant</span></span></span></td>
-<td data-label="Seniority"><span class="pp-tag">Senior</span></td>
-<td data-label="Sentiment"><span class="pp-lozenge"><i data-lucide="laugh"></i>Excited</span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">SZ</span><span class="pp-person__text"><a class="pp-person__name" href="#">Sizwe Zulu</a><span class="pp-person__meta">Senior accountant · Senior</span></span></span></td>
 <td data-label="Stage">Onboarding</td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-20" title="Onboarding ends 20 Nov 2026"><i data-lucide="circle-check"></i>On track, day 3 of 10</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-20" title="Onboarding ends 20 Nov 2026"><i data-lucide="clock"></i>On track, day 3 of 10</time></td>
 <td data-label="Applied">20 Sep 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Sizwe Zulu"><i data-lucide="chevron-right"></i></button></td>
 </tr>
@@ -307,9 +260,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>
@@ -322,24 +273,18 @@
 <div class="pp-page-header__main">
 <div class="pp-page-header__text">
 <h1 class="pp-page-header__title">Pipeline</h1>
-<p class="pp-page-header__description">Every open candidate at Mokoena Logistics.</p><p class="pp-page-header__meta"><span><i data-lucide="clock-alert"></i>2 overdue</span></p>
+<p class="pp-page-header__description">Every open candidate at Mokoena Logistics.</p>
 </div>
 <div class="pp-page-header__actions"><div class="pp-button-group" role="group" aria-label="View">
 <button class="pp-button pp-button--default" type="button" aria-pressed="false"><i data-lucide="list"></i><span>List</span></button>
 <button class="pp-button pp-button--default" type="button" aria-pressed="true"><i data-lucide="columns-3"></i><span>Board</span></button>
-</div></div>
+</div><button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button></div>
 </div>
 
 </header>
-<div class="pp-stack pp-gap-200"><div class="pp-card pp-card--compact">
-<div class="pp-inline pp-gap-200"><div class="pp-grow--field pp-measure-narrow" role="search"><label class="pp-visually-hidden" for="pl-q">Search the pipeline</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="pl-q" type="search" placeholder="Search by name, email or role" autocomplete="off"><button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button></div></div>
-<div class="pp-inline pp-gap-075" role="group" aria-label="Stage"><span class="pp-text pp-text--small pp-text--strong">Stage</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All stages</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Interview and evaluation</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Offer stage</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Accepted</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Pre-onboarding</button></div></div>
-<div class="pp-inline pp-gap-200"><div class="pp-inline pp-gap-075" role="group" aria-label="Health"><span class="pp-text pp-text--small pp-text--strong">Health</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">On track</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Due soon</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Overdue</button></div>
-<div class="pp-inline pp-gap-075" role="group" aria-label="Seniority"><span class="pp-text pp-text--small pp-text--strong">Seniority</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Junior</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Mid</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Senior</button></div>
-<div class="pp-inline pp-gap-075" role="group" aria-label="Sentiment"><span class="pp-text pp-text--small pp-text--strong">Sentiment</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Positive</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Neutral</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Hesitant</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Excited</button></div></div>
-</div>
+<div class="pp-stack pp-gap-200"><div class="pp-inline pp-gap-150"><div class="pp-grow--field pp-measure-narrow" role="search"><label class="pp-visually-hidden" for="pl-q">Search the pipeline</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="pl-q" type="search" placeholder="Search by name, email or role" autocomplete="off"><button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button></div></div></div><button class="pp-button pp-button--default pp-button--small" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="sliders-horizontal"></i><span>More filters</span></button></div>
 <div class="pp-inline pp-gap-150 pp-inline--between">
-<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--strong">13 candidates</span><span class="pp-lozenge pp-lozenge--danger"><i data-lucide="clock-alert"></i>2 overdue</span><span class="pp-lozenge pp-lozenge--warning"><i data-lucide="clock"></i>3 due soon</span></div>
+<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--strong">13 candidates</span></div>
 <div class="pp-inline pp-gap-100"><label class="pp-text pp-text--small pp-text--subtle" for="pl-sort">Sort</label><div class="pp-select pp-select--small pp-select--fit"><select class="pp-select__input" id="pl-sort"><option selected>Most urgent first</option><option>Name, A to Z</option><option>Stage</option><option>Applied date</option></select><i data-lucide="chevron-down"></i></div></div>
 </div>
 <div class="pp-pipeline">
@@ -363,27 +308,22 @@
 </li><li class="pp-pipeline__card">
 <div class="pp-pipeline__card-body">
 <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--blue" aria-hidden="true">RN</span><span class="pp-person__text"><a class="pp-person__name" href="#">Rudo Nyathi</a><span class="pp-person__meta">Sales rep, Harare · Interviewing</span></span></span>
-<span class="pp-lozenge"><i data-lucide="laugh"></i>Excited</span>
 </div>
 </li><li class="pp-pipeline__card">
 <div class="pp-pipeline__card-body">
 <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--amber" aria-hidden="true">AM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Ayanda Mkhize</a><span class="pp-person__meta">HR officer · Evaluation</span></span></span>
-<span class="pp-lozenge"><i data-lucide="thumbs-up"></i>Positive</span>
 </div>
 </li><li class="pp-pipeline__card">
 <div class="pp-pipeline__card-body">
 <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--green" aria-hidden="true">TM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Tariro Moyo</a><span class="pp-person__meta">Storeman · Background check</span></span></span>
-<span class="pp-lozenge"><i data-lucide="circle-check"></i>On track</span>
 </div>
 </li><li class="pp-pipeline__card">
 <div class="pp-pipeline__card-body">
 <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--violet" aria-hidden="true">FC</span><span class="pp-person__text"><a class="pp-person__name" href="#">Farai Chikwanha</a><span class="pp-person__meta">IT support technician · Interviewing</span></span></span>
-<span class="pp-lozenge"><i data-lucide="circle-check"></i>On track</span>
 </div>
 </li><li class="pp-pipeline__card">
 <div class="pp-pipeline__card-body">
 <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--sky" aria-hidden="true">MP</span><span class="pp-person__text"><a class="pp-person__name" href="#">Mwila Phiri</a><span class="pp-person__meta">Driver, Lusaka · Application review</span></span></span>
-<span class="pp-lozenge"><i data-lucide="circle-check"></i>On track</span>
 </div>
 </li></ul>
 </li>
@@ -406,7 +346,6 @@
 </li><li class="pp-pipeline__card">
 <div class="pp-pipeline__card-body">
 <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--blue" aria-hidden="true">TK</span><span class="pp-person__text"><a class="pp-person__name" href="#">Thabo Khumalo</a><span class="pp-person__meta">Operations manager · Offer preparation</span></span></span>
-<span class="pp-lozenge"><i data-lucide="circle-check"></i>On track</span>
 </div>
 </li></ul>
 </li>
@@ -419,7 +358,6 @@
 <ul class="pp-pipeline__cards"><li class="pp-pipeline__card">
 <div class="pp-pipeline__card-body">
 <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Lerato Mokoena</a><span class="pp-person__meta">Payroll administrator · Contract signing</span></span></span>
-<span class="pp-lozenge"><i data-lucide="circle-check"></i>On track</span>
 </div>
 </li></ul>
 </li>
@@ -437,7 +375,6 @@
 </li><li class="pp-pipeline__card">
 <div class="pp-pipeline__card-body">
 <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--green" aria-hidden="true">SZ</span><span class="pp-person__text"><a class="pp-person__name" href="#">Sizwe Zulu</a><span class="pp-person__meta">Senior accountant · Onboarding</span></span></span>
-<span class="pp-lozenge"><i data-lucide="laugh"></i>Excited</span>
 </div>
 </li></ul>
 </li>
@@ -457,9 +394,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>
@@ -474,13 +409,13 @@
 <h1 class="pp-page-header__title">Candidates</h1>
 <p class="pp-page-header__description">Find anyone who applied, in any stage.</p>
 </div>
-
+<div class="pp-page-header__actions"><button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button></div>
 </div>
 
 </header>
 <div class="pp-stack pp-gap-200"><div class="pp-card">
 <div role="search"><label class="pp-visually-hidden" for="cd-q">Search candidates</label><div class="pp-text-field pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="cd-q" type="search" placeholder="Search candidates by name, email or role" autocomplete="off"><button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button></div></div>
-<div class="pp-inline pp-gap-300"><div class="pp-inline pp-gap-075" role="group" aria-label="Health"><span class="pp-text pp-text--small pp-text--strong">Health</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">On track</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Due soon</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Overdue</button></div><div class="pp-inline pp-gap-075" role="group" aria-label="Seniority"><span class="pp-text pp-text--small pp-text--strong">Seniority</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Junior</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Mid</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Senior</button></div></div>
+<div class="pp-inline pp-gap-300"><div class="pp-inline pp-gap-075" role="group" aria-label="Health"><span class="pp-text pp-text--small pp-text--strong">Health</span><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">On track</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Due soon</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Overdue</button></div><button class="pp-button pp-button--default pp-button--small" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="sliders-horizontal"></i><span>More filters</span></button></div>
 </div>
 <h2 class="pp-heading pp-heading--small">Recently viewed</h2>
 <div class="pp-card-grid">
@@ -494,7 +429,7 @@
 </a>
 <a class="pp-card pp-card--interactive pp-card--compact" href="#">
 <span class="pp-person"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">RN</span><span class="pp-person__text"><span class="pp-person__name">Rudo Nyathi</span><span class="pp-person__meta">Sales rep, Harare · Interviewing</span></span></span>
-<div><span class="pp-lozenge"><i data-lucide="circle-check"></i>On track</span></div>
+<div></div>
 </a>
 <a class="pp-card pp-card--interactive pp-card--compact" href="#">
 <span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">NK</span><span class="pp-person__text"><span class="pp-person__name">Nomvula Khumalo</span><span class="pp-person__meta">Dispatch clerk · Pre-boarding</span></span></span>
@@ -504,109 +439,96 @@
 <div class="pp-inline pp-gap-100"><h2 class="pp-heading pp-heading--small">All candidates</h2><span class="pp-badge" aria-label="13 candidates">13</span></div>
 <div class="pp-table-wrap"><table class="pp-table pp-table--stack">
 <caption>All candidates</caption>
-<thead><tr><th scope="col">Candidate</th><th scope="col">Stage</th><th scope="col">Seniority</th><th scope="col">Stage time</th><th scope="col">Applied</th><th scope="col" class="pp-table__actions"><span aria-label="Open">&nbsp;</span></th></tr></thead>
+<thead><tr><th scope="col">Candidate</th><th scope="col">Stage</th><th scope="col">Stage time</th><th scope="col">Applied</th><th scope="col" class="pp-table__actions"><span aria-label="Open">&nbsp;</span></th></tr></thead>
 <tbody>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">BM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Bongani Mthembu</a><span class="pp-person__meta">Fleet controller</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">BM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Bongani Mthembu</a><span class="pp-person__meta">Fleet controller · Mid</span></span></span></td>
 <td data-label="Stage">Evaluation</td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-09" title="Stage limit was 9 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 2 days</time></td>
 <td data-label="Applied">20 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Bongani Mthembu"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--violet" aria-hidden="true">CB</span><span class="pp-person__text"><a class="pp-person__name" href="#">Chipo Banda</a><span class="pp-person__meta">Sales rep, Lusaka</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--violet" aria-hidden="true">CB</span><span class="pp-person__text"><a class="pp-person__name" href="#">Chipo Banda</a><span class="pp-person__meta">Sales rep, Lusaka · Mid</span></span></span></td>
 <td data-label="Stage">Offer approval</td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-10" title="Stage limit was 10 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 1 day</time></td>
 <td data-label="Applied">22 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Chipo Banda"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--sky" aria-hidden="true">TN</span><span class="pp-person__text"><a class="pp-person__name" href="#">Tendai Ncube</a><span class="pp-person__meta">Warehouse supervisor</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--sky" aria-hidden="true">TN</span><span class="pp-person__text"><a class="pp-person__name" href="#">Tendai Ncube</a><span class="pp-person__meta">Warehouse supervisor · Mid</span></span></span></td>
 <td data-label="Stage">Interviewing</td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-11" title="Stage limit is 11 Nov 2026"><i data-lucide="clock"></i>Due today</time></td>
 <td data-label="Applied">30 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Tendai Ncube"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--magenta" aria-hidden="true">KM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Kagiso Molefe</a><span class="pp-person__meta">Senior accountant</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--magenta" aria-hidden="true">KM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Kagiso Molefe</a><span class="pp-person__meta">Senior accountant · Senior</span></span></span></td>
 <td data-label="Stage">Offer delivery</td>
-<td data-label="Seniority"><span class="pp-tag">Senior</span></td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-12" title="Stage limit is 12 Nov 2026"><i data-lucide="clock"></i>Due in 1 day</time></td>
 <td data-label="Applied">28 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Kagiso Molefe"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">NK</span><span class="pp-person__text"><a class="pp-person__name" href="#">Nomvula Khumalo</a><span class="pp-person__meta">Dispatch clerk</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">NK</span><span class="pp-person__text"><a class="pp-person__name" href="#">Nomvula Khumalo</a><span class="pp-person__meta">Dispatch clerk · Junior</span></span></span></td>
 <td data-label="Stage">Pre-boarding</td>
-<td data-label="Seniority"><span class="pp-tag">Junior</span></td>
 <td data-label="Stage time"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-12" title="Stage limit is 12 Nov 2026"><i data-lucide="clock"></i>Due in 1 day</time></td>
 <td data-label="Applied">1 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Nomvula Khumalo"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">RN</span><span class="pp-person__text"><a class="pp-person__name" href="#">Rudo Nyathi</a><span class="pp-person__meta">Sales rep, Harare</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">RN</span><span class="pp-person__text"><a class="pp-person__name" href="#">Rudo Nyathi</a><span class="pp-person__meta">Sales rep, Harare · Junior</span></span></span></td>
 <td data-label="Stage">Interviewing</td>
-<td data-label="Seniority"><span class="pp-tag">Junior</span></td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-15" title="Stage limit is 15 Nov 2026"><i data-lucide="circle-check"></i>On track, 4 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-15" title="Stage limit is 15 Nov 2026"><i data-lucide="clock"></i>On track, 4 days left</time></td>
 <td data-label="Applied">2 Nov 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Rudo Nyathi"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">AM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Ayanda Mkhize</a><span class="pp-person__meta">HR officer</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">AM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Ayanda Mkhize</a><span class="pp-person__meta">HR officer · Mid</span></span></span></td>
 <td data-label="Stage">Evaluation</td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-14" title="Stage limit is 14 Nov 2026"><i data-lucide="circle-check"></i>On track, 3 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-14" title="Stage limit is 14 Nov 2026"><i data-lucide="clock"></i>On track, 3 days left</time></td>
 <td data-label="Applied">25 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Ayanda Mkhize"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">TK</span><span class="pp-person__text"><a class="pp-person__name" href="#">Thabo Khumalo</a><span class="pp-person__meta">Operations manager</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">TK</span><span class="pp-person__text"><a class="pp-person__name" href="#">Thabo Khumalo</a><span class="pp-person__meta">Operations manager · Senior</span></span></span></td>
 <td data-label="Stage">Offer preparation</td>
-<td data-label="Seniority"><span class="pp-tag">Senior</span></td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-16" title="Stage limit is 16 Nov 2026"><i data-lucide="circle-check"></i>On track, 5 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-16" title="Stage limit is 16 Nov 2026"><i data-lucide="clock"></i>On track, 5 days left</time></td>
 <td data-label="Applied">19 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Thabo Khumalo"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">TM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Tariro Moyo</a><span class="pp-person__meta">Storeman, Bulawayo</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">TM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Tariro Moyo</a><span class="pp-person__meta">Storeman, Bulawayo · Junior</span></span></span></td>
 <td data-label="Stage">Background check</td>
-<td data-label="Seniority"><span class="pp-tag">Junior</span></td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-17" title="Stage limit is 17 Nov 2026"><i data-lucide="circle-check"></i>On track, 6 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-17" title="Stage limit is 17 Nov 2026"><i data-lucide="clock"></i>On track, 6 days left</time></td>
 <td data-label="Applied">27 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Tariro Moyo"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--violet" aria-hidden="true">FC</span><span class="pp-person__text"><a class="pp-person__name" href="#">Farai Chikwanha</a><span class="pp-person__meta">IT support technician, Harare</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--violet" aria-hidden="true">FC</span><span class="pp-person__text"><a class="pp-person__name" href="#">Farai Chikwanha</a><span class="pp-person__meta">IT support technician, Harare · Mid</span></span></span></td>
 <td data-label="Stage">Interviewing</td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-17" title="Stage limit is 17 Nov 2026"><i data-lucide="circle-check"></i>On track, 6 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-17" title="Stage limit is 17 Nov 2026"><i data-lucide="clock"></i>On track, 6 days left</time></td>
 <td data-label="Applied">5 Nov 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Farai Chikwanha"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Lerato Mokoena</a><span class="pp-person__meta">Payroll administrator</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-person__text"><a class="pp-person__name" href="#">Lerato Mokoena</a><span class="pp-person__meta">Payroll administrator · Mid</span></span></span></td>
 <td data-label="Stage">Contract signing</td>
-<td data-label="Seniority"><span class="pp-tag">Mid</span></td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-18" title="Stage limit is 18 Nov 2026"><i data-lucide="circle-check"></i>On track, 7 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-18" title="Stage limit is 18 Nov 2026"><i data-lucide="clock"></i>On track, 7 days left</time></td>
 <td data-label="Applied">15 Oct 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Lerato Mokoena"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--sky" aria-hidden="true">MP</span><span class="pp-person__text"><a class="pp-person__name" href="#">Mwila Phiri</a><span class="pp-person__meta">Driver, Lusaka</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--sky" aria-hidden="true">MP</span><span class="pp-person__text"><a class="pp-person__name" href="#">Mwila Phiri</a><span class="pp-person__meta">Driver, Lusaka · Junior</span></span></span></td>
 <td data-label="Stage">Application review</td>
-<td data-label="Seniority"><span class="pp-tag">Junior</span></td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-19" title="Stage limit is 19 Nov 2026"><i data-lucide="circle-check"></i>On track, 8 days left</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-19" title="Stage limit is 19 Nov 2026"><i data-lucide="clock"></i>On track, 8 days left</time></td>
 <td data-label="Applied">9 Nov 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Mwila Phiri"><i data-lucide="chevron-right"></i></button></td>
 </tr>
 <tr>
-<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">SZ</span><span class="pp-person__text"><a class="pp-person__name" href="#">Sizwe Zulu</a><span class="pp-person__meta">Senior accountant</span></span></span></td>
+<td data-label="Candidate"><span class="pp-person"><span class="pp-avatar pp-avatar--green" aria-hidden="true">SZ</span><span class="pp-person__text"><a class="pp-person__name" href="#">Sizwe Zulu</a><span class="pp-person__meta">Senior accountant · Senior</span></span></span></td>
 <td data-label="Stage">Onboarding</td>
-<td data-label="Seniority"><span class="pp-tag">Senior</span></td>
-<td data-label="Stage time"><time class="pp-lozenge pp-deadline" datetime="2026-11-20" title="Onboarding ends 20 Nov 2026"><i data-lucide="circle-check"></i>On track, day 3 of 10</time></td>
+<td data-label="Stage time"><time class="pp-lozenge pp-deadline pp-deadline--inline" datetime="2026-11-20" title="Onboarding ends 20 Nov 2026"><i data-lucide="clock"></i>On track, day 3 of 10</time></td>
 <td data-label="Applied">20 Sep 2026</td>
 <td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Open Sizwe Zulu"><i data-lucide="chevron-right"></i></button></td>
 </tr>
@@ -625,9 +547,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>
@@ -758,9 +678,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>
@@ -772,31 +690,22 @@
 <div class="pp-person-header__layout">
 <span class="pp-avatar pp-avatar--xlarge pp-avatar--green" aria-hidden="true">BM</span>
 <div class="pp-person-header__main">
-<div class="pp-person-header__name-row"><span class="pp-person-header__name" role="heading" aria-level="1">Bongani Mthembu</span><div class="pp-person-header__status"><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-09" title="Stage limit was 9 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 2 days</time><span class="pp-lozenge pp-lozenge--warning"><i data-lucide="triangle-alert"></i>Hesitant</span></div></div>
-<span class="pp-person-header__role">Fleet controller · Mid</span>
+<div class="pp-person-header__name-row"><span class="pp-person-header__name" role="heading" aria-level="1">Bongani Mthembu</span><div class="pp-person-header__status"><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-09" title="Stage limit was 9 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 2 days</time></div></div>
+<span class="pp-person-header__role">Fleet controller · Operations · Mid</span>
 <ul class="pp-person-header__facts"><li class="pp-person-header__fact"><i data-lucide="users"></i><span>Referral</span></li><li class="pp-person-header__fact"><i data-lucide="calendar-days"></i><span>Applied 20 Oct 2026</span></li><li class="pp-person-header__fact"><i data-lucide="map-pin"></i><span>Durban</span></li></ul>
 </div>
-<div class="pp-person-header__actions"><button class="pp-button pp-button--default" type="button"><i data-lucide="pencil"></i><span>Edit details</span></button><button class="pp-button pp-button--default" type="button"><i data-lucide="x"></i><span>Reject candidate</span></button><button class="pp-button pp-button--primary" type="button"><i data-lucide="arrow-right"></i><span>Advance to background check</span></button></div>
+<div class="pp-person-header__actions"><button class="pp-button pp-button--default" type="button"><i data-lucide="arrow-right"></i><span>Advance to background check</span></button><button class="pp-button pp-button--default pp-button--icon" type="button" aria-label="More actions for Bongani Mthembu" aria-haspopup="menu" aria-expanded="false"><i data-lucide="ellipsis"></i></button></div>
 </div>
 </div>
-<div class="pp-card pp-card--compact"><dl class="pp-dl pp-dl--strip"><dt>Role</dt><dd>Fleet controller</dd><dt>Department</dt><dd>Operations</dd><dt>Location</dt><dd>Durban</dd><dt>Applied</dt><dd>20 Oct 2026</dd><dt>Experience</dt><dd>4 years</dd></dl></div>
 <ol class="pp-progress-tracker" aria-label="Hiring phases"><li class="pp-progress-tracker__step pp-progress-tracker__step--current" aria-current="step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Interview and evaluation</span><span class="pp-progress-tracker__meta">Evaluation, 9 days in stage</span></span></li><li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Offer and acceptance</span><span class="pp-progress-tracker__meta">Create, approve, convert</span></span></li><li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Pre-onboarding</span><span class="pp-progress-tracker__meta">Prepare, provision, clear</span></span></li><li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Onboarding and day 1</span><span class="pp-progress-tracker__meta">Engage, activate, confirm</span></span></li></ol>
 <div class="pp-tabs__list" role="tablist" aria-label="Bongani Mthembu"><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="layout-dashboard"></i>Overview</button><button class="pp-tabs__tab" role="tab" aria-selected="true" type="button"><i data-lucide="messages-square"></i>Interviews<span class="pp-tabs__count">3</span></button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="file-text"></i>Offer</button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="package"></i>Provisioning</button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="pencil"></i>Notes</button></div>
 <div class="pp-section-message pp-section-message--agent" role="region" aria-labelledby="iv-sig"><i data-lucide="sparkles"></i><div class="pp-section-message__content"><h3 class="pp-section-message__title" id="iv-sig">Pepla noticed: 1 vote is still missing</h3><div class="pp-section-message__body">Bongani finished all 3 interviews on 6 Nov. Thabo Khumalo has not voted on the technical interview, so the evaluation cannot close. Bongani sounded hesitant on the last call.</div></div></div>
 <div class="pp-columns pp-columns--panel pp-gap-300">
 <div class="pp-stack pp-gap-200">
-<div class="pp-card pp-card--compact">
-<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--strong">Interview loop</span><span class="pp-text pp-text--subtle">3 of 3 required interviews done</span></div>
-<ol class="pp-progress-tracker" aria-label="Interview loop">
-<li class="pp-progress-tracker__step pp-progress-tracker__step--done"><span class="pp-progress-tracker__marker" aria-hidden="true"><i data-lucide="check"></i></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Phone screen</span><span class="pp-progress-tracker__meta">Done 21 Oct</span></span></li>
-<li class="pp-progress-tracker__step pp-progress-tracker__step--done"><span class="pp-progress-tracker__marker" aria-hidden="true"><i data-lucide="check"></i></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Technical</span><span class="pp-progress-tracker__meta">Done 3 Nov</span></span></li>
-<li class="pp-progress-tracker__step pp-progress-tracker__step--done"><span class="pp-progress-tracker__marker" aria-hidden="true"><i data-lucide="check"></i></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Culture fit</span><span class="pp-progress-tracker__meta">Done 6 Nov</span></span></li>
-</ol>
-</div>
-<h3 class="pp-heading pp-heading--xsmall">Interview records</h3>
+<div class="pp-inline pp-gap-100"><h3 class="pp-heading pp-heading--xsmall">Interviews</h3><span class="pp-text pp-text--small pp-text--subtle">3 of 3 required interviews done</span></div>
 <article class="pp-card pp-card--compact">
-<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Technical</h2><p class="pp-card__subtitle">Mon 3 Nov 2026, 10:00</p></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Completed</span></div></header>
-<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--small pp-text--subtle">Panel</span><span class="pp-avatar-group" role="group" aria-label="Panel: Sipho Ndlovu, Lerato Mokoena, Thabo Khumalo"><span class="pp-avatar pp-avatar--green" aria-hidden="true">SN</span><span class="pp-avatar pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-avatar pp-avatar--blue" aria-hidden="true">TK</span></span><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Outcome: passed</span></div>
+<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Technical</h2><p class="pp-card__subtitle">Mon 3 Nov 2026, 10:00</p></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--information"><i data-lucide="clock"></i>Waiting on 1 vote</span></div></header>
+<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--small pp-text--subtle">Panel</span><span class="pp-avatar-group" role="group" aria-label="Panel: Sipho Ndlovu, Lerato Mokoena, Thabo Khumalo"><span class="pp-avatar pp-avatar--green" aria-hidden="true">SN</span><span class="pp-avatar pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-avatar pp-avatar--blue" aria-hidden="true">TK</span></span></div>
 
 <div class="pp-stack pp-gap-100">
 <div class="pp-inline pp-gap-100"><span class="pp-text pp-text--strong">Panel votes</span><span class="pp-text pp-text--small pp-text--subtle">2 of 3 in</span></div>
@@ -809,13 +718,13 @@
 <div class="pp-card__footer"><button class="pp-button pp-button--default pp-button--small" type="button"><i data-lucide="pencil"></i><span>Capture panel vote</span></button><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="user-plus"></i><span>Add panel member</span></button></div>
 </article>
 <article class="pp-card pp-card--compact">
-<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Culture fit</h2><p class="pp-card__subtitle">Thu 6 Nov 2026, 14:00</p></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Completed</span></div></header>
-<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--small pp-text--subtle">Panel</span><span class="pp-avatar-group" role="group" aria-label="Panel: Sipho Ndlovu, Nomsa Dube"><span class="pp-avatar pp-avatar--green" aria-hidden="true">SN</span><span class="pp-avatar pp-avatar--magenta" aria-hidden="true">ND</span></span><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Outcome: passed</span><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>All votes in</span></div>
+<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Culture fit</h2><p class="pp-card__subtitle">Thu 6 Nov 2026, 14:00</p></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Passed</span></div></header>
+<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--small pp-text--subtle">Panel</span><span class="pp-avatar-group" role="group" aria-label="Panel: Sipho Ndlovu, Nomsa Dube"><span class="pp-avatar pp-avatar--green" aria-hidden="true">SN</span><span class="pp-avatar pp-avatar--magenta" aria-hidden="true">ND</span></span></div>
 
 </article>
 <article class="pp-card pp-card--compact">
-<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Phone screen</h2><p class="pp-card__subtitle">Tue 21 Oct 2026, 09:30</p></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Completed</span></div></header>
-<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--small pp-text--subtle">Panel</span><span class="pp-avatar-group" role="group" aria-label="Panel: Thandeka Dlamini"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">TD</span></span><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Outcome: passed</span></div>
+<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Phone screen</h2><p class="pp-card__subtitle">Tue 21 Oct 2026, 09:30</p></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Passed</span></div></header>
+<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--small pp-text--subtle">Panel</span><span class="pp-avatar-group" role="group" aria-label="Panel: Thandeka Dlamini"><span class="pp-avatar pp-avatar--blue" aria-hidden="true">TD</span></span></div>
 
 </article>
 </div>
@@ -873,9 +782,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>
@@ -887,27 +794,20 @@
 <div class="pp-person-header__layout">
 <span class="pp-avatar pp-avatar--xlarge pp-avatar--magenta" aria-hidden="true">KM</span>
 <div class="pp-person-header__main">
-<div class="pp-person-header__name-row"><span class="pp-person-header__name" role="heading" aria-level="1">Kagiso Molefe</span><div class="pp-person-header__status"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-12" title="Offer expires 12 Nov 2026"><i data-lucide="clock"></i>Reply due in 1 day</time><span class="pp-lozenge"><i data-lucide="thumbs-up"></i>Positive</span></div></div>
-<span class="pp-person-header__role">Senior accountant · Senior</span>
+<div class="pp-person-header__name-row"><span class="pp-person-header__name" role="heading" aria-level="1">Kagiso Molefe</span><div class="pp-person-header__status"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-12" title="Offer expires 12 Nov 2026"><i data-lucide="clock"></i>Reply due in 1 day</time></div></div>
+<span class="pp-person-header__role">Senior accountant · Finance · Senior</span>
 <ul class="pp-person-header__facts"><li class="pp-person-header__fact"><i data-lucide="users"></i><span>LinkedIn</span></li><li class="pp-person-header__fact"><i data-lucide="calendar-days"></i><span>Applied 28 Oct 2026</span></li><li class="pp-person-header__fact"><i data-lucide="map-pin"></i><span>Johannesburg</span></li></ul>
 </div>
-<div class="pp-person-header__actions"><button class="pp-button pp-button--default" type="button"><i data-lucide="pencil"></i><span>Edit details</span></button><button class="pp-button pp-button--default" type="button"><i data-lucide="x"></i><span>Reject candidate</span></button></div>
+<div class="pp-person-header__actions"><button class="pp-button pp-button--default pp-button--icon" type="button" aria-label="More actions for Kagiso Molefe" aria-haspopup="menu" aria-expanded="false"><i data-lucide="ellipsis"></i></button></div>
 </div>
 </div>
-<div class="pp-card pp-card--compact"><dl class="pp-dl pp-dl--strip"><dt>Role</dt><dd>Senior accountant</dd><dt>Department</dt><dd>Finance</dd><dt>Location</dt><dd>Johannesburg</dd><dt>Applied</dt><dd>28 Oct 2026</dd><dt>Experience</dt><dd>8 years</dd></dl></div>
 <ol class="pp-progress-tracker" aria-label="Hiring phases"><li class="pp-progress-tracker__step pp-progress-tracker__step--done"><span class="pp-progress-tracker__marker" aria-hidden="true"><i data-lucide="check"></i></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Interview and evaluation</span><span class="pp-progress-tracker__meta">Screen, evaluate, decide</span></span></li><li class="pp-progress-tracker__step pp-progress-tracker__step--current" aria-current="step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Offer and acceptance</span><span class="pp-progress-tracker__meta">Offer delivery, offer sent 9 Nov</span></span></li><li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Pre-onboarding</span><span class="pp-progress-tracker__meta">Prepare, provision, clear</span></span></li><li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Onboarding and day 1</span><span class="pp-progress-tracker__meta">Engage, activate, confirm</span></span></li></ol>
 <div class="pp-tabs__list" role="tablist" aria-label="Kagiso Molefe"><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="layout-dashboard"></i>Overview</button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="messages-square"></i>Interviews<span class="pp-tabs__count">3</span></button><button class="pp-tabs__tab" role="tab" aria-selected="true" type="button"><i data-lucide="file-text"></i>Offer</button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="package"></i>Provisioning</button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="pencil"></i>Notes</button></div>
-<ol class="pp-progress-tracker" aria-label="Offer steps">
-<li class="pp-progress-tracker__step pp-progress-tracker__step--done"><span class="pp-progress-tracker__marker" aria-hidden="true"><i data-lucide="check"></i></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Offer created</span><span class="pp-progress-tracker__meta">Done 5 Nov</span></span></li>
-<li class="pp-progress-tracker__step pp-progress-tracker__step--done"><span class="pp-progress-tracker__marker" aria-hidden="true"><i data-lucide="check"></i></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">In approval</span><span class="pp-progress-tracker__meta">All approved 8 Nov</span></span></li>
-<li class="pp-progress-tracker__step pp-progress-tracker__step--current" aria-current="step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Offer sent</span><span class="pp-progress-tracker__meta">Sent 9 Nov, reply due in 1 day</span></span></li>
-<li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Accepted</span><span class="pp-progress-tracker__meta">Not yet</span></span></li>
-</ol>
 <div class="pp-section-message pp-section-message--agent" role="region" aria-labelledby="of-sig"><i data-lucide="sparkles"></i><div class="pp-section-message__content"><h3 class="pp-section-message__title" id="of-sig">Pepla noticed: Kagiso's reply is due tomorrow</h3><div class="pp-section-message__body">On the last call he asked about medical aid. A short call today may help him decide.</div></div></div>
 <div class="pp-columns pp-columns--even pp-gap-200">
 <div class="pp-stack pp-gap-200">
 <article class="pp-card pp-offer">
-<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Offer details</h2><p class="pp-card__subtitle">Created 5 Nov 2026 by Thandeka Dlamini</p></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Submitted</span></div></header>
+<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Offer details</h2><p class="pp-card__subtitle">Created 5 Nov 2026 by Thandeka Dlamini</p></div></header>
 <dl class="pp-dl">
 <dt>Role</dt><dd>Senior accountant</dd>
 <dt>Department</dt><dd>Finance</dd>
@@ -919,7 +819,7 @@
 </dl>
 </article>
 <article class="pp-card">
-<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Offer sent</h2></div><div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--information"><i data-lucide="send"></i>Sent</span></div></header>
+<header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Offer sent</h2></div></header>
 <dl class="pp-dl">
 <dt>Sent</dt><dd>9 Nov 2026</dd>
 <dt>Reply</dt><dd><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-12" title="Expires 12 Nov 2026"><i data-lucide="clock"></i>Due in 1 day</time></dd>
@@ -982,9 +882,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>
@@ -996,14 +894,13 @@
 <div class="pp-person-header__layout">
 <span class="pp-avatar pp-avatar--xlarge pp-avatar--amber" aria-hidden="true">NK</span>
 <div class="pp-person-header__main">
-<div class="pp-person-header__name-row"><span class="pp-person-header__name" role="heading" aria-level="1">Nomvula Khumalo</span><div class="pp-person-header__status"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-16" title="Starts 16 Nov 2026"><i data-lucide="clock"></i>Starts in 5 days</time><span class="pp-lozenge"><i data-lucide="laugh"></i>Excited</span></div></div>
-<span class="pp-person-header__role">Dispatch clerk · Junior</span>
+<div class="pp-person-header__name-row"><span class="pp-person-header__name" role="heading" aria-level="1">Nomvula Khumalo</span><div class="pp-person-header__status"><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-16" title="Starts 16 Nov 2026"><i data-lucide="clock"></i>Starts in 5 days</time></div></div>
+<span class="pp-person-header__role">Dispatch clerk · Operations · Junior</span>
 <ul class="pp-person-header__facts"><li class="pp-person-header__fact"><i data-lucide="users"></i><span>Job board</span></li><li class="pp-person-header__fact"><i data-lucide="calendar-days"></i><span>Applied 1 Oct 2026</span></li><li class="pp-person-header__fact"><i data-lucide="map-pin"></i><span>Pietermaritzburg</span></li></ul>
 </div>
-<div class="pp-person-header__actions"><button class="pp-button pp-button--default" type="button"><i data-lucide="pencil"></i><span>Edit details</span></button></div>
+<div class="pp-person-header__actions"><button class="pp-button pp-button--default pp-button--icon" type="button" aria-label="More actions for Nomvula Khumalo" aria-haspopup="menu" aria-expanded="false"><i data-lucide="ellipsis"></i></button></div>
 </div>
 </div>
-<div class="pp-card pp-card--compact"><dl class="pp-dl pp-dl--strip"><dt>Role</dt><dd>Dispatch clerk</dd><dt>Department</dt><dd>Operations</dd><dt>Location</dt><dd>Pietermaritzburg</dd><dt>Applied</dt><dd>1 Oct 2026</dd><dt>Experience</dt><dd>1 year</dd></dl></div>
 <ol class="pp-progress-tracker" aria-label="Hiring phases"><li class="pp-progress-tracker__step pp-progress-tracker__step--done"><span class="pp-progress-tracker__marker" aria-hidden="true"><i data-lucide="check"></i></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Interview and evaluation</span><span class="pp-progress-tracker__meta">Screen, evaluate, decide</span></span></li><li class="pp-progress-tracker__step pp-progress-tracker__step--done"><span class="pp-progress-tracker__marker" aria-hidden="true"><i data-lucide="check"></i></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Offer and acceptance</span><span class="pp-progress-tracker__meta">Create, approve, convert</span></span></li><li class="pp-progress-tracker__step pp-progress-tracker__step--current" aria-current="step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Pre-onboarding</span><span class="pp-progress-tracker__meta">Pre-boarding, starts 16 Nov</span></span></li><li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Onboarding and day 1</span><span class="pp-progress-tracker__meta">Engage, activate, confirm</span></span></li></ol>
 <div class="pp-tabs__list" role="tablist" aria-label="Nomvula Khumalo"><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="layout-dashboard"></i>Overview</button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="messages-square"></i>Interviews<span class="pp-tabs__count">3</span></button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="file-text"></i>Offer</button><button class="pp-tabs__tab" role="tab" aria-selected="true" type="button"><i data-lucide="package"></i>Provisioning<span class="pp-tabs__count">1</span></button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="pencil"></i>Notes</button></div>
 <div class="pp-columns pp-gap-300">
@@ -1073,9 +970,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>
@@ -1087,14 +982,13 @@
 <div class="pp-person-header__layout">
 <span class="pp-avatar pp-avatar--xlarge pp-avatar--green" aria-hidden="true">BM</span>
 <div class="pp-person-header__main">
-<div class="pp-person-header__name-row"><span class="pp-person-header__name" role="heading" aria-level="1">Bongani Mthembu</span><div class="pp-person-header__status"><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-09" title="Stage limit was 9 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 2 days</time><span class="pp-lozenge pp-lozenge--warning"><i data-lucide="triangle-alert"></i>Hesitant</span></div></div>
-<span class="pp-person-header__role">Fleet controller · Mid</span>
+<div class="pp-person-header__name-row"><span class="pp-person-header__name" role="heading" aria-level="1">Bongani Mthembu</span><div class="pp-person-header__status"><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-09" title="Stage limit was 9 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 2 days</time></div></div>
+<span class="pp-person-header__role">Fleet controller · Operations · Mid</span>
 <ul class="pp-person-header__facts"><li class="pp-person-header__fact"><i data-lucide="users"></i><span>Referral</span></li><li class="pp-person-header__fact"><i data-lucide="calendar-days"></i><span>Applied 20 Oct 2026</span></li><li class="pp-person-header__fact"><i data-lucide="map-pin"></i><span>Durban</span></li></ul>
 </div>
-<div class="pp-person-header__actions"><button class="pp-button pp-button--default" type="button"><i data-lucide="pencil"></i><span>Edit details</span></button><button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="More actions for Bongani Mthembu"><i data-lucide="ellipsis"></i></button></div>
+<div class="pp-person-header__actions"><button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="More actions for Bongani Mthembu"><i data-lucide="ellipsis"></i></button><button class="pp-button pp-button--default pp-button--icon" type="button" aria-label="More actions for Bongani Mthembu" aria-haspopup="menu" aria-expanded="false"><i data-lucide="ellipsis"></i></button></div>
 </div>
 </div>
-<div class="pp-card pp-card--compact"><dl class="pp-dl pp-dl--strip"><dt>Role</dt><dd>Fleet controller</dd><dt>Department</dt><dd>Operations</dd><dt>Location</dt><dd>Durban</dd><dt>Applied</dt><dd>20 Oct 2026</dd><dt>Experience</dt><dd>4 years</dd></dl></div>
 <ol class="pp-progress-tracker" aria-label="Hiring phases"><li class="pp-progress-tracker__step pp-progress-tracker__step--current" aria-current="step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Interview and evaluation</span><span class="pp-progress-tracker__meta">Evaluation, 9 days in stage</span></span></li><li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Offer and acceptance</span><span class="pp-progress-tracker__meta">Create, approve, convert</span></span></li><li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Pre-onboarding</span><span class="pp-progress-tracker__meta">Prepare, provision, clear</span></span></li><li class="pp-progress-tracker__step"><span class="pp-progress-tracker__marker" aria-hidden="true"></span><span class="pp-progress-tracker__body"><span class="pp-progress-tracker__label">Onboarding and day 1</span><span class="pp-progress-tracker__meta">Engage, activate, confirm</span></span></li></ol>
 <div class="pp-tabs__list" role="tablist" aria-label="Bongani Mthembu"><button class="pp-tabs__tab" role="tab" aria-selected="true" type="button"><i data-lucide="layout-dashboard"></i>Overview</button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="messages-square"></i>Interviews<span class="pp-tabs__count">3</span></button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="file-text"></i>Offer</button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="package"></i>Provisioning</button><button class="pp-tabs__tab" role="tab" aria-selected="false" tabindex="-1" type="button"><i data-lucide="pencil"></i>Notes</button></div>
 <article class="pp-card">
@@ -1166,9 +1060,7 @@
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="tf-nav"><i data-lucide="panel-left"></i></button>
 <label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search candidates by name, email or role" aria-label="Search candidates by name, email or role"></label>
 <div class="pp-top-navigation__actions">
-<span class="pp-role pp-role--current"><i data-lucide="user-cog"></i><span class="pp-role__text">HR admin</span></span>
 <button class="pp-button pp-button--default" type="button"><i data-lucide="sparkles"></i><span>Ask Pepla</span></button>
-<button class="pp-button pp-button--primary" type="button"><i data-lucide="user-plus"></i><span>Add candidate</span></button>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 candidates overdue" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
 <button class="pp-top-navigation__avatar" type="button" aria-label="Your account, Thandeka Dlamini" aria-haspopup="menu" aria-expanded="false"><span aria-hidden="true">TD</span></button>
 </div>

@@ -21,6 +21,23 @@ Every Pepla surface is built from this system and nothing else. There is no seco
 5. **A part stays in its component.** `pp-form__footer` lives in a `pp-form`, `pp-tabs__tab` in `pp-tabs`. Borrowing a part for another meaning is a one-off; use the component that means it, or add one.
 6. **The spec and the code agree.** Every class a spec names exists, and every kit screen follows the spec. When they differ, fix one of them in the same change.
 
+### Calm screens
+
+Using only Pepla components is not enough: a screen made of correct parts can still shout. Pepla is calm. A person should see the one thing that needs them before anything else.
+
+1. **One primary button per screen.** A dialog, drawer or the agent panel may have its own. The top navigation never holds one.
+2. **A lozenge marks what needs someone.** One status per row, card or header. A row that is on track shows no lozenge. Stage, department, seniority, category and sentiment are plain text, not chips.
+3. **Say it once.** A fact in the header is not repeated in a summary card below it, and a count in the header is not repeated in a bar under it.
+4. **One stepper per screen.** Progress inside a step is a list or a progress bar, not a second stepper.
+5. **One Pepla notice per screen.** If Pepla has several things to say, they go in one proposal list. The agent panel is its own surface.
+6. **Headers stay short.** A title, one line of facts, at most one lozenge, and at most two buttons; the rest go in a "More actions" menu.
+7. **Stats are a label and a number.** At most two stat cards in a row carry a meta line, and only when it asks for attention.
+8. **One row of filters.** Search and the one filter people use most stay visible; the rest go behind a "Filters" button.
+9. **No box in a box.** A card does not hold raised cards or stat cards. Inside a card, group with a sunken card, a list or a divider.
+10. **No disabled buttons as decoration.** If someone cannot use an action, leave it out, or say why next to it.
+
+`scripts/calm-audit.mjs` checks these on every kit screen as part of `verify:design`.
+
 ### Enforced in CI
 
 `npm run verify:design` (`scripts/verify-design.mjs`) runs first in `npm run build`, and `npm test` runs it with the other checks, so a violation fails the build. There is no ignore comment and no allowlist in screens. Never weaken a check to get green.
@@ -37,6 +54,7 @@ Every Pepla surface is built from this system and nothing else. There is no seco
 | Icons | A glyph or emoji used as an icon; an arrow character used as an icon; a hand-written `<svg>` (the mark is `<i data-pepla-mark></i>`); a Lucide name not in the vocabulary |
 | Specs | A spec that names a `pp-` class no CSS defines |
 | Content (`scripts/content-audit.mjs`) | A lozenge without an icon and a word, or with an icon that does not fit its status; a deadline that is not a `<time>` said in words; an icon-only button without a name; "OK", "Submit" or capitals on a button; a form that mixes `*` and "(optional)"; a word we avoid; a date not in the house format; an unmasked 13-digit ID |
+| Calm (`scripts/calm-audit.mjs`) | More than one primary button on a surface, or any in the top navigation; a role pill in the top navigation; more than one lozenge, tag or confidence chip in one row, card or header; a header with more than two buttons, or a summary card that repeats it; two steppers; two Pepla notices; more than two stat meta lines in a row; more than one visible row of filters; a card or stat card inside a card; a disabled button with no reason |
 | Contrast | Any promised colour pair below WCAG 2.2 AA, light or dark; coral too close to danger |
 
 The Angular app runs the same rules on its templates and stylesheets, plus a ban on PrimeNG outside the few components that wrap it: see [`docs/verify-design-angular.md`](../docs/verify-design-angular.md).

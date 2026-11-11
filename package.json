@@ -12,6 +12,7 @@
   "devDependencies": {
     "culori": "^4.0.1",
     "esbuild": "^0.24.0",
+    "linkedom": "^0.18.5",
     "lucide": "^1.39.0",
     "marked": "^14.1.4"
   },

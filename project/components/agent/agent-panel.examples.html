@@ -107,3 +107,34 @@
     </form>
   </aside>
 </section>
+
+<section data-example="Empty, with suggestions">
+  <aside class="pp-agent-panel pp-agent-panel--inline pp-measure-form" aria-labelledby="ap-4-t">
+    <div class="pp-agent-panel__header">
+      <span class="pp-avatar pp-avatar--agent" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+      <div class="pp-agent-panel__heading">
+        <span class="pp-agent-panel__title" role="heading" aria-level="3" id="ap-4-t">Pepla</span>
+        <span class="pp-agent-panel__context">Choose a task</span>
+      </div>
+      <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Close Pepla"><i data-lucide="x"></i></button>
+    </div>
+    <div class="pp-agent-panel__log" role="log" aria-label="Conversation with Pepla">
+      <div class="pp-agent-panel__message pp-agent-panel__message--pepla">
+        <span class="pp-visually-hidden">Pepla said:</span>
+        <div class="pp-agent-panel__bubble">Hi Thandeka. Choose a task, or ask me anything about onboarding.</div>
+      </div>
+      <ul class="pp-agent-panel__suggestions" aria-label="Tasks Pepla can do">
+        <li><a class="pp-agent-panel__suggestion" href="#"><i data-lucide="triangle-alert"></i><span>Show high-risk employees</span></a></li>
+        <li><a class="pp-agent-panel__suggestion" href="#"><i data-lucide="shield-check"></i><span>Explain a document check</span></a></li>
+        <li><a class="pp-agent-panel__suggestion" href="#"><i data-lucide="user-plus"></i><span>Onboard a new employee</span></a></li>
+      </ul>
+    </div>
+    <form class="pp-agent-panel__composer" aria-label="Message Pepla">
+      <div class="pp-agent-panel__input-row">
+        <label class="pp-visually-hidden" for="ap-4-in">Message Pepla</label>
+        <textarea class="pp-textarea" id="ap-4-in" rows="1" placeholder="Ask Pepla"></textarea>
+        <button class="pp-button pp-button--primary pp-button--icon pp-button--large" type="submit" aria-label="Send"><i data-lucide="send"></i></button>
+      </div>
+    </form>
+  </aside>
+</section>

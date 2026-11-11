@@ -18,6 +18,7 @@
 //            that is not in the readme's Iconography table
 //
 // Comments are ignored. There is no escape hatch: change the system, not the check.
+import { audit as calm } from './calm-audit.mjs';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -154,6 +155,8 @@ export function verify() {
     ...walk(join(P, 'ui_kits')).filter((f) => f.endsWith('.html')),
   ];
   for (const f of markup) violations.push(...checkMarkup(relative(ROOT, f), readFileSync(f, 'utf8')));
+  // Calm screens (readme): how much is on a kit screen, not only what it is made of.
+  for (const c of calm()) violations.push({ file: c.file, line: c.screen, rule: `calm:${c.rule}`, text: c.msg });
   return violations;
 }
 

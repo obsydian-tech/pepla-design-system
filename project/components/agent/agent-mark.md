@@ -14,7 +14,7 @@ The agent mark says "Pepla did this". It sits inline on a record value, a table 
 ## Anatomy
 
 1. **Icon**: Lucide `sparkles`, 16px, in `--color-icon-agent`. This is the agent's one icon everywhere.
-2. **Word** (optional): "Pepla" (default) or "Suggested by Pepla" (`pp-agent-mark--suggested`), `--font-label-small` in `--color-text-agent`.
+2. **Word** (optional): "Pepla" (default) or "Suggested by Pepla" (`pp-agent-mark--suggested`), `--font-label-small` in `--color-text-agent`. When a row or card already has its one status lozenge, Pepla's part is said with the mark instead of a second lozenge: "Checked by Pepla", "Drafted by Pepla from Office starter".
 3. **Tooltip**: what Pepla did, from what, and when. If a person approved it, who.
 
 The mark is never an image and never the Pepla logo. It is always the Lucide `sparkles` icon.
@@ -23,7 +23,7 @@ The mark is never an image and never the Pepla logo. It is always the Lucide `sp
 
 | Class | Use | Never |
 | --- | --- | --- |
-| `pp-agent-mark` | After a value Pepla filled in or changed: "Tax number ••••4821 *Pepla*" | On a value a person typed, even if Pepla later checked it (use a lozenge "Checked by Pepla") |
+| `pp-agent-mark` | After a value Pepla filled in or changed: "Tax number ••••4821 *Pepla*" | On a value a person typed, even if Pepla later checked it (use a lozenge "Checked by Pepla", or this mark with those words when the row already has its status) |
 | `pp-agent-mark--suggested` | A value Pepla proposes that no one has approved yet, shown in place: "Suggested by Pepla" | Once a person has approved or edited it; then it becomes the plain mark or goes away |
 | `pp-agent-mark--icon` | Dense table cells and timeline rows where the word does not fit. Needs `aria-label` | As the only sign in a place people scan for agent work; prefer the word |
 

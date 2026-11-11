@@ -37,10 +37,12 @@
 
 .pp-avatar-group { display: inline-flex; align-items: center; }
 .pp-avatar-group > .pp-avatar { box-shadow: 0 0 0 2px var(--elevation-surface-raised); }
-.pp-avatar-group > .pp-avatar + .pp-avatar { margin-left: calc(var(--_size, 32px) * -0.25); }
+.pp-avatar-group > .pp-avatar + .pp-avatar { margin-left: calc(var(--_size, 32px) * -0.15); }
 .pp-avatar-group__more { background: var(--color-background-neutral); color: var(--color-text-subtle); }
 
 .pp-person { display: inline-flex; align-items: center; gap: var(--space-100); min-width: 0; }
 .pp-person__text { display: flex; flex-direction: column; min-width: 0; }
 .pp-person__name { font: var(--font-body-strong); color: var(--color-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pp-person__meta { font: var(--font-body-small); color: var(--color-text-subtlest); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+a.pp-person__name { text-decoration: none; }
+a.pp-person__name:hover, a.pp-person__name:focus-visible { text-decoration: underline; }

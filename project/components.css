@@ -41,13 +41,15 @@
 
 .pp-avatar-group { display: inline-flex; align-items: center; }
 .pp-avatar-group > .pp-avatar { box-shadow: 0 0 0 2px var(--elevation-surface-raised); }
-.pp-avatar-group > .pp-avatar + .pp-avatar { margin-left: calc(var(--_size, 32px) * -0.25); }
+.pp-avatar-group > .pp-avatar + .pp-avatar { margin-left: calc(var(--_size, 32px) * -0.15); }
 .pp-avatar-group__more { background: var(--color-background-neutral); color: var(--color-text-subtle); }
 
 .pp-person { display: inline-flex; align-items: center; gap: var(--space-100); min-width: 0; }
 .pp-person__text { display: flex; flex-direction: column; min-width: 0; }
 .pp-person__name { font: var(--font-body-strong); color: var(--color-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pp-person__meta { font: var(--font-body-small); color: var(--color-text-subtlest); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+a.pp-person__name { text-decoration: none; }
+a.pp-person__name:hover, a.pp-person__name:focus-visible { text-decoration: underline; }
 
 /* ---- core/heading ---- */
 /* Heading. Spec: heading.md
@@ -90,6 +92,7 @@
 .pp-icon-tile { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-medium); background: var(--color-background-neutral); color: var(--color-icon); }
 .pp-icon-tile--brand { background: var(--color-background-brand-subtle); color: var(--color-icon-brand); }
 .pp-icon-tile--agent { background: var(--color-background-agent-subtle); color: var(--color-icon-agent); }
+.pp-icon-tile > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); }
 
 /* ---- core/logo ---- */
 /* Logo. Spec: logo.md. The mark's colours are brand tokens, so the logo follows the theme. */
@@ -2950,6 +2953,14 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-agent-panel--sheet .pp-agent-panel__header { padding: var(--space-150) var(--layout-gutter-phone); }
 .pp-agent-panel--sheet .pp-agent-panel__log { padding: var(--space-200) var(--layout-gutter-phone); }
 .pp-agent-panel--sheet .pp-agent-panel__composer { padding: var(--space-150) var(--layout-gutter-phone); }
+
+/* Suggestions: what Pepla can do, as one quiet list (not a stack of cards) */
+.pp-agent-panel__suggestions { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); overflow: hidden; }
+.pp-agent-panel__suggestions > li + li { border-top: var(--border-width) solid var(--color-border); }
+.pp-agent-panel__suggestion { display: flex; align-items: center; gap: var(--space-150); min-height: 44px; padding: var(--space-100) var(--space-200); color: var(--color-text); font: var(--font-body); text-decoration: none; }
+.pp-agent-panel__suggestion > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--color-icon-subtle); }
+.pp-agent-panel__suggestion:hover { background: var(--color-background-neutral-subtle-hovered); }
+.pp-agent-panel__suggestion:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: calc(var(--border-width-focused) * -1); }
 
 /* ---- agent/agent-proposal-card ---- */
 /* Agent proposal card. Spec: agent-proposal-card.md. Rule 2: the agent proposes, a person approves.

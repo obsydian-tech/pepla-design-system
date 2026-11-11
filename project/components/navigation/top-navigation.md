@@ -18,7 +18,10 @@ The top navigation is the 56px bar across the top of every Pepla app: search on 
 3. **Mark** (phone): the Pepla mark, links home. On desktop the mark lives in the side navigation.
 4. **Search**: a pill field, up to 480px, `search` icon, placeholder that names what it finds, a `/` shortcut hint. On phone it shrinks to an icon button that opens full-screen search.
 5. **Notifications**: `bell` icon button with a count badge; opens the notification list in a Popup.
-6. **Account**: the person's initials in a 32px circle; opens the avatar Dropdown menu.
+6. **Account**: the person's initials in a 32px circle; opens the avatar Dropdown menu. The menu names the role the person is acting as and lets them switch; the bar never shows a role pill.
+7. **Ask Pepla** (optional): a default button with the `sparkles` icon, before Notifications, that opens the Agent panel.
+
+Nothing else goes in the bar. Page actions such as "Add candidate" belong in the page header, so a screen has one primary button, not one in the bar and one on the page.
 
 ## Appearances
 

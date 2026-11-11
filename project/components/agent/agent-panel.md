@@ -2,7 +2,7 @@
 name: Agent panel
 group: agent
 status: ready
-classes: pp-agent-panel, pp-agent-panel--inline, pp-agent-panel--sheet
+classes: pp-agent-panel, pp-agent-panel--inline, pp-agent-panel--sheet, pp-agent-panel__suggestions, pp-agent-panel__suggestion
 primeng: Drawer (p-drawer) for the shell; the content is a plain Angular template
 replaces: the hr-dashboard AI Assistant drawer (app-ai-mode-panel), the TalentFlow AI chat drawer (tf-ai-chat-panel) and the employee chat widget (app-chat-widget)
 ---
@@ -20,6 +20,7 @@ The agent panel is where a person talks with Pepla. It opens from the right on d
    - **Pepla's message**: left-aligned, white bubble with a border. Not mint: mint is for Pepla's work, not its words.
    - **Proposal**: a compact Agent proposal card, full width.
    - **Time**: under each message, 24-hour.
+   - **Suggestions** (`pp-agent-panel__suggestions`): when the conversation is empty, up to five things Pepla can do here, as one bordered list. Each row (`pp-agent-panel__suggestion`) is a link or button with one icon and a short verb-first title: "Show high-risk employees". No descriptions, no cards, no lozenges; the composer hint already says Pepla changes nothing until you approve.
 4. **Working line**: a spinner, what Pepla is doing in words, and Stop.
 5. **Composer**: a Textarea that grows to 4 lines, a Send icon button (primary), and the hint "Pepla changes nothing until you approve."
 
