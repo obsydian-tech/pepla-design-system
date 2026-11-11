@@ -52,7 +52,7 @@ A kanban board of hiring stages for one role. Each column is a stage with a coun
 
 - The board is an `<ol>` labelled with the role; each column is labelled by its heading.
 - Dragging is never the only way: every card has a "Move" button named with the person ("Move Bongani Mthembu to another stage").
-- Counts have words for screen readers (`aria-label="3 candidates"`).
+- Counts have words for screen readers: the badge's hidden label (`pp-badge__label`, " candidates"), as on every badge.
 - The live region announces each move and each undo.
 - The phone picker is a real `<select>` with a visible label.
 
