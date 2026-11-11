@@ -38,7 +38,7 @@ The agent panel is where a person talks with Pepla. It opens from the right on d
 | --- | --- |
 | Empty | Pepla's first message says what it can do here, in one or two sentences, with up to three suggested questions as Default small buttons |
 | Pepla is working | The working line at the bottom of the log, `role="status"`. Send is `aria-disabled`; the person can still type |
-| Proposal waiting | A compact proposal card in the log. Approve and Review work from the panel |
+| Proposal waiting | A compact proposal row in the log, with the same buttons as anywhere else: one-tap Approve only when Pepla is sure and nothing leaves Pepla, otherwise Review, which opens the full card |
 | Decided | The proposal row shows its outcome lozenge ("Approved") and who approved, like the card |
 | Error | Pepla's bubble says what went wrong and what to do: "I could not reach payroll. Try again in a few minutes." with a "Try again" button |
 | Offline | A Section message (warning) above the composer; the composer is disabled with the reason |
