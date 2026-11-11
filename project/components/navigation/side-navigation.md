@@ -58,7 +58,7 @@ The side navigation is the app's main menu: the product switcher at the top, the
 - Counts carry their meaning in an `aria-label` ("3 waiting"), not only a number.
 - Collapsed labels use a visually hidden class, never `display: none`, so each link keeps its name.
 - On phone the open sidebar is a modal: focus moves to the first item, is trapped, and returns to the menu button on close.
-- The mark image is decorative (`alt=""`); the switcher's name comes from its text or `aria-label`.
+- The mark is the inline `pp-logo__mark` SVG with `aria-hidden="true"`; the switcher's name comes from its text or `aria-label`.
 
 ## PrimeNG mapping
 
@@ -85,4 +85,4 @@ There are several shells, each with its own navigation: the shared `sidebar` use
 
 - **Do** use one icon per area, from the vocabulary. **Don't** invent an icon for a page.
 - **Do** keep counts for things waiting on this person. **Don't** show totals ("38 people").
-- **Do** keep the wordmark lowercase. **Don't** colour the mark's circles yourself; use the asset.
+- **Do** keep the wordmark lowercase. **Don't** colour the mark's circles yourself; use `pp-logo__mark`, which follows the theme.
