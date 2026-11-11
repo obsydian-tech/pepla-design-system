@@ -60,6 +60,9 @@
 .pp-inline-dialog--inline { position: relative; inset: auto; z-index: auto; margin-top: var(--space-150); animation: none; }
 .pp-inline-dialog--inline.pp-inline-dialog--top { margin: 0 0 var(--space-150); }
 
+/* Floating: an app places the dialog itself (a top-layer overlay); --top still moves the beak. */
+.pp-inline-dialog--floating { position: relative; inset: auto; z-index: auto; }
+
 .pp-inline-dialog__header { display: flex; align-items: flex-start; gap: var(--space-100); }
 .pp-inline-dialog__header > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--color-icon); }
 .pp-inline-dialog__title { flex: 1; min-width: 0; margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); color: var(--color-text); }

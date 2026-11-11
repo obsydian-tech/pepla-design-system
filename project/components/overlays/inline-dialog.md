@@ -39,6 +39,7 @@ How it differs from its neighbours:
 | `pp-inline-dialog--top` | Above the anchor, when there is no room below |
 | `pp-inline-dialog--agent` | Pepla suggests something for this control. Mint border and `sparkles`; the action approves the agent's own proposal (rule 1, rule 2) |
 | `pp-inline-dialog--inline` | Rendered in place, for docs only |
+| `pp-inline-dialog--floating` | Placed by the app in a top-layer overlay (no absolute position of its own) |
 
 ## States
 

@@ -1938,6 +1938,8 @@ a.pp-tag:hover { text-decoration: underline; }
 }
 .pp-dropdown-menu--end { left: auto; right: 0; }
 .pp-dropdown-menu--inline { position: relative; inset: auto; z-index: auto; display: block; width: max-content; animation: none; }
+/* Floating: an app places the menu itself (a top-layer overlay), so it sits where it is put. */
+.pp-dropdown-menu--floating { position: relative; inset: auto; z-index: auto; }
 
 .pp-dropdown-menu__section { margin: 0; padding: 0; list-style: none; }
 .pp-dropdown-menu__section + .pp-dropdown-menu__section { margin-top: var(--space-075); padding-top: var(--space-075); border-top: var(--border-width) solid var(--color-border); }
@@ -2047,6 +2049,9 @@ a.pp-tag:hover { text-decoration: underline; }
 /* In place, for docs: leaves room for the beak above it */
 .pp-inline-dialog--inline { position: relative; inset: auto; z-index: auto; margin-top: var(--space-150); animation: none; }
 .pp-inline-dialog--inline.pp-inline-dialog--top { margin: 0 0 var(--space-150); }
+
+/* Floating: an app places the dialog itself (a top-layer overlay); --top still moves the beak. */
+.pp-inline-dialog--floating { position: relative; inset: auto; z-index: auto; }
 
 .pp-inline-dialog__header { display: flex; align-items: flex-start; gap: var(--space-100); }
 .pp-inline-dialog__header > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--color-icon); }
@@ -2166,6 +2171,9 @@ a.pp-tag:hover { text-decoration: underline; }
 .pp-popup--flush { padding: 0; }
 .pp-popup--wide { max-width: min(420px, calc(100vw - 2 * var(--layout-gutter-phone))); width: 100vw; }
 .pp-popup--inline { position: relative; inset: auto; z-index: auto; display: block; animation: none; }
+
+/* Floating: an app places the popup itself (a top-layer overlay), so it sits where it is put. */
+.pp-popup--floating { position: relative; inset: auto; z-index: auto; }
 
 .pp-popup__header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-100); margin-bottom: var(--space-150); }
 .pp-popup__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
