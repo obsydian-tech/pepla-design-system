@@ -5,7 +5,6 @@
 .pp-dl--stacked { grid-template-columns: 1fr; gap: var(--space-025); }
 .pp-dl--stacked dd { margin-bottom: var(--space-150); }
 .pp-dl__notset { color: var(--color-text-subtlest); font-style: italic; }
-.pp-dl__masked { display: inline-flex; align-items: center; gap: var(--space-100); font-variant-numeric: tabular-nums; }
 .pp-dl__source { display: inline-flex; align-items: center; gap: var(--space-050); margin-left: var(--space-100); font: var(--font-body-small); color: var(--color-text-agent); }
 .pp-dl__source svg { width: 14px; height: 14px; }
 @media (max-width: 479px) { .pp-dl { grid-template-columns: 1fr; gap: var(--space-025); } .pp-dl dd { margin-bottom: var(--space-150); } }
