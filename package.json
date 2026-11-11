@@ -1,0 +1,21 @@
+{
+  "name": "pepla-design-system",
+  "version": "1.0.0",
+  "description": "Pepla design system: tokens, components, screens and the published site.",
+  "scripts": {
+    "palette": "node scripts/palette.mjs",
+    "tokens": "node scripts/build-tokens.mjs",
+    "test": "node --test scripts/*.test.mjs",
+    "build": "node scripts/build-tokens.mjs && node scripts/site.mjs"
+  },
+  "devDependencies": {
+    "culori": "^4.0.1",
+    "esbuild": "^0.24.0",
+    "lucide": "^1.39.0"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}
