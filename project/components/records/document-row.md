@@ -36,7 +36,7 @@ One required document: what it is, where it stands, who did what and when, and w
 | Checking | information, `hourglass`, "Checking" | agent lozenge "Pepla is checking", or the person checking | View |
 | Verified | success, `circle-check`, "Verified" | who uploaded it and who checked it (agent lozenge if Pepla) | View |
 | Rejected | danger, `circle-x`, "Rejected" | who rejected it, when; the reason line | View, Request again |
-| Expired | warning, `calendar-x`, "Expired 2 Oct" | "Valid until 2 Oct 2026" | View, Request again |
+| Expired | warning, `clock-alert`, "Expired 2 Oct" | "Valid until 2 Oct 2026" | View, Request again |
 
 `pp-document-row--attention` gives a rejected row a quiet danger wash so it stands out in a long list.
 

@@ -29,7 +29,7 @@ A card with an offer's details: role, start date, salary (hidden until someone c
 | Sent | information, `send`; a reply deadline chip | Mark as accepted, Withdraw offer (danger) |
 | Accepted | bold success, `circle-check`, "Accepted 12 Nov" | Start onboarding (primary) |
 | Declined by the candidate | danger, `circle-x`, with their reason | Close |
-| Expired | warning, `calendar-x`, "Expired 10 Nov" | Send again |
+| Expired | warning, `clock-alert`, "Expired 10 Nov" | Send again |
 | Withdrawn | neutral, `circle-x`, "Withdrawn" | none |
 
 ## Behaviour
