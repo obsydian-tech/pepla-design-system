@@ -2,6 +2,14 @@
    Every gap is a space token, set with a pp-gap-* class (default shown per primitive). */
 
 /* Stack: children one under another */
+/* Sizing inputs apply only to the element that sets them. Without this a .pp-stack inside a
+   .pp-gap-300 would inherit 24px instead of its own default, and so would every component that reads
+   --_gap, --_min, --_width or --_height. */
+@property --_gap { syntax: '*'; inherits: false; }
+@property --_min { syntax: '*'; inherits: false; }
+@property --_width { syntax: '*'; inherits: false; }
+@property --_height { syntax: '*'; inherits: false; }
+
 .pp-stack { display: grid; gap: var(--_gap, var(--space-200)); min-width: 0; align-content: start; }
 .pp-stack--start { justify-items: start; }
 .pp-stack--center { justify-items: center; text-align: center; }
