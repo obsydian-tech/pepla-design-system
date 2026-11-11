@@ -1,0 +1,17 @@
+/* Card. Spec: card.md */
+.pp-card { display: flex; flex-direction: column; gap: var(--space-200); min-width: 0; padding: var(--space-300); background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); color: var(--color-text); }
+.pp-card--compact { padding: var(--space-200); gap: var(--space-150); }
+.pp-card--sunken { background: var(--elevation-surface-sunken); }
+.pp-card--overlay { border-color: transparent; box-shadow: var(--elevation-shadow-overlay); background: var(--elevation-surface-overlay); }
+.pp-card--interactive { cursor: pointer; text-decoration: none; transition: background-color var(--motion-duration-fast) var(--motion-easing-standard), border-color var(--motion-duration-fast) var(--motion-easing-standard); }
+.pp-card--interactive:hover { background: var(--elevation-surface-raised-hovered); border-color: var(--color-border-bold); }
+.pp-card--interactive:active { background: var(--elevation-surface-raised-pressed); }
+.pp-card--selected { border: var(--border-width-selected) solid var(--color-border-selected); background: var(--color-background-selected); }
+.pp-card__header { display: flex; align-items: flex-start; gap: var(--space-150); }
+.pp-card__titles { display: flex; flex-direction: column; gap: var(--space-025); flex: 1; min-width: 0; }
+.pp-card__title { margin: 0; font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); color: var(--color-text); }
+.pp-card__subtitle { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-card__body { font: var(--font-body); color: var(--color-text-subtle); }
+.pp-card__footer { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding-top: var(--space-200); border-top: var(--border-width) solid var(--color-border); }
+.pp-card__footer--end { justify-content: flex-end; }
+.pp-card-grid { display: grid; gap: var(--space-200); grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }

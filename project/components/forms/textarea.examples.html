@@ -1,0 +1,41 @@
+<section data-example="With help and a character count">
+  <div class="pp-field">
+    <label class="pp-field__label" for="ta-note">Note for the hiring manager<span class="pp-field__optional">(optional)</span></label>
+    <textarea class="pp-textarea" id="ta-note" maxlength="500" aria-describedby="ta-note-help ta-note-count">Sipho was strong on payroll reconciliations. Worth asking about his SARS eFiling experience in the second interview.</textarea>
+    <div class="pp-field__footer">
+      <div class="pp-field__help" id="ta-note-help">Only the hiring team can see this</div>
+      <span class="pp-field__count" id="ta-note-count">118 of 500</span>
+    </div>
+  </div>
+</section>
+<section data-example="Error">
+  <div class="pp-field">
+    <label class="pp-field__label" for="ta-reason">Reason for declining<span class="pp-field__required" aria-hidden="true">*</span></label>
+    <textarea class="pp-textarea" id="ta-reason" required aria-invalid="true" aria-describedby="ta-reason-error ta-reason-help"></textarea>
+    <div class="pp-field__error" id="ta-reason-error"><i data-lucide="octagon-alert"></i><span>Add a reason. It goes into the audit trail with your name.</span></div>
+    <div class="pp-field__help" id="ta-reason-help">Pepla keeps this with the declined proposal.</div>
+  </div>
+</section>
+<section data-example="Over the limit, read only and disabled">
+  <div class="pp-form">
+    <div class="pp-field">
+      <label class="pp-field__label" for="ta-bio">Short bio for the team page</label>
+      <textarea class="pp-textarea" id="ta-bio" aria-invalid="true" aria-describedby="ta-bio-error ta-bio-count">Lerato joins us from a logistics firm in Midrand where she ran payroll for 80 people across three sites, and before that she studied accounting at Wits. Outside work she runs the Saturday parkrun at Delta Park.</textarea>
+      <div class="pp-field__footer">
+        <div class="pp-field__error" id="ta-bio-error"><i data-lucide="octagon-alert"></i><span>Shorten this by 12 characters to fit the team page.</span></div>
+        <span class="pp-field__count pp-field__count--over" id="ta-bio-count">212 of 200</span>
+      </div>
+    </div>
+    <div class="pp-form-row">
+      <div class="pp-field">
+        <label class="pp-field__label" for="ta-ro">Original reason (3 Nov 2026)</label>
+        <textarea class="pp-textarea" id="ta-ro" readonly>Start date moved to 1 Dec at the candidate's request.</textarea>
+      </div>
+      <div class="pp-field">
+        <label class="pp-field__label" for="ta-dis">Exit interview notes</label>
+        <textarea class="pp-textarea" id="ta-dis" disabled aria-describedby="ta-dis-help"></textarea>
+        <div class="pp-field__help" id="ta-dis-help">Opens on their last working day</div>
+      </div>
+    </div>
+  </div>
+</section>

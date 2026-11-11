@@ -1,0 +1,52 @@
+<section data-example="Single checkbox">
+  <div class="pp-checkbox">
+    <input class="pp-checkbox__input" type="checkbox" id="cb-consent" checked>
+    <label class="pp-checkbox__label" for="cb-consent">Send Lerato her contract by email as well</label>
+  </div>
+</section>
+<section data-example="Group with descriptions">
+  <fieldset class="pp-field">
+    <legend class="pp-field__label">Documents to request from Sipho</legend>
+    <div class="pp-field__options">
+      <div class="pp-checkbox">
+        <input class="pp-checkbox__input" type="checkbox" id="cb-doc-id" checked aria-describedby="cb-doc-id-d">
+        <label class="pp-checkbox__label" for="cb-doc-id">Copy of ID<span class="pp-checkbox__description" id="cb-doc-id-d">Smart card both sides, or the green ID book photo page</span></label>
+      </div>
+      <div class="pp-checkbox">
+        <input class="pp-checkbox__input" type="checkbox" id="cb-doc-bank" checked aria-describedby="cb-doc-bank-d">
+        <label class="pp-checkbox__label" for="cb-doc-bank">Bank confirmation letter<span class="pp-checkbox__description" id="cb-doc-bank-d">Stamped, less than 3 months old</span></label>
+      </div>
+      <div class="pp-checkbox">
+        <input class="pp-checkbox__input" type="checkbox" id="cb-doc-qual">
+        <label class="pp-checkbox__label" for="cb-doc-qual">Qualifications</label>
+      </div>
+      <div class="pp-checkbox">
+        <input class="pp-checkbox__input" type="checkbox" id="cb-doc-tax" disabled checked aria-describedby="cb-doc-tax-d">
+        <label class="pp-checkbox__label" for="cb-doc-tax">Tax number<span class="pp-checkbox__description" id="cb-doc-tax-d">Always required for payroll</span></label>
+      </div>
+    </div>
+  </fieldset>
+</section>
+<section data-example="Select all (mixed) and error">
+  <div class="pp-form">
+    <fieldset class="pp-field">
+      <legend class="pp-field__label">Approve documents</legend>
+      <div class="pp-checkbox">
+        <input class="pp-checkbox__input pp-checkbox__input--mixed" type="checkbox" id="cb-all">
+        <label class="pp-checkbox__label" for="cb-all">All 3 documents (2 chosen)</label>
+      </div>
+      <div class="pp-field__options" style="padding-left:var(--space-400)">
+        <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="cb-a1" checked><label class="pp-checkbox__label" for="cb-a1">ID copy</label></div>
+        <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="cb-a2" checked><label class="pp-checkbox__label" for="cb-a2">Bank letter</label></div>
+        <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="cb-a3"><label class="pp-checkbox__label" for="cb-a3">Signed contract</label></div>
+      </div>
+    </fieldset>
+    <div class="pp-field">
+      <div class="pp-checkbox">
+        <input class="pp-checkbox__input" type="checkbox" id="cb-popia" required aria-invalid="true" aria-describedby="cb-popia-error">
+        <label class="pp-checkbox__label" for="cb-popia">Thandeka agreed that Pepla may keep her ID copy for 5 years after she leaves</label>
+      </div>
+      <div class="pp-field__error" id="cb-popia-error"><i data-lucide="octagon-alert"></i><span>Confirm her consent before you save the ID copy</span></div>
+    </div>
+  </div>
+</section>

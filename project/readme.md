@@ -40,7 +40,7 @@ Pepla is the HR platform for teams under 100 in South Africa, Zimbabwe and Zambi
 
 - **Ground** is cream (`--elevation-surface`), cards and panels are white (`--elevation-surface-raised`), overlays are white with the overlay shadow. Dark theme swaps to ink-night surfaces.
 - **Type:** Manrope 700/800 for display, the four largest headings and metrics; Inter for everything else. Never Manrope below 16px.
-- **Shape:** buttons, chips and lozenges are pills (`--radius-full`); fields 12px; cards 16px; dialogs 24px.
+- **Shape:** buttons, chips and lozenges are pills (`--radius-full`); tags are 8px rounded rectangles so they never read as a status; fields 12px; cards 16px; dialogs 24px.
 - **Shadows** are ink-tinted, never black; most surfaces separate by colour and a 1px border, not shadow.
 - **Focus:** a 2px violet ring with a 2px offset on every focusable element, keyboard focus only.
 - **Motion** is quick and quiet: 100ms for colour, 200ms for small moves, 300ms for drawers. Respect reduced motion.

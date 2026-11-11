@@ -1,0 +1,57 @@
+/* Flag. Spec: flag.md */
+.pp-flag-group {
+  position: fixed;
+  left: var(--space-300);
+  bottom: var(--space-300);
+  z-index: var(--layer-flag);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+  width: min(400px, calc(100vw - 2 * var(--space-300)));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pp-flag-group--inline { position: relative; left: auto; bottom: auto; z-index: auto; width: 100%; max-width: 400px; }
+
+.pp-flag {
+  --_icon: var(--color-icon-information);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-150);
+  padding: var(--space-200);
+  border-radius: var(--radius-large);
+  background: var(--elevation-surface-overlay);
+  color: var(--color-text);
+  box-shadow: var(--elevation-shadow-overlay);
+  animation: pp-flag-in var(--motion-duration-medium) var(--motion-easing-enter);
+}
+.pp-flag > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--_icon); }
+.pp-flag__content { flex: 1; min-width: 0; }
+.pp-flag__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-flag__body { margin: var(--space-025) 0 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-flag__actions { display: flex; flex-wrap: wrap; gap: var(--space-200); margin-top: var(--space-100); }
+.pp-flag__actions .pp-button--link { padding: 0; min-height: var(--size-icon-medium); }
+.pp-flag__dismiss { margin: calc(-1 * var(--space-075)) calc(-1 * var(--space-075)) 0 0; }
+
+.pp-flag--success { --_icon: var(--color-icon-success); }
+.pp-flag--warning { --_icon: var(--color-icon-warning); }
+.pp-flag--error { --_icon: var(--color-icon-danger); }
+/* Agent: Pepla finished a piece of work (rule 1) */
+.pp-flag--agent { --_icon: var(--color-icon-agent); box-shadow: var(--elevation-shadow-overlay), inset 0 0 0 var(--border-width) var(--color-border-agent); }
+
+/* Auto-dismiss timer (success only): a hairline that empties; paused on hover and focus */
+.pp-flag__timer { display: block; height: var(--space-025); margin-top: var(--space-150); border-radius: var(--radius-full); background: var(--color-border); overflow: hidden; }
+.pp-flag__timer::before { content: ""; display: block; height: 100%; background: var(--color-icon-success); transform-origin: left; animation: pp-flag-timer 8s linear forwards; }
+.pp-flag:hover .pp-flag__timer::before, .pp-flag:focus-within .pp-flag__timer::before { animation-play-state: paused; }
+
+@keyframes pp-flag-in { from { opacity: 0; transform: translateY(var(--space-100)); } }
+@keyframes pp-flag-timer { to { transform: scaleX(0); } }
+
+@media (max-width: 767px) {
+  .pp-flag-group:not(.pp-flag-group--inline) { left: var(--layout-gutter-phone); right: var(--layout-gutter-phone); bottom: calc(var(--space-200) + env(safe-area-inset-bottom)); width: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-flag { animation-name: pp-flag-fade; }
+  @keyframes pp-flag-fade { from { opacity: 0; } }
+}

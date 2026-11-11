@@ -1,0 +1,44 @@
+<section data-example="Row actions: sections, icons and a danger item">
+  <div class="pp-popup-anchor" style="flex-direction:column;align-items:flex-start;gap:var(--space-050)">
+    <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="More actions for Thandeka Dlamini" aria-haspopup="menu" aria-expanded="true" aria-controls="dm-1"><i data-lucide="ellipsis"></i></button>
+    <div class="pp-dropdown-menu pp-dropdown-menu--inline" id="dm-1" role="menu" aria-label="Actions for Thandeka Dlamini">
+      <ul class="pp-dropdown-menu__section" role="group">
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="pencil"></i><span>Edit details</span></button></li>
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="file-text"></i><span>Send document</span></button></li>
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="history"></i><span>View audit trail</span></button></li>
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="copy"></i><span>Copy employee number</span><span class="pp-dropdown-menu__end">EMP-0142</span></button></li>
+      </ul>
+      <ul class="pp-dropdown-menu__section" role="group" aria-labelledby="dm-1-h">
+        <li role="none"><span class="pp-dropdown-menu__heading" id="dm-1-h">Move and exit</span></li>
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="door-open"></i><span>Start exit</span></button></li>
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button" aria-disabled="true"><i data-lucide="lock"></i><span>Change salary</span></button></li>
+        <li role="none"><button class="pp-dropdown-menu__item pp-dropdown-menu__item--danger" role="menuitem" type="button"><i data-lucide="user-x"></i><span>Remove access</span></button></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section data-example="Choice: sort by">
+  <div class="pp-popup-anchor" style="flex-direction:column;align-items:flex-start;gap:var(--space-050)">
+    <button class="pp-button pp-button--default pp-button--small" type="button" aria-haspopup="menu" aria-expanded="true" aria-controls="dm-2"><span>Sort: start date</span><i data-lucide="chevron-down"></i></button>
+    <div class="pp-dropdown-menu pp-dropdown-menu--inline" id="dm-2" role="menu" aria-label="Sort people by">
+      <ul class="pp-dropdown-menu__section" role="group">
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitemradio" aria-checked="false" type="button"><span>Name</span></button></li>
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitemradio" aria-checked="true" type="button"><span>Start date</span><span class="pp-dropdown-menu__end"><i data-lucide="check"></i></span></button></li>
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitemradio" aria-checked="false" type="button"><span>Team</span></button></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section data-example="Avatar menu">
+  <div class="pp-dropdown-menu pp-dropdown-menu--inline" role="menu" aria-label="Your account">
+    <ul class="pp-dropdown-menu__section" role="group" aria-labelledby="dm-3-h">
+      <li role="none"><span class="pp-dropdown-menu__heading" id="dm-3-h">Thandeka Dlamini, HR admin</span></li>
+      <li role="none"><a class="pp-dropdown-menu__item" role="menuitem" href="#"><i data-lucide="user"></i><span>Your profile</span></a></li>
+      <li role="none"><a class="pp-dropdown-menu__item" role="menuitem" href="#"><i data-lucide="settings"></i><span>Settings</span></a></li>
+      <li role="none"><a class="pp-dropdown-menu__item" role="menuitem" href="#"><i data-lucide="life-buoy"></i><span>Get help</span></a></li>
+    </ul>
+    <ul class="pp-dropdown-menu__section" role="group">
+      <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="log-out"></i><span>Sign out</span></button></li>
+    </ul>
+  </div>
+</section>

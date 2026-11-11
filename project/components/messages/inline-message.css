@@ -1,0 +1,21 @@
+/* Inline message. Spec: inline-message.md */
+.pp-inline-message {
+  --_icon: var(--color-icon-information);
+  --_fg: var(--color-text-subtle);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-075);
+  margin: 0;
+  color: var(--_fg);
+  font: var(--font-body-small);
+  letter-spacing: var(--font-body-small-tracking);
+}
+.pp-inline-message > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--_icon); }
+.pp-inline-message strong { font-weight: var(--font-weight-semibold); }
+
+.pp-inline-message--error { --_icon: var(--color-icon-danger); --_fg: var(--color-text-danger); }
+.pp-inline-message--warning { --_icon: var(--color-icon-warning); --_fg: var(--color-text-warning); }
+.pp-inline-message--success { --_icon: var(--color-icon-success); --_fg: var(--color-text-success); }
+.pp-inline-message--agent { --_icon: var(--color-icon-agent); --_fg: var(--color-text-agent); }
+
+.pp-inline-message--inline { display: inline-flex; vertical-align: middle; }

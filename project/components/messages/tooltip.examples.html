@@ -1,0 +1,29 @@
+<section data-example="Tooltip">
+  <div style="display:flex;flex-wrap:wrap;gap:var(--space-200);align-items:center">
+    <span class="pp-tooltip pp-tooltip--inline" role="tooltip">View audit trail</span>
+    <span class="pp-tooltip pp-tooltip--inline" role="tooltip">Search people<kbd>/</kbd></span>
+    <span class="pp-tooltip pp-tooltip--inline" role="tooltip">Thandeka Dlamini, Finance manager, Johannesburg</span>
+  </div>
+</section>
+<section data-example="On icon buttons (hover or tab to them)">
+  <div style="display:flex;gap:var(--space-100);padding-top:var(--space-500)">
+    <span class="pp-tooltip-anchor">
+      <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Audit trail" aria-describedby="tt-1"><i data-lucide="history"></i></button>
+      <span class="pp-tooltip" role="tooltip" id="tt-1">View audit trail</span>
+    </span>
+    <span class="pp-tooltip-anchor">
+      <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Show ID number" aria-describedby="tt-2"><i data-lucide="eye"></i></button>
+      <span class="pp-tooltip" role="tooltip" id="tt-2">Showing the ID is logged</span>
+    </span>
+    <span class="pp-tooltip-anchor">
+      <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="More actions for Sipho Ndlovu"><i data-lucide="ellipsis"></i></button>
+      <span class="pp-tooltip pp-tooltip--end" role="tooltip" aria-hidden="true">More actions</span>
+    </span>
+  </div>
+</section>
+<section data-example="Placement">
+  <div style="display:flex;gap:var(--space-600);align-items:flex-start;padding:var(--space-500) 0">
+    <span style="position:relative;display:inline-flex"><button class="pp-button pp-button--default pp-button--small" type="button">Top</button><span class="pp-tooltip" role="tooltip">Above by default</span></span>
+    <span style="position:relative;display:inline-flex"><button class="pp-button pp-button--default pp-button--small" type="button">Bottom</button><span class="pp-tooltip pp-tooltip--bottom" role="tooltip">Below near the top edge</span></span>
+  </div>
+</section>

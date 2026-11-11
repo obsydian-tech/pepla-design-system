@@ -1,0 +1,61 @@
+/* Toggle (switch). Spec: toggle.md */
+.pp-toggle {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-150);
+  min-height: var(--size-control-small);
+  padding: var(--space-050) 0;
+  box-sizing: border-box;
+  color: var(--color-text);
+  font: var(--font-body);
+}
+.pp-toggle__input {
+  --_track: var(--color-border-input);
+  --_thumb: var(--color-icon-inverse);
+  position: relative;
+  flex: none;
+  width: var(--size-control-medium);
+  height: var(--size-icon-large);
+  margin: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--_track);
+  appearance: none;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-medium) var(--motion-easing-standard);
+}
+.pp-toggle__input::before {
+  content: "";
+  position: absolute;
+  top: var(--space-050);
+  left: var(--space-050);
+  width: var(--size-icon-small);
+  height: var(--size-icon-small);
+  border-radius: var(--radius-full);
+  background: var(--_thumb);
+  transition: transform var(--motion-duration-medium) var(--motion-easing-spring);
+}
+.pp-toggle__input:hover { --_track: var(--color-text-subtle); }
+.pp-toggle__input:checked { --_track: var(--color-background-brand-bold); }
+.pp-toggle__input:checked:hover { --_track: var(--color-background-brand-bold-hovered); }
+.pp-toggle__input:checked::before { transform: translateX(var(--space-200)); }
+.pp-toggle__input:disabled { --_track: var(--color-background-disabled); --_thumb: var(--color-icon-disabled); cursor: not-allowed; }
+.pp-toggle__input:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+.pp-toggle__input[aria-busy="true"] { cursor: progress; }
+.pp-toggle__input[aria-busy="true"]::before { opacity: .6; }
+
+.pp-toggle__label { flex: 1; min-width: 0; padding-top: var(--space-025); cursor: pointer; }
+.pp-toggle__description { display: block; margin-top: var(--space-025); font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-toggle:has(.pp-toggle__input:disabled) .pp-toggle__label,
+.pp-toggle:has(.pp-toggle__input:disabled) .pp-toggle__description { color: var(--color-text-disabled); cursor: not-allowed; }
+
+/* Label first, switch at the end: settings lists and drawers */
+.pp-toggle--end { flex-direction: row-reverse; justify-content: space-between; }
+
+@media (pointer: coarse) {
+  .pp-toggle { min-height: var(--size-touch-target); padding: var(--space-100) 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-toggle__input::before { transition-duration: var(--motion-duration-instant); }
+}

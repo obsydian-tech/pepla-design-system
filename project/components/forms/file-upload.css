@@ -1,0 +1,83 @@
+/* File upload. Spec: file-upload.md */
+.pp-file-upload {
+  --_border: var(--color-border-bold);
+  --_bg: var(--elevation-surface-raised);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-100);
+  padding: var(--space-300) var(--space-200);
+  border: var(--border-width-selected) dashed var(--_border);
+  border-radius: var(--radius-large);
+  background: var(--_bg);
+  color: var(--color-text);
+  text-align: center;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
+              border-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-file-upload:hover { --_bg: var(--elevation-surface-raised-hovered); }
+.pp-file-upload--dragover { --_border: var(--color-border-selected); --_bg: var(--color-background-selected); border-style: solid; }
+.pp-file-upload--invalid { --_border: var(--color-border-danger); }
+.pp-file-upload--disabled { --_border: var(--color-border-disabled); --_bg: var(--color-background-disabled); color: var(--color-text-disabled); }
+.pp-file-upload:has(.pp-file-upload__input:focus-visible) { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+
+.pp-file-upload__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-control-large);
+  height: var(--size-control-large);
+  border-radius: var(--radius-full);
+  background: var(--color-background-brand-subtlest);
+  color: var(--color-icon-brand);
+}
+.pp-file-upload__icon > svg { width: var(--size-icon-large); height: var(--size-icon-large); }
+.pp-file-upload--dragover .pp-file-upload__icon { background: var(--color-background-brand-subtle); }
+.pp-file-upload__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-file-upload__hint { margin: 0; font: var(--font-body-small); color: var(--color-text-subtle); }
+/* The real input is visually hidden; its <label class="pp-button"> is the visible control */
+.pp-file-upload__input { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.pp-file-upload__browse { margin-top: var(--space-050); }
+
+/* Compact: one row, for a single document inside a checklist */
+.pp-file-upload--compact { flex-direction: row; justify-content: flex-start; gap: var(--space-150); padding: var(--space-150) var(--space-200); text-align: left; }
+.pp-file-upload--compact .pp-file-upload__icon { width: var(--size-control-medium); height: var(--size-control-medium); }
+.pp-file-upload--compact .pp-file-upload__icon > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); }
+.pp-file-upload--compact .pp-file-upload__text { flex: 1; min-width: 0; }
+.pp-file-upload--compact .pp-file-upload__browse { margin-top: 0; }
+
+/* Selected files */
+.pp-file-list { display: flex; flex-direction: column; gap: var(--space-100); margin: var(--space-150) 0 0; padding: 0; list-style: none; }
+.pp-file {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--space-150);
+  row-gap: var(--space-075);
+  padding: var(--space-150);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--elevation-surface-raised);
+}
+.pp-file--error { border-color: var(--color-border-danger); background: var(--color-background-danger-subtle); }
+.pp-file__icon { display: inline-flex; color: var(--color-icon-subtle); }
+.pp-file__icon > svg { width: var(--size-icon-large); height: var(--size-icon-large); }
+.pp-file--error .pp-file__icon { color: var(--color-icon-danger); }
+.pp-file__body { min-width: 0; }
+.pp-file__name { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: var(--font-body-strong); color: var(--color-text); }
+.pp-file__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); margin-top: var(--space-025); font: var(--font-body-small); color: var(--color-text-subtle); font-variant-numeric: tabular-nums; }
+.pp-file__status { display: inline-flex; align-items: center; gap: var(--space-050); }
+.pp-file__status > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; }
+.pp-file__status--success { color: var(--color-text-success); }
+.pp-file__status--success > svg { color: var(--color-icon-success); }
+.pp-file__status--danger { color: var(--color-text-danger); }
+.pp-file__status--danger > svg { color: var(--color-icon-danger); }
+.pp-file__progress { grid-column: 2 / -1; }
+.pp-file__actions { display: flex; gap: var(--space-050); align-items: center; }
+
+@media (max-width: 767px) {
+  .pp-file-upload__drop-text { display: none; }
+  .pp-file-upload--compact { flex-wrap: wrap; }
+  .pp-file__progress { grid-column: 1 / -1; }
+}

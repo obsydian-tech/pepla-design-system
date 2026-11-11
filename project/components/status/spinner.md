@@ -60,7 +60,7 @@ progressspinner: { root: { class: 'pp-spinner' }, spin: { style: 'display:none' 
 
 ## In Pepla today
 
-The verification detail waits on the ID check, and the AI chat waits on a reply. Both use plain "Loading..." text today.
+The employee dashboard shows a "Loading..." state while it fetches. Buttons that call the server have no working state today.
 
 ## Do and don't
 

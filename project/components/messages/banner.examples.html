@@ -1,0 +1,31 @@
+<section data-example="Warning">
+  <div class="pp-banner" role="alert">
+    <i data-lucide="triangle-alert"></i>
+    <p class="pp-banner__text">The payroll connection stopped at 06:00. November payslips won't sync until you <a href="#">reconnect payroll</a>.</p>
+  </div>
+</section>
+<section data-example="Error">
+  <div class="pp-banner pp-banner--error" role="alert">
+    <i data-lucide="octagon-alert"></i>
+    <p class="pp-banner__text">You can't send contracts: the company registration expired on 31 Oct 2026. <a href="#">Upload the new one</a></p>
+  </div>
+</section>
+<section data-example="Announcement, can be dismissed">
+  <div class="pp-banner pp-banner--announcement" role="region" aria-label="Announcement">
+    <i data-lucide="info"></i>
+    <p class="pp-banner__text">Pepla now handles leave requests for teams in Zambia. <a href="#">See what changed</a></p>
+    <button class="pp-banner__dismiss" type="button" aria-label="Dismiss announcement"><i data-lucide="x"></i></button>
+  </div>
+</section>
+<section data-example="At the top of the app">
+  <div style="border:var(--border-width) solid var(--color-border);border-radius:var(--radius-large);overflow:hidden;background:var(--elevation-surface-raised)">
+    <div class="pp-banner" role="alert">
+      <i data-lucide="triangle-alert"></i>
+      <p class="pp-banner__text">Your trial ends in 3 days. <a href="#">Choose a plan</a> to keep your records.</p>
+    </div>
+    <div style="padding:var(--space-300);display:flex;flex-direction:column;gap:var(--space-100)">
+      <strong style="font:var(--font-heading-medium)">People</strong>
+      <span style="color:var(--color-text-subtle)">38 people across 3 countries</span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+/* Banner. Spec: banner.md */
+.pp-banner {
+  --_bg: var(--color-background-warning-bold);
+  --_fg: var(--color-text-warning-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-100);
+  min-height: var(--size-control-large);
+  padding: var(--space-100) var(--space-200);
+  background: var(--_bg);
+  color: var(--_fg);
+  font: var(--font-body-strong);
+  letter-spacing: var(--font-body-strong-tracking);
+  text-align: center;
+}
+.pp-banner > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; }
+.pp-banner__text { min-width: 0; margin: 0; }
+.pp-banner a, .pp-banner__action { color: inherit; text-decoration: underline; text-underline-offset: 2px; font: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.pp-banner a:focus-visible, .pp-banner button:focus-visible { outline-color: currentColor; }
+
+.pp-banner--error { --_bg: var(--color-background-danger-bold); --_fg: var(--color-text-inverse); }
+.pp-banner--announcement { --_bg: var(--color-background-neutral-bold); --_fg: var(--color-text-inverse); }
+
+.pp-banner__dismiss {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: var(--size-control-small);
+  height: var(--size-control-small);
+  margin-left: var(--space-100);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  flex: none;
+  transition: border-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-banner__dismiss:hover { border-color: currentColor; }
+.pp-banner__dismiss > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
+@media (pointer: coarse) {
+  .pp-banner__dismiss::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: var(--size-touch-target); height: var(--size-touch-target); transform: translate(-50%, -50%); }
+}
+
+@media (max-width: 767px) {
+  .pp-banner { justify-content: flex-start; align-items: flex-start; text-align: left; padding: var(--space-150) var(--layout-gutter-phone); }
+  .pp-banner__dismiss { margin-left: auto; }
+}

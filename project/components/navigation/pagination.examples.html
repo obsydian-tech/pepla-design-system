@@ -1,0 +1,46 @@
+<section data-example="Middle of a list">
+  <nav class="pp-pagination" aria-label="People pages">
+    <p class="pp-pagination__summary" aria-live="polite">Showing <strong>21–40</strong> of <strong>132</strong> people</p>
+    <ul class="pp-pagination__pages">
+      <li><a class="pp-pagination__page" href="#" aria-label="Previous page"><i data-lucide="chevron-left"></i><span>Previous</span></a></li>
+      <li><a class="pp-pagination__page" href="#" aria-label="Page 1">1</a></li>
+      <li><a class="pp-pagination__page" href="#" aria-label="Page 2" aria-current="page">2</a></li>
+      <li><a class="pp-pagination__page" href="#" aria-label="Page 3">3</a></li>
+      <li><span class="pp-pagination__gap" aria-hidden="true"><i data-lucide="ellipsis"></i></span></li>
+      <li><a class="pp-pagination__page" href="#" aria-label="Page 7">7</a></li>
+      <li><span class="pp-pagination__position">Page 2 of 7</span></li>
+      <li><a class="pp-pagination__page" href="#" aria-label="Next page"><span>Next</span><i data-lucide="chevron-right"></i></a></li>
+    </ul>
+  </nav>
+</section>
+<section data-example="First page">
+  <nav class="pp-pagination" aria-label="Candidate pages">
+    <p class="pp-pagination__summary">Showing <strong>1–20</strong> of <strong>46</strong> candidates</p>
+    <ul class="pp-pagination__pages">
+      <li><button class="pp-pagination__page" type="button" disabled aria-label="Previous page"><i data-lucide="chevron-left"></i><span>Previous</span></button></li>
+      <li><button class="pp-pagination__page" type="button" aria-label="Page 1" aria-current="page">1</button></li>
+      <li><button class="pp-pagination__page" type="button" aria-label="Page 2">2</button></li>
+      <li><button class="pp-pagination__page" type="button" aria-label="Page 3">3</button></li>
+      <li><span class="pp-pagination__position">Page 1 of 3</span></li>
+      <li><button class="pp-pagination__page" type="button" aria-label="Next page"><span>Next</span><i data-lucide="chevron-right"></i></button></li>
+    </ul>
+  </nav>
+</section>
+<section data-example="Under a table">
+  <div style="background:var(--elevation-surface-raised);border:var(--border-width) solid var(--color-border);border-radius:var(--radius-large);overflow:hidden">
+    <div style="padding:var(--space-150) var(--space-200);border-bottom:var(--border-width) solid var(--color-border)">Lerato Mokoena</div>
+    <div style="padding:var(--space-150) var(--space-200);border-bottom:var(--border-width) solid var(--color-border)">Sipho Ndlovu</div>
+    <div style="padding:var(--space-150) var(--space-200);border-bottom:var(--border-width) solid var(--color-border)">Thandeka Dlamini</div>
+    <nav class="pp-pagination" aria-label="Document pages" style="padding:var(--space-100) var(--space-200)">
+      <p class="pp-pagination__summary">Showing <strong>41–43</strong> of <strong>43</strong> people</p>
+      <ul class="pp-pagination__pages">
+        <li><button class="pp-pagination__page" type="button" aria-label="Previous page"><i data-lucide="chevron-left"></i><span>Previous</span></button></li>
+        <li><button class="pp-pagination__page" type="button" aria-label="Page 1">1</button></li>
+        <li><button class="pp-pagination__page" type="button" aria-label="Page 2">2</button></li>
+        <li><button class="pp-pagination__page" type="button" aria-label="Page 3" aria-current="page">3</button></li>
+        <li><span class="pp-pagination__position">Page 3 of 3</span></li>
+        <li><button class="pp-pagination__page" type="button" disabled aria-label="Next page"><span>Next</span><i data-lucide="chevron-right"></i></button></li>
+      </ul>
+    </nav>
+  </div>
+</section>

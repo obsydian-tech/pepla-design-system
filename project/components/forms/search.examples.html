@@ -1,0 +1,57 @@
+<section data-example="Empty and with a query">
+  <div class="pp-form">
+    <div role="search">
+      <label class="pp-field__label pp-field__label--hidden" for="sr-people">Search people</label>
+      <div class="pp-text-field pp-search">
+        <span class="pp-text-field__prefix"><i data-lucide="search"></i></span>
+        <input class="pp-text-field__input" id="sr-people" type="search" placeholder="Search people by name or job title" autocomplete="off">
+        <button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button>
+      </div>
+    </div>
+    <div role="search">
+      <label class="pp-field__label pp-field__label--hidden" for="sr-cand">Search candidates</label>
+      <div class="pp-text-field pp-search">
+        <span class="pp-text-field__prefix"><i data-lucide="search"></i></span>
+        <input class="pp-text-field__input" id="sr-cand" type="search" placeholder="Search candidates" value="Ndlovu" autocomplete="off" aria-describedby="sr-cand-results">
+        <button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button>
+      </div>
+      <div class="pp-search__results" id="sr-cand-results" role="status">3 candidates match "Ndlovu"</div>
+    </div>
+  </div>
+</section>
+<section data-example="Searching">
+  <div role="search" style="max-width:480px">
+    <label class="pp-field__label pp-field__label--hidden" for="sr-docs">Search verifications</label>
+    <div class="pp-text-field pp-search" aria-busy="true">
+      <span class="pp-text-field__prefix"><i data-lucide="search"></i></span>
+      <input class="pp-text-field__input" id="sr-docs" type="search" placeholder="Search verifications" value="Mokoena" autocomplete="off" aria-describedby="sr-docs-results">
+      <button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button>
+      <span class="pp-spinner pp-spinner--small" aria-hidden="true"></span>
+    </div>
+    <div class="pp-search__results" id="sr-docs-results" role="status">Searching</div>
+  </div>
+</section>
+<section data-example="Small, in a table toolbar">
+  <div style="display:flex;gap:var(--space-100);align-items:center;flex-wrap:wrap">
+    <div role="search" style="flex:1;min-width:200px;max-width:320px">
+      <label class="pp-field__label pp-field__label--hidden" for="sr-table">Filter this list</label>
+      <div class="pp-text-field pp-text-field--small pp-search">
+        <span class="pp-text-field__prefix"><i data-lucide="search"></i></span>
+        <input class="pp-text-field__input" id="sr-table" type="search" placeholder="Filter this list" autocomplete="off">
+        <button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear filter"><i data-lucide="x"></i></button>
+      </div>
+    </div>
+    <button class="pp-button pp-button--default pp-button--small" type="button">Overdue</button>
+  </div>
+</section>
+<section data-example="No results">
+  <div role="search" style="max-width:480px">
+    <label class="pp-field__label pp-field__label--hidden" for="sr-none">Search people</label>
+    <div class="pp-text-field pp-search">
+      <span class="pp-text-field__prefix"><i data-lucide="search"></i></span>
+      <input class="pp-text-field__input" id="sr-none" type="search" placeholder="Search people" value="Thembi" autocomplete="off" aria-describedby="sr-none-results">
+      <button class="pp-text-field__action pp-search__clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button>
+    </div>
+    <div class="pp-search__results" id="sr-none-results" role="status">No one called "Thembi". Check the spelling, or search by job title.</div>
+  </div>
+</section>

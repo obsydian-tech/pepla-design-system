@@ -1,0 +1,30 @@
+<section data-example="Radio group">
+  <fieldset class="pp-field">
+    <legend class="pp-field__label">Contract type<span class="pp-field__required" aria-hidden="true">*</span></legend>
+    <div class="pp-field__options" role="radiogroup">
+      <div class="pp-radio"><input class="pp-radio__input" type="radio" name="ra-contract" id="ra-perm" checked><label class="pp-radio__label" for="ra-perm">Permanent</label></div>
+      <div class="pp-radio"><input class="pp-radio__input" type="radio" name="ra-contract" id="ra-fixed" aria-describedby="ra-fixed-d"><label class="pp-radio__label" for="ra-fixed">Fixed term<span class="pp-radio__description" id="ra-fixed-d">You will be asked for the end date next</span></label></div>
+      <div class="pp-radio"><input class="pp-radio__input" type="radio" name="ra-contract" id="ra-intern"><label class="pp-radio__label" for="ra-intern">Learnership or internship</label></div>
+      <div class="pp-radio"><input class="pp-radio__input" type="radio" name="ra-contract" id="ra-contractor" disabled aria-describedby="ra-contractor-d"><label class="pp-radio__label" for="ra-contractor">Independent contractor<span class="pp-radio__description" id="ra-contractor-d">Not on your plan yet</span></label></div>
+    </div>
+  </fieldset>
+</section>
+<section data-example="Inline, with an error">
+  <fieldset class="pp-field">
+    <legend class="pp-field__label">Has Sipho worked for you before?<span class="pp-field__required" aria-hidden="true">*</span></legend>
+    <div class="pp-field__options pp-field__options--inline">
+      <div class="pp-radio"><input class="pp-radio__input" type="radio" name="ra-before" id="ra-before-yes" required aria-invalid="true" aria-describedby="ra-before-error"><label class="pp-radio__label" for="ra-before-yes">Yes</label></div>
+      <div class="pp-radio"><input class="pp-radio__input" type="radio" name="ra-before" id="ra-before-no" required aria-invalid="true" aria-describedby="ra-before-error"><label class="pp-radio__label" for="ra-before-no">No</label></div>
+    </div>
+    <div class="pp-field__error" id="ra-before-error"><i data-lucide="octagon-alert"></i><span>Choose yes or no. It decides whether his old leave balance carries over.</span></div>
+  </fieldset>
+</section>
+<section data-example="Tiles">
+  <fieldset class="pp-field">
+    <legend class="pp-field__label">How should Pepla collect Lerato's documents?</legend>
+    <div class="pp-field__options pp-field__options--tiles">
+      <div class="pp-radio pp-radio--tile"><input class="pp-radio__input" type="radio" name="ra-collect" id="ra-collect-portal" checked aria-describedby="ra-collect-portal-d"><label class="pp-radio__label" for="ra-collect-portal">New-hire portal<span class="pp-radio__description" id="ra-collect-portal-d">She uploads them from her phone. Pepla checks each one.</span></label></div>
+      <div class="pp-radio pp-radio--tile"><input class="pp-radio__input" type="radio" name="ra-collect" id="ra-collect-hr" aria-describedby="ra-collect-hr-d"><label class="pp-radio__label" for="ra-collect-hr">You upload them<span class="pp-radio__description" id="ra-collect-hr-d">For people without a smartphone or email.</span></label></div>
+    </div>
+  </fieldset>
+</section>

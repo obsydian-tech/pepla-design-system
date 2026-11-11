@@ -1,0 +1,114 @@
+/* Select. Spec: select.md
+   .pp-select is the box: a native <select class="pp-select__input"> or, for PrimeNG Select,
+   a <span class="pp-select__value"> with role="combobox". The chevron is an icon after it. */
+.pp-select {
+  --_border: var(--color-border-input);
+  --_bg: var(--color-background-input);
+  --_ring: transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--size-control-medium);
+  box-sizing: border-box;
+  border: var(--border-width) solid var(--_border);
+  border-radius: var(--radius-medium);
+  background: var(--_bg);
+  box-shadow: inset 0 0 0 var(--border-width) var(--_ring);
+  color: var(--color-text);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
+              border-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-select:hover { --_bg: var(--color-background-input-hovered); }
+.pp-select:has(> .pp-select__input:focus-visible),
+.pp-select:has(> .pp-select__value:focus-visible),
+.pp-select--open { --_border: var(--color-border-focused); --_ring: var(--color-border-focused); --_bg: var(--color-background-input); }
+.pp-select:has(> [aria-invalid="true"]) { --_border: var(--color-border-danger); --_ring: var(--color-border-danger); }
+.pp-select:has(> :disabled),
+.pp-select:has(> [aria-disabled="true"]) { --_bg: var(--color-background-disabled); --_border: var(--color-border-disabled); color: var(--color-text-disabled); cursor: not-allowed; }
+
+.pp-select__input,
+.pp-select__value {
+  flex: 1;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 calc(var(--space-150) + var(--size-icon-medium) + var(--space-100)) 0 var(--space-150);
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  appearance: none;
+  cursor: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pp-select__input:focus-visible, .pp-select__value:focus-visible { outline: none; }
+.pp-select__value--placeholder { color: var(--color-text-subtlest); }
+.pp-select__input option { background: var(--elevation-surface-overlay); color: var(--color-text); }
+.pp-select > svg {
+  position: absolute;
+  right: var(--space-150);
+  width: var(--size-icon-medium);
+  height: var(--size-icon-medium);
+  color: var(--color-icon-subtle);
+  pointer-events: none;
+  transition: transform var(--motion-duration-medium) var(--motion-easing-standard);
+}
+.pp-select--open > svg { transform: rotate(180deg); }
+.pp-select:has(> :disabled) > svg { color: var(--color-icon-disabled); }
+
+.pp-select--small { min-height: var(--size-control-small); }
+.pp-select--fit { display: inline-flex; width: auto; }
+
+/* The overlay list (PrimeNG Select, MultiSelect, AutoComplete) */
+.pp-select-panel {
+  z-index: var(--layer-layer);
+  box-sizing: border-box;
+  min-width: 200px;
+  max-height: 320px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-050);
+  border-radius: var(--radius-large);
+  background: var(--elevation-surface-overlay);
+  box-shadow: var(--elevation-shadow-overlay);
+  color: var(--color-text);
+  font: var(--font-body);
+}
+.pp-select-panel__filter { position: sticky; top: calc(var(--space-050) * -1); z-index: 1; margin: calc(var(--space-050) * -1) calc(var(--space-050) * -1) var(--space-050); padding: var(--space-100); background: var(--elevation-surface-overlay); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-select-panel__list { margin: 0; padding: 0; list-style: none; }
+.pp-select-panel__group { padding: var(--space-150) var(--space-150) var(--space-050); font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); color: var(--color-text-subtlest); }
+.pp-select-panel__empty { padding: var(--space-150); color: var(--color-text-subtle); }
+
+.pp-select-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-100);
+  min-height: var(--size-control-medium);
+  padding: var(--space-050) var(--space-150);
+  border-radius: var(--radius-small);
+  cursor: pointer;
+}
+.pp-select-option:hover, .pp-select-option--focused { background: var(--color-background-neutral-subtle-hovered); }
+.pp-select-option[aria-selected="true"] { background: var(--color-background-selected); color: var(--color-text-selected); font: var(--font-body-strong); }
+.pp-select-option[aria-selected="true"]:hover, .pp-select-option[aria-selected="true"].pp-select-option--focused { background: var(--color-background-selected-hovered); }
+.pp-select-option[aria-disabled="true"] { color: var(--color-text-disabled); cursor: not-allowed; background: transparent; }
+.pp-select-option__text { flex: 1; min-width: 0; }
+.pp-select-option__meta { display: block; font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-select-option > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
+.pp-select-option__check { display: inline-flex; flex: none; visibility: hidden; color: var(--color-icon-selected); }
+.pp-select-option__check > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
+.pp-select-option[aria-selected="true"] > .pp-select-option__check { visibility: visible; }
+
+@media (max-width: 767px) {
+  .pp-select, .pp-select--small { min-height: var(--size-control-large); font: var(--font-body-large); letter-spacing: var(--font-body-large-tracking); }
+  .pp-select-option { min-height: var(--size-control-large); }
+}

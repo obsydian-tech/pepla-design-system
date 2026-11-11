@@ -1,0 +1,64 @@
+<section data-example="Destructive confirm: names the person and the consequence">
+  <div class="pp-blanket pp-blanket--inline">
+    <div class="pp-modal-dialog pp-modal-dialog--small pp-modal-dialog--danger pp-modal-dialog--inline" role="alertdialog" aria-modal="true" aria-labelledby="md-1-t" aria-describedby="md-1-d">
+      <div class="pp-modal-dialog__header">
+        <i data-lucide="triangle-alert"></i>
+        <h2 class="pp-modal-dialog__title" id="md-1-t">Withdraw Lerato Mokoena's offer?</h2>
+      </div>
+      <div class="pp-modal-dialog__body" id="md-1-d">
+        <p>Lerato will get an email saying the Bookkeeper offer is withdrawn. Her signed documents stay in the audit trail.</p>
+        <p>You can't undo this.</p>
+      </div>
+      <div class="pp-modal-dialog__footer">
+        <button class="pp-button pp-button--default" type="button">Keep offer</button>
+        <button class="pp-button pp-button--danger" type="button">Withdraw offer</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="Medium, with a close button">
+  <div class="pp-blanket pp-blanket--inline">
+    <div class="pp-modal-dialog pp-modal-dialog--inline" role="dialog" aria-modal="true" aria-labelledby="md-2-t">
+      <div class="pp-modal-dialog__header">
+        <h2 class="pp-modal-dialog__title" id="md-2-t">Send contract to Kagiso Molefe</h2>
+        <button class="pp-button pp-button--subtle pp-button--icon pp-modal-dialog__close" type="button" aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="pp-modal-dialog__body">
+        <p>Kagiso gets a link by email and SMS to read and sign the contract on his phone. The link works for 7 days.</p>
+        <p style="color:var(--color-text-subtle)">Employment contract, Junior bookkeeper, starts 1 Dec 2026, R 18 500 a month.</p>
+      </div>
+      <div class="pp-modal-dialog__footer">
+        <button class="pp-button pp-button--default" type="button">Cancel</button>
+        <button class="pp-button pp-button--primary" type="button">Send contract</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="Working: the confirm stays busy until it lands">
+  <div class="pp-blanket pp-blanket--inline" style="min-height:280px">
+    <div class="pp-modal-dialog pp-modal-dialog--small pp-modal-dialog--inline" role="dialog" aria-modal="true" aria-labelledby="md-3-t">
+      <div class="pp-modal-dialog__header">
+        <h2 class="pp-modal-dialog__title" id="md-3-t">Remove Sipho from the interview panel?</h2>
+      </div>
+      <div class="pp-modal-dialog__body"><p>Sipho won't see the Bookkeeper candidates any more. You can add him back later.</p></div>
+      <div class="pp-modal-dialog__footer">
+        <button class="pp-button pp-button--default" type="button" disabled>Keep Sipho</button>
+        <button class="pp-button pp-button--primary" type="button" aria-busy="true"><span>Remove Sipho</span><span class="pp-spinner pp-spinner--inverse" aria-hidden="true"></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="On a phone: bottom sheet">
+  <div class="pp-blanket pp-blanket--inline pp-blanket--sheet" style="max-width:390px;min-height:420px">
+    <div class="pp-modal-dialog pp-modal-dialog--sheet pp-modal-dialog--inline" role="dialog" aria-modal="true" aria-labelledby="md-4-t">
+      <div class="pp-modal-dialog__header">
+        <h2 class="pp-modal-dialog__title" id="md-4-t">Approve Thandeka's leave?</h2>
+      </div>
+      <div class="pp-modal-dialog__body"><p>Annual leave, 15 to 19 Dec 2026, 5 days. She will have 7 days left this year.</p></div>
+      <div class="pp-modal-dialog__footer">
+        <button class="pp-button pp-button--default" type="button">Not now</button>
+        <button class="pp-button pp-button--primary" type="button">Approve leave</button>
+      </div>
+    </div>
+  </div>
+</section>

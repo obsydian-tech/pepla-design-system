@@ -1,0 +1,62 @@
+/* Radio and radio group. Spec: radio.md */
+.pp-radio {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-100);
+  min-height: var(--size-control-small);
+  padding: var(--space-075) 0;
+  box-sizing: border-box;
+  color: var(--color-text);
+  font: var(--font-body);
+}
+.pp-radio__input {
+  --_border: var(--color-border-input);
+  --_bg: var(--color-background-input);
+  --_dot: 0px;
+  flex: none;
+  width: var(--size-icon-medium);
+  height: var(--size-icon-medium);
+  margin: 0;
+  border: var(--border-width-selected) solid var(--_border);
+  border-radius: var(--radius-full);
+  background: var(--_bg);
+  box-shadow: inset 0 0 0 var(--_dot) var(--color-background-input);
+  appearance: none;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
+              border-color var(--motion-duration-fast) var(--motion-easing-standard),
+              box-shadow var(--motion-duration-fast) var(--motion-easing-spring);
+}
+.pp-radio__input:hover { --_bg: var(--color-background-input-hovered); }
+.pp-radio__input:checked { --_bg: var(--color-background-brand-bold); --_border: var(--color-background-brand-bold); --_dot: var(--space-050); }
+.pp-radio__input:checked:hover { --_bg: var(--color-background-brand-bold-hovered); --_border: var(--color-background-brand-bold-hovered); }
+.pp-radio__input[aria-invalid="true"] { --_border: var(--color-border-danger); }
+.pp-radio__input:disabled { --_bg: var(--color-background-disabled); --_border: var(--color-border-disabled); cursor: not-allowed; }
+.pp-radio__input:disabled:checked { --_bg: var(--color-icon-disabled); --_border: var(--color-border-disabled); }
+.pp-radio__input:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+
+.pp-radio__label { flex: 1; min-width: 0; cursor: pointer; }
+.pp-radio__description { display: block; margin-top: var(--space-025); font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-radio:has(.pp-radio__input:disabled) .pp-radio__label,
+.pp-radio:has(.pp-radio__input:disabled) .pp-radio__description { color: var(--color-text-disabled); cursor: not-allowed; }
+
+/* Tile: a bordered card for choices that need a sentence each */
+.pp-radio--tile {
+  padding: var(--space-150) var(--space-200);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--elevation-surface-raised);
+  transition: border-color var(--motion-duration-fast) var(--motion-easing-standard), background-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-radio--tile:hover { background: var(--elevation-surface-raised-hovered); }
+.pp-radio--tile:has(.pp-radio__input:checked) { border-color: var(--color-border-selected); background: var(--color-background-selected); box-shadow: inset 0 0 0 var(--border-width) var(--color-border-selected); }
+.pp-radio--tile:has(.pp-radio__input:checked) .pp-radio__label { color: var(--color-text); font: var(--font-body-strong); }
+.pp-radio--tile:has(.pp-radio__input:checked) .pp-radio__description { font: var(--font-body-small); }
+.pp-radio--tile:has(.pp-radio__input:disabled) { background: var(--color-background-disabled); border-color: var(--color-border-disabled); }
+/* The label stretches over the whole tile so the tile is the hit area */
+.pp-radio--tile .pp-radio__label::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius-medium); }
+
+@media (pointer: coarse) {
+  .pp-radio { min-height: var(--size-touch-target); padding-top: var(--space-150); padding-bottom: var(--space-150); }
+}
