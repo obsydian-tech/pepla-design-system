@@ -45,6 +45,7 @@ Rows of the same kind of thing, to scan, sort, select and open. Pepla's tables a
 - Default sort puts what needs action first: overdue, then due soon, then the rest.
 - Clicking the first-column name opens the record; the whole row is not a link (it would trap the action buttons).
 - Bulk actions appear in a bar above the table when rows are selected: "3 selected · Send reminder".
+- Long lists load 20 to 50 rows at a time as you scroll. On desktop only the rows in view render (virtual scroll, rows one line high). On a phone, rows stack as cards of different heights, so every loaded row renders and the next page loads as the end comes near; the list never scrolls inside itself.
 - Page size 20; Pagination says "Showing 21 to 40 of 132 people".
 
 ## Content
