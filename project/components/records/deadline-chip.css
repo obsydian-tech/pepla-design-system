@@ -1,0 +1,5 @@
+/* Deadline chip. Spec: deadline-chip.md
+   A deadline said in words with a clock (rules 4 and 5). Built on pp-lozenge: add pp-deadline. */
+.pp-deadline { font-variant-numeric: tabular-nums; text-decoration: none; }
+/* Inline: the same icon and words without the pill, for meta lines and dense rows */
+.pp-deadline--inline { min-height: 0; padding: 0; background: none; font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); }

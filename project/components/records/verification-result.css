@@ -1,0 +1,10 @@
+/* Verification result. Spec: verification-result.md
+   Built on pp-card and pp-dl; adds the list of what was compared. */
+.pp-verification__checks { display: flex; flex-direction: column; gap: var(--space-075); margin: 0; padding: 0; list-style: none; }
+.pp-verification__checks > .pp-verification__check { display: flex; align-items: flex-start; gap: var(--space-100); max-width: none; margin: 0; font: var(--font-body); letter-spacing: var(--font-body-tracking); color: var(--color-text); }
+.pp-verification__check > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; margin-top: var(--space-025); color: var(--color-icon-success); }
+.pp-verification__check--mismatch > svg { color: var(--color-icon-danger); }
+.pp-verification__check--unsure > svg { color: var(--color-icon-warning); }
+.pp-verification__check-note { color: var(--color-text-subtle); }
+.pp-verification__by { display: inline-flex; align-items: center; gap: var(--space-100); flex-wrap: wrap; }
+.pp-verification .pp-dl { grid-template-columns: minmax(96px, 160px) 1fr; }

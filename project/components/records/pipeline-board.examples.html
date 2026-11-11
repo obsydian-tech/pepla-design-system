@@ -1,0 +1,133 @@
+<section data-example="Board for one role">
+  <div class="pp-pipeline">
+    <div class="pp-pipeline__picker">
+      <div class="pp-field"><label class="pp-field__label" for="pb1-stage">Stage</label><div class="pp-select"><select class="pp-select__input" id="pb1-stage"><option>Applied (3)</option><option selected>Interview (3)</option><option>Offer (1)</option><option>Hired (1)</option></select><i data-lucide="chevron-down"></i></div></div>
+    </div>
+    <ol class="pp-pipeline__board" aria-label="Hiring stages for Sales rep">
+      <li class="pp-pipeline__column" aria-labelledby="pb1-c1">
+        <div class="pp-pipeline__column-header">
+          <span class="pp-pipeline__column-name" role="heading" aria-level="3" id="pb1-c1">Applied</span>
+          <span class="pp-badge" aria-label="3 candidates">3</span>
+          <span class="pp-pipeline__column-alert pp-pipeline__column-alert--warning"><i data-lucide="clock"></i>1 waiting over 5 days</span>
+        </div>
+        <ul class="pp-pipeline__cards">
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--sky" aria-hidden="true">TN</span><span class="pp-person__text"><a class="pp-person__name" href="#tendai">Tendai Ncube</a><span class="pp-person__meta">Applied 4 Nov</span></span></span>
+              <span class="pp-lozenge pp-lozenge--warning"><i data-lucide="clock"></i>Waiting 7 days</span>
+            </div>
+            <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move Tendai Ncube to another stage" aria-haspopup="menu"><i data-lucide="arrow-right-left"></i></button>
+          </li>
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--violet" aria-hidden="true">MP</span><span class="pp-person__text"><a class="pp-person__name" href="#mpho">Mpho Phiri</a><span class="pp-person__meta">Applied 9 Nov · Referral</span></span></span>
+            </div>
+            <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move Mpho Phiri to another stage" aria-haspopup="menu"><i data-lucide="arrow-right-left"></i></button>
+          </li>
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--amber" aria-hidden="true">AM</span><span class="pp-person__text"><a class="pp-person__name" href="#ayanda">Ayanda Mkhize</a><span class="pp-person__meta">Applied 10 Nov</span></span></span>
+            </div>
+            <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move Ayanda Mkhize to another stage" aria-haspopup="menu"><i data-lucide="arrow-right-left"></i></button>
+          </li>
+        </ul>
+      </li>
+      <li class="pp-pipeline__column pp-pipeline__column--current" aria-labelledby="pb1-c2">
+        <div class="pp-pipeline__column-header">
+          <span class="pp-pipeline__column-name" role="heading" aria-level="3" id="pb1-c2">Interview</span>
+          <span class="pp-badge" aria-label="3 candidates">3</span>
+          <span class="pp-pipeline__column-alert"><i data-lucide="clock-alert"></i>1 scorecard overdue</span>
+        </div>
+        <ul class="pp-pipeline__cards">
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--green" aria-hidden="true">BM</span><span class="pp-person__text"><a class="pp-person__name" href="#bongani">Bongani Mthembu</a><span class="pp-person__meta">Interviewed 3 Nov</span></span></span>
+              <time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-10" title="Was due 10 Nov 2026"><i data-lucide="clock-alert"></i>Scorecard overdue by 1 day</time>
+            </div>
+            <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move Bongani Mthembu to another stage" aria-haspopup="menu"><i data-lucide="arrow-right-left"></i></button>
+          </li>
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--sky" aria-hidden="true">RN</span><span class="pp-person__text"><a class="pp-person__name" href="#rudo">Rudo Nyathi</a><span class="pp-person__meta">Sales rep, Harare</span></span></span>
+              <span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Interview booked by Pepla</span>
+            </div>
+            <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move Rudo Nyathi to another stage" aria-haspopup="menu"><i data-lucide="arrow-right-left"></i></button>
+          </li>
+          <li class="pp-pipeline__placeholder" aria-hidden="true"></li>
+        </ul>
+      </li>
+      <li class="pp-pipeline__column pp-pipeline__column--drop-target" aria-labelledby="pb1-c3">
+        <div class="pp-pipeline__column-header">
+          <span class="pp-pipeline__column-name" role="heading" aria-level="3" id="pb1-c3">Offer</span>
+          <span class="pp-badge" aria-label="1 candidate">1</span>
+        </div>
+        <ul class="pp-pipeline__cards">
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-person__text"><a class="pp-person__name" href="#lerato">Lerato Mokoena</a><span class="pp-person__meta">Sales rep, Durban</span></span></span>
+              <span class="pp-lozenge pp-lozenge--information"><i data-lucide="clock"></i>Offer waits for HR</span>
+            </div>
+            <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move Lerato Mokoena to another stage" aria-haspopup="menu"><i data-lucide="arrow-right-left"></i></button>
+          </li>
+          <li class="pp-pipeline__card pp-pipeline__card--dragging" aria-hidden="true">
+            <span class="pp-pipeline__handle"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--blue" aria-hidden="true">TK</span><span class="pp-person__text"><span class="pp-person__name">Thabo Khumalo</span><span class="pp-person__meta">Being moved</span></span></span>
+            </div>
+            <span></span>
+          </li>
+        </ul>
+      </li>
+      <li class="pp-pipeline__column" aria-labelledby="pb1-c4">
+        <div class="pp-pipeline__column-header">
+          <span class="pp-pipeline__column-name" role="heading" aria-level="3" id="pb1-c4">Hired</span>
+          <span class="pp-badge" aria-label="0 candidates">0</span>
+        </div>
+        <ul class="pp-pipeline__cards"><li class="pp-pipeline__empty">No one yet</li></ul>
+      </li>
+    </ol>
+    <div class="pp-visually-hidden" aria-live="polite"></div>
+  </div>
+</section>
+<section data-example="Phone: stage picker and one list">
+  <div class="pp-pipeline" style="max-width:360px">
+    <div class="pp-pipeline__picker">
+      <div class="pp-field"><label class="pp-field__label" for="pb2-stage">Stage</label><div class="pp-select"><select class="pp-select__input" id="pb2-stage"><option>Applied (3)</option><option selected>Interview (2)</option><option>Offer (1)</option><option>Hired (0)</option></select><i data-lucide="chevron-down"></i></div></div>
+    </div>
+    <ol class="pp-pipeline__board" aria-label="Hiring stages for Sales rep">
+      <li class="pp-pipeline__column" aria-labelledby="pb2-c1"><div class="pp-pipeline__column-header"><span class="pp-pipeline__column-name" role="heading" aria-level="3" id="pb2-c1">Applied</span></div><ul class="pp-pipeline__cards"><li class="pp-pipeline__empty">Hidden on phone</li></ul></li>
+      <li class="pp-pipeline__column pp-pipeline__column--current" aria-labelledby="pb2-c2">
+        <div class="pp-pipeline__column-header">
+          <span class="pp-pipeline__column-name" role="heading" aria-level="3" id="pb2-c2">Interview</span>
+          <span class="pp-badge" aria-label="2 candidates">2</span>
+          <span class="pp-pipeline__column-alert"><i data-lucide="clock-alert"></i>1 scorecard overdue</span>
+        </div>
+        <ul class="pp-pipeline__cards">
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--green" aria-hidden="true">BM</span><span class="pp-person__text"><a class="pp-person__name" href="#bongani">Bongani Mthembu</a><span class="pp-person__meta">Interviewed 3 Nov</span></span></span>
+              <time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-10" title="Was due 10 Nov 2026"><i data-lucide="clock-alert"></i>Scorecard overdue by 1 day</time>
+            </div>
+            <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Move Bongani Mthembu to another stage" aria-haspopup="menu"><i data-lucide="arrow-right-left"></i></button>
+          </li>
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--sky" aria-hidden="true">RN</span><span class="pp-person__text"><a class="pp-person__name" href="#rudo">Rudo Nyathi</a><span class="pp-person__meta">Sales rep, Harare</span></span></span>
+              <span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Interview booked by Pepla</span>
+            </div>
+            <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Move Rudo Nyathi to another stage" aria-haspopup="menu"><i data-lucide="arrow-right-left"></i></button>
+          </li>
+        </ul>
+      </li>
+      <li class="pp-pipeline__column" aria-labelledby="pb2-c3"><div class="pp-pipeline__column-header"><span class="pp-pipeline__column-name" role="heading" aria-level="3" id="pb2-c3">Offer</span></div><ul class="pp-pipeline__cards"><li class="pp-pipeline__empty">Hidden on phone</li></ul></li>
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<section data-example="Every state, in words">
+  <div style="display:flex;flex-wrap:wrap;gap:var(--space-100)">
+    <time class="pp-lozenge pp-deadline" datetime="2026-11-23" title="Due 23 Nov 2026"><i data-lucide="clock"></i>Due in 12 days</time>
+    <time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-13" title="Due 13 Nov 2026"><i data-lucide="clock"></i>Due in 2 days</time>
+    <time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-11T17:00" title="Due 11 Nov 2026, 17:00"><i data-lucide="clock"></i>Due in 3 hours</time>
+    <time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-11" title="Due 11 Nov 2026"><i data-lucide="clock"></i>Due today</time>
+    <time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-10" title="Was due 10 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 1 day</time>
+    <time class="pp-lozenge pp-lozenge--success pp-deadline" datetime="2026-11-03" title="Done 3 Nov 2026"><i data-lucide="circle-check"></i>Done 3 Nov</time>
+    <span class="pp-lozenge pp-deadline"><i data-lucide="circle-pause"></i>Paused until Lerato replies</span>
+  </div>
+</section>
+<section data-example="With what is due, in a list">
+  <div style="display:flex;flex-direction:column;gap:var(--space-100);max-width:480px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-200)"><span>Kagiso Molefe, bank letter</span><time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-13" title="Due 13 Nov 2026"><i data-lucide="clock"></i>Due in 2 days</time></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-200)"><span>Bongani Mthembu, scorecard</span><time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-10" title="Was due 10 Nov 2026"><i data-lucide="clock-alert"></i>Overdue by 1 day</time></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:var(--space-200)"><span>Chipo Banda, laptop</span><time class="pp-lozenge pp-deadline" datetime="2026-12-04" title="Due 4 Dec 2026"><i data-lucide="clock"></i>Due in 23 days</time></div>
+  </div>
+</section>
+<section data-example="Inline, in a meta line">
+  <div style="display:flex;flex-direction:column;gap:var(--space-100)">
+    <span style="font:var(--font-body-small);color:var(--color-text-subtle)">Asked 3 Nov · <time class="pp-lozenge pp-lozenge--warning pp-deadline pp-deadline--inline" datetime="2026-11-13" title="Due 13 Nov 2026"><i data-lucide="clock"></i>Due in 2 days</time></span>
+    <span style="font:var(--font-body-small);color:var(--color-text-subtle)">Offer sent 4 Nov · <time class="pp-lozenge pp-lozenge--danger pp-deadline pp-deadline--inline" datetime="2026-11-10" title="Expired 10 Nov 2026"><i data-lucide="clock-alert"></i>Reply overdue by 1 day</time></span>
+  </div>
+</section>

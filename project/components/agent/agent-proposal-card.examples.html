@@ -1,0 +1,241 @@
+<section data-example="Full card, waiting for a person">
+  <article class="pp-card pp-proposal" aria-labelledby="pr-1-t" style="max-width:560px">
+    <header class="pp-card__header">
+      <div class="pp-proposal__titles">
+        <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+        <span class="pp-proposal__title" role="heading" aria-level="3" id="pr-1-t">Send Kagiso Molefe's bank details to payroll</span>
+      </div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--warning"><i data-lucide="clock"></i>Expires in 2 days</span></div>
+    </header>
+    <dl class="pp-proposal__facts">
+      <dt>Why now</dt>
+      <dd>Kagiso starts on 16 Nov. Payroll closes for November on 20 Nov.</dd>
+      <dt>What Pepla read</dt>
+      <dd>
+        <div class="pp-proposal__sources">
+          <a class="pp-tag" href="#bank-letter"><i data-lucide="file-text"></i><span class="pp-tag__text">Bank letter, FNB</span></a>
+          <a class="pp-tag" href="#offer"><i data-lucide="file-text"></i><span class="pp-tag__text">Signed offer</span></a>
+          <a class="pp-tag" href="#profile"><i data-lucide="user"></i><span class="pp-tag__text">Kagiso's profile</span></a>
+        </div>
+      </dd>
+      <dt>Where it goes</dt>
+      <dd>
+        <div class="pp-proposal__flow" role="list">
+          <div class="pp-proposal__flow-item" role="listitem"><i data-lucide="server"></i><span><strong>Payroll system, South Africa</strong>: name, ID ending 0876, account ending 4821</span></div>
+          <div class="pp-proposal__flow-item" role="listitem"><i data-lucide="database"></i><span><strong>Pepla, Cape Town</strong>: a record of this change</span></div>
+        </div>
+      </dd>
+      <dt>How sure</dt>
+      <dd><button class="pp-confidence pp-confidence--high" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="file-text"></i><span>High confidence · 3 sources</span><i data-lucide="chevron-down"></i></button></dd>
+    </dl>
+    <footer class="pp-card__footer">
+      <div class="pp-button-group pp-button-group--stack-phone">
+        <button class="pp-button pp-button--agent" type="button"><i data-lucide="check"></i><span>Approve</span></button>
+        <button class="pp-button pp-button--default" type="button">Edit</button>
+        <button class="pp-button pp-button--subtle" type="button">Decline</button>
+      </div>
+      <span class="pp-proposal__note"><i data-lucide="history"></i> Your choice is recorded with your name and the time.</span>
+    </footer>
+  </article>
+</section>
+<section data-example="Working: Approve was pressed">
+  <article class="pp-card pp-proposal" aria-labelledby="pr-2-t" aria-busy="true" style="max-width:560px">
+    <header class="pp-card__header">
+      <div class="pp-proposal__titles">
+        <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+        <span class="pp-proposal__title" role="heading" aria-level="3" id="pr-2-t">Send Kagiso Molefe's bank details to payroll</span>
+      </div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--information"><i data-lucide="loader"></i>Working</span></div>
+    </header>
+    <footer class="pp-card__footer">
+      <div class="pp-button-group">
+        <button class="pp-button pp-button--agent" type="button" aria-busy="true"><i data-lucide="check"></i><span>Approve</span><span class="pp-spinner pp-spinner--inverse" aria-hidden="true"></span></button>
+        <button class="pp-button pp-button--default" type="button" aria-disabled="true">Edit</button>
+        <button class="pp-button pp-button--subtle" type="button" aria-disabled="true">Decline</button>
+      </div>
+      <span class="pp-proposal__note" role="status">Sending to payroll</span>
+    </footer>
+  </article>
+</section>
+<section data-example="Approved: who and when">
+  <article class="pp-card pp-proposal" aria-labelledby="pr-3-t" style="max-width:560px">
+    <header class="pp-card__header">
+      <div class="pp-proposal__titles">
+        <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggested</span></span>
+        <span class="pp-proposal__title" role="heading" aria-level="3" id="pr-3-t">Send Kagiso Molefe's bank details to payroll</span>
+      </div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Approved</span></div>
+    </header>
+    <div class="pp-proposal__outcome pp-proposal__outcome--approved" tabindex="-1">
+      <i data-lucide="circle-check"></i>
+      <span class="pp-proposal__outcome-text">
+        <span>Approved by Thandeka Dlamini. Payroll has the details.</span>
+        <time class="pp-proposal__outcome-meta" datetime="2026-11-11T09:12">11 Nov 2026, 09:12</time>
+      </span>
+      <span class="pp-proposal__outcome-actions"><a class="pp-link" href="#audit">View in audit trail</a></span>
+    </div>
+  </article>
+</section>
+<section data-example="Declining: the reason replaces the buttons">
+  <article class="pp-card pp-proposal" aria-labelledby="pr-4-t" style="max-width:560px">
+    <header class="pp-card__header">
+      <div class="pp-proposal__titles">
+        <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+        <span class="pp-proposal__title" role="heading" aria-level="3" id="pr-4-t">Order the Office starter laptop bundle for Tariro Moyo</span>
+      </div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--information"><i data-lucide="info"></i>Waiting for you</span></div>
+    </header>
+    <div class="pp-proposal__decline">
+      <div class="pp-field">
+        <label class="pp-field__label" for="pr-4-reason">Why are you declining?<span class="pp-field__optional">(optional)</span></label>
+        <textarea class="pp-textarea" id="pr-4-reason" rows="2" aria-describedby="pr-4-help">Tariro is field sales. She needs the Field sales bundle with a phone.</textarea>
+        <div class="pp-field__help" id="pr-4-help">Pepla uses this to suggest better next time. It is kept with the decision.</div>
+      </div>
+      <div class="pp-button-group">
+        <button class="pp-button pp-button--default" type="button">Decline proposal</button>
+        <button class="pp-button pp-button--subtle" type="button">Back</button>
+      </div>
+    </div>
+  </article>
+</section>
+<section data-example="Declined, expired and failed">
+  <div style="display:flex;flex-direction:column;gap:var(--space-200);max-width:560px">
+    <article class="pp-card pp-proposal pp-card--compact" aria-labelledby="pr-5-t">
+      <header class="pp-card__header">
+        <div class="pp-proposal__titles">
+          <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggested</span></span>
+          <span class="pp-proposal__title" role="heading" aria-level="3" id="pr-5-t">Order the Office starter laptop bundle for Tariro Moyo</span>
+        </div>
+        <div class="pp-card__aside"><span class="pp-lozenge"><i data-lucide="circle-x"></i>Declined</span></div>
+      </header>
+      <div class="pp-proposal__outcome">
+        <i data-lucide="circle-x"></i>
+        <span class="pp-proposal__outcome-text">
+          <span>Declined by Sipho Ndlovu. Pepla did nothing.</span>
+          <span class="pp-proposal__quote">Tariro is field sales. She needs the Field sales bundle with a phone.</span>
+          <time class="pp-proposal__outcome-meta" datetime="2026-11-10T15:40">10 Nov 2026, 15:40</time>
+        </span>
+      </div>
+    </article>
+    <article class="pp-card pp-proposal pp-card--compact" aria-labelledby="pr-6-t">
+      <header class="pp-card__header">
+        <div class="pp-proposal__titles">
+          <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggested</span></span>
+          <span class="pp-proposal__title" role="heading" aria-level="3" id="pr-6-t">Remind Chipo Banda to upload her tax form</span>
+        </div>
+        <div class="pp-card__aside"><span class="pp-lozenge"><i data-lucide="clock-alert"></i>Expired</span></div>
+      </header>
+      <div class="pp-proposal__outcome">
+        <i data-lucide="clock-alert"></i>
+        <span class="pp-proposal__outcome-text">
+          <span>No one decided in time, so Pepla did nothing. Chipo uploaded the form herself on 9 Nov.</span>
+          <time class="pp-proposal__outcome-meta" datetime="2026-11-09T17:00">Expired 9 Nov 2026, 17:00</time>
+        </span>
+      </div>
+    </article>
+    <article class="pp-card pp-proposal pp-card--compact" aria-labelledby="pr-7-t">
+      <header class="pp-card__header">
+        <div class="pp-proposal__titles">
+          <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggested</span></span>
+          <span class="pp-proposal__title" role="heading" aria-level="3" id="pr-7-t">Send Nomvula Zulu's bank details to payroll</span>
+        </div>
+        <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--danger"><i data-lucide="octagon-alert"></i>Did not go through</span></div>
+      </header>
+      <div class="pp-proposal__outcome pp-proposal__outcome--failed" role="alert">
+        <i data-lucide="octagon-alert"></i>
+        <span class="pp-proposal__outcome-text">
+          <span>Approved by Thandeka Dlamini, but payroll refused the account number. It has 9 digits; FNB accounts have 11.</span>
+          <time class="pp-proposal__outcome-meta" datetime="2026-11-11T10:05">11 Nov 2026, 10:05</time>
+        </span>
+        <span class="pp-proposal__outcome-actions">
+          <button class="pp-button pp-button--default pp-button--small" type="button">Fix and try again</button>
+        </span>
+      </div>
+    </article>
+  </div>
+</section>
+<section data-example="Compact rows, for a list">
+  <div class="pp-proposal-list" role="list" aria-label="Pepla suggests" style="max-width:720px">
+    <article class="pp-proposal--compact" role="listitem" aria-labelledby="pr-c1">
+      <div class="pp-proposal__titles">
+        <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+        <span class="pp-proposal__title" id="pr-c1">Remind 3 new hires to upload bank letters</span>
+        <span class="pp-proposal__meta">Payroll needs them 5 working days before the first pay run · Emails to 3 people</span>
+      </div>
+      <div class="pp-proposal__row-actions">
+        <button class="pp-button pp-button--agent pp-button--small" type="button" aria-describedby="pr-c1">Approve</button>
+        <button class="pp-button pp-button--default pp-button--small" type="button" aria-describedby="pr-c1">Review</button>
+      </div>
+    </article>
+    <article class="pp-proposal--compact" role="listitem" aria-labelledby="pr-c2">
+      <div class="pp-proposal__titles">
+        <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+        <span class="pp-proposal__title" id="pr-c2">Mark Kagiso Molefe's ID as verified</span>
+        <span class="pp-proposal__meta">Kagiso starts 16 Nov · Nothing leaves Pepla</span>
+      </div>
+      <div class="pp-proposal__row-actions">
+        <button class="pp-confidence pp-confidence--check" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="triangle-alert"></i><span>Check this · 2 sources</span><i data-lucide="chevron-down"></i></button>
+        <button class="pp-button pp-button--default pp-button--small" type="button" aria-describedby="pr-c2">Review</button>
+      </div>
+    </article>
+    <article class="pp-proposal--compact" role="listitem" aria-labelledby="pr-c4">
+      <div class="pp-proposal__titles">
+        <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+        <span class="pp-proposal__title" id="pr-c4">Send Nomvula Zulu's bank details to payroll</span>
+        <span class="pp-proposal__meta">Goes to another company: payroll system, South Africa</span>
+      </div>
+      <div class="pp-proposal__row-actions">
+        <button class="pp-button pp-button--default pp-button--small" type="button" aria-describedby="pr-c4">Review</button>
+      </div>
+    </article>
+    <article class="pp-proposal--compact" role="listitem" aria-labelledby="pr-c3">
+      <div class="pp-proposal__titles">
+        <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggested</span></span>
+        <span class="pp-proposal__title" id="pr-c3">Book Tariro Moyo's panel interview</span>
+        <span class="pp-proposal__meta">Approved by Sipho Ndlovu, 20 min ago</span>
+      </div>
+      <div class="pp-proposal__row-actions"><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Approved</span></div>
+    </article>
+  </div>
+</section>
+<section data-example="Batch: one decision for several records">
+  <article class="pp-card pp-proposal" aria-labelledby="pr-b-t" style="max-width:560px">
+    <header class="pp-card__header">
+      <div class="pp-proposal__titles">
+        <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+        <span class="pp-proposal__title" role="heading" aria-level="3" id="pr-b-t">Mark 3 documents as verified</span>
+      </div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--information"><i data-lucide="info"></i>Waiting for you</span></div>
+    </header>
+    <fieldset class="pp-field">
+      <legend class="pp-field__label">Untick any you want to check yourself</legend>
+      <div class="pp-proposal__items">
+        <div class="pp-proposal__item">
+          <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="pr-b1" checked><label class="pp-checkbox__label" for="pr-b1">Kagiso Molefe, SA ID ending 0876</label></div>
+          <button class="pp-confidence pp-confidence--high" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="file-text"></i><span>High confidence · 3 sources</span><i data-lucide="chevron-down"></i></button>
+        </div>
+        <div class="pp-proposal__item">
+          <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="pr-b2" checked><label class="pp-checkbox__label" for="pr-b2">Nomvula Zulu, bank letter</label></div>
+          <button class="pp-confidence pp-confidence--high" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="file-text"></i><span>High confidence · 2 sources</span><i data-lucide="chevron-down"></i></button>
+        </div>
+        <div class="pp-proposal__item">
+          <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="pr-b3" checked><label class="pp-checkbox__label" for="pr-b3">Mwila Phiri, NRC copy</label></div>
+          <button class="pp-confidence pp-confidence--high" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="file-text"></i><span>High confidence · 2 sources</span><i data-lucide="chevron-down"></i></button>
+        </div>
+      </div>
+    </fieldset>
+    <dl class="pp-proposal__facts">
+      <dt>Why now</dt>
+      <dd>All three start before 1 Dec.</dd>
+      <dt>Where it goes</dt>
+      <dd>Nothing leaves Pepla. Kept in Cape Town.</dd>
+    </dl>
+    <footer class="pp-card__footer">
+      <div class="pp-button-group pp-button-group--stack-phone">
+        <button class="pp-button pp-button--agent" type="button"><i data-lucide="check"></i><span>Approve 3 documents</span></button>
+        <button class="pp-button pp-button--subtle" type="button">Decline all</button>
+      </div>
+      <span class="pp-proposal__note"><i data-lucide="history"></i> Each document gets its own audit entry with your name.</span>
+    </footer>
+  </article>
+</section>

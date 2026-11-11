@@ -1,0 +1,33 @@
+/* Evaluation score (interview scorecard summary). Spec: evaluation-score.md
+   Scores are 0 to 10, shown as words, a number and a bar. */
+.pp-scorecard { container-type: inline-size; display: flex; flex-direction: column; gap: var(--space-250); min-width: 0; color: var(--color-text); }
+.pp-scorecard__overall { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100) var(--space-250); }
+.pp-scorecard__total { display: flex; align-items: baseline; gap: var(--space-075); }
+.pp-scorecard__value { font: var(--font-metric-medium); letter-spacing: var(--font-metric-medium-tracking); font-variant-numeric: tabular-nums; color: var(--color-text); }
+.pp-scorecard__out-of { font: var(--font-body); color: var(--color-text-subtle); }
+.pp-scorecard__word { font: var(--font-body-strong); color: var(--color-text); }
+.pp-scorecard__criteria { display: flex; flex-direction: column; gap: var(--space-150); margin: 0; padding: 0; list-style: none; }
+.pp-scorecard__criteria > .pp-scorecard__criterion {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr) minmax(0, 2fr);
+  align-items: center;
+  gap: var(--space-050) var(--space-200);
+  max-width: none;
+  margin: 0;
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+}
+.pp-scorecard__label { display: flex; flex-direction: column; min-width: 0; }
+.pp-scorecard__name { color: var(--color-text); }
+.pp-scorecard__weight { font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-scorecard__bar { display: block; height: var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); overflow: hidden; }
+.pp-scorecard__fill { display: block; height: 100%; border-radius: var(--radius-full); background: var(--color-background-neutral-bold); }
+.pp-scorecard__score { color: var(--color-text-subtle); font-variant-numeric: tabular-nums; text-align: right; }
+.pp-scorecard__score strong { color: var(--color-text); font-weight: var(--font-weight-semibold); }
+.pp-scorecard__note { padding: var(--space-150) var(--space-200); border-radius: var(--radius-medium); background: var(--color-background-neutral); color: var(--color-text-subtle); font: var(--font-body); }
+.pp-scorecard__footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-100) var(--space-200); padding-top: var(--space-200); border-top: var(--border-width) solid var(--color-border); }
+.pp-scorecard__when { font: var(--font-body-small); color: var(--color-text-subtlest); }
+@container (max-width: 479px) {
+  .pp-scorecard__criteria > .pp-scorecard__criterion { grid-template-columns: minmax(0, 1fr) auto; }
+  .pp-scorecard__bar { grid-column: 1 / -1; grid-row: 2; }
+}

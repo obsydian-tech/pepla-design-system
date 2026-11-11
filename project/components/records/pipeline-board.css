@@ -1,0 +1,82 @@
+/* Pipeline board. Spec: pipeline-board.md
+   Columns of hiring stages with candidate cards. The root is a size container:
+   below 480px only the current column shows, chosen with the stage picker. */
+.pp-pipeline { container-type: inline-size; display: flex; flex-direction: column; gap: var(--space-150); min-width: 0; color: var(--color-text); }
+.pp-pipeline__picker { display: none; }
+.pp-pipeline__board {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(256px, 1fr);
+  gap: var(--space-150);
+  margin: 0;
+  padding: 0 0 var(--space-100);
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+.pp-pipeline__board > .pp-pipeline__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: var(--space-150);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-large);
+  background: var(--elevation-surface-sunken);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+  scroll-snap-align: start;
+  transition: border-color var(--motion-duration-fast) var(--motion-easing-standard), background-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-pipeline__column-header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); padding: 0 var(--space-050); }
+.pp-pipeline__column-name { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); color: var(--color-text); }
+.pp-pipeline__column-alert { display: flex; align-items: center; gap: var(--space-050); flex-basis: 100%; font: var(--font-body-small); color: var(--color-text-danger); }
+.pp-pipeline__column-alert > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-danger); }
+.pp-pipeline__column-alert--warning { color: var(--color-text-warning); }
+.pp-pipeline__column-alert--warning > svg { color: var(--color-icon-warning); }
+/* Drop target while a card is dragged over it (cdk-drop-list-receiving) */
+.pp-pipeline__board > .pp-pipeline__column--drop-target { border-color: var(--color-border-selected); background: var(--color-background-selected); }
+
+.pp-pipeline__cards { display: flex; flex-direction: column; gap: var(--space-100); min-height: var(--size-control-large); margin: 0; padding: 0; list-style: none; }
+.pp-pipeline__cards > .pp-pipeline__card,
+.pp-pipeline__card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--space-100);
+  max-width: none;
+  margin: 0;
+  padding: var(--space-150) var(--space-100) var(--space-150) var(--space-050);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--elevation-surface-raised);
+  font: var(--font-body);
+  cursor: grab;
+}
+.pp-pipeline__cards > .pp-pipeline__card:hover { border-color: var(--color-border-bold); }
+.pp-pipeline__handle { display: grid; place-items: center; width: var(--size-icon-medium); height: var(--size-control-small); color: var(--color-icon-subtle); }
+.pp-pipeline__handle > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
+.pp-pipeline__card-body { display: contents; }
+.pp-pipeline__card-body > .pp-person { grid-column: 2; grid-row: 1; max-width: 100%; }
+.pp-pipeline__card-body > .pp-lozenge { grid-column: 1 / -1; margin-left: var(--space-100); grid-row: 2; justify-self: start; white-space: normal; padding-top: var(--space-025); padding-bottom: var(--space-025); }
+.pp-pipeline__card > .pp-button { grid-column: 3; grid-row: 1; }
+/* Dragging: the card lifts (cdkDragPreviewClass); the gap it left is a dashed placeholder */
+.pp-pipeline__card--dragging { border-color: var(--color-border-selected); box-shadow: var(--elevation-shadow-overlay); cursor: grabbing; }
+.pp-pipeline__placeholder { min-height: var(--size-control-large); border: var(--border-width-selected) dashed var(--color-border-bold); border-radius: var(--radius-medium); background: var(--elevation-surface); }
+.pp-pipeline__empty { padding: var(--space-200) var(--space-100); border: var(--border-width) dashed var(--color-border); border-radius: var(--radius-medium); font: var(--font-body-small); color: var(--color-text-subtlest); text-align: center; }
+
+/* Phone: a stage picker and one list */
+@container (max-width: 479px) {
+  .pp-pipeline__picker { display: block; }
+  .pp-pipeline__board { grid-auto-flow: row; grid-auto-columns: auto; overflow: visible; padding: 0; }
+  .pp-pipeline__board > .pp-pipeline__column { display: none; padding: 0; background: none; border: 0; }
+  .pp-pipeline__board > .pp-pipeline__column--current { display: flex; }
+  .pp-pipeline__column-name { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .pp-pipeline__column-header > .pp-badge { display: none; }
+  .pp-pipeline__cards > .pp-pipeline__card { grid-template-columns: 0 minmax(0, 1fr) auto; column-gap: 0; padding: var(--space-150); cursor: default; }
+  .pp-pipeline__card > .pp-button { margin-left: var(--space-100); }
+  .pp-pipeline__handle { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .pp-pipeline__board > .pp-pipeline__column { transition: none; } }

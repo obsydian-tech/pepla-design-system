@@ -1,0 +1,63 @@
+/* Approval chain. Spec: approval-chain.md
+   Ordered approvers; a line joins the markers; the current step is highlighted. */
+.pp-approval-chain { --_marker: var(--size-control-small); --_pad: var(--space-150); display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; color: var(--color-text); }
+.pp-approval-chain--compact { --_marker: var(--size-icon-large); --_pad: var(--space-100); }
+.pp-approval-chain > .pp-approval-chain__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--_marker) minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--space-050) var(--space-150);
+  max-width: none;
+  margin: 0;
+  padding: var(--_pad);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-medium);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+}
+.pp-approval-chain > .pp-approval-chain__step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--_pad) + var(--border-width) + var(--_marker) / 2 - var(--border-width));
+  top: calc(var(--_pad) + var(--_marker) + var(--space-050));
+  bottom: calc(var(--space-050) - var(--_pad));
+  width: var(--border-width-selected);
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+}
+.pp-approval-chain > .pp-approval-chain__step--approved:not(:last-child)::before { background: var(--color-border-success); }
+.pp-approval-chain__marker {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  width: var(--_marker);
+  height: var(--_marker);
+  box-sizing: border-box;
+  border: var(--border-width-selected) solid var(--color-border-bold);
+  border-radius: var(--radius-full);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text-subtle);
+  font: var(--font-heading-xxsmall);
+  font-variant-numeric: tabular-nums;
+}
+.pp-approval-chain__marker > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
+.pp-approval-chain__body { display: flex; flex-direction: column; gap: var(--space-025); min-width: 0; padding-top: calc((var(--_marker) - 1lh) / 2); }
+.pp-approval-chain__who { color: var(--color-text); overflow-wrap: anywhere; }
+.pp-approval-chain__who strong { font-weight: var(--font-weight-semibold); }
+.pp-approval-chain__detail { font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
+.pp-approval-chain__reason { margin-top: var(--space-050); padding: var(--space-100) var(--space-150); border-radius: var(--radius-medium); background: var(--color-background-neutral); color: var(--color-text-subtle); }
+.pp-approval-chain__step > .pp-lozenge { margin-top: calc((var(--_marker) - var(--space-300)) / 2); }
+
+.pp-approval-chain__step--approved .pp-approval-chain__marker { border-color: var(--color-background-success-bold); background: var(--color-background-success-bold); color: var(--color-text-inverse); }
+.pp-approval-chain__step--declined .pp-approval-chain__marker { border-color: var(--color-border-danger); background: var(--color-background-danger-subtle); color: var(--color-icon-danger); }
+.pp-approval-chain__step--skipped .pp-approval-chain__marker { border-style: dashed; color: var(--color-text-subtlest); }
+.pp-approval-chain__step--skipped .pp-approval-chain__who { color: var(--color-text-subtle); }
+.pp-approval-chain > .pp-approval-chain__step--current { border-color: var(--color-border-selected); background: var(--color-background-selected); }
+.pp-approval-chain__step--current .pp-approval-chain__marker { border-color: var(--color-border-selected); color: var(--color-text-selected); }
+
+@media (max-width: 479px) {
+  .pp-approval-chain > .pp-approval-chain__step { grid-template-columns: var(--_marker) minmax(0, 1fr); }
+  .pp-approval-chain__step > .pp-lozenge { grid-column: 2; justify-self: start; margin-top: 0; }
+}

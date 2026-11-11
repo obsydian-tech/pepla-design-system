@@ -1,0 +1,82 @@
+<section data-example="A colour that passes, previewed in light and dark">
+  <div class="pp-brand-preview" style="max-width:640px">
+    <div class="pp-brand-preview__picker pp-field">
+      <label class="pp-field__label" for="bp-1">Accent colour</label>
+      <div class="pp-brand-preview__input-row">
+        <span class="pp-brand-preview__swatch" data-theme="light" style="--_accent:var(--color-background-accent-sky-bolder)" aria-hidden="true"></span>
+        <div class="pp-text-field">
+          <span class="pp-text-field__prefix" aria-hidden="true">#</span>
+          <input class="pp-text-field__input" id="bp-1" type="text" value="00668D" maxlength="6" spellcheck="false" autocomplete="off" aria-describedby="bp-1-r">
+        </div>
+      </div>
+      <span class="pp-brand-preview__result" id="bp-1-r" role="status"><i data-lucide="circle-check"></i><span>Passes. 6.3 to 1 on white; buttons and links need 4.5 to 1.</span></span>
+    </div>
+    <div class="pp-brand-preview__panes">
+      <div class="pp-brand-preview__pane" data-theme="light" style="--_accent:var(--color-background-accent-sky-bolder)" role="group" aria-label="Preview in light theme">
+        <span class="pp-brand-preview__pane-label">Light</span>
+        <span class="pp-brand-preview__header"><i data-lucide="users"></i>Mokoena Accounting</span>
+        <div class="pp-brand-preview__body">
+          <span>Welcome, Tariro. Your first day is 1 Dec.</span>
+          <span class="pp-brand-preview__link">Read the welcome pack</span>
+          <span class="pp-brand-preview__button">Start onboarding</span>
+        </div>
+      </div>
+      <div class="pp-brand-preview__pane" data-theme="dark" style="--_accent:var(--color-background-accent-sky-bolder)" role="group" aria-label="Preview in dark theme">
+        <span class="pp-brand-preview__pane-label">Dark</span>
+        <span class="pp-brand-preview__header"><i data-lucide="users"></i>Mokoena Accounting</span>
+        <div class="pp-brand-preview__body">
+          <span>Welcome, Tariro. Your first day is 1 Dec.</span>
+          <span class="pp-brand-preview__link">Read the welcome pack</span>
+          <span class="pp-brand-preview__button">Start onboarding</span>
+        </div>
+      </div>
+    </div>
+    <span class="pp-brand-preview__note">In dark theme Pepla uses a lighter partner of your colour, 4BB7ED, which has 7.5 to 1 on the dark background. Pepla's mint and the status colours do not change.</span>
+    <div class="pp-button-group">
+      <button class="pp-button pp-button--primary" type="button">Save accent colour</button>
+      <button class="pp-button pp-button--subtle" type="button">Use Pepla's violet</button>
+    </div>
+  </div>
+</section>
+<section data-example="A light colour: kept for brand areas, buttons stay violet">
+  <div class="pp-brand-preview" style="max-width:640px">
+    <div class="pp-brand-preview__picker pp-field">
+      <label class="pp-field__label" for="bp-2">Accent colour</label>
+      <div class="pp-brand-preview__input-row">
+        <span class="pp-brand-preview__swatch" data-theme="light" style="--_accent:var(--color-background-accent-amber-subtle)" aria-hidden="true"></span>
+        <div class="pp-text-field">
+          <span class="pp-text-field__prefix" aria-hidden="true">#</span>
+          <input class="pp-text-field__input" id="bp-2" type="text" value="F8B769" maxlength="6" spellcheck="false" autocomplete="off" aria-describedby="bp-2-r">
+        </div>
+      </div>
+      <span class="pp-brand-preview__result pp-brand-preview__result--brand-only" id="bp-2-r" role="status"><i data-lucide="info"></i><span>Saved for your logo area, header and sign-in page. Buttons and links stay Pepla violet, because this colour has 1.7 to 1 on white and they need 4.5 to 1.</span></span>
+      <div class="pp-brand-preview__suggestion">
+        <span class="pp-brand-preview__swatch pp-brand-preview__swatch--small" data-theme="light" style="--_accent:var(--color-background-accent-amber-bolder)" aria-hidden="true"></span>
+        <span class="pp-brand-preview__suggestion-text">
+          <span>For buttons too, try 825100, a darker amber</span>
+          <span class="pp-brand-preview__suggestion-meta">6.7 to 1 on white. Passes.</span>
+        </span>
+        <button class="pp-button pp-button--default pp-button--small" type="button">Use 825100</button>
+      </div>
+    </div>
+    <div class="pp-brand-preview__panes">
+      <div class="pp-brand-preview__pane pp-brand-preview__pane--brand-only" data-theme="light" style="--_accent:var(--color-background-accent-amber-subtle);--_on-accent:var(--color-text)" role="group" aria-label="Preview in light theme">
+        <span class="pp-brand-preview__pane-label">Light</span>
+        <span class="pp-brand-preview__header"><i data-lucide="users"></i>Mokoena Accounting</span>
+        <div class="pp-brand-preview__body">
+          <span class="pp-brand-preview__link">Read the welcome pack</span>
+          <span class="pp-brand-preview__button">Start onboarding</span>
+        </div>
+      </div>
+      <div class="pp-brand-preview__pane pp-brand-preview__pane--brand-only" data-theme="dark" style="--_accent:var(--color-background-accent-amber-subtle);--_on-accent:var(--color-text)" role="group" aria-label="Preview in dark theme">
+        <span class="pp-brand-preview__pane-label">Dark</span>
+        <span class="pp-brand-preview__header"><i data-lucide="users"></i>Mokoena Accounting</span>
+        <div class="pp-brand-preview__body">
+          <span class="pp-brand-preview__link">Read the welcome pack</span>
+          <span class="pp-brand-preview__button">Start onboarding</span>
+        </div>
+      </div>
+    </div>
+    <span class="pp-brand-preview__note">Your colour is on the header strip. Buttons and links stay violet so everyone can read them.</span>
+  </div>
+</section>

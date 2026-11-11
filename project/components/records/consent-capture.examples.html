@@ -1,0 +1,62 @@
+<section data-example="Before consent: nothing is ticked">
+  <form class="pp-consent" aria-labelledby="cc-t" style="max-width:600px">
+    <div class="pp-consent__header">
+      <span class="pp-consent__title" role="heading" aria-level="2" id="cc-t">How Mokoena Accounting uses your information</span>
+      <span class="pp-consent__intro">Before you upload documents, here is what we keep and why. You can read the full notice at any time.</span>
+    </div>
+    <dl class="pp-consent__terms">
+      <dt><i data-lucide="file-text"></i>What we collect</dt>
+      <dd>Your ID number, contact details, bank account, tax number and an emergency contact.</dd>
+      <dt><i data-lucide="info"></i>Why</dt>
+      <dd>To pay you, to register you with SARS and UIF, and to reach someone if you are hurt at work.</dd>
+      <dt><i data-lucide="users"></i>Who receives it</dt>
+      <dd>The HR team at Mokoena Accounting. The payroll system (South Africa) gets your name, ID, bank and tax details. SARS gets your tax details. Pepla stores it all in Cape Town.</dd>
+      <dt><i data-lucide="clock"></i>How long we keep it</dt>
+      <dd>While you work here, and 5 years after you leave. Then it is deleted.</dd>
+    </dl>
+    <fieldset class="pp-field">
+      <legend class="pp-field__label">Your choices</legend>
+      <div class="pp-consent__choices">
+        <div class="pp-checkbox">
+          <input class="pp-checkbox__input" type="checkbox" id="cc-main" required aria-describedby="cc-main-d">
+          <label class="pp-checkbox__label" for="cc-main">I agree that Mokoena Accounting may use my information as described above<span class="pp-checkbox__description" id="cc-main-d">Needed to employ and pay you</span></label>
+        </div>
+        <div class="pp-checkbox">
+          <input class="pp-checkbox__input" type="checkbox" id="cc-med" aria-describedby="cc-med-d">
+          <label class="pp-checkbox__label" for="cc-med">Share my name and contact details with the company medical aid<span class="pp-checkbox__description" id="cc-med-d">Optional. You can join the medical aid later instead.</span></label>
+        </div>
+      </div>
+    </fieldset>
+    <div class="pp-consent__footer">
+      <a class="pp-link" href="#privacy-notice">Read the full privacy notice</a>
+      <button class="pp-button pp-button--primary pp-button--large" type="submit">Agree and continue</button>
+    </div>
+  </form>
+</section>
+<section data-example="Continue pressed without agreeing">
+  <div class="pp-field" style="max-width:600px">
+    <div class="pp-checkbox">
+      <input class="pp-checkbox__input" type="checkbox" id="cc-err" required aria-invalid="true" aria-describedby="cc-err-e">
+      <label class="pp-checkbox__label" for="cc-err">I agree that Mokoena Accounting may use my information as described above</label>
+    </div>
+    <div class="pp-field__error" id="cc-err-e"><i data-lucide="octagon-alert"></i><span>Tick this to carry on. If you have questions first, ask Thandeka Dlamini in HR.</span></div>
+  </div>
+</section>
+<section data-example="The record of consent">
+  <div style="display:flex;flex-direction:column;gap:var(--space-150);max-width:600px">
+    <div class="pp-consent__record" role="status">
+      <i data-lucide="circle-check"></i>
+      <span class="pp-consent__record-text">
+        <span>You agreed to the privacy notice, version 3 (2 Nov 2026). You did not agree to share with the medical aid.</span>
+        <span class="pp-consent__record-meta">11 Nov 2026, 08:42 · <a class="pp-link" href="#withdraw">Change or withdraw</a></span>
+      </span>
+    </div>
+    <div class="pp-consent__record">
+      <i data-lucide="circle-check"></i>
+      <span class="pp-consent__record-text">
+        <span>Tariro Moyo agreed to the privacy notice, version 3 (2 Nov 2026). She did not agree to share with the medical aid.</span>
+        <span class="pp-consent__record-meta">11 Nov 2026, 08:42, in the new-hire portal · <a class="pp-link" href="#consent-history">View consent history</a></span>
+      </span>
+    </div>
+  </div>
+</section>

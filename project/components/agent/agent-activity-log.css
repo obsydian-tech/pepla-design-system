@@ -1,0 +1,13 @@
+/* Agent activity log. Spec: agent-activity-log.md. Built on pp-timeline. */
+.pp-agent-log { display: flex; flex-direction: column; gap: var(--space-250); min-width: 0; }
+.pp-agent-log__filters { display: flex; flex-wrap: wrap; gap: var(--space-075); }
+.pp-agent-log__count { margin-left: var(--space-050); font-variant-numeric: tabular-nums; color: var(--color-text-subtle); }
+.pp-button[aria-pressed="true"] .pp-agent-log__count { color: inherit; }
+
+/* Outcome line under each event: an icon and words, never colour alone (rule 4) */
+.pp-agent-log__outcome { display: inline-flex; align-items: flex-start; gap: var(--space-050); font: var(--font-body); color: var(--color-text-subtle); }
+.pp-agent-log__outcome > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; margin-top: var(--space-025); color: var(--color-icon-subtle); }
+.pp-agent-log__outcome--approved > svg { color: var(--color-icon-success); }
+.pp-agent-log__outcome--failed { color: var(--color-text-danger); }
+.pp-agent-log__outcome--failed > svg { color: var(--color-icon-danger); }
+.pp-agent-log__outcome--waiting > svg { color: var(--color-icon-information); }

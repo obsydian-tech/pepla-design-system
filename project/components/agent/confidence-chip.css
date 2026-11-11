@@ -1,0 +1,39 @@
+/* Confidence chip. Spec: confidence-chip.md. Words, never a bare percentage. Not mint. */
+.pp-confidence {
+  --_bg: var(--color-background-neutral);
+  --_bg-hover: var(--color-background-neutral-hovered);
+  --_fg: var(--color-text);
+  --_icon: var(--color-icon-subtle);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-050);
+  min-height: var(--size-control-small);
+  padding: 0 var(--space-100) 0 var(--space-100);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--_bg);
+  color: var(--_fg);
+  font: var(--font-label-small);
+  letter-spacing: var(--font-label-small-tracking);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-confidence:hover { background: var(--_bg-hover); }
+.pp-confidence > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--_icon); }
+.pp-confidence > svg:last-child { color: var(--_fg); }
+.pp-confidence--check { --_bg: var(--color-background-warning-subtle); --_bg-hover: var(--color-background-warning-subtle-hovered); --_fg: var(--color-text-warning); --_icon: var(--color-icon-warning); }
+.pp-confidence--unsure { --_bg: var(--color-background-neutral); --_fg: var(--color-text-subtle); }
+@media (pointer: coarse) {
+  .pp-confidence::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: max(100%, var(--size-touch-target)); height: var(--size-touch-target); transform: translate(-50%, -50%); }
+}
+
+/* Sources popup content */
+.pp-confidence-sources { display: flex; flex-direction: column; gap: var(--space-150); }
+.pp-confidence-sources__why { margin: 0; color: var(--color-text-subtle); }
+.pp-confidence-sources__list { display: flex; flex-direction: column; gap: var(--space-100); margin: 0; padding: 0; list-style: none; }
+.pp-confidence-sources__item { display: grid; grid-template-columns: var(--size-icon-medium) minmax(0, 1fr); column-gap: var(--space-100); max-width: none; margin: 0; font: var(--font-body); }
+.pp-confidence-sources__item > svg { width: var(--size-icon-small); height: var(--size-icon-small); margin-top: var(--space-025); color: var(--color-icon-subtle); }
+.pp-confidence-sources__found { grid-column: 2; font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-confidence-sources__found--mismatch { color: var(--color-text-warning); }

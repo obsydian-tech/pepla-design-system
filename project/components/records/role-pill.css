@@ -1,0 +1,26 @@
+/* Role pill. Spec: role-pill.md
+   A person's role or permission. A label, not a status: rectangle shape, no status colours. */
+.pp-role {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-050);
+  max-width: 100%;
+  min-height: var(--space-300);
+  box-sizing: border-box;
+  padding: 0 var(--space-100) 0 var(--space-075);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-small);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text-subtle);
+  font: var(--font-label-small);
+  letter-spacing: var(--font-label-small-tracking);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.pp-role > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
+.pp-role__text { overflow: hidden; text-overflow: ellipsis; }
+/* The role a person is acting as right now */
+.pp-role--current { border-color: var(--color-border-selected); background: var(--color-background-selected); color: var(--color-text-selected); }
+.pp-role--current > svg { color: var(--color-icon-selected); }
+.pp-role-group { display: flex; flex-wrap: wrap; gap: var(--space-075); margin: 0; padding: 0; list-style: none; }
+.pp-role-group > li { max-width: none; margin: 0; font: inherit; }

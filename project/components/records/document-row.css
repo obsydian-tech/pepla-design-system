@@ -1,0 +1,37 @@
+/* Document row and document checklist. Spec: document-row.md
+   The checklist is a size container; below 600px each row stacks. */
+.pp-document-checklist { container-type: inline-size; display: flex; flex-direction: column; min-width: 0; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); color: var(--color-text); }
+.pp-document-checklist__header { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-150) var(--space-300); padding: var(--space-250) var(--space-300); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-document-checklist__titles { display: flex; flex-direction: column; gap: var(--space-025); flex: 1 1 240px; min-width: 0; }
+.pp-document-checklist__title { margin: 0; font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); color: var(--color-text); }
+.pp-document-checklist__subtitle { font: var(--font-body); color: var(--color-text-subtle); }
+.pp-document-checklist__header > .pp-progress-bar { flex: 1 1 220px; }
+.pp-document-checklist__list { margin: 0; padding: 0; list-style: none; }
+.pp-document-checklist__list > li { max-width: none; margin: 0; font: var(--font-body); letter-spacing: var(--font-body-tracking); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-document-checklist__list > li:last-child { border-bottom: 0; }
+
+.pp-document-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-areas: "icon body status actions";
+  align-items: center;
+  gap: var(--space-100) var(--space-200);
+  padding: var(--space-200) var(--space-300);
+}
+.pp-document-row > .pp-icon-tile { grid-area: icon; }
+.pp-document-row__body { grid-area: body; display: flex; flex-direction: column; gap: var(--space-025); min-width: 0; }
+.pp-document-row__name { font: var(--font-body-strong); letter-spacing: var(--font-body-strong-tracking); color: var(--color-text); overflow-wrap: anywhere; }
+.pp-document-row__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
+.pp-document-row__reason { display: flex; align-items: flex-start; gap: var(--space-075); margin-top: var(--space-050); font: var(--font-body); color: var(--color-text-danger); }
+.pp-document-row__reason > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; margin-top: var(--space-025); color: var(--color-icon-danger); }
+.pp-document-row__status { grid-area: status; justify-self: end; }
+.pp-document-row__actions { grid-area: actions; display: flex; gap: var(--space-100); justify-content: flex-end; }
+.pp-document-row--attention { background: var(--color-background-danger-subtle); }
+.pp-document-row--attention:is(li) { border-radius: 0; }
+
+@container (max-width: 599px) {
+  .pp-document-checklist__header { padding: var(--space-200); }
+  .pp-document-row { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon body" ". status" ". actions"; padding: var(--space-200); }
+  .pp-document-row__status { justify-self: start; }
+  .pp-document-row__actions { justify-content: flex-start; flex-wrap: wrap; }
+}

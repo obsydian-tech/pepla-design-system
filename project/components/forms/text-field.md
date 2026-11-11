@@ -55,7 +55,7 @@ Put `pp-text-field` straight on the `<input>` when there is nothing else in the 
 
 - Money: accept "18500", "18 500" and "R18 500"; on blur reformat to `18 500`. Store cents as a whole number.
 - ID number: accept spaces and strip them. Check length and the checksum on blur, and read the date of birth from it to prefill the Date picker.
-- Masked values: pressing "Show ID number" writes an audit entry (who, which record, when) before the value appears. The value hides again after 60 seconds or when the person leaves the page.
+- Masked values: pressing "Show ID number" writes an audit entry (who, which record, when) before the value appears. The value hides again when the person leaves the page, or after 2 minutes, whichever comes first.
 - A person typing a new ID number sees what they type. Masking starts once it is saved.
 - Never block typing; validate on blur and on submit.
 
