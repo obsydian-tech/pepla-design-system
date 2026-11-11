@@ -3,7 +3,7 @@ name: Slider
 group: forms
 status: ready
 classes: pp-slider
-primeng: Slider (p-slider), or a plain input type="range" (preferred)
+primeng: reference only (built without PrimeNG) — Slider (p-slider), or a plain input type="range" (preferred)
 replaces: p-slider in the hiring manager scoring panel and the TalentFlow config hub
 ---
 
@@ -65,6 +65,8 @@ A slider picks one value from a range by dragging, when the rough position matte
 - The thumb border and the filled track reach 3:1 against the surface (non-text contrast).
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 Prefer the native input with Angular forms; it needs no PrimeNG component:
 

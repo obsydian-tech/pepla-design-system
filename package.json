@@ -6,7 +6,7 @@
     "palette": "node scripts/palette.mjs",
     "tokens": "node scripts/build-tokens.mjs",
     "test": "node --test scripts/*.test.mjs",
-    "build": "node scripts/verify-design.mjs && node scripts/build-tokens.mjs && node scripts/components.mjs && node scripts/site.mjs && node scripts/components.mjs && node scripts/kits.mjs",
+    "build": "node scripts/verify-design.mjs && node scripts/icons-json.mjs && node scripts/build-tokens.mjs && node scripts/components.mjs && node scripts/site.mjs && node scripts/components.mjs && node scripts/kits.mjs",
     "verify:design": "node scripts/verify-design.mjs"
   },
   "devDependencies": {

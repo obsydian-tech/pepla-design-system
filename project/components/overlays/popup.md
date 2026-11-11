@@ -3,7 +3,7 @@ name: Popup
 group: overlays
 status: ready
 classes: pp-popup, pp-popup-anchor
-primeng: Popover (p-popover)
+primeng: reference only (built without PrimeNG) — Popover (p-popover)
 replaces: p-overlaypanel, hand-placed absolute panels for filters and help
 ---
 
@@ -60,6 +60,8 @@ A popup is a small floating panel tied to the control that opened it: a filter, 
 - Not modal: no focus trap, the page stays reachable.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 popover: {

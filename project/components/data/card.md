@@ -3,7 +3,7 @@ name: Card
 group: data
 status: ready
 classes: pp-card, pp-card__aside, pp-card-grid
-primeng: Card (p-card)
+primeng: reference only (built without PrimeNG) — Card (p-card)
 replaces: p-card (25 uses) and the many hand-made white boxes with their own shadows
 ---
 
@@ -57,6 +57,8 @@ A card groups everything about one thing: a person, a document, a task, a settin
 - Selected cards in a choice group are radio inputs styled as cards, with `aria-checked`.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 card: { root: { class: 'pp-card' }, header: { class: 'pp-card__header' }, title: { class: 'pp-card__title' }, subtitle: { class: 'pp-card__subtitle' }, body: { class: 'pp-card__body' }, footer: { class: 'pp-card__footer' } }

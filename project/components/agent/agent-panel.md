@@ -3,7 +3,7 @@ name: Agent panel
 group: agent
 status: ready
 classes: pp-agent-panel, pp-agent-panel--inline, pp-agent-panel--sheet, pp-agent-panel__suggestions, pp-agent-panel__suggestion
-primeng: Drawer (p-drawer) for the shell; the content is a plain Angular template
+primeng: reference only (built without PrimeNG) — Drawer (p-drawer) for the shell; the content is a plain Angular template
 replaces: the hr-dashboard AI Assistant drawer (app-ai-mode-panel), the TalentFlow AI chat drawer (tf-ai-chat-panel) and the employee chat widget (app-chat-widget)
 ---
 
@@ -70,6 +70,8 @@ The agent panel is where a person talks with Pepla. It opens from the right on d
 - Contrast: bubbles use surface and neutral tokens checked in CI; nothing in the log relies on colour alone.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 `p-drawer` gives the shell (position, focus trap, Escape to close) through the Drawer pass-through. Everything inside is a plain Angular template composed from `pp-avatar`, `pp-button`, `pp-textarea` (`pTextarea` with `autoResize`), `pp-spinner` and the compact proposal card.
 

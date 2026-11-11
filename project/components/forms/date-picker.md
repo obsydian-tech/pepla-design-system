@@ -3,7 +3,7 @@ name: Date picker
 group: forms
 status: ready
 classes: pp-date-picker, pp-date-picker__panel
-primeng: DatePicker (p-datepicker, formerly p-calendar)
+primeng: DatePicker (p-datepicker, formerly p-calendar) — Wrapped by the app's date-picker wrapper (`src/app/ds/forms/date-picker/`). The one place DatePicker is used.
 replaces: p-calendar with default theme, input type="date", dates shown as 2026-11-03 or 11/03/2026
 ---
 
@@ -59,6 +59,8 @@ A date picker takes one date. People can type it or pick it from a calendar. Dat
 - Weekday headings use `<abbr title>` with the full name.
 
 ## PrimeNG mapping
+
+> **Wrapped in the app.** Wrapped by the app's date-picker wrapper (`src/app/ds/forms/date-picker/`). The one place DatePicker is used.
 
 ```ts
 datepicker: {

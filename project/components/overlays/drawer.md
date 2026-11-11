@@ -3,7 +3,7 @@ name: Drawer
 group: overlays
 status: ready
 classes: pp-drawer
-primeng: Drawer (p-drawer)
+primeng: reference only (built without PrimeNG) — Drawer (p-drawer)
 replaces: p-drawer (15 config drawers), the admin audit event drawer
 ---
 
@@ -60,6 +60,8 @@ On phone (under 768px) every drawer is full screen with no radius, and the foote
 - The close button has `aria-label="Close"`.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 drawer: {

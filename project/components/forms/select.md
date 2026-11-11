@@ -3,7 +3,7 @@ name: Select
 group: forms
 status: ready
 classes: pp-select, pp-select-panel, pp-select-option
-primeng: Select (p-select, formerly p-dropdown), MultiSelect (p-multiselect)
+primeng: Select (p-select, formerly p-dropdown), MultiSelect (p-multiselect) — Select: reference only; pp-select is built without PrimeNG. MultiSelect: wrapped by the app's multi-select wrapper (`src/app/ds/forms/multi-select/`).
 replaces: p-dropdown with default theme, raw select elements, the stage selector's custom menu
 ---
 
@@ -72,6 +72,8 @@ A select picks one value from a list someone already knows: a department, a coun
 - The chosen option is marked by weight, colour and a check, never colour alone.
 
 ## PrimeNG mapping
+
+> **Wrapped in the app.** Select: reference only; <pp-select> is built without PrimeNG. MultiSelect: wrapped by the app's multi-select wrapper (`src/app/ds/forms/multi-select/`).
 
 ```ts
 select: {

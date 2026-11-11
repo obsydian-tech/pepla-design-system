@@ -30,3 +30,10 @@ for (const f of files) {
     }
   });
 }
+
+test('project/icons.json matches the readme (run node scripts/icons-json.mjs)', async () => {
+  const { vocabulary, render } = await import('./icons-json.mjs');
+  const json = readFileSync(new URL('icons.json', root), 'utf8');
+  assert.equal(json, render(vocabulary(readme)), 'project/icons.json is out of date: run node scripts/icons-json.mjs');
+  assert.deepEqual(new Set(JSON.parse(json).icons.map((i) => i.name)), vocab);
+});

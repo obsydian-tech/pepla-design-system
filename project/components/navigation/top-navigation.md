@@ -3,7 +3,7 @@ name: Top navigation
 group: navigation
 status: ready
 classes: pp-top-navigation
-primeng: Toolbar (p-toolbar)
+primeng: reference only (built without PrimeNG) — Toolbar (p-toolbar)
 replaces: the 5 app shells' top bars, the topbar notification dropdown
 ---
 
@@ -62,6 +62,8 @@ Nothing else goes in the bar. Page actions such as "Add candidate" belong in the
 - New notifications are announced politely, at most once a minute, through a hidden `role="status"` region.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 toolbar: {

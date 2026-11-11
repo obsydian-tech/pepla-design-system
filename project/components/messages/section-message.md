@@ -3,7 +3,7 @@ name: Section message
 group: messages
 status: ready
 classes: pp-section-message
-primeng: Message (p-message)
+primeng: reference only (built without PrimeNG) — Message (p-message)
 replaces: p-message (11 uses), hand-built alert boxes in forms and drawers
 ---
 
@@ -61,6 +61,8 @@ A section message explains something about the part of the page it sits in: a re
 - The dismiss button has `aria-label="Dismiss"`; after dismiss, focus moves to the section heading.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 PrimeNG v19 runs in unstyled mode; pass-through adds the Pepla classes. `severity` maps to the appearance; `secondary` is reserved for the agent notice.
 

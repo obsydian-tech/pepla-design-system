@@ -3,7 +3,7 @@ name: Audit event row
 group: records
 status: ready
 classes: pp-audit-log, pp-audit-event, pp-audit-event__summary, __when, __what, __sentence, __where, __outcome, __chevron, __details, __change
-primeng: Table (p-table) with row expansion, or plain markup
+primeng: reference only (built without PrimeNG) — Table (p-table) with row expansion, or plain markup
 replaces: the admin audit table rows and the event detail drawer's first view
 ---
 
@@ -63,6 +63,8 @@ One line in the audit trail: who did what to which record, when, from where, and
 - The chevron and avatars are `aria-hidden`; the sentence names the actor.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 For large logs with sorting and paging, use `p-table` with row expansion and the Table pass-through; the expanded row holds `pp-audit-event__details` (expansion keys to be checked). For short logs on a record page, use the plain `<details>` markup.
 

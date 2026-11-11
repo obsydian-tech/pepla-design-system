@@ -3,7 +3,7 @@ name: Notification item
 group: records
 status: ready
 classes: pp-notifications, pp-notification, pp-notification--unread, __icon, __icon--warning, --danger, --success, __body, __text, __meta, __action, __dot, pp-notifications-panel, __header, __title, __footer
-primeng: Popover (p-popover) for the panel, to be checked
+primeng: reference only (built without PrimeNG) — Popover (p-popover) for the panel, to be checked
 replaces: app-notification-dropdown items
 ---
 
@@ -52,6 +52,8 @@ The **panel** (`pp-notifications-panel`) holds the header ("Notifications", "Mar
 - Avatars, icons and the dot are `aria-hidden`.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 The panel can be `p-popover` with a pass-through that adds `pp-notifications-panel` to its content (keys to be checked). The items are a plain `@for`. The bell's count uses the Badge pass-through.
 
