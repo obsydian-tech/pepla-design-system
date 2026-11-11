@@ -3,7 +3,7 @@ name: Select
 group: forms
 status: ready
 classes: pp-select, pp-select-panel, pp-select-option
-primeng: Select (p-select, formerly p-dropdown), MultiSelect (p-multiselect) — reference only (built without PrimeNG) — pp-select is a native select; the multi-select (`src/app/ds/forms/multi-select/`) is built on Angular Aria combobox and listbox.
+primeng: Select (p-select, formerly p-dropdown), MultiSelect (p-multiselect) — reference only (built without PrimeNG) — pp-select is a native select; the rich select (`pp-rich-select`, groups, second lines, icons, a filter) and the multi-select are built on Angular Aria combobox and listbox.
 replaces: p-dropdown with default theme, raw select elements, the stage selector's custom menu
 ---
 
@@ -26,7 +26,7 @@ A select picks one value from a list someone already knows: a department, a coun
 | Class | Use | Never |
 | --- | --- | --- |
 | `pp-select` + native `<select>` | Up to about 10 fixed options; the phone shows its own picker | When options need a second line or an icon |
-| `pp-select` + `pp-select-panel` | PrimeNG Select: long lists, people, grouped stages, search | For two or three options (use Radio) |
+| `pp-select` + `pp-select-panel` | The rich select (`<pp-rich-select>` in the app): long lists, people, grouped stages, search | For two or three options (use Radio) |
 
 ## Sizes
 
@@ -54,6 +54,8 @@ A select picks one value from a list someone already knows: a department, a coun
 - Open on click, Enter, Space or Down arrow. Type-ahead jumps to the first match. Escape closes and keeps the old value.
 - The panel opens below the box, or above when there is no room, and is at least as wide as the box.
 - Add a filter when the list is longer than 10. The filter matches anywhere in the label and the second line.
+- The placeholder option of a native select is `disabled`, so it cannot be chosen again once a value is picked.
+- Opening a filtered list puts the cursor in the filter, and the first match is active: arrows move through the list, Enter picks, Escape closes.
 - On phone, PrimeNG Select opens as a bottom sheet (see Overlays), not a floating panel.
 - Choosing an option that changes something for another person, such as moving a candidate's stage, still needs a confirm step outside the select.
 
