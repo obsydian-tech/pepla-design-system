@@ -25,6 +25,7 @@ A tooltip names an icon-only control or shows the rest of a cut-off label. It is
 | `pp-tooltip--bottom` | Below, when the anchor sits near the top edge |
 | `pp-tooltip--end` | To the right, for collapsed side navigation |
 | `pp-tooltip--inline` | Rendered in place, for docs only |
+| `pp-tooltip--floating` | Placed by the app in a top-layer overlay; the app shows it on hover (after 300ms) and focus, and hides it on Escape |
 
 ## States
 
