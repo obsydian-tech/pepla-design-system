@@ -3,7 +3,7 @@ name: Spinner
 group: status
 status: ready
 classes: pp-spinner
-primeng: ProgressSpinner (p-progressspinner)
+primeng: reference only (built without PrimeNG) — ProgressSpinner (p-progressspinner)
 replaces: p-progressspinner, ad hoc "Loading..." text
 ---
 
@@ -53,6 +53,8 @@ Pair a standalone spinner with a short line that names the work: "Checking the I
 - Standalone: wrap it with its text in an element with `role="status"`.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 progressspinner: { root: { class: 'pp-spinner' }, spin: { style: 'display:none' } }

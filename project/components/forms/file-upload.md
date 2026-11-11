@@ -3,7 +3,7 @@ name: File upload
 group: forms
 status: ready
 classes: pp-file-upload, pp-file-list, pp-file
-primeng: FileUpload (p-fileupload)
+primeng: reference only (built without PrimeNG) — FileUpload (p-fileupload)
 replaces: p-fileupload with default theme, bare input type="file", the document checklist's upload links
 ---
 
@@ -67,6 +67,8 @@ File upload takes documents and photos: IDs, bank letters, payslips, certificate
 - Status is an icon and words (rule 4), never a coloured border alone.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 fileupload: {

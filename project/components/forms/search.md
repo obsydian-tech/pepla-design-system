@@ -3,7 +3,7 @@ name: Search
 group: forms
 status: ready
 classes: pp-search, pp-search__clear, pp-search-results
-primeng: IconField with InputText (p-iconfield, pInputText), AutoComplete (p-autocomplete) for suggestions
+primeng: IconField with InputText (p-iconfield, pInputText), AutoComplete (p-autocomplete) for suggestions — Reference only for the field; suggestions use the app's autocomplete wrapper (`src/app/ds/forms/autocomplete/`), which wraps AutoComplete.
 replaces: p-iconfield with PrimeIcons, hand-built search boxes with a magnifier image, the browser's own clear cross
 ---
 
@@ -62,6 +62,8 @@ Search finds people, candidates, documents or verifications by typing. It filter
 - The spinner is `aria-hidden`; "Searching" in the result line is what is announced.
 
 ## PrimeNG mapping
+
+> **Wrapped in the app.** Reference only for the field; suggestions use the app's autocomplete wrapper (`src/app/ds/forms/autocomplete/`), which wraps AutoComplete.
 
 ```ts
 iconfield: { root: { class: 'pp-text-field pp-search' } },

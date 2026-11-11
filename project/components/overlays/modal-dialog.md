@@ -3,7 +3,7 @@ name: Modal dialog
 group: overlays
 status: ready
 classes: pp-modal-dialog, pp-blanket
-primeng: Dialog (p-dialog), ConfirmDialog (p-confirmdialog)
+primeng: reference only (built without PrimeNG) — Dialog (p-dialog), ConfirmDialog (p-confirmdialog)
 replaces: p-confirm (4 uses), p-dialog, window.confirm
 ---
 
@@ -71,6 +71,8 @@ On phone (under 768px) every dialog becomes a bottom sheet: full width, rounded 
 - The page behind gets `inert`, so screen readers can't reach it.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 PrimeNG v19 runs in unstyled mode. `p-dialog` and `p-confirmdialog` share the same pass-through.
 

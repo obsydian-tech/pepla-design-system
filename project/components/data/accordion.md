@@ -3,7 +3,7 @@ name: Accordion
 group: data
 status: ready
 classes: pp-accordion
-primeng: Accordion (p-accordion, p-accordion-panel, p-accordion-header, p-accordion-content)
+primeng: reference only (built without PrimeNG) — Accordion (p-accordion, p-accordion-panel, p-accordion-header, p-accordion-content)
 replaces: p-accordion (5 panels in the AI mode panel and config pages)
 ---
 
@@ -48,6 +48,8 @@ Header titles are nouns: "Locale and currency", "Approval chains". Meta says how
 - Do not put interactive controls inside the summary.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 accordion: { root: { class: 'pp-accordion' } },

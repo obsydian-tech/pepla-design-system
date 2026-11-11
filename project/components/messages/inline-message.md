@@ -3,7 +3,7 @@ name: Inline message
 group: messages
 status: ready
 classes: pp-inline-message
-primeng: Message (p-message, variant="simple")
+primeng: reference only (built without PrimeNG) — Message (p-message, variant="simple")
 replaces: small p-message variant, red helper text under fields, coloured status text in rows
 ---
 
@@ -59,6 +59,8 @@ An inline message is a short icon and line of text next to the thing it is about
 - Text colours pass 4.5:1 on surface and raised surface in both themes; the icon passes 3:1.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 message: {

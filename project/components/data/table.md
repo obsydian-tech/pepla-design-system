@@ -3,7 +3,7 @@ name: Dynamic table
 group: data
 status: ready
 classes: pp-table, pp-table-wrap
-primeng: Table (p-table)
+primeng: Table (p-table) — Long lists only: wrapped by the app's long-table wrapper (`src/app/ds/data/table/`) for virtual scroll and server paging. Short tables are a plain table ppTable.
 replaces: p-table (7 uses: candidates, verifications, IT queue, users, audit log, queues, templates)
 ---
 
@@ -61,6 +61,8 @@ Rows of the same kind of thing, to scan, sort, select and open. Pepla's tables a
 - The stacked phone layout repeats the column name per cell via `data-label`.
 
 ## PrimeNG mapping
+
+> **Wrapped in the app.** Long lists only: wrapped by the app's long-table wrapper (`src/app/ds/data/table/`) for virtual scroll and server paging. Short tables are a plain <table ppTable>.
 
 ```ts
 datatable: {

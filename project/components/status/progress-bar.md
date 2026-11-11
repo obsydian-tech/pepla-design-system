@@ -3,7 +3,7 @@ name: Progress bar
 group: status
 status: ready
 classes: pp-progress-bar
-primeng: ProgressBar (p-progressbar)
+primeng: reference only (built without PrimeNG) — ProgressBar (p-progressbar)
 replaces: p-progressbar with default theme, percentage-only bars, coloured bars with no words
 ---
 
@@ -64,6 +64,8 @@ A progress bar shows how far along something is when the total is known: documen
 - Colour is never the only signal: warning, danger and success all carry an icon and words.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 progressbar: {

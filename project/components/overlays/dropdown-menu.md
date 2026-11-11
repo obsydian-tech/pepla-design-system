@@ -3,7 +3,7 @@ name: Dropdown menu
 group: overlays
 status: ready
 classes: pp-dropdown-menu
-primeng: Menu (p-menu, popup mode)
+primeng: reference only (built without PrimeNG) — Menu (p-menu, popup mode)
 replaces: p-menu, hand-built "..." row menus, the topbar avatar menu
 ---
 
@@ -62,6 +62,8 @@ A dropdown menu lists actions or choices behind a button: row actions behind "Mo
 - Disabled items stay focusable with `aria-disabled`, and say why on focus through a tooltip ("Only payroll admins can change salaries").
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 menu: {

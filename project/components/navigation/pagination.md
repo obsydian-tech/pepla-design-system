@@ -3,7 +3,7 @@ name: Pagination
 group: navigation
 status: ready
 classes: pp-pagination
-primeng: Paginator (p-paginator)
+primeng: reference only (built without PrimeNG) — Paginator (p-paginator)
 replaces: p-paginator with "{first} - {last} of {totalRecords}", the "Load more" buttons on admin lists
 ---
 
@@ -52,6 +52,8 @@ Pagination splits a long list into pages and says, in words, which part of the l
 - The gap is `aria-hidden`. Every page control has a 44px hit area on touch.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 paginator: {

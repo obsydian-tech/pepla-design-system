@@ -3,7 +3,7 @@ name: Textarea
 group: forms
 status: ready
 classes: pp-textarea
-primeng: Textarea (pTextarea)
+primeng: reference only (built without PrimeNG) — Textarea (pTextarea)
 replaces: pInputTextarea, raw textarea with rows="3" and inline widths
 ---
 
@@ -56,6 +56,8 @@ A textarea takes more than one line: a note, a reason, a short bio. It sits insi
 - Keep `maxlength` off when you want to show "over the limit"; with `maxlength` the browser blocks typing silently.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 textarea: {

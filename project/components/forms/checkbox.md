@@ -3,7 +3,7 @@ name: Checkbox
 group: forms
 status: ready
 classes: pp-checkbox
-primeng: Checkbox (p-checkbox)
+primeng: reference only (built without PrimeNG) — Checkbox (p-checkbox)
 replaces: p-checkbox with default theme, mat-checkbox look-alikes in the document checklist
 ---
 
@@ -53,6 +53,8 @@ A group sits in a `fieldset.pp-field` with a `legend.pp-field__label` and a `pp-
 - The checked state shows as a filled box and a check, not colour alone.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
 
 ```ts
 checkbox: {
