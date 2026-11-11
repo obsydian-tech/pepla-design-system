@@ -1,13 +1,13 @@
 /* Timeline. Spec: timeline.md */
 .pp-timeline {
   --_marker: var(--size-control-small);
-  --_gap: var(--space-300);
+  --_step: var(--space-300);
   margin: 0;
   padding: 0;
   list-style: none;
   color: var(--color-text);
 }
-.pp-timeline--compact { --_marker: var(--space-300); --_gap: var(--space-200); }
+.pp-timeline--compact { --_marker: var(--space-300); --_step: var(--space-200); }
 
 /* Event: marker column, content column, a line down to the next marker */
 .pp-timeline > .pp-timeline__event {
@@ -17,7 +17,7 @@
   column-gap: var(--space-150);
   max-width: none;
   margin: 0;
-  padding: 0 0 var(--_gap);
+  padding: 0 0 var(--_step);
   font: var(--font-body);
   letter-spacing: var(--font-body-tracking);
 }
