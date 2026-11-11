@@ -17,7 +17,7 @@ The masked field assumes the viewer is allowed to see the value. If they are not
 
 1. **Masked value** (`pp-masked__value`): bullet characters (•) and the last digits, in tabular figures: `•••••••••0876`, `•••• •••• 4821`. Salary hides the whole amount: `R •• •••`. Health shows only that something exists: "1 medical note, hidden" with `eye-off`.
 2. **Show** button: a link-style button. "Hide" when revealed.
-3. **Notice** (`pp-masked__notice`): `history` and "Revealing is recorded" before; "Shown to you, 11 Nov 2026, 14:30. Hides again in 60 seconds." after.
+3. **Notice** (`pp-masked__notice`): `history` and "Revealing is recorded" before; "Shown to you, 11 Nov 2026, 14:30. Hides again in 2 minutes." after.
 
 ## Appearances
 
@@ -38,7 +38,7 @@ The masked field assumes the viewer is allowed to see the value. If they are not
 ## Behaviour
 
 - Show calls the audit endpoint first. The value is fetched and shown only after the audit entry is written. If the audit call fails, the value is never shown.
-- The value hides again after 60 seconds, when the person leaves the page, or when the tab is hidden. The countdown is in the notice.
+- The value hides again when the person leaves the page or the tab is hidden, or after 2 minutes, whichever comes first. The countdown is in the notice.
 - The mask has a fixed length per kind, not the real length, so it does not leak how many digits there are.
 - Copy is allowed only while revealed, and copying writes a second audit entry.
 - Never put a full value in a URL, page title, tooltip, toast, export file name or log line.
@@ -48,7 +48,7 @@ The masked field assumes the viewer is allowed to see the value. If they are not
 
 - Use the literal bullet character (•), never asterisks, x's or an HTML entity.
 - Button: "Show" and "Hide". In a form: "Show bank account number" as the accessible name.
-- Notice before: "Revealing is recorded". After: "Shown to you, 11 Nov 2026, 14:30. Hides again in 60 seconds."
+- Notice before: "Revealing is recorded". After: "Shown to you, 11 Nov 2026, 14:30. Hides again in 2 minutes."
 - In audit entries: "Chipo Banda revealed the bank account ending 4471".
 
 ## Accessibility

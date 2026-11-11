@@ -55,7 +55,7 @@ The proposal card is how Pepla asks a person to approve something. It is the sig
 - Decline asks for a reason in place, optional. The reason is kept with the decision and shown in the activity log.
 - Every decision is written to the audit trail with who, when, what was proposed and what was done (rules 2 and 7).
 - A failed action keeps the approval on record and says what to fix. "Fix and try again" opens Edit with the problem field marked.
-- Compact rows: Approve is only offered when nothing leaves Pepla or the destination fits on the meta line ("Emails to 3 people"). Otherwise the row offers Review, which opens the full card.
+- Compact rows: one-tap Approve is offered when the action stays inside Pepla (a reminder, chasing a document, an email to the person concerned). When personal data goes to another company (payroll, a background check, a bank), the row offers Review instead, which opens the full card with "Where it goes". A proposal Pepla is unsure of ("Check this") also offers only Review.
 - Batch: every item is ticked to start. Unticking an item updates the button ("Approve 2 documents"). Each item gets its own audit entry.
 - Personal data in the facts is masked (rule 6): "ID ending 0876", "account ending 4821".
 - Today, the TalentFlow API has `GET /agent/v1/actions/pending` and `POST /agent/v1/actions/{id}/approve|reject`, and its `PendingAction` has `expiresAt` and the statuses PENDING, APPROVED, REJECTED and EXPIRED. The card's states map to these, plus Working and Failed on the client.

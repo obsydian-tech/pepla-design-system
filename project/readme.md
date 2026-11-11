@@ -21,7 +21,7 @@ Pepla is the HR platform for teams under 100 in South Africa, Zimbabwe and Zambi
 7. **Nothing changes silently.** Edits keep who, when and why. Nothing is deleted without a trail; a correction sits beside the original.
 8. **Every working button shows it is working.** The label fades while a spinner takes its place over 500ms. The button keeps its size and stays busy until the action lands.
 9. **Phone first for employees.** New hires and staff can do everything on a phone. Anything tappable is at least 44px.
-10. **One accent per customer, and it must pass.** A tenant may set one brand accent. A colour that fails 4.5:1 on white is refused. Pepla's mint and the status colours are never themeable.
+10. **One brand colour per customer, and buttons only get it if it passes.** A customer may set one brand colour, and it always shows on their logo area, header and sign-in page. It replaces violet on buttons and links only if it has 4.5:1 on white and is clearly different from mint and the error red. Pepla's mint and the status colours are never themeable.
 
 ## Content fundamentals
 
