@@ -47,35 +47,152 @@ Pepla is the HR platform for teams under 100 in South Africa, Zimbabwe and Zambi
 
 ## Iconography
 
-**Lucide only**, 1.75px stroke, sized with `--size-icon-*`. No emoji, no Unicode symbols as icons, no second set. One meaning has one icon everywhere:
+**Lucide only**, 1.75px stroke, sized with `--size-icon-*`. No emoji, no Unicode symbols as icons, no second set. **One meaning has one icon everywhere, and this table is the whole vocabulary**: CI fails a component example or UI kit that uses a Lucide icon not listed here. To add one, add its row here first.
+
+**Pepla and the agent**
 
 | Meaning | Icon |
 | --- | --- |
 | Pepla (the agent) did or suggests this | `sparkles` |
-| Approve / done | `check` / `circle-check` |
-| Decline / remove | `x` / `circle-x` |
-| Warning | `triangle-alert` |
-| Error / blocked | `octagon-alert` |
-| Information | `info` |
-| Deadline, due | `clock` |
-| Overdue | `clock-alert` |
-| Document | `file-text` |
-| Upload | `upload` |
-| ID check / verification | `id-card` / `shield-check` |
-| Personal data hidden / reveal | `eye-off` / `eye` |
-| Locked (no permission) | `lock` |
-| Audit trail | `history` |
-| Person / people | `user` / `users` |
-| Hire (candidates, pipeline) | `user-plus` |
+| The agent is working right now (animated only) | `loader` |
+| Pepla could not tell | `circle-help` |
+| The system did this (not a person, not the agent) | `server` |
+| Where data is stored | `database` |
+
+**Places and modules**
+
+| Meaning | Icon |
+| --- | --- |
+| Today, where everything starts | `house` |
+| People | `users` |
+| Hire | `user-plus` |
+| Candidates | `user-search` |
+| Pipeline, board view | `columns-3` |
+| Offers | `handshake` |
+| Interviews and conversations | `messages-square` |
 | Onboard | `rocket` |
 | Time off | `calendar-days` |
 | Help desk | `life-buoy` |
+| Requests and queues | `inbox` |
 | Move and exit | `door-open` |
 | Comply | `scale` |
 | Perform | `target` |
 | Laptop and access (IT) | `laptop` |
 | Payroll connection | `plug` |
 | Settings | `settings` |
+| Overview | `layout-dashboard` |
+| Company or department | `building-2` |
+
+**Roles (matches the role pill)**
+
+| Meaning | Icon |
+| --- | --- |
+| HR admin, HR director | `user-cog` |
+| Hiring manager | `user-plus` |
+| TA specialist | `user-search` |
+| IT admin | `laptop` |
+| Workspace admin | `shield` |
+| Employee | `user` |
+
+**Status**
+
+| Meaning | Icon |
+| --- | --- |
+| Approve / done | `check` / `circle-check` |
+| Decline / remove | `x` / `circle-x` |
+| Not started | `circle-dashed` |
+| In progress | `circle-dot-dashed` |
+| Waiting on someone else | `hourglass` |
+| Paused | `circle-pause` |
+| Warning | `triangle-alert` |
+| Error / blocked | `octagon-alert` |
+| Information | `info` |
+| Deadline, due | `clock` |
+| Overdue | `clock-alert` |
+| Time limit (SLA) | `timer` |
+| Deactivated | `circle-slash` |
+| Deactivate / reactivate a user | `user-x` / `user-check` |
+| Locked (no permission) | `lock` |
+
+**Records and documents**
+
+| Meaning | Icon |
+| --- | --- |
+| Document | `file-text` |
+| Templates | `files` |
+| Upload / download | `upload` / `download` |
+| ID check / verification | `id-card` / `shield-check` |
+| Personal data hidden / reveal | `eye-off` / `eye` |
+| Audit trail, versions | `history` |
+| Compare versions | `git-compare` |
+| Bank details | `landmark` |
+| Qualification | `graduation-cap` |
+| Address, location | `map-pin` |
+| Email / phone call | `mail` / `phone` |
+| Note | `message-square` |
+| Reference number | `hash` |
+| Decision | `gavel` |
+| Claim a task | `hand` |
+| Hand over to a person | `forward` |
+| Snooze | `alarm-clock` |
+| Schedule / cancel a meeting | `calendar-plus` / `calendar-x` |
+| Equipment bundle | `package` |
+| Software / system access | `app-window` / `key-round` |
+| Furniture | `armchair` |
+| Phone (device) | `smartphone` |
+| Journey | `map` |
+| Fulfilment notes | `notebook-pen` |
+
+**Scoring and rules**
+
+| Meaning | Icon |
+| --- | --- |
+| Positive / negative | `thumbs-up` / `thumbs-down` |
+| Neutral | `minus` |
+| Excited | `laugh` |
+| Sentiment scales | `smile` |
+| Default | `star` |
+| Technical skills | `code` |
+| Problem solving | `lightbulb` |
+| Culture and engagement | `heart` |
+| Weights and thresholds | `sliders-horizontal` |
+| Intelligence rules | `zap` |
+| Routing rules | `git-fork` |
+| Approval chains | `git-pull-request-arrow` |
+| Workflow templates | `workflow` |
+| Steps in order | `list-ordered` |
+| Checklist or rules list | `list-checks` |
+| List view | `list` |
+| Seniority levels | `layers` |
+| Locale and region | `globe` |
+| People’s actions | `mouse-pointer-click` |
+
+**Actions and navigation**
+
+| Meaning | Icon |
+| --- | --- |
+| Add | `plus` |
+| Edit | `pencil` |
+| Delete | `trash-2` |
+| Copy | `copy` |
+| Undo / reset to defaults | `undo-2` / `rotate-ccw` |
+| Refresh | `refresh-cw` |
+| Send | `send` |
+| Filter | `filter` |
+| Opens somewhere else | `external-link` |
+| Back / next | `arrow-left` / `arrow-right` |
+| Move up / down | `arrow-up` / `arrow-down` |
+| Move to another stage | `arrow-right-left` |
+| Skip | `skip-forward` |
+| Drag to reorder | `grip-vertical` |
+| Open / expand | `chevron-right` / `chevron-down` |
+| Previous page | `chevron-left` |
+| Switch (company, select) | `chevrons-up-down` |
+| Collapse the sidebar | `panel-left` |
+| Menu (phone) | `menu` |
+| Notifications | `bell` |
+| Sign out | `log-out` |
+| Take a photo | `camera` |
 | Search | `search` |
 | More actions | `ellipsis` |
 

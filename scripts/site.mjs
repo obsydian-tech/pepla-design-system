@@ -22,7 +22,10 @@ const ratio = (fg, bg) => wcagContrast(fg, bg).toFixed(1);
 // ---------- rules, parsed from the readme so they cannot drift
 const readme = readFileSync(new URL('project/readme.md', ROOT), 'utf8');
 const rules = [...readme.split('## The rules that govern everything')[1].split('## ')[0].matchAll(/^\d+\.\s+\*\*(.+?)\*\*\s*(.*)$/gm)].map((m) => [m[1], m[2]]);
-const icons = [...readme.split('## Iconography')[1].split('## ')[0].matchAll(/^\| (.+?) \| `(.+?)`(?: \/ `(.+?)`)? \|$/gm)].map((m) => [m[1], m[2], m[3]]);
+const iconSection = readme.split('## Iconography')[1].split('\n## ')[0];
+const iconRe = /^\| (.+?) \| `(.+?)`(?: \/ `(.+?)`)? \|$/gm;
+const iconGroups = iconSection.split(/^\*\*(.+?)\*\*$/m).slice(1).reduce((acc, part, i, arr) => (i % 2 ? acc : [...acc, [part, [...arr[i + 1].matchAll(iconRe)].map((m) => [m[1], m[2], m[3]])]]), []);
+const icons = iconGroups.flatMap(([, rows]) => rows);
 
 // ---------- colour role tables
 const groups = [
@@ -59,7 +62,8 @@ const radiusCells = Object.entries(F.shape).filter(([k]) => k.startsWith('radius
 const shadowCells = Object.keys(F.shadows.light).map((k) => `<div class="sh" style="box-shadow:${v(k)}"><code>--${k.replace(/\./g, '-')}</code></div>`).join('');
 const motionRows = Object.entries(F.motion).map(([k, val]) => `<tr><td><code>--${k.replace(/\./g, '-')}</code></td><td><code>${val}</code></td></tr>`).join('');
 const layoutRows = Object.entries(F.layout).map(([k, val]) => `<tr><td><code>--${k.replace(/\./g, '-')}</code></td><td>${val}</td></tr>`).join('');
-const iconRows = icons.map(([m, a, b]) => `<div class="ic"><span><i data-lucide="${a}"></i>${b ? `<i data-lucide="${b}"></i>` : ''}</span><b>${esc(m)}</b><code>${a}${b ? ` / ${b}` : ''}</code></div>`).join('');
+const iconCard = ([m, a, b]) => `<div class="ic"><span><i data-lucide="${a}"></i>${b ? `<i data-lucide="${b}"></i>` : ''}</span><b>${esc(m)}</b><code>${a}${b ? ` / ${b}` : ''}</code></div>`;
+const iconRows = iconGroups.map(([g, rows]) => `<h3>${esc(g)}</h3><div class="ics">${rows.map(iconCard).join('')}</div>`).join('');
 
 const mark = (vio) => `<svg viewBox="0 0 76 64" aria-hidden="true"><circle cx="20" cy="38" r="18" fill="#ff7a59"/><circle cx="38" cy="24" r="18" fill="${vio}"/><circle cx="56" cy="38" r="18" fill="#2bb3a3"/></svg>`;
 
@@ -233,8 +237,8 @@ ${roleTables}
 <div class="tw"><table><thead><tr><th>Token</th><th>Value</th></tr></thead><tbody>${motionRows}</tbody></table></div>
 
 <h2 id="icons">Icons</h2>
-<p>Lucide only, 1.75px stroke. One meaning, one icon, everywhere.</p>
-<div class="ics">${iconRows}</div>
+<p>Lucide only, 1.75px stroke. One meaning, one icon, everywhere. This is the whole vocabulary: CI rejects any other icon in a component or UI kit.</p>
+${iconRows}
 
 <h2 id="logo">Logo</h2>
 <p>Three people side by side: coral, violet, mint. On dark, violet lifts to <code>#7d6ff0</code>. The wordmark is always lowercase, Manrope 800. Keep clear space of one circle radius around the lockup; the mark is never smaller than 20px wide.</p>

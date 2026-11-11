@@ -16,7 +16,7 @@ A card for the IT setup a new starter needs: laptop, email, apps and access. Eac
 1. **Card header**: `laptop` icon tile, "IT setup for Kagiso Molefe", the bundle name and start date, and in `pp-card__aside` the most urgent deadline.
 2. **Progress bar**: "3 of 5 items" ready, coloured like the most urgent item.
 3. **Items** (`__items`): one row each:
-   - icon tile (`laptop`, `mail`, `app-window`, `key-round`, `smartphone`, `lock-keyhole`),
+   - icon tile (`laptop`, `mail`, `app-window`, `key-round`, `smartphone`, `armchair`),
    - name and detail,
    - owner (`pp-person` with a small avatar; Pepla's agent avatar if Pepla does it; "No owner yet" if nobody does),
    - status lozenge and, until ready, an inline deadline.
@@ -28,7 +28,7 @@ A card for the IT setup a new starter needs: laptop, email, apps and access. Eac
 | --- | --- | --- |
 | Waiting for review | neutral, `circle-dashed` | inline, neutral |
 | Not started | neutral, `circle-dashed` | inline, by urgency |
-| In progress | information, `loader` | inline, by urgency |
+| In progress | information, `circle-dot-dashed` | inline, by urgency |
 | Ready | success, `circle-check`, "Ready 10 Nov" | none |
 | Done by Pepla | agent, `sparkles`, "Created by Pepla 9 Nov" (rule 1) | none |
 | Blocked | danger, `octagon-alert`, "Blocked" and why | inline |
