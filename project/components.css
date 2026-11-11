@@ -556,8 +556,6 @@ dl.pp-stack, dl.pp-grid, dl.pp-inline { margin: 0; }
 .pp-field { display: flex; flex-direction: column; gap: var(--space-075); min-width: 0; margin: 0; padding: 0; border: 0; min-inline-size: 0; }
 .pp-field__label { display: block; padding: 0; font: var(--font-label); letter-spacing: var(--font-label-tracking); color: var(--color-text); }
 legend.pp-field__label { margin-bottom: var(--space-075); }
-/* Visually hidden label: only where a visible heading or placeholder already names the field, such as a toolbar search */
-.pp-field__label--hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .pp-field__required { margin-left: var(--space-025); color: var(--color-text-danger); }
 .pp-field__optional { margin-left: var(--space-050); font: var(--font-body-small); color: var(--color-text-subtlest); }
 .pp-field__help { margin: 0; font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
@@ -575,6 +573,11 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
 .pp-field__options--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .pp-field__options--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @container (max-width: 480px) { .pp-field__options--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Row: the label (and a line about it) beside the control, for settings with a number each. One column on a phone */
+.pp-field--row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; justify-items: start; gap: var(--space-075) var(--space-300); }
+@container (max-width: 480px) { .pp-field--row { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 479px) { .pp-field--row { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---- forms/file-upload ---- */
 /* File upload. Spec: file-upload.md */
@@ -715,7 +718,6 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
 }
 
 /* A row whose fields carry no help text lines up on their centres */
-.pp-form-row--center { align-items: center; }
 
 /* Three short fields in one row (city, province, postal code) */
 @media (min-width: 768px) { .pp-form-row--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -826,7 +828,7 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
 .pp-search:not([aria-busy="true"]) > .pp-spinner { display: none; }
 
 
-.pp-search__results { margin: var(--space-075) 0 0; font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-search-results { margin: var(--space-075) 0 0; font: var(--font-body-small); color: var(--color-text-subtle); }
 
 /* ---- forms/select ---- */
 /* Select. Spec: select.md
@@ -3277,6 +3279,8 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-document-checklist__subtitle { font: var(--font-body); color: var(--color-text-subtle); }
 .pp-document-checklist__header > .pp-progress-bar { flex: 1 1 220px; }
 .pp-document-checklist__list { margin: 0; padding: 0; list-style: none; }
+/* Footer: one note under the list, such as what Pepla does after upload */
+.pp-document-checklist__footer { padding: var(--space-200) var(--space-300); border-top: var(--border-width) solid var(--color-border); }
 .pp-document-checklist__list > li { max-width: none; margin: 0; font: var(--font-body); letter-spacing: var(--font-body-tracking); border-bottom: var(--border-width) solid var(--color-border); }
 .pp-document-checklist__list > li:last-child { border-bottom: 0; }
 
@@ -3300,7 +3304,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-document-row--attention:is(li) { border-radius: 0; }
 
 @container (max-width: 599px) {
-  .pp-document-checklist__header { padding: var(--space-200); }
+  .pp-document-checklist__header, .pp-document-checklist__footer { padding: var(--space-200); }
   .pp-document-row { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon body" ". status" ". actions"; padding: var(--space-200); }
   .pp-document-row__status { justify-self: start; }
   .pp-document-row__actions { justify-content: flex-start; flex-wrap: wrap; }
@@ -3549,7 +3553,8 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 
 /* ---- records/provisioning-bundle ---- */
 /* Provisioning bundle. Spec: provisioning-bundle.md
-   Built on pp-card. The item list is a size container; items stack below 560px. */
+   Built on pp-card: the card carries pp-bundle. The item list is a size container; items stack below 560px. */
+.pp-bundle { min-width: 0; }
 .pp-bundle__items { container-type: inline-size; display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
 .pp-bundle__items > .pp-bundle__item {
   display: grid;

@@ -2,7 +2,7 @@
 name: Document row
 group: records
 status: ready
-classes: pp-document-row, pp-document-row__body, __name, __meta, __reason, __status, __actions, pp-document-row--attention, pp-document-checklist, pp-document-checklist__header, __titles, __title, __subtitle, __list
+classes: pp-document-row, pp-document-row__body, __name, __meta, __reason, __status, __actions, pp-document-row--attention, pp-document-checklist, pp-document-checklist__header, __titles, __title, __subtitle, __list, __footer
 primeng: none (plain Angular template); upload uses File upload
 replaces: app-document-row and app-document-checklist; the HR document detail card's status block
 ---
@@ -26,6 +26,7 @@ One required document: what it is, where it stands, who did what and when, and w
 
 1. **Header**: title ("Kagiso's documents"), subtitle, and a progress bar: "2 of 6 documents".
 2. **List**: one row per required document, problems first.
+3. **Footer** (optional, `__footer`): one note under the list, such as an agent inline message saying what Pepla checks after upload.
 
 ## States
 

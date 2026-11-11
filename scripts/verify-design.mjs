@@ -124,6 +124,22 @@ export function checkMarkup(file, raw) {
     const cls = (m[2].match(/\sclass="([^"]*)"/) || [, ''])[1].split(/\s+/).filter((c) => c.startsWith('pp-'));
     if (!cls.length) report(lineOf(html, m.index), 'markup', `<${m[1]}> without a pp- class`);
   }
+  // Anatomy: an element (pp-block__part) only appears inside its block (pp-block), so a part is never
+  // borrowed for another meaning and inherits the block's inputs. A missing root is a missing component.
+  const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
+  const open = [];
+  for (const m of html.matchAll(/<(\/?)([a-zA-Z][\w-]*)\b((?:[^>"]|"[^"]*")*)>/g)) {
+    const [, close, tag, attrs] = m;
+    if (close) { if (!VOID.has(tag.toLowerCase())) open.pop(); continue; }
+    const cls = ((attrs.match(/\sclass="([^"]*)"/) || [, ''])[1]).split(/\s+/).filter((c) => c.startsWith('pp-'));
+    const blocks = new Set(cls.filter((c) => !c.includes('__')).map((c) => c.split('--')[0]));
+    const inside = (b) => blocks.has(b) || open.some((o) => o.has(b));
+    for (const c of cls) {
+      const i = c.indexOf('__');
+      if (i > 0 && !inside(c.slice(0, i))) report(lineOf(html, m.index), 'anatomy', `"${c}" outside its block: put it inside a .${c.slice(0, i)}, or use the component that means this`);
+    }
+    if (!VOID.has(tag.toLowerCase()) && !attrs.trim().endsWith('/')) open.push(blocks);
+  }
   for (const m of html.matchAll(/data-lucide="([a-z0-9-]+)"/g)) {
     if (!VOCAB.has(m[1])) report(lineOf(html, m.index), 'icons', `"${m[1]}" is not in the readme's icon vocabulary`);
   }

@@ -2,7 +2,7 @@
 name: Provisioning bundle
 group: records
 status: ready
-classes: pp-bundle__items, pp-bundle__item, __body, __name, __detail, __owner, __unowned, __status (with pp-card and pp-progress-bar)
+classes: pp-bundle (on the pp-card), pp-bundle__items, pp-bundle__item, __body, __name, __detail, __owner, __unowned, __status (with pp-card and pp-progress-bar)
 primeng: none (plain Angular template); Card pass-through if p-card is used
 replaces: tf-provisioning-bundle-card and the bundle block of the provisioning tab
 ---
@@ -12,6 +12,8 @@ replaces: tf-provisioning-bundle-card and the bundle block of the provisioning t
 A card for the IT setup a new starter needs: laptop, email, apps and access. Each item shows its own status, its owner and when it is due, so everyone can see what will not be ready on day 1.
 
 ## Anatomy
+
+The root is a `pp-card` that also carries `pp-bundle`, so every part below sits inside its block.
 
 1. **Card header**: `laptop` icon tile, "IT setup for Kagiso Molefe", the bundle name and start date, and in `pp-card__aside` the most urgent deadline.
 2. **Progress bar**: "3 of 5 items" ready, coloured like the most urgent item.

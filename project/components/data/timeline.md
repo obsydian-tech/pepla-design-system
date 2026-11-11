@@ -34,7 +34,8 @@ A timeline is a vertical list of dated events, newest first. Each event says who
 | State | How |
 | --- | --- |
 | Loading | Three skeleton events: a round skeleton marker and two text lines (see Skeleton) |
-| Empty | One line of text in place of the list: "No changes yet. Edits to Thandeka's record will show here." |
+| Empty | One item, `li.pp-timeline__empty`, in place of the events: "No changes yet. Edits to Thandeka's record will show here." |
+| More | A last item, `li.pp-timeline__more`, holding a subtle "Show older events" button |
 | New event | Slides in at the top; the newest event's marker gets a ring for 2 seconds. Under reduced motion it only appears |
 | Error | A Section message (danger) above the list; events already loaded stay |
 

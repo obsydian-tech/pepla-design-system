@@ -2,7 +2,7 @@
 name: Search
 group: forms
 status: ready
-classes: pp-search, pp-search__clear, pp-search__results
+classes: pp-search, pp-search__clear, pp-search-results
 primeng: IconField with InputText (p-iconfield, pInputText), AutoComplete (p-autocomplete) for suggestions
 replaces: p-iconfield with PrimeIcons, hand-built search boxes with a magnifier image, the browser's own clear cross
 ---
@@ -56,7 +56,7 @@ Search finds people, candidates, documents or verifications by typing. It filter
 
 ## Accessibility
 
-- Wrap it in `role="search"` (or a `<search>` element). The input keeps a label; use `pp-field__label--hidden` when the page heading already names the list.
+- Wrap it in `role="search"` (or a `<search>` element). The input keeps a label; use `pp-visually-hidden` on the label when the page heading already names the list.
 - `aria-describedby` points to the result line; the result line is `role="status"` so counts are announced without moving focus.
 - The clear button is a real button with `aria-label`; the browser's own clear cross is hidden so there is one, consistent control.
 - The spinner is `aria-hidden`; "Searching" in the result line is what is announced.

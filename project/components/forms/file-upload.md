@@ -79,7 +79,7 @@ fileupload: {
   file: { class: 'pp-file' },
   fileName: { class: 'pp-file__name' },
   fileSize: { class: 'pp-file__meta' },
-  pcProgressbar: { root: { class: 'pp-progress-bar__track pp-progress-bar__track--small pp-file__progress' } },
+  pcProgressbar: { root: { class: 'pp-progress-bar pp-file__progress' } }, // the track inside: pp-progress-bar__track pp-progress-bar__track--small
 },
 ```
 

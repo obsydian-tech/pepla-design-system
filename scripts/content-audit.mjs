@@ -62,6 +62,11 @@ export function audit() {
       if (BAD_BUTTONS.test(label)) report(m.index, 'content', `button says "${label}": buttons say the outcome`);
       if (label && label.length > 3 && label === label.toUpperCase() && /[A-Z]/.test(label)) report(m.index, 'content', `button in capitals: "${label}"`);
     }
+    // 3b. One way to mark fields per form (form-layout.md): "(optional)" on the few optional fields, or * on the
+    // few required ones, never both
+    for (const m of html.matchAll(/<form\b[\s\S]*?<\/form>/g)) {
+      if (/pp-field__required/.test(m[0]) && /pp-field__optional/.test(m[0])) report(m.index, 'content', 'form marks fields with both * and "(optional)": use one style per form');
+    }
     // 4. Words we avoid, dates in the house format, IDs masked (rule 6)
     const visible = html.replace(/<(?:script|style|option)[\s\S]*?<\/(?:script|style|option)>/g, '').replace(/\s(?:datetime|href|id|for|aria-[a-z]+|data-[a-z-]+|class|value|title|placeholder|inputmode|type|name|role)="[^"]*"/g, '');
     for (const [re, word] of BANNED_WORDS) for (const m of visible.matchAll(new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g'))) report(0, 'words', `"${m[0]}": avoid ${word}`);

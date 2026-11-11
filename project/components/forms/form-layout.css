@@ -51,7 +51,6 @@
 }
 
 /* A row whose fields carry no help text lines up on their centres */
-.pp-form-row--center { align-items: center; }
 
 /* Three short fields in one row (city, province, postal code) */
 @media (min-width: 768px) { .pp-form-row--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
