@@ -59,6 +59,7 @@ Rows of the same kind of thing, to scan, sort, select and open. Pepla's tables a
 - Sort buttons inside `th`, with `aria-sort` on the `th`.
 - Row checkboxes are labelled with the row's name: "Select Thandeka Dlamini".
 - The stacked phone layout repeats the column name per cell via `data-label`.
+- When the table is wider than its box and scrolls sideways, the wrap becomes a named region a keyboard can reach: `tabindex="0"`, `role="region"` and `aria-label` set to the caption. The app does this only while it overflows.
 
 ## PrimeNG mapping
 
