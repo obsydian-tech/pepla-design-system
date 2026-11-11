@@ -30,7 +30,7 @@ An inline message is a short icon and line of text next to the thing it is about
 
 | Class | Use |
 | --- | --- |
-| (default) | A block on its own line, under a field |
+| (default) | A block on its own line, under a value or a section. Under a field, the field's own error line (`pp-field__error`, see Field) is this message with the same look; use that, so a field has one error pattern |
 | `pp-inline-message--inline` | Inside a row or a line of text, sitting on the text's middle |
 
 ## States
