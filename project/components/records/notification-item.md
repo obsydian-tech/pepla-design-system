@@ -53,7 +53,7 @@ The **panel** (`pp-notifications-panel`) holds the header ("Notifications", "Mar
 
 ## PrimeNG mapping
 
-> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 The panel can be `p-popover` with a pass-through that adds `pp-notifications-panel` to its content (keys to be checked). The items are a plain `@for`. The bell's count uses the Badge pass-through.
 

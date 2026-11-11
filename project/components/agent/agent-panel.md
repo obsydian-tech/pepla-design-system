@@ -71,7 +71,7 @@ The agent panel is where a person talks with Pepla. It opens from the right on d
 
 ## PrimeNG mapping
 
-> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 `p-drawer` gives the shell (position, focus trap, Escape to close) through the Drawer pass-through. Everything inside is a plain Angular template composed from `pp-avatar`, `pp-button`, `pp-textarea` (`pTextarea` with `autoResize`), `pp-spinner` and the compact proposal card.
 

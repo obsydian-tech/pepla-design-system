@@ -65,7 +65,7 @@ A flag tells a person the result of something they just did, or that something f
 
 ## PrimeNG mapping
 
-> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 One `<p-toast position="bottom-left">` in the app shell. Severity maps to the appearance; `secondary` is reserved for agent flags. Set `life` only for success.
 

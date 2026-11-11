@@ -72,7 +72,7 @@ On phone (under 768px) every dialog becomes a bottom sheet: full width, rounded 
 
 ## PrimeNG mapping
 
-> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 PrimeNG v19 runs in unstyled mode. `p-dialog` and `p-confirmdialog` share the same pass-through.
 

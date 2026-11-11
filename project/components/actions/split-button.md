@@ -62,7 +62,7 @@ Both buttons take the same appearance and size class. Use primary or default onl
 
 ## PrimeNG mapping
 
-> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 PrimeNG runs in unstyled mode; pass-through adds the Pepla classes. `p-splitbutton` renders a main button, a menu button and a `p-tieredmenu`. The key names below follow PrimeNG 19 and are to be checked:
 

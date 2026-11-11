@@ -68,7 +68,7 @@ A timeline is a vertical list of dated events, newest first. Each event says who
 
 ## PrimeNG mapping
 
-> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 PrimeNG v19 runs in unstyled mode; pass-through adds the Pepla classes. `p-timeline` gives the list and the line; Pepla's marker and content go in its templates. Key names below are to be checked against PrimeNG 19.
 

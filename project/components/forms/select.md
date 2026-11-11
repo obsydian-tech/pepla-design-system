@@ -3,7 +3,7 @@ name: Select
 group: forms
 status: ready
 classes: pp-select, pp-select-panel, pp-select-option
-primeng: Select (p-select, formerly p-dropdown), MultiSelect (p-multiselect) — Select: reference only; pp-select is built without PrimeNG. MultiSelect: wrapped by the app's multi-select wrapper (`src/app/ds/forms/multi-select/`).
+primeng: Select (p-select, formerly p-dropdown), MultiSelect (p-multiselect) — reference only (built without PrimeNG) — pp-select is a native select; the multi-select (`src/app/ds/forms/multi-select/`) is built on Angular Aria combobox and listbox.
 replaces: p-dropdown with default theme, raw select elements, the stage selector's custom menu
 ---
 
@@ -73,7 +73,7 @@ A select picks one value from a list someone already knows: a department, a coun
 
 ## PrimeNG mapping
 
-> **Wrapped in the app.** Select: reference only; <pp-select> is built without PrimeNG. MultiSelect: wrapped by the app's multi-select wrapper (`src/app/ds/forms/multi-select/`).
+> **Reference only.** The app uses no PrimeNG. <pp-select> is a native select; the multi-select (`src/app/ds/forms/multi-select/`) is built on Angular Aria combobox and listbox.
 
 ```ts
 select: {
