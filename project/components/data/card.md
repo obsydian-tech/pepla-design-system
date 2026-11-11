@@ -2,7 +2,7 @@
 name: Card
 group: data
 status: ready
-classes: pp-card, pp-card-grid
+classes: pp-card, pp-card__aside, pp-card-grid
 primeng: Card (p-card)
 replaces: p-card (25 uses) and the many hand-made white boxes with their own shadows
 ---
@@ -14,7 +14,7 @@ A card groups everything about one thing: a person, a document, a task, a settin
 ## Anatomy
 
 1. **Container**: raised surface, 1px border, 16px radius, 24px padding.
-2. **Header** (optional): icon tile or avatar, title, subtitle, and one action at the end (usually an icon button with a menu).
+2. **Header** (optional): icon tile or avatar, title, subtitle, and `pp-card__aside` at the end, top right: one lozenge, one action (usually an icon button with a menu), or a lozenge then an action.
 3. **Body**: content.
 4. **Footer** (optional): actions or meta, separated by a border.
 
