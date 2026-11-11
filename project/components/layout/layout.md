@@ -47,6 +47,8 @@ Layout has no states. It responds to width only: `pp-columns` stacks below 1024p
 - A gap belongs to the parent, never to a child: there are no margin utilities. Space between the page header and the page, and between sections, comes from the app shell content column (24px).
 - Inline values a component takes as input, such as a progress (`--_pct`), a height for an in-place frame (`--_height`) or a gap a component exposes (`--_gap`), are the only things `style=""` may set, and only as custom properties starting `--_`.
 
+- On a custom-element host (`<pp-timeline class="pp-measure-form">` in the Angular app), a size class also makes the host a block, so the size applies. A component class that sets its own display wins.
+
 ## Content
 
 Layout carries no content of its own. Order the children in reading order; never reorder visually.

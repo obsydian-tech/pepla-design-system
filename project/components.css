@@ -244,6 +244,16 @@ dl.pp-stack, dl.pp-grid, dl.pp-inline { margin: 0; }
 /* Scroll: a region that scrolls inside itself once it is taller than its --_height */
 .pp-scroll { max-height: var(--_height, none); overflow-y: auto; min-height: 0; }
 
+/*
+ * In an app that renders components as custom elements (Pepla's Angular app), a component's host element
+ * is inline until something says otherwise, and a size from a screen
+ * (pp-measure-*, pp-width-field-*) does nothing on an inline box. Hosts that carry one become blocks.
+ * Zero specificity, so a component class that sets its own display still wins.
+ */
+:where([class*="pp-measure-"], [class*="pp-width-field-"]):where(:not(div, span, p, a, ul, ol, li, dl, dt, dd, section, article, aside, header, footer, nav, main, form, fieldset, label, input, select, textarea, button, table, h1, h2, h3, h4, h5, h6, details, summary, img, svg)) {
+  display: block;
+}
+
 /* ---- actions/button ---- */
 /* Button. Spec: button.md */
 .pp-button {
