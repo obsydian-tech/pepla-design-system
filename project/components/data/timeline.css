@@ -1,0 +1,86 @@
+/* Timeline. Spec: timeline.md */
+.pp-timeline {
+  --_marker: var(--size-control-small);
+  --_gap: var(--space-300);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-text);
+}
+.pp-timeline--compact { --_marker: var(--space-300); --_gap: var(--space-200); }
+
+/* Event: marker column, content column, a line down to the next marker */
+.pp-timeline > .pp-timeline__event {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--_marker) minmax(0, 1fr);
+  column-gap: var(--space-150);
+  max-width: none;
+  margin: 0;
+  padding: 0 0 var(--_gap);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+}
+.pp-timeline > .pp-timeline__event::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--_marker) / 2 - var(--border-width) / 2);
+  top: calc(var(--_marker) + var(--space-050));
+  bottom: var(--space-050);
+  width: var(--border-width);
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+}
+.pp-timeline > .pp-timeline__event:last-child { padding-bottom: 0; }
+.pp-timeline > .pp-timeline__event:last-child::before,
+.pp-timeline > .pp-timeline__event:has(+ .pp-timeline__day)::before { display: none; }
+
+/* Day heading */
+.pp-timeline > .pp-timeline__day {
+  max-width: none;
+  margin: 0 0 var(--space-150);
+  font: var(--font-heading-xxsmall);
+  letter-spacing: var(--font-heading-xxsmall-tracking);
+  color: var(--color-text-subtlest);
+}
+.pp-timeline > .pp-timeline__event + .pp-timeline__day { margin-top: var(--space-100); }
+
+/* Marker: an avatar (person or agent) or an icon in a neutral circle */
+.pp-timeline__marker { position: relative; z-index: 0; display: grid; place-items: center; width: var(--_marker); height: var(--_marker); }
+.pp-timeline__marker > .pp-avatar { --_size: var(--_marker); }
+.pp-timeline__icon {
+  display: grid;
+  place-items: center;
+  width: var(--_marker);
+  height: var(--_marker);
+  border-radius: var(--radius-full);
+  background: var(--color-background-neutral);
+  color: var(--color-icon-subtle);
+}
+.pp-timeline__icon > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
+.pp-timeline__icon--success { color: var(--color-icon-success); }
+.pp-timeline__icon--warning { color: var(--color-icon-warning); }
+.pp-timeline__icon--danger { color: var(--color-icon-danger); }
+.pp-timeline__event--new .pp-timeline__marker > * { box-shadow: 0 0 0 var(--space-050) var(--color-background-selected); }
+
+/* Content */
+.pp-timeline__content { display: flex; flex-direction: column; gap: var(--space-025); min-width: 0; padding-top: calc((var(--_marker) - 1lh) / 2); }
+.pp-timeline__summary { color: var(--color-text); overflow-wrap: anywhere; }
+.pp-timeline__summary strong { font-weight: var(--font-weight-semibold); }
+.pp-timeline__detail { font: var(--font-body); color: var(--color-text-subtle); overflow-wrap: anywhere; }
+.pp-timeline__detail > svg { width: var(--size-icon-small); height: var(--size-icon-small); vertical-align: -3px; color: var(--color-icon-subtle); }
+.pp-timeline__detail del { color: var(--color-text-subtlest); }
+.pp-timeline__detail ins { text-decoration: none; font-weight: var(--font-weight-semibold); color: var(--color-text); }
+.pp-timeline__quote { display: block; margin-top: var(--space-050); padding: var(--space-100) var(--space-150); border-radius: var(--radius-medium); background: var(--color-background-neutral); color: var(--color-text-subtle); }
+.pp-timeline__time { font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtlest); font-variant-numeric: tabular-nums; }
+.pp-timeline--compact .pp-timeline__detail { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.pp-timeline__more { margin-top: var(--space-200); padding-left: calc(var(--_marker) + var(--space-150)); }
+.pp-timeline__empty { margin: 0; color: var(--color-text-subtle); }
+
+@keyframes pp-timeline-in { from { opacity: 0; transform: translateY(calc(-1 * var(--space-100))); } }
+.pp-timeline__event--new { animation: pp-timeline-in var(--motion-duration-medium) var(--motion-easing-enter); }
+@media (prefers-reduced-motion: reduce) {
+  .pp-timeline__event--new { animation-name: pp-timeline-fade; }
+  @keyframes pp-timeline-fade { from { opacity: 0; } }
+}

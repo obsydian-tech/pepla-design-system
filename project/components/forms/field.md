@@ -2,14 +2,14 @@
 name: Field
 group: forms
 status: ready
-classes: pp-field, pp-form, pp-form-section, pp-form-row
+classes: pp-field
 primeng: none (wraps every PrimeNG input; FloatLabel and IftaLabel are not used)
 replaces: hand-built .form-group, .form-label, .error-text and mat-style floating labels
 ---
 
 # Field
 
-A field is the wrapper every input sits in: a label above, the control, then help text or an error message. The form layout stacks fields and puts two side by side on desktop.
+A field is the wrapper every input sits in: a label above, the control, then help text or an error message. Form layout stacks fields and puts two side by side on desktop.
 
 ## Anatomy
 
@@ -20,11 +20,7 @@ A field is the wrapper every input sits in: a label above, the control, then hel
 5. **Error message**: `octagon-alert` icon and a sentence in `--color-text-danger`. It replaces nothing: help text stays, the error sits above it.
 6. **Footer** (optional): help text on the left and a character count on the right, for Textarea.
 
-The form layout:
-
-- `pp-form`: a vertical stack, 24px between fields, at most 720px wide.
-- `pp-form-section`: a `<fieldset>` with a heading (`pp-form-section__title` on the `<legend>`), for long forms such as new employee registration.
-- `pp-form-row`: two columns from 768px up, one column on phone.
+The form around the fields (`pp-form`, `pp-form-section`, `pp-form-row`, the footer and the error summary) is specified in Form layout.
 
 ## Appearances
 
@@ -49,7 +45,7 @@ The form layout:
 ## Behaviour
 
 - Validate a field when the person leaves it, not on every key press. Once a field shows an error, re-check it on every change so the error clears as soon as it is fixed.
-- On submit, show every error at once, move focus to the first field in error, and show a Section message at the top that lists how many need fixing.
+- On submit, show every error at once and show the error summary at the top of the form, which takes focus and links to each field (see Form layout).
 - Never clear what someone typed because it failed validation.
 - Long forms group fields into sections in the order the paper form or ID document uses: personal details, contact, employment, banking, tax.
 - `pp-form-row` stacks below 768px; the order in the HTML is the reading order on phone.

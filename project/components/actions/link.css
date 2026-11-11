@@ -1,0 +1,52 @@
+/* Link. Spec: link.md
+   Links go somewhere; buttons do something. */
+.pp-link {
+  color: var(--color-link);
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: var(--border-width);
+  text-underline-offset: var(--space-025);
+  border-radius: var(--radius-xsmall);
+  cursor: pointer;
+  transition: text-decoration-thickness var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-link:hover { text-decoration-thickness: var(--border-width-selected); }
+.pp-link:active { color: var(--color-link-pressed); }
+
+/* Standalone: on its own line or after a list, not inside a sentence */
+.pp-link--standalone {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-050);
+  min-height: var(--size-control-small);
+  font: var(--font-label);
+  letter-spacing: var(--font-label-tracking);
+  text-decoration: none;
+}
+.pp-link--standalone:hover { text-decoration: underline; text-decoration-thickness: var(--border-width); }
+.pp-link--standalone > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; }
+@media (pointer: coarse) {
+  .pp-link--standalone::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: max(100%, var(--size-touch-target)); height: max(100%, var(--size-touch-target)); transform: translate(-50%, -50%); }
+}
+
+/* Subtle: secondary text colour, for links in metadata lines and footers */
+.pp-link--subtle { color: var(--color-text-subtle); }
+.pp-link--subtle:active { color: var(--color-text); }
+
+/* External: leaves Pepla. The icon sits after the last word and never wraps alone */
+.pp-link__icon { white-space: nowrap; }
+.pp-link__icon > svg {
+  display: inline-block;
+  width: 0.875em;
+  height: 0.875em;
+  margin-left: var(--space-025);
+  vertical-align: -0.0625em;
+}
+
+/* Visited: only where people work through a list of things to read */
+.pp-link--visited:visited { color: var(--color-link-visited); }
+
+/* A link that names the current page in a list of links */
+.pp-link[aria-current="page"] { color: var(--color-text); font-weight: var(--font-weight-semibold); text-decoration: none; cursor: default; }

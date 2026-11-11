@@ -49,6 +49,32 @@
 .pp-person__name { font: var(--font-body-strong); color: var(--color-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pp-person__meta { font: var(--font-body-small); color: var(--color-text-subtlest); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
+/* ---- core/heading ---- */
+/* Heading. Spec: heading.md
+   The class sets the size; the tag (h1 to h6) sets the level. They are chosen separately. */
+.pp-heading {
+  margin: 0;
+  color: var(--color-text);
+  font: var(--font-heading-medium);
+  letter-spacing: var(--font-heading-medium-tracking);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+.pp-heading--xxlarge { font: var(--font-heading-xxlarge); letter-spacing: var(--font-heading-xxlarge-tracking); }
+.pp-heading--xlarge { font: var(--font-heading-xlarge); letter-spacing: var(--font-heading-xlarge-tracking); }
+.pp-heading--large { font: var(--font-heading-large); letter-spacing: var(--font-heading-large-tracking); }
+.pp-heading--medium { font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); }
+.pp-heading--small { font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); }
+.pp-heading--xsmall { font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-heading--xxsmall { font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); }
+.pp-heading--subtle { color: var(--color-text-subtle); }
+
+/* Phone: the two largest sizes step down one, so long names do not wrap to three lines */
+@media (max-width: 479px) {
+  .pp-heading--xxlarge { font: var(--font-heading-xlarge); letter-spacing: var(--font-heading-xlarge-tracking); }
+  .pp-heading--xlarge { font: var(--font-heading-large); letter-spacing: var(--font-heading-large-tracking); }
+}
+
 /* ---- core/icon ---- */
 /* Icon. Spec: icon.md. Lucide SVGs, sized and coloured by tokens. */
 .pp-icon { display: inline-block; width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; vertical-align: middle; stroke-width: 1.75; color: inherit; }
@@ -79,6 +105,50 @@
 .pp-app-icon { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); }
 .pp-app-icon .pp-logo__mark { width: 62%; height: auto; }
 .pp-app-icon--large { width: 96px; height: 96px; border-radius: var(--radius-xlarge); }
+
+/* ---- core/text ---- */
+/* Text. Spec: text.md
+   Body copy: size, weight, colour, figures and overflow. Headings use pp-heading. */
+.pp-text {
+  margin: 0;
+  color: var(--color-text);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+  overflow-wrap: break-word;
+}
+span.pp-text, a.pp-text { display: inline; }
+
+/* Size */
+.pp-text--large { font: var(--font-body-large); letter-spacing: var(--font-body-large-tracking); }
+.pp-text--small { font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); }
+
+/* Weight: after size, so it works at every size */
+.pp-text--strong { font-weight: var(--font-weight-semibold); }
+
+/* Colour */
+.pp-text--subtle { color: var(--color-text-subtle); }
+.pp-text--subtlest { color: var(--color-text-subtlest); }
+
+/* Numbers that line up: tabular figures at body size, or a metric size */
+.pp-text--tabular { font-variant-numeric: tabular-nums; }
+.pp-text--metric-small { font: var(--font-metric-small); letter-spacing: var(--font-metric-small-tracking); font-variant-numeric: tabular-nums; }
+.pp-text--metric-medium { font: var(--font-metric-medium); letter-spacing: var(--font-metric-medium-tracking); font-variant-numeric: tabular-nums; }
+.pp-text--metric-large { font: var(--font-metric-large); letter-spacing: var(--font-metric-large-tracking); font-variant-numeric: tabular-nums; }
+.pp-text--nowrap { white-space: nowrap; }
+
+/* Overflow: one line with an ellipsis, or a set number of lines (2 by default) */
+.pp-text--truncate { display: block; min-width: 0; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.pp-text--clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--_lines, 2);
+  line-clamp: var(--_lines, 2);
+  overflow: hidden;
+}
+.pp-text--clamp-3 { --_lines: 3; }
+
+/* Reading width for long copy */
+.pp-text--measure { max-width: var(--layout-reading-max); }
 
 /* ---- actions/button ---- */
 /* Button. Spec: button.md */
@@ -151,6 +221,94 @@
 .pp-button-group { display: flex; flex-wrap: wrap; gap: var(--space-100); align-items: center; }
 .pp-button-group--end { justify-content: flex-end; }
 @media (max-width: 479px) { .pp-button-group--stack-phone { flex-direction: column-reverse; align-items: stretch; } }
+
+/* ---- actions/link ---- */
+/* Link. Spec: link.md
+   Links go somewhere; buttons do something. */
+.pp-link {
+  color: var(--color-link);
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: var(--border-width);
+  text-underline-offset: var(--space-025);
+  border-radius: var(--radius-xsmall);
+  cursor: pointer;
+  transition: text-decoration-thickness var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-link:hover { text-decoration-thickness: var(--border-width-selected); }
+.pp-link:active { color: var(--color-link-pressed); }
+
+/* Standalone: on its own line or after a list, not inside a sentence */
+.pp-link--standalone {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-050);
+  min-height: var(--size-control-small);
+  font: var(--font-label);
+  letter-spacing: var(--font-label-tracking);
+  text-decoration: none;
+}
+.pp-link--standalone:hover { text-decoration: underline; text-decoration-thickness: var(--border-width); }
+.pp-link--standalone > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; }
+@media (pointer: coarse) {
+  .pp-link--standalone::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: max(100%, var(--size-touch-target)); height: max(100%, var(--size-touch-target)); transform: translate(-50%, -50%); }
+}
+
+/* Subtle: secondary text colour, for links in metadata lines and footers */
+.pp-link--subtle { color: var(--color-text-subtle); }
+.pp-link--subtle:active { color: var(--color-text); }
+
+/* External: leaves Pepla. The icon sits after the last word and never wraps alone */
+.pp-link__icon { white-space: nowrap; }
+.pp-link__icon > svg {
+  display: inline-block;
+  width: 0.875em;
+  height: 0.875em;
+  margin-left: var(--space-025);
+  vertical-align: -0.0625em;
+}
+
+/* Visited: only where people work through a list of things to read */
+.pp-link--visited:visited { color: var(--color-link-visited); }
+
+/* A link that names the current page in a list of links */
+.pp-link[aria-current="page"] { color: var(--color-text); font-weight: var(--font-weight-semibold); text-decoration: none; cursor: default; }
+
+/* ---- actions/split-button ---- */
+/* Split button. Spec: split-button.md
+   Two pp-buttons joined: the main action and a chevron-down that opens a pp-dropdown-menu. */
+.pp-split-button {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  gap: var(--space-025);
+  vertical-align: middle;
+}
+.pp-split-button > .pp-button { margin: 0; }
+.pp-split-button__main { border-start-end-radius: var(--radius-xsmall); border-end-end-radius: var(--radius-xsmall); }
+.pp-split-button__trigger {
+  border-start-start-radius: var(--radius-xsmall);
+  border-end-start-radius: var(--radius-xsmall);
+  padding: 0 var(--space-100) 0 var(--space-075);
+  min-width: var(--size-control-medium);
+}
+.pp-split-button__trigger > svg { width: var(--size-icon-small); height: var(--size-icon-small); transition: transform var(--motion-duration-medium) var(--motion-easing-standard); }
+.pp-split-button__trigger[aria-expanded="true"] > svg { transform: rotate(180deg); }
+.pp-split-button--small > .pp-split-button__trigger { min-width: var(--size-control-small); padding: 0 var(--space-075) 0 var(--space-050); }
+
+/* Full width on phone: the main action grows, the trigger keeps its size */
+.pp-split-button--block { display: flex; width: 100%; }
+.pp-split-button--block > .pp-split-button__main { flex: 1; }
+@media (max-width: 479px) {
+  .pp-split-button--block-phone { display: flex; width: 100%; }
+  .pp-split-button--block-phone > .pp-split-button__main { flex: 1; }
+}
+
+/* While the main action works, the trigger waits with it */
+.pp-split-button:has(> .pp-split-button__main[aria-busy="true"]) > .pp-split-button__trigger { pointer-events: none; }
+@media (pointer: coarse) { .pp-split-button__trigger { min-width: var(--size-touch-target); } }
 
 /* ---- forms/checkbox ---- */
 /* Checkbox. Spec: checkbox.md */
@@ -304,15 +462,7 @@
 }
 
 /* ---- forms/field ---- */
-/* Field and form layout. Spec: field.md */
-.pp-form { display: flex; flex-direction: column; gap: var(--space-300); max-width: var(--layout-reading-max); }
-.pp-form--wide { max-width: none; }
-.pp-form__note { margin: 0; font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
-.pp-form-section { display: flex; flex-direction: column; gap: var(--space-250); margin: 0; padding: 0; border: 0; min-inline-size: 0; }
-.pp-form-section + .pp-form-section { padding-top: var(--space-300); border-top: var(--border-width) solid var(--color-border); }
-.pp-form-section__title { margin: 0 0 var(--space-050); padding: 0; font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); color: var(--color-text); }
-.pp-form-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-250) var(--space-200); }
-@media (min-width: 768px) { .pp-form-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Field. Spec: field.md. The form layout (pp-form, pp-form-section, pp-form-row) lives in form-layout.css */
 
 .pp-field { display: flex; flex-direction: column; gap: var(--space-075); min-width: 0; margin: 0; padding: 0; border: 0; min-inline-size: 0; }
 .pp-field__label { display: block; padding: 0; font: var(--font-label); letter-spacing: var(--font-label-tracking); color: var(--color-text); }
@@ -416,6 +566,88 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
   .pp-file-upload--compact { flex-wrap: wrap; }
   .pp-file__progress { grid-column: 1 / -1; }
 }
+
+/* ---- forms/form-layout ---- */
+/* Form layout. Spec: form-layout.md
+   The form around the fields: sections, rows, the error summary and the footer. Fields themselves: field.css */
+.pp-form { display: flex; flex-direction: column; gap: var(--space-300); max-width: var(--layout-reading-max); }
+.pp-form--wide { max-width: none; }
+.pp-form__note { margin: 0; font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
+
+/* Controls scroll into view clear of the top bar and the sticky footer */
+.pp-form :is(input, select, textarea, button, [tabindex]) { scroll-margin-block: calc(var(--layout-topbar-height) + var(--space-300)) calc(var(--size-control-large) + var(--space-600)); }
+
+/* Sections */
+.pp-form-section { display: flex; flex-direction: column; gap: var(--space-250); margin: 0; padding: 0; border: 0; min-inline-size: 0; }
+.pp-form-section + .pp-form-section { padding-top: var(--space-300); border-top: var(--border-width) solid var(--color-border); }
+.pp-form-section__title { margin: 0 0 var(--space-050); padding: 0; font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); color: var(--color-text); }
+.pp-form-section__description { margin: 0; font: var(--font-body); letter-spacing: var(--font-body-tracking); color: var(--color-text-subtle); }
+
+/* Rows: one column on phone, two from 768px. A field can span both columns. */
+.pp-form-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-250) var(--space-200); }
+@media (min-width: 768px) { .pp-form-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pp-form-row__full { grid-column: 1 / -1; }
+
+/* Error summary: a danger section message at the top of the form, with a link to each field */
+.pp-form-error-summary:focus-visible { outline-offset: var(--focus-ring-offset); }
+.pp-form-error-summary__list { display: flex; flex-direction: column; gap: var(--space-050); margin: var(--space-100) 0 0; padding: 0; list-style: none; }
+.pp-form-error-summary__list .pp-link { color: var(--color-text); }
+
+/* Footer: the form's actions, held at the bottom of the scrolling area */
+.pp-form__footer {
+  position: sticky;
+  bottom: 0;
+  z-index: var(--layer-card);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-100) var(--space-200);
+  margin-top: calc(-1 * var(--space-100));
+  padding: var(--space-200) 0;
+  padding-bottom: max(var(--space-200), env(safe-area-inset-bottom));
+  border-top: var(--border-width) solid var(--color-border);
+  background: var(--_footer-bg, var(--elevation-surface));
+}
+.pp-form__footer > .pp-button-group { margin-left: auto; }
+.pp-form__status { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
+.pp-form__status > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
+/* Inside a card or drawer the footer takes the raised surface */
+.pp-form--raised { --_footer-bg: var(--elevation-surface-raised); }
+@media (max-width: 479px) {
+  .pp-form__footer { flex-direction: column; align-items: stretch; }
+  .pp-form__footer > .pp-button-group { margin-left: 0; }
+  .pp-form__status { justify-content: center; }
+}
+
+/* ---- forms/password ---- */
+/* Password. Spec: password.md
+   A pp-text-field wrapper with a show/hide action, plus an optional strength hint below. */
+.pp-password .pp-text-field__input { font-variant-ligatures: none; }
+.pp-password .pp-text-field__input[type="password"] { letter-spacing: 0.12em; }
+.pp-password .pp-text-field__input[type="password"]::placeholder { letter-spacing: var(--font-body-tracking); }
+
+/* Strength hint: four bars and a word, never colour alone */
+.pp-password-strength { display: flex; flex-direction: column; gap: var(--space-050); margin: 0; }
+.pp-password-strength__bars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-050); }
+.pp-password-strength__bar { height: var(--space-050); border-radius: var(--radius-full); background: var(--color-background-neutral); transition: background-color var(--motion-duration-medium) var(--motion-easing-standard); }
+.pp-password-strength__text { display: flex; align-items: flex-start; gap: var(--space-050); font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
+.pp-password-strength__text > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--_icon, var(--color-icon-subtle)); }
+.pp-password-strength__text strong { font-weight: var(--font-weight-semibold); color: var(--color-text); }
+
+.pp-password-strength[data-strength="1"] { --_bar: var(--color-background-danger-bold); --_icon: var(--color-icon-danger); }
+.pp-password-strength[data-strength="2"] { --_bar: var(--color-background-warning-bold); --_icon: var(--color-icon-warning); }
+.pp-password-strength[data-strength="3"],
+.pp-password-strength[data-strength="4"] { --_bar: var(--color-background-success-bold); --_icon: var(--color-icon-success); }
+.pp-password-strength[data-strength="1"] .pp-password-strength__bar:nth-child(-n+1),
+.pp-password-strength[data-strength="2"] .pp-password-strength__bar:nth-child(-n+2),
+.pp-password-strength[data-strength="3"] .pp-password-strength__bar:nth-child(-n+3),
+.pp-password-strength[data-strength="4"] .pp-password-strength__bar { background: var(--_bar); }
+
+/* Caps Lock notice under the field */
+.pp-password-caps { display: flex; align-items: flex-start; gap: var(--space-050); margin: 0; font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-warning); }
+.pp-password-caps > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-warning); }
+.pp-password-caps[hidden] { display: none; }
 
 /* ---- forms/radio ---- */
 /* Radio and radio group. Spec: radio.md */
@@ -610,6 +842,84 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
 @media (max-width: 767px) {
   .pp-select, .pp-select--small { min-height: var(--size-control-large); font: var(--font-body-large); letter-spacing: var(--font-body-large-tracking); }
   .pp-select-option { min-height: var(--size-control-large); }
+}
+
+/* ---- forms/slider ---- */
+/* Slider. Spec: slider.md
+   A native <input type="range">, 44px tall to touch, with the value shown beside the label.
+   Set --_pct on the input (0% to 100%) so WebKit can draw the filled part; Firefox fills on its own. */
+.pp-slider { display: flex; flex-direction: column; gap: var(--space-050); min-width: 0; }
+.pp-slider__header { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-200); }
+.pp-slider__value { font: var(--font-body-strong); letter-spacing: var(--font-body-strong-tracking); color: var(--color-text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.pp-slider__input {
+  --_track: var(--color-background-neutral);
+  --_fill: var(--color-background-brand-bold);
+  --_thumb-border: var(--color-border-brand);
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: var(--size-touch-target);
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+.pp-slider__input:focus-visible { outline: none; }
+
+/* Track */
+.pp-slider__input::-webkit-slider-runnable-track {
+  height: var(--space-075);
+  border-radius: var(--radius-full);
+  background: linear-gradient(to right, var(--_fill) 0 var(--_pct, 0%), var(--_track) var(--_pct, 0%) 100%);
+}
+.pp-slider__input::-moz-range-track { height: var(--space-075); border-radius: var(--radius-full); background: var(--_track); }
+.pp-slider__input::-moz-range-progress { height: var(--space-075); border-radius: var(--radius-full); background: var(--_fill); }
+
+/* Thumb: 20px, raised, violet ring */
+.pp-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--space-250);
+  height: var(--space-250);
+  margin-top: calc((var(--space-075) - var(--space-250)) / 2);
+  border: var(--border-width-selected) solid var(--_thumb-border);
+  border-radius: var(--radius-full);
+  background: var(--elevation-surface-raised);
+  box-shadow: var(--elevation-shadow-raised);
+  transition: transform var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-slider__input::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--space-250);
+  height: var(--space-250);
+  border: var(--border-width-selected) solid var(--_thumb-border);
+  border-radius: var(--radius-full);
+  background: var(--elevation-surface-raised);
+  box-shadow: var(--elevation-shadow-raised);
+  transition: transform var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-slider__input:hover::-webkit-slider-thumb { transform: scale(1.1); }
+.pp-slider__input:hover::-moz-range-thumb { transform: scale(1.1); }
+.pp-slider__input:active::-webkit-slider-thumb { --_thumb-border: var(--color-background-brand-bold-pressed); transform: scale(1.1); }
+.pp-slider__input:focus-visible::-webkit-slider-thumb { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+.pp-slider__input:focus-visible::-moz-range-thumb { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+
+/* Disabled */
+.pp-slider__input:disabled { --_fill: var(--color-border-disabled); --_thumb-border: var(--color-border-disabled); cursor: not-allowed; }
+.pp-slider__input:disabled::-webkit-slider-thumb { background: var(--color-background-disabled); box-shadow: none; transform: none; }
+.pp-slider__input:disabled::-moz-range-thumb { background: var(--color-background-disabled); box-shadow: none; transform: none; }
+.pp-slider:has(.pp-slider__input:disabled) .pp-slider__value { color: var(--color-text-disabled); }
+
+/* Scale under the track: the ends, and the words for them */
+.pp-slider__scale { display: flex; justify-content: space-between; gap: var(--space-200); margin-top: calc(-1 * var(--space-075)); font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-slider__input:hover::-webkit-slider-thumb, .pp-slider__input:active::-webkit-slider-thumb { transform: none; }
+  .pp-slider__input:hover::-moz-range-thumb { transform: none; }
 }
 
 /* ---- forms/text-field ---- */
@@ -1549,6 +1859,83 @@ a.pp-tag:hover { text-decoration: underline; }
 @media (max-width: 767px) { .pp-dropdown-menu__item { min-height: var(--size-control-large); } }
 @media (prefers-reduced-motion: reduce) { .pp-dropdown-menu { animation-name: pp-blanket-in; } }
 
+/* ---- overlays/inline-dialog ---- */
+/* Inline dialog. Spec: inline-dialog.md */
+.pp-inline-dialog-anchor { position: relative; display: inline-flex; }
+
+.pp-inline-dialog {
+  --_beak: var(--space-150);
+  --_border: var(--color-border);
+  --_from: calc(-1 * var(--space-050));
+  position: absolute;
+  z-index: var(--layer-layer);
+  top: calc(100% + var(--space-150));
+  left: 0;
+  box-sizing: border-box;
+  width: max-content;
+  min-width: 240px;
+  max-width: min(320px, calc(100vw - 2 * var(--layout-gutter-phone)));
+  padding: var(--space-200);
+  border: var(--border-width) solid var(--_border);
+  border-radius: var(--radius-large);
+  background: var(--elevation-surface-overlay);
+  color: var(--color-text);
+  box-shadow: var(--elevation-shadow-overlay);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+  animation: pp-inline-dialog-in var(--motion-duration-medium) var(--motion-easing-enter);
+}
+
+/* Beak: points at the anchor */
+.pp-inline-dialog::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--_beak) / -2 - var(--border-width));
+  left: var(--space-200);
+  width: var(--_beak);
+  height: var(--_beak);
+  border: var(--border-width) solid var(--_border);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: var(--radius-xsmall) 0 0 0;
+  background: var(--elevation-surface-overlay);
+  transform: rotate(45deg);
+}
+
+.pp-inline-dialog--end { left: auto; right: 0; }
+.pp-inline-dialog--end::before { left: auto; right: var(--space-200); }
+.pp-inline-dialog--top { top: auto; bottom: calc(100% + var(--space-150)); --_from: var(--space-050); }
+.pp-inline-dialog--top::before {
+  top: auto;
+  bottom: calc(var(--_beak) / -2 - var(--border-width));
+  border-color: var(--_border);
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-radius: 0 0 var(--radius-xsmall) 0;
+}
+
+/* Agent: Pepla suggests something for this control (rule 1) */
+.pp-inline-dialog--agent { --_border: var(--color-border-agent); }
+.pp-inline-dialog--agent .pp-inline-dialog__header > svg { color: var(--color-icon-agent); }
+
+/* In place, for docs: leaves room for the beak above it */
+.pp-inline-dialog--inline { position: relative; inset: auto; z-index: auto; margin-top: var(--space-150); animation: none; }
+.pp-inline-dialog--inline.pp-inline-dialog--top { margin: 0 0 var(--space-150); }
+
+.pp-inline-dialog__header { display: flex; align-items: flex-start; gap: var(--space-100); }
+.pp-inline-dialog__header > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--color-icon); }
+.pp-inline-dialog__title { flex: 1; min-width: 0; margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); color: var(--color-text); }
+.pp-inline-dialog__close { margin: calc(-1 * var(--space-075)) calc(-1 * var(--space-075)) 0 0; }
+.pp-inline-dialog__text { display: block; margin: var(--space-075) 0 0; max-width: none; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-inline-dialog__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-100); margin-top: var(--space-200); }
+@media (pointer: coarse) { .pp-inline-dialog__actions .pp-button { min-height: var(--size-touch-target); } }
+
+@keyframes pp-inline-dialog-in { from { opacity: 0; transform: translateY(var(--_from)); } }
+@media (prefers-reduced-motion: reduce) {
+  .pp-inline-dialog { animation-name: pp-inline-dialog-fade; }
+  @keyframes pp-inline-dialog-fade { from { opacity: 0; } }
+}
+
 /* ---- overlays/modal-dialog ---- */
 /* Modal dialog. Spec: modal-dialog.md */
 .pp-blanket {
@@ -1654,6 +2041,140 @@ a.pp-tag:hover { text-decoration: underline; }
 
 @keyframes pp-popup-in { from { opacity: 0; transform: translateY(calc(-1 * var(--space-050))); } }
 @media (prefers-reduced-motion: reduce) { .pp-popup { animation-name: pp-blanket-in; } }
+
+/* ---- navigation/app-shell ---- */
+/* App shell. Spec: app-shell.md */
+.pp-app-shell {
+  --_sidebar: var(--layout-sidebar-width);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-areas: "banner banner" "sidebar top" "sidebar main";
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--elevation-surface);
+  color: var(--color-text);
+}
+.pp-app-shell:has(> .pp-side-navigation--collapsed) { --_sidebar: var(--layout-sidebar-width-collapsed); }
+
+/* Slots: the existing components, placed */
+.pp-app-shell > .pp-banner { grid-area: banner; }
+.pp-app-shell > .pp-side-navigation { grid-area: sidebar; height: auto; min-height: 0; }
+.pp-app-shell > .pp-top-navigation { grid-area: top; min-width: 0; container: pp-app-shell-top / inline-size; }
+.pp-app-shell > .pp-top-navigation .pp-top-navigation__search { min-width: 0; }
+/* A narrow content column (tablet with the sidebar open): search goes behind its icon button */
+@container pp-app-shell-top (max-width: 400px) {
+  .pp-app-shell .pp-top-navigation__search { display: none; }
+  .pp-app-shell .pp-top-navigation__search-button { display: inline-flex; }
+}
+.pp-app-shell__main {
+  grid-area: main;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-300) var(--layout-gutter-desktop) var(--space-600);
+}
+.pp-app-shell__content { max-width: var(--layout-content-max); margin: 0 auto; }
+
+/* Skip link: the first thing Tab reaches */
+.pp-app-shell__skip {
+  position: absolute;
+  top: var(--space-100);
+  left: var(--space-100);
+  z-index: var(--layer-tooltip);
+  padding: var(--space-100) var(--space-200);
+  border-radius: var(--radius-full);
+  background: var(--color-background-brand-bold);
+  color: var(--color-text-inverse);
+  font: var(--font-label);
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--space-200)));
+}
+.pp-app-shell__skip:focus-visible { transform: none; }
+
+/* Phone only: a bar of one or two actions, pinned to the bottom */
+.pp-app-shell__actions {
+  grid-area: actions;
+  display: none;
+  gap: var(--space-100);
+  padding: var(--space-150) var(--layout-gutter-phone) calc(var(--space-150) + env(safe-area-inset-bottom));
+  border-top: var(--border-width) solid var(--color-border);
+  background: var(--elevation-surface-raised);
+}
+.pp-app-shell__actions > .pp-button { flex: 1; min-height: var(--size-control-large); }
+
+/* Behind the side navigation when it is open as a drawer on phone */
+.pp-app-shell__blanket { position: fixed; inset: 0; z-index: var(--layer-blanket); background: var(--color-blanket); animation: pp-app-shell-fade var(--motion-duration-slow) var(--motion-easing-standard); }
+.pp-app-shell__blanket[hidden] { display: none; }
+
+/* Flags sit at the bottom left of the content, clear of the sidebar */
+@media (min-width: 768px) {
+  .pp-app-shell > .pp-flag-group { left: calc(var(--_sidebar) + var(--space-300)); }
+}
+
+/* Phone: one column, the page scrolls, the sidebar becomes a drawer (see Side navigation) */
+@media (max-width: 767px) {
+  .pp-app-shell:not(.pp-app-shell--inline) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: "banner" "top" "main" "actions";
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+  .pp-app-shell:not(.pp-app-shell--inline) > .pp-app-shell__main { overflow: visible; padding: var(--space-200) var(--layout-gutter-phone) var(--space-400); }
+  .pp-app-shell__actions { position: sticky; bottom: 0; z-index: var(--layer-navigation); display: flex; }
+  .pp-app-shell:has(> .pp-app-shell__actions) > .pp-flag-group { bottom: calc(var(--size-control-large) + 2 * var(--space-150) + var(--space-200) + env(safe-area-inset-bottom)); }
+}
+
+/* Forced phone layout in a narrow frame (docs, previews) */
+.pp-app-shell--phone {
+  --_sidebar: 0px;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  grid-template-areas: "banner" "top" "main" "actions";
+}
+.pp-app-shell--phone > .pp-app-shell__main { padding: var(--space-200) var(--layout-gutter-phone) var(--space-400); }
+.pp-app-shell--phone > .pp-app-shell__actions { display: flex; padding-bottom: var(--space-150); }
+.pp-app-shell--phone > .pp-side-navigation {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: var(--layer-modal);
+  width: min(320px, calc(100% - var(--space-600)));
+  height: 100%;
+  border-right: 0;
+  border-radius: 0 var(--radius-xlarge) var(--radius-xlarge) 0;
+  background: var(--elevation-surface-overlay);
+  box-shadow: var(--elevation-shadow-overlay);
+  transform: translateX(-105%);
+  transition: transform var(--motion-duration-slow) var(--motion-easing-standard);
+}
+.pp-app-shell--phone > .pp-side-navigation[data-open="true"] { transform: none; }
+.pp-app-shell--phone > .pp-side-navigation .pp-side-navigation__item { min-height: var(--size-control-large); }
+
+/* In place, for docs: a fixed-height frame instead of the viewport */
+.pp-app-shell--inline {
+  height: var(--_height, 520px);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-large);
+  isolation: isolate;
+}
+.pp-app-shell--inline > .pp-app-shell__blanket { position: absolute; z-index: var(--layer-blanket); }
+.pp-app-shell.pp-app-shell--inline > .pp-flag-group {
+  position: absolute;
+  left: calc(var(--_sidebar) + var(--space-200));
+  right: auto;
+  bottom: var(--space-200);
+  width: min(360px, calc(100% - var(--_sidebar) - 2 * var(--space-200)));
+}
+.pp-app-shell.pp-app-shell--inline.pp-app-shell--phone > .pp-flag-group { right: var(--space-200); width: auto; }
+.pp-app-shell.pp-app-shell--inline.pp-app-shell--phone:has(> .pp-app-shell__actions) > .pp-flag-group { bottom: calc(var(--size-control-large) + 2 * var(--space-150) + var(--space-200)); }
+
+@keyframes pp-app-shell-fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .pp-app-shell--phone > .pp-side-navigation { transition: none; }
+}
 
 /* ---- navigation/breadcrumbs ---- */
 /* Breadcrumbs. Spec: breadcrumbs.md */
@@ -2107,4 +2628,92 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-table--stack td { border: 0; padding: var(--space-025) 0; text-align: left; }
   .pp-table--stack td[data-label]::before { content: attr(data-label); display: block; font: var(--font-heading-xxsmall); color: var(--color-text-subtlest); }
   .pp-table--stack td.pp-table__num { text-align: left; }
+}
+
+/* ---- data/timeline ---- */
+/* Timeline. Spec: timeline.md */
+.pp-timeline {
+  --_marker: var(--size-control-small);
+  --_gap: var(--space-300);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-text);
+}
+.pp-timeline--compact { --_marker: var(--space-300); --_gap: var(--space-200); }
+
+/* Event: marker column, content column, a line down to the next marker */
+.pp-timeline > .pp-timeline__event {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--_marker) minmax(0, 1fr);
+  column-gap: var(--space-150);
+  max-width: none;
+  margin: 0;
+  padding: 0 0 var(--_gap);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+}
+.pp-timeline > .pp-timeline__event::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--_marker) / 2 - var(--border-width) / 2);
+  top: calc(var(--_marker) + var(--space-050));
+  bottom: var(--space-050);
+  width: var(--border-width);
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+}
+.pp-timeline > .pp-timeline__event:last-child { padding-bottom: 0; }
+.pp-timeline > .pp-timeline__event:last-child::before,
+.pp-timeline > .pp-timeline__event:has(+ .pp-timeline__day)::before { display: none; }
+
+/* Day heading */
+.pp-timeline > .pp-timeline__day {
+  max-width: none;
+  margin: 0 0 var(--space-150);
+  font: var(--font-heading-xxsmall);
+  letter-spacing: var(--font-heading-xxsmall-tracking);
+  color: var(--color-text-subtlest);
+}
+.pp-timeline > .pp-timeline__event + .pp-timeline__day { margin-top: var(--space-100); }
+
+/* Marker: an avatar (person or agent) or an icon in a neutral circle */
+.pp-timeline__marker { position: relative; z-index: 0; display: grid; place-items: center; width: var(--_marker); height: var(--_marker); }
+.pp-timeline__marker > .pp-avatar { --_size: var(--_marker); }
+.pp-timeline__icon {
+  display: grid;
+  place-items: center;
+  width: var(--_marker);
+  height: var(--_marker);
+  border-radius: var(--radius-full);
+  background: var(--color-background-neutral);
+  color: var(--color-icon-subtle);
+}
+.pp-timeline__icon > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
+.pp-timeline__icon--success { color: var(--color-icon-success); }
+.pp-timeline__icon--warning { color: var(--color-icon-warning); }
+.pp-timeline__icon--danger { color: var(--color-icon-danger); }
+.pp-timeline__event--new .pp-timeline__marker > * { box-shadow: 0 0 0 var(--space-050) var(--color-background-selected); }
+
+/* Content */
+.pp-timeline__content { display: flex; flex-direction: column; gap: var(--space-025); min-width: 0; padding-top: calc((var(--_marker) - 1lh) / 2); }
+.pp-timeline__summary { color: var(--color-text); overflow-wrap: anywhere; }
+.pp-timeline__summary strong { font-weight: var(--font-weight-semibold); }
+.pp-timeline__detail { font: var(--font-body); color: var(--color-text-subtle); overflow-wrap: anywhere; }
+.pp-timeline__detail > svg { width: var(--size-icon-small); height: var(--size-icon-small); vertical-align: -3px; color: var(--color-icon-subtle); }
+.pp-timeline__detail del { color: var(--color-text-subtlest); }
+.pp-timeline__detail ins { text-decoration: none; font-weight: var(--font-weight-semibold); color: var(--color-text); }
+.pp-timeline__quote { display: block; margin-top: var(--space-050); padding: var(--space-100) var(--space-150); border-radius: var(--radius-medium); background: var(--color-background-neutral); color: var(--color-text-subtle); }
+.pp-timeline__time { font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtlest); font-variant-numeric: tabular-nums; }
+.pp-timeline--compact .pp-timeline__detail { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.pp-timeline__more { margin-top: var(--space-200); padding-left: calc(var(--_marker) + var(--space-150)); }
+.pp-timeline__empty { margin: 0; color: var(--color-text-subtle); }
+
+@keyframes pp-timeline-in { from { opacity: 0; transform: translateY(calc(-1 * var(--space-100))); } }
+.pp-timeline__event--new { animation: pp-timeline-in var(--motion-duration-medium) var(--motion-easing-enter); }
+@media (prefers-reduced-motion: reduce) {
+  .pp-timeline__event--new { animation-name: pp-timeline-fade; }
+  @keyframes pp-timeline-fade { from { opacity: 0; } }
 }

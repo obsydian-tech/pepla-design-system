@@ -1,0 +1,132 @@
+/* App shell. Spec: app-shell.md */
+.pp-app-shell {
+  --_sidebar: var(--layout-sidebar-width);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-areas: "banner banner" "sidebar top" "sidebar main";
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--elevation-surface);
+  color: var(--color-text);
+}
+.pp-app-shell:has(> .pp-side-navigation--collapsed) { --_sidebar: var(--layout-sidebar-width-collapsed); }
+
+/* Slots: the existing components, placed */
+.pp-app-shell > .pp-banner { grid-area: banner; }
+.pp-app-shell > .pp-side-navigation { grid-area: sidebar; height: auto; min-height: 0; }
+.pp-app-shell > .pp-top-navigation { grid-area: top; min-width: 0; container: pp-app-shell-top / inline-size; }
+.pp-app-shell > .pp-top-navigation .pp-top-navigation__search { min-width: 0; }
+/* A narrow content column (tablet with the sidebar open): search goes behind its icon button */
+@container pp-app-shell-top (max-width: 400px) {
+  .pp-app-shell .pp-top-navigation__search { display: none; }
+  .pp-app-shell .pp-top-navigation__search-button { display: inline-flex; }
+}
+.pp-app-shell__main {
+  grid-area: main;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-300) var(--layout-gutter-desktop) var(--space-600);
+}
+.pp-app-shell__content { max-width: var(--layout-content-max); margin: 0 auto; }
+
+/* Skip link: the first thing Tab reaches */
+.pp-app-shell__skip {
+  position: absolute;
+  top: var(--space-100);
+  left: var(--space-100);
+  z-index: var(--layer-tooltip);
+  padding: var(--space-100) var(--space-200);
+  border-radius: var(--radius-full);
+  background: var(--color-background-brand-bold);
+  color: var(--color-text-inverse);
+  font: var(--font-label);
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--space-200)));
+}
+.pp-app-shell__skip:focus-visible { transform: none; }
+
+/* Phone only: a bar of one or two actions, pinned to the bottom */
+.pp-app-shell__actions {
+  grid-area: actions;
+  display: none;
+  gap: var(--space-100);
+  padding: var(--space-150) var(--layout-gutter-phone) calc(var(--space-150) + env(safe-area-inset-bottom));
+  border-top: var(--border-width) solid var(--color-border);
+  background: var(--elevation-surface-raised);
+}
+.pp-app-shell__actions > .pp-button { flex: 1; min-height: var(--size-control-large); }
+
+/* Behind the side navigation when it is open as a drawer on phone */
+.pp-app-shell__blanket { position: fixed; inset: 0; z-index: var(--layer-blanket); background: var(--color-blanket); animation: pp-app-shell-fade var(--motion-duration-slow) var(--motion-easing-standard); }
+.pp-app-shell__blanket[hidden] { display: none; }
+
+/* Flags sit at the bottom left of the content, clear of the sidebar */
+@media (min-width: 768px) {
+  .pp-app-shell > .pp-flag-group { left: calc(var(--_sidebar) + var(--space-300)); }
+}
+
+/* Phone: one column, the page scrolls, the sidebar becomes a drawer (see Side navigation) */
+@media (max-width: 767px) {
+  .pp-app-shell:not(.pp-app-shell--inline) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: "banner" "top" "main" "actions";
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+  .pp-app-shell:not(.pp-app-shell--inline) > .pp-app-shell__main { overflow: visible; padding: var(--space-200) var(--layout-gutter-phone) var(--space-400); }
+  .pp-app-shell__actions { position: sticky; bottom: 0; z-index: var(--layer-navigation); display: flex; }
+  .pp-app-shell:has(> .pp-app-shell__actions) > .pp-flag-group { bottom: calc(var(--size-control-large) + 2 * var(--space-150) + var(--space-200) + env(safe-area-inset-bottom)); }
+}
+
+/* Forced phone layout in a narrow frame (docs, previews) */
+.pp-app-shell--phone {
+  --_sidebar: 0px;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  grid-template-areas: "banner" "top" "main" "actions";
+}
+.pp-app-shell--phone > .pp-app-shell__main { padding: var(--space-200) var(--layout-gutter-phone) var(--space-400); }
+.pp-app-shell--phone > .pp-app-shell__actions { display: flex; padding-bottom: var(--space-150); }
+.pp-app-shell--phone > .pp-side-navigation {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: var(--layer-modal);
+  width: min(320px, calc(100% - var(--space-600)));
+  height: 100%;
+  border-right: 0;
+  border-radius: 0 var(--radius-xlarge) var(--radius-xlarge) 0;
+  background: var(--elevation-surface-overlay);
+  box-shadow: var(--elevation-shadow-overlay);
+  transform: translateX(-105%);
+  transition: transform var(--motion-duration-slow) var(--motion-easing-standard);
+}
+.pp-app-shell--phone > .pp-side-navigation[data-open="true"] { transform: none; }
+.pp-app-shell--phone > .pp-side-navigation .pp-side-navigation__item { min-height: var(--size-control-large); }
+
+/* In place, for docs: a fixed-height frame instead of the viewport */
+.pp-app-shell--inline {
+  height: var(--_height, 520px);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-large);
+  isolation: isolate;
+}
+.pp-app-shell--inline > .pp-app-shell__blanket { position: absolute; z-index: var(--layer-blanket); }
+.pp-app-shell.pp-app-shell--inline > .pp-flag-group {
+  position: absolute;
+  left: calc(var(--_sidebar) + var(--space-200));
+  right: auto;
+  bottom: var(--space-200);
+  width: min(360px, calc(100% - var(--_sidebar) - 2 * var(--space-200)));
+}
+.pp-app-shell.pp-app-shell--inline.pp-app-shell--phone > .pp-flag-group { right: var(--space-200); width: auto; }
+.pp-app-shell.pp-app-shell--inline.pp-app-shell--phone:has(> .pp-app-shell__actions) > .pp-flag-group { bottom: calc(var(--size-control-large) + 2 * var(--space-150) + var(--space-200)); }
+
+@keyframes pp-app-shell-fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .pp-app-shell--phone > .pp-side-navigation { transition: none; }
+}

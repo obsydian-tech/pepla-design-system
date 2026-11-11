@@ -1,0 +1,42 @@
+/* Text. Spec: text.md
+   Body copy: size, weight, colour, figures and overflow. Headings use pp-heading. */
+.pp-text {
+  margin: 0;
+  color: var(--color-text);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+  overflow-wrap: break-word;
+}
+span.pp-text, a.pp-text { display: inline; }
+
+/* Size */
+.pp-text--large { font: var(--font-body-large); letter-spacing: var(--font-body-large-tracking); }
+.pp-text--small { font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); }
+
+/* Weight: after size, so it works at every size */
+.pp-text--strong { font-weight: var(--font-weight-semibold); }
+
+/* Colour */
+.pp-text--subtle { color: var(--color-text-subtle); }
+.pp-text--subtlest { color: var(--color-text-subtlest); }
+
+/* Numbers that line up: tabular figures at body size, or a metric size */
+.pp-text--tabular { font-variant-numeric: tabular-nums; }
+.pp-text--metric-small { font: var(--font-metric-small); letter-spacing: var(--font-metric-small-tracking); font-variant-numeric: tabular-nums; }
+.pp-text--metric-medium { font: var(--font-metric-medium); letter-spacing: var(--font-metric-medium-tracking); font-variant-numeric: tabular-nums; }
+.pp-text--metric-large { font: var(--font-metric-large); letter-spacing: var(--font-metric-large-tracking); font-variant-numeric: tabular-nums; }
+.pp-text--nowrap { white-space: nowrap; }
+
+/* Overflow: one line with an ellipsis, or a set number of lines (2 by default) */
+.pp-text--truncate { display: block; min-width: 0; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.pp-text--clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--_lines, 2);
+  line-clamp: var(--_lines, 2);
+  overflow: hidden;
+}
+.pp-text--clamp-3 { --_lines: 3; }
+
+/* Reading width for long copy */
+.pp-text--measure { max-width: var(--layout-reading-max); }

@@ -15,16 +15,16 @@
 </section>
 <section data-example="Form layout: sections and a two-column row">
   <form class="pp-form" aria-label="Register a new employee">
-    <div class="pp-form__note">Fields marked <span aria-hidden="true">*</span> are required.</div>
+    <div class="pp-form__note">All fields are required unless marked optional.</div>
     <fieldset class="pp-form-section">
       <legend class="pp-form-section__title">Personal details</legend>
       <div class="pp-form-row">
         <div class="pp-field">
-          <label class="pp-field__label" for="fd-first">First name<span class="pp-field__required" aria-hidden="true">*</span></label>
+          <label class="pp-field__label" for="fd-first">First name</label>
           <input class="pp-text-field" id="fd-first" type="text" value="Lerato" required autocomplete="given-name">
         </div>
         <div class="pp-field">
-          <label class="pp-field__label" for="fd-last">Surname<span class="pp-field__required" aria-hidden="true">*</span></label>
+          <label class="pp-field__label" for="fd-last">Surname</label>
           <input class="pp-text-field" id="fd-last" type="text" value="Mokoena" required autocomplete="family-name">
         </div>
       </div>
@@ -38,11 +38,11 @@
       <legend class="pp-form-section__title">Employment</legend>
       <div class="pp-form-row">
         <div class="pp-field">
-          <label class="pp-field__label" for="fd-role">Job title<span class="pp-field__required" aria-hidden="true">*</span></label>
+          <label class="pp-field__label" for="fd-role">Job title</label>
           <input class="pp-text-field" id="fd-role" type="text" value="Payroll administrator" required>
         </div>
         <div class="pp-field">
-          <label class="pp-field__label" for="fd-salary">Monthly salary<span class="pp-field__required" aria-hidden="true">*</span></label>
+          <label class="pp-field__label" for="fd-salary">Monthly salary</label>
           <div class="pp-text-field pp-text-field--money">
             <span class="pp-text-field__prefix" aria-hidden="true">R</span>
             <input class="pp-text-field__input" id="fd-salary" type="text" inputmode="decimal" value="18 500" required>

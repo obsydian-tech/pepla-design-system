@@ -1,0 +1,24 @@
+/* Heading. Spec: heading.md
+   The class sets the size; the tag (h1 to h6) sets the level. They are chosen separately. */
+.pp-heading {
+  margin: 0;
+  color: var(--color-text);
+  font: var(--font-heading-medium);
+  letter-spacing: var(--font-heading-medium-tracking);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+.pp-heading--xxlarge { font: var(--font-heading-xxlarge); letter-spacing: var(--font-heading-xxlarge-tracking); }
+.pp-heading--xlarge { font: var(--font-heading-xlarge); letter-spacing: var(--font-heading-xlarge-tracking); }
+.pp-heading--large { font: var(--font-heading-large); letter-spacing: var(--font-heading-large-tracking); }
+.pp-heading--medium { font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); }
+.pp-heading--small { font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); }
+.pp-heading--xsmall { font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-heading--xxsmall { font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); }
+.pp-heading--subtle { color: var(--color-text-subtle); }
+
+/* Phone: the two largest sizes step down one, so long names do not wrap to three lines */
+@media (max-width: 479px) {
+  .pp-heading--xxlarge { font: var(--font-heading-xlarge); letter-spacing: var(--font-heading-xlarge-tracking); }
+  .pp-heading--xlarge { font: var(--font-heading-large); letter-spacing: var(--font-heading-large-tracking); }
+}
