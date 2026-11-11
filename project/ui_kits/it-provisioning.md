@@ -7,6 +7,8 @@ source: features/it-provisioning, features/it-provisioning/pages/it-queue, featu
 
 # IT provisioning
 
+Every screen sits in the one Pepla sidebar (see "One Pepla" in the readme); only the selected module changes.
+
 The IT side of Pepla at Mokoena Logistics, redrawn: Bongani Mthembu's queue of setup tasks for new hires, one laptop task he has claimed, and the tasks he has finished. Every screen sits in the IT app shell with side and top navigation. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change.
 
 ## Screens

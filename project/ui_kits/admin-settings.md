@@ -7,6 +7,8 @@ source: features/talent-flow/shell/admin-shell, features/talent-flow/pages/admin
 
 # Admin settings
 
+Every screen sits in the one Pepla sidebar (see "One Pepla" in the readme); only the selected module changes.
+
 Thandeka Dlamini's admin area for Mokoena Logistics, redrawn in Pepla: the overview, users and roles with the add user and edit roles drawers, tenant settings with the branding preview and an approval chain drawer, notifications, intelligence rules, scoring weights, SLA thresholds, stage setup, and the audit log with one event open in a drawer. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change. Panel rules, sentiment scales and the three IT setup pages stay in the navigation but are not drawn.
 
 ## Screens

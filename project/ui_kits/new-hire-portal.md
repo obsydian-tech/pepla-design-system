@@ -7,6 +7,8 @@ source: features/employee-dashboard, features/employee-dashboard/components/onbo
 
 # New-hire portal
 
+Every screen sits in the one Pepla sidebar (see "One Pepla" in the readme); only the selected module changes.
+
 The new hire's side of Pepla, redrawn for a phone: Ayanda Zulu, who starts at Mokoena Logistics on 1 Dec 2026, gives consent, uploads her documents and follows her onboarding. Every screen is 390 pixels wide in the phone app shell, with a bottom bar. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change.
 
 ## Screens

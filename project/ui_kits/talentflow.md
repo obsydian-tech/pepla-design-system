@@ -7,6 +7,8 @@ source: features/talent-flow/shell, features/talent-flow/pages/dashboard, featur
 
 # TalentFlow
 
+Every screen sits in the one Pepla sidebar (see "One Pepla" in the readme); only the selected module changes.
+
 The recruiter's side of hiring at Mokoena Logistics, redrawn in Pepla: the dashboard, the pipeline as a list and as a board, the candidates list, the add candidate form, one candidate's workspace on three tabs, the chat with Pepla holding a proposal, and the offers page, which is still empty today. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change.
 
 ## Screens

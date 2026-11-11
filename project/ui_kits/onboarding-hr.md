@@ -7,6 +7,8 @@ source: features/hr-dashboard, features/hr-dashboard/components/hr-dashboard-hom
 
 # HR onboarding
 
+Every screen sits in the one Pepla sidebar (see "One Pepla" in the readme); only the selected module changes.
+
 The HR side of Pepla at Mokoena Logistics, redrawn: Thandeka Dlamini's home page, registering a new hire, one employee's documents, the document checks, the support inbox, notifications and the Pepla panel. Every screen sits in the HR app shell with side and top navigation. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change.
 
 ## Screens

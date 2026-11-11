@@ -7,6 +7,8 @@ source: features/talent-flow/pages/hm-dashboard, features/talent-flow/components
 
 # Hiring manager
 
+Every screen sits in the one Pepla sidebar (see "One Pepla" in the readme); only the selected module changes.
+
 The hiring manager's side of Pepla at Mokoena Logistics, redrawn: Sipho Ndlovu's dashboard with a vote open, the IT setup for his new hires, the review of a setup Pepla drafted, and the progress of one that is being set up. Two of the screens are drawn on a phone. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change.
 
 ## Screens
