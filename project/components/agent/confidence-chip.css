@@ -23,6 +23,7 @@
 .pp-confidence:hover { background: var(--_bg-hover); }
 .pp-confidence > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--_icon); }
 .pp-confidence > svg:last-child { color: var(--_fg); }
+.pp-confidence--high { --_bg: var(--color-background-neutral); --_fg: var(--color-text); --_icon: var(--color-icon-subtle); }
 .pp-confidence--check { --_bg: var(--color-background-warning-subtle); --_bg-hover: var(--color-background-warning-subtle-hovered); --_fg: var(--color-text-warning); --_icon: var(--color-icon-warning); }
 .pp-confidence--unsure { --_bg: var(--color-background-neutral); --_fg: var(--color-text-subtle); }
 @media (pointer: coarse) {

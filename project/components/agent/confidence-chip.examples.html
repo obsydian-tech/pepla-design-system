@@ -1,12 +1,12 @@
 <section data-example="Levels">
-  <div style="display:flex;flex-wrap:wrap;gap:var(--space-100);align-items:center">
+  <div class="pp-inline pp-gap-100">
     <button class="pp-confidence pp-confidence--high" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="file-text"></i><span>High confidence · 3 sources</span><i data-lucide="chevron-down"></i></button>
     <button class="pp-confidence pp-confidence--check" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="triangle-alert"></i><span>Check this · 2 sources</span><i data-lucide="chevron-down"></i></button>
     <button class="pp-confidence pp-confidence--unsure" type="button" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="circle-help"></i><span>Pepla could not tell · 1 source</span><i data-lucide="chevron-down"></i></button>
   </div>
 </section>
 <section data-example="Open: what Pepla read">
-  <div class="pp-popup-anchor" style="flex-direction:column;align-items:flex-start;gap:var(--space-050)">
+  <div class="pp-popup-anchor">
     <button class="pp-confidence pp-confidence--high" type="button" aria-haspopup="dialog" aria-expanded="true" aria-controls="cc-1"><i data-lucide="file-text"></i><span>High confidence · 3 sources</span><i data-lucide="chevron-down"></i></button>
     <div class="pp-popup pp-popup--inline" id="cc-1" role="dialog" aria-labelledby="cc-1-t">
       <div class="pp-confidence-sources">
@@ -22,7 +22,7 @@
   </div>
 </section>
 <section data-example="Open: check this">
-  <div class="pp-popup-anchor" style="flex-direction:column;align-items:flex-start;gap:var(--space-050)">
+  <div class="pp-popup-anchor">
     <button class="pp-confidence pp-confidence--check" type="button" aria-haspopup="dialog" aria-expanded="true" aria-controls="cc-2"><i data-lucide="triangle-alert"></i><span>Check this · 2 sources</span><i data-lucide="chevron-down"></i></button>
     <div class="pp-popup pp-popup--inline" id="cc-2" role="dialog" aria-labelledby="cc-2-t">
       <div class="pp-confidence-sources">

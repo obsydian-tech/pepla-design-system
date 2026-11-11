@@ -5,12 +5,12 @@
   height: var(--space-150);
   border-radius: var(--radius-xsmall);
   background: linear-gradient(90deg, var(--color-skeleton) 0%, var(--color-skeleton-subtle) 50%, var(--color-skeleton) 100%) 0 0 / 200% 100%;
-  animation: pp-skeleton-shimmer 1.6s linear infinite;
+  animation: pp-skeleton-shimmer var(--motion-duration-loop-shimmer) linear infinite;
 }
 @keyframes pp-skeleton-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
 
 .pp-skeleton--text { height: var(--space-150); margin: var(--space-050) 0; }
-.pp-skeleton--text-short { width: 60%; }
+.pp-skeleton--text-short { --_width: 60%; }
 .pp-skeleton--heading { height: var(--space-250); width: 40%; margin-bottom: var(--space-100); }
 .pp-skeleton--avatar { flex: none; width: var(--size-control-medium); height: var(--size-control-medium); border-radius: var(--radius-full); }
 .pp-skeleton--avatar-small { flex: none; width: var(--size-control-small); height: var(--size-control-small); border-radius: var(--radius-full); }
@@ -20,7 +20,7 @@
 .pp-skeleton--card { height: 160px; border-radius: var(--radius-large); }
 
 /* A group carries the label and busy state for everything inside it */
-.pp-skeleton-group { display: flex; flex-direction: column; gap: var(--space-100); }
+.pp-skeleton-group { display: flex; flex-direction: column; gap: var(--_gap, var(--space-100)); }
 .pp-skeleton-group__label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .pp-skeleton-row { display: flex; align-items: center; gap: var(--space-150); }
 .pp-skeleton-row > .pp-skeleton-stack { flex: 1; min-width: 0; }
@@ -33,3 +33,6 @@
 @media (max-width: 767px) {
   .pp-skeleton--field { height: var(--size-control-large); }
 }
+
+/* A text line can take its width as an input: style="--_width:40%" */
+.pp-skeleton--text { width: var(--_width, 100%); }

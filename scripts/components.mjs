@@ -12,6 +12,7 @@ const ROOT = new URL('..', import.meta.url);
 const SRC = new URL('project/components/', ROOT);
 export const GROUPS = [
   ['core', 'Core', 'Logo, icons, type, avatars'],
+  ['layout', 'Layout', 'Stack, row, columns and grid: how a screen arranges components'],
   ['actions', 'Actions', 'Buttons, links, menus'],
   ['forms', 'Forms', 'Fields, choices, upload, the form layout'],
   ['status', 'Status', 'Lozenges, badges, tags, progress, loading'],

@@ -2,7 +2,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:720px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -11,7 +11,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -32,7 +32,7 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-300)">
+<div class="pp-stack pp-gap-300">
 <div class="pp-stat-row">
 <a class="pp-stat" href="#"><span class="pp-stat__label"><i data-lucide="users"></i>Active pipeline</span><span class="pp-stat__value">13</span><span class="pp-stat__meta">Open candidates</span></a>
 <a class="pp-stat" href="#"><span class="pp-stat__label"><i data-lucide="clock-alert"></i>Overdue</span><span class="pp-stat__value">2</span><span class="pp-stat__meta pp-stat__meta--danger"><i data-lucide="octagon-alert"></i>Past their stage time limit</span></a>
@@ -59,7 +59,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:930px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -68,7 +68,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -89,10 +89,10 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-250)">
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-150)"><div role="search" style="flex:1;min-width:240px;max-width:360px"><label class="pp-field__label pp-field__label--hidden" for="us-q">Search users</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="us-q" type="search" placeholder="Search by name or email" autocomplete="off"></div></div>
-<div role="group" aria-label="Status" style="display:flex;gap:var(--space-075)"><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Active</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Deactivated</button></div>
-<span class="pp-text pp-text--small pp-text--subtle" role="status" style="margin-left:auto">Showing 10 people</span></div>
+<div class="pp-stack pp-gap-250">
+<div class="pp-inline pp-gap-150"><div class="pp-grow--field pp-measure-narrow" role="search"><label class="pp-field__label pp-field__label--hidden" for="us-q">Search users</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="us-q" type="search" placeholder="Search by name or email" autocomplete="off"></div></div>
+<div class="pp-inline pp-gap-075" role="group" aria-label="Status"><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Active</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Deactivated</button></div>
+<span class="pp-text pp-text--small pp-text--subtle pp-push" role="status">Showing 10 people</span></div>
 <div class="pp-table-wrap"><table class="pp-table pp-table--stack">
 <caption class="pp-field__label pp-field__label--hidden">Users and their roles</caption>
 <thead><tr><th scope="col">User</th><th scope="col">Roles</th><th scope="col">Status</th><th scope="col">Added</th><th scope="col" class="pp-table__actions"><span aria-label="Actions">&nbsp;</span></th></tr></thead>
@@ -178,7 +178,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:900px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -187,7 +187,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -208,10 +208,10 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-250)">
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-150)"><div role="search" style="flex:1;min-width:240px;max-width:360px"><label class="pp-field__label pp-field__label--hidden" for="us-q">Search users</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="us-q" type="search" placeholder="Search by name or email" autocomplete="off"></div></div>
-<div role="group" aria-label="Status" style="display:flex;gap:var(--space-075)"><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Active</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Deactivated</button></div>
-<span class="pp-text pp-text--small pp-text--subtle" role="status" style="margin-left:auto">Showing 10 people</span></div>
+<div class="pp-stack pp-gap-250">
+<div class="pp-inline pp-gap-150"><div class="pp-grow--field pp-measure-narrow" role="search"><label class="pp-field__label pp-field__label--hidden" for="us-q">Search users</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="us-q" type="search" placeholder="Search by name or email" autocomplete="off"></div></div>
+<div class="pp-inline pp-gap-075" role="group" aria-label="Status"><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Active</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Deactivated</button></div>
+<span class="pp-text pp-text--small pp-text--subtle pp-push" role="status">Showing 10 people</span></div>
 <div class="pp-table-wrap"><table class="pp-table pp-table--stack">
 <caption class="pp-field__label pp-field__label--hidden">Users and their roles</caption>
 <thead><tr><th scope="col">User</th><th scope="col">Roles</th><th scope="col">Status</th><th scope="col">Added</th><th scope="col" class="pp-table__actions"><span aria-label="Actions">&nbsp;</span></th></tr></thead>
@@ -290,8 +290,8 @@
 </div>
 </div>
 </main>
-<div class="pp-blanket pp-blanket--inline pp-blanket--end" style="position:absolute;inset:0;min-height:0;z-index:var(--layer-blanket)">
-<div class="pp-drawer pp-drawer--inline" role="dialog" aria-modal="true" aria-labelledby="au-t" style="height:100%">
+<div class="pp-blanket pp-blanket--inline pp-blanket--end">
+<div class="pp-drawer pp-drawer--inline" role="dialog" aria-modal="true" aria-labelledby="au-t">
 <div class="pp-drawer__header">
 <div class="pp-drawer__heading"><h2 class="pp-drawer__title" id="au-t">Add user</h2><p class="pp-drawer__description">Invite a person to Hire and choose their roles. They get an email to set a password.</p></div>
 
@@ -334,7 +334,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:820px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -343,7 +343,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -364,10 +364,10 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-250)">
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-150)"><div role="search" style="flex:1;min-width:240px;max-width:360px"><label class="pp-field__label pp-field__label--hidden" for="us-q">Search users</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="us-q" type="search" placeholder="Search by name or email" autocomplete="off"></div></div>
-<div role="group" aria-label="Status" style="display:flex;gap:var(--space-075)"><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Active</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Deactivated</button></div>
-<span class="pp-text pp-text--small pp-text--subtle" role="status" style="margin-left:auto">Showing 10 people</span></div>
+<div class="pp-stack pp-gap-250">
+<div class="pp-inline pp-gap-150"><div class="pp-grow--field pp-measure-narrow" role="search"><label class="pp-field__label pp-field__label--hidden" for="us-q">Search users</label><div class="pp-text-field pp-text-field--small pp-search"><span class="pp-text-field__prefix"><i data-lucide="search"></i></span><input class="pp-text-field__input" id="us-q" type="search" placeholder="Search by name or email" autocomplete="off"></div></div>
+<div class="pp-inline pp-gap-075" role="group" aria-label="Status"><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true">All</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Active</button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false">Deactivated</button></div>
+<span class="pp-text pp-text--small pp-text--subtle pp-push" role="status">Showing 10 people</span></div>
 <div class="pp-table-wrap"><table class="pp-table pp-table--stack">
 <caption class="pp-field__label pp-field__label--hidden">Users and their roles</caption>
 <thead><tr><th scope="col">User</th><th scope="col">Roles</th><th scope="col">Status</th><th scope="col">Added</th><th scope="col" class="pp-table__actions"><span aria-label="Actions">&nbsp;</span></th></tr></thead>
@@ -446,8 +446,8 @@
 </div>
 </div>
 </main>
-<div class="pp-blanket pp-blanket--inline pp-blanket--end" style="position:absolute;inset:0;min-height:0;z-index:var(--layer-blanket)">
-<div class="pp-drawer pp-drawer--inline" role="dialog" aria-modal="true" aria-labelledby="er-t" style="height:100%">
+<div class="pp-blanket pp-blanket--inline pp-blanket--end">
+<div class="pp-drawer pp-drawer--inline" role="dialog" aria-modal="true" aria-labelledby="er-t">
 <div class="pp-drawer__header">
 <div class="pp-drawer__heading"><h2 class="pp-drawer__title" id="er-t">Edit roles</h2><p class="pp-drawer__description">Farai Chikwanha · farai.chikwanha@mokoena-logistics.co.za</p></div>
 
@@ -474,7 +474,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:2710px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -483,7 +483,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -504,12 +504,12 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-300)">
+<div class="pp-stack pp-gap-300">
 <article class="pp-card">
 <header class="pp-card__header"><span class="pp-icon-tile" aria-hidden="true"><i data-lucide="building-2"></i></span><div class="pp-card__titles"><h2 class="pp-card__title">Branding and identity</h2><p class="pp-card__subtitle">Your organisation’s name, logo and colour, shown across Pepla.</p></div></header>
 <div class="pp-form pp-form--wide">
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-200)"><span class="pp-avatar pp-avatar--xxlarge pp-avatar--square pp-avatar--sky" aria-hidden="true">ML</span>
-<div style="display:grid;gap:var(--space-075)"><button class="pp-button pp-button--default" type="button"><i data-lucide="upload"></i><span>Upload logo</span></button><span class="pp-text pp-text--small pp-text--subtle">PNG or SVG, up to 2 MB</span></div></div>
+<div class="pp-inline pp-gap-200"><span class="pp-avatar pp-avatar--xxlarge pp-avatar--square pp-avatar--sky" aria-hidden="true">ML</span>
+<div class="pp-stack pp-gap-075"><button class="pp-button pp-button--default" type="button"><i data-lucide="upload"></i><span>Upload logo</span></button><span class="pp-text pp-text--small pp-text--subtle">PNG or SVG, up to 2 MB</span></div></div>
 <div class="pp-form-row">
 <div class="pp-form-row__full"><div class="pp-field">
 <label class="pp-field__label" for="tn-name">Company name<span class="pp-field__required" aria-hidden="true">*</span></label>
@@ -536,18 +536,18 @@
 <div class="pp-brand-preview__picker pp-field">
 <label class="pp-field__label" for="tn-acc">Accent colour</label>
 <div class="pp-brand-preview__input-row">
-<span class="pp-brand-preview__swatch" data-theme="light" style="--_accent:var(--color-background-accent-sky-bolder)" aria-hidden="true"></span>
+<span class="pp-brand-preview__swatch" data-theme="light" aria-hidden="true" style="--_accent:var(--color-background-accent-sky-bolder)"></span>
 <div class="pp-text-field"><span class="pp-text-field__prefix" aria-hidden="true">#</span><input class="pp-text-field__input" id="tn-acc" type="text" value="00668D" maxlength="6" spellcheck="false" autocomplete="off" aria-describedby="tn-acc-r"></div>
 </div>
 <span class="pp-brand-preview__result" id="tn-acc-r" role="status"><i data-lucide="circle-check"></i><span>Passes. 6.3 to 1 on white; buttons and links need 4.5 to 1.</span></span>
 </div>
 <div class="pp-brand-preview__panes">
-<div class="pp-brand-preview__pane" data-theme="light" style="--_accent:var(--color-background-accent-sky-bolder)" role="group" aria-label="Preview in light theme">
+<div class="pp-brand-preview__pane" data-theme="light" role="group" aria-label="Preview in light theme" style="--_accent:var(--color-background-accent-sky-bolder)">
 <span class="pp-brand-preview__pane-label">Light</span>
 <span class="pp-brand-preview__header"><i data-lucide="building-2"></i>Mokoena Logistics</span>
 <div class="pp-brand-preview__body"><span>Welcome, Nomvula. Your first day is 16 Nov.</span><span class="pp-brand-preview__link">Read the welcome pack</span><span class="pp-brand-preview__button">Start onboarding</span></div>
 </div>
-<div class="pp-brand-preview__pane" data-theme="dark" style="--_accent:var(--color-background-accent-sky-bolder)" role="group" aria-label="Preview in dark theme">
+<div class="pp-brand-preview__pane" data-theme="dark" role="group" aria-label="Preview in dark theme" style="--_accent:var(--color-background-accent-sky-bolder)">
 <span class="pp-brand-preview__pane-label">Dark</span>
 <span class="pp-brand-preview__header"><i data-lucide="building-2"></i>Mokoena Logistics</span>
 <div class="pp-brand-preview__body"><span>Welcome, Nomvula. Your first day is 16 Nov.</span><span class="pp-brand-preview__link">Read the welcome pack</span><span class="pp-brand-preview__button">Start onboarding</span></div>
@@ -568,9 +568,9 @@
 <div class="pp-table-wrap"><table class="pp-table pp-table--compact">
 <thead><tr><th scope="col">Level</th><th scope="col">Label</th><th scope="col">Description</th><th scope="col">Experience guide</th></tr></thead>
 <tbody>
-<tr><th scope="row"><span class="pp-tag">Junior</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl0a">Junior label</label><input class="pp-text-field" id="sl0a" type="text" value="Junior" style="min-width:0"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl0b">Junior description</label><input class="pp-text-field" id="sl0b" type="text" value="Graduate, entry level, early career"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl0c">Junior experience guide</label><input class="pp-text-field" id="sl0c" type="text" value="0 to 3 years"></td></tr>
-<tr><th scope="row"><span class="pp-tag">Mid</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl1a">Mid label</label><input class="pp-text-field" id="sl1a" type="text" value="Mid" style="min-width:0"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl1b">Mid description</label><input class="pp-text-field" id="sl1b" type="text" value="Professional, specialist, works alone"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl1c">Mid experience guide</label><input class="pp-text-field" id="sl1c" type="text" value="3 to 7 years"></td></tr>
-<tr><th scope="row"><span class="pp-tag">Senior</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl2a">Senior label</label><input class="pp-text-field" id="sl2a" type="text" value="Senior" style="min-width:0"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl2b">Senior description</label><input class="pp-text-field" id="sl2b" type="text" value="Manager, director, executive, lead"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl2c">Senior experience guide</label><input class="pp-text-field" id="sl2c" type="text" value="7 years or more"></td></tr>
+<tr><th scope="row"><span class="pp-tag">Junior</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl0a">Junior label</label><input class="pp-text-field pp-shrink" id="sl0a" type="text" value="Junior"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl0b">Junior description</label><input class="pp-text-field" id="sl0b" type="text" value="Graduate, entry level, early career"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl0c">Junior experience guide</label><input class="pp-text-field" id="sl0c" type="text" value="0 to 3 years"></td></tr>
+<tr><th scope="row"><span class="pp-tag">Mid</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl1a">Mid label</label><input class="pp-text-field pp-shrink" id="sl1a" type="text" value="Mid"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl1b">Mid description</label><input class="pp-text-field" id="sl1b" type="text" value="Professional, specialist, works alone"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl1c">Mid experience guide</label><input class="pp-text-field" id="sl1c" type="text" value="3 to 7 years"></td></tr>
+<tr><th scope="row"><span class="pp-tag">Senior</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl2a">Senior label</label><input class="pp-text-field pp-shrink" id="sl2a" type="text" value="Senior"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl2b">Senior description</label><input class="pp-text-field" id="sl2b" type="text" value="Manager, director, executive, lead"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl2c">Senior experience guide</label><input class="pp-text-field" id="sl2c" type="text" value="7 years or more"></td></tr>
 </tbody></table></div>
 <div class="pp-card__footer pp-card__footer--end"><button class="pp-button pp-button--primary" type="button">Save levels</button></div>
 </article>
@@ -649,7 +649,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:900px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -658,7 +658,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -679,12 +679,12 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-300)">
+<div class="pp-stack pp-gap-300">
 <article class="pp-card">
 <header class="pp-card__header"><span class="pp-icon-tile" aria-hidden="true"><i data-lucide="building-2"></i></span><div class="pp-card__titles"><h2 class="pp-card__title">Branding and identity</h2><p class="pp-card__subtitle">Your organisation’s name, logo and colour, shown across Pepla.</p></div></header>
 <div class="pp-form pp-form--wide">
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-200)"><span class="pp-avatar pp-avatar--xxlarge pp-avatar--square pp-avatar--sky" aria-hidden="true">ML</span>
-<div style="display:grid;gap:var(--space-075)"><button class="pp-button pp-button--default" type="button"><i data-lucide="upload"></i><span>Upload logo</span></button><span class="pp-text pp-text--small pp-text--subtle">PNG or SVG, up to 2 MB</span></div></div>
+<div class="pp-inline pp-gap-200"><span class="pp-avatar pp-avatar--xxlarge pp-avatar--square pp-avatar--sky" aria-hidden="true">ML</span>
+<div class="pp-stack pp-gap-075"><button class="pp-button pp-button--default" type="button"><i data-lucide="upload"></i><span>Upload logo</span></button><span class="pp-text pp-text--small pp-text--subtle">PNG or SVG, up to 2 MB</span></div></div>
 <div class="pp-form-row">
 <div class="pp-form-row__full"><div class="pp-field">
 <label class="pp-field__label" for="tn-name">Company name<span class="pp-field__required" aria-hidden="true">*</span></label>
@@ -711,18 +711,18 @@
 <div class="pp-brand-preview__picker pp-field">
 <label class="pp-field__label" for="tn-acc">Accent colour</label>
 <div class="pp-brand-preview__input-row">
-<span class="pp-brand-preview__swatch" data-theme="light" style="--_accent:var(--color-background-accent-sky-bolder)" aria-hidden="true"></span>
+<span class="pp-brand-preview__swatch" data-theme="light" aria-hidden="true" style="--_accent:var(--color-background-accent-sky-bolder)"></span>
 <div class="pp-text-field"><span class="pp-text-field__prefix" aria-hidden="true">#</span><input class="pp-text-field__input" id="tn-acc" type="text" value="00668D" maxlength="6" spellcheck="false" autocomplete="off" aria-describedby="tn-acc-r"></div>
 </div>
 <span class="pp-brand-preview__result" id="tn-acc-r" role="status"><i data-lucide="circle-check"></i><span>Passes. 6.3 to 1 on white; buttons and links need 4.5 to 1.</span></span>
 </div>
 <div class="pp-brand-preview__panes">
-<div class="pp-brand-preview__pane" data-theme="light" style="--_accent:var(--color-background-accent-sky-bolder)" role="group" aria-label="Preview in light theme">
+<div class="pp-brand-preview__pane" data-theme="light" role="group" aria-label="Preview in light theme" style="--_accent:var(--color-background-accent-sky-bolder)">
 <span class="pp-brand-preview__pane-label">Light</span>
 <span class="pp-brand-preview__header"><i data-lucide="building-2"></i>Mokoena Logistics</span>
 <div class="pp-brand-preview__body"><span>Welcome, Nomvula. Your first day is 16 Nov.</span><span class="pp-brand-preview__link">Read the welcome pack</span><span class="pp-brand-preview__button">Start onboarding</span></div>
 </div>
-<div class="pp-brand-preview__pane" data-theme="dark" style="--_accent:var(--color-background-accent-sky-bolder)" role="group" aria-label="Preview in dark theme">
+<div class="pp-brand-preview__pane" data-theme="dark" role="group" aria-label="Preview in dark theme" style="--_accent:var(--color-background-accent-sky-bolder)">
 <span class="pp-brand-preview__pane-label">Dark</span>
 <span class="pp-brand-preview__header"><i data-lucide="building-2"></i>Mokoena Logistics</span>
 <div class="pp-brand-preview__body"><span>Welcome, Nomvula. Your first day is 16 Nov.</span><span class="pp-brand-preview__link">Read the welcome pack</span><span class="pp-brand-preview__button">Start onboarding</span></div>
@@ -743,9 +743,9 @@
 <div class="pp-table-wrap"><table class="pp-table pp-table--compact">
 <thead><tr><th scope="col">Level</th><th scope="col">Label</th><th scope="col">Description</th><th scope="col">Experience guide</th></tr></thead>
 <tbody>
-<tr><th scope="row"><span class="pp-tag">Junior</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl0a">Junior label</label><input class="pp-text-field" id="sl0a" type="text" value="Junior" style="min-width:0"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl0b">Junior description</label><input class="pp-text-field" id="sl0b" type="text" value="Graduate, entry level, early career"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl0c">Junior experience guide</label><input class="pp-text-field" id="sl0c" type="text" value="0 to 3 years"></td></tr>
-<tr><th scope="row"><span class="pp-tag">Mid</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl1a">Mid label</label><input class="pp-text-field" id="sl1a" type="text" value="Mid" style="min-width:0"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl1b">Mid description</label><input class="pp-text-field" id="sl1b" type="text" value="Professional, specialist, works alone"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl1c">Mid experience guide</label><input class="pp-text-field" id="sl1c" type="text" value="3 to 7 years"></td></tr>
-<tr><th scope="row"><span class="pp-tag">Senior</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl2a">Senior label</label><input class="pp-text-field" id="sl2a" type="text" value="Senior" style="min-width:0"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl2b">Senior description</label><input class="pp-text-field" id="sl2b" type="text" value="Manager, director, executive, lead"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl2c">Senior experience guide</label><input class="pp-text-field" id="sl2c" type="text" value="7 years or more"></td></tr>
+<tr><th scope="row"><span class="pp-tag">Junior</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl0a">Junior label</label><input class="pp-text-field pp-shrink" id="sl0a" type="text" value="Junior"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl0b">Junior description</label><input class="pp-text-field" id="sl0b" type="text" value="Graduate, entry level, early career"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl0c">Junior experience guide</label><input class="pp-text-field" id="sl0c" type="text" value="0 to 3 years"></td></tr>
+<tr><th scope="row"><span class="pp-tag">Mid</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl1a">Mid label</label><input class="pp-text-field pp-shrink" id="sl1a" type="text" value="Mid"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl1b">Mid description</label><input class="pp-text-field" id="sl1b" type="text" value="Professional, specialist, works alone"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl1c">Mid experience guide</label><input class="pp-text-field" id="sl1c" type="text" value="3 to 7 years"></td></tr>
+<tr><th scope="row"><span class="pp-tag">Senior</span></th><td><label class="pp-field__label pp-field__label--hidden" for="sl2a">Senior label</label><input class="pp-text-field pp-shrink" id="sl2a" type="text" value="Senior"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl2b">Senior description</label><input class="pp-text-field" id="sl2b" type="text" value="Manager, director, executive, lead"></td><td><label class="pp-field__label pp-field__label--hidden" for="sl2c">Senior experience guide</label><input class="pp-text-field" id="sl2c" type="text" value="7 years or more"></td></tr>
 </tbody></table></div>
 <div class="pp-card__footer pp-card__footer--end"><button class="pp-button pp-button--primary" type="button">Save levels</button></div>
 </article>
@@ -817,42 +817,42 @@
 </div>
 </div>
 </main>
-<div class="pp-blanket pp-blanket--inline pp-blanket--end" style="position:absolute;inset:0;min-height:0;z-index:var(--layer-blanket)">
-<div class="pp-drawer pp-drawer--inline" role="dialog" aria-modal="true" aria-labelledby="ac-t" style="height:100%">
+<div class="pp-blanket pp-blanket--inline pp-blanket--end">
+<div class="pp-drawer pp-drawer--inline" role="dialog" aria-modal="true" aria-labelledby="ac-t">
 <div class="pp-drawer__header">
 <div class="pp-drawer__heading"><h2 class="pp-drawer__title" id="ac-t">Edit the senior approval chain</h2><p class="pp-drawer__description">Offers and IT setup for senior hires. Each step waits for the one before it.</p></div>
 
 <button class="pp-button pp-button--subtle pp-button--icon pp-drawer__close" type="button" aria-label="Close"><i data-lucide="x"></i></button>
 </div>
 <div class="pp-drawer__body"><div class="pp-drawer__form">
-<section aria-labelledby="ac-o"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-100)"><h3 class="pp-form-section__title" id="ac-o" style="flex:1">Offer approval</h3><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="plus"></i><span>Add step</span></button></div>
-<ol style="display:grid;gap:var(--space-100);margin:var(--space-150) 0 0;padding:0;list-style:none"><li>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-100);flex-wrap:nowrap"><span class="pp-badge" aria-hidden="true">1</span>
-<div style="flex:1;min-width:120px"><label class="pp-field__label pp-field__label--hidden" for="aco1">Step 1 approver</label><div class="pp-select"><select class="pp-select__input" id="aco1"><option selected>TA specialist</option><option>Hiring manager</option><option>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
+<section aria-labelledby="ac-o"><div class="pp-inline pp-gap-100"><h3 class="pp-form-section__title pp-grow" id="ac-o">Offer approval</h3><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="plus"></i><span>Add step</span></button></div>
+<ol class="pp-stack pp-gap-100"><li>
+<div class="pp-inline pp-gap-100 pp-inline--nowrap"><span class="pp-badge" aria-hidden="true">1</span>
+<div class="pp-grow--field"><label class="pp-field__label pp-field__label--hidden" for="aco1">Step 1 approver</label><div class="pp-select"><select class="pp-select__input" id="aco1"><option selected>TA specialist</option><option>Hiring manager</option><option>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
 <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="aco1r" checked><label class="pp-checkbox__label" for="aco1r">Required</label></div>
-<span style="display:flex"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 1 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 1 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 1"><i data-lucide="trash-2"></i></button></span></div>
+<span class="pp-inline"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 1 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 1 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 1"><i data-lucide="trash-2"></i></button></span></div>
 </li><li>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-100);flex-wrap:nowrap"><span class="pp-badge" aria-hidden="true">2</span>
-<div style="flex:1;min-width:120px"><label class="pp-field__label pp-field__label--hidden" for="aco2">Step 2 approver</label><div class="pp-select"><select class="pp-select__input" id="aco2"><option>TA specialist</option><option selected>Hiring manager</option><option>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
+<div class="pp-inline pp-gap-100 pp-inline--nowrap"><span class="pp-badge" aria-hidden="true">2</span>
+<div class="pp-grow--field"><label class="pp-field__label pp-field__label--hidden" for="aco2">Step 2 approver</label><div class="pp-select"><select class="pp-select__input" id="aco2"><option>TA specialist</option><option selected>Hiring manager</option><option>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
 <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="aco2r" checked><label class="pp-checkbox__label" for="aco2r">Required</label></div>
-<span style="display:flex"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 2 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 2 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 2"><i data-lucide="trash-2"></i></button></span></div>
+<span class="pp-inline"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 2 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 2 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 2"><i data-lucide="trash-2"></i></button></span></div>
 </li><li>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-100);flex-wrap:nowrap"><span class="pp-badge" aria-hidden="true">3</span>
-<div style="flex:1;min-width:120px"><label class="pp-field__label pp-field__label--hidden" for="aco3">Step 3 approver</label><div class="pp-select"><select class="pp-select__input" id="aco3"><option>TA specialist</option><option>Hiring manager</option><option selected>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
+<div class="pp-inline pp-gap-100 pp-inline--nowrap"><span class="pp-badge" aria-hidden="true">3</span>
+<div class="pp-grow--field"><label class="pp-field__label pp-field__label--hidden" for="aco3">Step 3 approver</label><div class="pp-select"><select class="pp-select__input" id="aco3"><option>TA specialist</option><option>Hiring manager</option><option selected>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
 <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="aco3r" checked><label class="pp-checkbox__label" for="aco3r">Required</label></div>
-<span style="display:flex"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 3 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 3 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 3"><i data-lucide="trash-2"></i></button></span></div>
+<span class="pp-inline"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 3 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 3 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 3"><i data-lucide="trash-2"></i></button></span></div>
 </li></ol></section>
-<section aria-labelledby="ac-p"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-100)"><h3 class="pp-form-section__title" id="ac-p" style="flex:1">IT setup approval</h3><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="plus"></i><span>Add step</span></button></div>
-<ol style="display:grid;gap:var(--space-100);margin:var(--space-150) 0 0;padding:0;list-style:none"><li>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-100);flex-wrap:nowrap"><span class="pp-badge" aria-hidden="true">1</span>
-<div style="flex:1;min-width:120px"><label class="pp-field__label pp-field__label--hidden" for="acp1">Step 1 approver</label><div class="pp-select"><select class="pp-select__input" id="acp1"><option>TA specialist</option><option selected>Hiring manager</option><option>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
+<section aria-labelledby="ac-p"><div class="pp-inline pp-gap-100"><h3 class="pp-form-section__title pp-grow" id="ac-p">IT setup approval</h3><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="plus"></i><span>Add step</span></button></div>
+<ol class="pp-stack pp-gap-100"><li>
+<div class="pp-inline pp-gap-100 pp-inline--nowrap"><span class="pp-badge" aria-hidden="true">1</span>
+<div class="pp-grow--field"><label class="pp-field__label pp-field__label--hidden" for="acp1">Step 1 approver</label><div class="pp-select"><select class="pp-select__input" id="acp1"><option>TA specialist</option><option selected>Hiring manager</option><option>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
 <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="acp1r" checked><label class="pp-checkbox__label" for="acp1r">Required</label></div>
-<span style="display:flex"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 1 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 1 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 1"><i data-lucide="trash-2"></i></button></span></div>
+<span class="pp-inline"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 1 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 1 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 1"><i data-lucide="trash-2"></i></button></span></div>
 </li><li>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-100);flex-wrap:nowrap"><span class="pp-badge" aria-hidden="true">2</span>
-<div style="flex:1;min-width:120px"><label class="pp-field__label pp-field__label--hidden" for="acp2">Step 2 approver</label><div class="pp-select"><select class="pp-select__input" id="acp2"><option>TA specialist</option><option>Hiring manager</option><option selected>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
+<div class="pp-inline pp-gap-100 pp-inline--nowrap"><span class="pp-badge" aria-hidden="true">2</span>
+<div class="pp-grow--field"><label class="pp-field__label pp-field__label--hidden" for="acp2">Step 2 approver</label><div class="pp-select"><select class="pp-select__input" id="acp2"><option>TA specialist</option><option>Hiring manager</option><option selected>HR director</option><option>Finance</option></select><i data-lucide="chevron-down"></i></div></div>
 <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="acp2r" checked><label class="pp-checkbox__label" for="acp2r">Required</label></div>
-<span style="display:flex"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 2 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 2 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 2"><i data-lucide="trash-2"></i></button></span></div>
+<span class="pp-inline"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 2 up"><i data-lucide="arrow-up"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move step 2 down"><i data-lucide="arrow-down"></i></button><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove step 2"><i data-lucide="trash-2"></i></button></span></div>
 </li></ol></section>
 <div class="pp-inline-message"><i data-lucide="info"></i><span>Offers and setups already waiting keep the chain they started with.</span></div>
 </div></div>
@@ -865,7 +865,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:1910px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -874,7 +874,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -895,21 +895,21 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-300)">
+<div class="pp-stack pp-gap-300">
 <article class="pp-card">
 <header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Notification triggers</h2><p class="pp-card__subtitle">Turn an event on or off, and choose who gets it. Changes save at once.</p></div></header>
-<div style="display:grid;gap:var(--space-300)">
+<div class="pp-stack pp-gap-300">
 <div class="pp-table-wrap"><table class="pp-table pp-table--stack">
-<caption style="text-align:start;padding-bottom:var(--space-100)"><span class="pp-text pp-text--strong">Hiring</span></caption>
-<thead><tr><th scope="col" style="width:200px">Event</th><th scope="col">What happened</th><th scope="col" style="width:240px">Who gets it</th><th scope="col" style="width:90px">Sends</th><th scope="col" class="pp-table__actions"><span aria-label="Edit">&nbsp;</span></th></tr></thead>
+<caption><span class="pp-text pp-text--strong">Hiring</span></caption>
+<thead><tr><th scope="col">Event</th><th scope="col">What happened</th><th scope="col">Who gets it</th><th scope="col">Sends</th><th scope="col" class="pp-table__actions"><span aria-label="Edit">&nbsp;</span></th></tr></thead>
 <tbody>
 <tr><th scope="row"><span class="pp-text pp-text--strong">Candidate added</span></th><td>A new candidate enters the pipeline</td><td><ul class="pp-role-group" aria-label="Who gets it"><li><span class="pp-role"><i data-lucide="user-search"></i><span class="pp-role__text">TA specialist</span></span></li><li><span class="pp-role"><i data-lucide="user-plus"></i><span class="pp-role__text">Hiring manager</span></span></li></ul></td><td><div class="pp-toggle"><input class="pp-toggle__input" type="checkbox" role="switch" id="nt1" checked><label class="pp-toggle__label" for="nt1"><span aria-hidden="true">On</span><span class="pp-field__label pp-field__label--hidden">Candidate added</span></label></div></td><td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Edit who gets Candidate added"><i data-lucide="pencil"></i></button></td></tr>
 <tr><th scope="row"><span class="pp-text pp-text--strong">Vote needed</span></th><td>A panel member has an interview to score</td><td><ul class="pp-role-group" aria-label="Who gets it"><li><span class="pp-role"><i data-lucide="user-plus"></i><span class="pp-role__text">Hiring manager</span></span></li></ul></td><td><div class="pp-toggle"><input class="pp-toggle__input" type="checkbox" role="switch" id="nt2" checked><label class="pp-toggle__label" for="nt2"><span aria-hidden="true">On</span><span class="pp-field__label pp-field__label--hidden">Vote needed</span></label></div></td><td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Edit who gets Vote needed"><i data-lucide="pencil"></i></button></td></tr>
 <tr><th scope="row"><span class="pp-text pp-text--strong">Offer approved</span></th><td>The last approver signs off an offer</td><td><ul class="pp-role-group" aria-label="Who gets it"><li><span class="pp-role"><i data-lucide="user-search"></i><span class="pp-role__text">TA specialist</span></span></li></ul></td><td><div class="pp-toggle"><input class="pp-toggle__input" type="checkbox" role="switch" id="nt3" checked><label class="pp-toggle__label" for="nt3"><span aria-hidden="true">On</span><span class="pp-field__label pp-field__label--hidden">Offer approved</span></label></div></td><td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Edit who gets Offer approved"><i data-lucide="pencil"></i></button></td></tr>
 <tr><th scope="row"><span class="pp-text pp-text--strong">Offer declined</span></th><td>The candidate turns the offer down</td><td><ul class="pp-role-group" aria-label="Who gets it"><li><span class="pp-role"><i data-lucide="user-search"></i><span class="pp-role__text">TA specialist</span></span></li><li><span class="pp-role"><i data-lucide="user-plus"></i><span class="pp-role__text">Hiring manager</span></span></li></ul></td><td><div class="pp-toggle"><input class="pp-toggle__input" type="checkbox" role="switch" id="nt4"><label class="pp-toggle__label" for="nt4"><span aria-hidden="true">Off</span><span class="pp-field__label pp-field__label--hidden">Offer declined</span></label></div></td><td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Edit who gets Offer declined"><i data-lucide="pencil"></i></button></td></tr></tbody></table></div>
 <div class="pp-table-wrap"><table class="pp-table pp-table--stack">
-<caption style="text-align:start;padding-bottom:var(--space-100)"><span class="pp-text pp-text--strong">Requests</span></caption>
-<thead><tr><th scope="col" style="width:200px">Event</th><th scope="col">What happened</th><th scope="col" style="width:240px">Who gets it</th><th scope="col" style="width:90px">Sends</th><th scope="col" class="pp-table__actions"><span aria-label="Edit">&nbsp;</span></th></tr></thead>
+<caption><span class="pp-text pp-text--strong">Requests</span></caption>
+<thead><tr><th scope="col">Event</th><th scope="col">What happened</th><th scope="col">Who gets it</th><th scope="col">Sends</th><th scope="col" class="pp-table__actions"><span aria-label="Edit">&nbsp;</span></th></tr></thead>
 <tbody>
 <tr><th scope="row"><span class="pp-text pp-text--strong">Setup ready for review</span></th><td>Pepla drafted an IT setup for a new hire</td><td><ul class="pp-role-group" aria-label="Who gets it"><li><span class="pp-role"><i data-lucide="user-plus"></i><span class="pp-role__text">Hiring manager</span></span></li></ul></td><td><div class="pp-toggle"><input class="pp-toggle__input" type="checkbox" role="switch" id="nt5" checked><label class="pp-toggle__label" for="nt5"><span aria-hidden="true">On</span><span class="pp-field__label pp-field__label--hidden">Setup ready for review</span></label></div></td><td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Edit who gets Setup ready for review"><i data-lucide="pencil"></i></button></td></tr>
 <tr><th scope="row"><span class="pp-text pp-text--strong">Setup item assigned</span></th><td>An item lands in an IT queue</td><td><ul class="pp-role-group" aria-label="Who gets it"><li><span class="pp-role"><i data-lucide="laptop"></i><span class="pp-role__text">IT admin</span></span></li></ul></td><td><div class="pp-toggle"><input class="pp-toggle__input" type="checkbox" role="switch" id="nt6" checked><label class="pp-toggle__label" for="nt6"><span aria-hidden="true">On</span><span class="pp-field__label pp-field__label--hidden">Setup item assigned</span></label></div></td><td class="pp-table__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Edit who gets Setup item assigned"><i data-lucide="pencil"></i></button></td></tr>
@@ -936,17 +936,17 @@
 <article class="pp-card pp-card--compact">
 <header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Vote needed</h2><p class="pp-card__subtitle">Your vote on {{candidateName}}</p></div><div class="pp-card__aside"><button class="pp-button pp-button--default pp-button--small" type="button"><i data-lucide="pencil"></i><span>Edit</span></button></div></header>
 <p class="pp-text">Please score {{candidateName}}’s {{interviewType}} interview by {{dueDate}}.</p>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-075)"><span class="pp-text pp-text--small pp-text--subtle">You can use</span><code class="pp-tag">{{candidateName}}</code><code class="pp-tag">{{interviewType}}</code><code class="pp-tag">{{dueDate}}</code></div>
+<div class="pp-inline pp-gap-075"><span class="pp-text pp-text--small pp-text--subtle">You can use</span><code class="pp-tag">{{candidateName}}</code><code class="pp-tag">{{interviewType}}</code><code class="pp-tag">{{dueDate}}</code></div>
 </article>
 <article class="pp-card pp-card--compact">
 <header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Setup ready for review</h2><p class="pp-card__subtitle">IT setup for {{newHireName}}</p></div><div class="pp-card__aside"><button class="pp-button pp-button--default pp-button--small" type="button"><i data-lucide="pencil"></i><span>Edit</span></button></div></header>
 <p class="pp-text">Pepla drafted the IT setup for {{newHireName}}, who starts on {{startDate}}. Check it and approve.</p>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-075)"><span class="pp-text pp-text--small pp-text--subtle">You can use</span><code class="pp-tag">{{newHireName}}</code><code class="pp-tag">{{startDate}}</code></div>
+<div class="pp-inline pp-gap-075"><span class="pp-text pp-text--small pp-text--subtle">You can use</span><code class="pp-tag">{{newHireName}}</code><code class="pp-tag">{{startDate}}</code></div>
 </article>
 <article class="pp-card pp-card--compact">
 <header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Offer approved</h2><p class="pp-card__subtitle">Offer for {{candidateName}} approved</p></div><div class="pp-card__aside"><button class="pp-button pp-button--default pp-button--small" type="button"><i data-lucide="pencil"></i><span>Edit</span></button></div></header>
 <p class="pp-text">{{approverName}} approved the offer for {{candidateName}}. You can send it now.</p>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-075)"><span class="pp-text pp-text--small pp-text--subtle">You can use</span><code class="pp-tag">{{candidateName}}</code><code class="pp-tag">{{approverName}}</code></div>
+<div class="pp-inline pp-gap-075"><span class="pp-text pp-text--small pp-text--subtle">You can use</span><code class="pp-tag">{{candidateName}}</code><code class="pp-tag">{{approverName}}</code></div>
 </article>
 </div>
 </article>
@@ -961,7 +961,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:1940px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -970,7 +970,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -991,20 +991,20 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-250)">
+<div class="pp-stack pp-gap-250">
 <div class="pp-config-version pp-config-version--boxed">
 <span class="pp-config-version__version"><i data-lucide="history"></i>Version 6</span>
 <span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Live</span>
 <span class="pp-config-version__meta">Published by Thandeka Dlamini, 6 Nov 2026, 08:15</span>
 <span class="pp-config-version__actions"><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="git-compare"></i><span>Compare with version 5</span></button></span>
 </div>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-150)"><div role="group" aria-label="Category" style="display:flex;flex-wrap:wrap;gap:var(--space-075)">
+<div class="pp-inline pp-gap-150"><div class="pp-inline pp-gap-075" role="group" aria-label="Category">
 <button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="true"><i data-lucide="list"></i><span>All</span><span class="pp-badge">6</span></button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false"><i data-lucide="clock"></i><span>Time limits</span><span class="pp-badge">2</span></button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false"><i data-lucide="heart"></i><span>Engagement</span><span class="pp-badge">1</span></button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false"><i data-lucide="file-text"></i><span>Offers</span><span class="pp-badge">1</span></button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false"><i data-lucide="user-plus"></i><span>Onboarding</span><span class="pp-badge">1</span></button><button class="pp-button pp-button--default pp-button--small" type="button" aria-pressed="false"><i data-lucide="zap"></i><span>General</span><span class="pp-badge">1</span></button>
-</div><span class="pp-text pp-text--small pp-text--subtle" role="status" style="margin-left:auto">6 rules, 5 on</span></div>
+</div><span class="pp-text pp-text--small pp-text--subtle pp-push" role="status">6 rules, 5 on</span></div>
 
 <section class="pp-card pp-card--sunken" aria-labelledby="th-t">
 <header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title"><span id="th-t">Signal thresholds</span></h2><p class="pp-card__subtitle">The numbers the rules use. They apply to every rule.</p></div><div class="pp-card__aside"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Close signal thresholds"><i data-lucide="x"></i></button></div></header>
-<div style="display:grid;gap:var(--space-200);grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="pp-grid pp-grid--3 pp-gap-200">
 <div class="pp-field">
 <label class="pp-field__label" for="th1">Time limit at risk</label>
 <div class="pp-text-field pp-text-field--numeric"><input class="pp-text-field__input" id="th1" type="text" inputmode="numeric" value="3" aria-describedby="th1-help"><span class="pp-text-field__suffix">days</span></div>
@@ -1053,7 +1053,7 @@
 </div>
 </section>
 
-<div style="display:grid;gap:var(--space-200);grid-template-columns:repeat(auto-fill,minmax(380px,1fr))">
+<div class="pp-grid pp-grid--large pp-gap-200">
 <article class="pp-card pp-card--compact" aria-labelledby="r1">
 <header class="pp-card__header"><div class="pp-card__titles"><h3 class="pp-card__title" id="r1">Time limit missed</h3><p class="pp-card__subtitle">A candidate has been in a stage past its time limit.</p></div>
 <div class="pp-card__aside"><span class="pp-lozenge"><i data-lucide="clock"></i>Time limits</span><span class="pp-lozenge pp-lozenge--danger"><i data-lucide="octagon-alert"></i>Critical</span></div></header>
@@ -1137,7 +1137,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:780px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -1146,7 +1146,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -1167,7 +1167,7 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-300)">
+<div class="pp-stack pp-gap-300">
 <div class="pp-config-version pp-config-version--boxed">
 <span class="pp-config-version__version"><i data-lucide="history"></i>Version 4</span>
 <span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Live</span>
@@ -1176,19 +1176,19 @@
 </div>
 <article class="pp-card">
 <div class="pp-form">
-<div style="display:grid;grid-template-columns:auto minmax(0,1fr) 180px;align-items:center;gap:var(--space-150)">
+<div class="pp-inline pp-inline--nowrap pp-gap-150">
 <span class="pp-icon-tile" aria-hidden="true"><i data-lucide="code"></i></span><label class="pp-field__label" for="sw1">Technical skills</label>
 <div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sw1" type="text" inputmode="numeric" value="35" aria-invalid="true" aria-describedby="sw-err"><span class="pp-text-field__suffix">%</span></div>
 </div>
-<div style="display:grid;grid-template-columns:auto minmax(0,1fr) 180px;align-items:center;gap:var(--space-150)">
+<div class="pp-inline pp-inline--nowrap pp-gap-150">
 <span class="pp-icon-tile" aria-hidden="true"><i data-lucide="messages-square"></i></span><label class="pp-field__label" for="sw2">Communication</label>
 <div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sw2" type="text" inputmode="numeric" value="25"><span class="pp-text-field__suffix">%</span></div>
 </div>
-<div style="display:grid;grid-template-columns:auto minmax(0,1fr) 180px;align-items:center;gap:var(--space-150)">
+<div class="pp-inline pp-inline--nowrap pp-gap-150">
 <span class="pp-icon-tile" aria-hidden="true"><i data-lucide="heart"></i></span><label class="pp-field__label" for="sw3">Cultural fit</label>
 <div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sw3" type="text" inputmode="numeric" value="25"><span class="pp-text-field__suffix">%</span></div>
 </div>
-<div style="display:grid;grid-template-columns:auto minmax(0,1fr) 180px;align-items:center;gap:var(--space-150)">
+<div class="pp-inline pp-inline--nowrap pp-gap-150">
 <span class="pp-icon-tile" aria-hidden="true"><i data-lucide="lightbulb"></i></span><label class="pp-field__label" for="sw4">Problem solving</label>
 <div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sw4" type="text" inputmode="numeric" value="20"><span class="pp-text-field__suffix">%</span></div>
 </div>
@@ -1212,7 +1212,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:1200px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -1221,7 +1221,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -1242,7 +1242,7 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-300)">
+<div class="pp-stack pp-gap-300">
 <div class="pp-config-version pp-config-version--boxed">
 <span class="pp-config-version__version"><i data-lucide="history"></i>Version 3</span>
 <span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Live</span>
@@ -1252,35 +1252,35 @@
 <article class="pp-card">
 <header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">Time limits</h2><p class="pp-card__subtitle">The most time each step may take</p></div></header>
 <div class="pp-form pp-form--wide">
-<div class="pp-form-row" style="align-items:center">
-<div style="display:grid;gap:var(--space-025)"><label class="pp-field__label" for="sl1">First contact</label><span class="pp-text pp-text--small pp-text--subtle">From application to the first call or message</span></div>
-<div style="display:grid;gap:var(--space-050);justify-items:start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl1" type="text" inputmode="numeric" value="24" aria-describedby="sl1-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl1-w">1 day</span></div>
+<div class="pp-form-row pp-form-row--center">
+<div class="pp-stack pp-gap-025"><label class="pp-field__label" for="sl1">First contact</label><span class="pp-text pp-text--small pp-text--subtle">From application to the first call or message</span></div>
+<div class="pp-stack pp-gap-050 pp-stack--start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl1" type="text" inputmode="numeric" value="24" aria-describedby="sl1-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl1-w">1 day</span></div>
 </div>
-<div class="pp-form-row" style="align-items:center">
-<div style="display:grid;gap:var(--space-025)"><label class="pp-field__label" for="sl2">Evaluation</label><span class="pp-text pp-text--small pp-text--subtle">From entering the stage to the evaluation being done</span></div>
-<div style="display:grid;gap:var(--space-050);justify-items:start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl2" type="text" inputmode="numeric" value="72" aria-describedby="sl2-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl2-w">3 days</span></div>
+<div class="pp-form-row pp-form-row--center">
+<div class="pp-stack pp-gap-025"><label class="pp-field__label" for="sl2">Evaluation</label><span class="pp-text pp-text--small pp-text--subtle">From entering the stage to the evaluation being done</span></div>
+<div class="pp-stack pp-gap-050 pp-stack--start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl2" type="text" inputmode="numeric" value="72" aria-describedby="sl2-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl2-w">3 days</span></div>
 </div>
-<div class="pp-form-row" style="align-items:center">
-<div style="display:grid;gap:var(--space-025)"><label class="pp-field__label" for="sl3">Offer created</label><span class="pp-text pp-text--small pp-text--subtle">From the hiring manager’s approval to the offer document</span></div>
-<div style="display:grid;gap:var(--space-050);justify-items:start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl3" type="text" inputmode="numeric" value="48" aria-describedby="sl3-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl3-w">2 days</span></div>
+<div class="pp-form-row pp-form-row--center">
+<div class="pp-stack pp-gap-025"><label class="pp-field__label" for="sl3">Offer created</label><span class="pp-text pp-text--small pp-text--subtle">From the hiring manager’s approval to the offer document</span></div>
+<div class="pp-stack pp-gap-050 pp-stack--start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl3" type="text" inputmode="numeric" value="48" aria-describedby="sl3-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl3-w">2 days</span></div>
 </div>
-<div class="pp-form-row" style="align-items:center">
-<div style="display:grid;gap:var(--space-025)"><label class="pp-field__label" for="sl4">Offer answer</label><span class="pp-text pp-text--small pp-text--subtle">How long the candidate has to accept</span></div>
-<div style="display:grid;gap:var(--space-050);justify-items:start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl4" type="text" inputmode="numeric" value="120" aria-describedby="sl4-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl4-w">5 days</span></div>
+<div class="pp-form-row pp-form-row--center">
+<div class="pp-stack pp-gap-025"><label class="pp-field__label" for="sl4">Offer answer</label><span class="pp-text pp-text--small pp-text--subtle">How long the candidate has to accept</span></div>
+<div class="pp-stack pp-gap-050 pp-stack--start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl4" type="text" inputmode="numeric" value="120" aria-describedby="sl4-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl4-w">5 days</span></div>
 </div>
-<div class="pp-form-row" style="align-items:center">
-<div style="display:grid;gap:var(--space-025)"><label class="pp-field__label" for="sl5">IT setup review</label><span class="pp-text pp-text--small pp-text--subtle">How long the hiring manager has to review the IT setup</span></div>
-<div style="display:grid;gap:var(--space-050);justify-items:start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl5" type="text" inputmode="numeric" value="48" aria-describedby="sl5-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl5-w">2 days</span></div>
+<div class="pp-form-row pp-form-row--center">
+<div class="pp-stack pp-gap-025"><label class="pp-field__label" for="sl5">IT setup review</label><span class="pp-text pp-text--small pp-text--subtle">How long the hiring manager has to review the IT setup</span></div>
+<div class="pp-stack pp-gap-050 pp-stack--start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl5" type="text" inputmode="numeric" value="48" aria-describedby="sl5-w"><span class="pp-text-field__suffix">hours</span></div><span class="pp-field__help" id="sl5-w">2 days</span></div>
 </div>
 </div>
 </article>
 <article class="pp-card">
 <header class="pp-card__header"><div class="pp-card__titles"><h2 class="pp-card__title">When people hear</h2><p class="pp-card__subtitle">Measured as part of each time limit. Who hears is set in Notifications.</p></div></header>
 <div class="pp-form pp-form--wide">
-<div class="pp-form-row" style="align-items:center"><div style="display:grid;gap:var(--space-025)"><label class="pp-field__label" for="sl6">Warning</label><span class="pp-text pp-text--small pp-text--subtle">A nudge when this much of the time has gone</span></div>
-<div style="display:grid;gap:var(--space-050);justify-items:start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl6" type="text" inputmode="numeric" value="75" aria-describedby="sl6-w"><span class="pp-text-field__suffix">%</span></div><span class="pp-field__help" id="sl6-w">For a 3 day evaluation, after 2 days and 6 hours</span></div></div>
-<div class="pp-form-row" style="align-items:center"><div style="display:grid;gap:var(--space-025)"><label class="pp-field__label" for="sl7">Urgent</label><span class="pp-text pp-text--small pp-text--subtle">An urgent alert when this much of the time has gone</span></div>
-<div style="display:grid;gap:var(--space-050);justify-items:start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl7" type="text" inputmode="numeric" value="90" aria-describedby="sl7-w"><span class="pp-text-field__suffix">%</span></div><span class="pp-field__help" id="sl7-w">For a 3 day evaluation, after 2 days and 17 hours. Must be more than the warning.</span></div></div>
+<div class="pp-form-row pp-form-row--center"><div class="pp-stack pp-gap-025"><label class="pp-field__label" for="sl6">Warning</label><span class="pp-text pp-text--small pp-text--subtle">A nudge when this much of the time has gone</span></div>
+<div class="pp-stack pp-gap-050 pp-stack--start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl6" type="text" inputmode="numeric" value="75" aria-describedby="sl6-w"><span class="pp-text-field__suffix">%</span></div><span class="pp-field__help" id="sl6-w">For a 3 day evaluation, after 2 days and 6 hours</span></div></div>
+<div class="pp-form-row pp-form-row--center"><div class="pp-stack pp-gap-025"><label class="pp-field__label" for="sl7">Urgent</label><span class="pp-text pp-text--small pp-text--subtle">An urgent alert when this much of the time has gone</span></div>
+<div class="pp-stack pp-gap-050 pp-stack--start"><div class="pp-text-field pp-text-field--numeric pp-text-field--fit"><input class="pp-text-field__input" id="sl7" type="text" inputmode="numeric" value="90" aria-describedby="sl7-w"><span class="pp-text-field__suffix">%</span></div><span class="pp-field__help" id="sl7-w">For a 3 day evaluation, after 2 days and 17 hours. Must be more than the warning.</span></div></div>
 </div>
 </article>
 <div class="pp-form__footer">
@@ -1299,7 +1299,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:1150px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -1308,7 +1308,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -1329,7 +1329,7 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-300)">
+<div class="pp-stack pp-gap-300">
 <div class="pp-config-version pp-config-version--boxed">
 <span class="pp-config-version__version"><i data-lucide="history"></i>Version 2</span>
 <span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Live</span>
@@ -1339,13 +1339,13 @@
 <article class="pp-card">
 <div class="pp-form">
 <fieldset class="pp-form-section"><legend class="pp-form-section__title">Phase 1, interview and evaluation</legend>
-<div style="display:grid"><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st1" checked><label class="pp-toggle__label" for="st1">Application review</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st2" checked><label class="pp-toggle__label" for="st2">Interviewing</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st3" checked><label class="pp-toggle__label" for="st3">Evaluation</label></div></div></fieldset>
+<div class="pp-stack"><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st1" checked><label class="pp-toggle__label" for="st1">Application review</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st2" checked><label class="pp-toggle__label" for="st2">Interviewing</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st3" checked><label class="pp-toggle__label" for="st3">Evaluation</label></div></div></fieldset>
 <fieldset class="pp-form-section"><legend class="pp-form-section__title">Phase 2, offer and acceptance</legend>
-<div style="display:grid"><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st4" aria-describedby="st4-d"><label class="pp-toggle__label" for="st4">Background check<span class="pp-toggle__description" id="st4-d">Off. Candidates skip this stage and go straight to the next one.</span></label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st5" checked><label class="pp-toggle__label" for="st5">Offer preparation</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st6" checked><label class="pp-toggle__label" for="st6">Offer approval</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st7" checked><label class="pp-toggle__label" for="st7">Offer delivery</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st8" checked><label class="pp-toggle__label" for="st8">Contract signing</label></div></div></fieldset>
+<div class="pp-stack"><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st4" aria-describedby="st4-d"><label class="pp-toggle__label" for="st4">Background check<span class="pp-toggle__description" id="st4-d">Off. Candidates skip this stage and go straight to the next one.</span></label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st5" checked><label class="pp-toggle__label" for="st5">Offer preparation</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st6" checked><label class="pp-toggle__label" for="st6">Offer approval</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st7" checked><label class="pp-toggle__label" for="st7">Offer delivery</label></div><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st8" checked><label class="pp-toggle__label" for="st8">Contract signing</label></div></div></fieldset>
 <fieldset class="pp-form-section"><legend class="pp-form-section__title">Phase 3, before day 1</legend>
-<div style="display:grid"><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st9" checked><label class="pp-toggle__label" for="st9">Pre-boarding</label></div></div></fieldset>
+<div class="pp-stack"><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st9" checked><label class="pp-toggle__label" for="st9">Pre-boarding</label></div></div></fieldset>
 <fieldset class="pp-form-section"><legend class="pp-form-section__title">Phase 4, onboarding and day 1</legend>
-<div style="display:grid"><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st10" checked><label class="pp-toggle__label" for="st10">Onboarding</label></div></div></fieldset>
+<div class="pp-stack"><div class="pp-toggle pp-toggle--end"><input class="pp-toggle__input" type="checkbox" role="switch" id="st10" checked><label class="pp-toggle__label" for="st10">Onboarding</label></div></div></fieldset>
 </div>
 </article>
 <div class="pp-section-message pp-section-message--warning" role="region" aria-labelledby="st-w"><i data-lucide="triangle-alert"></i><div class="pp-section-message__content"><h3 class="pp-section-message__title" id="st-w">2 candidates are in Background check now</h3><div class="pp-section-message__body">If you save with it off, they stay there until someone moves them on. New candidates skip it.</div></div></div>
@@ -1365,7 +1365,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:1330px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -1374,7 +1374,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -1395,7 +1395,7 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-250)">
+<div class="pp-stack pp-gap-250">
 <div class="pp-stat-row">
 <div class="pp-stat"><span class="pp-stat__label"><i data-lucide="list"></i>Events today</span><span class="pp-stat__value">214</span><span class="pp-stat__meta">Since midnight, Johannesburg time</span></div>
 <div class="pp-stat"><span class="pp-stat__label"><i data-lucide="settings"></i>Settings changes</span><span class="pp-stat__value">3</span><span class="pp-stat__meta">Today</span></div>
@@ -1403,7 +1403,7 @@
 <div class="pp-stat"><span class="pp-stat__label"><i data-lucide="mouse-pointer-click"></i>People’s actions</span><span class="pp-stat__value">57</span><span class="pp-stat__meta">Today</span></div>
 </div>
 <article class="pp-card pp-card--compact">
-<div style="display:grid;gap:var(--space-150);grid-template-columns:repeat(3,minmax(0,1fr));align-items:end">
+<div class="pp-grid pp-grid--3 pp-gap-150 pp-grid--bottom">
 <div class="pp-field">
 <label class="pp-field__label" for="au-mod">Module</label>
 <div class="pp-select"><select class="pp-select__input" id="au-mod"><option selected>All modules</option><option>Hire</option><option>IT setup</option><option>Admin</option><option>System</option></select><i data-lucide="chevron-down"></i></div>
@@ -1436,7 +1436,7 @@
 </div>
 </div>
 </article>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-100)"><span class="pp-text pp-text--small pp-text--subtle" role="status">Showing 1 to 8 of 1 482 events, 4 Nov to 11 Nov 2026</span><span style="margin-left:auto"></span><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="x"></i><span>Clear filters</span></button><button class="pp-button pp-button--default pp-button--small" type="button"><i data-lucide="filter"></i><span>Export these</span></button></div>
+<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--small pp-text--subtle" role="status">Showing 1 to 8 of 1 482 events, 4 Nov to 11 Nov 2026</span><span class="pp-push"></span><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="x"></i><span>Clear filters</span></button><button class="pp-button pp-button--default pp-button--small" type="button"><i data-lucide="filter"></i><span>Export these</span></button></div>
 <ul class="pp-audit-log" aria-label="Audit log">
 <li><details class="pp-audit-event" open>
 <summary class="pp-audit-event__summary">
@@ -1541,7 +1541,7 @@
 <div class="pp-app-shell pp-app-shell--inline" style="--_height:960px">
 <a class="pp-app-shell__skip" href="#">Skip to main content</a>
 <nav class="pp-side-navigation pp-side-navigation--inline" id="ad-nav" aria-label="Main">
-<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><svg class="pp-logo__mark" viewBox="0 0 76 64" aria-hidden="true"><circle class="c1" cx="20" cy="38" r="18"></circle><circle class="c2" cx="38" cy="24" r="18"></circle><circle class="c3" cx="56" cy="38" r="18"></circle></svg><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
+<div class="pp-side-navigation__header"><button class="pp-side-navigation__product" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Switch company, Mokoena Logistics"><i data-pepla-mark></i><span class="pp-side-navigation__product-name"><span class="pp-side-navigation__wordmark">pepla</span><span class="pp-side-navigation__product-area">Mokoena Logistics</span></span><i data-lucide="chevrons-up-down"></i></button></div><div class="pp-side-navigation__body"><ul class="pp-side-navigation__section"><li><a class="pp-side-navigation__item" href="#"><i data-lucide="arrow-left"></i><span class="pp-side-navigation__label">Back to Today</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h0"><li><span class="pp-side-navigation__heading" id="ad-h0">Workspace</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="layout-dashboard"></i><span class="pp-side-navigation__label">Overview</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="users"></i><span class="pp-side-navigation__label">Users and roles</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="building-2"></i><span class="pp-side-navigation__label">Tenant settings</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="bell"></i><span class="pp-side-navigation__label">Notifications</span></a></li><li><a class="pp-side-navigation__item" href="#" aria-current="page"><i data-lucide="scale"></i><span class="pp-side-navigation__label">Audit and compliance</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h1"><li><span class="pp-side-navigation__heading" id="ad-h1">Hire</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="sliders-horizontal"></i><span class="pp-side-navigation__label">Scoring weights</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="timer"></i><span class="pp-side-navigation__label">SLA thresholds</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-checks"></i><span class="pp-side-navigation__label">Panel rules</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="smile"></i><span class="pp-side-navigation__label">Sentiment scales</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="list-ordered"></i><span class="pp-side-navigation__label">Stage setup</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="zap"></i><span class="pp-side-navigation__label">Intelligence rules</span></a></li></ul>
 <ul class="pp-side-navigation__section" aria-labelledby="ad-h2"><li><span class="pp-side-navigation__heading" id="ad-h2">Requests</span></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="inbox"></i><span class="pp-side-navigation__label">Queues</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="files"></i><span class="pp-side-navigation__label">Provisioning templates</span></a></li><li><a class="pp-side-navigation__item" href="#"><i data-lucide="git-fork"></i><span class="pp-side-navigation__label">Routing rules</span></a></li></ul>
@@ -1550,7 +1550,7 @@
 </nav>
 <header class="pp-top-navigation pp-top-navigation--inline">
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Collapse menu" aria-expanded="true" aria-controls="ad-nav"><i data-lucide="panel-left"></i></button>
-<label class="pp-top-navigation__search"><i data-lucide="search"></i><input type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
+<label class="pp-top-navigation__search"><i data-lucide="search"></i><input class="pp-top-navigation__search-input" type="search" placeholder="Search settings and people" aria-label="Search settings and people"></label>
 <div class="pp-top-navigation__actions">
 <span class="pp-role pp-role--current"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span>
 <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Notifications, 2 unread" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="bell"></i><span class="pp-top-navigation__badge" aria-hidden="true">2</span></button>
@@ -1571,7 +1571,7 @@
 </div>
 
 </header>
-<div style="display:grid;gap:var(--space-250)">
+<div class="pp-stack pp-gap-250">
 <div class="pp-stat-row">
 <div class="pp-stat"><span class="pp-stat__label"><i data-lucide="list"></i>Events today</span><span class="pp-stat__value">214</span><span class="pp-stat__meta">Since midnight, Johannesburg time</span></div>
 <div class="pp-stat"><span class="pp-stat__label"><i data-lucide="settings"></i>Settings changes</span><span class="pp-stat__value">3</span><span class="pp-stat__meta">Today</span></div>
@@ -1579,7 +1579,7 @@
 <div class="pp-stat"><span class="pp-stat__label"><i data-lucide="mouse-pointer-click"></i>People’s actions</span><span class="pp-stat__value">57</span><span class="pp-stat__meta">Today</span></div>
 </div>
 <article class="pp-card pp-card--compact">
-<div style="display:grid;gap:var(--space-150);grid-template-columns:repeat(3,minmax(0,1fr));align-items:end">
+<div class="pp-grid pp-grid--3 pp-gap-150 pp-grid--bottom">
 <div class="pp-field">
 <label class="pp-field__label" for="au-mod">Module</label>
 <div class="pp-select"><select class="pp-select__input" id="au-mod"><option selected>All modules</option><option>Hire</option><option>IT setup</option><option>Admin</option><option>System</option></select><i data-lucide="chevron-down"></i></div>
@@ -1612,7 +1612,7 @@
 </div>
 </div>
 </article>
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-100)"><span class="pp-text pp-text--small pp-text--subtle" role="status">Showing 1 to 8 of 1 482 events, 4 Nov to 11 Nov 2026</span><span style="margin-left:auto"></span><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="x"></i><span>Clear filters</span></button><button class="pp-button pp-button--default pp-button--small" type="button"><i data-lucide="filter"></i><span>Export these</span></button></div>
+<div class="pp-inline pp-gap-100"><span class="pp-text pp-text--small pp-text--subtle" role="status">Showing 1 to 8 of 1 482 events, 4 Nov to 11 Nov 2026</span><span class="pp-push"></span><button class="pp-button pp-button--subtle pp-button--small" type="button"><i data-lucide="x"></i><span>Clear filters</span></button><button class="pp-button pp-button--default pp-button--small" type="button"><i data-lucide="filter"></i><span>Export these</span></button></div>
 <ul class="pp-audit-log" aria-label="Audit log">
 <li><details class="pp-audit-event" open>
 <summary class="pp-audit-event__summary">
@@ -1710,16 +1710,16 @@
 </div>
 </div>
 </main>
-<div class="pp-blanket pp-blanket--inline pp-blanket--end" style="position:absolute;inset:0;min-height:0;z-index:var(--layer-blanket)">
-<div class="pp-drawer pp-drawer--inline pp-drawer--large" role="dialog" aria-modal="true" aria-labelledby="ed-t" style="height:100%">
+<div class="pp-blanket pp-blanket--inline pp-blanket--end">
+<div class="pp-drawer pp-drawer--inline pp-drawer--large" role="dialog" aria-modal="true" aria-labelledby="ed-t">
 <div class="pp-drawer__header">
 <div class="pp-drawer__heading"><h2 class="pp-drawer__title" id="ed-t">Scoring weights changed</h2><p class="pp-drawer__description">Thandeka Dlamini, 11 Nov 2026, 09:12</p></div>
 
 <button class="pp-button pp-button--subtle pp-button--icon pp-drawer__close" type="button" aria-label="Close"><i data-lucide="x"></i></button>
 </div>
-<div class="pp-drawer__body"><div style="display:grid;gap:var(--space-300)">
-<div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-075)"><span class="pp-tag">Settings change</span><span class="pp-tag">Admin</span><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Done</span></div>
-<section aria-labelledby="ed-w" style="display:grid;gap:var(--space-100)"><h3 class="pp-form-section__title" id="ed-w">What changed</h3>
+<div class="pp-drawer__body"><div class="pp-stack pp-gap-300">
+<div class="pp-inline pp-gap-075"><span class="pp-tag">Settings change</span><span class="pp-tag">Admin</span><span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Done</span></div>
+<section class="pp-stack pp-gap-100" aria-labelledby="ed-w"><h3 class="pp-form-section__title" id="ed-w">What changed</h3>
 <div class="pp-table-wrap"><table class="pp-table pp-table--compact">
 <thead><tr><th scope="col">Setting</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
 <tbody>
@@ -1729,11 +1729,11 @@
 <tr><th scope="row">Problem solving</th><td><del>20%</del></td><td><ins>15%</ins></td></tr>
 </tbody></table></div>
 <span class="pp-text pp-text--small pp-text--subtle">Scoring weights, version 3 to version 4. Scores already given keep the old weights.</span></section>
-<section aria-labelledby="ed-a" style="display:grid;gap:var(--space-100)"><h3 class="pp-form-section__title" id="ed-a">Who</h3>
+<section class="pp-stack pp-gap-100" aria-labelledby="ed-a"><h3 class="pp-form-section__title" id="ed-a">Who</h3>
 <dl class="pp-dl"><dt>Name</dt><dd>Thandeka Dlamini</dd><dt>Email</dt><dd>thandeka.dlamini@mokoena-logistics.co.za</dd><dt>Role</dt><dd><ul class="pp-role-group" aria-label="Role used"><li><span class="pp-role pp-role--current" aria-label="Admin, the role they use now"><i data-lucide="shield"></i><span class="pp-role__text">Admin</span></span></li></ul></dd><dt>User ID</dt><dd><code>usr_4QK82M</code></dd></dl></section>
-<section aria-labelledby="ed-e" style="display:grid;gap:var(--space-100)"><h3 class="pp-form-section__title" id="ed-e">Record</h3>
+<section class="pp-stack pp-gap-100" aria-labelledby="ed-e"><h3 class="pp-form-section__title" id="ed-e">Record</h3>
 <dl class="pp-dl"><dt>Type</dt><dd>Settings</dd><dt>Name</dt><dd>Scoring weights</dd><dt>ID</dt><dd><code>cfg_scoring_weights</code></dd></dl></section>
-<section aria-labelledby="ed-t" style="display:grid;gap:var(--space-100)"><h3 class="pp-form-section__title" id="ed-t">Technical detail</h3>
+<section class="pp-stack pp-gap-100" aria-labelledby="ed-t"><h3 class="pp-form-section__title" id="ed-t">Technical detail</h3>
 <dl class="pp-dl"><dt>Local time</dt><dd>Wed 11 Nov 2026, 09:12:40</dd><dt>UTC</dt><dd><code>2026-11-11T07:12:40Z</code></dd><dt>IP address</dt><dd>102.65.•••.•••</dd><dt>Correlation ID</dt><dd><code>cor_7HX2P0A9</code></dd><dt>Event ID</dt><dd><code>evt_9JD31Q</code></dd></dl></section>
 </div></div>
 <div class="pp-drawer__footer"><span class="pp-drawer__footer-note">This record cannot be changed</span><button class="pp-button pp-button--default" type="button"><i data-lucide="git-compare"></i><span>Compare versions 3 and 4</span></button><button class="pp-button pp-button--primary" type="button">Close</button></div>

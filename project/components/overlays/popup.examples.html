@@ -1,12 +1,12 @@
 <section data-example="Filter popup">
-  <div class="pp-popup-anchor" style="flex-direction:column;align-items:flex-start;gap:var(--space-050)">
+  <div class="pp-popup-anchor">
     <button class="pp-button pp-button--default pp-button--small" type="button" aria-expanded="true" aria-controls="pu-1"><span>Country</span><i data-lucide="chevron-down"></i></button>
     <div class="pp-popup pp-popup--inline" id="pu-1" role="dialog" aria-label="Filter by country">
       <div class="pp-popup__header"><h3 class="pp-popup__title">Show people in</h3></div>
-      <div style="display:flex;flex-direction:column;gap:var(--space-100)">
-        <label style="display:flex;gap:var(--space-100);align-items:center;min-height:var(--size-control-small)"><input type="checkbox" checked> South Africa (31)</label>
-        <label style="display:flex;gap:var(--space-100);align-items:center;min-height:var(--size-control-small)"><input type="checkbox"> Zimbabwe (5)</label>
-        <label style="display:flex;gap:var(--space-100);align-items:center;min-height:var(--size-control-small)"><input type="checkbox"> Zambia (2)</label>
+      <div class="pp-stack pp-gap-100">
+        <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="pu-c1" checked><label class="pp-checkbox__label" for="pu-c1">South Africa (31)</label></div>
+        <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="pu-c2"><label class="pp-checkbox__label" for="pu-c2">Zimbabwe (5)</label></div>
+        <div class="pp-checkbox"><input class="pp-checkbox__input" type="checkbox" id="pu-c3"><label class="pp-checkbox__label" for="pu-c3">Zambia (2)</label></div>
       </div>
       <div class="pp-popup__footer">
         <button class="pp-button pp-button--subtle pp-button--small" type="button">Clear</button>
@@ -16,11 +16,11 @@
   </div>
 </section>
 <section data-example="Explainer popup">
-  <div class="pp-popup-anchor" style="flex-direction:column;align-items:flex-start;gap:var(--space-050)">
+  <div class="pp-popup-anchor">
     <button class="pp-button pp-button--link pp-button--small" type="button" aria-expanded="true" aria-controls="pu-2"><i data-lucide="eye-off"></i><span>Why is this hidden?</span></button>
     <div class="pp-popup pp-popup--inline" id="pu-2" role="dialog" aria-labelledby="pu-2-t">
-      <h3 class="pp-popup__title" id="pu-2-t" style="margin-bottom:var(--space-075)">ID numbers stay hidden</h3>
-      <p style="margin:0;color:var(--color-text-subtle)">POPIA asks us to show personal data only when it's needed. Showing Sipho's ID number is logged with your name and the time.</p>
+      <h3 class="pp-popup__title" id="pu-2-t">ID numbers stay hidden</h3>
+      <p class="pp-text pp-text--subtle">POPIA asks us to show personal data only when it's needed. Showing Sipho's ID number is logged with your name and the time.</p>
     </div>
   </div>
 </section>

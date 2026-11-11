@@ -1,0 +1,74 @@
+/* Layout. Spec: layout.md. The only way a screen arranges components: no style="" anywhere.
+   Every gap is a space token, set with a pp-gap-* class (default shown per primitive). */
+
+/* Stack: children one under another */
+.pp-stack { display: grid; gap: var(--_gap, var(--space-200)); min-width: 0; align-content: start; }
+.pp-stack--start { justify-items: start; }
+.pp-stack--center { justify-items: center; text-align: center; }
+ul.pp-stack, ol.pp-stack, ul.pp-inline, ol.pp-inline, ul.pp-grid, ol.pp-grid { list-style: none; margin: 0; padding: 0; }
+
+/* Inline: children in a row that wraps */
+.pp-inline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--_gap, var(--space-100)); min-width: 0; }
+.pp-inline--fit { display: inline-flex; }
+.pp-inline--nowrap { flex-wrap: nowrap; }
+.pp-inline--between { justify-content: space-between; }
+.pp-inline--end { justify-content: flex-end; }
+.pp-inline--center { justify-content: center; }
+.pp-inline--top { align-items: flex-start; }
+.pp-inline--baseline { align-items: baseline; }
+.pp-inline--stretch { align-items: stretch; }
+
+/* Columns: the page's main column and a side column (pp-columns--aside-start puts the side first) */
+.pp-columns { display: grid; gap: var(--_gap, var(--space-300)); grid-template-columns: minmax(0, 1fr) var(--layout-aside-width); align-items: start; min-width: 0; }
+.pp-columns--aside-start { grid-template-columns: var(--layout-aside-width) minmax(0, 1fr); }
+.pp-columns--wide-aside { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.pp-columns--even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 1023px) { .pp-columns { grid-template-columns: minmax(0, 1fr); } }
+
+/* Grid: equal tiles. Fixed counts fall back to fewer columns on narrow screens. */
+.pp-grid { display: grid; gap: var(--_gap, var(--space-200)); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--_min, 240px)), 1fr)); min-width: 0; }
+.pp-grid--small { --_min: 160px; }
+.pp-grid--large { --_min: 380px; }
+.pp-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pp-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pp-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pp-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.pp-grid--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+@media (max-width: 767px) { .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 479px) { .pp-grid--2, .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: minmax(0, 1fr); } }
+
+/* Gap: one class per space step */
+.pp-gap-0 { --_gap: 0; }
+.pp-gap-025 { --_gap: var(--space-025); }
+.pp-gap-050 { --_gap: var(--space-050); }
+.pp-gap-075 { --_gap: var(--space-075); }
+.pp-gap-100 { --_gap: var(--space-100); }
+.pp-gap-150 { --_gap: var(--space-150); }
+.pp-gap-200 { --_gap: var(--space-200); }
+.pp-gap-250 { --_gap: var(--space-250); }
+.pp-gap-300 { --_gap: var(--space-300); }
+.pp-gap-400 { --_gap: var(--space-400); }
+.pp-gap-500 { --_gap: var(--space-500); }
+.pp-gap-600 { --_gap: var(--space-600); }
+
+/* Inside a row: grow to fill, keep its size, or push to the far end */
+.pp-grow { flex: 1 1 0; min-width: 0; }
+.pp-grow--field { flex: 1 1 var(--space-1000); min-width: min(100%, 120px); }
+.pp-fixed { flex: none; }
+.pp-push { margin-inline-start: auto; }
+
+/* Width: how wide a block may get */
+.pp-measure-narrow { width: 100%; max-width: var(--layout-narrow-max); }
+.pp-measure-form { width: 100%; max-width: var(--layout-form-max); }
+.pp-measure-reading { width: 100%; max-width: var(--layout-reading-max); }
+.pp-shrink { min-width: 0; }
+dl.pp-stack, dl.pp-grid, dl.pp-inline { margin: 0; }
+
+.pp-inline--bottom { align-items: flex-end; }
+.pp-grid--bottom { align-items: end; }
+/* A control that should not stretch: a filter select in a card header, a search box */
+.pp-width-field-small { width: var(--size-field-small); max-width: 100%; }
+.pp-width-field-medium { width: var(--size-field-medium); max-width: 100%; }
+
+/* Scroll: a region that scrolls inside itself once it is taller than its --_height */
+.pp-scroll { max-height: var(--_height, none); overflow-y: auto; min-height: 0; }

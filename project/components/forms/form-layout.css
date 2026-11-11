@@ -49,3 +49,6 @@
   .pp-form__footer > .pp-button-group { margin-left: 0; }
   .pp-form__status { justify-content: center; }
 }
+
+/* A row whose fields carry no help text lines up on their centres */
+.pp-form-row--center { align-items: center; }

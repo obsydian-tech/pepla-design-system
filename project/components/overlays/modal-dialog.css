@@ -11,7 +11,7 @@
   animation: pp-blanket-in var(--motion-duration-slow) var(--motion-easing-standard);
 }
 /* In place, for docs: the blanket fills its frame instead of the viewport */
-.pp-blanket--inline { position: relative; inset: auto; z-index: auto; min-height: 360px; padding: var(--space-300); border-radius: var(--radius-large); overflow: hidden; animation: none; }
+.pp-blanket--inline { position: relative; inset: auto; z-index: auto; min-height: var(--_height, 360px); padding: var(--space-300); border-radius: var(--radius-large); overflow: hidden; animation: none; }
 .pp-blanket--sheet { place-items: end stretch; padding: 0; }
 .pp-blanket--end { place-items: stretch end; padding: 0; }
 
@@ -66,3 +66,6 @@
 @media (prefers-reduced-motion: reduce) {
   .pp-modal-dialog, .pp-modal-dialog--sheet { animation-name: pp-blanket-in; }
 }
+
+/* A bottom sheet shown in place is phone width */
+.pp-blanket--inline.pp-blanket--sheet { max-width: 390px; }

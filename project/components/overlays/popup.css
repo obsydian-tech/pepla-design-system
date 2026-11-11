@@ -32,3 +32,6 @@
 
 @keyframes pp-popup-in { from { opacity: 0; transform: translateY(calc(-1 * var(--space-050))); } }
 @media (prefers-reduced-motion: reduce) { .pp-popup { animation-name: pp-blanket-in; } }
+
+/* Shown in place (docs): the panel sits under its trigger instead of floating */
+.pp-popup-anchor:has(> .pp-popup--inline, > .pp-dropdown-menu--inline, > .pp-confidence-sources) { flex-direction: column; align-items: flex-start; gap: var(--space-050); }

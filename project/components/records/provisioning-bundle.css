@@ -28,3 +28,6 @@
   .pp-bundle__items > .pp-bundle__item { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon body" ". owner" ". status"; }
   .pp-bundle__status { flex-direction: row; flex-wrap: wrap; align-items: center; }
 }
+
+/* A note field inside an item sits a little below the item's detail line */
+.pp-bundle__body > .pp-field { margin-top: var(--space-100); }

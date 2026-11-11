@@ -27,11 +27,13 @@
   </nav>
 </section>
 <section data-example="Under a table">
-  <div style="background:var(--elevation-surface-raised);border:var(--border-width) solid var(--color-border);border-radius:var(--radius-large);overflow:hidden">
-    <div style="padding:var(--space-150) var(--space-200);border-bottom:var(--border-width) solid var(--color-border)">Lerato Mokoena</div>
-    <div style="padding:var(--space-150) var(--space-200);border-bottom:var(--border-width) solid var(--color-border)">Sipho Ndlovu</div>
-    <div style="padding:var(--space-150) var(--space-200);border-bottom:var(--border-width) solid var(--color-border)">Thandeka Dlamini</div>
-    <nav class="pp-pagination" aria-label="Document pages" style="padding:var(--space-100) var(--space-200)">
+  <div class="pp-stack pp-gap-150">
+    <div class="pp-table-wrap"><table class="pp-table">
+      <caption class="pp-field__label pp-field__label--hidden">People, page 3</caption>
+      <thead><tr><th scope="col">Name</th><th scope="col">Team</th></tr></thead>
+      <tbody><tr><td>Lerato Mokoena</td><td>Operations</td></tr><tr><td>Sipho Ndlovu</td><td>Finance</td></tr><tr><td>Thandeka Dlamini</td><td>People</td></tr></tbody>
+    </table></div>
+    <nav class="pp-pagination" aria-label="People pages">
       <p class="pp-pagination__summary">Showing <strong>41–43</strong> of <strong>43</strong> people</p>
       <ul class="pp-pagination__pages">
         <li><button class="pp-pagination__page" type="button" aria-label="Previous page"><i data-lucide="chevron-left"></i><span>Previous</span></button></li>

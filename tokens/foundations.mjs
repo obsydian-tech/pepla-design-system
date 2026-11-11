@@ -82,6 +82,11 @@ export const motion = {
   'motion.easing.exit': 'cubic-bezier(0.4, 0, 1, 1)',
   'motion.easing.spring': 'cubic-bezier(0.34, 1.36, 0.64, 1)',
   'motion.scale.pressed': '0.97',
+  'motion.delay.tooltip': '300ms',         // hover before a tooltip shows; focus shows at once
+  'motion.duration.loop.spin': '800ms',     // one turn of the spinner
+  'motion.duration.loop.spin.reduced': '2400ms', // the spinner with reduced motion: slower, never still
+  'motion.duration.loop.shimmer': '1600ms', // one pass of the skeleton shimmer
+  'motion.duration.flag.dismiss': '8000ms', // a success flag closes itself after this
 };
 
 export const layout = {
@@ -92,11 +97,21 @@ export const layout = {
   'size.icon.small': '16px',
   'size.icon.medium': '20px',
   'size.icon.large': '24px',
+  'size.field.small': '220px',    // a filter select or short field in a row
+  'size.field.medium': '320px',   // a search box or a longer field in a row
+  'size.wordmark.small': '18px',   // the pepla wordmark beside the mark (Logo)
+  'size.wordmark.medium': '24px',
+  'size.wordmark.large': '40px',
+  'size.wordmark.tracking': '-0.04em',
+  'size.tracking.masked': '0.08em', // dots and digits of a masked value, a password, an ID
   'layout.sidebar.width': '256px',
   'layout.sidebar.width.collapsed': '64px',
   'layout.topbar.height': '56px',
   'layout.content.max': '1280px',
   'layout.reading.max': '720px',
+  'layout.form.max': '560px',     // a single-column form or a settings block
+  'layout.narrow.max': '360px',   // a field, a search box or a small card in a wide row
+  'layout.aside.width': '340px',  // the side column of a two-column page (pp-columns)
   'layout.drawer.width.medium': '480px',
   'layout.drawer.width.large': '720px',
   'layout.gutter.phone': '16px',

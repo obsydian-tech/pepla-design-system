@@ -14,7 +14,7 @@
   animation: pp-drawer-in var(--motion-duration-slow) var(--motion-easing-enter);
 }
 .pp-drawer--large { --_width: var(--layout-drawer-width-large); }
-.pp-drawer--inline { position: relative; inset: auto; z-index: auto; height: 560px; animation: none; }
+.pp-drawer--inline { position: relative; inset: auto; z-index: auto; height: var(--_height, 560px); animation: none; }
 
 .pp-drawer__header { display: flex; align-items: flex-start; gap: var(--space-150); padding: var(--space-300); border-bottom: var(--border-width) solid var(--color-border); }
 .pp-drawer__heading { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-050); }
@@ -51,3 +51,7 @@
 @media (prefers-reduced-motion: reduce) {
   .pp-drawer { animation-name: pp-blanket-in; }
 }
+
+/* A drawer opened over an in-place app shell (docs and UI kits) covers the shell, not the page */
+.pp-app-shell--inline > .pp-blanket { position: absolute; inset: 0; min-height: 0; z-index: var(--layer-blanket); }
+.pp-app-shell--inline > .pp-blanket > .pp-drawer { height: 100%; }

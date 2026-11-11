@@ -1,13 +1,13 @@
 /* Logo. Spec: logo.md. The mark's colours are brand tokens, so the logo follows the theme. */
-.pp-logo { display: inline-flex; align-items: center; gap: 0.32em; color: var(--color-text); text-decoration: none; font-size: 24px; line-height: 1; }
+.pp-logo { display: inline-flex; align-items: center; gap: 0.32em; color: var(--color-text); text-decoration: none; font-size: var(--size-wordmark-medium); line-height: 1; }
 .pp-logo__mark { width: 1.2em; height: 1em; flex: none; overflow: visible; }
-.pp-logo__mark .c1 { fill: var(--color-brand-coral); }
-.pp-logo__mark .c2 { fill: var(--color-brand-violet); }
-.pp-logo__mark .c3 { fill: var(--color-brand-mint); }
-.pp-logo__word { font-family: var(--font-family-display); font-weight: var(--font-weight-heavy); letter-spacing: -0.04em; }
-.pp-logo--small { font-size: 18px; }
-.pp-logo--large { font-size: 40px; }
+.pp-logo__mark .pp-logo__coral { fill: var(--color-brand-coral); }
+.pp-logo__mark .pp-logo__violet { fill: var(--color-brand-violet); }
+.pp-logo__mark .pp-logo__mint { fill: var(--color-brand-mint); }
+.pp-logo__word { font-family: var(--font-family-display); font-weight: var(--font-weight-heavy); letter-spacing: var(--size-wordmark-tracking); }
+.pp-logo--small { font-size: var(--size-wordmark-small); }
+.pp-logo--large { font-size: var(--size-wordmark-large); }
 .pp-logo--mark-only .pp-logo__word { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.pp-app-icon { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); }
+.pp-app-icon { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: var(--radius-medium); background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); }
 .pp-app-icon .pp-logo__mark { width: 62%; height: auto; }
 .pp-app-icon--large { width: 96px; height: 96px; border-radius: var(--radius-xlarge); }

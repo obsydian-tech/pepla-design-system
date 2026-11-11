@@ -73,3 +73,8 @@
   .pp-inline-dialog { animation-name: pp-inline-dialog-fade; }
   @keyframes pp-inline-dialog-fade { from { opacity: 0; } }
 }
+
+/* Shown in place (docs): under its trigger, or above it with --top, at the end edge with --end */
+.pp-inline-dialog-anchor:has(> .pp-inline-dialog--inline) { flex-direction: column; align-items: flex-start; }
+.pp-inline-dialog-anchor:has(> .pp-inline-dialog--inline.pp-inline-dialog--top) { flex-direction: column-reverse; }
+.pp-inline-dialog-anchor:has(> .pp-inline-dialog--inline.pp-inline-dialog--end) { align-items: flex-end; }

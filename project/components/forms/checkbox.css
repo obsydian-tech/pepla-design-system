@@ -61,3 +61,6 @@
 @media (pointer: coarse) {
   .pp-checkbox { min-height: var(--size-touch-target); padding: var(--space-150) 0; }
 }
+
+/* Children of a parent checkbox ("All 3 documents") sit indented under it */
+.pp-field__options--nested { padding-left: var(--space-400); }

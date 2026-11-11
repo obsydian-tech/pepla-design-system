@@ -9,3 +9,7 @@
 .pp-dl__source { display: inline-flex; align-items: center; gap: var(--space-050); margin-left: var(--space-100); font: var(--font-body-small); color: var(--color-text-agent); }
 .pp-dl__source svg { width: 14px; height: 14px; }
 @media (max-width: 479px) { .pp-dl { grid-template-columns: 1fr; gap: var(--space-025); } .pp-dl dd { margin-bottom: var(--space-150); } }
+
+/* Strip: the terms of a record side by side, each term over its value (a candidate's details row) */
+.pp-dl--strip { grid-template-columns: none; grid-template-rows: auto auto; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--space-025) var(--space-300); }
+@media (max-width: 767px) { .pp-dl--strip { grid-template-rows: none; grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); } }

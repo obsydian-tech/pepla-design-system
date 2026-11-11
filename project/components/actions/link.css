@@ -50,3 +50,6 @@
 
 /* A link that names the current page in a list of links */
 .pp-link[aria-current="page"] { color: var(--color-text); font-weight: var(--font-weight-semibold); text-decoration: none; cursor: default; }
+
+/* External: goes outside Pepla, with the external-link icon after the last word */
+.pp-link--external .pp-link__icon > svg { margin-inline-start: var(--space-025); }

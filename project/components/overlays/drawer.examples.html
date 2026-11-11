@@ -10,18 +10,22 @@
       </div>
       <div class="pp-drawer__body">
         <form class="pp-drawer__form">
-          <label style="display:flex;flex-direction:column;gap:var(--space-075);font:var(--font-label)">Rule name
-            <input value="Payslip questions" style="min-height:var(--size-control-medium);padding:0 var(--space-150);border:var(--border-width) solid var(--color-border-input);border-radius:var(--radius-medium);background:var(--color-background-input);font:var(--font-body)">
-          </label>
-          <label style="display:flex;flex-direction:column;gap:var(--space-075);font:var(--font-label)">When the request mentions
-            <input value="payslip, salary, deduction, UIF" style="min-height:var(--size-control-medium);padding:0 var(--space-150);border:var(--border-width) solid var(--color-border-input);border-radius:var(--radius-medium);background:var(--color-background-input);font:var(--font-body)">
-          </label>
-          <label style="display:flex;flex-direction:column;gap:var(--space-075);font:var(--font-label)">Send to queue
-            <select style="min-height:var(--size-control-medium);padding:0 var(--space-150);border:var(--border-width) solid var(--color-border-input);border-radius:var(--radius-medium);background:var(--color-background-input);font:var(--font-body)"><option>Payroll questions</option><option>General HR</option></select>
-          </label>
-          <label style="display:flex;flex-direction:column;gap:var(--space-075);font:var(--font-label)">Escalate to
-            <select style="min-height:var(--size-control-medium);padding:0 var(--space-150);border:var(--border-width) solid var(--color-border-input);border-radius:var(--radius-medium);background:var(--color-background-input);font:var(--font-body)"><option>Thandeka Dlamini</option><option>Sipho Ndlovu</option></select>
-          </label>
+          <div class="pp-field">
+            <label class="pp-field__label" for="dr-1-name">Rule name</label>
+            <input class="pp-text-field" id="dr-1-name" type="text" value="Payslip questions">
+          </div>
+          <div class="pp-field">
+            <label class="pp-field__label" for="dr-1-match">When the request mentions</label>
+            <input class="pp-text-field" id="dr-1-match" type="text" value="payslip, salary, deduction, UIF">
+          </div>
+          <div class="pp-field">
+            <label class="pp-field__label" for="dr-1-queue">Send to queue</label>
+            <div class="pp-select"><select class="pp-select__input" id="dr-1-queue"><option>Payroll questions</option><option>General HR</option></select></div>
+          </div>
+          <div class="pp-field">
+            <label class="pp-field__label" for="dr-1-esc">Escalate to</label>
+            <div class="pp-select"><select class="pp-select__input" id="dr-1-esc"><option>Thandeka Dlamini</option><option>Sipho Ndlovu</option></select></div>
+          </div>
         </form>
       </div>
       <div class="pp-drawer__footer">
@@ -34,7 +38,7 @@
 </section>
 <section data-example="Read-only detail: audit event">
   <div class="pp-blanket pp-blanket--inline pp-blanket--end">
-    <div class="pp-drawer pp-drawer--inline" role="dialog" aria-modal="true" aria-labelledby="dr-2-t" style="height:440px">
+    <div class="pp-drawer pp-drawer--inline" role="dialog" aria-modal="true" aria-labelledby="dr-2-t" style="--_height:440px">
       <div class="pp-drawer__header">
         <div class="pp-drawer__heading">
           <h2 class="pp-drawer__title" id="dr-2-t">Bank details changed</h2>
@@ -43,12 +47,12 @@
         <button class="pp-button pp-button--subtle pp-button--icon pp-drawer__close" type="button" aria-label="Close"><i data-lucide="x"></i></button>
       </div>
       <div class="pp-drawer__body">
-        <dl style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-150) var(--space-300);margin:0">
-          <dt style="color:var(--color-text-subtle)">Changed by</dt><dd style="margin:0">Lerato Mokoena, in the employee portal</dd>
-          <dt style="color:var(--color-text-subtle)">Approved by</dt><dd style="margin:0">Thandeka Dlamini, 4 Nov 2026, 15:02</dd>
-          <dt style="color:var(--color-text-subtle)">Before</dt><dd style="margin:0">FNB, account ••••4417</dd>
-          <dt style="color:var(--color-text-subtle)">After</dt><dd style="margin:0">Capitec, account ••••0921</dd>
-          <dt style="color:var(--color-text-subtle)">Reason</dt><dd style="margin:0">"Moved my salary account to Capitec."</dd>
+        <dl class="pp-dl">
+          <dt>Changed by</dt><dd>Lerato Mokoena, in the employee portal</dd>
+          <dt>Approved by</dt><dd>Thandeka Dlamini, 4 Nov 2026, 15:02</dd>
+          <dt>Before</dt><dd>FNB, account ••••4417</dd>
+          <dt>After</dt><dd>Capitec, account ••••0921</dd>
+          <dt>Reason</dt><dd>"Moved my salary account to Capitec."</dd>
         </dl>
       </div>
     </div>

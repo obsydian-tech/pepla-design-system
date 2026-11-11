@@ -17,7 +17,7 @@ Three people side by side, coral, violet and mint, and the lowercase wordmark `p
 2. **Wordmark**: `pepla`, lowercase, Manrope 800, tracking -0.04em.
 3. **Gap**: 0.32 of the type size between mark and word.
 
-The mark is inline SVG with classes `c1`, `c2`, `c3`, so its colours come from `--color-brand-*` and the violet lifts to `#7d6ff0` in dark theme by itself.
+Never draw the mark by hand. In this repo a page writes `<i data-pepla-mark></i>` and the build puts in the one SVG (`MARK` in `scripts/lib.mjs`), with circles `pp-logo__coral`, `pp-logo__violet` and `pp-logo__mint`, so its colours come from `--color-brand-*` and the violet lifts in dark theme by itself. In the app it is `<pp-logo>`. `npm run verify:design` fails any hand-written `<svg>`.
 
 ## Appearances
 

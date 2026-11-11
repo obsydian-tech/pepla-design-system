@@ -16,3 +16,6 @@
 .pp-card__footer { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding-top: var(--space-200); border-top: var(--border-width) solid var(--color-border); }
 .pp-card__footer--end { justify-content: flex-end; }
 .pp-card-grid { display: grid; gap: var(--space-200); grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+
+/* Flush: no padding, for a card that holds a table, a banner or a list edge to edge */
+.pp-card--flush { padding: 0; gap: 0; overflow: hidden; }

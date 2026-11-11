@@ -1,5 +1,5 @@
 <section data-example="Sizes and weight">
-  <div style="display:flex;flex-direction:column;gap:var(--space-150);max-width:var(--layout-reading-max)">
+  <div class="pp-stack pp-gap-150 pp-measure-reading">
     <div class="pp-text pp-text--large">Welcome to the team, Sipho. Your first day is Monday 3 Nov 2026.</div>
     <div class="pp-text">Pepla sent Sipho's contract on 28 Oct 2026. He signed it the same day.</div>
     <div class="pp-text pp-text--small">Last changed by Lerato Mokoena, 28 Oct 2026, 15:42</div>
@@ -7,34 +7,34 @@
   </div>
 </section>
 <section data-example="Subtle and subtlest">
-  <div style="display:flex;flex-direction:column;gap:var(--space-050)">
+  <div class="pp-stack pp-gap-050">
     <span class="pp-text pp-text--strong">Thandeka Dlamini</span>
     <span class="pp-text pp-text--subtle">Payroll administrator, Finance</span>
     <span class="pp-text pp-text--small pp-text--subtlest">Joined 1 Mar 2024</span>
   </div>
 </section>
 <section data-example="Numbers that line up">
-  <div style="display:flex;flex-direction:column;gap:var(--space-100);max-width:320px">
-    <div style="display:flex;justify-content:space-between;gap:var(--space-400)"><span class="pp-text">Lerato Mokoena</span><span class="pp-text pp-text--tabular">R 18 500</span></div>
-    <div style="display:flex;justify-content:space-between;gap:var(--space-400)"><span class="pp-text">Sipho Ndlovu</span><span class="pp-text pp-text--tabular">R 21 100</span></div>
-    <div style="display:flex;justify-content:space-between;gap:var(--space-400)"><span class="pp-text">Thandeka Dlamini</span><span class="pp-text pp-text--tabular">R 9 870</span></div>
+  <div class="pp-stack pp-gap-100 pp-measure-narrow">
+    <div class="pp-inline pp-gap-400 pp-inline--between"><span class="pp-text">Lerato Mokoena</span><span class="pp-text pp-text--tabular">R 18 500</span></div>
+    <div class="pp-inline pp-gap-400 pp-inline--between"><span class="pp-text">Sipho Ndlovu</span><span class="pp-text pp-text--tabular">R 21 100</span></div>
+    <div class="pp-inline pp-gap-400 pp-inline--between"><span class="pp-text">Thandeka Dlamini</span><span class="pp-text pp-text--tabular">R 9 870</span></div>
   </div>
-  <div style="display:flex;flex-wrap:wrap;gap:var(--space-400);margin-top:var(--space-300)">
-    <div style="display:flex;flex-direction:column;gap:var(--space-050)"><span class="pp-text pp-text--metric-large">14</span><span class="pp-text pp-text--small pp-text--subtle">People on the team</span></div>
-    <div style="display:flex;flex-direction:column;gap:var(--space-050)"><span class="pp-text pp-text--metric-medium">3</span><span class="pp-text pp-text--small pp-text--subtle">Starting this month</span></div>
-    <div style="display:flex;flex-direction:column;gap:var(--space-050)"><span class="pp-text pp-text--metric-small">R 241 300</span><span class="pp-text pp-text--small pp-text--subtle">Payroll this month</span></div>
+  <div class="pp-inline pp-inline--top pp-gap-400">
+    <div class="pp-stack pp-gap-050"><span class="pp-text pp-text--metric-large">14</span><span class="pp-text pp-text--small pp-text--subtle">People on the team</span></div>
+    <div class="pp-stack pp-gap-050"><span class="pp-text pp-text--metric-medium">3</span><span class="pp-text pp-text--small pp-text--subtle">Starting this month</span></div>
+    <div class="pp-stack pp-gap-050"><span class="pp-text pp-text--metric-small">R 241 300</span><span class="pp-text pp-text--small pp-text--subtle">Payroll this month</span></div>
   </div>
 </section>
 <section data-example="Truncate and line clamp">
-  <div style="display:flex;flex-direction:column;gap:var(--space-200);max-width:280px">
-    <div style="display:flex;flex-direction:column;gap:var(--space-050)">
+  <div class="pp-stack pp-gap-200 pp-measure-narrow">
+    <div class="pp-stack pp-gap-050">
       <span class="pp-text pp-text--small pp-text--subtlest">One line</span>
       <span class="pp-text pp-text--truncate" title="Employment equity report, third quarter 2026, signed copy.pdf">Employment equity report, third quarter 2026, signed copy.pdf</span>
     </div>
-    <div style="display:flex;flex-direction:column;gap:var(--space-050)">
+    <div class="pp-stack pp-stack--start pp-gap-050">
       <span class="pp-text pp-text--small pp-text--subtlest">Two lines</span>
       <span class="pp-text pp-text--clamp">Sipho asked to move his start date to 10 Nov 2026 because his notice period at his current employer ends on 7 Nov. His manager agreed on a call on Tuesday.</span>
-      <button class="pp-button pp-button--link pp-button--small" type="button" style="align-self:flex-start">Show all</button>
+      <button class="pp-button pp-button--link pp-button--small" type="button">Show all</button>
     </div>
   </div>
 </section>

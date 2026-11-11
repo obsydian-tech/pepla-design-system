@@ -93,16 +93,16 @@
 
 /* ---- core/logo ---- */
 /* Logo. Spec: logo.md. The mark's colours are brand tokens, so the logo follows the theme. */
-.pp-logo { display: inline-flex; align-items: center; gap: 0.32em; color: var(--color-text); text-decoration: none; font-size: 24px; line-height: 1; }
+.pp-logo { display: inline-flex; align-items: center; gap: 0.32em; color: var(--color-text); text-decoration: none; font-size: var(--size-wordmark-medium); line-height: 1; }
 .pp-logo__mark { width: 1.2em; height: 1em; flex: none; overflow: visible; }
-.pp-logo__mark .c1 { fill: var(--color-brand-coral); }
-.pp-logo__mark .c2 { fill: var(--color-brand-violet); }
-.pp-logo__mark .c3 { fill: var(--color-brand-mint); }
-.pp-logo__word { font-family: var(--font-family-display); font-weight: var(--font-weight-heavy); letter-spacing: -0.04em; }
-.pp-logo--small { font-size: 18px; }
-.pp-logo--large { font-size: 40px; }
+.pp-logo__mark .pp-logo__coral { fill: var(--color-brand-coral); }
+.pp-logo__mark .pp-logo__violet { fill: var(--color-brand-violet); }
+.pp-logo__mark .pp-logo__mint { fill: var(--color-brand-mint); }
+.pp-logo__word { font-family: var(--font-family-display); font-weight: var(--font-weight-heavy); letter-spacing: var(--size-wordmark-tracking); }
+.pp-logo--small { font-size: var(--size-wordmark-small); }
+.pp-logo--large { font-size: var(--size-wordmark-large); }
 .pp-logo--mark-only .pp-logo__word { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.pp-app-icon { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); }
+.pp-app-icon { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: var(--radius-medium); background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); }
 .pp-app-icon .pp-logo__mark { width: 62%; height: auto; }
 .pp-app-icon--large { width: 96px; height: 96px; border-radius: var(--radius-xlarge); }
 
@@ -149,6 +149,85 @@ span.pp-text, a.pp-text { display: inline; }
 
 /* Reading width for long copy */
 .pp-text--measure { max-width: var(--layout-reading-max); }
+
+/* List: a bulleted or numbered list of short sentences (steps, what happens next) */
+ul.pp-list, ol.pp-list { display: grid; gap: var(--_gap, var(--space-075)); margin: 0; padding-left: var(--space-250); font: var(--font-body); color: var(--color-text); }
+
+/* ---- layout/layout ---- */
+/* Layout. Spec: layout.md. The only way a screen arranges components: no style="" anywhere.
+   Every gap is a space token, set with a pp-gap-* class (default shown per primitive). */
+
+/* Stack: children one under another */
+.pp-stack { display: grid; gap: var(--_gap, var(--space-200)); min-width: 0; align-content: start; }
+.pp-stack--start { justify-items: start; }
+.pp-stack--center { justify-items: center; text-align: center; }
+ul.pp-stack, ol.pp-stack, ul.pp-inline, ol.pp-inline, ul.pp-grid, ol.pp-grid { list-style: none; margin: 0; padding: 0; }
+
+/* Inline: children in a row that wraps */
+.pp-inline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--_gap, var(--space-100)); min-width: 0; }
+.pp-inline--fit { display: inline-flex; }
+.pp-inline--nowrap { flex-wrap: nowrap; }
+.pp-inline--between { justify-content: space-between; }
+.pp-inline--end { justify-content: flex-end; }
+.pp-inline--center { justify-content: center; }
+.pp-inline--top { align-items: flex-start; }
+.pp-inline--baseline { align-items: baseline; }
+.pp-inline--stretch { align-items: stretch; }
+
+/* Columns: the page's main column and a side column (pp-columns--aside-start puts the side first) */
+.pp-columns { display: grid; gap: var(--_gap, var(--space-300)); grid-template-columns: minmax(0, 1fr) var(--layout-aside-width); align-items: start; min-width: 0; }
+.pp-columns--aside-start { grid-template-columns: var(--layout-aside-width) minmax(0, 1fr); }
+.pp-columns--wide-aside { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.pp-columns--even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 1023px) { .pp-columns { grid-template-columns: minmax(0, 1fr); } }
+
+/* Grid: equal tiles. Fixed counts fall back to fewer columns on narrow screens. */
+.pp-grid { display: grid; gap: var(--_gap, var(--space-200)); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--_min, 240px)), 1fr)); min-width: 0; }
+.pp-grid--small { --_min: 160px; }
+.pp-grid--large { --_min: 380px; }
+.pp-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pp-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pp-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pp-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.pp-grid--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+@media (max-width: 767px) { .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 479px) { .pp-grid--2, .pp-grid--3, .pp-grid--4, .pp-grid--5, .pp-grid--6 { grid-template-columns: minmax(0, 1fr); } }
+
+/* Gap: one class per space step */
+.pp-gap-0 { --_gap: 0; }
+.pp-gap-025 { --_gap: var(--space-025); }
+.pp-gap-050 { --_gap: var(--space-050); }
+.pp-gap-075 { --_gap: var(--space-075); }
+.pp-gap-100 { --_gap: var(--space-100); }
+.pp-gap-150 { --_gap: var(--space-150); }
+.pp-gap-200 { --_gap: var(--space-200); }
+.pp-gap-250 { --_gap: var(--space-250); }
+.pp-gap-300 { --_gap: var(--space-300); }
+.pp-gap-400 { --_gap: var(--space-400); }
+.pp-gap-500 { --_gap: var(--space-500); }
+.pp-gap-600 { --_gap: var(--space-600); }
+
+/* Inside a row: grow to fill, keep its size, or push to the far end */
+.pp-grow { flex: 1 1 0; min-width: 0; }
+.pp-grow--field { flex: 1 1 var(--space-1000); min-width: min(100%, 120px); }
+.pp-fixed { flex: none; }
+.pp-push { margin-inline-start: auto; }
+
+/* Width: how wide a block may get */
+.pp-measure-narrow { width: 100%; max-width: var(--layout-narrow-max); }
+.pp-measure-form { width: 100%; max-width: var(--layout-form-max); }
+.pp-measure-reading { width: 100%; max-width: var(--layout-reading-max); }
+.pp-shrink { min-width: 0; }
+dl.pp-stack, dl.pp-grid, dl.pp-inline { margin: 0; }
+
+.pp-inline--bottom { align-items: flex-end; }
+.pp-grid--bottom { align-items: end; }
+/* A control that should not stretch: a filter select in a card header, a search box */
+.pp-width-field-small { width: var(--size-field-small); max-width: 100%; }
+.pp-width-field-medium { width: var(--size-field-medium); max-width: 100%; }
+
+/* Scroll: a region that scrolls inside itself once it is taller than its --_height */
+.pp-scroll { max-height: var(--_height, none); overflow-y: auto; min-height: 0; }
 
 /* ---- actions/button ---- */
 /* Button. Spec: button.md */
@@ -276,6 +355,9 @@ span.pp-text, a.pp-text { display: inline; }
 /* A link that names the current page in a list of links */
 .pp-link[aria-current="page"] { color: var(--color-text); font-weight: var(--font-weight-semibold); text-decoration: none; cursor: default; }
 
+/* External: goes outside Pepla, with the external-link icon after the last word */
+.pp-link--external .pp-link__icon > svg { margin-inline-start: var(--space-025); }
+
 /* ---- actions/split-button ---- */
 /* Split button. Spec: split-button.md
    Two pp-buttons joined: the main action and a chevron-down that opens a pp-dropdown-menu. */
@@ -374,6 +456,9 @@ span.pp-text, a.pp-text { display: inline; }
 @media (pointer: coarse) {
   .pp-checkbox { min-height: var(--size-touch-target); padding: var(--space-150) 0; }
 }
+
+/* Children of a parent checkbox ("All 3 documents") sit indented under it */
+.pp-field__options--nested { padding-left: var(--space-400); }
 
 /* ---- forms/date-picker ---- */
 /* Date picker. Spec: date-picker.md
@@ -620,11 +705,14 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
   .pp-form__status { justify-content: center; }
 }
 
+/* A row whose fields carry no help text lines up on their centres */
+.pp-form-row--center { align-items: center; }
+
 /* ---- forms/password ---- */
 /* Password. Spec: password.md
    A pp-text-field wrapper with a show/hide action, plus an optional strength hint below. */
 .pp-password .pp-text-field__input { font-variant-ligatures: none; }
-.pp-password .pp-text-field__input[type="password"] { letter-spacing: 0.12em; }
+.pp-password .pp-text-field__input[type="password"] { letter-spacing: var(--size-tracking-masked); }
 .pp-password .pp-text-field__input[type="password"]::placeholder { letter-spacing: var(--font-body-tracking); }
 
 /* Strength hint: four bars and a word, never colour alone */
@@ -1005,7 +1093,7 @@ input.pp-text-field--numeric { font-variant-numeric: tabular-nums; }
 .pp-text-field--money .pp-text-field__input { text-align: right; }
 
 /* Masked personal data (rule 6): the value shows as dots and its last digits until revealed */
-.pp-text-field--masked .pp-text-field__input { font-variant-numeric: tabular-nums; letter-spacing: 0.08em; }
+.pp-text-field--masked .pp-text-field__input { font-variant-numeric: tabular-nums; letter-spacing: var(--size-tracking-masked); }
 
 /* An icon button inside the field: reveal, clear, open calendar */
 .pp-text-field__action {
@@ -1380,12 +1468,12 @@ a.pp-progress-tracker__link:hover .pp-progress-tracker__label { text-decoration:
   height: var(--space-150);
   border-radius: var(--radius-xsmall);
   background: linear-gradient(90deg, var(--color-skeleton) 0%, var(--color-skeleton-subtle) 50%, var(--color-skeleton) 100%) 0 0 / 200% 100%;
-  animation: pp-skeleton-shimmer 1.6s linear infinite;
+  animation: pp-skeleton-shimmer var(--motion-duration-loop-shimmer) linear infinite;
 }
 @keyframes pp-skeleton-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
 
 .pp-skeleton--text { height: var(--space-150); margin: var(--space-050) 0; }
-.pp-skeleton--text-short { width: 60%; }
+.pp-skeleton--text-short { --_width: 60%; }
 .pp-skeleton--heading { height: var(--space-250); width: 40%; margin-bottom: var(--space-100); }
 .pp-skeleton--avatar { flex: none; width: var(--size-control-medium); height: var(--size-control-medium); border-radius: var(--radius-full); }
 .pp-skeleton--avatar-small { flex: none; width: var(--size-control-small); height: var(--size-control-small); border-radius: var(--radius-full); }
@@ -1395,7 +1483,7 @@ a.pp-progress-tracker__link:hover .pp-progress-tracker__label { text-decoration:
 .pp-skeleton--card { height: 160px; border-radius: var(--radius-large); }
 
 /* A group carries the label and busy state for everything inside it */
-.pp-skeleton-group { display: flex; flex-direction: column; gap: var(--space-100); }
+.pp-skeleton-group { display: flex; flex-direction: column; gap: var(--_gap, var(--space-100)); }
 .pp-skeleton-group__label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .pp-skeleton-row { display: flex; align-items: center; gap: var(--space-150); }
 .pp-skeleton-row > .pp-skeleton-stack { flex: 1; min-width: 0; }
@@ -1409,6 +1497,9 @@ a.pp-progress-tracker__link:hover .pp-progress-tracker__label { text-decoration:
   .pp-skeleton--field { height: var(--size-control-large); }
 }
 
+/* A text line can take its width as an input: style="--_width:40%" */
+.pp-skeleton--text { width: var(--_width, 100%); }
+
 /* ---- status/spinner ---- */
 /* Spinner. Spec: spinner.md */
 .pp-spinner {
@@ -1418,13 +1509,13 @@ a.pp-progress-tracker__link:hover .pp-progress-tracker__label { text-decoration:
   border-radius: var(--radius-full);
   border: 2px solid var(--color-border);
   border-top-color: var(--color-icon-brand);
-  animation: pp-spin 0.8s linear infinite;
+  animation: pp-spin var(--motion-duration-loop-spin) linear infinite;
   flex: none;
 }
 .pp-spinner--small { width: var(--size-icon-small); height: var(--size-icon-small); }
 .pp-spinner--large { width: 32px; height: 32px; border-width: 3px; }
 .pp-spinner--inverse { border-color: transparent; border-top-color: currentColor; border-right-color: currentColor; }
-@media (prefers-reduced-motion: reduce) { .pp-spinner { animation-duration: 2.4s; } }
+@media (prefers-reduced-motion: reduce) { .pp-spinner { animation-duration: var(--motion-duration-loop-spin-reduced); } }
 
 /* ---- status/tag ---- */
 /* Tag. Spec: tag.md. Labels such as skills and departments; never a status. */
@@ -1616,8 +1707,8 @@ a.pp-tag:hover { text-decoration: underline; }
 }
 .pp-flag > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--_icon); }
 .pp-flag__content { flex: 1; min-width: 0; }
-.pp-flag__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
-.pp-flag__body { margin: var(--space-025) 0 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-flag__title { display: block; margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-flag__body { display: block; margin: var(--space-025) 0 0; font: var(--font-body); color: var(--color-text-subtle); }
 .pp-flag__actions { display: flex; flex-wrap: wrap; gap: var(--space-200); margin-top: var(--space-100); }
 .pp-flag__actions .pp-button--link { padding: 0; min-height: var(--size-icon-medium); }
 .pp-flag__dismiss { margin: calc(-1 * var(--space-075)) calc(-1 * var(--space-075)) 0 0; }
@@ -1630,7 +1721,7 @@ a.pp-tag:hover { text-decoration: underline; }
 
 /* Auto-dismiss timer (success only): a hairline that empties; paused on hover and focus */
 .pp-flag__timer { display: block; height: var(--space-025); margin-top: var(--space-150); border-radius: var(--radius-full); background: var(--color-border); overflow: hidden; }
-.pp-flag__timer::before { content: ""; display: block; height: 100%; background: var(--color-icon-success); transform-origin: left; animation: pp-flag-timer 8s linear forwards; }
+.pp-flag__timer::before { content: ""; display: block; height: 100%; background: var(--color-icon-success); transform-origin: left; animation: pp-flag-timer var(--motion-duration-flag-dismiss) linear forwards; }
 .pp-flag:hover .pp-flag__timer::before, .pp-flag:focus-within .pp-flag__timer::before { animation-play-state: paused; }
 
 @keyframes pp-flag-in { from { opacity: 0; transform: translateY(var(--space-100)); } }
@@ -1725,15 +1816,19 @@ a.pp-tag:hover { text-decoration: underline; }
 
 /* Anchor: shows the tooltip on hover (after 300ms) and on keyboard focus (at once) */
 .pp-tooltip-anchor { position: relative; display: inline-flex; }
-.pp-tooltip-anchor > .pp-tooltip { opacity: 0; visibility: hidden; transition: opacity var(--motion-duration-fast) var(--motion-easing-standard), visibility 0s linear var(--motion-duration-fast); }
-.pp-tooltip-anchor:hover > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: 300ms, 300ms; }
-.pp-tooltip-anchor:has(:focus-visible) > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: 0s; }
+.pp-tooltip-anchor > .pp-tooltip { opacity: 0; visibility: hidden; transition: opacity var(--motion-duration-fast) var(--motion-easing-standard), visibility var(--motion-duration-instant) linear var(--motion-duration-fast); }
+.pp-tooltip-anchor:hover > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: var(--motion-delay-tooltip), var(--motion-delay-tooltip); }
+.pp-tooltip-anchor:has(:focus-visible) > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: var(--motion-duration-instant); }
 
 /* Shown in place (docs and specs) */
 .pp-tooltip--inline { position: relative; inset: auto; display: inline-block; transform: none; }
 
 @media (hover: none) { .pp-tooltip-anchor > .pp-tooltip { display: none; } }
 @media (prefers-reduced-motion: reduce) { .pp-tooltip-anchor > .pp-tooltip { transition: none; } }
+
+/* Open: shown without hover, for docs and walkthroughs; keeps room for the tip above and below */
+.pp-tooltip-anchor--open { margin-block: var(--space-500); }
+.pp-tooltip-anchor--open > .pp-tooltip { opacity: 1; visibility: visible; }
 
 /* ---- overlays/drawer ---- */
 /* Drawer. Spec: drawer.md */
@@ -1752,7 +1847,7 @@ a.pp-tag:hover { text-decoration: underline; }
   animation: pp-drawer-in var(--motion-duration-slow) var(--motion-easing-enter);
 }
 .pp-drawer--large { --_width: var(--layout-drawer-width-large); }
-.pp-drawer--inline { position: relative; inset: auto; z-index: auto; height: 560px; animation: none; }
+.pp-drawer--inline { position: relative; inset: auto; z-index: auto; height: var(--_height, 560px); animation: none; }
 
 .pp-drawer__header { display: flex; align-items: flex-start; gap: var(--space-150); padding: var(--space-300); border-bottom: var(--border-width) solid var(--color-border); }
 .pp-drawer__heading { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-050); }
@@ -1789,6 +1884,10 @@ a.pp-tag:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   .pp-drawer { animation-name: pp-blanket-in; }
 }
+
+/* A drawer opened over an in-place app shell (docs and UI kits) covers the shell, not the page */
+.pp-app-shell--inline > .pp-blanket { position: absolute; inset: 0; min-height: 0; z-index: var(--layer-blanket); }
+.pp-app-shell--inline > .pp-blanket > .pp-drawer { height: 100%; }
 
 /* ---- overlays/dropdown-menu ---- */
 /* Dropdown menu. Spec: dropdown-menu.md */
@@ -1936,6 +2035,11 @@ a.pp-tag:hover { text-decoration: underline; }
   @keyframes pp-inline-dialog-fade { from { opacity: 0; } }
 }
 
+/* Shown in place (docs): under its trigger, or above it with --top, at the end edge with --end */
+.pp-inline-dialog-anchor:has(> .pp-inline-dialog--inline) { flex-direction: column; align-items: flex-start; }
+.pp-inline-dialog-anchor:has(> .pp-inline-dialog--inline.pp-inline-dialog--top) { flex-direction: column-reverse; }
+.pp-inline-dialog-anchor:has(> .pp-inline-dialog--inline.pp-inline-dialog--end) { align-items: flex-end; }
+
 /* ---- overlays/modal-dialog ---- */
 /* Modal dialog. Spec: modal-dialog.md */
 .pp-blanket {
@@ -1950,7 +2054,7 @@ a.pp-tag:hover { text-decoration: underline; }
   animation: pp-blanket-in var(--motion-duration-slow) var(--motion-easing-standard);
 }
 /* In place, for docs: the blanket fills its frame instead of the viewport */
-.pp-blanket--inline { position: relative; inset: auto; z-index: auto; min-height: 360px; padding: var(--space-300); border-radius: var(--radius-large); overflow: hidden; animation: none; }
+.pp-blanket--inline { position: relative; inset: auto; z-index: auto; min-height: var(--_height, 360px); padding: var(--space-300); border-radius: var(--radius-large); overflow: hidden; animation: none; }
 .pp-blanket--sheet { place-items: end stretch; padding: 0; }
 .pp-blanket--end { place-items: stretch end; padding: 0; }
 
@@ -2006,6 +2110,9 @@ a.pp-tag:hover { text-decoration: underline; }
   .pp-modal-dialog, .pp-modal-dialog--sheet { animation-name: pp-blanket-in; }
 }
 
+/* A bottom sheet shown in place is phone width */
+.pp-blanket--inline.pp-blanket--sheet { max-width: 390px; }
+
 /* ---- overlays/popup ---- */
 /* Popup. Spec: popup.md */
 .pp-popup-anchor { position: relative; display: inline-flex; }
@@ -2041,6 +2148,9 @@ a.pp-tag:hover { text-decoration: underline; }
 
 @keyframes pp-popup-in { from { opacity: 0; transform: translateY(calc(-1 * var(--space-050))); } }
 @media (prefers-reduced-motion: reduce) { .pp-popup { animation-name: pp-blanket-in; } }
+
+/* Shown in place (docs): the panel sits under its trigger instead of floating */
+.pp-popup-anchor:has(> .pp-popup--inline, > .pp-dropdown-menu--inline, > .pp-confidence-sources) { flex-direction: column; align-items: flex-start; gap: var(--space-050); }
 
 /* ---- navigation/app-shell ---- */
 /* App shell. Spec: app-shell.md */
@@ -2176,6 +2286,12 @@ a.pp-tag:hover { text-decoration: underline; }
   .pp-app-shell--phone > .pp-side-navigation { transition: none; }
 }
 
+/* The content column stacks the page header and the page's sections 24px apart */
+.pp-app-shell__content { display: grid; gap: var(--space-300); align-content: start; min-width: 0; }
+.pp-app-shell__content > .pp-page-header { margin-bottom: 0; }
+/* Full width: a board or a wide table that needs every pixel */
+.pp-app-shell__content--full { max-width: none; }
+
 /* ---- navigation/breadcrumbs ---- */
 /* Breadcrumbs. Spec: breadcrumbs.md */
 .pp-breadcrumbs > ol {
@@ -2289,7 +2405,7 @@ a.pp-tag:hover { text-decoration: underline; }
   color: var(--color-text);
   transition: width var(--motion-duration-medium) var(--motion-easing-standard);
 }
-.pp-side-navigation--inline { height: 100%; }
+.pp-side-navigation--inline { height: var(--_height, 100%); }
 
 /* Product switcher */
 .pp-side-navigation__header { display: flex; align-items: center; min-height: var(--layout-topbar-height); padding: var(--space-100); border-bottom: var(--border-width) solid var(--color-border); }
@@ -2351,7 +2467,7 @@ a.pp-tag:hover { text-decoration: underline; }
 .pp-side-navigation--collapsed .pp-side-navigation__section + .pp-side-navigation__section { margin-top: 0; }
 .pp-side-navigation--collapsed .pp-side-navigation__item { justify-content: center; padding: 0; }
 .pp-side-navigation--collapsed .pp-side-navigation__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.pp-side-navigation--collapsed .pp-side-navigation__count { position: absolute; top: var(--space-025); right: var(--space-025); min-width: var(--space-200); padding: 0 var(--space-050); font-size: 11px; line-height: var(--space-200); background: var(--color-background-selected-bold); color: var(--color-text-inverse); }
+.pp-side-navigation--collapsed .pp-side-navigation__count { position: absolute; top: var(--space-025); right: var(--space-025); min-width: var(--space-200); padding: 0 var(--space-050); font: var(--font-heading-xxsmall); line-height: var(--space-200); background: var(--color-background-selected-bold); color: var(--color-text-inverse); }
 .pp-side-navigation--collapsed .pp-side-navigation__item[aria-current="page"]::before { display: none; }
 
 @media (pointer: coarse) { .pp-side-navigation__item, .pp-side-navigation__product { min-height: var(--size-touch-target); } }
@@ -2431,6 +2547,8 @@ a.pp-tag:hover { text-decoration: underline; }
   text-align: center;
 }
 .pp-tabs__tab[aria-selected="true"] .pp-tabs__count { background: var(--color-background-selected); color: var(--color-text-selected); }
+/* Root: the tab list over its panel */
+.pp-tabs { display: grid; min-width: 0; }
 .pp-tabs__panel { padding-top: var(--space-300); }
 .pp-tabs__panel:focus-visible { outline-offset: var(--focus-ring-offset); border-radius: var(--radius-small); }
 
@@ -2474,8 +2592,8 @@ a.pp-tag:hover { text-decoration: underline; }
 .pp-top-navigation__search:hover { background: var(--color-background-input-hovered); }
 .pp-top-navigation__search:focus-within { border-color: var(--color-border-focused); box-shadow: inset 0 0 0 var(--border-width) var(--color-border-focused); }
 .pp-top-navigation__search > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; }
-.pp-top-navigation__search > input { flex: 1; min-width: 0; height: 100%; border: 0; padding: 0; background: transparent; color: var(--color-text); font: var(--font-body); outline: none; }
-.pp-top-navigation__search > input::placeholder { color: var(--color-text-subtlest); }
+.pp-top-navigation__search-input { flex: 1; min-width: 0; height: 100%; border: 0; padding: 0; background: transparent; color: var(--color-text); font: var(--font-body); outline: none; }
+.pp-top-navigation__search-input::placeholder { color: var(--color-text-subtlest); }
 .pp-top-navigation__search > kbd { padding: 0 var(--space-075); border-radius: var(--radius-xsmall); background: var(--color-background-neutral); color: var(--color-text-subtle); font: var(--font-body-small); }
 
 .pp-top-navigation__actions { display: flex; align-items: center; gap: var(--space-050); margin-left: auto; }
@@ -2491,10 +2609,8 @@ a.pp-tag:hover { text-decoration: underline; }
   box-sizing: content-box;
   background: var(--color-background-brand-bold);
   color: var(--color-text-inverse);
-  font: var(--font-body-small);
-  font-size: 11px;
+  font: var(--font-heading-xxsmall);
   line-height: var(--space-200);
-  font-weight: var(--font-weight-semibold);
   font-variant-numeric: tabular-nums;
   text-align: center;
   pointer-events: none;
@@ -2572,6 +2688,9 @@ a.pp-tag:hover { text-decoration: underline; }
 .pp-card__footer--end { justify-content: flex-end; }
 .pp-card-grid { display: grid; gap: var(--space-200); grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
 
+/* Flush: no padding, for a card that holds a table, a banner or a list edge to edge */
+.pp-card--flush { padding: 0; gap: 0; overflow: hidden; }
+
 /* ---- data/description-list ---- */
 /* Description list. Spec: description-list.md */
 .pp-dl { display: grid; grid-template-columns: minmax(120px, 200px) 1fr; gap: var(--space-150) var(--space-300); margin: 0; font: var(--font-body); }
@@ -2584,6 +2703,10 @@ a.pp-tag:hover { text-decoration: underline; }
 .pp-dl__source { display: inline-flex; align-items: center; gap: var(--space-050); margin-left: var(--space-100); font: var(--font-body-small); color: var(--color-text-agent); }
 .pp-dl__source svg { width: 14px; height: 14px; }
 @media (max-width: 479px) { .pp-dl { grid-template-columns: 1fr; gap: var(--space-025); } .pp-dl dd { margin-bottom: var(--space-150); } }
+
+/* Strip: the terms of a record side by side, each term over its value (a candidate's details row) */
+.pp-dl--strip { grid-template-columns: none; grid-template-rows: auto auto; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--space-025) var(--space-300); }
+@media (max-width: 767px) { .pp-dl--strip { grid-template-rows: none; grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); } }
 
 /* ---- data/stat-card ---- */
 /* Stat card. Spec: stat-card.md */
@@ -2767,7 +2890,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   color: var(--color-text);
   font: var(--font-body);
 }
-.pp-agent-panel--inline { position: relative; inset: auto; z-index: auto; height: 640px; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); box-shadow: none; overflow: hidden; }
+.pp-agent-panel--inline { position: relative; inset: auto; z-index: auto; height: var(--_height, 640px); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); box-shadow: none; overflow: hidden; }
 .pp-agent-panel--sheet { width: 100%; max-width: 390px; border-radius: 0; }
 
 .pp-agent-panel__header { display: flex; align-items: center; gap: var(--space-150); padding: var(--space-200) var(--space-250); border-bottom: var(--border-width) solid var(--color-border); }
@@ -2907,6 +3030,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-confidence:hover { background: var(--_bg-hover); }
 .pp-confidence > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--_icon); }
 .pp-confidence > svg:last-child { color: var(--_fg); }
+.pp-confidence--high { --_bg: var(--color-background-neutral); --_fg: var(--color-text); --_icon: var(--color-icon-subtle); }
 .pp-confidence--check { --_bg: var(--color-background-warning-subtle); --_bg-hover: var(--color-background-warning-subtle-hovered); --_fg: var(--color-text-warning); --_icon: var(--color-icon-warning); }
 .pp-confidence--unsure { --_bg: var(--color-background-neutral); --_fg: var(--color-text-subtle); }
 @media (pointer: coarse) {
@@ -3181,7 +3305,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-scorecard__name { color: var(--color-text); }
 .pp-scorecard__weight { font: var(--font-body-small); color: var(--color-text-subtlest); }
 .pp-scorecard__bar { display: block; height: var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); overflow: hidden; }
-.pp-scorecard__fill { display: block; height: 100%; border-radius: var(--radius-full); background: var(--color-background-neutral-bold); }
+.pp-scorecard__fill { display: block; width: var(--_pct, 0%); height: 100%; border-radius: var(--radius-full); background: var(--color-background-neutral-bold); }
 .pp-scorecard__score { color: var(--color-text-subtle); font-variant-numeric: tabular-nums; text-align: right; }
 .pp-scorecard__score strong { color: var(--color-text); font-weight: var(--font-weight-semibold); }
 .pp-scorecard__note { padding: var(--space-150) var(--space-200); border-radius: var(--radius-medium); background: var(--color-background-neutral); color: var(--color-text-subtle); font: var(--font-body); }
@@ -3196,7 +3320,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 /* Masked field. Spec: masked-field.md. Personal data stays hidden until needed (rule 6).
    The in-form variant reuses pp-text-field--masked and pp-text-field-audit from text-field.css. */
 .pp-masked { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); max-width: 100%; }
-.pp-masked__value { font-variant-numeric: tabular-nums; letter-spacing: 0.04em; color: var(--color-text); overflow-wrap: anywhere; }
+.pp-masked__value { font-variant-numeric: tabular-nums; letter-spacing: var(--size-tracking-masked); color: var(--color-text); overflow-wrap: anywhere; }
 .pp-masked__value--hidden { color: var(--color-text-subtle); }
 .pp-masked__value > svg { width: var(--size-icon-small); height: var(--size-icon-small); margin-right: var(--space-050); vertical-align: -3px; color: var(--color-icon-subtle); }
 .pp-masked--revealed .pp-masked__value { padding: 0 var(--space-075); border-radius: var(--radius-xsmall); background: var(--color-background-neutral); }
@@ -3429,6 +3553,9 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-bundle__items > .pp-bundle__item { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon body" ". owner" ". status"; }
   .pp-bundle__status { flex-direction: row; flex-wrap: wrap; align-items: center; }
 }
+
+/* A note field inside an item sits a little below the item's detail line */
+.pp-bundle__body > .pp-field { margin-top: var(--space-100); }
 
 /* ---- records/restricted-value ---- */
 /* Restricted value. Spec: restricted-value.md. A value the viewer may not see. */

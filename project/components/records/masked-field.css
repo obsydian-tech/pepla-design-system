@@ -1,7 +1,7 @@
 /* Masked field. Spec: masked-field.md. Personal data stays hidden until needed (rule 6).
    The in-form variant reuses pp-text-field--masked and pp-text-field-audit from text-field.css. */
 .pp-masked { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); max-width: 100%; }
-.pp-masked__value { font-variant-numeric: tabular-nums; letter-spacing: 0.04em; color: var(--color-text); overflow-wrap: anywhere; }
+.pp-masked__value { font-variant-numeric: tabular-nums; letter-spacing: var(--size-tracking-masked); color: var(--color-text); overflow-wrap: anywhere; }
 .pp-masked__value--hidden { color: var(--color-text-subtle); }
 .pp-masked__value > svg { width: var(--size-icon-small); height: var(--size-icon-small); margin-right: var(--space-050); vertical-align: -3px; color: var(--color-icon-subtle); }
 .pp-masked--revealed .pp-masked__value { padding: 0 var(--space-075); border-radius: var(--radius-xsmall); background: var(--color-background-neutral); }
