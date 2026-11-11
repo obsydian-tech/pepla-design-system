@@ -3638,12 +3638,14 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 
 /* ---- records/restricted-value ---- */
 /* Restricted value. Spec: restricted-value.md. A value the viewer may not see. */
-.pp-restricted { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); max-width: 100%; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-restricted { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); color: var(--color-text-subtle); font: var(--font-body); }
 .pp-restricted__label { display: inline-flex; align-items: center; gap: var(--space-050); color: var(--color-text-subtle); font-weight: var(--font-weight-semibold); }
 .pp-restricted__label > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
 .pp-restricted__reason { color: var(--color-text-subtle); }
 .pp-restricted__status { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-restricted__status > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-information); }
+
+.pp-restricted:not(.pp-restricted--block) { max-width: 100%; } /* the block takes Layout widths (pp-measure-form) */
 
 /* Block: a whole section the viewer may not see */
 .pp-restricted--block { display: grid; grid-template-columns: var(--size-icon-large) minmax(0, 1fr); gap: var(--space-050) var(--space-150); padding: var(--space-250); border: var(--border-width) dashed var(--color-border-bold); border-radius: var(--radius-large); background: var(--elevation-surface-sunken); }
