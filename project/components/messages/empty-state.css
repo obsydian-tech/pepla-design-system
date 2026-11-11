@@ -1,0 +1,45 @@
+/* Empty state. Spec: empty-state.md */
+.pp-empty-state {
+  --_circle: var(--color-background-neutral);
+  --_icon: var(--color-icon-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-100);
+  max-width: 400px;
+  margin: 0 auto;
+  padding: var(--space-600) var(--space-300);
+  text-align: center;
+  color: var(--color-text);
+}
+.pp-empty-state__icon {
+  display: grid;
+  place-items: center;
+  width: var(--space-800);
+  height: var(--space-800);
+  margin-bottom: var(--space-100);
+  border-radius: var(--radius-full);
+  background: var(--_circle);
+  color: var(--_icon);
+}
+.pp-empty-state__icon > svg { width: var(--size-icon-large); height: var(--size-icon-large); }
+.pp-empty-state__title { margin: 0; font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); }
+.pp-empty-state__body { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-empty-state__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-100); margin-top: var(--space-150); }
+.pp-empty-state__note { display: inline-flex; align-items: center; gap: var(--space-075); margin: var(--space-150) 0 0; font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-empty-state__note > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-agent); }
+
+/* "Nothing needs you today": the designed all-clear */
+.pp-empty-state--done { --_circle: var(--color-background-success-subtle); --_icon: var(--color-icon-success); }
+.pp-empty-state--done .pp-empty-state__title { font: var(--font-heading-large); letter-spacing: var(--font-heading-large-tracking); }
+
+/* Compact: inside a card, a table or a drawer */
+.pp-empty-state--compact { padding: var(--space-300) var(--space-200); gap: var(--space-050); }
+.pp-empty-state--compact .pp-empty-state__icon { width: var(--space-600); height: var(--space-600); }
+.pp-empty-state--compact .pp-empty-state__icon > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); }
+.pp-empty-state--compact .pp-empty-state__title { font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); }
+
+@media (max-width: 767px) {
+  .pp-empty-state { padding: var(--space-500) var(--layout-gutter-phone); }
+  .pp-empty-state__actions .pp-button { min-height: var(--size-control-large); }
+}

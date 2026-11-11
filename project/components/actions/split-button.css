@@ -1,0 +1,32 @@
+/* Split button. Spec: split-button.md
+   Two pp-buttons joined: the main action and a chevron-down that opens a pp-dropdown-menu. */
+.pp-split-button {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  gap: var(--space-025);
+  vertical-align: middle;
+}
+.pp-split-button > .pp-button { margin: 0; }
+.pp-split-button__main { border-start-end-radius: var(--radius-xsmall); border-end-end-radius: var(--radius-xsmall); }
+.pp-split-button__trigger {
+  border-start-start-radius: var(--radius-xsmall);
+  border-end-start-radius: var(--radius-xsmall);
+  padding: 0 var(--space-100) 0 var(--space-075);
+  min-width: var(--size-control-medium);
+}
+.pp-split-button__trigger > svg { width: var(--size-icon-small); height: var(--size-icon-small); transition: transform var(--motion-duration-medium) var(--motion-easing-standard); }
+.pp-split-button__trigger[aria-expanded="true"] > svg { transform: rotate(180deg); }
+.pp-split-button--small > .pp-split-button__trigger { min-width: var(--size-control-small); padding: 0 var(--space-075) 0 var(--space-050); }
+
+/* Full width on phone: the main action grows, the trigger keeps its size */
+.pp-split-button--block { display: flex; width: 100%; }
+.pp-split-button--block > .pp-split-button__main { flex: 1; }
+@media (max-width: 479px) {
+  .pp-split-button--block-phone { display: flex; width: 100%; }
+  .pp-split-button--block-phone > .pp-split-button__main { flex: 1; }
+}
+
+/* While the main action works, the trigger waits with it */
+.pp-split-button:has(> .pp-split-button__main[aria-busy="true"]) > .pp-split-button__trigger { pointer-events: none; }
+@media (pointer: coarse) { .pp-split-button__trigger { min-width: var(--size-touch-target); } }

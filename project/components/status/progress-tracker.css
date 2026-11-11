@@ -1,0 +1,99 @@
+/* Progress tracker. Spec: progress-tracker.md
+   Horizontal on desktop, vertical below 768px. Marker 24px; the line joins marker centres. */
+.pp-progress-tracker {
+  --_marker: var(--size-icon-large);
+  --_line: var(--border-width-selected);
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pp-step;
+}
+.pp-progress-tracker__step {
+  --_marker-bg: var(--elevation-surface-raised);
+  --_marker-fg: var(--color-text-subtlest);
+  --_marker-border: var(--color-border-bold);
+  --_after: var(--color-border);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-100);
+  padding: 0 var(--space-100);
+  text-align: center;
+  counter-increment: pp-step;
+}
+/* The line to the next step */
+.pp-progress-tracker__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--_marker) / 2 - var(--_line) / 2);
+  left: calc(50% + var(--_marker) / 2 + var(--space-100));
+  right: calc(-50% + var(--_marker) / 2 + var(--space-100));
+  height: var(--_line);
+  border-radius: var(--radius-full);
+  background: var(--_after);
+}
+.pp-progress-tracker__marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--_marker);
+  height: var(--_marker);
+  box-sizing: border-box;
+  border: var(--border-width-selected) solid var(--_marker-border);
+  border-radius: var(--radius-full);
+  background: var(--_marker-bg);
+  color: var(--_marker-fg);
+  font: var(--font-heading-xxsmall);
+  font-variant-numeric: tabular-nums;
+}
+.pp-progress-tracker__marker:empty::before { content: counter(pp-step); }
+.pp-progress-tracker__marker > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
+.pp-progress-tracker__body { display: flex; flex-direction: column; gap: var(--space-025); min-width: 0; }
+.pp-progress-tracker__label { font: var(--font-label); letter-spacing: var(--font-label-tracking); color: var(--color-text-subtle); overflow-wrap: anywhere; }
+.pp-progress-tracker__meta { font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-progress-tracker__state { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+a.pp-progress-tracker__link { display: contents; color: inherit; text-decoration: none; }
+a.pp-progress-tracker__link:hover .pp-progress-tracker__label { text-decoration: underline; }
+
+/* Done: violet fill and a check; the line after it is violet too */
+.pp-progress-tracker__step--done { --_marker-bg: var(--color-background-brand-bold); --_marker-fg: var(--color-text-inverse); --_marker-border: var(--color-background-brand-bold); --_after: var(--color-border-brand); }
+.pp-progress-tracker__step--done .pp-progress-tracker__label { color: var(--color-text); }
+/* Done by Pepla's agent (rule 1) */
+.pp-progress-tracker__step--agent { --_marker-bg: var(--color-background-agent-bold); --_marker-fg: var(--color-text-inverse); --_marker-border: var(--color-background-agent-bold); --_after: var(--color-border-brand); }
+.pp-progress-tracker__step--agent .pp-progress-tracker__label { color: var(--color-text); }
+.pp-progress-tracker__step--agent .pp-progress-tracker__meta { color: var(--color-text-agent); }
+/* Current */
+.pp-progress-tracker__step--current { --_marker-bg: var(--color-background-selected); --_marker-fg: var(--color-text-selected); --_marker-border: var(--color-border-selected); }
+.pp-progress-tracker__step--current .pp-progress-tracker__label { color: var(--color-text); font: var(--font-body-strong); }
+.pp-progress-tracker__step--current .pp-progress-tracker__meta { color: var(--color-text-subtle); }
+/* Blocked: needs someone to act before anything moves */
+.pp-progress-tracker__step--blocked { --_marker-bg: var(--color-background-danger-subtle); --_marker-fg: var(--color-icon-danger); --_marker-border: var(--color-border-danger); }
+.pp-progress-tracker__step--blocked .pp-progress-tracker__label { color: var(--color-text); font: var(--font-body-strong); }
+.pp-progress-tracker__step--blocked .pp-progress-tracker__meta { color: var(--color-text-danger); }
+
+/* Phone: vertical, marker on the left, line runs down */
+@media (max-width: 767px) {
+  .pp-progress-tracker { grid-auto-flow: row; grid-auto-columns: auto; }
+  .pp-progress-tracker__step { flex-direction: row; align-items: flex-start; gap: var(--space-150); padding: 0 0 var(--space-300); text-align: left; }
+  .pp-progress-tracker__step:last-child { padding-bottom: 0; }
+  .pp-progress-tracker__step:not(:last-child)::after {
+    top: calc(var(--_marker) + var(--space-050));
+    bottom: var(--space-050);
+    left: calc(var(--_marker) / 2 - var(--_line) / 2);
+    right: auto;
+    width: var(--_line);
+    height: auto;
+  }
+  .pp-progress-tracker__body { padding-top: var(--space-025); }
+}
+/* Opt in to vertical at every width: a side panel or a narrow card */
+.pp-progress-tracker--vertical { grid-auto-flow: row; grid-auto-columns: auto; }
+.pp-progress-tracker--vertical .pp-progress-tracker__step { flex-direction: row; align-items: flex-start; gap: var(--space-150); padding: 0 0 var(--space-300); text-align: left; }
+.pp-progress-tracker--vertical .pp-progress-tracker__step:last-child { padding-bottom: 0; }
+.pp-progress-tracker--vertical .pp-progress-tracker__step:not(:last-child)::after { top: calc(var(--_marker) + var(--space-050)); bottom: var(--space-050); left: calc(var(--_marker) / 2 - var(--_line) / 2); right: auto; width: var(--_line); height: auto; }
+.pp-progress-tracker--vertical .pp-progress-tracker__body { padding-top: var(--space-025); }

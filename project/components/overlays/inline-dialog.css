@@ -1,0 +1,75 @@
+/* Inline dialog. Spec: inline-dialog.md */
+.pp-inline-dialog-anchor { position: relative; display: inline-flex; }
+
+.pp-inline-dialog {
+  --_beak: var(--space-150);
+  --_border: var(--color-border);
+  --_from: calc(-1 * var(--space-050));
+  position: absolute;
+  z-index: var(--layer-layer);
+  top: calc(100% + var(--space-150));
+  left: 0;
+  box-sizing: border-box;
+  width: max-content;
+  min-width: 240px;
+  max-width: min(320px, calc(100vw - 2 * var(--layout-gutter-phone)));
+  padding: var(--space-200);
+  border: var(--border-width) solid var(--_border);
+  border-radius: var(--radius-large);
+  background: var(--elevation-surface-overlay);
+  color: var(--color-text);
+  box-shadow: var(--elevation-shadow-overlay);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+  animation: pp-inline-dialog-in var(--motion-duration-medium) var(--motion-easing-enter);
+}
+
+/* Beak: points at the anchor */
+.pp-inline-dialog::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--_beak) / -2 - var(--border-width));
+  left: var(--space-200);
+  width: var(--_beak);
+  height: var(--_beak);
+  border: var(--border-width) solid var(--_border);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: var(--radius-xsmall) 0 0 0;
+  background: var(--elevation-surface-overlay);
+  transform: rotate(45deg);
+}
+
+.pp-inline-dialog--end { left: auto; right: 0; }
+.pp-inline-dialog--end::before { left: auto; right: var(--space-200); }
+.pp-inline-dialog--top { top: auto; bottom: calc(100% + var(--space-150)); --_from: var(--space-050); }
+.pp-inline-dialog--top::before {
+  top: auto;
+  bottom: calc(var(--_beak) / -2 - var(--border-width));
+  border-color: var(--_border);
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-radius: 0 0 var(--radius-xsmall) 0;
+}
+
+/* Agent: Pepla suggests something for this control (rule 1) */
+.pp-inline-dialog--agent { --_border: var(--color-border-agent); }
+.pp-inline-dialog--agent .pp-inline-dialog__header > svg { color: var(--color-icon-agent); }
+
+/* In place, for docs: leaves room for the beak above it */
+.pp-inline-dialog--inline { position: relative; inset: auto; z-index: auto; margin-top: var(--space-150); animation: none; }
+.pp-inline-dialog--inline.pp-inline-dialog--top { margin: 0 0 var(--space-150); }
+
+.pp-inline-dialog__header { display: flex; align-items: flex-start; gap: var(--space-100); }
+.pp-inline-dialog__header > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--color-icon); }
+.pp-inline-dialog__title { flex: 1; min-width: 0; margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); color: var(--color-text); }
+.pp-inline-dialog__close { margin: calc(-1 * var(--space-075)) calc(-1 * var(--space-075)) 0 0; }
+.pp-inline-dialog__text { display: block; margin: var(--space-075) 0 0; max-width: none; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-inline-dialog__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-100); margin-top: var(--space-200); }
+@media (pointer: coarse) { .pp-inline-dialog__actions .pp-button { min-height: var(--size-touch-target); } }
+
+@keyframes pp-inline-dialog-in { from { opacity: 0; transform: translateY(var(--_from)); } }
+@media (prefers-reduced-motion: reduce) {
+  .pp-inline-dialog { animation-name: pp-inline-dialog-fade; }
+  @keyframes pp-inline-dialog-fade { from { opacity: 0; } }
+}

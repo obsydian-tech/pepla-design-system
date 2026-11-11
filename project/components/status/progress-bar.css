@@ -1,0 +1,44 @@
+/* Progress bar. Spec: progress-bar.md
+   The track is a native <progress class="pp-progress-bar__track">, or a div track with a
+   .pp-progress-bar__fill child whose width is set by script (PrimeNG ProgressBar). */
+.pp-progress-bar {
+  --_fill: var(--color-background-brand-bold);
+  --_icon: var(--color-icon-brand);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-075);
+  min-width: 0;
+}
+.pp-progress-bar__header { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-200); }
+.pp-progress-bar__label { font: var(--font-label); letter-spacing: var(--font-label-tracking); color: var(--color-text); }
+.pp-progress-bar__value { font: var(--font-body-small); color: var(--color-text-subtle); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pp-progress-bar__help { display: flex; align-items: center; gap: var(--space-050); margin: 0; font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-progress-bar__help > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--_icon); }
+
+.pp-progress-bar__track {
+  display: block;
+  width: 100%;
+  height: var(--space-100);
+  margin: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-background-neutral);
+  color: var(--_fill, var(--color-background-brand-bold));
+  appearance: none;
+}
+.pp-progress-bar__track::-webkit-progress-bar { background: var(--color-background-neutral); border-radius: var(--radius-full); }
+.pp-progress-bar__track::-webkit-progress-value { background: var(--_fill, var(--color-background-brand-bold)); border-radius: var(--radius-full); transition: width var(--motion-duration-slow) var(--motion-easing-standard); }
+.pp-progress-bar__track::-moz-progress-bar { background: var(--_fill, var(--color-background-brand-bold)); border-radius: var(--radius-full); }
+.pp-progress-bar__fill { display: block; height: 100%; border-radius: var(--radius-full); background: var(--_fill, var(--color-background-brand-bold)); transition: width var(--motion-duration-slow) var(--motion-easing-standard); }
+.pp-progress-bar__track--small { height: var(--space-050); }
+
+.pp-progress-bar--success { --_fill: var(--color-background-success-bold); --_icon: var(--color-icon-success); }
+.pp-progress-bar--warning { --_fill: var(--color-background-warning-bold); --_icon: var(--color-icon-warning); }
+.pp-progress-bar--danger { --_fill: var(--color-background-danger-bold); --_icon: var(--color-icon-danger); }
+/* Agent: progress of work Pepla's agent is doing (rule 1) */
+.pp-progress-bar--agent { --_fill: var(--color-background-agent-bold); --_icon: var(--color-icon-agent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-progress-bar__track::-webkit-progress-value, .pp-progress-bar__fill { transition: none; }
+}

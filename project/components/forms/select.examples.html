@@ -1,0 +1,97 @@
+<section data-example="Native select">
+  <div class="pp-form">
+    <div class="pp-form-row">
+      <div class="pp-field">
+        <label class="pp-field__label" for="se-dept">Department<span class="pp-field__required" aria-hidden="true">*</span></label>
+        <div class="pp-select">
+          <select class="pp-select__input" id="se-dept" required>
+            <option>Finance</option>
+            <option selected>People and culture</option>
+            <option>Operations</option>
+            <option>Sales</option>
+          </select>
+          <i data-lucide="chevron-down"></i>
+        </div>
+      </div>
+      <div class="pp-field">
+        <label class="pp-field__label" for="se-country">Country of work</label>
+        <div class="pp-select">
+          <select class="pp-select__input" id="se-country" aria-describedby="se-country-help">
+            <option selected>South Africa</option>
+            <option>Zimbabwe</option>
+            <option>Zambia</option>
+          </select>
+          <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="pp-field__help" id="se-country-help">Sets the tax rules and public holidays</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="Error and disabled">
+  <div class="pp-form-row">
+    <div class="pp-field">
+      <label class="pp-field__label" for="se-manager">Reports to<span class="pp-field__required" aria-hidden="true">*</span></label>
+      <div class="pp-select">
+        <select class="pp-select__input" id="se-manager" required aria-invalid="true" aria-describedby="se-manager-error">
+          <option value="" selected>Choose a manager</option>
+          <option>Sipho Ndlovu</option>
+          <option>Thandeka Dlamini</option>
+        </select>
+        <i data-lucide="chevron-down"></i>
+      </div>
+      <div class="pp-field__error" id="se-manager-error"><i data-lucide="octagon-alert"></i><span>Choose who Lerato reports to</span></div>
+    </div>
+    <div class="pp-field">
+      <label class="pp-field__label" for="se-pay">Pay frequency</label>
+      <div class="pp-select">
+        <select class="pp-select__input" id="se-pay" disabled aria-describedby="se-pay-help">
+          <option selected>Monthly, on the 25th</option>
+        </select>
+        <i data-lucide="chevron-down"></i>
+      </div>
+      <div class="pp-field__help" id="se-pay-help">Set for everyone in payroll settings</div>
+    </div>
+  </div>
+</section>
+<section data-example="PrimeNG Select, open, with groups">
+  <div class="pp-field" style="max-width:360px">
+    <span class="pp-field__label" id="se-stage-label">Move to stage</span>
+    <div class="pp-select pp-select--open">
+      <span class="pp-select__value" role="combobox" tabindex="0" aria-labelledby="se-stage-label" aria-expanded="true" aria-controls="se-stage-list" aria-activedescendant="se-stage-o3">Second interview</span>
+      <i data-lucide="chevron-down"></i>
+    </div>
+    <div class="pp-select-panel">
+      <div class="pp-select-panel__list" id="se-stage-list" role="listbox" aria-labelledby="se-stage-label">
+        <div class="pp-select-panel__group" role="presentation">Screening</div>
+        <div class="pp-select-option" role="option" id="se-stage-o1" aria-selected="false"><span class="pp-select-option__text">Applied</span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
+        <div class="pp-select-option" role="option" id="se-stage-o2" aria-selected="false"><span class="pp-select-option__text">Phone screen</span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
+        <div class="pp-select-panel__group" role="presentation">Interviews</div>
+        <div class="pp-select-option pp-select-option--focused" role="option" id="se-stage-o3" aria-selected="true"><span class="pp-select-option__text">Second interview</span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
+        <div class="pp-select-option" role="option" id="se-stage-o4" aria-selected="false"><span class="pp-select-option__text">Offer<span class="pp-select-option__meta">Needs the hiring manager's approval</span></span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
+        <div class="pp-select-option" role="option" id="se-stage-o5" aria-selected="false" aria-disabled="true"><span class="pp-select-option__text">Hired<span class="pp-select-option__meta">After the offer is signed</span></span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="Filterable list with people">
+  <div class="pp-field" style="max-width:360px">
+    <span class="pp-field__label" id="se-buddy-label">Onboarding buddy</span>
+    <div class="pp-select">
+      <span class="pp-select__value pp-select__value--placeholder" role="combobox" tabindex="0" aria-labelledby="se-buddy-label" aria-expanded="true" aria-controls="se-buddy-list">Choose a buddy</span>
+      <i data-lucide="chevron-down"></i>
+    </div>
+    <div class="pp-select-panel">
+      <div class="pp-select-panel__filter">
+        <div class="pp-text-field pp-text-field--small">
+          <span class="pp-text-field__prefix"><i data-lucide="search"></i></span>
+          <input class="pp-text-field__input" type="search" value="th" aria-label="Filter people" id="se-buddy-filter">
+        </div>
+      </div>
+      <div class="pp-select-panel__list" id="se-buddy-list" role="listbox" aria-labelledby="se-buddy-label">
+        <div class="pp-select-option" role="option" aria-selected="false"><i data-lucide="user"></i><span class="pp-select-option__text">Thandeka Dlamini<span class="pp-select-option__meta">People and culture, Johannesburg</span></span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
+        <div class="pp-select-option" role="option" aria-selected="false"><i data-lucide="user"></i><span class="pp-select-option__text">Thabo Khumalo<span class="pp-select-option__meta">Finance, Harare</span></span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
+      </div>
+    </div>
+  </div>
+</section>

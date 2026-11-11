@@ -1,0 +1,56 @@
+<section data-example="With a label and the value in words">
+  <div style="display:flex;flex-direction:column;gap:var(--space-300);max-width:480px">
+    <div class="pp-progress-bar">
+      <div class="pp-progress-bar__header">
+        <span class="pp-progress-bar__label" id="pb-docs-label">Lerato's documents</span>
+        <span class="pp-progress-bar__value" id="pb-docs-value">3 of 5 received</span>
+      </div>
+      <progress class="pp-progress-bar__track" value="3" max="5" aria-labelledby="pb-docs-label" aria-describedby="pb-docs-value">3 of 5</progress>
+    </div>
+    <div class="pp-progress-bar pp-progress-bar--success">
+      <div class="pp-progress-bar__header">
+        <span class="pp-progress-bar__label" id="pb-onb-label">Sipho's onboarding</span>
+        <span class="pp-progress-bar__value" id="pb-onb-value">All 8 steps done</span>
+      </div>
+      <progress class="pp-progress-bar__track" value="8" max="8" aria-labelledby="pb-onb-label" aria-describedby="pb-onb-value">8 of 8</progress>
+      <div class="pp-progress-bar__help"><i data-lucide="circle-check"></i><span>Done 3 Nov</span></div>
+    </div>
+  </div>
+</section>
+<section data-example="Agent work, warning and danger">
+  <div style="display:flex;flex-direction:column;gap:var(--space-300);max-width:480px">
+    <div class="pp-progress-bar pp-progress-bar--agent">
+      <div class="pp-progress-bar__header">
+        <span class="pp-progress-bar__label" id="pb-agent-label">Pepla is checking the documents</span>
+        <span class="pp-progress-bar__value" id="pb-agent-value">4 of 6 checked</span>
+      </div>
+      <progress class="pp-progress-bar__track" value="4" max="6" aria-labelledby="pb-agent-label" aria-describedby="pb-agent-value">4 of 6</progress>
+      <div class="pp-progress-bar__help"><i data-lucide="sparkles"></i><span>You approve the results when Pepla is done</span></div>
+    </div>
+    <div class="pp-progress-bar pp-progress-bar--warning">
+      <div class="pp-progress-bar__header">
+        <span class="pp-progress-bar__label" id="pb-leave-label">Annual leave used</span>
+        <span class="pp-progress-bar__value" id="pb-leave-value">13 of 15 days</span>
+      </div>
+      <progress class="pp-progress-bar__track" value="13" max="15" aria-labelledby="pb-leave-label" aria-describedby="pb-leave-value">13 of 15</progress>
+      <div class="pp-progress-bar__help"><i data-lucide="triangle-alert"></i><span>2 days left until 31 Dec</span></div>
+    </div>
+    <div class="pp-progress-bar pp-progress-bar--danger">
+      <div class="pp-progress-bar__header">
+        <span class="pp-progress-bar__label" id="pb-od-label">Thabo's documents</span>
+        <span class="pp-progress-bar__value" id="pb-od-value">1 of 5 received</span>
+      </div>
+      <progress class="pp-progress-bar__track" value="1" max="5" aria-labelledby="pb-od-label" aria-describedby="pb-od-value">1 of 5</progress>
+      <div class="pp-progress-bar__help"><i data-lucide="clock-alert"></i><span>Overdue by 1 day</span></div>
+    </div>
+  </div>
+</section>
+<section data-example="Small, inside a row">
+  <div style="display:flex;align-items:center;gap:var(--space-200);max-width:480px">
+    <span style="flex:none">Thandeka Dlamini</span>
+    <div class="pp-progress-bar" style="flex:1">
+      <progress class="pp-progress-bar__track pp-progress-bar__track--small" value="6" max="10" aria-label="Thandeka's onboarding, 6 of 10 steps">6 of 10</progress>
+    </div>
+    <span class="pp-progress-bar__value" style="flex:none">6 of 10 steps</span>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section data-example="Primary with more ways to send">
+  <div class="pp-popup-anchor" style="flex-direction:column;align-items:flex-start;gap:var(--space-050)">
+    <div class="pp-split-button" role="group" aria-label="Send contract">
+      <button class="pp-button pp-button--primary pp-split-button__main" type="button">Send contract</button>
+      <button class="pp-button pp-button--primary pp-split-button__trigger" type="button" aria-label="More ways to send the contract" aria-haspopup="menu" aria-expanded="true" aria-controls="sb-1"><i data-lucide="chevron-down"></i></button>
+    </div>
+    <div class="pp-dropdown-menu pp-dropdown-menu--inline" id="sb-1" role="menu" aria-label="More ways to send the contract">
+      <ul class="pp-dropdown-menu__section" role="group">
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="clock"></i><span>Send on start date</span></button></li>
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="users"></i><span>Send to Sipho for approval first</span></button></li>
+        <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="file-text"></i><span>Download as PDF</span></button></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section data-example="Default and small">
+  <div class="pp-button-group">
+    <div class="pp-split-button" role="group" aria-label="Save changes">
+      <button class="pp-button pp-button--default pp-split-button__main" type="button">Save changes</button>
+      <button class="pp-button pp-button--default pp-split-button__trigger" type="button" aria-label="More ways to save" aria-haspopup="menu" aria-expanded="false"><i data-lucide="chevron-down"></i></button>
+    </div>
+    <div class="pp-split-button pp-split-button--small" role="group" aria-label="Approve">
+      <button class="pp-button pp-button--default pp-button--small pp-split-button__main" type="button">Approve</button>
+      <button class="pp-button pp-button--default pp-button--small pp-split-button__trigger" type="button" aria-label="More ways to approve" aria-haspopup="menu" aria-expanded="false"><i data-lucide="chevron-down"></i></button>
+    </div>
+  </div>
+</section>
+<section data-example="Working and disabled">
+  <div class="pp-button-group">
+    <div class="pp-split-button" role="group" aria-label="Send contract">
+      <button class="pp-button pp-button--primary pp-split-button__main" type="button" aria-busy="true"><span>Sending</span><span class="pp-spinner pp-spinner--inverse" aria-hidden="true"></span></button>
+      <button class="pp-button pp-button--primary pp-split-button__trigger" type="button" aria-label="More ways to send the contract" aria-haspopup="menu" aria-expanded="false" aria-disabled="true"><i data-lucide="chevron-down"></i></button>
+    </div>
+    <div class="pp-split-button" role="group" aria-label="Send contract">
+      <button class="pp-button pp-button--primary pp-split-button__main" type="button" disabled>Send contract</button>
+      <button class="pp-button pp-button--primary pp-split-button__trigger" type="button" aria-label="More ways to send the contract" aria-haspopup="menu" aria-expanded="false" disabled><i data-lucide="chevron-down"></i></button>
+    </div>
+  </div>
+</section>
+<section data-example="Full width on phone">
+  <div style="max-width:360px">
+    <div class="pp-split-button pp-split-button--block" role="group" aria-label="Approve leave">
+      <button class="pp-button pp-button--primary pp-button--large pp-split-button__main" type="button">Approve leave</button>
+      <button class="pp-button pp-button--primary pp-button--large pp-split-button__trigger" type="button" aria-label="More ways to approve leave" aria-haspopup="menu" aria-expanded="false"><i data-lucide="chevron-down"></i></button>
+    </div>
+  </div>
+</section>

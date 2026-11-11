@@ -1,0 +1,38 @@
+/* Lozenge. Spec: lozenge.md. Always an icon and a word (rule 4). */
+.pp-lozenge {
+  --_bg: var(--color-background-neutral);
+  --_fg: var(--color-text-subtle);
+  --_icon: var(--color-icon-subtle);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-050);
+  max-width: 100%;
+  min-height: var(--space-300);
+  box-sizing: border-box;
+  padding: 0 var(--space-100) 0 var(--space-075);
+  border-radius: var(--radius-full);
+  background: var(--_bg);
+  color: var(--_fg);
+  font: var(--font-heading-xxsmall);
+  letter-spacing: var(--font-heading-xxsmall-tracking);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.pp-lozenge > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--_icon); }
+.pp-lozenge__text { overflow: hidden; text-overflow: ellipsis; }
+
+.pp-lozenge--information { --_bg: var(--color-background-information-subtle); --_fg: var(--color-text-information); --_icon: var(--color-icon-information); }
+.pp-lozenge--success { --_bg: var(--color-background-success-subtle); --_fg: var(--color-text-success); --_icon: var(--color-icon-success); }
+.pp-lozenge--warning { --_bg: var(--color-background-warning-subtle); --_fg: var(--color-text-warning); --_icon: var(--color-icon-warning); }
+.pp-lozenge--danger { --_bg: var(--color-background-danger-subtle); --_fg: var(--color-text-danger); --_icon: var(--color-icon-danger); }
+/* Agent: only for what Pepla's agent did or proposes (rule 1) */
+.pp-lozenge--agent { --_bg: var(--color-background-agent-subtle); --_fg: var(--color-text-agent); --_icon: var(--color-icon-agent); }
+
+.pp-lozenge--bold { --_bg: var(--color-background-neutral-bold); --_fg: var(--color-text-inverse); --_icon: var(--color-icon-inverse); }
+.pp-lozenge--bold.pp-lozenge--information { --_bg: var(--color-background-information-bold); --_fg: var(--color-text-inverse); --_icon: var(--color-icon-inverse); }
+.pp-lozenge--bold.pp-lozenge--success { --_bg: var(--color-background-success-bold); --_fg: var(--color-text-inverse); --_icon: var(--color-icon-inverse); }
+.pp-lozenge--bold.pp-lozenge--warning { --_bg: var(--color-background-warning-bold); --_fg: var(--color-text-warning-inverse); --_icon: var(--color-text-warning-inverse); }
+.pp-lozenge--bold.pp-lozenge--danger { --_bg: var(--color-background-danger-bold); --_fg: var(--color-text-inverse); --_icon: var(--color-icon-inverse); }
+.pp-lozenge--bold.pp-lozenge--agent { --_bg: var(--color-background-agent-bold); --_fg: var(--color-text-inverse); --_icon: var(--color-icon-inverse); }
+
+.pp-lozenge--large { min-height: var(--size-control-small); padding: 0 var(--space-150) 0 var(--space-100); font: var(--font-label); letter-spacing: var(--font-label-tracking); }

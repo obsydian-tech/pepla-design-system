@@ -1,0 +1,76 @@
+/* Slider. Spec: slider.md
+   A native <input type="range">, 44px tall to touch, with the value shown beside the label.
+   Set --_pct on the input (0% to 100%) so WebKit can draw the filled part; Firefox fills on its own. */
+.pp-slider { display: flex; flex-direction: column; gap: var(--space-050); min-width: 0; }
+.pp-slider__header { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-200); }
+.pp-slider__value { font: var(--font-body-strong); letter-spacing: var(--font-body-strong-tracking); color: var(--color-text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.pp-slider__input {
+  --_track: var(--color-background-neutral);
+  --_fill: var(--color-background-brand-bold);
+  --_thumb-border: var(--color-border-brand);
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: var(--size-touch-target);
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+.pp-slider__input:focus-visible { outline: none; }
+
+/* Track */
+.pp-slider__input::-webkit-slider-runnable-track {
+  height: var(--space-075);
+  border-radius: var(--radius-full);
+  background: linear-gradient(to right, var(--_fill) 0 var(--_pct, 0%), var(--_track) var(--_pct, 0%) 100%);
+}
+.pp-slider__input::-moz-range-track { height: var(--space-075); border-radius: var(--radius-full); background: var(--_track); }
+.pp-slider__input::-moz-range-progress { height: var(--space-075); border-radius: var(--radius-full); background: var(--_fill); }
+
+/* Thumb: 20px, raised, violet ring */
+.pp-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--space-250);
+  height: var(--space-250);
+  margin-top: calc((var(--space-075) - var(--space-250)) / 2);
+  border: var(--border-width-selected) solid var(--_thumb-border);
+  border-radius: var(--radius-full);
+  background: var(--elevation-surface-raised);
+  box-shadow: var(--elevation-shadow-raised);
+  transition: transform var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-slider__input::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--space-250);
+  height: var(--space-250);
+  border: var(--border-width-selected) solid var(--_thumb-border);
+  border-radius: var(--radius-full);
+  background: var(--elevation-surface-raised);
+  box-shadow: var(--elevation-shadow-raised);
+  transition: transform var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-slider__input:hover::-webkit-slider-thumb { transform: scale(1.1); }
+.pp-slider__input:hover::-moz-range-thumb { transform: scale(1.1); }
+.pp-slider__input:active::-webkit-slider-thumb { --_thumb-border: var(--color-background-brand-bold-pressed); transform: scale(1.1); }
+.pp-slider__input:focus-visible::-webkit-slider-thumb { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+.pp-slider__input:focus-visible::-moz-range-thumb { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+
+/* Disabled */
+.pp-slider__input:disabled { --_fill: var(--color-border-disabled); --_thumb-border: var(--color-border-disabled); cursor: not-allowed; }
+.pp-slider__input:disabled::-webkit-slider-thumb { background: var(--color-background-disabled); box-shadow: none; transform: none; }
+.pp-slider__input:disabled::-moz-range-thumb { background: var(--color-background-disabled); box-shadow: none; transform: none; }
+.pp-slider:has(.pp-slider__input:disabled) .pp-slider__value { color: var(--color-text-disabled); }
+
+/* Scale under the track: the ends, and the words for them */
+.pp-slider__scale { display: flex; justify-content: space-between; gap: var(--space-200); margin-top: calc(-1 * var(--space-075)); font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-slider__input:hover::-webkit-slider-thumb, .pp-slider__input:active::-webkit-slider-thumb { transform: none; }
+  .pp-slider__input:hover::-moz-range-thumb { transform: none; }
+}

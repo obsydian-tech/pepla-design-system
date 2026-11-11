@@ -1,0 +1,49 @@
+<section data-example="Explains a new control and offers to turn it on">
+  <div class="pp-inline-dialog-anchor" style="flex-direction:column;align-items:flex-start">
+    <button class="pp-button pp-button--default pp-button--small" type="button" aria-expanded="true" aria-controls="id-1"><i data-lucide="bell"></i><span>SMS reminders</span></button>
+    <div class="pp-inline-dialog pp-inline-dialog--inline" id="id-1" role="dialog" aria-labelledby="id-1-t" aria-describedby="id-1-d">
+      <div class="pp-inline-dialog__header">
+        <div class="pp-inline-dialog__title" id="id-1-t" role="heading" aria-level="3">Remind new hires by SMS?</div>
+        <button class="pp-button pp-button--subtle pp-button--icon pp-button--small pp-inline-dialog__close" type="button" aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="pp-inline-dialog__text" id="id-1-d">Pepla sends one SMS the day before a document is due. Most new hires sign on their phone.</div>
+      <div class="pp-inline-dialog__actions">
+        <button class="pp-button pp-button--subtle pp-button--small" type="button">Not now</button>
+        <button class="pp-button pp-button--primary pp-button--small" type="button">Turn on reminders</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="Agent suggestion next to the field it changes">
+  <div class="pp-inline-dialog-anchor" style="flex-direction:column;align-items:flex-start">
+    <button class="pp-button pp-button--default pp-button--small" type="button" aria-expanded="true" aria-controls="id-2"><i data-lucide="calendar-days"></i><span>Start date: 17 Nov 2026</span></button>
+    <div class="pp-inline-dialog pp-inline-dialog--agent pp-inline-dialog--inline" id="id-2" role="dialog" aria-labelledby="id-2-t" aria-describedby="id-2-d">
+      <div class="pp-inline-dialog__header">
+        <i data-lucide="sparkles"></i>
+        <div class="pp-inline-dialog__title" id="id-2-t" role="heading" aria-level="3">Pepla suggests 1 Dec 2026</div>
+      </div>
+      <div class="pp-inline-dialog__text" id="id-2-d">Kagiso Molefe's resignation letter says his notice at his current job ends on 28 Nov.</div>
+      <div class="pp-inline-dialog__actions">
+        <button class="pp-button pp-button--subtle pp-button--small" type="button">Keep 17 Nov</button>
+        <button class="pp-button pp-button--agent pp-button--small" type="button"><i data-lucide="check"></i><span>Use 1 Dec</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="Above and to the end: a small reversible step">
+  <div style="display:flex;justify-content:flex-end">
+    <div class="pp-inline-dialog-anchor" style="flex-direction:column-reverse;align-items:flex-end">
+      <button class="pp-button pp-button--subtle pp-button--small" type="button" aria-expanded="true" aria-controls="id-3"><span>Skip ID check</span></button>
+      <div class="pp-inline-dialog pp-inline-dialog--top pp-inline-dialog--end pp-inline-dialog--inline" id="id-3" role="dialog" aria-labelledby="id-3-t" aria-describedby="id-3-d">
+        <div class="pp-inline-dialog__header">
+          <div class="pp-inline-dialog__title" id="id-3-t" role="heading" aria-level="3">Skip the ID check for Tariro?</div>
+        </div>
+        <div class="pp-inline-dialog__text" id="id-3-d">Her onboarding will show the step as skipped, with your name. You can turn it back on later.</div>
+        <div class="pp-inline-dialog__actions">
+          <button class="pp-button pp-button--subtle pp-button--small" type="button">Keep step</button>
+          <button class="pp-button pp-button--primary pp-button--small" type="button">Skip step</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

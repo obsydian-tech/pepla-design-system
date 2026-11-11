@@ -1,0 +1,59 @@
+<section data-example="Field">
+  <div class="pp-form">
+    <div class="pp-form-row">
+      <div class="pp-field">
+        <label class="pp-field__label" for="dp-start">Start date<span class="pp-field__required" aria-hidden="true">*</span></label>
+        <div class="pp-date-picker">
+          <div class="pp-text-field">
+            <input class="pp-text-field__input" id="dp-start" type="text" value="23 Nov 2026" required autocomplete="off" aria-describedby="dp-start-help">
+            <button class="pp-text-field__action" type="button" aria-label="Choose start date" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="calendar-days"></i></button>
+          </div>
+        </div>
+        <div class="pp-field__help" id="dp-start-help">Monday, in 12 days</div>
+      </div>
+      <div class="pp-field">
+        <label class="pp-field__label" for="dp-dob">Date of birth</label>
+        <div class="pp-date-picker">
+          <div class="pp-text-field">
+            <input class="pp-text-field__input" id="dp-dob" type="text" value="14 Mar 1992" readonly aria-describedby="dp-dob-help">
+          </div>
+        </div>
+        <div class="pp-field__help" id="dp-dob-help">Read from the ID number</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="Calendar open">
+  <div class="pp-date-picker__panel" role="dialog" aria-modal="false" aria-labelledby="dp-cal-title">
+    <div class="pp-date-picker__header">
+      <button class="pp-date-picker__nav" type="button" aria-label="Previous month, October 2026" disabled><i data-lucide="chevron-left"></i></button>
+      <div class="pp-date-picker__title" id="dp-cal-title" aria-live="polite">November 2026</div>
+      <button class="pp-date-picker__nav" type="button" aria-label="Next month, December 2026"><i data-lucide="chevron-right"></i></button>
+    </div>
+    <div class="pp-date-picker__grid" role="grid" aria-labelledby="dp-cal-title">
+      <div role="row"><div class="pp-date-picker__weekday" role="columnheader"><abbr title="Monday">Mo</abbr></div><div class="pp-date-picker__weekday" role="columnheader"><abbr title="Tuesday">Tu</abbr></div><div class="pp-date-picker__weekday" role="columnheader"><abbr title="Wednesday">We</abbr></div><div class="pp-date-picker__weekday" role="columnheader"><abbr title="Thursday">Th</abbr></div><div class="pp-date-picker__weekday" role="columnheader"><abbr title="Friday">Fr</abbr></div><div class="pp-date-picker__weekday" role="columnheader"><abbr title="Saturday">Sa</abbr></div><div class="pp-date-picker__weekday" role="columnheader"><abbr title="Sunday">Su</abbr></div></div>
+                <div role="row"><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Monday 26 October 2026" disabled>26</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Tuesday 27 October 2026" disabled>27</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Wednesday 28 October 2026" disabled>28</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Thursday 29 October 2026" disabled>29</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Friday 30 October 2026" disabled>30</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Saturday 31 October 2026" disabled>31</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Sunday 1 November 2026" disabled>1</button></div></div>
+          <div role="row"><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Monday 2 November 2026" disabled>2</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Tuesday 3 November 2026" disabled>3</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Wednesday 4 November 2026" disabled>4</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Thursday 5 November 2026" disabled>5</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Friday 6 November 2026" disabled>6</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Saturday 7 November 2026" disabled>7</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Sunday 8 November 2026" disabled>8</button></div></div>
+          <div role="row"><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Monday 9 November 2026" disabled>9</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Tuesday 10 November 2026" disabled>10</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--today" type="button" aria-label="Wednesday 11 November 2026, today" aria-current="date">11</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Thursday 12 November 2026">12</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Friday 13 November 2026">13</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Saturday 14 November 2026">14</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Sunday 15 November 2026">15</button></div></div>
+          <div role="row"><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Monday 16 November 2026">16</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Tuesday 17 November 2026">17</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Wednesday 18 November 2026">18</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Thursday 19 November 2026">19</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Friday 20 November 2026">20</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Saturday 21 November 2026">21</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Sunday 22 November 2026">22</button></div></div>
+          <div role="row"><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Monday 23 November 2026" aria-pressed="true">23</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Tuesday 24 November 2026">24</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Wednesday 25 November 2026">25</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Thursday 26 November 2026">26</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Friday 27 November 2026">27</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Saturday 28 November 2026">28</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Sunday 29 November 2026">29</button></div></div>
+          <div role="row"><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day" type="button" aria-label="Monday 30 November 2026">30</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Tuesday 1 December 2026">1</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Wednesday 2 December 2026">2</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Thursday 3 December 2026">3</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Friday 4 December 2026">4</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Saturday 5 December 2026">5</button></div><div class="pp-date-picker__cell" role="gridcell"><button class="pp-date-picker__day pp-date-picker__day--outside" type="button" aria-label="Sunday 6 December 2026">6</button></div></div>
+    </div>
+    <div class="pp-date-picker__footer">
+      <span>Earliest start is today</span>
+      <button class="pp-button pp-button--link pp-button--small" type="button">Today</button>
+    </div>
+  </div>
+</section>
+<section data-example="Error">
+  <div class="pp-field" style="max-width:360px">
+    <label class="pp-field__label" for="dp-end">Contract end date<span class="pp-field__required" aria-hidden="true">*</span></label>
+    <div class="pp-date-picker">
+      <div class="pp-text-field">
+        <input class="pp-text-field__input" id="dp-end" type="text" value="31 Nov 2026" required aria-invalid="true" aria-describedby="dp-end-error">
+        <button class="pp-text-field__action" type="button" aria-label="Choose contract end date" aria-haspopup="dialog" aria-expanded="false"><i data-lucide="calendar-days"></i></button>
+      </div>
+    </div>
+    <div class="pp-field__error" id="dp-end-error"><i data-lucide="octagon-alert"></i><span>November has 30 days. Check the date, for example 30 Nov 2026.</span></div>
+  </div>
+</section>

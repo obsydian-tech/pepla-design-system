@@ -1,0 +1,68 @@
+/* Modal dialog. Spec: modal-dialog.md */
+.pp-blanket {
+  position: fixed;
+  inset: 0;
+  z-index: var(--layer-blanket);
+  display: grid;
+  place-items: center;
+  padding: var(--space-600) var(--space-300);
+  overflow-y: auto;
+  background: var(--color-blanket);
+  animation: pp-blanket-in var(--motion-duration-slow) var(--motion-easing-standard);
+}
+/* In place, for docs: the blanket fills its frame instead of the viewport */
+.pp-blanket--inline { position: relative; inset: auto; z-index: auto; min-height: 360px; padding: var(--space-300); border-radius: var(--radius-large); overflow: hidden; animation: none; }
+.pp-blanket--sheet { place-items: end stretch; padding: 0; }
+.pp-blanket--end { place-items: stretch end; padding: 0; }
+
+.pp-modal-dialog {
+  --_width: 600px;
+  --_icon: var(--color-icon);
+  position: relative;
+  z-index: var(--layer-modal);
+  display: flex;
+  flex-direction: column;
+  width: min(100%, var(--_width));
+  max-height: calc(100dvh - 2 * var(--space-600));
+  border-radius: var(--radius-xlarge);
+  background: var(--elevation-surface-overlay);
+  color: var(--color-text);
+  box-shadow: var(--elevation-shadow-overlay);
+  animation: pp-dialog-in var(--motion-duration-slow) var(--motion-easing-enter);
+}
+.pp-modal-dialog--small { --_width: 400px; }
+.pp-modal-dialog--large { --_width: 800px; }
+.pp-modal-dialog--danger { --_icon: var(--color-icon-danger); }
+.pp-modal-dialog--warning { --_icon: var(--color-icon-warning); }
+
+.pp-modal-dialog__header { display: flex; align-items: flex-start; gap: var(--space-150); padding: var(--space-300) var(--space-300) var(--space-200); }
+.pp-modal-dialog__header > svg { width: var(--size-icon-large); height: var(--size-icon-large); flex: none; color: var(--_icon); }
+.pp-modal-dialog__title { flex: 1; min-width: 0; margin: 0; font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); }
+.pp-modal-dialog__close { margin: calc(-1 * var(--space-075)) calc(-1 * var(--space-100)) 0 0; }
+.pp-modal-dialog__body { flex: 1; min-height: 0; overflow-y: auto; padding: 0 var(--space-300); font: var(--font-body); letter-spacing: var(--font-body-tracking); }
+.pp-modal-dialog__body > p { margin: 0 0 var(--space-150); }
+.pp-modal-dialog__body > p:last-child { margin-bottom: 0; }
+.pp-modal-dialog__footer { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-100); padding: var(--space-300); }
+
+.pp-modal-dialog--inline { animation: none; }
+
+@keyframes pp-blanket-in { from { opacity: 0; } }
+@keyframes pp-dialog-in { from { opacity: 0; transform: translateY(var(--space-100)) scale(.98); } }
+@keyframes pp-sheet-in { from { transform: translateY(100%); } }
+
+/* Phone: a bottom sheet */
+@media (max-width: 767px) {
+  .pp-blanket:not(.pp-blanket--inline) { place-items: end stretch; padding: 0; }
+  .pp-modal-dialog:not(.pp-modal-dialog--inline) { width: 100%; max-height: calc(100dvh - var(--space-600)); border-radius: var(--radius-xlarge) var(--radius-xlarge) 0 0; animation-name: pp-sheet-in; }
+  .pp-modal-dialog:not(.pp-modal-dialog--inline)::before { content: ""; align-self: center; width: var(--space-400); height: var(--space-050); margin-top: var(--space-100); border-radius: var(--radius-full); background: var(--color-border-bold); }
+  .pp-modal-dialog:not(.pp-modal-dialog--inline) .pp-modal-dialog__footer { flex-direction: column-reverse; padding-bottom: calc(var(--space-300) + env(safe-area-inset-bottom)); }
+  .pp-modal-dialog:not(.pp-modal-dialog--inline) .pp-modal-dialog__footer .pp-button { min-height: var(--size-control-large); }
+}
+.pp-modal-dialog--sheet { width: 100%; border-radius: var(--radius-xlarge) var(--radius-xlarge) 0 0; animation-name: pp-sheet-in; }
+.pp-modal-dialog--sheet::before { content: ""; align-self: center; width: var(--space-400); height: var(--space-050); margin-top: var(--space-100); border-radius: var(--radius-full); background: var(--color-border-bold); }
+.pp-modal-dialog--sheet .pp-modal-dialog__footer { flex-direction: column-reverse; }
+.pp-modal-dialog--sheet .pp-modal-dialog__footer .pp-button { min-height: var(--size-control-large); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-modal-dialog, .pp-modal-dialog--sheet { animation-name: pp-blanket-in; }
+}

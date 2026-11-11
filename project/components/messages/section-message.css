@@ -1,0 +1,31 @@
+/* Section message. Spec: section-message.md */
+.pp-section-message {
+  --_bg: var(--color-background-information-subtle);
+  --_icon: var(--color-icon-information);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-150);
+  padding: var(--space-200);
+  border-radius: var(--radius-large);
+  background: var(--_bg);
+  color: var(--color-text);
+}
+.pp-section-message > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--_icon); }
+.pp-section-message__content { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-050); }
+.pp-section-message__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-section-message__body { margin: 0; font: var(--font-body); letter-spacing: var(--font-body-tracking); }
+.pp-section-message__body > p { margin: 0 0 var(--space-100); }
+.pp-section-message__body > p:last-child { margin-bottom: 0; }
+.pp-section-message__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100) var(--space-200); margin-top: var(--space-100); }
+.pp-section-message__dismiss { margin: calc(-1 * var(--space-075)) calc(-1 * var(--space-075)) 0 0; }
+
+.pp-section-message--success { --_bg: var(--color-background-success-subtle); --_icon: var(--color-icon-success); }
+.pp-section-message--warning { --_bg: var(--color-background-warning-subtle); --_icon: var(--color-icon-warning); }
+.pp-section-message--danger { --_bg: var(--color-background-danger-subtle); --_icon: var(--color-icon-danger); }
+/* Agent: only for something Pepla's agents did or propose (rule 1) */
+.pp-section-message--agent { --_bg: var(--color-background-agent-subtlest); --_icon: var(--color-icon-agent); box-shadow: inset 0 0 0 var(--border-width) var(--color-border-agent); }
+.pp-section-message--agent .pp-section-message__title { color: var(--color-text-agent); }
+
+@media (max-width: 767px) {
+  .pp-section-message__actions .pp-button:not(.pp-button--link) { flex: 1 1 auto; }
+}

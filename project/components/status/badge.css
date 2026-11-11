@@ -1,0 +1,35 @@
+/* Badge (count). Spec: badge.md */
+.pp-badge {
+  --_bg: var(--color-background-neutral);
+  --_fg: var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-icon-medium);
+  height: var(--size-icon-medium);
+  box-sizing: border-box;
+  padding: 0 var(--space-075);
+  border-radius: var(--radius-full);
+  background: var(--_bg);
+  color: var(--_fg);
+  font: var(--font-heading-xxsmall);
+  letter-spacing: var(--font-heading-xxsmall-tracking);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.pp-badge--primary { --_bg: var(--color-background-brand-bold); --_fg: var(--color-text-inverse); }
+.pp-badge--danger { --_bg: var(--color-background-danger-bold); --_fg: var(--color-text-inverse); }
+.pp-badge--agent { --_bg: var(--color-background-agent-bold); --_fg: var(--color-text-inverse); }
+.pp-badge--subtle { --_bg: transparent; --_fg: var(--color-text-subtle); box-shadow: inset 0 0 0 var(--border-width) var(--color-border); }
+/* Selected nav items and tabs: the badge flips so it still stands out */
+[aria-current="page"] .pp-badge--primary, [aria-selected="true"] .pp-badge--primary { --_bg: var(--color-background-neutral-bold); }
+
+/* On an icon: sits on the top-right corner of a 40px icon button */
+.pp-badge-anchor { position: relative; display: inline-flex; }
+.pp-badge-anchor > .pp-badge { position: absolute; top: calc(var(--space-050) * -1); right: calc(var(--space-050) * -1); box-shadow: 0 0 0 var(--border-width-selected) var(--elevation-surface); pointer-events: none; }
+/* A dot: only for "something new" on an icon, never a count or a status */
+.pp-badge--dot { min-width: 0; width: var(--space-100); height: var(--space-100); padding: 0; }
+.pp-badge-anchor > .pp-badge--dot { top: var(--space-050); right: var(--space-050); }
+
+.pp-badge__label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }

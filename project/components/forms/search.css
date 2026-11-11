@@ -1,0 +1,13 @@
+/* Search. Spec: search.md
+   Built on .pp-text-field: a search icon prefix, the input, and a clear button. */
+.pp-search .pp-text-field__input::-webkit-search-cancel-button,
+.pp-search .pp-text-field__input::-webkit-search-decoration { appearance: none; }
+/* The clear button only shows when there is something to clear */
+.pp-search:has(> .pp-text-field__input:placeholder-shown) > .pp-search__clear { display: none; }
+.pp-search__clear { margin-right: var(--space-025); }
+.pp-search > .pp-spinner { margin-right: var(--space-100); }
+.pp-search[aria-busy="true"] > .pp-search__clear { display: none; }
+.pp-search:not([aria-busy="true"]) > .pp-spinner { display: none; }
+
+
+.pp-search__results { margin: var(--space-075) 0 0; font: var(--font-body-small); color: var(--color-text-subtle); }

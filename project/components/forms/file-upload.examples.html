@@ -1,0 +1,83 @@
+<section data-example="Drop zone">
+  <div class="pp-field">
+    <span class="pp-field__label" id="fu-id-label">Copy of ID<span class="pp-field__required" aria-hidden="true">*</span></span>
+    <div class="pp-file-upload">
+      <span class="pp-file-upload__icon"><i data-lucide="upload"></i></span>
+      <div class="pp-file-upload__title"><span class="pp-file-upload__drop-text">Drag Sipho's ID here, or </span>choose a file</div>
+      <div class="pp-file-upload__hint" id="fu-id-hint">PDF, JPG or PNG, up to 5 MB. A phone photo is fine if all four corners show.</div>
+      <input class="pp-file-upload__input" type="file" id="fu-id" accept=".pdf,.jpg,.jpeg,.png" aria-labelledby="fu-id-label" aria-describedby="fu-id-hint" required>
+      <label class="pp-button pp-button--default pp-file-upload__browse" for="fu-id"><i data-lucide="upload"></i><span>Choose file</span></label>
+    </div>
+  </div>
+</section>
+<section data-example="Dragging over, and an error">
+  <div class="pp-form">
+    <div class="pp-file-upload pp-file-upload--dragover">
+      <span class="pp-file-upload__icon"><i data-lucide="upload"></i></span>
+      <div class="pp-file-upload__title">Drop to upload</div>
+      <div class="pp-file-upload__hint">PDF, JPG or PNG, up to 5 MB</div>
+    </div>
+    <div class="pp-field">
+      <span class="pp-field__label" id="fu-bank-label">Bank confirmation letter</span>
+      <div class="pp-file-upload pp-file-upload--invalid">
+        <span class="pp-file-upload__icon"><i data-lucide="file-text"></i></span>
+        <div class="pp-file-upload__title"><span class="pp-file-upload__drop-text">Drag the letter here, or </span>choose a file</div>
+        <div class="pp-file-upload__hint" id="fu-bank-hint">PDF only, up to 5 MB, less than 3 months old</div>
+        <input class="pp-file-upload__input" type="file" id="fu-bank" accept=".pdf" aria-labelledby="fu-bank-label" aria-describedby="fu-bank-error fu-bank-hint" aria-invalid="true">
+        <label class="pp-button pp-button--default pp-file-upload__browse" for="fu-bank"><i data-lucide="upload"></i><span>Choose file</span></label>
+      </div>
+      <div class="pp-field__error" id="fu-bank-error"><i data-lucide="octagon-alert"></i><span>bank-letter.docx is a Word file. Save it as a PDF and try again.</span></div>
+    </div>
+  </div>
+</section>
+<section data-example="Selected files: uploading, done, checked by Pepla, failed">
+  <div class="pp-file-list" role="list" aria-label="Lerato's documents">
+    <div class="pp-file" role="listitem">
+      <span class="pp-file__icon"><i data-lucide="file-text"></i></span>
+      <div class="pp-file__body">
+        <span class="pp-file__name">payslip-october-2026.pdf</span>
+        <span class="pp-file__meta"><span>1.2 MB</span><span>Uploading, 64%</span></span>
+      </div>
+      <div class="pp-file__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Cancel upload of payslip-october-2026.pdf"><i data-lucide="x"></i></button></div>
+      <progress class="pp-progress-bar__track pp-progress-bar__track--small pp-file__progress" value="64" max="100" aria-label="Uploading payslip-october-2026.pdf">64%</progress>
+    </div>
+    <div class="pp-file" role="listitem">
+      <span class="pp-file__icon"><i data-lucide="file-text"></i></span>
+      <div class="pp-file__body">
+        <span class="pp-file__name">matric-certificate.pdf</span>
+        <span class="pp-file__meta"><span>840 KB</span><span class="pp-file__status pp-file__status--success"><i data-lucide="circle-check"></i>Uploaded</span></span>
+      </div>
+      <div class="pp-file__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove matric-certificate.pdf"><i data-lucide="trash-2"></i></button></div>
+    </div>
+    <div class="pp-file" role="listitem">
+      <span class="pp-file__icon"><i data-lucide="id-card"></i></span>
+      <div class="pp-file__body">
+        <span class="pp-file__name">id-smart-card-front.jpg</span>
+        <span class="pp-file__meta"><span>2.1 MB</span><span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Checked by Pepla</span></span>
+      </div>
+      <div class="pp-file__actions"><button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove id-smart-card-front.jpg"><i data-lucide="trash-2"></i></button></div>
+    </div>
+    <div class="pp-file pp-file--error" role="listitem">
+      <span class="pp-file__icon"><i data-lucide="file-text"></i></span>
+      <div class="pp-file__body">
+        <span class="pp-file__name">proof-of-address-scan.pdf</span>
+        <span class="pp-file__meta"><span>12.4 MB</span><span class="pp-file__status pp-file__status--danger"><i data-lucide="octagon-alert"></i>Too big. The limit is 5 MB.</span></span>
+      </div>
+      <div class="pp-file__actions">
+        <button class="pp-button pp-button--default pp-button--small" type="button">Try again</button>
+        <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Remove proof-of-address-scan.pdf"><i data-lucide="x"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="Compact, inside a document checklist">
+  <div class="pp-file-upload pp-file-upload--compact">
+    <span class="pp-file-upload__icon"><i data-lucide="file-text"></i></span>
+    <div class="pp-file-upload__text">
+      <div class="pp-file-upload__title" id="fu-tax-title">Tax number letter from SARS</div>
+      <div class="pp-file-upload__hint" id="fu-tax-hint">PDF or photo, up to 5 MB. Due in 2 days.</div>
+    </div>
+    <input class="pp-file-upload__input" type="file" id="fu-tax" accept=".pdf,.jpg,.jpeg,.png" aria-labelledby="fu-tax-title" aria-describedby="fu-tax-hint">
+    <label class="pp-button pp-button--default pp-button--small pp-file-upload__browse" for="fu-tax"><i data-lucide="upload"></i><span>Upload</span></label>
+  </div>
+</section>

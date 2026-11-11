@@ -1,0 +1,70 @@
+/* Button. Spec: button.md */
+.pp-button {
+  --_bg: var(--color-background-neutral);
+  --_bg-hover: var(--color-background-neutral-hovered);
+  --_bg-press: var(--color-background-neutral-pressed);
+  --_fg: var(--color-text);
+  --_border: transparent;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-100);
+  min-height: var(--size-control-medium);
+  min-width: var(--size-touch-target);
+  padding: 0 var(--space-250);
+  border: var(--border-width) solid var(--_border);
+  border-radius: var(--radius-full);
+  background: var(--_bg);
+  color: var(--_fg);
+  font: var(--font-label);
+  letter-spacing: var(--font-label-tracking);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
+              transform var(--motion-duration-fast) var(--motion-easing-standard);
+}
+.pp-button:hover { background: var(--_bg-hover); }
+.pp-button:active { background: var(--_bg-press); transform: scale(var(--motion-scale-pressed)); }
+.pp-button > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; }
+
+.pp-button--primary { --_bg: var(--color-background-brand-bold); --_bg-hover: var(--color-background-brand-bold-hovered); --_bg-press: var(--color-background-brand-bold-pressed); --_fg: var(--color-text-inverse); }
+.pp-button--default { --_bg: var(--elevation-surface-raised); --_bg-hover: var(--elevation-surface-raised-hovered); --_bg-press: var(--elevation-surface-raised-pressed); --_border: var(--color-border-bold); }
+.pp-button--subtle { --_bg: var(--color-background-neutral-subtle); --_bg-hover: var(--color-background-neutral-subtle-hovered); --_bg-press: var(--color-background-neutral-subtle-pressed); }
+.pp-button--danger { --_bg: var(--color-background-danger-bold); --_bg-hover: var(--color-background-danger-bold-hovered); --_bg-press: var(--color-background-danger-bold-pressed); --_fg: var(--color-text-inverse); }
+.pp-button--agent { --_bg: var(--color-background-agent-bold); --_bg-hover: var(--color-background-agent-bold-hovered); --_bg-press: var(--color-background-agent-bold-pressed); --_fg: var(--color-text-inverse); }
+.pp-button--link { --_bg: transparent; --_bg-hover: transparent; --_bg-press: transparent; --_fg: var(--color-link); padding: 0 var(--space-050); min-width: 0; }
+.pp-button--link:hover { text-decoration: underline; }
+
+.pp-button--small { min-height: var(--size-control-small); padding: 0 var(--space-150); }
+.pp-button--large { min-height: var(--size-control-large); padding: 0 var(--space-300); font: var(--font-heading-small); }
+.pp-button--block { display: flex; width: 100%; }
+.pp-button--icon { padding: 0; width: var(--size-control-medium); min-width: var(--size-control-medium); }
+.pp-button--icon.pp-button--small { width: var(--size-control-small); min-width: var(--size-control-small); }
+.pp-button--icon.pp-button--large { width: var(--size-control-large); min-width: var(--size-control-large); }
+.pp-button--icon > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); }
+
+/* Small controls keep a 44px hit area on touch screens */
+@media (pointer: coarse) {
+  .pp-button--small::after, .pp-button--icon::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: max(100%, var(--size-touch-target)); height: max(100%, var(--size-touch-target)); transform: translate(-50%, -50%); }
+}
+
+.pp-button:disabled, .pp-button[aria-disabled="true"] {
+  --_bg: var(--color-background-disabled); --_bg-hover: var(--color-background-disabled); --_bg-press: var(--color-background-disabled);
+  --_fg: var(--color-text-disabled); --_border: transparent;
+  cursor: not-allowed; transform: none;
+}
+.pp-button--link:disabled { --_bg: transparent; }
+.pp-button[aria-pressed="true"] { --_bg: var(--color-background-selected); --_bg-hover: var(--color-background-selected-hovered); --_fg: var(--color-text-selected); --_border: var(--color-border-selected); }
+
+/* Working: the label fades, a spinner takes its place, the size never changes (rule 8) */
+.pp-button[aria-busy="true"] { cursor: progress; pointer-events: none; }
+.pp-button[aria-busy="true"] > :not(.pp-spinner) { opacity: 0; transform: scale(.8); transition: opacity var(--motion-duration-working) var(--motion-easing-spring), transform var(--motion-duration-working) var(--motion-easing-spring); }
+.pp-button > .pp-spinner { position: absolute; inset: 0; margin: auto; display: none; }
+.pp-button[aria-busy="true"] > .pp-spinner { display: block; }
+
+.pp-button-group { display: flex; flex-wrap: wrap; gap: var(--space-100); align-items: center; }
+.pp-button-group--end { justify-content: flex-end; }
+@media (max-width: 479px) { .pp-button-group--stack-phone { flex-direction: column-reverse; align-items: stretch; } }

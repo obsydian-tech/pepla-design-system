@@ -1,0 +1,67 @@
+<section data-example="Label, help and required marker">
+  <div class="pp-field">
+    <label class="pp-field__label" for="fd-id">ID number<span class="pp-field__required" aria-hidden="true">*</span></label>
+    <input class="pp-text-field" id="fd-id" type="text" inputmode="numeric" required aria-describedby="fd-id-help">
+    <div class="pp-field__help" id="fd-id-help">13 digits, as on the green ID book or smart card</div>
+  </div>
+</section>
+<section data-example="Error message">
+  <div class="pp-field">
+    <label class="pp-field__label" for="fd-start">Start date<span class="pp-field__required" aria-hidden="true">*</span></label>
+    <input class="pp-text-field" id="fd-start" type="text" required aria-invalid="true" aria-describedby="fd-start-error fd-start-help">
+    <div class="pp-field__error" id="fd-start-error"><i data-lucide="octagon-alert"></i><span>Enter the start date, for example 3 Nov 2026</span></div>
+    <div class="pp-field__help" id="fd-start-help">Their first working day</div>
+  </div>
+</section>
+<section data-example="Form layout: sections and a two-column row">
+  <form class="pp-form" aria-label="Register a new employee">
+    <div class="pp-form__note">All fields are required unless marked optional.</div>
+    <fieldset class="pp-form-section">
+      <legend class="pp-form-section__title">Personal details</legend>
+      <div class="pp-form-row">
+        <div class="pp-field">
+          <label class="pp-field__label" for="fd-first">First name</label>
+          <input class="pp-text-field" id="fd-first" type="text" value="Lerato" required autocomplete="given-name">
+        </div>
+        <div class="pp-field">
+          <label class="pp-field__label" for="fd-last">Surname</label>
+          <input class="pp-text-field" id="fd-last" type="text" value="Mokoena" required autocomplete="family-name">
+        </div>
+      </div>
+      <div class="pp-field">
+        <label class="pp-field__label" for="fd-pref">Preferred name<span class="pp-field__optional">(optional)</span></label>
+        <input class="pp-text-field" id="fd-pref" type="text" aria-describedby="fd-pref-help">
+        <div class="pp-field__help" id="fd-pref-help">What the team calls them, if it is not their first name</div>
+      </div>
+    </fieldset>
+    <fieldset class="pp-form-section">
+      <legend class="pp-form-section__title">Employment</legend>
+      <div class="pp-form-row">
+        <div class="pp-field">
+          <label class="pp-field__label" for="fd-role">Job title</label>
+          <input class="pp-text-field" id="fd-role" type="text" value="Payroll administrator" required>
+        </div>
+        <div class="pp-field">
+          <label class="pp-field__label" for="fd-salary">Monthly salary</label>
+          <div class="pp-text-field pp-text-field--money">
+            <span class="pp-text-field__prefix" aria-hidden="true">R</span>
+            <input class="pp-text-field__input" id="fd-salary" type="text" inputmode="decimal" value="18 500" required>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="pp-button-group pp-button-group--end pp-button-group--stack-phone">
+      <button class="pp-button pp-button--default" type="button">Save draft</button>
+      <button class="pp-button pp-button--primary" type="submit">Register employee</button>
+    </div>
+  </form>
+</section>
+<section data-example="Group of choices in a fieldset">
+  <fieldset class="pp-field">
+    <legend class="pp-field__label">Contract type<span class="pp-field__required" aria-hidden="true">*</span></legend>
+    <div class="pp-field__options pp-field__options--inline">
+      <div class="pp-radio"><input class="pp-radio__input" type="radio" name="fd-contract" id="fd-contract-perm" checked><label class="pp-radio__label" for="fd-contract-perm">Permanent</label></div>
+      <div class="pp-radio"><input class="pp-radio__input" type="radio" name="fd-contract" id="fd-contract-fixed"><label class="pp-radio__label" for="fd-contract-fixed">Fixed term</label></div>
+    </div>
+  </fieldset>
+</section>

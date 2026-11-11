@@ -1,0 +1,51 @@
+/* Form layout. Spec: form-layout.md
+   The form around the fields: sections, rows, the error summary and the footer. Fields themselves: field.css */
+.pp-form { display: flex; flex-direction: column; gap: var(--space-300); max-width: var(--layout-reading-max); }
+.pp-form--wide { max-width: none; }
+.pp-form__note { margin: 0; font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
+
+/* Controls scroll into view clear of the top bar and the sticky footer */
+.pp-form :is(input, select, textarea, button, [tabindex]) { scroll-margin-block: calc(var(--layout-topbar-height) + var(--space-300)) calc(var(--size-control-large) + var(--space-600)); }
+
+/* Sections */
+.pp-form-section { display: flex; flex-direction: column; gap: var(--space-250); margin: 0; padding: 0; border: 0; min-inline-size: 0; }
+.pp-form-section + .pp-form-section { padding-top: var(--space-300); border-top: var(--border-width) solid var(--color-border); }
+.pp-form-section__title { margin: 0 0 var(--space-050); padding: 0; font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); color: var(--color-text); }
+.pp-form-section__description { margin: 0; font: var(--font-body); letter-spacing: var(--font-body-tracking); color: var(--color-text-subtle); }
+
+/* Rows: one column on phone, two from 768px. A field can span both columns. */
+.pp-form-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-250) var(--space-200); }
+@media (min-width: 768px) { .pp-form-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pp-form-row__full { grid-column: 1 / -1; }
+
+/* Error summary: a danger section message at the top of the form, with a link to each field */
+.pp-form-error-summary:focus-visible { outline-offset: var(--focus-ring-offset); }
+.pp-form-error-summary__list { display: flex; flex-direction: column; gap: var(--space-050); margin: var(--space-100) 0 0; padding: 0; list-style: none; }
+.pp-form-error-summary__list .pp-link { color: var(--color-text); }
+
+/* Footer: the form's actions, held at the bottom of the scrolling area */
+.pp-form__footer {
+  position: sticky;
+  bottom: 0;
+  z-index: var(--layer-card);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-100) var(--space-200);
+  margin-top: calc(-1 * var(--space-100));
+  padding: var(--space-200) 0;
+  padding-bottom: max(var(--space-200), env(safe-area-inset-bottom));
+  border-top: var(--border-width) solid var(--color-border);
+  background: var(--_footer-bg, var(--elevation-surface));
+}
+.pp-form__footer > .pp-button-group { margin-left: auto; }
+.pp-form__status { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); }
+.pp-form__status > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
+/* Inside a card or drawer the footer takes the raised surface */
+.pp-form--raised { --_footer-bg: var(--elevation-surface-raised); }
+@media (max-width: 479px) {
+  .pp-form__footer { flex-direction: column; align-items: stretch; }
+  .pp-form__footer > .pp-button-group { margin-left: 0; }
+  .pp-form__status { justify-content: center; }
+}

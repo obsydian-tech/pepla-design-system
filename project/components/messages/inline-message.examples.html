@@ -1,0 +1,22 @@
+<section data-example="Under a field">
+  <div style="display:flex;flex-direction:column;gap:var(--space-075);max-width:360px">
+    <label for="im-id" style="font:var(--font-label)">South African ID number</label>
+    <input id="im-id" value="900514512408" aria-invalid="true" aria-describedby="im-id-msg" style="min-height:var(--size-control-medium);padding:0 var(--space-150);border:var(--border-width) solid var(--color-border-danger);border-radius:var(--radius-medium);background:var(--color-background-input)">
+    <p class="pp-inline-message pp-inline-message--error" id="im-id-msg"><i data-lucide="octagon-alert"></i><span>That ID number has 12 digits. South African IDs have 13.</span></p>
+  </div>
+</section>
+<section data-example="Appearances">
+  <div style="display:flex;flex-direction:column;gap:var(--space-150)">
+    <p class="pp-inline-message"><i data-lucide="info"></i><span>Only Thandeka and payroll admins can see salaries.</span></p>
+    <p class="pp-inline-message pp-inline-message--success"><i data-lucide="circle-check"></i><span>Bank details verified on 4 Nov 2026</span></p>
+    <p class="pp-inline-message pp-inline-message--warning"><i data-lucide="clock"></i><span>Due in 2 days</span></p>
+    <p class="pp-inline-message pp-inline-message--error"><i data-lucide="clock-alert"></i><span>Overdue by 1 day</span></p>
+    <p class="pp-inline-message pp-inline-message--agent"><i data-lucide="sparkles"></i><span>Pepla filled this from Sipho's CV. Check it before you save.</span></p>
+  </div>
+</section>
+<section data-example="Beside a row">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-200);padding:var(--space-150) var(--space-200);background:var(--elevation-surface-raised);border:var(--border-width) solid var(--color-border);border-radius:var(--radius-medium)">
+    <span style="font:var(--font-body-strong)">Work permit</span>
+    <span class="pp-inline-message pp-inline-message--warning pp-inline-message--inline"><i data-lucide="triangle-alert"></i><span>Expires in 12 days</span></span>
+  </div>
+</section>

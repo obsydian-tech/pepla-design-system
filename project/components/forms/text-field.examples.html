@@ -1,0 +1,82 @@
+<section data-example="Default, with help and required">
+  <div class="pp-form">
+    <div class="pp-form-row">
+      <div class="pp-field">
+        <label class="pp-field__label" for="tf-first">First name<span class="pp-field__required" aria-hidden="true">*</span></label>
+        <input class="pp-text-field" id="tf-first" type="text" value="Thandeka" autocomplete="given-name" required>
+      </div>
+      <div class="pp-field">
+        <label class="pp-field__label" for="tf-last">Surname<span class="pp-field__required" aria-hidden="true">*</span></label>
+        <input class="pp-text-field" id="tf-last" type="text" value="Dlamini" autocomplete="family-name" required>
+      </div>
+    </div>
+    <div class="pp-field">
+      <label class="pp-field__label" for="tf-email">Personal email<span class="pp-field__optional">(optional)</span></label>
+      <input class="pp-text-field" id="tf-email" type="email" placeholder="name@example.co.za" aria-describedby="tf-email-help" autocomplete="email">
+      <div class="pp-field__help" id="tf-email-help">We send the welcome pack here before their work email is set up.</div>
+    </div>
+  </div>
+</section>
+<section data-example="Prefix and suffix: money and units">
+  <div class="pp-form">
+    <div class="pp-form-row">
+      <div class="pp-field">
+        <label class="pp-field__label" for="tf-salary">Monthly salary</label>
+        <div class="pp-text-field pp-text-field--money">
+          <span class="pp-text-field__prefix" aria-hidden="true">R</span>
+          <input class="pp-text-field__input" id="tf-salary" type="text" inputmode="decimal" value="18 500" aria-describedby="tf-salary-help">
+        </div>
+        <div class="pp-field__help" id="tf-salary-help">Before tax, in rand</div>
+      </div>
+      <div class="pp-field">
+        <label class="pp-field__label" for="tf-hours">Hours per week</label>
+        <div class="pp-text-field pp-text-field--numeric">
+          <input class="pp-text-field__input" id="tf-hours" type="text" inputmode="numeric" value="40">
+          <span class="pp-text-field__suffix">hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-example="Masked personal data with reveal (POPIA)">
+  <div class="pp-form">
+    <div class="pp-field">
+      <label class="pp-field__label" for="tf-id-hidden">ID number</label>
+      <div class="pp-text-field pp-text-field--masked">
+        <span class="pp-text-field__prefix"><i data-lucide="eye-off"></i></span>
+        <input class="pp-text-field__input" id="tf-id-hidden" type="text" value="•••••••••0876" readonly aria-describedby="tf-id-hidden-help">
+        <button class="pp-text-field__action" type="button" aria-pressed="false" aria-label="Show ID number"><i data-lucide="eye"></i></button>
+      </div>
+      <div class="pp-field__help" id="tf-id-hidden-help">Hidden to protect Sipho's privacy. Showing it is logged.</div>
+    </div>
+    <div class="pp-field">
+      <label class="pp-field__label" for="tf-id-shown">ID number</label>
+      <div class="pp-text-field pp-text-field--masked">
+        <input class="pp-text-field__input" id="tf-id-shown" type="text" value="9203145800876" readonly aria-describedby="tf-id-shown-audit">
+        <button class="pp-text-field__action" type="button" aria-pressed="true" aria-label="Hide ID number"><i data-lucide="eye-off"></i></button>
+      </div>
+      <div class="pp-text-field-audit" id="tf-id-shown-audit"><i data-lucide="history"></i><span>Shown to you, 11 Nov 2026, 14:30. Hides again in 60 seconds.</span></div>
+    </div>
+  </div>
+</section>
+<section data-example="Error, disabled and read only">
+  <div class="pp-form">
+    <div class="pp-field">
+      <label class="pp-field__label" for="tf-id-err">ID number<span class="pp-field__required" aria-hidden="true">*</span></label>
+      <input class="pp-text-field pp-text-field--numeric" id="tf-id-err" type="text" inputmode="numeric" value="920314580087" required aria-invalid="true" aria-describedby="tf-id-err-msg tf-id-err-help">
+      <div class="pp-field__error" id="tf-id-err-msg"><i data-lucide="octagon-alert"></i><span>That ID number has 12 digits. South African IDs have 13.</span></div>
+      <div class="pp-field__help" id="tf-id-err-help">As on the green ID book or smart card</div>
+    </div>
+    <div class="pp-form-row">
+      <div class="pp-field">
+        <label class="pp-field__label" for="tf-emp-no">Employee number</label>
+        <input class="pp-text-field" id="tf-emp-no" type="text" value="PEP-0142" disabled aria-describedby="tf-emp-no-help">
+        <div class="pp-field__help" id="tf-emp-no-help">Set by payroll</div>
+      </div>
+      <div class="pp-field">
+        <label class="pp-field__label" for="tf-tax">Tax number</label>
+        <input class="pp-text-field" id="tf-tax" type="text" value="••••••4471" readonly>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+/* Dynamic table. Spec: table.md */
+.pp-table-wrap { width: 100%; overflow-x: auto; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); }
+.pp-table { width: 100%; border-collapse: separate; border-spacing: 0; font: var(--font-body); color: var(--color-text); font-variant-numeric: tabular-nums; }
+.pp-table caption { text-align: left; padding: var(--space-200) var(--space-200) var(--space-100); font: var(--font-heading-small); }
+.pp-table th, .pp-table td { padding: var(--space-150) var(--space-200); text-align: left; vertical-align: middle; border-bottom: var(--border-width) solid var(--color-border); }
+.pp-table thead th { position: sticky; top: 0; z-index: 1; background: var(--elevation-surface-raised); font: var(--font-heading-xxsmall); color: var(--color-text-subtlest); white-space: nowrap; }
+.pp-table tbody tr:last-child > * { border-bottom: 0; }
+.pp-table tbody tr:hover { background: var(--elevation-surface-raised-hovered); }
+.pp-table tbody tr[aria-selected="true"] { background: var(--color-background-selected); }
+.pp-table td.pp-table__num, .pp-table th.pp-table__num { text-align: right; }
+.pp-table__actions { width: 1%; white-space: nowrap; text-align: right; }
+.pp-table--compact th, .pp-table--compact td { padding: var(--space-075) var(--space-150); }
+.pp-table__sort { display: inline-flex; align-items: center; gap: var(--space-050); padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; min-height: 24px; }
+.pp-table__sort svg { width: 14px; height: 14px; }
+.pp-table__sort:hover { color: var(--color-text); }
+th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table__sort { color: var(--color-text); }
+.pp-table__check { width: 1%; }
+.pp-table__empty { padding: var(--space-600) var(--space-200); text-align: center; color: var(--color-text-subtle); }
+.pp-table__restricted { display: inline-flex; align-items: center; gap: var(--space-050); color: var(--color-text-subtlest); }
+.pp-table__restricted svg { width: 14px; height: 14px; }
+/* Phone: rows become stacked cards when the table opts in */
+@media (max-width: 767px) {
+  .pp-table--stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .pp-table--stack, .pp-table--stack tbody, .pp-table--stack tr, .pp-table--stack td { display: block; width: 100%; }
+  .pp-table--stack tr { padding: var(--space-150) var(--space-200); border-bottom: var(--border-width) solid var(--color-border); }
+  .pp-table--stack td { border: 0; padding: var(--space-025) 0; text-align: left; }
+  .pp-table--stack td[data-label]::before { content: attr(data-label); display: block; font: var(--font-heading-xxsmall); color: var(--color-text-subtlest); }
+  .pp-table--stack td.pp-table__num { text-align: left; }
+}

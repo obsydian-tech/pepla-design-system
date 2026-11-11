@@ -1,0 +1,14 @@
+/* Icon. Spec: icon.md. Lucide SVGs, sized and coloured by tokens. */
+.pp-icon { display: inline-block; width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; vertical-align: middle; stroke-width: 1.75; color: inherit; }
+.pp-icon--small { width: var(--size-icon-small); height: var(--size-icon-small); }
+.pp-icon--large { width: var(--size-icon-large); height: var(--size-icon-large); }
+.pp-icon--subtle { color: var(--color-icon-subtle); }
+.pp-icon--brand { color: var(--color-icon-brand); }
+.pp-icon--agent { color: var(--color-icon-agent); }
+.pp-icon--success { color: var(--color-icon-success); }
+.pp-icon--warning { color: var(--color-icon-warning); }
+.pp-icon--danger { color: var(--color-icon-danger); }
+.pp-icon--information { color: var(--color-icon-information); }
+.pp-icon-tile { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-medium); background: var(--color-background-neutral); color: var(--color-icon); }
+.pp-icon-tile--brand { background: var(--color-background-brand-subtle); color: var(--color-icon-brand); }
+.pp-icon-tile--agent { background: var(--color-background-agent-subtle); color: var(--color-icon-agent); }
