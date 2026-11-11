@@ -28,5 +28,5 @@
   .pp-person-header__facts { flex-direction: column; }
   .pp-person-header__actions { justify-content: stretch; }
   .pp-person-header__actions > .pp-button:not(.pp-button--icon) { flex: 1 1 0; min-height: var(--size-control-large); }
-  .pp-person-header__actions > .pp-button--icon { width: var(--size-control-large); min-height: var(--size-control-large); }
+  /* Descendant, so a menu wrapping its button still gets it */ .pp-person-header__actions .pp-button--icon { width: var(--size-control-large); min-height: var(--size-control-large); }
 }
