@@ -64,7 +64,7 @@ One line in the audit trail: who did what to which record, when, from where, and
 
 ## PrimeNG mapping
 
-> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. Only the date picker, autocomplete, multi-select and long tables wrap PrimeNG (see `docs/verify-design-angular.md`).
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 For large logs with sorting and paging, use `p-table` with row expansion and the Table pass-through; the expanded row holds `pp-audit-event__details` (expansion keys to be checked). For short logs on a record page, use the plain `<details>` markup.
 

@@ -83,6 +83,8 @@
   color: var(--color-text);
   font: var(--font-body);
 }
+/* In the app the panel sits in an Angular CDK overlay pane sized to the field: fill it */
+.cdk-overlay-pane > .pp-select-panel { flex: 1 1 auto; }
 .pp-select-panel__filter { position: sticky; top: calc(var(--space-050) * -1); z-index: 1; margin: calc(var(--space-050) * -1) calc(var(--space-050) * -1) var(--space-050); padding: var(--space-100); background: var(--elevation-surface-overlay); border-bottom: var(--border-width) solid var(--color-border); }
 .pp-select-panel__list { margin: 0; padding: 0; list-style: none; }
 .pp-select-panel__group { padding: var(--space-150) var(--space-150) var(--space-050); font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); color: var(--color-text-subtlest); }

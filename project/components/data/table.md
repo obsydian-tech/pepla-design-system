@@ -3,7 +3,7 @@ name: Dynamic table
 group: data
 status: ready
 classes: pp-table, pp-table-wrap
-primeng: Table (p-table) — Long lists only: wrapped by the app's long-table wrapper (`src/app/ds/data/table/`) for virtual scroll and server paging. Short tables are a plain table ppTable.
+primeng: Table (p-table) — reference only (built without PrimeNG) — long lists use the app's long table (`src/app/ds/data/table/`), built on Angular CDK virtual scroll. Short tables are a plain table ppTable.
 replaces: p-table (7 uses: candidates, verifications, IT queue, users, audit log, queues, templates)
 ---
 
@@ -62,7 +62,7 @@ Rows of the same kind of thing, to scan, sort, select and open. Pepla's tables a
 
 ## PrimeNG mapping
 
-> **Wrapped in the app.** Long lists only: wrapped by the app's long-table wrapper (`src/app/ds/data/table/`) for virtual scroll and server paging. Short tables are a plain <table ppTable>.
+> **Reference only.** The app uses no PrimeNG. Long lists use the app's long table (`src/app/ds/data/table/`), built on Angular CDK virtual scroll and loading a page at a time. Short tables are a plain <table ppTable>.
 
 ```ts
 datatable: {

@@ -57,7 +57,7 @@ Using only Pepla components is not enough: a screen made of correct parts can st
 | Calm (`scripts/calm-audit.mjs`) | More than one primary button on a surface, or any in the top navigation; a role pill in the top navigation; more than one lozenge, tag or confidence chip in one row, card or header; a header with more than two buttons, or a summary card that repeats it; two steppers; two Pepla notices; more than two stat meta lines in a row; more than one visible row of filters; a card or stat card inside a card; a disabled button with no reason |
 | Contrast | Any promised colour pair below WCAG 2.2 AA, light or dark; coral too close to danger |
 
-The Angular app runs the same rules on its templates and stylesheets, plus a ban on PrimeNG outside the few components that wrap it: see [`docs/verify-design-angular.md`](../docs/verify-design-angular.md).
+The Angular app runs the same rules on its templates and stylesheets, plus a ban on PrimeNG and any other UI kit (hard patterns use Angular Aria and the CDK): see [`docs/verify-design-angular.md`](../docs/verify-design-angular.md).
 
 ## The rules that govern everything
 
