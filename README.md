@@ -23,7 +23,7 @@ tokens/semantic.mjs        roles, light and dark, referencing ramp steps
 tokens/foundations.mjs     type, space, shape, shadows, motion, layout, layers
 scripts/build-tokens.mjs   -> project/tokens/*.css and tokens.json (never edit those by hand)
 scripts/contrast.test.mjs  every promised pair checked against WCAG 2.2 AA, both themes; fails on stale CSS
-scripts/site.mjs           -> dist/, the published foundations site
+scripts/site.mjs           -> dist/, the docs site (open dist/index.html; the repo is private, so previews are shared as Claude pages)
 ```
 
 ```bash
