@@ -1895,7 +1895,10 @@ a.pp-tag:hover { text-decoration: underline; }
   border-radius: 0 0 0 var(--radius-xlarge);
   background: var(--elevation-surface-overlay);
 }
-.pp-drawer__footer-note { margin-right: auto; align-self: center; font: var(--font-body-small); color: var(--color-text-subtlest); }
+/* The note gives way first (wraps to two lines), so the buttons stay together on one row. */
+.pp-drawer__footer:has(> .pp-drawer__footer-note) { flex-wrap: nowrap; }
+.pp-drawer__footer > .pp-button { flex: none; }
+.pp-drawer__footer-note { flex: 1 1 0; min-width: 0; margin-right: auto; align-self: center; font: var(--font-body-small); color: var(--color-text-subtlest); }
 
 @keyframes pp-drawer-in { from { transform: translateX(100%); } }
 
@@ -1906,7 +1909,7 @@ a.pp-tag:hover { text-decoration: underline; }
   .pp-drawer:not(.pp-drawer--inline) .pp-drawer__body { padding: var(--space-200) var(--layout-gutter-phone); }
   .pp-drawer:not(.pp-drawer--inline) .pp-drawer__footer { flex-direction: column-reverse; border-radius: 0; padding: var(--space-150) var(--layout-gutter-phone) calc(var(--space-150) + env(safe-area-inset-bottom)); }
   .pp-drawer:not(.pp-drawer--inline) .pp-drawer__footer .pp-button { min-height: var(--size-control-large); }
-  .pp-drawer__footer-note { margin-right: 0; }
+  .pp-drawer:not(.pp-drawer--inline) .pp-drawer__footer-note { flex: none; margin-right: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pp-drawer { animation-name: pp-blanket-in; }
