@@ -112,12 +112,19 @@ ${up === '../' ? CHROME : CHROME.replace('href="../styles.css"', `href="${up}sty
 </html>
 `;
 
+// The dark copy of an example gets its own ids and radio names, so the two copies don't share
+// labels or radio groups (checking a dark radio would otherwise uncheck the light one).
+const darkCopy = (html) => html
+  .replace(/\b(id|for|name|aria-controls)="([^"]+)"/g, (_, a, v) => `${a}="${v}-dark"`)
+  .replace(/\b(aria-labelledby|aria-describedby)="([^"]+)"/g, (_, a, v) => `${a}="${v.split(/\s+/).map((x) => x + '-dark').join(' ')}"`)
+  .replace(/href="#([^"]+)"/g, (m, v) => (html.includes(`id="${v}"`) ? `href="#${v}-dark"` : m));
+
 function examplesHtml(c) {
   const sections = [...c.examples.matchAll(/<section data-example="([^"]+)">([\s\S]*?)<\/section>/g)];
   return sections.map(([, title, inner]) =>
     `<div class="ex"><h3>${esc(title)}</h3><div class="pair">` +
     `<div class="stage" data-theme="light"><span class="lbl">Light</span>${inner}</div>` +
-    `<div class="stage" data-theme="dark"><span class="lbl">Dark</span>${inner}</div>` +
+    `<div class="stage" data-theme="dark"><span class="lbl">Dark</span>${darkCopy(inner)}</div>` +
     `</div></div>`).join('');
 }
 
