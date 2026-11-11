@@ -39,8 +39,8 @@ The bar's colour always matches the deadline beside it, so the colour never stan
 ## Content
 
 - Meta: role, place when the team works in more than one country, and "Starts Mon 16 Nov".
-- Count: "5 of 6 documents"; when complete, "All 6 documents".
-- Deadline: name the thing when it helps: "Bank letter due in 2 days".
+- Count: "5 of 6 documents", and what is next when one thing matters: "5 of 6 documents · Next: bank letter". When complete, "All 6 documents".
+- Deadline: keep the chip short, "Due in 2 days". Name the thing in the count line, not in the chip, so the name never gets cut on a narrow panel.
 
 ## Accessibility
 

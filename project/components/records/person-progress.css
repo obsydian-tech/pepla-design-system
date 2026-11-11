@@ -15,3 +15,7 @@
   .pp-person-progress { grid-template-columns: minmax(0, 1fr) minmax(0, max-content); }
   .pp-person-progress > .pp-progress-bar { grid-column: 1 / -1; grid-row: 2; }
 }
+@container (max-width: 399px) {
+  .pp-person-progress { grid-template-columns: minmax(0, 1fr); }
+  .pp-person-progress__deadline { justify-self: start; }
+}
