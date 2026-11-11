@@ -7,17 +7,7 @@ import { wcagContrast } from 'culori';
 import { resolvedThemes, palette } from './build-tokens.mjs';
 import { light as lightSrc } from '../tokens/semantic.mjs';
 import * as F from '../tokens/foundations.mjs';
-import { createRequire } from 'node:module';
-const { icons: LUCIDE } = createRequire(import.meta.url)('lucide');
-
-// Lucide icons are inlined at build time, so the page has no runtime icon script.
-const pascal = (n) => n.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join('');
-export function icon(name, extra = '') {
-  const node = LUCIDE[pascal(name)];
-  if (!node) throw new Error(`Unknown Lucide icon: ${name}`);
-  const inner = node.map(([tag, attrs]) => `<${tag} ${Object.entries(attrs).map(([k, x]) => `${k}="${x}"`).join(' ')}/>`).join('');
-  return `<svg class="lucide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra ? ' ' + extra : ''}>${inner}</svg>`;
-}
+import { icon, inlineIcons } from './lib.mjs';
 
 const ROOT = new URL('..', import.meta.url);
 const DIST = new URL('dist/', ROOT);
@@ -174,7 +164,7 @@ footer{margin-top:var(--space-1000);color:var(--color-text-subtlest);font:var(--
 </header>
 <h1>Pepla design system</h1>
 <p class="lead">Foundations for every Pepla screen: the rules, colour in light and dark, type, space, shape, elevation, motion, icons and the mark. Phase 1 of 5. Components and example screens follow.</p>
-<nav class="toc" aria-label="Sections"><a href="#rules">Rules</a><a href="#colour">Colour</a><a href="#palette">Palette</a><a href="#type">Type</a><a href="#space">Space</a><a href="#shape">Shape</a><a href="#elevation">Elevation</a><a href="#motion">Motion</a><a href="#icons">Icons</a><a href="#logo">Logo</a></nav>
+<nav class="toc" aria-label="Sections"><a href="components/index.html">Components</a><a href="#rules">Rules</a><a href="#colour">Colour</a><a href="#palette">Palette</a><a href="#type">Type</a><a href="#space">Space</a><a href="#shape">Shape</a><a href="#elevation">Elevation</a><a href="#motion">Motion</a><a href="#icons">Icons</a><a href="#logo">Logo</a></nav>
 
 <h2 id="rules">The rules that govern everything</h2>
 <p>Every component and screen obeys these. The first one is the reason mint exists.</p>
@@ -268,6 +258,6 @@ document.getElementById('theme').addEventListener('click', () => {
 </body>
 </html>
 `;
-html = html.replace(/<i data-lucide="([a-z0-9-]+)"(?: style="([^"]*)")?><\/i>/g, (_, n, st) => icon(n, st ? `style="${st}"` : ''));
+html = inlineIcons(html);
 writeFileSync(new URL('index.html', DIST), html);
 console.log('Built dist/');
