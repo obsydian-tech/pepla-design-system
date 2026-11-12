@@ -26,7 +26,7 @@ A button starts an action. Links go somewhere; buttons do something.
 | `pp-button--default` | Secondary actions beside a primary: "Edit", "Cancel" | As the only action in a dialog that commits something |
 | `pp-button--subtle` | Low-emphasis actions in toolbars, table rows, cards | For anything destructive |
 | `pp-button--danger` | Destroys or reverses something people care about: "Withdraw offer", "Remove access" | Without a confirmation step that names what is lost |
-| `pp-button--agent` | Approving something Pepla's agent proposed, only inside an Agent proposal card or agent panel | Anywhere a person, not the agent, did the work (rule 1) |
+| `pp-button--agent` | Approving something Batsi proposed, only inside an Agent proposal card or agent panel | Anywhere a person, not the agent, did the work (rule 1) |
 | `pp-button--link` | An action that sits inside text or needs the least weight | For navigation (use a real link) |
 
 No class gives the neutral filled button, for rare tertiary actions in dense UI.
@@ -37,7 +37,7 @@ No class gives the neutral filled button, for rare tertiary actions in dense UI.
 | --- | --- | --- |
 | `pp-button--small` | 32px | Dense desktop tables and toolbars only. Keeps a 44px hit area on touch screens. |
 | (default) | 40px | Desktop default |
-| `pp-button--large` | 48px | Phone screens, the new-hire portal, sign-in, one-action pages |
+| `pp-button--large` | 48px | Phone screens, the new employee portal, sign-in, one-action pages |
 | `pp-button--block` | full width | Phone forms and the primary action of a bottom sheet |
 | `pp-button--icon` | square | Icon-only. Must have `aria-label`, and should have a tooltip. |
 
@@ -61,7 +61,7 @@ No class gives the neutral filled button, for rare tertiary actions in dense UI.
 
 ## Content
 
-- Verb plus object, sentence case: "Send contract", "Approve 3 documents", "Add new hire".
+- Verb plus object, sentence case: "Send contract", "Approve 3 documents", "Add new employee".
 - Never "OK", "Submit", "Yes", "Click here". In a confirm dialog, repeat the verb: "Withdraw offer" / "Keep offer".
 - At most 3 words where possible; never wrap to two lines.
 
@@ -76,7 +76,7 @@ No class gives the neutral filled button, for rare tertiary actions in dense UI.
 
 > **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
-PrimeNG runs in unstyled mode; pass-through adds the Pepla classes.
+PrimeNG runs in unstyled mode; pass-through adds the Naleko People classes.
 
 ```ts
 button: {
@@ -97,7 +97,7 @@ button: {
 
 `p-button [loading]` maps to the working state; never use PrimeNG's own loading icon.
 
-## In Pepla today
+## In Naleko People today
 
 The registration form's "Register employee", candidate workspace "Advance stage", and the drawers' "Save" and "Cancel" pairs. Today these mix `p-button` severities with hand-styled `.btn-primary` classes and four different blues.
 

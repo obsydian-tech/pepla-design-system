@@ -37,7 +37,7 @@
 .pp-flag--success { --_icon: var(--color-icon-success); }
 .pp-flag--warning { --_icon: var(--color-icon-warning); }
 .pp-flag--error { --_icon: var(--color-icon-danger); }
-/* Agent: Pepla finished a piece of work (rule 1) */
+/* Agent: Batsi finished a piece of work (rule 1) */
 .pp-flag--agent { --_icon: var(--color-icon-agent); box-shadow: var(--elevation-shadow-overlay), inset 0 0 0 var(--border-width) var(--color-border-agent); }
 
 /* Auto-dismiss timer (success only): a hairline that empties; paused on hover and focus */

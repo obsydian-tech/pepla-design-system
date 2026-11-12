@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Enforces the Pepla design system inside this repo, the way One Link's verify:design does in
+// Enforces the Naleko People design system inside this repo, the way One Link's verify:design does in
 // its app. Runs in `npm test` (scripts/verify-design.test.mjs) and on its own:
 //
 //   npm run verify:design
@@ -117,7 +117,7 @@ export function checkMarkup(file, raw) {
   }
   for (const m of html.matchAll(/\sclass="([^"]*)"/g)) {
     for (const c of m[1].split(/\s+/).filter(Boolean)) {
-      if (!c.startsWith('pp-')) report(lineOf(html, m.index), 'markup', `class "${c}" is not a Pepla class`);
+      if (!c.startsWith('pp-')) report(lineOf(html, m.index), 'markup', `class "${c}" is not a Naleko People class`);
       else if (!CLASSES.has(c)) report(lineOf(html, m.index), 'markup', `class "${c}" is not defined by any component`);
     }
   }
@@ -164,10 +164,10 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const v = verify();
   if (v.length) {
     const byRule = v.reduce((a, x) => ({ ...a, [x.rule]: (a[x.rule] || 0) + 1 }), {});
-    console.error(`\nPepla design system: ${v.length} violation(s) ${JSON.stringify(byRule)}\n`);
+    console.error(`\nNaleko People design system: ${v.length} violation(s) ${JSON.stringify(byRule)}\n`);
     console.error(v.map((x) => `${x.file}:${x.line}  [${x.rule}]\n      ${x.text}`).join('\n'));
     console.error('\nEverything visual comes from the design system. See project/readme.md, "The only way to build UI".\n');
     process.exit(1);
   }
-  console.log('Pepla design system: no violations.');
+  console.log('Naleko People design system: no violations.');
 }

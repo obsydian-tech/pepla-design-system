@@ -1,7 +1,7 @@
 {
   "name": "pepla-design-system",
   "version": "1.0.0",
-  "description": "Pepla design system: tokens, components, screens and the published site.",
+  "description": "Naleko People design system: tokens, components, screens and the published site.",
   "scripts": {
     "palette": "node scripts/palette.mjs",
     "tokens": "node scripts/build-tokens.mjs",

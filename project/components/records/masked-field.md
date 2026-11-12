@@ -9,7 +9,7 @@ replaces: ID numbers, bank account numbers and salaries shown in full on records
 
 # Masked field
 
-A masked field shows personal data hidden until someone needs it (rule 6, POPIA): ID and passport numbers, bank accounts, tax numbers, salary and health information. Only the last few characters show. "Show" is a deliberate action: Pepla records who revealed what and when before the value appears, and hides it again on its own.
+A masked field shows personal data hidden until someone needs it (rule 6, POPIA): ID and passport numbers, bank accounts, tax numbers, salary and health information. Only the last few characters show. "Show" is a deliberate action: Naleko People records who revealed what and when before the value appears, and hides it again on its own.
 
 The masked field assumes the viewer is allowed to see the value. If they are not, use Restricted value instead; a masked field has no "no permission" state.
 
@@ -33,7 +33,7 @@ The masked field assumes the viewer is allowed to see the value. If they are not
 | Hidden | Masked value and Show. The first masked field on a page carries the notice "Revealing is recorded"; the rest rely on the Show button's description |
 | Revealing | Show is busy (`aria-busy`, spinner) while the audit entry is written (rule 8) |
 | Revealed | The full value on a neutral wash (`pp-masked--revealed`), Hide, and the notice with the time and the countdown |
-| Could not record | The value stays hidden. A danger notice: "Pepla could not record the reveal, so the number stays hidden." and Try again |
+| Could not record | The value stays hidden. A danger notice: "Batsi could not record the reveal, so the number stays hidden." and Try again |
 
 ## Behaviour
 
@@ -71,7 +71,7 @@ No PrimeNG component for the read-only variant: it is a plain Angular template w
 
 `ppMask` is the pipe to build: it takes the last digits and the kind, and returns the fixed-length mask with •.
 
-## In Pepla today
+## In Naleko People today
 
 Verified in `hr-portal/src/app`:
 

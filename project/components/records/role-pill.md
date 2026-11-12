@@ -9,7 +9,7 @@ replaces: tf-role-pill
 
 # Role pill
 
-A small label for a person's role or permission in Pepla: HR admin, Hiring manager, IT, Employee. It says what someone can do. It is not a status, so it never uses status colours.
+A small label for a person's role or permission in Naleko People: HR admin, Hiring manager, IT, Employee. It says what someone can do. It is not a status, so it never uses status colours.
 
 ## Anatomy
 
@@ -21,9 +21,9 @@ A small label for a person's role or permission in Pepla: HR admin, Hiring manag
 | --- | --- | --- |
 | Workspace admin | `shield` | Workspace settings, users and roles |
 | HR admin, HR director | `user-cog` | Everything, including settings, salaries and the audit log |
-| Hiring manager | `user-plus` | Their roles' candidates, scorecards, offers and new starters |
+| Hiring manager | `user-plus` | Their roles' candidates, interview feedback, offers and new starters |
 | TA specialist | `user-search` | Candidates, pipelines and interviews across roles |
-| IT admin | `laptop` | IT setup bundles and their items |
+| IT admin | `laptop` | IT sets up laptops and access |
 | Employee | `user` | Their own record, documents and requests |
 
 ## States
@@ -56,7 +56,7 @@ There are no hover or pressed states. To change roles, use a button or a menu be
 
 No PrimeNG component. Do not use `p-tag` or `p-chip` with a severity for roles: severity means status. Plain Angular `@for` over the roles.
 
-## In Pepla today
+## In Naleko People today
 
 - `role-pill.component.ts` (`tf-role-pill`) is used in `admin-users-page.component.html`. It takes all of a user's roles and the active role, gives each pill a class per role (`tf-role-pill--{role}`) and a ring on the active one.
 - The roles are `ADMIN`, `HM`, `IT` and `TA`, labelled "Admin", "Hiring Manager", "IT Admin" and "TA Specialist" in `ROLE_LABELS` (`admin.models.ts`).

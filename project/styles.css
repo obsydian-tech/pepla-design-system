@@ -1,4 +1,4 @@
-/* Pepla design system. Import this one file; it pulls in every token file in order. */
+/* Naleko People design system. Import this one file; it pulls in every token file in order. */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap");
 @import url("tokens/palette.css");
 @import url("tokens/colors.css");

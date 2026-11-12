@@ -3,7 +3,7 @@ name: Date picker
 group: forms
 status: ready
 classes: pp-date-picker, pp-date-picker__panel
-primeng: DatePicker (p-datepicker, formerly p-calendar) — reference only (built without PrimeNG) — the app's date picker (`src/app/ds/forms/date-picker/`) is Pepla's own calendar grid, following the WAI-ARIA date picker dialog pattern, placed with the Angular CDK overlay.
+primeng: DatePicker (p-datepicker, formerly p-calendar) — reference only (built without PrimeNG) — the app's date picker (`src/app/ds/forms/date-picker/`) is Naleko People's own calendar grid, following the WAI-ARIA date picker dialog pattern, placed with the Angular CDK overlay.
 replaces: p-calendar with default theme, input type="date", dates shown as 2026-11-03 or 11/03/2026
 ---
 
@@ -60,7 +60,7 @@ A date picker takes one date. People can type it or pick it from a calendar. Dat
 
 ## PrimeNG mapping
 
-> **Reference only.** The app uses no PrimeNG. Its date picker (`src/app/ds/forms/date-picker/`) is Pepla's own calendar grid, following the WAI-ARIA date picker dialog pattern, placed with the Angular CDK overlay.
+> **Reference only.** The app uses no PrimeNG. Its date picker (`src/app/ds/forms/date-picker/`) is Naleko People's own calendar grid, following the WAI-ARIA date picker dialog pattern, placed with the Angular CDK overlay.
 
 ```ts
 datepicker: {
@@ -87,7 +87,7 @@ datepicker: {
 
 Use `dateFormat="d M yy"` (gives `3 Nov 2026`), `firstDayOfWeek="1"`, `[showIcon]="true"` with `iconDisplay="input"`, and `[showOnFocus]="false"`. Wrap the input in a `div.pp-text-field` so it gets the box.
 
-## In Pepla today
+## In Naleko People today
 
 Date inputs appear on the new employee registration form, the offer tab and the admin audit filters. Dates must show as "3 Nov 2026" everywhere, never `11/03/2026`, which South Africans read as 11 March.
 

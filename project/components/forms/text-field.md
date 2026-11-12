@@ -78,7 +78,7 @@ Put `pp-text-field` straight on the `<input>` when there is nothing else in the 
 
 > **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
-PrimeNG runs in unstyled mode; pass-through adds the Pepla classes.
+PrimeNG runs in unstyled mode; pass-through adds the Naleko People classes.
 
 ```ts
 inputtext: {
@@ -102,7 +102,7 @@ password: {
 
 `p-inputnumber` uses `mode="currency" currency="ZAR" locale="en-ZA"`. For a saved ID number do not use `p-password`; render the masked value with a reveal button that calls the audit endpoint first.
 
-## In Pepla today
+## In Naleko People today
 
 The new employee registration form (names, ID, tax and bank numbers), candidate create and the TalentFlow config drawers. ID and bank numbers must follow the masking rule (rule 6) when shown back.
 

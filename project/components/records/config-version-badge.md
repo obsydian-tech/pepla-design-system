@@ -14,7 +14,7 @@ Shows which version of a setting is in use (scoring weights, SLA rules, approval
 ## Anatomy
 
 1. **Version** (`__version`): `history` icon and "Version 4".
-2. **State lozenge**: "Live" or "Draft". A draft Pepla proposed uses the agent lozenge "Drafted by Pepla".
+2. **State lozenge**: "Live" or "Draft". A draft Batsi proposed uses the agent lozenge "Drafted by Batsi".
 3. **Meta** (`__meta`): who and when: "Published by Thandeka Dlamini, 3 Nov 2026, 14:30".
 4. **Actions** (`__actions`, optional): "Compare with version 3", "Roll back"; on a draft, "Compare with live" and "Publish" or "Review changes".
 
@@ -24,7 +24,7 @@ Shows which version of a setting is in use (scoring weights, SLA rules, approval
 | --- | --- | --- | --- |
 | Live | success, `circle-check`, "Live" | "Published by {name}, {date, time}" | Compare with previous, Roll back |
 | Draft | neutral, `pencil`, "Draft"; dashed box | "Edited by {name}, {date, time} · Not live yet" | Compare with live, Publish |
-| Drafted by Pepla | agent, `sparkles` (rule 1) | what Pepla based it on, when | Compare with live, Review changes |
+| Drafted by Batsi | agent, `sparkles` (rule 1) | what Naleko People based it on, when | Compare with live, Review changes |
 | Rolled back | success "Live" | "Rolled back from version 3 by {name}, {date}" | Compare |
 | First version | success "Live" | "Published by {name}" | none |
 
@@ -35,7 +35,7 @@ Shows which version of a setting is in use (scoring weights, SLA rules, approval
 - Publishing makes a new version; nothing is overwritten (rule 7).
 - "Roll back" opens a confirmation that names the version and says what changes, then publishes the older version as a new version.
 - "Compare" opens a side-by-side of the two versions with changed values marked with words, not colour alone.
-- A Pepla draft is never published by Pepla. A person reviews and publishes it (rule 2).
+- A Batsi draft is never published by Batsi. A person reviews and publishes it (rule 2).
 
 ## Content
 
@@ -52,7 +52,7 @@ Shows which version of a setting is in use (scoring weights, SLA rules, approval
 
 No PrimeNG component. The roll-back confirmation uses `p-confirmDialog` with the Modal dialog pass-through (to be checked). Buttons are `p-button` with the Button pass-through.
 
-## In Pepla today
+## In Naleko People today
 
 - `config-version-badge.component.ts` (`tf-config-version-badge`) takes `version`, `changedBy` and `changedAt` and shows a `pi-history` icon, the version, the changer and the date (`d MMM yyyy, HH:mm`), separated by dots.
 - It is used in 12 admin templates, including scoring weights, SLA thresholds, panel rules, stage config, intelligence rules, sentiment scales and the routing rules page.
@@ -63,4 +63,4 @@ No PrimeNG component. The roll-back confirmation uses `p-confirmDialog` with the
 
 - **Do** show who published and when. **Don't** show an email address or user ID.
 - **Do** roll back by publishing a new version. **Don't** delete the newer one.
-- **Do** mark Pepla's drafts with the agent lozenge. **Don't** let a draft look live.
+- **Do** mark Batsi's drafts with the agent lozenge. **Don't** let a draft look live.

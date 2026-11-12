@@ -60,7 +60,7 @@ Pair a standalone spinner with a short line that names the work: "Checking the I
 progressspinner: { root: { class: 'pp-spinner' }, spin: { style: 'display:none' } }
 ```
 
-## In Pepla today
+## In Naleko People today
 
 The employee dashboard shows a "Loading..." state while it fetches. Buttons that call the server have no working state today.
 

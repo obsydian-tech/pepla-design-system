@@ -9,17 +9,17 @@ replaces: the 5 app shells' top bars, the topbar notification dropdown
 
 # Top navigation
 
-The top navigation is the 56px bar across the top of every Pepla app: search on the left, notifications and the person's account on the right. On phone it also holds the menu button that opens the side navigation.
+The top navigation is the 56px bar across the top of every Naleko People app: search on the left, notifications and the person's account on the right. On phone it also holds the menu button that opens the side navigation.
 
 ## Anatomy
 
 1. **Bar**: 56px (`--layout-topbar-height`), raised surface, a 1px border below, sticky at the top.
 2. **Menu button** (phone): `menu`, opens the side navigation as a drawer.
-3. **Mark** (phone): the Pepla mark, links home. On desktop the mark lives in the side navigation.
+3. **Mark** (phone): the Naleko People mark, links home. On desktop the mark lives in the side navigation.
 4. **Search**: a pill field, up to 480px, `search` icon, placeholder that names what it finds, a `/` shortcut hint. On phone it shrinks to an icon button that opens full-screen search.
 5. **Notifications**: `bell` icon button with a count badge; opens the notification list in a Popup.
 6. **Account**: the person's initials in a 32px circle; opens the avatar Dropdown menu. The menu names the role the person is acting as and lets them switch; the bar never shows a role pill.
-7. **Ask Pepla** (optional): a default button with the `sparkles` icon, before Notifications, that opens the Agent panel.
+7. **Ask Batsi** (optional): a default button with the `sparkles` icon, before Notifications, that opens the Agent panel.
 
 Nothing else goes in the bar. Page actions such as "Add candidate" belong in the page header, so a screen has one primary button, not one in the bar and one on the page.
 
@@ -51,7 +51,7 @@ Nothing else goes in the bar. Page actions such as "Add candidate" belong in the
 
 - Search placeholder names what it finds: "Search people and documents". Not "Search..."
 - The bell's label includes the count: "Notifications, 4 unread".
-- Notification lines lead with who or what: "Lerato Mokoena signed her contract", "Pepla drafted 3 offer letters".
+- Notification lines lead with who or what: "Lerato Mokoena signed her contract", "Batsi drafted 3 offer letters".
 
 ## Accessibility
 
@@ -76,7 +76,7 @@ toolbar: {
 
 The notification list is a `p-popover` (see Popup, `pp-popup--flush pp-popup--wide`); the account menu is a `p-menu` popup (see Dropdown menu).
 
-## In Pepla today
+## In Naleko People today
 
 The shared `topbar` (HR dashboard) has the notification dropdown, built as its own `notification-dropdown` component; the TalentFlow and IT provisioning shells build their own headers. This one bar replaces them.
 

@@ -61,7 +61,7 @@ An icon is never the only carrier of meaning except universal controls (close `x
 
 Set PrimeNG's icon templates to Lucide (`lucide-angular`), for example `<ng-template #dropdownicon><lucide-icon name="chevron-down" class="pp-icon pp-icon--small"/></ng-template>`. Never load PrimeIcons.
 
-## In Pepla today
+## In Naleko People today
 
 The current app mixes PrimeIcons (`pi pi-check`, `pi pi-user`), a few Material icons and emoji in the AI panel. All of them move to Lucide.
 

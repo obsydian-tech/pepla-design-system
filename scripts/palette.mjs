@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generates the Pepla palette ramps (tokens/palette.json) from the locked brand colours.
+// Generates the Naleko People palette ramps (tokens/palette.json) from the locked brand colours.
 // Each ramp keeps one hue in OKLCH and walks a fixed lightness scale; the brand colour itself
 // replaces the step nearest its lightness, so #5b4bd6 is exactly violet-600, and so on.
 // Run: npm run palette. Never edit tokens/palette.json by hand.

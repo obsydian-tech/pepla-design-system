@@ -27,7 +27,7 @@ A card with an offer's details: role, start date, salary (hidden until someone c
 | Waiting for approval | information, `clock` | Edit offer, Remind (approver) |
 | Approved | success, `circle-check` | Send offer (primary) |
 | Sent | information, `send`; a reply deadline chip | Mark as accepted, Withdraw offer (danger) |
-| Accepted | bold success, `circle-check`, "Accepted 12 Nov" | Start onboarding (primary) |
+| Accepted | bold success, `circle-check`, "Accepted 12 Nov" | Get started (primary) |
 | Declined by the candidate | danger, `circle-x`, with their reason | Close |
 | Expired | warning, `clock-alert`, "Expired 10 Nov" | Send again |
 | Withdrawn | neutral, `circle-x`, "Withdrawn" | none |
@@ -55,7 +55,7 @@ A card with an offer's details: role, start date, salary (hidden until someone c
 
 No PrimeNG component of its own. The card can be `p-card` with the Card pass-through, or plain markup. Buttons are `p-button` with the Button pass-through. The salary follows the Masked field pattern.
 
-## In Pepla today
+## In Naleko People today
 
 - `offer-tab.component.html` has four states: "Offer Created", "In Approval", "Offer Sent" and "Offer Accepted".
 - In the summary, Salary shows `{{ o.currency }} {{ o.baseSalary | number }}` unmasked, beside Start Date and Expiry.

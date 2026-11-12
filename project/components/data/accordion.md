@@ -58,7 +58,7 @@ accordionheader: { root: { class: 'pp-accordion__header' }, toggleicon: { class:
 accordioncontent: { content: { class: 'pp-accordion__panel' } }
 ```
 
-## In Pepla today
+## In Naleko People today
 
 The AI mode panel and some config pages use `p-accordion` with five panels and their own chevrons.
 

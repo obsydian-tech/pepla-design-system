@@ -36,7 +36,7 @@
 .pp-progress-bar--success { --_fill: var(--color-background-success-bold); --_icon: var(--color-icon-success); }
 .pp-progress-bar--warning { --_fill: var(--color-background-warning-bold); --_icon: var(--color-icon-warning); }
 .pp-progress-bar--danger { --_fill: var(--color-background-danger-bold); --_icon: var(--color-icon-danger); }
-/* Agent: progress of work Pepla's agent is doing (rule 1) */
+/* Agent: progress of work Batsi is doing (rule 1) */
 .pp-progress-bar--agent { --_fill: var(--color-background-agent-bold); --_icon: var(--color-icon-agent); }
 
 @media (prefers-reduced-motion: reduce) {

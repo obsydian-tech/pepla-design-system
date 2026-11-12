@@ -1,4 +1,4 @@
-/* Agent panel. Spec: agent-panel.md. A side panel to talk to Pepla; a full-screen sheet on phone. */
+/* Agent panel. Spec: agent-panel.md. A side panel to talk to Batsi; a full-screen sheet on phone. */
 .pp-agent-panel {
   position: fixed;
   z-index: var(--layer-layer);
@@ -32,7 +32,7 @@
 .pp-agent-panel__message--pepla .pp-agent-panel__bubble { background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-bottom-left-radius: var(--radius-xsmall); }
 .pp-agent-panel__message--proposal { align-self: stretch; max-width: none; }
 
-/* Pepla is working */
+/* Batsi is working */
 .pp-agent-panel__working { display: flex; align-items: center; gap: var(--space-100); align-self: flex-start; padding: var(--space-100) var(--space-150); border-radius: var(--radius-full); background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-body-small); }
 .pp-agent-panel__working .pp-button { margin-left: var(--space-050); }
 
@@ -53,7 +53,7 @@
 .pp-agent-panel--sheet .pp-agent-panel__log { padding: var(--space-200) var(--layout-gutter-phone); }
 .pp-agent-panel--sheet .pp-agent-panel__composer { padding: var(--space-150) var(--layout-gutter-phone); }
 
-/* Suggestions: what Pepla can do, as one quiet list (not a stack of cards) */
+/* Suggestions: what Batsi can do, as one quiet list (not a stack of cards) */
 .pp-agent-panel__suggestions { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; background: var(--elevation-surface-raised); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); overflow: hidden; }
 .pp-agent-panel__suggestions > li + li { border-top: var(--border-width) solid var(--color-border); }
 .pp-agent-panel__suggestion { display: flex; align-items: center; gap: var(--space-150); min-height: 44px; padding: var(--space-100) var(--space-200); color: var(--color-text); font: var(--font-body); text-decoration: none; }

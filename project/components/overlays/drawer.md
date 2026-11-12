@@ -9,7 +9,7 @@ replaces: p-drawer (15 config drawers), the admin audit event drawer
 
 # Drawer
 
-A drawer slides in from the right to edit a record or a setting without leaving the page. The list behind stays in view so the person keeps their place. It is the home of every settings form in Pepla.
+A drawer slides in from the right to edit a record or a setting without leaving the page. The list behind stays in view so the person keeps their place. It is the home of every settings form in Naleko People.
 
 ## Anatomy
 
@@ -77,7 +77,7 @@ drawer: {
 
 Use `<p-drawer position="right" [modal]="true" [blockScroll]="true">` with `#header` and `#footer` templates. Never use `position="full"`; the phone breakpoint does that.
 
-## In Pepla today
+## In Naleko People today
 
 `p-drawer` is used in 16 components: the add user and edit roles drawers, the config drawers (intelligence rule, provisioning template, notification trigger and others), the AI chat panel and the AI mode panel. The admin audit event drawer is the read-only case. Each styles its own width and footer; all move to this drawer with the sticky footer.
 

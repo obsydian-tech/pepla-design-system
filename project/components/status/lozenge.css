@@ -25,7 +25,7 @@
 .pp-lozenge--success { --_bg: var(--color-background-success-subtle); --_fg: var(--color-text-success); --_icon: var(--color-icon-success); }
 .pp-lozenge--warning { --_bg: var(--color-background-warning-subtle); --_fg: var(--color-text-warning); --_icon: var(--color-icon-warning); }
 .pp-lozenge--danger { --_bg: var(--color-background-danger-subtle); --_fg: var(--color-text-danger); --_icon: var(--color-icon-danger); }
-/* Agent: only for what Pepla's agent did or proposes (rule 1) */
+/* Agent: only for what Batsi did or proposes (rule 1) */
 .pp-lozenge--agent { --_bg: var(--color-background-agent-subtle); --_fg: var(--color-text-agent); --_icon: var(--color-icon-agent); }
 
 .pp-lozenge--bold { --_bg: var(--color-background-neutral-bold); --_fg: var(--color-text-inverse); --_icon: var(--color-icon-inverse); }

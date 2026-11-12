@@ -35,7 +35,7 @@
 .pp-link--subtle { color: var(--color-text-subtle); }
 .pp-link--subtle:active { color: var(--color-text); }
 
-/* External: leaves Pepla. The icon sits after the last word and never wraps alone */
+/* External: leaves Naleko People. The icon sits after the last word and never wraps alone */
 .pp-link__icon { white-space: nowrap; }
 .pp-link__icon > svg {
   display: inline-block;
@@ -51,5 +51,5 @@
 /* A link that names the current page in a list of links */
 .pp-link[aria-current="page"] { color: var(--color-text); font-weight: var(--font-weight-semibold); text-decoration: none; cursor: default; }
 
-/* External: goes outside Pepla, with the external-link icon after the last word */
+/* External: goes outside Naleko People, with the external-link icon after the last word */
 .pp-link--external .pp-link__icon > svg { margin-inline-start: var(--space-025); }

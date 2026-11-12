@@ -18,11 +18,11 @@ const STATUS_ICONS = {
   danger: ['x', 'circle-x', 'octagon-alert', 'clock-alert', 'circle-slash', 'user-x', 'lock', 'thumbs-down'],
   warning: ['triangle-alert', 'clock', 'timer', 'hourglass', 'clock-alert'],
 };
-// Mint (agent) appearances are checked by hand in review: an agent button accepts Pepla's suggestion.
+// Mint (agent) appearances are checked by hand in review: an agent button accepts Batsi's suggestion.
 const BANNED_WORDS = [
   [/\bAI[- ]powered\b/i, 'AI-powered'], [/\bleverage\b/i, 'leverage'], [/\bseamless(ly)?\b/i, 'seamless'],
-  [/\bheadcount\b/i, 'headcount'], [/\bresources?\b(?! (?:the|a))/i, 'resource'], [/\bthe (?:AI|system)\b/i, '"the AI" or "the system" (say Pepla)'],
-  [/\bclick here\b/i, 'click here'], [/\bNaleko\b/, 'Naleko (the product is Pepla)'],
+  [/\bheadcount\b/i, 'headcount'], [/\bresources?\b(?! (?:the|a))/i, 'resource'], [/\bthe (?:AI|system)\b/i, '"the AI" or "the system" (say Batsi)'],
+  [/\bclick here\b/i, 'click here'], [/\bPepla\b/, 'Pepla (a working name; say Naleko People, or Batsi for the agent)'],
 ];
 const BAD_BUTTONS = /^(?:OK|Okay|Submit|Click here|Yes|No)$/i;
 const BAD_DATES = [/\b\d{1,2} [A-Z][a-z]{2} \d{2}\b(?!\d)/, /\b\d{4}-\d{2}-\d{2}\b/, /\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/];

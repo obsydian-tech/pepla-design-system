@@ -38,7 +38,7 @@ Tabs split one record into views of the same level: a candidate's profile, CV, i
 
 ## Content
 
-- One or two words, nouns, sentence case: "Profile", "Interviews", "Time off".
+- One or two words, nouns, sentence case: "Profile", "Interviews", "Leave".
 - No icons on some tabs and not others: all or none.
 
 ## Accessibility
@@ -69,7 +69,7 @@ tabpanel: { root: { class: 'pp-tabs__panel' } },
 
 Bind `value` to the `tab` query parameter. PrimeNG's active bar is hidden; the tab's `::after` draws the indicator.
 
-## In Pepla today
+## In Naleko People today
 
 Tabs appear only on the hiring manager dashboard, using PrimeNG tabs. Other multi-part pages show everything on one long page. New tabs should keep the selected tab in the URL.
 

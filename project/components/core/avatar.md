@@ -9,7 +9,7 @@ replaces: p-avatar (6 uses), hand-made initials circles in the candidate identit
 
 # Avatar
 
-A small picture of a person: their photo, or their initials on a colour. Paired with a name it becomes a Person, the most repeated pattern in Pepla.
+A small picture of a person: their photo, or their initials on a colour. Paired with a name it becomes a Person, the most repeated pattern in Naleko People.
 
 ## Anatomy
 
@@ -23,7 +23,7 @@ A small picture of a person: their photo, or their initials on a colour. Paired 
 | Class | Use | Never |
 | --- | --- | --- |
 | `pp-avatar` + accent (`--blue`, `--green`, `--amber`, `--magenta`, `--violet`, `--sky`, default gray) | Every person: employees, candidates, managers | A colour that means something; avatar colour is identity only |
-| `pp-avatar--agent` | Pepla's agent, with the `sparkles` icon | For a person, ever (rule 1) |
+| `pp-avatar--agent` | Batsi, with the `sparkles` icon | For a person, ever (rule 1) |
 | `pp-avatar--square` | A team, department or company (tenant logo) | For a person |
 | `pp-avatar-group` | Interview panels, approvers, a team | More than 5 avatars; show "+3" after 4 |
 
@@ -36,7 +36,7 @@ A small picture of a person: their photo, or their initials on a colour. Paired 
 | (default) | 32px | Tables, lists, the top bar |
 | `pp-avatar--large` | 40px | Cards, the person column of the pipeline |
 | `pp-avatar--xlarge` | 64px | Person header on employee and candidate pages |
-| `pp-avatar--xxlarge` | 96px | Profile photo upload, new-hire welcome |
+| `pp-avatar--xxlarge` | 96px | Profile photo upload, new employee welcome |
 
 ## States
 
@@ -73,12 +73,12 @@ avatar: { root: ({ props }) => ({ class: ['pp-avatar', { 'pp-avatar--large': pro
 avatargroup: { root: { class: 'pp-avatar-group' } }
 ```
 
-## In Pepla today
+## In Naleko People today
 
 The candidate identity card, the hiring-manager task card panel list, the users admin table and the topbar menu. Each draws initials differently today.
 
 ## Do and don't
 
 - **Do** derive the colour from the ID. **Don't** use colour to show status or seniority.
-- **Do** use the agent avatar only for Pepla. **Don't** give the agent a human face or name.
+- **Do** use the agent avatar only for Naleko People. **Don't** give the agent a human face or name.
 - **Do** keep the name beside the avatar in lists. **Don't** rely on faces alone to identify people.

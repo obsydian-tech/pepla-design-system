@@ -30,7 +30,7 @@ A flag tells a person the result of something they just did, or that something f
 | (default) information | `info` | `status` | A neutral result, often with Undo: "Thandeka removed from the interview panel" |
 | `pp-flag--warning` | `triangle-alert` | `status` | It worked, with a catch the person should check |
 | `pp-flag--error` | `octagon-alert` | `alert` | It failed. Says why and offers "Try again" |
-| `pp-flag--agent` | `sparkles` | `status` | Pepla finished background work: "Pepla drafted 4 leave requests" (rule 1) |
+| `pp-flag--agent` | `sparkles` | `status` | Batsi finished background work: "Batsi drafted 4 leave requests" (rule 1) |
 
 ## States
 
@@ -53,7 +53,7 @@ A flag tells a person the result of something they just did, or that something f
 
 - Title in past tense with the person's name: "Contract sent to Lerato Mokoena". Not "Success!".
 - Errors say why and that nothing was lost: "The connection dropped. Your draft is saved."
-- Agent flags start with "Pepla" and say what is waiting for a person.
+- Agent flags start with "Naleko People" and say what is waiting for a person.
 - Actions are one or two words: "Undo", "Try again", "Review requests".
 
 ## Accessibility
@@ -95,7 +95,7 @@ this.messages.add({ severity: 'error', summary: "Couldn't send the contract", st
 
 Use a `#message` template to add the Undo action.
 
-## In Pepla today
+## In Naleko People today
 
 `p-toast` appears in two places with two positions: top right in the TalentFlow admin shell and bottom right on the admin users page. Messages close after 3 to 5 seconds (the `life` value differs per page), errors included. All of these become one bottom-left flag group, and errors stay until closed.
 

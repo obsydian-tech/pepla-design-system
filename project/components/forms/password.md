@@ -70,7 +70,7 @@ The word carries the meaning; the bars only repeat it (rule 4). Score with a lib
 
 > **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
-PrimeNG runs in unstyled mode; pass-through adds the Pepla classes. PrimeNG's own strength panel is a pop-over with colours only, so switch it off and render `pp-password-strength` under the field instead. Key names follow PrimeNG 19 and are to be checked:
+PrimeNG runs in unstyled mode; pass-through adds the Naleko People classes. PrimeNG's own strength panel is a pop-over with colours only, so switch it off and render `pp-password-strength` under the field instead. Key names follow PrimeNG 19 and are to be checked:
 
 ```ts
 password: {
@@ -89,7 +89,7 @@ password: {
 
 If the PrimeNG toggle cannot be made a labelled `<button>` with `aria-pressed`, use `pInputText` with `type` bound to a signal and a plain `pp-text-field__action` button instead.
 
-## In Pepla today
+## In Naleko People today
 
 `p-password` is used only in `login.component.html`, 3 times: "Password" on sign in (`[feedback]="false"`, `[toggleMask]="true"`), and "New Password" and "Confirm Password" on the first-login set new password form. The new password field leaves `feedback` on, so it shows PrimeNG's own strength pop-over. `login.component.ts` rejects a new password shorter than 12 characters with "Password must be at least 12 characters." No file uses `type="password"` directly.
 

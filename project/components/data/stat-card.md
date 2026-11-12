@@ -25,7 +25,7 @@ One number that matters, what it counts, and what changed. A stat card is an ent
 | `a.pp-stat` | Opens the filtered list behind the number | Without a destination when one exists |
 | `pp-stat__meta--attention / --danger` | "2 overdue", "1 failed check" | For a normal change |
 | `pp-stat__meta--good` | "All documents in" | For decoration |
-| `pp-stat__meta--agent` | "Pepla chased 5 documents this week" | For work a person did (rule 1) |
+| `pp-stat__meta--agent` | "Batsi chased 5 documents this week" | For work a person did (rule 1) |
 | `pp-stat-row` | 2 to 4 stats in a row; wraps on phone | More than 4 |
 
 ## States
@@ -56,7 +56,7 @@ One number that matters, what it counts, and what changed. A stat card is an ent
 
 None. Plain markup in an Angular component.
 
-## In Pepla today
+## In Naleko People today
 
 The HR dashboard home (`app-stat-card`) and the TalentFlow dashboard show counts like candidates per stage and pending verifications, with coloured numbers but no words for the change.
 

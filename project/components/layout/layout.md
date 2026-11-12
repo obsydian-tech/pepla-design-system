@@ -62,7 +62,7 @@ Layout carries no content of its own. Order the children in reading order; never
 
 None. These are plain elements with classes. In the Angular app the same classes are used in templates (`<div class="pp-stack pp-gap-300">`), and screens style nothing else.
 
-## In Pepla today
+## In Naleko People today
 
 Today's templates set layout inline (`style="display:flex; gap: 8px"`) or with PrimeFlex (`flex gap-2`, `grid col-6`), with gaps of 6, 10, 14 and 18px that are not on the space scale. The 6 UI kits carried 364 inline styles before this component; they now carry none.
 

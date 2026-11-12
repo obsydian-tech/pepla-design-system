@@ -33,7 +33,7 @@ Pagination splits a long list into pages and says, in words, which part of the l
 
 ## Behaviour
 
-- 20 rows per page by default; the person can pick 20, 50 or 100 in the table toolbar, and Pepla remembers it.
+- 20 rows per page by default; the person can pick 20, 50 or 100 in the table toolbar, and Batsi remembers it.
 - The page is in the URL (`?page=2`), so Back and shared links work.
 - Moving to a page keeps filters and sort, scrolls to the top of the table and moves focus to the table's caption.
 - On phone only Previous, "Page 2 of 7" and Next show, at 48px, centred under a full-width summary.
@@ -74,7 +74,7 @@ paginator: {
   currentPageReportTemplate="Showing {first}–{last} of {totalRecords} people" />
 ```
 
-## In Pepla today
+## In Naleko People today
 
 Tables with paging use PrimeNG's built-in paginator (the verifications list, notifications and the HR dashboard home), each restyled in its own SCSS file. All move to this pagination with the summary in words.
 

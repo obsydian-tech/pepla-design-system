@@ -27,7 +27,7 @@ A banner tells everyone using the app about a problem or change that affects the
 | `pp-banner--error` | Something is broken for the whole company and blocks work: contracts can't be sent | For a form error |
 | `pp-banner--announcement` | A product change everyone should know about | For marketing or upsell; for anything urgent |
 
-There is no success or agent banner. Success is a Flag; work Pepla did is an Agent proposal or a Section message.
+There is no success or agent banner. Success is a Flag; work Batsi did is an Agent proposal or a Section message.
 
 ## States
 
@@ -70,7 +70,7 @@ No PrimeNG component. Render the banner in the app shell template, above `pp-top
 
 Do not use `p-message` for this; it is styled as an in-page message.
 
-## In Pepla today
+## In Naleko People today
 
 There is no shared banner. Each feature builds its own strip: `tf-connectivity-banner` in the TalentFlow shell, `guidance-banner` in the employee onboarding stepper, `hitl__banner` on the AI confirm step and `ai-error-banner` in the AI mode panel. One banner slot in the shared shell replaces the shell-level ones; the in-page ones become Section messages.
 

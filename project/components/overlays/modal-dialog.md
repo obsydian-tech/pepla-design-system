@@ -101,7 +101,7 @@ confirmdialog: {
 
 Set `[modal]="true"`, `[closeOnEscape]="true"`, `[dismissableMask]="false"` for danger confirms, and `[draggable]="false"`. Set `defaultFocus="reject"` on confirms.
 
-## In Pepla today
+## In Naleko People today
 
 `p-confirmDialog` sits in four places: the TalentFlow admin shell, the admin users page, the document detail card and the verification detail. The document and verification ones ask "Are you sure", and the TalentFlow config pages (scoring weights, panel rules, intelligence rules, stage config, SLA thresholds and others) call `confirm()`. None names the person or what is lost.
 

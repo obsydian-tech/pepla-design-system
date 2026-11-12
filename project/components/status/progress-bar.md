@@ -27,13 +27,13 @@ A progress bar shows how far along something is when the total is known: documen
 | `pp-progress-bar--success` | Complete. Pair with `circle-check` and "Done 3 Nov". | Before it is 100% |
 | `pp-progress-bar--warning` | Close to a limit or a deadline: leave nearly used, due soon. Pair with an icon and words. | For errors |
 | `pp-progress-bar--danger` | Behind: overdue documents, a failed step. Pair with `clock-alert` or `octagon-alert` and words. | As the only sign of a problem |
-| `pp-progress-bar--agent` | Work Pepla's agent is doing: "Pepla is checking the documents" | For work a person does (rule 1) |
+| `pp-progress-bar--agent` | Work Batsi is doing: "Batsi is checking the documents" | For work a person does (rule 1) |
 
 ## Sizes
 
 | Class | Height | Use |
 | --- | --- | --- |
-| (default) | 8px | Cards, record headers, the new-hire portal |
+| (default) | 8px | Cards, record headers, the new employee portal |
 | `pp-progress-bar__track--small` | 4px | Inside table rows and file upload rows |
 
 ## States
@@ -80,7 +80,7 @@ progressbar: {
 
 Wrap `p-progressbar` in a `div.pp-progress-bar` with the header and help line, and hide PrimeNG's percentage label. `mode="indeterminate"` is not used.
 
-## In Pepla today
+## In Naleko People today
 
 Progress bars are rare today: the employee detail page restyles `p-progressbar`. Onboarding progress elsewhere is shown as text or steps.
 
@@ -88,4 +88,4 @@ Progress bars are rare today: the employee detail page restyles `p-progressbar`.
 
 - **Do** say the count in words. **Don't** show "60%" alone.
 - **Do** add an icon and words when it is behind. **Don't** turn the bar red and say nothing.
-- **Do** use the agent fill while Pepla works. **Don't** use mint for a person's progress.
+- **Do** use the agent fill while Batsi works. **Don't** use mint for a person's progress.

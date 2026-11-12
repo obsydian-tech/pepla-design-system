@@ -63,7 +63,7 @@ a.pp-progress-tracker__link:hover .pp-progress-tracker__label { text-decoration:
 /* Done: violet fill and a check; the line after it is violet too */
 .pp-progress-tracker__step--done { --_marker-bg: var(--color-background-brand-bold); --_marker-fg: var(--color-text-inverse); --_marker-border: var(--color-background-brand-bold); --_after: var(--color-border-brand); }
 .pp-progress-tracker__step--done .pp-progress-tracker__label { color: var(--color-text); }
-/* Done by Pepla's agent (rule 1) */
+/* Done by Batsi (rule 1) */
 .pp-progress-tracker__step--agent { --_marker-bg: var(--color-background-agent-bold); --_marker-fg: var(--color-text-inverse); --_marker-border: var(--color-background-agent-bold); --_after: var(--color-border-brand); }
 .pp-progress-tracker__step--agent .pp-progress-tracker__label { color: var(--color-text); }
 .pp-progress-tracker__step--agent .pp-progress-tracker__meta { color: var(--color-text-agent); }

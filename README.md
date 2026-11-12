@@ -1,6 +1,6 @@
-# Pepla design system
+# Naleko People design system
 
-Tokens, type, icons, components and example screens for **Pepla**, the HR platform for teams under 100 in South Africa, Zimbabwe and Zambia: the HR web app, the phone-first employee and new-hire portal, the hiring-manager and IT views, and the marketing site.
+Tokens, type, icons, components and example screens for **Batsi**, the HR platform for teams under 100 in South Africa, Zimbabwe and Zambia: the HR web app, the phone-first employee and new employee portal, the hiring-manager and IT views, and the marketing site.
 
 | What | Where |
 |---|---|
@@ -13,9 +13,9 @@ Tokens, type, icons, components and example screens for **Pepla**, the HR platfo
 
 ## For coding agents
 
-**This system is the only way to build Pepla UI.** Screens compose `pp-*` components and Layout; a missing component is added here first; no `style=""`; every value is a token. Read "The only way to build UI" in [`project/readme.md`](project/readme.md); `npm run verify:design` enforces it.
+**This system is the only way to build Naleko People UI.** Screens compose `pp-*` components and Layout; a missing component is added here first; no `style=""`; every value is a token. Read "The only way to build UI" in [`project/readme.md`](project/readme.md); `npm run verify:design` enforces it.
 
-**Read `project/readme.md` and `project/tokens/` before adding any colour, type, spacing, radius, shadow or motion.** Use semantic tokens only (`--color-text-subtle`, `--elevation-surface-raised`, `--space-200`), never a palette step or a hex. Mint (`agent`) is only for what Pepla's AI agents did; coral (`warmth`) is never a status.
+**Read `project/readme.md` and `project/tokens/` before adding any colour, type, spacing, radius, shadow or motion.** Use semantic tokens only (`--color-text-subtle`, `--elevation-surface-raised`, `--space-200`), never a palette step or a hex. Mint (`agent`) is only for what Batsi did; coral (`warmth`) is never a status.
 
 ## How the tokens are made
 
@@ -41,4 +41,4 @@ Structure is modelled on large public design systems (Atlassian's in particular)
 
 ## Roadmap
 
-1. Foundations (this) · 2. Core components · 3. Pepla components: agent, HR records, POPIA · 4. UI kits from the TalentFlow and Onboarding screens · 5. Adoption: the Angular 19 `pp-*` components and the app's `verify:design` ([spec](docs/verify-design-angular.md)); this repo's own `verify:design` is in place
+1. Foundations (this) · 2. Core components · 3. Naleko People components: agent, HR records, POPIA · 4. UI kits from the TalentFlow and Onboarding screens · 5. Adoption: the Angular 19 `pp-*` components and the app's `verify:design` ([spec](docs/verify-design-angular.md)); this repo's own `verify:design` is in place

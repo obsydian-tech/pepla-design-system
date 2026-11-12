@@ -7,7 +7,7 @@
 .pp-document-checklist__subtitle { font: var(--font-body); color: var(--color-text-subtle); }
 .pp-document-checklist__header > .pp-progress-bar { flex: 1 1 220px; }
 .pp-document-checklist__list { margin: 0; padding: 0; list-style: none; }
-/* Footer: one note under the list, such as what Pepla does after upload */
+/* Footer: one note under the list, such as what Batsi does after upload */
 .pp-document-checklist__footer { padding: var(--space-200) var(--space-300); border-top: var(--border-width) solid var(--color-border); }
 .pp-document-checklist__list > li { max-width: none; margin: 0; font: var(--font-body); letter-spacing: var(--font-body-tracking); border-bottom: var(--border-width) solid var(--color-border); }
 .pp-document-checklist__list > li:last-child { border-bottom: 0; }

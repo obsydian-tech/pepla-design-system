@@ -25,7 +25,7 @@ A badge is a count: how many things wait in a list, a tab or a nav item. It is a
 | `pp-badge` (neutral) | Plain totals: 28 candidates, 4 documents | For things that need action |
 | `pp-badge--primary` | New or unread things the person should open | On every nav item at once |
 | `pp-badge--danger` | A count of overdue or failed things, beside a label that says so ("Overdue documents") | Without a label that names the problem (rule 4) |
-| `pp-badge--agent` | A count of Pepla's proposals waiting for approval | For anything a person did (rule 1) |
+| `pp-badge--agent` | A count of Batsi's proposals waiting for approval | For anything a person did (rule 1) |
 | `pp-badge--subtle` | Counts inside filters and tab labels where weight would compete | For anything new |
 | `pp-badge--dot` | "Something new" on an icon only, with the meaning in the button's label | As a status or a count |
 
@@ -74,7 +74,7 @@ badge: {
 overlaybadge: { root: { class: 'pp-badge-anchor' } },
 ```
 
-## In Pepla today
+## In Naleko People today
 
 `p-badge` appears on the IT queue page and the admin notifications page, and the TalentFlow and IT provisioning shells restyle it for their navigation.
 
@@ -82,4 +82,4 @@ overlaybadge: { root: { class: 'pp-badge-anchor' } },
 
 - **Do** put the meaning in the label. **Don't** rely on a red bubble to say "overdue".
 - **Do** hide zero. **Don't** fill the navigation with "0" bubbles.
-- **Do** use the agent badge for Pepla's waiting proposals. **Don't** use it for unread messages.
+- **Do** use the agent badge for Batsi's waiting proposals. **Don't** use it for unread messages.
