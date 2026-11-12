@@ -22,6 +22,6 @@ Standing rules, never broken:
 - Personal data (IDs, bank, tax, health, salary) is masked until revealed, and revealing is logged.
 - Lucide icons only, from the vocabulary table in `readme.md`. No emoji.
 - Touch targets at least 44px. Text 4.5:1, icons and borders 3:1, in light and dark.
-- Sample data is fictional. The product is called Naleko People; the wordmark is lowercase `naleko people`.
+- Sample data is fictional. The product is called Naleko People; the agent is Batsi.
 
 If something you need is missing, do not invent a one-off: say so, and add or propose the component or token in the system first.

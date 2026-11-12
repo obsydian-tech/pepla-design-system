@@ -101,7 +101,12 @@ a.pp-person__name:hover, a.pp-person__name:focus-visible { text-decoration: unde
 .pp-logo__mark .pp-logo__coral { fill: var(--color-brand-coral); }
 .pp-logo__mark .pp-logo__violet { fill: var(--color-brand-violet); }
 .pp-logo__mark .pp-logo__mint { fill: var(--color-brand-mint); }
-.pp-logo__word { font-family: var(--font-family-display); font-weight: var(--font-weight-heavy); letter-spacing: var(--size-wordmark-tracking); }
+.pp-logo__word { display: inline-grid; gap: 0.2em; font-family: var(--font-family-display); }
+.pp-logo__name { font-weight: var(--font-weight-heavy); letter-spacing: var(--size-wordmark-tracking); white-space: nowrap; }
+.pp-logo__people { color: var(--color-brand-violet); }
+/* "by Naleko": Naleko is the maker. Small, tracked capitals under the name */
+.pp-logo__maker { font-size: var(--size-wordmark-maker); font-weight: var(--font-weight-semibold); letter-spacing: var(--size-wordmark-maker-tracking); text-transform: uppercase; color: var(--color-text-subtle); white-space: nowrap; }
+.pp-logo--small .pp-logo__maker { display: none; }
 .pp-logo--small { font-size: var(--size-wordmark-small); }
 .pp-logo--large { font-size: var(--size-wordmark-large); }
 .pp-logo--mark-only .pp-logo__word { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -2474,7 +2479,7 @@ a.pp-tag:hover { text-decoration: underline; }
 .pp-side-navigation__product > .pp-logo__mark { width: 28px; height: auto; flex: none; }
 .pp-side-navigation__product > svg { width: var(--size-icon-small); height: var(--size-icon-small); margin-left: auto; flex: none; color: var(--color-icon-subtle); }
 .pp-side-navigation__product-name { display: flex; flex-direction: column; min-width: 0; }
-.pp-side-navigation__wordmark { font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); text-transform: lowercase; }
+.pp-side-navigation__wordmark { font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); }
 .pp-side-navigation__product-area { font: var(--font-body-small); color: var(--color-text-subtle); }
 
 /* Sections and items */

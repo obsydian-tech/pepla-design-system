@@ -82,7 +82,7 @@ body{margin:0}
 header.top{display:flex;align-items:center;gap:var(--space-150);flex-wrap:wrap}
 .lock{display:flex;align-items:center;gap:var(--space-150)}
 .lock svg{width:48px;height:40px}
-.word{font:800 40px/1 var(--font-family-display);letter-spacing:-1.5px;color:var(--color-text)}
+.word{display:inline-grid;gap:8px;font:800 40px/1 var(--font-family-display);letter-spacing:-1.5px;color:var(--color-text)}.word .people{color:var(--color-brand-violet)}.word .maker{font:600 13px/1 var(--font-family-display);letter-spacing:.28em;text-transform:uppercase;color:var(--color-text-subtle)}
 .mark-dark{display:none}
 [data-theme="dark"] .mark-light{display:none}[data-theme="dark"] .mark-dark{display:inline}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mark-light{display:none}:root:not([data-theme="light"]) .mark-dark{display:inline}}
@@ -162,7 +162,7 @@ footer{margin-top:var(--space-1000);color:var(--color-text-subtlest);font:var(--
 <body>
 <div class="wrap">
 <header class="top">
-  <span class="lock"><span class="mark-light">${mark('#5b4bd6')}</span><span class="mark-dark">${mark('#7d6ff0')}</span><span class="word">naleko people</span></span>
+  <span class="lock"><span class="mark-light">${mark('#5b4bd6')}</span><span class="mark-dark">${mark('#7d6ff0')}</span><span class="word">Naleko <span class="people">People</span><span class="maker">by Naleko</span></span></span>
   <span class="spacer"></span>
   <button class="btn" type="button" id="theme" aria-label="Switch light or dark"><span>Light / dark</span></button>
 </header>
@@ -247,10 +247,10 @@ ${roleTables}
 ${iconRows}
 
 <h2 id="logo">Logo</h2>
-<p>Three people side by side: coral, violet, mint. On dark, violet lifts to <code>#7d6ff0</code>. The wordmark is always lowercase, Manrope 800. Keep clear space of one circle radius around the lockup; the mark is never smaller than 20px wide.</p>
+<p>Three people side by side: coral, violet, mint. On dark, violet lifts to <code>#7d6ff0</code>. The wordmark is "Naleko People" in Manrope 800, with People in violet and "by Naleko" under it in small tracked capitals. Keep clear space of one circle radius around the lockup; the mark is never smaller than 20px wide.</p>
 <div class="logos">
-  <div style="background:#faf7f2">${mark('#5b4bd6')}<span class="w" style="color:#1b1640">naleko people</span></div>
-  <div style="background:#1b1640">${mark('#7d6ff0')}<span class="w" style="color:#faf7f2">naleko people</span></div>
+  <div style="background:#faf7f2">${mark('#5b4bd6')}<span class="w" style="color:#1b1640">Naleko <span style="color:#5b4bd6">People</span></span></div>
+  <div style="background:#1b1640">${mark('#7d6ff0')}<span class="w" style="color:#faf7f2">Naleko <span style="color:#7d6ff0">People</span></span></div>
   <div style="background:var(--elevation-surface-sunken)"><img src="assets/pepla-app-icon.svg" width="96" height="96" alt="Naleko People app icon, light"><img src="assets/pepla-app-icon-dark.svg" width="96" height="96" alt="Naleko People app icon, dark"></div>
 </div>
 

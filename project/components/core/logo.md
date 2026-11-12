@@ -9,12 +9,14 @@ replaces: the old Naleko wordmark images in the sidebar, login and landing page
 
 # Logo
 
-Three people side by side, coral, violet and mint, and the lowercase wordmark `naleko people`. The logo is locked: never redraw, recolour or stretch it.
+Three people side by side, coral, violet and mint, beside the wordmark "Naleko People" with "by Naleko" under it: Naleko makes the product (logo option C, picked by the project lead on 12 Nov 2026). The logo is locked: never redraw, recolour or stretch it.
 
 ## Anatomy
 
 1. **Mark**: three overlapping circles of equal size (radius 18 on a 76 by 64 grid). Coral left, violet raised in the middle, mint right.
-2. **Wordmark**: `naleko people`, lowercase, Manrope 800, tracking -0.04em.
+2. **Wordmark** (`pp-logo__word`): two lines.
+   - `pp-logo__name`: "Naleko People", Manrope 800, tracking -0.04em. "Naleko" in the text colour, "People" (`pp-logo__people`) in brand violet.
+   - `pp-logo__maker`: "by Naleko", Manrope 600 in tracked capitals (`--size-wordmark-maker`, `--size-wordmark-maker-tracking`), subtle text. Hidden at the small size, where it would be too small to read.
 3. **Gap**: 0.32 of the type size between mark and word.
 
 Never draw the mark by hand. In this repo a page writes `<i data-pepla-mark></i>` and the build puts in the one SVG (`MARK` in `scripts/lib.mjs`), with circles `pp-logo__coral`, `pp-logo__violet` and `pp-logo__mint`, so its colours come from `--color-brand-*` and the violet lifts in dark theme by itself. In the app it is `<pp-logo>`. `npm run verify:design` fails any hand-written `<svg>`.
@@ -49,11 +51,11 @@ The mark is never smaller than 20px wide.
 
 - In the app, the logo links to the person's home (HR home, or My onboarding for a new employee).
 - Clear space around the lockup is one circle radius on every side.
-- A customer's own logo (tenant theming) sits beside Naleko People's in the sidebar header, never replaces it in the product chrome.
+- A customer's own logo and colour (tenant branding) lead the header and the sign-in page. Naleko People then shows as a small "Powered by Naleko People" line. Mint and Batsi's mark never change.
 
 ## Content
 
-- In text the product is "Naleko People"; only the wordmark is lowercase.
+- In text the product is "Naleko People" and the agent is "Batsi". Batsi is never part of the logo; it has the mint agent mark.
 - Never write "Naleko People AI", "NALEKO PEOPLE" or "naleko.com" as a logo.
 
 ## Accessibility
@@ -73,5 +75,5 @@ The current sidebar, login and landing page show the Naleko name and a navy logo
 ## Do and don't
 
 - **Do** use the SVG with the three classes so it follows the theme. **Don't** paste hex colours into the SVG.
-- **Do** keep the word lowercase. **Don't** put the logo on coral or mint backgrounds.
+- **Do** keep "People" in violet and "by Naleko" under the name. **Don't** put the logo on coral or mint backgrounds.
 - **Do** keep at least one circle radius of space around it. **Don't** add a tagline inside the lockup.

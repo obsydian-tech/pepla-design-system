@@ -76,7 +76,7 @@ The Angular app runs the same rules on its templates and stylesheets, plus a ban
 
 - **Voice:** a capable colleague. Warm, plain, brief. Say what happened and what to do next.
 - **Person:** "you" for the reader; "Batsi" (not "the AI", not "the system") for the agent. "We" only for the Naleko People team.
-- **Case:** sentence case everywhere, including buttons and headings. The wordmark is always lowercase `naleko people`; in sentences the product is "Naleko People" and the agent is "Batsi". People ask the agent with "Ask Batsi".
+- **Case:** sentence case everywhere, including buttons and headings. The wordmark is "Naleko People" with "by Naleko" under it; in sentences the product is "Naleko People" and the agent is "Batsi". People ask the agent with "Ask Batsi".
 - **Buttons** are verbs that say the outcome: "Send contract", "Approve 3 documents". Never "OK", "Submit", "Click here".
 - **Errors** say what went wrong and how to fix it, without blame: "That ID number has 12 digits. South African IDs have 13."
 - **Words we use:** person, employee, new employee, candidate, manager, team. **Words we avoid:** resource, headcount (in UI), user (for employees), AI-powered, leverage, seamless.

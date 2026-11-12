@@ -13,7 +13,7 @@ The side navigation is Naleko People's one main menu, the same in every module: 
 
 ## Anatomy
 
-1. **Company switcher** (`pp-side-navigation__product`): the Naleko People mark, the lowercase wordmark `naleko people`, the company name and `chevrons-up-down`. Opens a Dropdown menu of the companies the person belongs to (an accountant or HR partner may serve several). A person with one company sees the name with no chevron, and it is not a button. 56px tall, lined up with the top navigation.
+1. **Company switcher** (`pp-side-navigation__product`): the Naleko People mark, the wordmark "Naleko People", the company name and `chevrons-up-down`. Opens a Dropdown menu of the companies the person belongs to (an accountant or HR partner may serve several). A person with one company sees the name with no chevron, and it is not a button. 56px tall, lined up with the top navigation.
 2. **Sections**: groups of items. The first has no heading; later ones have a short heading in `--font-heading-xxsmall`.
 3. **Item**: 20px Lucide icon from the vocabulary, a label, and an optional count. 40px tall; 44px on touch; 48px on phone.
 4. **Selected item**: selected fill, violet text and icon, a 4px bar on the left edge.
@@ -53,7 +53,7 @@ The side navigation is Naleko People's one main menu, the same in every module: 
 
 - Item labels are the area names from the icon vocabulary: "Hire", "Onboard", "Leave", "Help desk", "Move and exit", "Comply", "Perform". One or two words, sentence case.
 - Section headings are one word: "Work", "Admin".
-- The wordmark is always lowercase `naleko people`.
+- The wordmark reads "Naleko People" in the heading font.
 
 ## Accessibility
 
@@ -88,4 +88,4 @@ There are several shells, each with its own navigation: the shared `sidebar` use
 
 - **Do** use one icon per area, from the vocabulary. **Don't** invent an icon for a page.
 - **Do** keep counts for things waiting on this person. **Don't** show totals ("38 people").
-- **Do** keep the wordmark lowercase. **Don't** colour the mark's circles yourself; use `pp-logo__mark`, which follows the theme.
+- **Do** write the wordmark as "Naleko People". **Don't** colour the mark's circles yourself; use `pp-logo__mark`, which follows the theme.
