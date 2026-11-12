@@ -50,7 +50,7 @@ The chip is not mint. Only the agent mark and the proposal card are mint (rule 1
 
 - Levels in words only: "High confidence", "Check this", "Batsi could not tell".
 - Count sources in words and digits: "1 source", "3 sources".
-- Popup title: "What Batsi read". Then one line on why: "The name, date of birth and photo match on all three."
+- Popup title: "Sources". Then one line on why: "The name, date of birth and photo match on all three."
 - For "Check this", say what to check: "The surname on the bank letter is Moyo-Ncube; the ID says Moyo."
 
 ## Accessibility
@@ -87,5 +87,5 @@ None of them lists what was read. `confidence: number` comes from `core/services
 ## Do and don't
 
 - **Do** say the level in words and the number of sources. **Don't** show "87%" or a score bar.
-- **Do** list what Batsi read and what it found. **Don't** say "High confidence" with nothing behind it.
+- **Do** list the sources and the result for each. **Don't** say "High confidence" with nothing behind it.
 - **Do** say what to check at "Check this". **Don't** colour the chip mint or green.

@@ -48,7 +48,7 @@ A section message explains something about the part of the page it sits in: a re
 ## Content
 
 - Title states the situation in plain words: "Lerato's contract is waiting on her tax number". No "Warning:" or "Error:" prefix; the icon says that.
-- Body says why and what happens next: "Batsi can send the contract once Lerato adds her SARS tax number."
+- Body states the cause and the fix: "Contract on hold: Lerato's SARS tax number is missing."
 - Deadlines in words (rule 5): "expires in 12 days", never a bare date.
 - Agent messages start with "Naleko People", say what it did, and repeat that nothing changes until a person approves.
 

@@ -22,7 +22,9 @@ const STATUS_ICONS = {
 const BANNED_WORDS = [
   [/\bAI[- ]powered\b/i, 'AI-powered'], [/\bleverage\b/i, 'leverage'], [/\bseamless(ly)?\b/i, 'seamless'],
   [/\bheadcount\b/i, 'headcount'], [/\bresources?\b(?! (?:the|a))/i, 'resource'], [/\bthe (?:AI|system)\b/i, '"the AI" or "the system" (say Batsi)'],
-  [/\bclick here\b/i, 'click here'], [/\bPepla\b/, 'Pepla (a working name; say Naleko People, or Batsi for the agent)'],
+  [/\bclick here\b/i, 'click here'], [/\bwhy now\b/i, '"Why now" (say Reason)'], [/\bwhat happens next\b/i, '"What happens next" (state the next step plainly)'],
+  [/\bwhat Batsi (?:read|found)\b/i, '"What Batsi read" (say Sources or Check result)'], [/\bhow sure\b/i, '"How sure" (say Confidence)'],
+  [/\bBatsi (?:suggests|noticed|can|will|thinks)\b/, 'Batsi narrating (use a label: Suggested by Batsi, Insights)'], [/\b(?:here is|here\'s|you\'re all caught up|you are all caught up)\b/i, 'narration (use a label)'], [/\bPepla\b/, 'Pepla (a working name; say Naleko People, or Batsi for the agent)'],
 ];
 const BAD_BUTTONS = /^(?:OK|Okay|Submit|Click here|Yes|No)$/i;
 const BAD_DATES = [/\b\d{1,2} [A-Z][a-z]{2} \d{2}\b(?!\d)/, /\b\d{4}-\d{2}-\d{2}\b/, /\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/];

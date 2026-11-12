@@ -52,7 +52,7 @@ An empty state fills a page, card or table that has nothing to show yet. It says
 ## Content
 
 - Heading says what is empty in plain words: "No candidates yet", "Nothing needs you today". Not "No data".
-- The line says what happens next: "When people apply for Bookkeeper, they show up here."
+- The line states the fact plainly: "No applications for Bookkeeper yet." Never narrate what the product will do.
 - No permission names the person who can help, not "Contact your administrator".
 - The done state never praises in a loud way; no exclamation marks.
 

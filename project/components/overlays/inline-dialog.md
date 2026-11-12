@@ -63,8 +63,8 @@ How it differs from its neighbours:
 
 ## Content
 
-- The heading names the thing or asks the small question: "Remind new employees by SMS?", "Batsi suggests 1 Dec 2026".
-- The text says why, in at most two sentences. For an agent suggestion, say what Batsi read: "Kagiso's resignation letter says his notice ends on 28 Nov."
+- The heading names the thing or asks the small question: "Remind new employees by SMS?", "Suggested date: 1 Dec 2026".
+- The text says why, in at most two sentences. For an agent suggestion, name the source: "Kagiso's resignation letter says his notice ends on 28 Nov."
 - Actions repeat the verb: "Turn on reminders" and "Not now", "Use 1 Dec" and "Keep 17 Nov". Never "OK" or "Got it" next to a real choice.
 - If there is nothing to decide, it is a Popup or a Tooltip, not an inline dialog.
 

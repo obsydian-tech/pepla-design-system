@@ -26,7 +26,7 @@ A lozenge shows the status of one thing: a document, a check, a candidate, a dea
 | `pp-lozenge--success` | Done, verified, approved, hired | For something Batsi did (use agent) |
 | `pp-lozenge--warning` | Due soon, needs a look, partly done | For errors |
 | `pp-lozenge--danger` | Overdue, failed, blocked, does not match | For celebration or emphasis |
-| `pp-lozenge--agent` | Work Batsi did or proposes: "Checked by Batsi", "Drafted by Batsi", "Batsi suggests" | For anything a person did, or as decoration (rule 1) |
+| `pp-lozenge--agent` | Work Batsi did or proposes: "Checked by Batsi", "Drafted by Batsi", "Suggested by Batsi" | For anything a person did, or as decoration (rule 1) |
 | `pp-lozenge--bold` | Add to any of the above for the one status per screen that matters most | On every row of a table |
 
 There is no coral lozenge. Coral is warmth, never a status (rule 3).

@@ -41,5 +41,5 @@ span.pp-text, a.pp-text { display: inline; }
 /* Reading width for long copy */
 .pp-text--measure { max-width: var(--layout-reading-max); }
 
-/* List: a bulleted or numbered list of short sentences (steps, what happens next) */
+/* List: a bulleted or numbered list of short sentences (steps) */
 ul.pp-list, ol.pp-list { display: grid; gap: var(--_gap, var(--space-075)); margin: 0; padding-left: var(--space-250); font: var(--font-body); color: var(--color-text); }

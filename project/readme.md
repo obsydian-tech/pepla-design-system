@@ -62,7 +62,7 @@ The Angular app runs the same rules on its templates and stylesheets, plus a ban
 ## The rules that govern everything
 
 1. **Mint means the agent did it.** Mint is only for work Batsi did or proposed. Never success, never a link, never decoration.
-2. **The agent proposes, a person approves.** Every agent action that changes a record shows what it will do, why now, what it read, and where the data goes. Approve, edit or decline; every decision is audited with who and when.
+2. **The agent proposes, a person approves.** Every agent action that changes a record shows the action, the reason, the sources and the data shared. Approve, edit or decline; every decision is audited with who and when.
 3. **Violet is for actions, coral is for warmth.** Coral is celebration and highlight, never an error or a warning. Danger is a crimson that differs from coral in lightness and hue (checked in CI).
 4. **Status is an icon and a word.** Never colour alone: a lozenge, a deadline or a check result always carries both.
 5. **Deadlines are said in words.** "Due in 2 days", "Overdue by 1 day", "Done 3 Nov". Never a bare date or a coloured dot.
@@ -74,7 +74,7 @@ The Angular app runs the same rules on its templates and stylesheets, plus a ban
 
 ## Content fundamentals
 
-- **Voice:** a capable colleague. Warm, plain, brief. Say what happened and what to do next.
+- **Voice:** a corporate SaaS product. Plain, brief, factual. Labels and short statements, never narration. No "Why now", "What happens next", "Here is", "I can", "We'll" or "You're all caught up". The product and Batsi never talk about themselves in sentences ("Batsi can send...", "Batsi noticed"); use labels such as "Suggested by Batsi", "Checked by Batsi", "Sources", "Reason".
 - **Person:** "you" for the reader; "Batsi" (not "the AI", not "the system") for the agent. "We" only for the Naleko People team.
 - **Case:** sentence case everywhere, including buttons and headings. The wordmark is "Naleko People" with "by Naleko" under it; in sentences the product is "Naleko People" and the agent is "Batsi". People ask the agent with "Ask Batsi".
 - **Buttons** are verbs that say the outcome: "Send contract", "Approve 3 documents". Never "OK", "Submit", "Click here".

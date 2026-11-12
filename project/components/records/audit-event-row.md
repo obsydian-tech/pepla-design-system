@@ -24,7 +24,7 @@ One line in the audit trail: who did what to which record, when, from where, and
 **Details** (`__details`, when open)
 
 - **Change** (`__change`): old value struck through, an arrow, the new value.
-- **Facts** (`pp-dl`): record, why, done by, approved by, what Batsi read, where data went, device, masked IP, event ID.
+- **Facts** (`pp-dl`): record, why, done by, approved by, sources, data shared with, device, masked IP, event ID.
 
 ## States
 

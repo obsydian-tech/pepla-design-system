@@ -194,10 +194,10 @@ footer{margin-top:var(--space-1000);color:var(--color-text-subtlest);font:var(--
     <div class="pp-section-message pp-section-message--danger" role="region" aria-label="ID number"><i data-lucide="octagon-alert"></i><div class="pp-section-message__content"><h3 class="pp-section-message__title">That ID number has 12 digits</h3><div class="pp-section-message__body">South African ID numbers have 13. Check the last digits.</div></div></div>
   </div>
   <div class="card">
-    <div class="pp-proposal-list" role="list" aria-label="Batsi suggests">
+    <div class="pp-proposal-list" role="list" aria-label="Suggested by Batsi">
       <article class="pp-proposal--compact" role="listitem" aria-labelledby="fd-p1">
         <div class="pp-proposal__titles">
-          <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Batsi suggests</span></span>
+          <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Suggested by Batsi</span></span>
           <span class="pp-proposal__title" id="fd-p1">Send Thandeka her contract and laptop request</span>
           <span class="pp-proposal__meta">Her ID checked out and she starts Monday · Nothing leaves Naleko People</span>
         </div>

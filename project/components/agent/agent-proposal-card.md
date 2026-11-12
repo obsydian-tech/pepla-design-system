@@ -14,14 +14,14 @@ The proposal card is how Batsi asks a person to approve something. It is the sig
 ## Anatomy
 
 1. **Container**: a Card (`pp-card pp-proposal`) with the mint agent border (`--color-border-agent`).
-2. **Who**: the Agent mark with "Batsi suggests" ("Batsi suggested" once decided).
+2. **Who**: the Agent mark with "Suggested by Batsi".
 3. **What it will do**: the title. One sentence, verb first: "Send Kagiso Molefe's bank details to payroll".
 4. **Status** in `pp-card__aside`: one Lozenge (see States).
 5. **Facts** (`pp-proposal__facts`, a `<dl>`):
-   - **Why now**: the reason it matters today: "Kagiso starts on 16 Nov. Payroll closes on 20 Nov."
-   - **What Batsi read**: each source as a Tag that links to it.
-   - **Where it goes** (POPIA): one row per system that receives data, with its country and exactly which fields. If nothing leaves Naleko People, say so.
-   - **How sure**: a Confidence chip.
+   - **Reason**: the fact that makes it due, as a short statement: "Start date 16 Nov. November payroll closes 20 Nov."
+   - **Sources**: each source as a Tag that links to it.
+   - **Data shared with** (POPIA): one row per system that receives data, with its country and exactly which fields. If nothing leaves Naleko People, say so.
+   - **Confidence**: a Confidence chip.
 6. **Actions**: Approve (`pp-button--agent`, `check` icon), Edit (default), Decline (subtle). The mint Approve button appears only on proposals, here or inside the agent panel.
 7. **Note**: "Your choice is recorded with your name and the time."
 8. **Outcome** (`pp-proposal__outcome`, after a decision): who decided, when, and a link to the audit trail. Replaces the actions.
@@ -32,7 +32,7 @@ The proposal card is how Batsi asks a person to approve something. It is the sig
 | --- | --- | --- |
 | `pp-card pp-proposal` | The full card: on Today, on a record, in the agent panel when there is room | Without all four facts |
 | `pp-card pp-card--compact pp-proposal` | Decided proposals in history | For a pending proposal that needs the facts |
-| `pp-proposal--compact` in `pp-proposal-list` | A list of proposals ("Needs you"). Shows what, why now and where it goes in one line, with Approve and Review | For proposals that send personal data outside Naleko People: these need Review, not one-tap Approve |
+| `pp-proposal--compact` in `pp-proposal-list` | A list of proposals ("Needs you"). Shows the action, reason and data shared in one line, with Approve and Review | For proposals that send personal data outside Naleko People: these need Review, not one-tap Approve |
 | Batch (`pp-proposal__items`) | One decision for several records of the same kind: "Approve 3 documents" | For mixed kinds, or more than 20 items |
 
 ## States
@@ -63,8 +63,8 @@ The proposal card is how Batsi asks a person to approve something. It is the sig
 ## Content
 
 - Title: verb first, one sentence, names the person: "Remind Chipo Banda to upload her tax form". Never "Action required" or a tool name such as `update_stage_config`.
-- Why now: one sentence with a date or a deadline in words.
-- Where it goes: system, country, then the fields: "Payroll system, South Africa: name, ID ending 0876, account ending 4821". If nothing leaves: "Nothing leaves Naleko People. Kept in Cape Town."
+- Reason: a short statement with a date or a deadline, not a sentence about the agent. Never "Why now".
+- Data shared with: system, country, then the fields: "Payroll system, South Africa: name, ID ending 0876, account ending 4821". If nothing leaves: "None. Stored in Naleko People, Cape Town."
 - Buttons: "Approve", "Edit", "Decline". The batch button counts: "Approve 3 documents".
 - Outcomes are past tense and name the person: "Approved by Thandeka Dlamini. Payroll has the details."
 - Never "Human approval required", "HITL", "AI", or raw JSON.
@@ -75,7 +75,7 @@ The proposal card is how Batsi asks a person to approve something. It is the sig
 - When the state changes, the outcome text is announced politely (`role="status"`); a failure uses `role="alert"`.
 - After a decision, focus moves to the outcome line (`tabindex="-1"`), so keyboard users are not left on a button that has gone.
 - Each compact-row button is described by its row title (`aria-describedby`), so "Approve" is read with what it approves.
-- Status is a lozenge with an icon and a word (rule 4). The mint border is decoration; "Batsi suggests" says the same in words.
+- Status is a lozenge with an icon and a word (rule 4). The mint border is decoration; "Suggested by Batsi" says the same in words.
 - Phone: buttons stack with Approve on top (`pp-button-group--stack-phone`) and are at least 44px tall.
 
 ## PrimeNG mapping
@@ -86,7 +86,7 @@ No PrimeNG component. The card is a plain Angular component (`<pp-proposal-card>
 <article class="pp-card pp-proposal" [attr.aria-busy]="state() === 'working' || null" [attr.aria-labelledby]="id + '-t'">
   <header class="pp-card__header">
     <div class="pp-proposal__titles">
-      <span class="pp-agent-mark"><svg lucideSparkles aria-hidden="true"></svg><span>Batsi suggests</span></span>
+      <span class="pp-agent-mark"><svg lucideSparkles aria-hidden="true"></svg><span>Suggested by Batsi</span></span>
       <h3 class="pp-proposal__title" [id]="id + '-t'">{{ p.title }}</h3>
     </div>
     <div class="pp-card__aside"><pp-lozenge [status]="state()" [expiresAt]="p.expiresAt" /></div>
@@ -108,7 +108,7 @@ The approve and reject calls are `approveAction()` and `rejectAction()` in `feat
 
 ## Do and don't
 
-- **Do** show all four facts: why now, what Batsi read, where it goes, how sure. **Don't** ask for approval of a JSON blob or a tool name.
+- **Do** show all four facts: Reason, Sources, Data shared with, Confidence. **Don't** ask for approval of a JSON blob or a tool name.
 - **Do** use the mint Approve button only here and in the agent panel. **Don't** make Approve violet, green or a "success" button.
 - **Do** say where personal data goes, with the country. **Don't** write "Data is processed securely".
 - **Do** keep a declined or expired card in history with who and why. **Don't** delete it or hide it.

@@ -17,7 +17,7 @@ A flag tells a person the result of something they just did, or that something f
 2. **Container**: overlay surface, `--radius-large`, overlay shadow, 400px wide at most.
 3. **Icon**: Lucide, 20px, in the appearance's icon colour.
 4. **Title**: what happened, `--font-heading-xsmall`.
-5. **Body** (optional): one sentence on what happens next.
+5. **Body** (optional): one short statement of the result or the next step, without narration.
 6. **Actions** (optional): one or two link buttons, usually "Undo" or "Try again".
 7. **Dismiss**: small subtle icon button.
 8. **Timer** (success only): a hairline that empties while the flag counts down.
