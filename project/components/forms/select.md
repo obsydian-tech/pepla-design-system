@@ -3,7 +3,7 @@ name: Select
 group: forms
 status: ready
 classes: pp-select, pp-select-panel, pp-select-option
-primeng: Select (p-select, formerly p-dropdown), MultiSelect (p-multiselect) — reference only (built without PrimeNG) — pp-select is a native select; the rich select (`pp-rich-select`, groups, second lines, icons, a filter) and the multi-select are built on Angular Aria combobox and listbox.
+primeng: Select (p-select, formerly p-dropdown), MultiSelect (p-multiselect) — reference only (built without PrimeNG) — pp-select is a native select; the rich select (`<pp-rich-select>`, groups, second lines, icons, a filter) and the multi-select are built on Angular Aria combobox and listbox.
 replaces: p-dropdown with default theme, raw select elements, the stage selector's custom menu
 ---
 
