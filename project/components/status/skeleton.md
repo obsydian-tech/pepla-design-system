@@ -3,7 +3,7 @@ name: Skeleton
 group: status
 status: ready
 classes: pp-skeleton, pp-skeleton-group, pp-skeleton-row, pp-skeleton-stack
-primeng: Skeleton (p-skeleton)
+primeng: reference only (built without PrimeNG) — Skeleton (p-skeleton)
 replaces: p-skeleton with default theme, full-page spinners, "Loading..." text in lists and drawers
 ---
 
@@ -58,6 +58,8 @@ The hidden label names what is loading: "Loading people", "Loading the registrat
 - The sweep stops under `prefers-reduced-motion`.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 skeleton: {

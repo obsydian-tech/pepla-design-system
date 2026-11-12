@@ -3,7 +3,7 @@ name: Dynamic table
 group: data
 status: ready
 classes: pp-table, pp-table-wrap
-primeng: Table (p-table)
+primeng: Table (p-table) — reference only (built without PrimeNG) — long lists use the app's long table (`src/app/ds/data/table/`), built on Angular CDK virtual scroll. Short tables are a plain table ppTable.
 replaces: p-table (7 uses: candidates, verifications, IT queue, users, audit log, queues, templates)
 ---
 
@@ -45,6 +45,7 @@ Rows of the same kind of thing, to scan, sort, select and open. Pepla's tables a
 - Default sort puts what needs action first: overdue, then due soon, then the rest.
 - Clicking the first-column name opens the record; the whole row is not a link (it would trap the action buttons).
 - Bulk actions appear in a bar above the table when rows are selected: "3 selected · Send reminder".
+- Long lists load 20 to 50 rows at a time as you scroll. On desktop only the rows in view render (virtual scroll, rows one line high). On a phone, rows stack as cards of different heights, so every loaded row renders and the next page loads as the end comes near; the list never scrolls inside itself.
 - Page size 20; Pagination says "Showing 21 to 40 of 132 people".
 
 ## Content
@@ -59,8 +60,11 @@ Rows of the same kind of thing, to scan, sort, select and open. Pepla's tables a
 - Sort buttons inside `th`, with `aria-sort` on the `th`.
 - Row checkboxes are labelled with the row's name: "Select Thandeka Dlamini".
 - The stacked phone layout repeats the column name per cell via `data-label`.
+- When the table is wider than its box and scrolls sideways, the wrap becomes a named region a keyboard can reach: `tabindex="0"`, `role="region"` and `aria-label` set to the caption. The app does this only while it overflows.
 
 ## PrimeNG mapping
+
+> **Reference only.** The app uses no PrimeNG. Long lists use the app's long table (`src/app/ds/data/table/`), built on Angular CDK virtual scroll and loading a page at a time. Short tables are a plain <table ppTable>.
 
 ```ts
 datatable: {

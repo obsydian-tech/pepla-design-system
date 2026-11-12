@@ -161,6 +161,14 @@ ul.pp-list, ol.pp-list { display: grid; gap: var(--_gap, var(--space-075)); marg
    Every gap is a space token, set with a pp-gap-* class (default shown per primitive). */
 
 /* Stack: children one under another */
+/* Sizing inputs apply only to the element that sets them. Without this a .pp-stack inside a
+   .pp-gap-300 would inherit 24px instead of its own default, and so would every component that reads
+   --_gap, --_min, --_width or --_height. */
+@property --_gap { syntax: '*'; inherits: false; }
+@property --_min { syntax: '*'; inherits: false; }
+@property --_width { syntax: '*'; inherits: false; }
+@property --_height { syntax: '*'; inherits: false; }
+
 .pp-stack { display: grid; gap: var(--_gap, var(--space-200)); min-width: 0; align-content: start; }
 .pp-stack--start { justify-items: start; }
 .pp-stack--center { justify-items: center; text-align: center; }
@@ -235,6 +243,16 @@ dl.pp-stack, dl.pp-grid, dl.pp-inline { margin: 0; }
 
 /* Scroll: a region that scrolls inside itself once it is taller than its --_height */
 .pp-scroll { max-height: var(--_height, none); overflow-y: auto; min-height: 0; }
+
+/*
+ * In an app that renders components as custom elements (Pepla's Angular app), a component's host element
+ * is inline until something says otherwise, and a size from a screen
+ * (pp-measure-*, pp-width-field-*) does nothing on an inline box. Hosts that carry one become blocks.
+ * Zero specificity, so a component class that sets its own display still wins.
+ */
+:where([class*="pp-measure-"], [class*="pp-width-field-"]):where(:not(div, span, p, a, ul, ol, li, dl, dt, dd, section, article, aside, header, footer, nav, main, form, fieldset, label, input, select, textarea, button, table, h1, h2, h3, h4, h5, h6, details, summary, img, svg)) {
+  display: block;
+}
 
 /* ---- actions/button ---- */
 /* Button. Spec: button.md */
@@ -692,6 +710,8 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
 .pp-form-error-summary:focus-visible { outline-offset: var(--focus-ring-offset); }
 .pp-form-error-summary__list { display: flex; flex-direction: column; gap: var(--space-050); margin: var(--space-100) 0 0; padding: 0; list-style: none; }
 .pp-form-error-summary__list .pp-link { color: var(--color-text); }
+/* Each error is its own target, not a link in a sentence, so it gets the 24px minimum (WCAG 2.5.8) */
+.pp-form-error-summary__list .pp-link { display: inline-flex; align-items: center; min-height: var(--space-300); }
 
 /* Footer: the form's actions, held at the bottom of the scrolling area */
 .pp-form__footer {
@@ -919,6 +939,8 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
   color: var(--color-text);
   font: var(--font-body);
 }
+/* In the app the panel sits in an Angular CDK overlay pane sized to the field: fill it */
+.cdk-overlay-pane > .pp-select-panel { flex: 1 1 auto; }
 .pp-select-panel__filter { position: sticky; top: calc(var(--space-050) * -1); z-index: 1; margin: calc(var(--space-050) * -1) calc(var(--space-050) * -1) var(--space-050); padding: var(--space-100); background: var(--elevation-surface-overlay); border-bottom: var(--border-width) solid var(--color-border); }
 .pp-select-panel__list { margin: 0; padding: 0; list-style: none; }
 .pp-select-panel__group { padding: var(--space-150) var(--space-150) var(--space-050); font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); color: var(--color-text-subtlest); }
@@ -1837,6 +1859,9 @@ a.pp-tag:hover { text-decoration: underline; }
 .pp-tooltip-anchor:hover > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: var(--motion-delay-tooltip), var(--motion-delay-tooltip); }
 .pp-tooltip-anchor:has(:focus-visible) > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: var(--motion-duration-instant); }
 
+/* Floating: an app places the tooltip itself in a top-layer overlay (so a table or card can't clip it) and shows it on hover and focus. */
+.pp-tooltip--floating { position: relative; inset: auto; transform: none; }
+
 /* Shown in place (docs and specs) */
 .pp-tooltip--inline { position: relative; inset: auto; display: inline-block; transform: none; }
 
@@ -1885,7 +1910,10 @@ a.pp-tag:hover { text-decoration: underline; }
   border-radius: 0 0 0 var(--radius-xlarge);
   background: var(--elevation-surface-overlay);
 }
-.pp-drawer__footer-note { margin-right: auto; align-self: center; font: var(--font-body-small); color: var(--color-text-subtlest); }
+/* The note gives way first (wraps to two lines), so the buttons stay together on one row. */
+.pp-drawer__footer:has(> .pp-drawer__footer-note) { flex-wrap: nowrap; }
+.pp-drawer__footer > .pp-button { flex: none; }
+.pp-drawer__footer-note { flex: 1 1 0; min-width: 0; margin-right: auto; align-self: center; font: var(--font-body-small); color: var(--color-text-subtlest); }
 
 @keyframes pp-drawer-in { from { transform: translateX(100%); } }
 
@@ -1896,7 +1924,7 @@ a.pp-tag:hover { text-decoration: underline; }
   .pp-drawer:not(.pp-drawer--inline) .pp-drawer__body { padding: var(--space-200) var(--layout-gutter-phone); }
   .pp-drawer:not(.pp-drawer--inline) .pp-drawer__footer { flex-direction: column-reverse; border-radius: 0; padding: var(--space-150) var(--layout-gutter-phone) calc(var(--space-150) + env(safe-area-inset-bottom)); }
   .pp-drawer:not(.pp-drawer--inline) .pp-drawer__footer .pp-button { min-height: var(--size-control-large); }
-  .pp-drawer__footer-note { margin-right: 0; }
+  .pp-drawer:not(.pp-drawer--inline) .pp-drawer__footer-note { flex: none; margin-right: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pp-drawer { animation-name: pp-blanket-in; }
@@ -1928,6 +1956,8 @@ a.pp-tag:hover { text-decoration: underline; }
 }
 .pp-dropdown-menu--end { left: auto; right: 0; }
 .pp-dropdown-menu--inline { position: relative; inset: auto; z-index: auto; display: block; width: max-content; animation: none; }
+/* Floating: an app places the menu itself (a top-layer overlay), so it sits where it is put. */
+.pp-dropdown-menu--floating { position: relative; inset: auto; z-index: auto; }
 
 .pp-dropdown-menu__section { margin: 0; padding: 0; list-style: none; }
 .pp-dropdown-menu__section + .pp-dropdown-menu__section { margin-top: var(--space-075); padding-top: var(--space-075); border-top: var(--border-width) solid var(--color-border); }
@@ -2037,6 +2067,9 @@ a.pp-tag:hover { text-decoration: underline; }
 /* In place, for docs: leaves room for the beak above it */
 .pp-inline-dialog--inline { position: relative; inset: auto; z-index: auto; margin-top: var(--space-150); animation: none; }
 .pp-inline-dialog--inline.pp-inline-dialog--top { margin: 0 0 var(--space-150); }
+
+/* Floating: an app places the dialog itself (a top-layer overlay); --top still moves the beak. */
+.pp-inline-dialog--floating { position: relative; inset: auto; z-index: auto; }
 
 .pp-inline-dialog__header { display: flex; align-items: flex-start; gap: var(--space-100); }
 .pp-inline-dialog__header > svg { width: var(--size-icon-medium); height: var(--size-icon-medium); flex: none; color: var(--color-icon); }
@@ -2157,6 +2190,9 @@ a.pp-tag:hover { text-decoration: underline; }
 .pp-popup--wide { max-width: min(420px, calc(100vw - 2 * var(--layout-gutter-phone))); width: 100vw; }
 .pp-popup--inline { position: relative; inset: auto; z-index: auto; display: block; animation: none; }
 
+/* Floating: an app places the popup itself (a top-layer overlay), so it sits where it is put. */
+.pp-popup--floating { position: relative; inset: auto; z-index: auto; }
+
 .pp-popup__header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-100); margin-bottom: var(--space-150); }
 .pp-popup__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
 .pp-popup__footer { display: flex; justify-content: flex-end; gap: var(--space-100); margin-top: var(--space-200); padding-top: var(--space-150); border-top: var(--border-width) solid var(--color-border); }
@@ -2167,7 +2203,8 @@ a.pp-tag:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) { .pp-popup { animation-name: pp-blanket-in; } }
 
 /* Shown in place (docs): the panel sits under its trigger instead of floating */
-.pp-popup-anchor:has(> .pp-popup--inline, > .pp-dropdown-menu--inline, > .pp-confidence-sources) { flex-direction: column; align-items: flex-start; gap: var(--space-050); }
+/* A framework may wrap the panel in a classless element (a component host): that counts as a direct child. */
+.pp-popup-anchor:has(> .pp-popup--inline, > .pp-dropdown-menu--inline, > .pp-confidence-sources, > :not([class]) > .pp-dropdown-menu--inline) { flex-direction: column; align-items: flex-start; gap: var(--space-050); }
 
 /* ---- navigation/app-shell ---- */
 /* App shell. Spec: app-shell.md */
@@ -2717,7 +2754,6 @@ a.pp-tag:hover { text-decoration: underline; }
 .pp-dl--stacked { grid-template-columns: 1fr; gap: var(--space-025); }
 .pp-dl--stacked dd { margin-bottom: var(--space-150); }
 .pp-dl__notset { color: var(--color-text-subtlest); font-style: italic; }
-.pp-dl__masked { display: inline-flex; align-items: center; gap: var(--space-100); font-variant-numeric: tabular-nums; }
 .pp-dl__source { display: inline-flex; align-items: center; gap: var(--space-050); margin-left: var(--space-100); font: var(--font-body-small); color: var(--color-text-agent); }
 .pp-dl__source svg { width: 14px; height: 14px; }
 @media (max-width: 479px) { .pp-dl { grid-template-columns: 1fr; gap: var(--space-025); } .pp-dl dd { margin-bottom: var(--space-150); } }
@@ -2781,13 +2817,13 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 /* Timeline. Spec: timeline.md */
 .pp-timeline {
   --_marker: var(--size-control-small);
-  --_gap: var(--space-300);
+  --_step: var(--space-300);
   margin: 0;
   padding: 0;
   list-style: none;
   color: var(--color-text);
 }
-.pp-timeline--compact { --_marker: var(--space-300); --_gap: var(--space-200); }
+.pp-timeline--compact { --_marker: var(--space-300); --_step: var(--space-200); }
 
 /* Event: marker column, content column, a line down to the next marker */
 .pp-timeline > .pp-timeline__event {
@@ -2797,7 +2833,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   column-gap: var(--space-150);
   max-width: none;
   margin: 0;
-  padding: 0 0 var(--_gap);
+  padding: 0 0 var(--_step);
   font: var(--font-body);
   letter-spacing: var(--font-body-tracking);
 }
@@ -3026,7 +3062,12 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-proposal--compact .pp-proposal__title { font: var(--font-body-strong); letter-spacing: var(--font-body-strong-tracking); }
 .pp-proposal__meta { font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); overflow-wrap: anywhere; }
 .pp-proposal__row-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--space-100); }
-.pp-proposal-list { display: flex; flex-direction: column; gap: var(--space-100); }
+.pp-proposal-list { container-type: inline-size; display: flex; flex-direction: column; gap: var(--space-100); }
+/* A narrow list (a side column, the agent panel) stacks the actions under the words */
+@container (max-width: 480px) {
+  .pp-proposal--compact { grid-template-columns: minmax(0, 1fr); }
+  .pp-proposal__row-actions { justify-content: flex-start; }
+}
 
 @media (max-width: 479px) {
   .pp-proposal__facts { grid-template-columns: minmax(0, 1fr); gap: var(--space-025); }
@@ -3416,9 +3457,6 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
    Built on pp-card, pp-dl and pp-approval-chain--compact. */
 .pp-offer__section { display: flex; flex-direction: column; gap: var(--space-100); }
 .pp-offer__section-title { margin: 0; font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); color: var(--color-text-subtlest); }
-.pp-offer__salary { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); font-variant-numeric: tabular-nums; }
-.pp-offer__salary-note { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-body-small); color: var(--color-text-subtlest); }
-.pp-offer__salary-note > svg { width: var(--size-icon-small); height: var(--size-icon-small); }
 .pp-offer .pp-dl { grid-template-columns: minmax(96px, 160px) 1fr; }
 
 /* ---- records/person-header ---- */
@@ -3452,7 +3490,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-person-header__facts { flex-direction: column; }
   .pp-person-header__actions { justify-content: stretch; }
   .pp-person-header__actions > .pp-button:not(.pp-button--icon) { flex: 1 1 0; min-height: var(--size-control-large); }
-  .pp-person-header__actions > .pp-button--icon { width: var(--size-control-large); min-height: var(--size-control-large); }
+  /* Descendant, so a menu wrapping its button still gets it */ .pp-person-header__actions .pp-button--icon { width: var(--size-control-large); min-height: var(--size-control-large); }
 }
 
 /* ---- records/person-progress ---- */
@@ -3600,12 +3638,14 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 
 /* ---- records/restricted-value ---- */
 /* Restricted value. Spec: restricted-value.md. A value the viewer may not see. */
-.pp-restricted { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); max-width: 100%; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-restricted { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-100); color: var(--color-text-subtle); font: var(--font-body); }
 .pp-restricted__label { display: inline-flex; align-items: center; gap: var(--space-050); color: var(--color-text-subtle); font-weight: var(--font-weight-semibold); }
 .pp-restricted__label > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
 .pp-restricted__reason { color: var(--color-text-subtle); }
 .pp-restricted__status { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-restricted__status > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-information); }
+
+.pp-restricted:not(.pp-restricted--block) { max-width: 100%; } /* the block takes Layout widths (pp-measure-form) */
 
 /* Block: a whole section the viewer may not see */
 .pp-restricted--block { display: grid; grid-template-columns: var(--size-icon-large) minmax(0, 1fr); gap: var(--space-050) var(--space-150); padding: var(--space-250); border: var(--border-width) dashed var(--color-border-bold); border-radius: var(--radius-large); background: var(--elevation-surface-sunken); }

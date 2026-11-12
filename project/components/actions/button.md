@@ -3,7 +3,7 @@ name: Button
 group: actions
 status: ready
 classes: pp-button, pp-button-group
-primeng: Button (p-button)
+primeng: reference only (built without PrimeNG) — Button (p-button)
 replaces: p-button (87 uses), hand-styled .btn-* classes
 ---
 
@@ -73,6 +73,8 @@ No class gives the neutral filled button, for rare tertiary actions in dense UI.
 - Label contrast is checked in CI for every appearance in both themes.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 PrimeNG runs in unstyled mode; pass-through adds the Pepla classes.
 

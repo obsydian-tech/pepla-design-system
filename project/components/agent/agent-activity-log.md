@@ -3,7 +3,7 @@ name: Agent activity log
 group: agent
 status: ready
 classes: pp-agent-log
-primeng: Timeline (p-timeline), as in Timeline
+primeng: reference only (built without PrimeNG) — Timeline (p-timeline), as in Timeline
 replaces: nothing today: there is no list of what the agent did
 ---
 
@@ -62,6 +62,8 @@ Loading, empty and error follow Timeline. The filtered empty state says what the
 - Outcomes are an icon and words; the icon is hidden from screen readers.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 Uses `p-timeline` with the Timeline pass-through. The filters are `p-button` toggles (`[attr.aria-pressed]`) through the Button pass-through. The outcome line is a plain template in the event content.
 

@@ -3,7 +3,7 @@ name: Split button
 group: actions
 status: ready
 classes: pp-split-button
-primeng: SplitButton (p-splitbutton)
+primeng: reference only (built without PrimeNG) — SplitButton (p-splitbutton)
 replaces: nothing yet (no split buttons in the app today)
 ---
 
@@ -61,6 +61,8 @@ Both buttons take the same appearance and size class. Use primary or default onl
 - On touch screens the trigger is at least 44px wide. On phone use `pp-button--large` on both halves, so both are 48px tall (rule 9).
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 PrimeNG runs in unstyled mode; pass-through adds the Pepla classes. `p-splitbutton` renders a main button, a menu button and a `p-tieredmenu`. The key names below follow PrimeNG 19 and are to be checked:
 

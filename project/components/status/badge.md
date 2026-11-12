@@ -3,7 +3,7 @@ name: Badge
 group: status
 status: ready
 classes: pp-badge, pp-badge-anchor
-primeng: Badge (p-badge, pBadge)
+primeng: reference only (built without PrimeNG) — Badge (p-badge, pBadge)
 replaces: p-badge with default theme, counts in brackets after nav labels, red notification dots
 ---
 
@@ -56,6 +56,8 @@ A badge is a count: how many things wait in a list, a tab or a nav item. It is a
 - Danger and agent badges are never the only signal: the label carries the meaning.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 badge: {

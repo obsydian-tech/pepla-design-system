@@ -3,7 +3,7 @@ name: Flag
 group: messages
 status: ready
 classes: pp-flag, pp-flag-group
-primeng: Toast (p-toast)
+primeng: reference only (built without PrimeNG) — Toast (p-toast)
 replaces: p-toast and its four severities, alert() calls in the onboarding wizard
 ---
 
@@ -58,12 +58,14 @@ A flag tells a person the result of something they just did, or that something f
 
 ## Accessibility
 
-- The group is a `<ul>`; each flag is an `<li>` with `role="status"` (polite), or `role="alert"` for errors.
+- The group is a plain `<div>` and each flag a `<div>` with `role="status"` (polite), or `role="alert"` for errors. Not a list: a list item cannot also be a status, and screen readers would lose the announcement.
 - Never move focus to a flag. The live region announces it; the person can reach it with Tab from the end of the page or with F6.
 - The countdown pauses on hover and focus (WCAG 2.2.1), and an error never times out.
 - The dismiss button has `aria-label="Dismiss"`. After dismiss, focus returns to where it was before the person entered the flag.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 One `<p-toast position="bottom-left">` in the app shell. Severity maps to the appearance; `secondary` is reserved for agent flags. Set `life` only for success.
 

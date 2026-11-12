@@ -3,7 +3,7 @@ name: Radio
 group: forms
 status: ready
 classes: pp-radio, pp-radio--tile
-primeng: RadioButton (p-radiobutton)
+primeng: reference only (built without PrimeNG) — RadioButton (p-radiobutton)
 replaces: p-radiobutton with default theme, button-like toggles used as single choice
 ---
 
@@ -59,6 +59,8 @@ A radio group picks exactly one option from two to six that should all be visibl
 - Chosen is shown by a fill and a dot, not by colour alone.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 radiobutton: {

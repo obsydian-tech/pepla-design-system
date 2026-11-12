@@ -3,7 +3,7 @@ name: Lozenge
 group: status
 status: ready
 classes: pp-lozenge
-primeng: Tag (p-tag)
+primeng: reference only (built without PrimeNG) — Tag (p-tag)
 replaces: p-tag with severities, coloured status dots, .badge-success and similar hand-styled pills
 ---
 
@@ -67,6 +67,8 @@ There is no coral lozenge. Coral is warmth, never a status (rule 3).
 - If a lozenge is cut short, the full text must be reachable: a tooltip on a focusable parent, or the word in the row's accessible name.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 tag: {

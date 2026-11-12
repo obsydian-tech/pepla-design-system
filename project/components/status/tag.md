@@ -3,7 +3,7 @@ name: Tag
 group: status
 status: ready
 classes: pp-tag, pp-tag-group
-primeng: Chip (p-chip)
+primeng: reference only (built without PrimeNG) — Chip (p-chip)
 replaces: p-chip with default theme, skill pills on candidate create, coloured department labels
 ---
 
@@ -61,6 +61,8 @@ One size, 32px. On touch the remove button keeps a 44px hit area.
 - Text on every accent fill is checked for 4.5:1 in both themes.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 chip: {

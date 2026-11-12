@@ -3,7 +3,7 @@ name: Breadcrumbs
 group: navigation
 status: ready
 classes: pp-breadcrumbs
-primeng: Breadcrumb (p-breadcrumb)
+primeng: reference only (built without PrimeNG) — Breadcrumb (p-breadcrumb)
 replaces: p-breadcrumb, "Back" links built per page
 ---
 
@@ -46,6 +46,8 @@ Breadcrumbs show where a page sits and give a way back up. They sit above the pa
 - The more button has `aria-label="Show 2 more levels"`; links get a 44px hit area on touch.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 breadcrumb: {

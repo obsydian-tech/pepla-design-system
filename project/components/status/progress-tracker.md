@@ -3,7 +3,7 @@ name: Progress tracker
 group: status
 status: ready
 classes: pp-progress-tracker, pp-progress-tracker--vertical
-primeng: Stepper (p-stepper, read-only steps), Steps (p-steps, deprecated)
+primeng: reference only (built without PrimeNG) — Stepper (p-stepper, read-only steps), Steps (p-steps, deprecated)
 replaces: p-steps with default theme, the onboarding stepper's numbered circles, the candidate stage bar
 ---
 
@@ -63,6 +63,8 @@ Done uses violet, not green, so success green stays free for results like "Verif
 - Done, current and blocked differ by icon, ring and weight, not colour alone.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 stepper: { root: { class: 'pp-progress-tracker' } },

@@ -3,7 +3,7 @@ name: Avatar
 group: core
 status: ready
 classes: pp-avatar, pp-avatar-group, pp-person
-primeng: Avatar, AvatarGroup (p-avatar, p-avatar-group)
+primeng: reference only (built without PrimeNG) — Avatar, AvatarGroup (p-avatar, p-avatar-group)
 replaces: p-avatar (6 uses), hand-made initials circles in the candidate identity card and topbar
 ---
 
@@ -65,6 +65,8 @@ A small picture of a person: their photo, or their initials on a colour. Paired 
 - Initials and accent pairs pass 4.5:1 in both themes (CI checks the accent text on its subtler wash).
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 avatar: { root: ({ props }) => ({ class: ['pp-avatar', { 'pp-avatar--large': props.size === 'large', 'pp-avatar--xlarge': props.size === 'xlarge', 'pp-avatar--square': props.shape === 'square' }] }) },

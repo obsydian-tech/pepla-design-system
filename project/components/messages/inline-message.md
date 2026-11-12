@@ -3,7 +3,7 @@ name: Inline message
 group: messages
 status: ready
 classes: pp-inline-message
-primeng: Message (p-message, variant="simple")
+primeng: reference only (built without PrimeNG) — Message (p-message, variant="simple")
 replaces: small p-message variant, red helper text under fields, coloured status text in rows
 ---
 
@@ -30,7 +30,7 @@ An inline message is a short icon and line of text next to the thing it is about
 
 | Class | Use |
 | --- | --- |
-| (default) | A block on its own line, under a field |
+| (default) | A block on its own line, under a value or a section. Under a field, the field's own error line (`pp-field__error`, see Field) is this message with the same look; use that, so a field has one error pattern |
 | `pp-inline-message--inline` | Inside a row or a line of text, sitting on the text's middle |
 
 ## States
@@ -59,6 +59,8 @@ An inline message is a short icon and line of text next to the thing it is about
 - Text colours pass 4.5:1 on surface and raised surface in both themes; the icon passes 3:1.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 message: {

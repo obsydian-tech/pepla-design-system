@@ -3,7 +3,7 @@ name: Tabs
 group: navigation
 status: ready
 classes: pp-tabs
-primeng: Tabs (p-tabs, p-tablist, p-tab, p-tabpanels, p-tabpanel)
+primeng: reference only (built without PrimeNG) — Tabs (p-tabs, p-tablist, p-tab, p-tabpanels, p-tabpanel)
 replaces: p-tabView in the candidate workspace, hand-built tab bars on the profile pages
 ---
 
@@ -48,6 +48,8 @@ Tabs split one record into views of the same level: a candidate's profile, CV, i
 - The indicator is not the only cue: the selected tab also changes weight and colour.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 PrimeNG v19's new Tabs components, unstyled, with pass-through:
 

@@ -3,7 +3,7 @@ name: Text field
 group: forms
 status: ready
 classes: pp-text-field, pp-text-field-audit
-primeng: InputText (pInputText), InputNumber (p-inputnumber), InputGroup (p-inputgroup), Password (p-password)
+primeng: reference only (built without PrimeNG) — InputText (pInputText), InputNumber (p-inputnumber), InputGroup (p-inputgroup), Password (p-password)
 replaces: pInputText with inline styles, .form-control, p-inputgroup addons, plain-text ID and bank numbers
 ---
 
@@ -75,6 +75,8 @@ Put `pp-text-field` straight on the `<input>` when there is nothing else in the 
 - Error border is 2px and comes with an icon and text, never colour alone.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 PrimeNG runs in unstyled mode; pass-through adds the Pepla classes.
 

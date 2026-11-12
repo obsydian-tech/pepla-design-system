@@ -26,6 +26,9 @@
 .pp-tooltip-anchor:hover > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: var(--motion-delay-tooltip), var(--motion-delay-tooltip); }
 .pp-tooltip-anchor:has(:focus-visible) > .pp-tooltip { opacity: 1; visibility: visible; transition-delay: var(--motion-duration-instant); }
 
+/* Floating: an app places the tooltip itself in a top-layer overlay (so a table or card can't clip it) and shows it on hover and focus. */
+.pp-tooltip--floating { position: relative; inset: auto; transform: none; }
+
 /* Shown in place (docs and specs) */
 .pp-tooltip--inline { position: relative; inset: auto; display: inline-block; transform: none; }
 

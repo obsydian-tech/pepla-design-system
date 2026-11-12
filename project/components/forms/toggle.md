@@ -3,7 +3,7 @@ name: Toggle
 group: forms
 status: ready
 classes: pp-toggle, pp-toggle--end
-primeng: ToggleSwitch (p-toggleswitch, formerly p-inputswitch)
+primeng: reference only (built without PrimeNG) — ToggleSwitch (p-toggleswitch, formerly p-inputswitch)
 replaces: p-inputswitch with default theme, checkboxes that save on click
 ---
 
@@ -58,6 +58,8 @@ A toggle switches a setting on or off, and the change applies at once. If the ch
 - On is shown by position and fill, not colour alone.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 toggleswitch: {

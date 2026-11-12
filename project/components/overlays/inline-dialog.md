@@ -3,7 +3,7 @@ name: Inline dialog
 group: overlays
 status: ready
 classes: pp-inline-dialog, pp-inline-dialog-anchor
-primeng: Popover (p-popover), ConfirmPopup (p-confirmpopup)
+primeng: reference only (built without PrimeNG) — Popover (p-popover), ConfirmPopup (p-confirmpopup)
 replaces: nothing yet; today there is no small anchored panel with actions
 ---
 
@@ -39,6 +39,7 @@ How it differs from its neighbours:
 | `pp-inline-dialog--top` | Above the anchor, when there is no room below |
 | `pp-inline-dialog--agent` | Pepla suggests something for this control. Mint border and `sparkles`; the action approves the agent's own proposal (rule 1, rule 2) |
 | `pp-inline-dialog--inline` | Rendered in place, for docs only |
+| `pp-inline-dialog--floating` | Placed by the app in a top-layer overlay (no absolute position of its own) |
 
 ## States
 
@@ -76,6 +77,8 @@ How it differs from its neighbours:
 - The beak is decoration and is hidden from assistive tech.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 PrimeNG v19 runs in unstyled mode; pass-through adds the Pepla classes. A panel with your own content uses `p-popover`; a yes or no check about a reversible step can use `p-confirmpopup`. The pass-through key names below are to be checked against PrimeNG 19.
 

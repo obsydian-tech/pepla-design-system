@@ -34,7 +34,7 @@
       <label class="pp-field__label" for="se-manager">Reports to<span class="pp-field__required" aria-hidden="true">*</span></label>
       <div class="pp-select">
         <select class="pp-select__input" id="se-manager" required aria-invalid="true" aria-describedby="se-manager-error">
-          <option value="" selected>Choose a manager</option>
+          <option value="" disabled selected>Choose a manager</option>
           <option>Sipho Ndlovu</option>
           <option>Thandeka Dlamini</option>
         </select>
@@ -77,8 +77,8 @@
 <section data-example="Filterable list with people">
   <div class="pp-field pp-measure-narrow">
     <span class="pp-field__label" id="se-buddy-label">Onboarding buddy</span>
-    <div class="pp-select">
-      <span class="pp-select__value pp-select__value--placeholder" role="combobox" tabindex="0" aria-labelledby="se-buddy-label" aria-expanded="true" aria-controls="se-buddy-list">Choose a buddy</span>
+    <div class="pp-select pp-select--open">
+      <span class="pp-select__value pp-select__value--placeholder" role="combobox" tabindex="0" aria-labelledby="se-buddy-label" aria-expanded="true" aria-controls="se-buddy-list" aria-activedescendant="se-buddy-o1">Choose a buddy</span>
       <i data-lucide="chevron-down"></i>
     </div>
     <div class="pp-select-panel">
@@ -89,7 +89,7 @@
         </div>
       </div>
       <div class="pp-select-panel__list" id="se-buddy-list" role="listbox" aria-labelledby="se-buddy-label">
-        <div class="pp-select-option" role="option" aria-selected="false"><i data-lucide="user"></i><span class="pp-select-option__text">Thandeka Dlamini<span class="pp-select-option__meta">People and culture, Johannesburg</span></span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
+        <div class="pp-select-option pp-select-option--focused" role="option" id="se-buddy-o1" aria-selected="false"><i data-lucide="user"></i><span class="pp-select-option__text">Thandeka Dlamini<span class="pp-select-option__meta">People and culture, Johannesburg</span></span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
         <div class="pp-select-option" role="option" aria-selected="false"><i data-lucide="user"></i><span class="pp-select-option__text">Thabo Khumalo<span class="pp-select-option__meta">Finance, Harare</span></span><span class="pp-select-option__check"><i data-lucide="check"></i></span></div>
       </div>
     </div>

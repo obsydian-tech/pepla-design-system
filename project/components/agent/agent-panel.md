@@ -3,7 +3,7 @@ name: Agent panel
 group: agent
 status: ready
 classes: pp-agent-panel, pp-agent-panel--inline, pp-agent-panel--sheet, pp-agent-panel__suggestions, pp-agent-panel__suggestion
-primeng: Drawer (p-drawer) for the shell; the content is a plain Angular template
+primeng: reference only (built without PrimeNG) — Drawer (p-drawer) for the shell; the content is a plain Angular template
 replaces: the hr-dashboard AI Assistant drawer (app-ai-mode-panel), the TalentFlow AI chat drawer (tf-ai-chat-panel) and the employee chat widget (app-chat-widget)
 ---
 
@@ -38,7 +38,7 @@ The agent panel is where a person talks with Pepla. It opens from the right on d
 | --- | --- |
 | Empty | Pepla's first message says what it can do here, in one or two sentences, with up to three suggested questions as Default small buttons |
 | Pepla is working | The working line at the bottom of the log, `role="status"`. Send is `aria-disabled`; the person can still type |
-| Proposal waiting | A compact proposal card in the log. Approve and Review work from the panel |
+| Proposal waiting | A compact proposal row in the log, with the same buttons as anywhere else: one-tap Approve only when Pepla is sure and nothing leaves Pepla, otherwise Review, which opens the full card |
 | Decided | The proposal row shows its outcome lozenge ("Approved") and who approved, like the card |
 | Error | Pepla's bubble says what went wrong and what to do: "I could not reach payroll. Try again in a few minutes." with a "Try again" button |
 | Offline | A Section message (warning) above the composer; the composer is disabled with the reason |
@@ -70,6 +70,8 @@ The agent panel is where a person talks with Pepla. It opens from the right on d
 - Contrast: bubbles use surface and neutral tokens checked in CI; nothing in the log relies on colour alone.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 `p-drawer` gives the shell (position, focus trap, Escape to close) through the Drawer pass-through. Everything inside is a plain Angular template composed from `pp-avatar`, `pp-button`, `pp-textarea` (`pTextarea` with `autoResize`), `pp-spinner` and the compact proposal card.
 

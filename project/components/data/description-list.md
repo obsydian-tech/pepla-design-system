@@ -30,7 +30,7 @@ Label and value pairs about one record: a person's details, a document's fields,
 | State | How |
 | --- | --- |
 | Not set | `pp-dl__notset`: "Not set", never blank, never 0 |
-| Masked | `pp-dl__masked` with a Show button; revealing is logged (rule 6) |
+| Masked | A Masked field (`pp-masked`) in the `dd`: Show is recorded before the value appears (rule 6) |
 | Read by Pepla | `pp-dl__source` with sparkles: "From ID document" |
 | Restricted | Lock icon and "Hidden" for people without access |
 

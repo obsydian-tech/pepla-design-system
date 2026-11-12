@@ -61,7 +61,12 @@
 .pp-proposal--compact .pp-proposal__title { font: var(--font-body-strong); letter-spacing: var(--font-body-strong-tracking); }
 .pp-proposal__meta { font: var(--font-body-small); letter-spacing: var(--font-body-small-tracking); color: var(--color-text-subtle); overflow-wrap: anywhere; }
 .pp-proposal__row-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--space-100); }
-.pp-proposal-list { display: flex; flex-direction: column; gap: var(--space-100); }
+.pp-proposal-list { container-type: inline-size; display: flex; flex-direction: column; gap: var(--space-100); }
+/* A narrow list (a side column, the agent panel) stacks the actions under the words */
+@container (max-width: 480px) {
+  .pp-proposal--compact { grid-template-columns: minmax(0, 1fr); }
+  .pp-proposal__row-actions { justify-content: flex-start; }
+}
 
 @media (max-width: 479px) {
   .pp-proposal__facts { grid-template-columns: minmax(0, 1fr); gap: var(--space-025); }

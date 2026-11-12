@@ -3,7 +3,7 @@ name: Popup
 group: overlays
 status: ready
 classes: pp-popup, pp-popup-anchor
-primeng: Popover (p-popover)
+primeng: reference only (built without PrimeNG) — Popover (p-popover)
 replaces: p-overlaypanel, hand-placed absolute panels for filters and help
 ---
 
@@ -29,6 +29,7 @@ A popup is a small floating panel tied to the control that opened it: a filter, 
 | `pp-popup--flush` | No padding: lists that run edge to edge (notifications); header and footer get their own padding and borders |
 | `pp-popup--wide` | Up to 420px, for the notification list |
 | `pp-popup--inline` | Rendered in place, for docs only |
+| `pp-popup--floating` | Placed by the app in a top-layer overlay (no absolute position of its own) |
 
 ## States
 
@@ -60,6 +61,8 @@ A popup is a small floating panel tied to the control that opened it: a filter, 
 - Not modal: no focus trap, the page stays reachable.
 
 ## PrimeNG mapping
+
+> **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
 ```ts
 popover: {
