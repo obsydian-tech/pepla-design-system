@@ -38,7 +38,7 @@ The page header opens every page: where you are, what this page is, and the main
 - The title is the name, not a description: "Thandeka Dlamini", "People", "Bookkeeper". Sentence case.
 - The description says what the page holds or what it is for, in one sentence with numbers in words where they help.
 - Dates in the meta row are absolute: "Started 3 Feb 2025". Deadlines are relative: "Offer due in 2 days".
-- Actions name the outcome: "Send document", "Add new hire".
+- Actions name the outcome: "Send document", "Add new employee".
 
 ## Accessibility
 
@@ -49,7 +49,7 @@ The page header opens every page: where you are, what this page is, and the main
 
 ## PrimeNG mapping
 
-No PrimeNG component. Compose the Pepla classes with `p-breadcrumb` and `p-tabs` inside:
+No PrimeNG component. Compose the Naleko People classes with `p-breadcrumb` and `p-tabs` inside:
 
 ```html
 <header class="pp-page-header">
@@ -66,7 +66,7 @@ No PrimeNG component. Compose the Pepla classes with `p-breadcrumb` and `p-tabs`
 </header>
 ```
 
-## In Pepla today
+## In Naleko People today
 
 Every page builds its own title block, so heading sizes and where the actions sit vary from page to page. The candidate workspace header (name, stage, actions) is the most complete one and is the model for this component.
 

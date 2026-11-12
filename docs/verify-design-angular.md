@@ -1,4 +1,4 @@
-# verify:design for the Pepla Angular app
+# verify:design for the Naleko People Angular app
 
 This is the spec for the check the Angular app runs on every build. It enforces the same "only way to build UI" rules this repo applies to its kits (see `project/readme.md`), on Angular templates and stylesheets. It also bans PrimeNG and every other UI kit.
 
@@ -66,7 +66,7 @@ The component CSS sizes icons with child selectors such as `.pp-button > svg`. S
 
 | Folder | Component | Built on |
 | --- | --- | --- |
-| `src/app/ds/forms/date-picker/` | `<pp-date-picker>` | Pepla's own calendar grid, following the [WAI-ARIA date picker dialog pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/). The CDK overlay places it. Aria has no date picker |
+| `src/app/ds/forms/date-picker/` | `<pp-date-picker>` | Naleko People's own calendar grid, following the [WAI-ARIA date picker dialog pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/). The CDK overlay places it. Aria has no date picker |
 | `src/app/ds/forms/autocomplete/` | `<pp-autocomplete>` | Aria `ngCombobox` and `ngListbox`, with the CDK overlay |
 | `src/app/ds/forms/multi-select/` | `<pp-multi-select>` | Aria `ngCombobox` and a multi `ngListbox`, with the CDK overlay |
 | `src/app/ds/data/table/` | `<pp-table>`, for long lists only | CDK virtual scroll on the page's own scroll, loading the next page before the end. Short tables are a plain `<table ppTable>` |

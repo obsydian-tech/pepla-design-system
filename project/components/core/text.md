@@ -23,7 +23,7 @@ Text is body copy: sentences, labels in lists, names, amounts. One class sets th
 
 | Class | Token | Use |
 | --- | --- | --- |
-| `pp-text--large` | `--font-body-large` | The new-hire and employee portal on phone; intro lines; long reading |
+| `pp-text--large` | `--font-body-large` | The new employee and employee portal on phone; intro lines; long reading |
 | `pp-text` (default) | `--font-body` | Everything else in the HR web app |
 | `pp-text--small` | `--font-body-small` | Who and when lines, captions, help under a value. Never for whole paragraphs |
 | `pp-text--strong` | `--font-weight-semibold` | A name or the one fact the sentence is about |
@@ -75,7 +75,7 @@ No PrimeNG component. Use plain tags with the class:
 
 Check that the Angular `en-ZA` locale prints a space for thousands before relying on the pipe; it is to be checked.
 
-## In Pepla today
+## In Naleko People today
 
 There is no shared text style. Under `src/app`, the PrimeFlex class `text-color-secondary` is used 63 times in 11 files and `text-sm` 19 times in 12 files. 18 SCSS files write their own `text-overflow` rule (for example `support-inbox.component.scss` and `candidates-page.component.scss`). No file uses `line-clamp` or `font-variant-numeric`, so amounts and counts do not line up today.
 

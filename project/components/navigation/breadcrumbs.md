@@ -62,9 +62,9 @@ breadcrumb: {
 
 Leave `home` unset. PrimeNG's own separator is hidden; the CSS draws the `/`.
 
-## In Pepla today
+## In Naleko People today
 
-`p-breadcrumb` is used on one page, the hiring manager bundle progress page. Other pages have no trail or build their own "Back" link. All move to this trail inside the Page header.
+`p-breadcrumb` is used on one page, the hiring manager laptop and access progress page. Other pages have no trail or build their own "Back" link. All move to this trail inside the Page header.
 
 ## Do and don't
 

@@ -9,7 +9,7 @@ replaces: p-table (7 uses: candidates, verifications, IT queue, users, audit log
 
 # Dynamic table
 
-Rows of the same kind of thing, to scan, sort, select and open. Pepla's tables are short and lead with what needs attention.
+Rows of the same kind of thing, to scan, sort, select and open. Naleko People's tables are short and lead with what needs attention.
 
 ## Anatomy
 
@@ -75,7 +75,7 @@ datatable: {
 }
 ```
 
-## In Pepla today
+## In Naleko People today
 
 Candidates, verifications list, IT queue, users admin, the audit log and the queue and template config lists. They use `p-table` with different row heights, and status shown as coloured text.
 

@@ -70,7 +70,7 @@ checkbox: {
 
 Wrap each `p-checkbox` with its `<label class="pp-checkbox__label">` in a `div.pp-checkbox`. PrimeNG's own box and icon are hidden; the native input draws the box.
 
-## In Pepla today
+## In Naleko People today
 
 Checkboxes appear in 8 templates, mostly TalentFlow config (panel rules, the rule, trigger, escalation, template and approval chain drawers), plus the employee dashboard and the candidate workspace. Each is styled where it sits.
 

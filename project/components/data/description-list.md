@@ -15,7 +15,7 @@ Label and value pairs about one record: a person's details, a document's fields,
 
 1. **Term** (`dt`): the label, subtle text.
 2. **Detail** (`dd`): the value.
-3. **Source mark** (optional): "From ID document" in agent text when Pepla read the value from a document.
+3. **Source mark** (optional): "From ID document" in agent text when Batsi read the value from a document.
 4. **Masked value** (optional): personal data with a "Show" link-button.
 
 ## Appearances
@@ -31,7 +31,7 @@ Label and value pairs about one record: a person's details, a document's fields,
 | --- | --- |
 | Not set | `pp-dl__notset`: "Not set", never blank, never 0 |
 | Masked | A Masked field (`pp-masked`) in the `dd`: Show is recorded before the value appears (rule 6) |
-| Read by Pepla | `pp-dl__source` with sparkles: "From ID document" |
+| Read by Batsi | `pp-dl__source` with sparkles: "From ID document" |
 | Restricted | Lock icon and "Hidden" for people without access |
 
 ## Behaviour
@@ -53,12 +53,12 @@ Label and value pairs about one record: a person's details, a document's fields,
 
 None. Plain markup.
 
-## In Pepla today
+## In Naleko People today
 
 Employee detail, the candidate identity card, verification detail (fields read from the ID) and the audit event drawer.
 
 ## Do and don't
 
 - **Do** write "Not set". **Don't** leave a value blank.
-- **Do** mark values Pepla read from a document. **Don't** present extracted values as if a person typed them.
+- **Do** mark values Batsi read from a document. **Don't** present extracted values as if a person typed them.
 - **Do** mask ID and bank numbers by default. **Don't** show them in full in lists.

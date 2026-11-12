@@ -1,4 +1,4 @@
-// Pepla semantic colour tokens, light and dark. The ONLY colour tokens components may use.
+// Naleko People semantic colour tokens, light and dark. The ONLY colour tokens components may use.
 //
 // Naming follows the layered pattern of large design systems (role, then sub-role, then emphasis, then state):
 //   color.text.subtle, color.background.danger.bold.hovered, elevation.surface.raised
@@ -9,7 +9,7 @@
 //   alpha(a, pct)    a at pct% opacity
 //
 // The two families no other system has:
-//   agent   = mint. Only for what Pepla's AI agents did or propose. Never success, never decoration.
+//   agent   = mint. Only for what Batsi did or proposed. Never success, never decoration.
 //   warmth  = coral. Celebration, highlights, marketing. Never a status, never an error.
 
 const night = {

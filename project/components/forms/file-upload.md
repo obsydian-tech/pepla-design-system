@@ -24,7 +24,7 @@ File upload takes documents and photos: IDs, bank letters, payslips, certificate
 
 | Class | Use | Never |
 | --- | --- | --- |
-| `pp-file-upload` | One document or a few, on a form or in the new-hire portal | Several on one screen; use compact rows instead |
+| `pp-file-upload` | One document or a few, on a form or in the new employee portal | Several on one screen; use compact rows instead |
 | `pp-file-upload--compact` | One row per required document inside a checklist | For bulk upload |
 
 ## States
@@ -39,7 +39,7 @@ File upload takes documents and photos: IDs, bank letters, payslips, certificate
 | Disabled | `pp-file-upload--disabled`; the hint says why |
 | File uploading | Small Progress bar, "Uploading, 64%", a cancel button |
 | File uploaded | `circle-check` and "Uploaded" in success colours |
-| File checked by Pepla | Agent Lozenge "Checked by Pepla" with `sparkles`, only after Pepla's agent has read and checked it (rule 1) |
+| File checked by Batsi | Agent Lozenge "Checked by Batsi" with `sparkles`, only after Batsi has read and checked it (rule 1) |
 | File failed | `pp-file--error`: danger tint, `octagon-alert` and the reason, "Try again" and remove |
 
 ## Behaviour
@@ -49,7 +49,7 @@ File upload takes documents and photos: IDs, bank letters, payslips, certificate
 - Phone photos: accept HEIC and convert it; rotate by the photo's own orientation.
 - ID and bank documents are personal data (rule 6): the file name shows, the preview needs a deliberate open that is logged.
 - Removing an uploaded document that someone already approved keeps it in the audit trail (rule 7) and asks for a reason.
-- After upload, Pepla's agent may check the document. Its result is a separate step that shows as an agent Lozenge, never as the upload status.
+- After upload, Batsi may check the document. Its result is a separate step that shows as an agent Lozenge, never as the upload status.
 
 ## Content
 
@@ -85,9 +85,9 @@ fileupload: {
 },
 ```
 
-Use `mode="advanced"`, `[auto]="true"`, `accept` and `maxFileSize`, and replace the `content` and `empty` templates with the markup above so the messages are Pepla's.
+Use `mode="advanced"`, `[auto]="true"`, `accept` and `maxFileSize`, and replace the `content` and `empty` templates with the markup above so the messages are Naleko People's.
 
-## In Pepla today
+## In Naleko People today
 
 File inputs appear on the new employee registration form, the document row and the tenant branding card. Each builds its own upload control and messages.
 
@@ -95,4 +95,4 @@ File inputs appear on the new employee registration form, the document row and t
 
 - **Do** say the types and the limit before anyone tries. **Don't** let them find the limit by failing.
 - **Do** name the file and the fix in an error. **Don't** say "Upload failed".
-- **Do** show "Checked by Pepla" only when the agent checked it. **Don't** use mint for a plain "Uploaded".
+- **Do** show "Checked by Batsi" only when the agent checked it. **Don't** use mint for a plain "Uploaded".

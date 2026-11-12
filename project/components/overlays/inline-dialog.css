@@ -52,7 +52,7 @@
   border-radius: 0 0 var(--radius-xsmall) 0;
 }
 
-/* Agent: Pepla suggests something for this control (rule 1) */
+/* Agent: Batsi suggests something for this control (rule 1) */
 .pp-inline-dialog--agent { --_border: var(--color-border-agent); }
 .pp-inline-dialog--agent .pp-inline-dialog__header > svg { color: var(--color-icon-agent); }
 

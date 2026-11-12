@@ -23,7 +23,7 @@
 .pp-side-navigation__product > .pp-logo__mark { width: 28px; height: auto; flex: none; }
 .pp-side-navigation__product > svg { width: var(--size-icon-small); height: var(--size-icon-small); margin-left: auto; flex: none; color: var(--color-icon-subtle); }
 .pp-side-navigation__product-name { display: flex; flex-direction: column; min-width: 0; }
-.pp-side-navigation__wordmark { font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); text-transform: lowercase; }
+.pp-side-navigation__wordmark { font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); }
 .pp-side-navigation__product-area { font: var(--font-body-small); color: var(--color-text-subtle); }
 
 /* Sections and items */

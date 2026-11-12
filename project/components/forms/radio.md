@@ -73,7 +73,7 @@ radiobutton: {
 
 Wrap each `p-radiobutton` and its `<label class="pp-radio__label">` in a `div.pp-radio` (add `pp-radio--tile` for tiles).
 
-## In Pepla today
+## In Naleko People today
 
 No radio buttons are used today. Single choices are made with selects or button pairs. Use this when there are 2 to 5 options that people should see at once.
 

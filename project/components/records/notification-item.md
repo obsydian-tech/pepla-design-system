@@ -9,11 +9,11 @@ replaces: app-notification-dropdown items
 
 # Notification item
 
-One notification in the bell list: an icon or avatar, one sentence, the time in words, whether it is unread, and one action. Notifications from Pepla show the agent mark.
+One notification in the bell list: an icon or avatar, one sentence, the time in words, whether it is unread, and one action. Notifications from Batsi show the agent mark.
 
 ## Anatomy
 
-1. **Leading mark**: the person's avatar, the agent avatar (`sparkles` on mint) for Pepla, or an icon in a circle (`__icon`) for system events.
+1. **Leading mark**: the person's avatar, the agent avatar (`sparkles` on mint) for Naleko People, or an icon in a circle (`__icon`) for system events.
 2. **Text** (`__text`): one sentence; the person's name in bold.
 3. **Meta** (`__meta`): time in words ("20 min ago", "Yesterday") with the exact time in `title`, then the action link (`__action`).
 4. **Unread dot** (`__dot`): violet dot at the end of unread rows.
@@ -26,7 +26,7 @@ The **panel** (`pp-notifications-panel`) holds the header ("Notifications", "Mar
 | --- | --- |
 | Unread | `--unread`: brand-subtlest wash, full-strength text, violet dot, and hidden "Unread." before the text |
 | Read | No wash, subtle text, no dot |
-| From Pepla | Agent avatar and "Pepla" as the actor (rule 1) |
+| From Naleko People | Agent avatar and "Naleko People" as the actor (rule 1) |
 | Urgent | `__icon--danger` with `clock-alert` and the deadline in words in the text |
 | Empty | "You are all caught up." |
 
@@ -39,9 +39,9 @@ The **panel** (`pp-notifications-panel`) holds the header ("Notifications", "Mar
 
 ## Content
 
-- One sentence, actor first: "**Pepla** checked Kagiso Molefe's ID. It passed."
+- One sentence, actor first: "**Batsi** checked Kagiso Molefe's ID. It passed."
 - Deadlines in words: "is overdue by 1 day".
-- The action is a verb: "Approve result", "Add scorecard", "Open offer". Never "Click here" or "View".
+- The action is a verb: "Approve result", "Add interview feedback", "Open offer". Never "Click here" or "View".
 - No personal data in the text: no ID numbers, no salaries.
 
 ## Accessibility
@@ -57,7 +57,7 @@ The **panel** (`pp-notifications-panel`) holds the header ("Notifications", "Mar
 
 The panel can be `p-popover` with a pass-through that adds `pp-notifications-panel` to its content (keys to be checked). The items are a plain `@for`. The bell's count uses the Badge pass-through.
 
-## In Pepla today
+## In Naleko People today
 
 - `notification-dropdown.component.html` (`app-notification-dropdown`, used in `topbar.component.html`) has a "Notifications" header with a count, items that are `div`s with `role="button"`, `tabindex="0"` and a click handler, and a "View All Notifications" link.
 - For HR, each item shows the employee's name, the document type and a time ago; for employees, a status text and an action text. The empty state says "No pending reviews".
@@ -67,5 +67,5 @@ The panel can be `p-popover` with a pass-through that adds `pp-notifications-pan
 ## Do and don't
 
 - **Do** mark unread with weight, a dot and hidden words. **Don't** rely on a coloured background alone.
-- **Do** show the agent avatar for Pepla's notifications. **Don't** use mint for anything else in the list.
+- **Do** show the agent avatar for Batsi's notifications. **Don't** use mint for anything else in the list.
 - **Do** give one action. **Don't** make the whole row a button and put a link inside it.

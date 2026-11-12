@@ -9,7 +9,7 @@ replaces: the "Declaration & Consent" step on the employee dashboard
 
 # Consent capture
 
-Consent capture is the block where a new hire agrees to how their personal information is used, before they upload anything (POPIA). It says in plain words what is collected, why, who receives it and how long it is kept, links to the full notice, and records who agreed, when, and to which version. Nothing is ticked for them.
+Consent capture is the block where a new employee agrees to how their personal information is used, before they upload anything (POPIA). It says in plain words what is collected, why, who receives it and how long it is kept, links to the full notice, and records who agreed, when, and to which version. Nothing is ticked for them.
 
 ## Anatomy
 
@@ -28,7 +28,7 @@ Consent capture is the block where a new hire agrees to how their personal infor
 
 | Use | How |
 | --- | --- |
-| New-hire portal, step 1 of onboarding | The full block, phone first, before any upload |
+| New employee portal, step 1 of onboarding | The full block, phone first, before any upload |
 | A new notice version | The same block with a one-line "What changed" above the terms. Consent to the old version stays on record |
 | Employee profile and HR record | Only the record line, with "Change or withdraw" for the employee and "View consent history" for HR |
 
@@ -46,7 +46,7 @@ Consent capture is the block where a new hire agrees to how their personal infor
 
 - Checkboxes start empty, always. A pre-ticked box is not consent.
 - Never disable "Agree and continue" to force a tick. Let the press show the error (see Button).
-- Storing consent writes: the person, the notice version, each choice, the time, and the channel (new-hire portal, HR on their behalf). The record is never edited; a change is a new record (rule 7).
+- Storing consent writes: the person, the notice version, each choice, the time, and the channel (new employee portal, HR on their behalf). The record is never edited; a change is a new record (rule 7).
 - Optional choices can be changed later from the profile without redoing the required one.
 - The terms come from the tenant's notice, in short form. The full notice opens in a new view and keeps the person's place.
 - HR cannot tick consent for someone. If HR captures it on paper, they upload the signed form and the record says "Captured by Lerato Mokoena from a signed form".
@@ -80,7 +80,7 @@ No PrimeNG component for the block. It is a plain Angular template composed from
 </form>
 ```
 
-## In Pepla today
+## In Naleko People today
 
 Verified in `hr-portal/src/app/features/employee-dashboard/`:
 
@@ -91,5 +91,5 @@ Verified in `hr-portal/src/app/features/employee-dashboard/`:
 ## Do and don't
 
 - **Do** say what, why, who and how long in plain words. **Don't** hide it behind a link to a legal page.
-- **Do** keep every box empty to start. **Don't** pre-tick, and don't bundle optional sharing into the required box.
+- **Do** keep every box empty to start. **Don't** pre-tick, and don't fold optional sharing into the required box.
 - **Do** store who agreed, when and to which version. **Don't** treat a local flag as consent.

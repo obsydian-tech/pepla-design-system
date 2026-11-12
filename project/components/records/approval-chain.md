@@ -9,14 +9,14 @@ replaces: the offer tab's "Approval Chain" list
 
 # Approval chain
 
-The ordered list of people who must approve something (an offer, an IT bundle), with each one's status. The step that is waiting now is highlighted.
+The ordered list of people who must approve something (an offer, an IT laptop and access), with each one's status. The step that is waiting now is highlighted.
 
 ## Anatomy
 
 1. **List**: an `<ol>`, because order matters.
 2. **Marker** (`__marker`): the step number, or `check` when approved, `x` when declined, `skip-forward` when skipped. A line joins the markers.
 3. **Who** (`__who`): the person's name, then their role in the chain.
-4. **Detail** (`__detail`): when they were asked or decided; an agent lozenge if Pepla sent a reminder.
+4. **Detail** (`__detail`): when they were asked or decided; an agent lozenge if Batsi sent a reminder.
 5. **Reason** (`__reason`): why they declined or why the step was skipped.
 6. **Lozenge**: the step's status in words.
 
@@ -37,7 +37,7 @@ The ordered list of people who must approve something (an offer, an IT bundle), 
 - Steps run in order. Only the current step can act; later steps say "After Thandeka".
 - A decline stops the chain. The owner edits and sends it again, which starts a new chain; the old one stays in the history (rule 7).
 - Skipping a step needs a reason and is done by an HR admin; the skip is audited.
-- Pepla may remind the current approver; it never approves (rule 2). A reminder shows as an agent lozenge in the detail line.
+- Batsi may remind the current approver; it never approves (rule 2). A reminder shows as an agent lozenge in the detail line.
 - Below 480px the lozenge moves under the name.
 
 ## Content
@@ -56,7 +56,7 @@ The ordered list of people who must approve something (an offer, an IT bundle), 
 
 No PrimeNG component. Use a plain `@for` over the steps. Do not use `p-stepper` or `p-timeline`: neither has declined or skipped states. "Remind" and "Skip" actions are `p-button` with the Button pass-through.
 
-## In Pepla today
+## In Naleko People today
 
 - `offer-tab.component.html` (state 2, "In Approval") lists `o.approvalChain` under "Approval Chain": each step shows `step.approverRole` with "Awaiting decision", "Approved {date}" or "Rejected {date}" (`d MMM yyyy`), a "Remind" button on pending steps, and an "All Approved" badge. It shows the role, not the person's name.
 - `approval-chain-drawer.component.ts` (tenant settings) edits the offer and provisioning chains: ordered steps with a role (TA Specialist, Hiring Manager, HR Director, Finance), a required flag, and add, remove and move actions.

@@ -77,7 +77,7 @@ popover: {
 
 PrimeNG positions the popover itself; the `pp-popup` placement modifiers are for plain templates.
 
-## In Pepla today
+## In Naleko People today
 
 `p-popover` is used in the TalentFlow shell and the IT provisioning shell, and the shared topbar uses an overlay for its menu. Each is placed and styled separately.
 

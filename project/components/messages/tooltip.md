@@ -74,9 +74,9 @@ tooltip: {
 </button>
 ```
 
-Pepla tooltips have no arrow. Leave `tooltipEvent` on its default so focus also shows it.
+Naleko People tooltips have no arrow. Leave `tooltipEvent` on its default so focus also shows it.
 
-## In Pepla today
+## In Naleko People today
 
 `pTooltip` is used in 19 components, including the shared sidebar, the support inbox, the employee detail and the TalentFlow intelligence tile. Some icon buttons rely on `title` attributes instead (the chat widget, the pipeline page, two config drawers), which never show on keyboard focus.
 

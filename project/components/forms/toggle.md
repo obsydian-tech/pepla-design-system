@@ -46,9 +46,9 @@ A toggle switches a setting on or off, and the change applies at once. If the ch
 
 ## Content
 
-- The label states the setting when on, as a positive: "Remind new hires about missing documents". Not "Disable reminders".
+- The label states the setting when on, as a positive: "Remind new employees about missing documents". Not "Disable reminders".
 - Do not add "On" and "Off" text beside the switch; the label plus the switch position says it.
-- The description says who it affects: "Pepla sends a WhatsApp message 2 days before the deadline".
+- The description says who it affects: "Batsi sends a WhatsApp message 2 days before the deadline".
 
 ## Accessibility
 
@@ -72,7 +72,7 @@ toggleswitch: {
 
 Wrap each `p-toggleswitch` and its `<label class="pp-toggle__label">` in a `div.pp-toggle`.
 
-## In Pepla today
+## In Naleko People today
 
 No toggle switch is used today; settings that apply at once are checkboxes in the config drawers. Use a toggle only where the change applies the moment it is flipped.
 

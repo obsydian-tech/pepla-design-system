@@ -9,7 +9,7 @@ replaces: tf-evaluation-scoring-panel and tf-evaluation-summary (read-only parts
 
 # Evaluation score
 
-A summary of an interview scorecard: each criterion's score in words, as a number and as a bar, the overall score, the recommendation and who scored. A panel version shows averages across interviewers.
+A summary of an interview interview feedback: each criterion's score in words, as a number and as a bar, the overall score, the recommendation and who scored. A panel version shows averages across interviewers.
 
 ## Anatomy
 
@@ -17,7 +17,7 @@ A summary of an interview scorecard: each criterion's score in words, as a numbe
 2. **Overall** (`__overall`): the weighted score ("7.4 out of 10") and a word ("Strong overall").
 3. **Criteria** (`__criteria`): one row each: name and weight ("Counts for 30%"), a bar, and "8 of 10, strong".
 4. **Note** (`__note`, optional): the interviewer's words.
-5. **Footer**: who scored and when. On the panel version: the avatar group and a reminder for missing scorecards.
+5. **Footer**: who scored and when. On the panel version: the avatar group and a reminder for missing interview feedback.
 
 ## States
 
@@ -44,7 +44,7 @@ Score words, used everywhere a score appears:
 - Scores run from 0 to 10, the scale the app uses today. The overall score is weighted by the tenant's scoring weights and shown to one decimal.
 - Bars are neutral, not green or red: a score is a judgement, not a status. Only the recommendation uses status colours, with an icon and a word.
 - Hide other panel members' scores from an interviewer until they have submitted their own (to be checked with the hiring team's rules).
-- The panel version averages submitted scorecards only and says how many: "average of 3".
+- The panel version averages submitted interview feedback only and says how many: "average of 3".
 
 ## Content
 
@@ -62,9 +62,9 @@ Score words, used everywhere a score appears:
 
 No PrimeNG component for the summary. Scoring input (not this component) uses `p-inputNumber` or a Slider with their pass-through (to be checked). Buttons are `p-button` with the Button pass-through.
 
-## In Pepla today
+## In Naleko People today
 
-- `evaluation-scoring-panel.component.html` ("Evaluation Scorecard") scores four criteria from 0 to 10 with minus and plus buttons and a number input (`min="0"`, `max="10"`), shows a "Weighted Score" out of 10, and colours each bar by score (7 and up, 5 to 7, under 5).
+- `evaluation-scoring-panel.component.html` ("Evaluation Interview feedback") scores four criteria from 0 to 10 with minus and plus buttons and a number input (`min="0"`, `max="10"`), shows a "Weighted Score" out of 10, and colours each bar by score (7 and up, 5 to 7, under 5).
 - The criteria are Technical Ability, Communication, Cultural Fit and Problem Solving; `DEFAULT_SCORING_WEIGHTS` in `talent-flow.models.ts` is 30, 25, 25 and 20.
 - The decision buttons are "Strong No", "No", "Yes" and "Strong Yes".
 - `evaluation-summary-widget.component.html` shows vote counts, the average of each criterion as "/10", a weighted average and each vote with the panel member's ID and time.

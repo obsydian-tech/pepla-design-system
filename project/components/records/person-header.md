@@ -26,7 +26,7 @@ The top of an employee or candidate page. It says who this is, what they do, whe
 | --- | --- |
 | Employee | Status from the employee's stage, start date as "Starts 17 Nov 2026" or "Started 1 Dec 2025" |
 | Candidate | Stage lozenge and, when something is due, a deadline chip |
-| Agent at work | An agent lozenge: "Pepla is chasing 2 documents" (rule 1) |
+| Agent at work | An agent lozenge: "Batsi is chasing 2 documents" (rule 1) |
 | Loading | Skeleton circle, two skeleton lines, no actions |
 | No permission for an action | Leave the action out; do not show it disabled |
 
@@ -34,7 +34,7 @@ The top of an employee or candidate page. It says who this is, what they do, whe
 
 - The root is a size container. Below 600px wide the layout stacks: avatar beside the name, facts in a column, actions full width at the bottom, 48px tall (rule 9).
 - The header does not stick when the page scrolls; tabs under it may.
-- Actions follow the stage: "Move to offer" for a candidate in interview, "Plan first week" for a new hire.
+- Actions follow the stage: "Move to offer" for a candidate in interview, "Plan first week" for a new employee.
 
 ## Content
 
@@ -53,7 +53,7 @@ The top of an employee or candidate page. It says who this is, what they do, whe
 
 No PrimeNG component. A standalone Angular component composes `pp-avatar`, `pp-lozenge`, `pp-deadline` and `pp-button`. Action buttons may be `p-button` with the Button pass-through; the "More actions" menu is `p-menu` with the Dropdown menu pass-through (to be checked against the menu pass-through keys).
 
-## In Pepla today
+## In Naleko People today
 
 - `employee-detail.component.html` has an "Employee Header": an initials circle, name, email, a `p-tag` showing `employee.stage.replace('_', ' ')`, then department, employee ID, start date (`date:'mediumDate'`), phone and HR partner, each with a PrimeIcons icon. The risk band is shown with emoji circles (green, yellow, red) and the words "LOW", "MEDIUM" or "HIGH" Risk.
 - `candidate-workspace-page.component.html` has a "persistent header": back button, initials avatar, name, subtitle, health and sentiment pills, source, "Edit Details" and "Reject Candidate" buttons for TA, and an SLA bar.

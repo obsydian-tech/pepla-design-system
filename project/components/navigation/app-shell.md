@@ -9,7 +9,7 @@ replaces: the separate shells (shared sidebar and topbar, TalentFlow shell, Tale
 
 # App shell
 
-The app shell is the frame of every Pepla page. It places the side navigation, the top navigation, a banner slot, the main content and the flag group, so each module only fills the main area. It brings no new look of its own: every part is an existing component.
+The app shell is the frame of every Naleko People page. It places the side navigation, the top navigation, a banner slot, the main content and the flag group, so each module only fills the main area. It brings no new look of its own: every part is an existing component.
 
 ## Anatomy
 
@@ -27,7 +27,7 @@ The app shell is the frame of every Pepla page. It places the side navigation, t
 | --- | --- | --- |
 | Desktop | Sidebar 256px (or `pp-side-navigation--collapsed`, 64px) on the left, top bar 56px over the content | Every product on screens 768px and wider |
 | Admin | The same frame and classes. The selected item sits in the sidebar's Admin section ("Payroll connection", "Audit trail") | Admin and settings pages. There is no separate admin shell, admin top bar or second sidebar |
-| Phone | Under 768px: top bar with the menu button, the sidebar as a drawer, the page scrolls as a whole, optional bottom action bar | The new-hire and employee portal, and every product on a phone (rule 9) |
+| Phone | Under 768px: top bar with the menu button, the sidebar as a drawer, the page scrolls as a whole, optional bottom action bar | The new employee and employee portal, and every product on a phone (rule 9) |
 
 | Class | Use |
 | --- | --- |
@@ -39,15 +39,15 @@ The app shell is the frame of every Pepla page. It places the side navigation, t
 
 | State | How |
 | --- | --- |
-| Sidebar collapsed | `pp-side-navigation--collapsed`; the content column grows, and flags move with it. Pepla remembers the choice per person |
+| Sidebar collapsed | `pp-side-navigation--collapsed`; the content column grows, and flags move with it. Batsi remembers the choice per person |
 | Drawer open (phone) | The sidebar gets `data-open="true"`, `pp-app-shell__blanket` shows behind it, the page behind is `inert` |
 | Banner showing | The whole frame moves down by the banner's height; nothing overlaps it |
 | Loading a page | The frame stays; only main shows skeletons. The shell never shows a full-page spinner |
 
 ## Behaviour
 
-- One Pepla, one shell. Everyone signs in once and lands on **Today**: what needs them across every module (approvals, Pepla's proposals, people starting soon, overdue items). Every module (Hire, Onboard, Requests, Help desk and the rest) is a section of the same sidebar, so moving between them never changes the frame, the patterns or the look.
-- Inside a module, pages use the same patterns as everywhere else: a list (Table or Pipeline board), a record page (Person header and Tabs), a Drawer to edit, the Agent proposal card for Pepla's suggestions, and Deadline chips.
+- One Naleko People, one shell. Everyone signs in once and lands on **Today**: what needs them across every module (approvals, Batsi's proposals, people starting soon, overdue items). Every module (Hire, Onboard, Requests, Help desk and the rest) is a section of the same sidebar, so moving between them never changes the frame, the patterns or the look.
+- Inside a module, pages use the same patterns as everywhere else: a list (Table or Pipeline board), a record page (Person header and Tabs), a Drawer to edit, the Agent proposal card for Batsi's suggestions, and Deadline chips.
 - On desktop the sidebar and top bar stay put and only main scrolls. On phone the whole page scrolls and the top bar sticks to the top, so the browser bar can hide.
 - The collapse toggle (`panel-left`) sits at the start of the top bar on desktop.
 - When the content column is narrower than 400px (a tablet with the sidebar open), search moves behind its icon button. The top bar's markup carries both.
@@ -58,7 +58,7 @@ The app shell is the frame of every Pepla page. It places the side navigation, t
 
 ## Content
 
-- The browser tab title is "Page, Module, pepla": "Pipeline, Hire, pepla". Today is "Today, pepla".
+- The browser tab title is "Page, Module, Naleko People": "Pipeline, Hire, Naleko People". Today is "Today, Naleko People".
 - The bottom bar's buttons follow the Button rules: a verb and an object, "Upload document", never "Next" or "Submit".
 - Banner text says what is wrong for everyone and what to do; see Banner.
 
@@ -94,7 +94,7 @@ No PrimeNG component for the frame. Build it as one Angular layout component (`p
 
 `pp-banner`, `pp-side-navigation` and `pp-top-navigation` above are the Angular wrappers to build around the existing classes. The `p-toast` root needs the `pp-flag-group` class through pass-through; that key name is to be checked in Flag.
 
-## In Pepla today
+## In Naleko People today
 
 There is no single shell. What exists:
 
@@ -106,7 +106,7 @@ There is no single shell. What exists:
 
 ## Do and don't
 
-- **Do** use one shell for all of Pepla and add a module as a sidebar section. **Don't** build a new shell, a product switcher or a separate menu for a module or for admin.
+- **Do** use one shell for all of Naleko People and add a module as a sidebar section. **Don't** build a new shell, a product switcher or a separate menu for a module or for admin.
 - **Do** keep page actions in the Page header inside main. **Don't** put them in the top bar.
 - **Do** keep one banner for account-wide problems. **Don't** stack banners or use the slot for page messages.
 - **Do** use the bottom action bar for the one main action on phone. **Don't** put navigation tabs in it.

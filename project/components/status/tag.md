@@ -26,7 +26,7 @@ A tag labels a person or a record with something that describes it: a skill, a d
 | `pp-tag--green`, `--amber`, `--red` | Only when a customer has no other colours left | For anything that could be read as success, warning or danger |
 | `a.pp-tag` | A tag that filters the list by its value | For navigation to a new page |
 
-There is no mint or coral tag: mint is Pepla's agent and coral is warmth, and neither is a label colour.
+There is no mint or coral tag: mint is Batsi and coral is warmth, and neither is a label colour.
 
 ## Sizes
 
@@ -74,7 +74,7 @@ chip: {
 
 Add the colour with `styleClass="pp-tag--blue"`. Use a Lucide `x` in the `removeicon` template and give it an `aria-label`.
 
-## In Pepla today
+## In Naleko People today
 
 Tags today are `p-tag` with `severity="secondary"`, for example the role and module on admin audit events. They share the component with statuses, which is why tags and lozenges now look different.
 

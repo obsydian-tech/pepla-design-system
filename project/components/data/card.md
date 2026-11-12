@@ -64,9 +64,9 @@ A card groups everything about one thing: a person, a document, a task, a settin
 card: { root: { class: 'pp-card' }, header: { class: 'pp-card__header' }, title: { class: 'pp-card__title' }, subtitle: { class: 'pp-card__subtitle' }, body: { class: 'pp-card__body' }, footer: { class: 'pp-card__footer' } }
 ```
 
-## In Pepla today
+## In Naleko People today
 
-Document detail card, provisioning bundle card, hiring-manager task card, AI template gallery and the tenant settings cards (branding, locale, approval chains). Each uses its own padding, radius and shadow today.
+Document detail card, laptop and access card, hiring-manager task card, AI template gallery and the tenant settings cards (branding, locale, approval chains). Each uses its own padding, radius and shadow today.
 
 ## Do and don't
 

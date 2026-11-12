@@ -41,7 +41,7 @@ A deadline chip says when something is due, in words, with a clock: "Due in 2 da
 
 ## Content
 
-- Lead with the verb: "Due in", "Overdue by", "Done". Say what is due when the row does not: "Scorecard overdue by 1 day".
+- Lead with the verb: "Due in", "Overdue by", "Done". Say what is due when the row does not: "Interview feedback overdue by 1 day".
 - Numbers as figures, singular when it is one: "1 day", "2 days".
 - Never "SLA", "breached" or "at risk" in the UI. Say the time.
 
@@ -62,7 +62,7 @@ No PrimeNG component. An Angular pipe turns a due date and an SLA status into wo
 
 Where a `p-tag` shows SLA today, replace it with this chip. PrimeNG pass-through is not needed.
 
-## In Pepla today
+## In Naleko People today
 
 - `provisioning-bundle-card.component.ts` shows SLA as upper-case words ("SLA BREACHED", "AT RISK", "ON TRACK", "REVIEW OVERDUE", "REVIEW DUE TODAY"), a coloured bar and a second label, coloured by `slaStatus`.
 - `it-queue-page.component.html` shows an SLA badge ("SLA Breached", "At Risk") and an "SLA progress" bar with `role="progressbar"`.

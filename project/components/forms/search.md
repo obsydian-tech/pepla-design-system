@@ -79,7 +79,7 @@ autocomplete: {
 
 Add the clear button as a template after the input; PrimeNG does not ship one for `p-iconfield`.
 
-## In Pepla today
+## In Naleko People today
 
 Search boxes appear in 6 places, including the topbar, the support inbox, the HR dashboard home, the admin users page and the admin audit page, each built separately.
 

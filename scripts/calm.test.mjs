@@ -1,5 +1,5 @@
 // Calm screens (readme): one primary per surface, one status per row, card or header, nothing said
-// twice, one stepper, one Pepla notice, short headers, quiet stats, one row of filters, no box in a
+// twice, one stepper, one Batsi notice, short headers, quiet stats, one row of filters, no box in a
 // box, no disabled buttons as decoration.   Full list: node scripts/calm-audit.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

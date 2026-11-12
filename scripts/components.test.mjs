@@ -11,7 +11,7 @@ import { loadComponents, bundleCss } from './components.mjs';
 import { hasIcon } from './lib.mjs';
 
 const list = loadComponents();
-const REQUIRED = ['Anatomy', 'States', 'Behaviour', 'Content', 'Accessibility', 'PrimeNG mapping', 'In Pepla today', 'Do and don\'t'];
+const REQUIRED = ['Anatomy', 'States', 'Behaviour', 'Content', 'Accessibility', 'PrimeNG mapping', 'In Naleko People today', 'Do and don\'t'];
 const tokenCss = ['palette', 'colors', 'typography', 'spacing', 'shape', 'motion', 'layers'].map((n) => readFileSync(new URL(`../project/tokens/${n}.css`, import.meta.url), 'utf8')).join('\n');
 const defined = new Set([...tokenCss.matchAll(/(--[a-z0-9-]+)\s*:/g)].map((m) => m[1]));
 const RAW = /#[0-9a-fA-F]{3,8}\b|\brgba?\(|\bhsla?\(|\boklch\(|\bhwb\(/;

@@ -9,22 +9,22 @@ replaces: the admin audit table rows and the event detail drawer's first view
 
 # Audit event row
 
-One line in the audit trail: who did what to which record, when, from where, and whether it worked. Open the row to see details: what changed, why, and what Pepla read. Every agent action shows the agent mark.
+One line in the audit trail: who did what to which record, when, from where, and whether it worked. Open the row to see details: what changed, why, and what Batsi read. Every agent action shows the agent mark.
 
 ## Anatomy
 
 **Summary** (always shown)
 
 1. **When** (`__when`): "11 Nov 2026, 09:12".
-2. **What** (`__what`): the actor's avatar (Pepla's agent avatar for agent actions) and one sentence: "**Lerato Mokoena** changed the start date on Kagiso Molefe's record".
-3. **Where** (`__where`): the app and place ("Web app · Durban") or "Pepla agent · Offers".
+2. **What** (`__what`): the actor's avatar (the agent avatar for agent actions) and one sentence: "**Lerato Mokoena** changed the start date on Kagiso Molefe's record".
+3. **Where** (`__where`): the app and place ("Web app · Durban") or "Batsi · Offers".
 4. **Outcome** (`__outcome`): a lozenge.
 5. **Chevron**: shows the row opens.
 
 **Details** (`__details`, when open)
 
 - **Change** (`__change`): old value struck through, an arrow, the new value.
-- **Facts** (`pp-dl`): record, why, done by, approved by, what Pepla read, where data went, device, masked IP, event ID.
+- **Facts** (`pp-dl`): record, why, done by, approved by, what Batsi read, where data went, device, masked IP, event ID.
 
 ## States
 
@@ -40,7 +40,7 @@ One line in the audit trail: who did what to which record, when, from where, and
 | Closed | `<details>` without `open` |
 | Open | `open`: sunken details panel, chevron turns |
 | Hover | raised-hovered background |
-| Agent action | agent avatar, "Pepla" as actor, and in details who approved it (rules 1 and 2) |
+| Agent action | agent avatar, "Naleko People" as actor, and in details who approved it (rules 1 and 2) |
 
 ## Behaviour
 
@@ -52,7 +52,7 @@ One line in the audit trail: who did what to which record, when, from where, and
 
 ## Content
 
-- One sentence, past tense, actor first: "**Pepla** sent Kagiso Molefe's offer letter, approved by Thandeka Dlamini".
+- One sentence, past tense, actor first: "**Batsi** sent Kagiso Molefe's offer letter, approved by Thandeka Dlamini".
 - Name the record by the person it is about, not by an ID.
 - Outcomes in words: "Done", "2 of 3 done", "Not allowed". Never "SUCCESS" or "PARTIAL".
 
@@ -72,7 +72,7 @@ For large logs with sorting and paging, use `p-table` with row expansion and the
 table: { root: { class: 'pp-table-wrap' }, table: { class: 'pp-table' } }
 ```
 
-## In Pepla today
+## In Naleko People today
 
 - `admin-audit-page.component.html` shows events in a `p-table` with columns Timestamp, User, Role, Action, Entity, Module and Outcome. Role and outcome are `p-tag`s; a row click opens a drawer.
 - `AuditEvent` in `admin.models.ts` has `userFullName`, `userEmail`, `role`, `action`, `entityLabel`, `module`, `outcome` (SUCCESS, FAILURE or PARTIAL), `ipAddress`, `correlationId`, and a `diff` for config changes.

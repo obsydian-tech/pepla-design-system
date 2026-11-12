@@ -87,7 +87,7 @@ Field has no PrimeNG component; it wraps them. Do not use `p-floatlabel` or `p-i
 message: { root: { class: 'pp-field__error' } }   // when p-message is used for field errors
 ```
 
-## In Pepla today
+## In Naleko People today
 
 The new employee registration form (591 lines of template), candidate create, and every TalentFlow config drawer. Each lays out its own labels, help text and errors.
 

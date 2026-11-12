@@ -22,7 +22,7 @@
 .pp-section-message--success { --_bg: var(--color-background-success-subtle); --_icon: var(--color-icon-success); }
 .pp-section-message--warning { --_bg: var(--color-background-warning-subtle); --_icon: var(--color-icon-warning); }
 .pp-section-message--danger { --_bg: var(--color-background-danger-subtle); --_icon: var(--color-icon-danger); }
-/* Agent: only for something Pepla's agents did or propose (rule 1) */
+/* Agent: only for something Batsi did or proposed (rule 1) */
 .pp-section-message--agent { --_bg: var(--color-background-agent-subtlest); --_icon: var(--color-icon-agent); box-shadow: inset 0 0 0 var(--border-width) var(--color-border-agent); }
 .pp-section-message--agent .pp-section-message__title { color: var(--color-text-agent); }
 

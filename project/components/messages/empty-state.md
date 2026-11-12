@@ -9,7 +9,7 @@ replaces: "No records found" table rows, blank dashboard panels
 
 # Empty state
 
-An empty state fills a page, card or table that has nothing to show yet. It says why it is empty and offers the one action that fills it. Pepla uses no illustrations: an icon in a soft circle, a heading and a line.
+An empty state fills a page, card or table that has nothing to show yet. It says why it is empty and offers the one action that fills it. Naleko People uses no illustrations: an icon in a soft circle, a heading and a line.
 
 ## Anatomy
 
@@ -17,7 +17,7 @@ An empty state fills a page, card or table that has nothing to show yet. It says
 2. **Heading**: what is empty, `--font-heading-medium`.
 3. **Line**: one sentence on why, or on what will appear here.
 4. **Action** (optional): one button. Primary on a page, default inside a card or table.
-5. **Agent note** (done state only): a small line with `sparkles` that says what Pepla handled.
+5. **Agent note** (done state only): a small line with `sparkles` that says what Batsi handled.
 
 ## Appearances
 
@@ -81,9 +81,9 @@ No PrimeNG component. Use the classes inside PrimeNG templates:
 </p-table>
 ```
 
-## In Pepla today
+## In Naleko People today
 
-Empty tables use PrimeNG `emptymessage` rows (verifications list, HR dashboard home, admin audit), and lists show one line of text such as "No employees found", "No conversations found" or "No bundle found". None says why it is empty or what to do next.
+Empty tables use PrimeNG `emptymessage` rows (verifications list, HR dashboard home, admin audit), and lists show one line of text such as "No employees found", "No conversations found" or "No laptop and access found". None says why it is empty or what to do next.
 
 ## Do and don't
 

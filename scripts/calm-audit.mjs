@@ -24,7 +24,7 @@ const LIMITS = {
   statusPerItem: 1, // lozenges, tags and confidence chips in one item (not counting items inside it)
   headerActions: 2, // buttons in a page or person header; more go in a "More" menu
   steppers: 1, // progress trackers per screen
-  agentCallouts: 1, // Pepla notices (agent section messages, proposal lists) per screen, outside the agent panel
+  agentCallouts: 1, // Batsi notices (agent section messages, proposal lists) per screen, outside the agent panel
   statMeta: 2, // stat cards per row that carry a meta line; the rest show a label and a value
   filterGroups: 1, // visible rows of filter chips; the rest go behind a Filters button
 };
@@ -91,9 +91,9 @@ export function audit() {
       const steppers = screen.querySelectorAll('.pp-progress-tracker');
       if (steppers.length > LIMITS.steppers) report('stepper', `${steppers.length} progress trackers on one screen`);
 
-      // 5. One Pepla notice per screen (the agent panel is its own surface)
+      // 5. One Batsi notice per screen (the agent panel is its own surface)
       const notices = [...screen.querySelectorAll('.pp-section-message--agent, .pp-banner--agent, .pp-proposal-list')].filter((n) => !nearest(n, '.pp-agent-panel'));
-      if (notices.length > LIMITS.agentCallouts) report('agent', `${notices.length} Pepla notices on one screen`);
+      if (notices.length > LIMITS.agentCallouts) report('agent', `${notices.length} Batsi notices on one screen`);
 
       // 6. Stat rows: a label and a value; a meta line only where it asks for attention
       for (const row of screen.querySelectorAll('.pp-stat-row')) {

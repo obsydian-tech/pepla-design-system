@@ -27,7 +27,7 @@ A slider picks one value from a range by dragging, when the rough position matte
 | --- | --- |
 | A score or weight where people think in "about this much" | A Text field with `inputmode="numeric"` when the exact number matters, such as a salary or a notice period |
 | Up to about 20 steps | A Select or Radio tiles for 2 to 5 named choices ("Poor", "Fair", "Good") |
-| One value | Two text fields for a range ("from" and "to"); Pepla has no two-thumb slider |
+| One value | Two text fields for a range ("from" and "to"); Naleko People has no two-thumb slider |
 
 ## States
 
@@ -94,7 +94,7 @@ slider: {
 
 Pass `[ariaLabelledBy]` and set `aria-valuetext` on the handle. Moving to the native input is simpler and is the recommended path.
 
-## In Pepla today
+## In Naleko People today
 
 `p-slider` is used in 2 files under `src/app`:
 

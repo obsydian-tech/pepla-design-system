@@ -71,7 +71,7 @@ No PrimeNG component. A plain Angular template; the block's button is `p-button`
 </span>
 ```
 
-## In Pepla today
+## In Naleko People today
 
 There is no field-level restricted state in `hr-portal/src/app`. The closest thing is a whole page: `features/platform/unauthorised.component.ts` shows a `pi-lock` icon, "Access Not Configured", "Your account doesn't have access to any modules yet. Please contact your HR administrator to be assigned to a team." and a "Back to Platform Home" button. Access is otherwise handled by route guards (`app.routes.ts`, `features/talent-flow/talent-flow.routes.ts`), so a field a person may not see is simply not shown.
 

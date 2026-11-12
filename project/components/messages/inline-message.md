@@ -24,7 +24,7 @@ An inline message is a short icon and line of text next to the thing it is about
 | `pp-inline-message--success` | `circle-check` | A value was checked: "Bank details verified on 4 Nov 2026" | For something only the agent did |
 | `pp-inline-message--warning` | `triangle-alert`, `clock` | Something needs attention soon: "Due in 2 days" | As a field validation error |
 | `pp-inline-message--error` | `octagon-alert`, `clock-alert` | A field error or something overdue | Without saying how to fix it |
-| `pp-inline-message--agent` | `sparkles` | Pepla filled or suggested this value | For a person's input (rule 1) |
+| `pp-inline-message--agent` | `sparkles` | Batsi filled or suggested this value | For a person's input (rule 1) |
 
 ## Sizes
 
@@ -77,7 +77,7 @@ message: {
 
 Field errors under PrimeNG inputs use `<p-message variant="simple" severity="error" size="small">`.
 
-## In Pepla today
+## In Naleko People today
 
 Field errors on the new employee registration form, and status text in the verification and document views. These are hand-styled per component today, and not all of them pair the colour with an icon.
 
@@ -85,4 +85,4 @@ Field errors on the new employee registration form, and status text in the verif
 
 - **Do** put the message right next to its field or value. **Don't** collect field errors only at the top of the form.
 - **Do** pair the icon and the words. **Don't** show a red dot alone.
-- **Do** use agent only when Pepla filled the value. **Don't** use mint for "saved".
+- **Do** use agent only when Batsi filled the value. **Don't** use mint for "saved".

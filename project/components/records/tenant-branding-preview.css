@@ -29,6 +29,6 @@
 .pp-brand-preview__button { display: inline-flex; align-items: center; justify-content: center; min-height: var(--size-control-medium); padding: 0 var(--space-250); border: 0; border-radius: var(--radius-full); background: var(--_accent); color: var(--color-text-inverse); font: var(--font-label); letter-spacing: var(--font-label-tracking); }
 .pp-brand-preview__note { margin: 0; font: var(--font-body-small); color: var(--color-text-subtle); }
 
-/* Brand areas only: the tenant colour stays on the header; links and buttons keep Pepla violet */
+/* Brand areas only: the tenant colour stays on the header; links and buttons keep Naleko People violet */
 .pp-brand-preview__pane--brand-only .pp-brand-preview__link { color: var(--color-link); }
 .pp-brand-preview__pane--brand-only .pp-brand-preview__button { background: var(--color-background-brand-bold); color: var(--color-text-inverse); }

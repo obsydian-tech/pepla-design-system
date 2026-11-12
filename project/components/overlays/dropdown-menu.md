@@ -84,7 +84,7 @@ menu: {
 
 Use `<p-menu [popup]="true" [model]="items" appendTo="body">` and pass Lucide icons through the `#item` template. Mark danger items with `styleClass: 'danger'`.
 
-## In Pepla today
+## In Naleko People today
 
 `p-menu` is used once, on the TalentFlow intelligence tile. The topbar notification dropdown is its own component (`notification-dropdown`). Other row actions are separate icon buttons rather than a menu.
 

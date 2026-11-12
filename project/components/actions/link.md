@@ -9,7 +9,7 @@ replaces: footer-link, navbar__link, breadcrumb link classes, p-button with pi-e
 
 # Link
 
-A link takes a person somewhere: another page, a record, a document, a site outside Pepla. Links go somewhere; buttons do something. If clicking it changes data, sends something or opens a dialog, it is a Button.
+A link takes a person somewhere: another page, a record, a document, a site outside Naleko People. Links go somewhere; buttons do something. If clicking it changes data, sends something or opens a dialog, it is a Button.
 
 ## Anatomy
 
@@ -22,12 +22,12 @@ A link takes a person somewhere: another page, a record, a document, a site outs
 | Class | Use | Never |
 | --- | --- | --- |
 | `pp-link` | Inside a sentence or a table cell. Always underlined, so it is not shown by colour alone | For an action ("Resend invite" is a button) |
-| `pp-link--standalone` | On its own line: "View all new hires", "Audit trail". Label font, no underline until hover, 32px tall, 44px hit area on touch | Inside a sentence |
+| `pp-link--standalone` | On its own line: "View all new employees", "Audit trail". Label font, no underline until hover, 32px tall, 44px hit area on touch | Inside a sentence |
 | `pp-link--subtle` | Names and dates in a "Last changed by" line, footers | As the only way to reach something important |
-| `pp-link--external` | Goes outside Pepla: SARS, the Department of Employment and Labour, a payroll provider. Add the `external-link` icon and the hidden text | For pages inside Pepla, even in another product area |
+| `pp-link--external` | Goes outside Naleko People: SARS, the Department of Employment and Labour, a payroll provider. Add the `external-link` icon and the hidden text | For pages inside Naleko People, even in another product area |
 | `pp-link--visited` | Lists people work through once: policies to read, help articles | In app navigation, tables or menus, where visited colour is noise |
 
-A link that looks like a button is `<a class="pp-button">` (see Button). Use it only for a main call to action that navigates, such as "Start onboarding" on an empty state.
+A link that looks like a button is `<a class="pp-button">` (see Button). Use it only for a main call to action that navigates, such as "Get started" on an empty state.
 
 ## States
 
@@ -44,7 +44,7 @@ There is no disabled link. If the place is not available, show plain text and sa
 
 ## Behaviour
 
-- Links inside Pepla open in the same tab. People use the browser's own "open in new tab" when they want one.
+- Links inside Naleko People open in the same tab. People use the browser's own "open in new tab" when they want one.
 - External links and documents (contracts, payslips, ID scans) open in a new tab, so the person keeps their place. Say so with the icon and the hidden text.
 - A document link whose address must be fetched first (a signed download link) is still a link to the person: render the `<a>` and fetch the address on click, rather than a button that calls `window.open`.
 - Never put a link on a whole sentence. Link the words that name the destination.
@@ -70,7 +70,7 @@ No PrimeNG component. Use Angular's router on a plain anchor:
 
 ```html
 <a class="pp-link pp-link--standalone" routerLink="/people/new-hires">
-  <span>View all new hires</span><i data-lucide="arrow-right"></i>
+  <span>View all new employees</span><i data-lucide="arrow-right"></i>
 </a>
 <a class="pp-link pp-link--external" [href]="guideUrl" target="_blank" rel="noopener">
   SARS guide to tax numbers<span class="pp-link__icon"><i data-lucide="external-link"></i></span>
@@ -78,9 +78,9 @@ No PrimeNG component. Use Angular's router on a plain anchor:
 </a>
 ```
 
-`p-button` with `[link]="true"` is a button styled as a link; use it only for actions, and map it to `pp-button--link` (see Button). For the `p-breadcrumb` and `p-menu` item links, pass-through adds the Pepla classes in their own components.
+`p-button` with `[link]="true"` is a button styled as a link; use it only for actions, and map it to `pp-button--link` (see Button). For the `p-breadcrumb` and `p-menu` item links, pass-through adds the Naleko People classes in their own components.
 
-## In Pepla today
+## In Naleko People today
 
 - `routerLink` appears in 10 files under `src/app`, including `sidebar.component.html`, `admin-sidebar.component.html` and the TalentFlow and IT provisioning shells. Breadcrumb links have their own classes (`bp-breadcrumb__link` in `hm-bundle-progress-page.component.html`, `br-breadcrumb__link` in `hm-bundle-review-page.component.html`).
 - The footer (`footer.component.html`) and the landing page (`landing.component.html`) have links with `href="#"` placeholders and their own classes.
@@ -91,4 +91,4 @@ No PrimeNG component. Use Angular's router on a plain anchor:
 
 - **Do** write "View Sipho's documents". **Don't** write "Click here".
 - **Do** use a link to open a document. **Don't** use a button with `window.open` for it.
-- **Do** mark links that leave Pepla with the icon and the hidden text. **Don't** open pages inside Pepla in a new tab.
+- **Do** mark links that leave Naleko People with the icon and the hidden text. **Don't** open pages inside Naleko People in a new tab.

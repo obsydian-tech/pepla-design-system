@@ -17,7 +17,7 @@ One required document: what it is, where it stands, who did what and when, and w
 
 1. **Icon tile**: `id-card` for ID, `landmark` for bank letters, `graduation-cap` for qualifications, `file-text` for everything else.
 2. **Name** (`__name`): the document type in plain words: "Bank confirmation letter".
-3. **Meta** (`__meta`): who and when: "Uploaded by Kagiso, 9 Nov 2026, 08:02". An agent lozenge when Pepla checked it. A deadline chip while it is still requested.
+3. **Meta** (`__meta`): who and when: "Uploaded by Kagiso, 9 Nov 2026, 08:02". An agent lozenge when Batsi checked it. A deadline chip while it is still requested.
 4. **Reason** (`__reason`, rejected only): what is wrong and what to do.
 5. **Status** (`__status`): one lozenge.
 6. **Actions** (`__actions`): "View", "Request again", "Send reminder" or "Upload".
@@ -26,7 +26,7 @@ One required document: what it is, where it stands, who did what and when, and w
 
 1. **Header**: title ("Kagiso's documents"), subtitle, and a progress bar: "2 of 6 documents".
 2. **List**: one row per required document, problems first.
-3. **Footer** (optional, `__footer`): one note under the list, such as an agent inline message saying what Pepla checks after upload.
+3. **Footer** (optional, `__footer`): one note under the list, such as an agent inline message saying what Batsi checks after upload.
 
 ## States
 
@@ -34,8 +34,8 @@ One required document: what it is, where it stands, who did what and when, and w
 | --- | --- | --- | --- |
 | Requested | neutral, `circle-dashed`, "Requested" | "Asked 3 Nov" and a deadline chip | Send reminder |
 | Uploaded | information, `upload`, "Uploaded" | who uploaded it, when; "Waiting for HR to check" | View |
-| Checking | information, `hourglass`, "Checking" | agent lozenge "Pepla is checking", or the person checking | View |
-| Verified | success, `circle-check`, "Verified" | who uploaded it and who checked it (agent lozenge if Pepla) | View |
+| Checking | information, `hourglass`, "Checking" | agent lozenge "Batsi is checking", or the person checking | View |
+| Matches | success, `circle-check`, "Matches" | who uploaded it and who checked it (agent lozenge if Batsi) | View |
 | Rejected | danger, `circle-x`, "Rejected" | who rejected it, when; the reason line | View, Request again |
 | Expired | warning, `clock-alert`, "Expired 2 Oct" | "Valid until 2 Oct 2026" | View, Request again |
 
@@ -67,7 +67,7 @@ One required document: what it is, where it stands, who did what and when, and w
 
 No PrimeNG component for the row. The upload action uses `p-fileUpload` in basic mode with the File upload pass-through (to be checked), or a hidden `<input type="file">` behind a `pp-button`. Buttons are `p-button` with the Button pass-through. Replace the row's `p-tag` with a `pp-lozenge`.
 
-## In Pepla today
+## In Naleko People today
 
 - `document-row.component.ts` (`app-document-row`) uses `p-tag` with the labels "ACCEPTED", "REJECTED", "VERIFICATION PENDING", "UNDER HR REVIEW", "UPLOADING...", "OCR PROCESSING..." and "PENDING", and PrimeIcons only for accepted, rejected and in review. The statuses come from `DocumentStatus` in `employee.model.ts`: PENDING, UPLOADING, PROCESSING, ACCEPTED, REJECTED, SUBMITTED, IN_REVIEW. There is no expired status.
 - The row checks file type (PDF, JPG, PNG) and size (5MB) and has upload, re-upload and view actions.
@@ -76,6 +76,6 @@ No PrimeNG component for the row. The upload action uses `p-fileUpload` in basic
 
 ## Do and don't
 
-- **Do** say who checked a document, and mark Pepla's checks with the agent lozenge. **Don't** say "AI OCR".
+- **Do** say who checked a document, and mark Batsi's checks with the agent lozenge. **Don't** say "AI OCR".
 - **Do** give the reason with every rejection. **Don't** show "REJECTED" alone.
 - **Do** keep one primary upload action on a phone. **Don't** put three buttons in every row.

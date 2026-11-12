@@ -7,9 +7,9 @@ source: features/talent-flow/shell/admin-shell, features/talent-flow/pages/admin
 
 # Admin settings
 
-Every screen sits in the one Pepla sidebar (see "One Pepla" in the readme); only the selected module changes.
+Every screen sits in the one Naleko People sidebar (see "One Naleko People" in the readme); only the selected module changes.
 
-Thandeka Dlamini's admin area for Mokoena Logistics, redrawn in Pepla: the overview, users and roles with the add user and edit roles drawers, tenant settings with the branding preview and an approval chain drawer, notifications, intelligence rules, scoring weights, SLA thresholds, stage setup, and the audit log with one event open in a drawer. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change. Panel rules, sentiment scales and the three IT setup pages stay in the navigation but are not drawn.
+Thandeka Dlamini's admin area for Mokoena Logistics, redrawn in Naleko People: the overview, users and roles with the add user and edit roles drawers, tenant settings with the branding preview and an approval chain drawer, notifications, intelligence rules, scoring weights, SLA thresholds, stage setup, and the audit log with one event open in a drawer. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change. Panel rules, sentiment scales and the three IT setup pages stay in the navigation but are not drawn.
 
 ## Screens
 
@@ -20,7 +20,7 @@ Thandeka Dlamini's admin area for Mokoena Logistics, redrawn in Pepla: the overv
 - **Tenant settings** (`tenant-settings/admin-tenant-settings.component.html` and its five cards). Branding and identity with the logo and the accent colour preview, seniority levels, workflow templates, approval chains and locale. Uses card, icon tile, avatar, form layout, text field, select, tenant branding preview, table, tag, role pill, config version badge, inline message.
 - **Edit an approval chain** (`tenant-settings/components/approval-chain-drawer`). The senior offer and IT setup chains, step by step. Uses drawer, select, checkbox, badge, button, inline message.
 - **Notifications** (`notifications/admin-notifications-page.component.html`). Triggers by module with recipients and an on or off switch, escalation paths with the locked first step, and the message templates. Uses card, table, role pill, toggle, section message, lozenge, tag, button.
-- **Intelligence rules** (`talentflow-config/intelligence-rules`). The version, the category filter, the signal thresholds open, and the six rules with when, what Pepla does, the cooldown and who sees it. Uses config version badge, button (pressed), badge, card, text field, description list, lozenge, role pill, toggle.
+- **Intelligence rules** (`talentflow-config/intelligence-rules`). The version, the category filter, the signal thresholds open, and the six rules with when, what Batsi does, the cooldown and who sees it. Uses config version badge, button (pressed), badge, card, text field, description list, lozenge, role pill, toggle.
 - **Scoring weights** (`talentflow-config/scoring-weights`). The four weights adding up to 105, with the error and Save turned off. Uses config version badge, card, icon tile, text field, progress bar, field error, form footer.
 - **SLA thresholds** (`talentflow-config/sla-thresholds`). The five time limits in hours, said in days too, and the warning and urgent levels. Uses config version badge, card, form layout, text field.
 - **Stage setup** (`talentflow-config/stage-config`). The ten stages by phase, one turned off, and what that does to candidates already there. Uses config version badge, card, form section, toggle, section message.
@@ -36,8 +36,8 @@ Thandeka Dlamini's admin area for Mokoena Logistics, redrawn in Pepla: the overv
 - **Config versions everywhere they exist.** Today's small "v3 · date" badge becomes the config version badge: version, Live, who published it and when, and Compare with the last version.
 - **Errors say how to fix.** "5% over" becomes "The weights add up to 105. Take 5 off one of them to save", and Save says why it is off. The add user email error explains which addresses can sign in.
 - **No capitals for emphasis.** The rule drawer's "RULE NAME", "VISIBLE TO" and "COOLDOWN (HOURS)", and the audit "SUCCESS", "FAILURE" and "PARTIAL", become sentence case words. Title Case labels such as "Users & Roles" and "Save All Chains" become "Users and roles" and "Apply changes".
-- **Mint only for the agent (rule 1).** Only Pepla's own actions in the audit log carry the agent avatar. Today's teal, cyan and green buttons and chips are violet primary or default buttons.
-- **Pepla, not Naleko or TalentFlow.** The placeholder "Naleko Technologies (Pty) Ltd" and the "TalentFlow Config" heading become Mokoena Logistics and "Hiring setup".
+- **Mint only for the agent (rule 1).** Only Batsi's own actions in the audit log carry the agent avatar. Today's teal, cyan and green buttons and chips are violet primary or default buttons.
+- **Naleko People, not Naleko or TalentFlow.** The placeholder "Naleko Technologies (Pty) Ltd" and the "TalentFlow Config" heading become Mokoena Logistics and "Hiring setup".
 - **POPIA in the audit log (rule 6).** The IP address is masked in the event detail. The raw JSON payload becomes labelled rows.
 - **Roles as role pills.** Role pills keep an icon and a word, and the role a person is using now is marked. The add user role cards become a checkbox list with descriptions.
 - **Branding preview.** The accent colour field shows the contrast check and a light and dark preview, so a colour that fails is kept off buttons and links.

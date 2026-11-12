@@ -69,9 +69,9 @@ textarea: {
 
 `pTextarea [autoResize]="true"` maps to `pp-textarea--auto`; PrimeNG sets the height itself, which is fine.
 
-## In Pepla today
+## In Naleko People today
 
-Text areas appear in 11 templates, including the evaluation scoring panel, the offer tab, the candidate workspace, the IT task detail, the hiring manager bundle pages, the AI mode panel and four config drawers.
+Text areas appear in 11 templates, including the evaluation scoring panel, the offer tab, the candidate workspace, the IT task detail, the hiring manager laptop and access pages, the AI mode panel and four config drawers.
 
 ## Do and don't
 

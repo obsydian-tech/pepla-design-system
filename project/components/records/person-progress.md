@@ -52,7 +52,7 @@ The bar's colour always matches the deadline beside it, so the colour never stan
 
 No PrimeNG component. Use `@for` over the starters and compose `pp-person`, `pp-progress-bar` (native `<progress>`, or `p-progressBar` with the Progress bar pass-through) and the deadline pipe.
 
-## In Pepla today
+## In Naleko People today
 
 There is no such row. `hr-dashboard-home.component.html` lists employees in a `p-table` with columns Employee Name, Email, Department, HR Partner, Stage, Risk, Start Date and Actions, with no document progress. `employee-detail.component.html` shows one person's "Completion" as a percentage with a `p-progressBar`.
 

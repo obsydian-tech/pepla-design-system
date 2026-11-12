@@ -63,7 +63,7 @@ Mark whichever group is smaller, and use only one style in a form:
 
 - Section titles are short nouns in sentence case: "Personal details", "Banking". No numbering unless the form is a Progress tracker flow.
 - The summary title says how many things to fix and what for: "Fix 2 things to add Lerato". Each line is the field's own error message, word for word.
-- Footer actions: the primary says the outcome ("Add new hire"), the secondary is "Cancel" or "Save draft". Never "Submit".
+- Footer actions: the primary says the outcome ("Add new employee"), the secondary is "Cancel" or "Save draft". Never "Submit".
 
 ## Accessibility
 
@@ -97,7 +97,7 @@ No PrimeNG component. Use an Angular reactive form; the summary is a Section mes
   <div class="pp-form__footer">
     <div class="pp-button-group pp-button-group--stack-phone">
       <p-button label="Cancel" [outlined]="true" (onClick)="cancel()" />
-      <p-button type="submit" label="Add new hire" [loading]="saving()" />
+      <p-button type="submit" label="Add new employee" [loading]="saving()" />
     </div>
   </div>
 </form>
@@ -105,7 +105,7 @@ No PrimeNG component. Use an Angular reactive form; the summary is a Section mes
 
 In `submit()`, call `form.markAllAsTouched()`, build the error list, and focus the summary after the view updates. Do not use `p-fieldset` (it adds a collapsible panel) or `p-card` per section.
 
-## In Pepla today
+## In Naleko People today
 
 - Candidate create (`candidate-create-page.component.html`) has sections named with `<p class="tf-create__section-label">`, not headings or legends, and a two-column `tf-form-row` that goes to one column below 560px. Labels have `*` typed into the label text, and some fields add "(optional)", so both styles are mixed in one form. Its footer bar (`tf-create__footer`, Cancel and Create Candidate) sits outside the `<form>`. On submit it marks all fields touched and stops; there is no summary at the top, and a save error shows at the bottom of the form (`tf-create__error`).
 - New employee registration (`new-employee-registration.component.html`, 591 lines) is a 4-step wizard. Each step is a `p-card` laid out with PrimeFlex columns (`md:col-4`, `md:col-6`), and labels have `*` typed into the label text.

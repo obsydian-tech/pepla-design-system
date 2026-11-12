@@ -1,9 +1,9 @@
-<section data-example="Passed, checked by Pepla">
+<section data-example="Everything matches, checked by Batsi">
   <article class="pp-card pp-verification pp-measure-form">
     <div class="pp-card__header">
       <span class="pp-icon-tile" aria-hidden="true"><i data-lucide="id-card"></i></span>
       <div class="pp-card__titles"><span class="pp-card__title" role="heading" aria-level="3">ID check</span><span class="pp-card__subtitle">Kagiso Molefe · South African ID</span></div>
-      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--bold pp-lozenge--success"><i data-lucide="shield-check"></i>Passed</span></div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--bold pp-lozenge--success"><i data-lucide="shield-check"></i>Matches</span></div>
     </div>
     <ul class="pp-verification__checks" aria-label="What was compared">
       <li class="pp-verification__check"><i data-lucide="check"></i><span>Name matches</span></li>
@@ -14,7 +14,7 @@
       <dt>Checked</dt><dd><span class="pp-masked"><span class="pp-masked__value" id="vr-id-v" aria-label="SA ID ending 0876">SA ID •••••••••0876</span><button class="pp-button pp-button--link pp-button--small" type="button" aria-describedby="vr-id-v">Show</button></span></dd>
       <dt>Against</dt><dd>Home Affairs identity record</dd>
       <dt>When</dt><dd>9 Nov 2026, 08:15</dd>
-      <dt>By</dt><dd><span class="pp-verification__by"><span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Checked by Pepla</span><span>Approved by Lerato Mokoena, 9 Nov 2026, 09:02</span></span></dd>
+      <dt>By</dt><dd><span class="pp-verification__by"><span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Checked by Batsi</span><span>Approved by Lerato Mokoena, 9 Nov 2026, 09:02</span></span></dd>
     </dl>
   </article>
 </section>
@@ -34,7 +34,7 @@
       <dt>Checked</dt><dd><span class="pp-masked"><span class="pp-masked__value" id="vr-acc-v" aria-label="Account ending 4521">Account ••••••4521</span><button class="pp-button pp-button--link pp-button--small" type="button" aria-describedby="vr-acc-v">Show</button></span></dd>
       <dt>Against</dt><dd>The bank's account check</dd>
       <dt>When</dt><dd>10 Nov 2026, 19:40</dd>
-      <dt>By</dt><dd><span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Checked by Pepla</span></dd>
+      <dt>By</dt><dd><span class="pp-lozenge pp-lozenge--agent"><i data-lucide="sparkles"></i>Checked by Batsi</span></dd>
     </dl>
     <div class="pp-card__footer pp-card__footer--end">
       <button class="pp-button pp-button--default" type="button">Ask for a new letter</button>
@@ -42,12 +42,12 @@
     </div>
   </article>
 </section>
-<section data-example="Failed, checked by a person">
+<section data-example="Something does not match, flagged for HR">
   <article class="pp-card pp-verification pp-measure-form">
     <div class="pp-card__header">
       <span class="pp-icon-tile" aria-hidden="true"><i data-lucide="graduation-cap"></i></span>
       <div class="pp-card__titles"><span class="pp-card__title" role="heading" aria-level="3">Qualification check</span><span class="pp-card__subtitle">Tariro Moyo · National Diploma in Logistics</span></div>
-      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--bold pp-lozenge--danger"><i data-lucide="octagon-alert"></i>Failed</span></div>
+      <div class="pp-card__aside"><span class="pp-lozenge pp-lozenge--bold pp-lozenge--warning"><i data-lucide="triangle-alert"></i>Doesn't match</span></div>
     </div>
     <ul class="pp-verification__checks" aria-label="What was compared">
       <li class="pp-verification__check"><i data-lucide="check"></i><span>Name matches</span></li>
@@ -60,7 +60,8 @@
       <dt>By</dt><dd><span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--amber" aria-hidden="true">LM</span><span class="pp-person__text"><span class="pp-person__name">Lerato Mokoena</span></span></span></dd>
     </dl>
     <div class="pp-card__footer pp-card__footer--end">
-      <button class="pp-button pp-button--default" type="button">Talk to Tariro</button>
+      <button class="pp-button pp-button--primary" type="button">Accept document</button>
+      <button class="pp-button pp-button--default" type="button">Ask for a new one</button>
     </div>
   </article>
 </section>

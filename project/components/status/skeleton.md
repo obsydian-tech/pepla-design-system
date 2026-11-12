@@ -73,7 +73,7 @@ skeleton: {
 
 Prefer the `pp-skeleton--*` shape classes over PrimeNG's `width`, `height` and `borderRadius` inputs, so shapes match the components they stand in for.
 
-## In Pepla today
+## In Naleko People today
 
 `p-skeleton` is already used in 6 HR dashboard views: the home page, the verifications list, verification detail, employee detail, notifications and the support inbox. Other areas show a blank page or spinner while loading.
 

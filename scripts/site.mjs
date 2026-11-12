@@ -72,7 +72,7 @@ let html = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pepla design system</title>
+<title>Naleko People design system</title>
 <link rel="icon" href="assets/pepla-mark.svg">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -82,7 +82,7 @@ body{margin:0}
 header.top{display:flex;align-items:center;gap:var(--space-150);flex-wrap:wrap}
 .lock{display:flex;align-items:center;gap:var(--space-150)}
 .lock svg{width:48px;height:40px}
-.word{font:800 40px/1 var(--font-family-display);letter-spacing:-1.5px;color:var(--color-text)}
+.word{display:inline-grid;gap:8px;font:800 40px/1 var(--font-family-display);letter-spacing:-1.5px;color:var(--color-text)}.word .people{color:var(--color-brand-violet)}.word .maker{font:600 13px/1 var(--font-family-display);letter-spacing:.28em;text-transform:uppercase;color:var(--color-text-subtle)}
 .mark-dark{display:none}
 [data-theme="dark"] .mark-light{display:none}[data-theme="dark"] .mark-dark{display:inline}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mark-light{display:none}:root:not([data-theme="light"]) .mark-dark{display:inline}}
@@ -162,12 +162,12 @@ footer{margin-top:var(--space-1000);color:var(--color-text-subtlest);font:var(--
 <body>
 <div class="wrap">
 <header class="top">
-  <span class="lock"><span class="mark-light">${mark('#5b4bd6')}</span><span class="mark-dark">${mark('#7d6ff0')}</span><span class="word">pepla</span></span>
+  <span class="lock"><span class="mark-light">${mark('#5b4bd6')}</span><span class="mark-dark">${mark('#7d6ff0')}</span><span class="word">Naleko <span class="people">People</span><span class="maker">by Naleko</span></span></span>
   <span class="spacer"></span>
   <button class="btn" type="button" id="theme" aria-label="Switch light or dark"><span>Light / dark</span></button>
 </header>
-<h1>Pepla design system</h1>
-<p class="lead">Foundations for every Pepla screen: the rules, colour in light and dark, type, space, shape, elevation, motion, icons and the mark.</p>
+<h1>Naleko People design system</h1>
+<p class="lead">Foundations for every Naleko People screen: the rules, colour in light and dark, type, space, shape, elevation, motion, icons and the mark.</p>
 <p class="pp-button-group"><a class="pp-button pp-button--primary pp-button--large" href="components.html">See all components</a><a class="pp-button pp-button--default pp-button--large" href="kits.html">See the UI kits</a></p>
 <nav class="toc" aria-label="Sections"><a href="components.html">All components</a><a href="#rules">Rules</a><a href="#colour">Colour</a><a href="#palette">Palette</a><a href="#type">Type</a><a href="#space">Space</a><a href="#shape">Shape</a><a href="#elevation">Elevation</a><a href="#motion">Motion</a><a href="#icons">Icons</a><a href="#logo">Logo</a></nav>
 
@@ -188,18 +188,18 @@ footer{margin-top:var(--space-1000);color:var(--color-text-subtlest);font:var(--
       <span class="pp-lozenge pp-lozenge--success"><i data-lucide="circle-check"></i>Done 3 Nov</span>
       <time class="pp-lozenge pp-lozenge--warning pp-deadline" datetime="2026-11-13"><i data-lucide="clock"></i>Due in 2 days</time>
       <time class="pp-lozenge pp-lozenge--danger pp-deadline" datetime="2026-11-10"><i data-lucide="clock-alert"></i>Overdue by 1 day</time>
-      <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Checked by Pepla</span></span>
+      <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Checked by Batsi</span></span>
     </div>
-    <div class="pp-section-message" role="region" aria-label="Payroll connection"><i data-lucide="info"></i><div class="pp-section-message__content"><h3 class="pp-section-message__title">Payroll connection</h3><div class="pp-section-message__body">Connect Pepla to your payroll so new hires are added without retyping.</div></div></div>
+    <div class="pp-section-message" role="region" aria-label="Payroll connection"><i data-lucide="info"></i><div class="pp-section-message__content"><h3 class="pp-section-message__title">Payroll connection</h3><div class="pp-section-message__body">Connect Naleko People to your payroll so new employees are added without retyping.</div></div></div>
     <div class="pp-section-message pp-section-message--danger" role="region" aria-label="ID number"><i data-lucide="octagon-alert"></i><div class="pp-section-message__content"><h3 class="pp-section-message__title">That ID number has 12 digits</h3><div class="pp-section-message__body">South African ID numbers have 13. Check the last digits.</div></div></div>
   </div>
   <div class="card">
-    <div class="pp-proposal-list" role="list" aria-label="Pepla suggests">
+    <div class="pp-proposal-list" role="list" aria-label="Batsi suggests">
       <article class="pp-proposal--compact" role="listitem" aria-labelledby="fd-p1">
         <div class="pp-proposal__titles">
-          <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Pepla suggests</span></span>
+          <span class="pp-agent-mark"><i data-lucide="sparkles"></i><span>Batsi suggests</span></span>
           <span class="pp-proposal__title" id="fd-p1">Send Thandeka her contract and laptop request</span>
-          <span class="pp-proposal__meta">Her ID checked out and she starts Monday · Nothing leaves Pepla</span>
+          <span class="pp-proposal__meta">Her ID checked out and she starts Monday · Nothing leaves Naleko People</span>
         </div>
         <div class="pp-proposal__row-actions">
           <button class="pp-button pp-button--agent pp-button--small" type="button" aria-describedby="fd-p1">Approve</button>
@@ -247,14 +247,14 @@ ${roleTables}
 ${iconRows}
 
 <h2 id="logo">Logo</h2>
-<p>Three people side by side: coral, violet, mint. On dark, violet lifts to <code>#7d6ff0</code>. The wordmark is always lowercase, Manrope 800. Keep clear space of one circle radius around the lockup; the mark is never smaller than 20px wide.</p>
+<p>Three people side by side: coral, violet, mint. On dark, violet lifts to <code>#7d6ff0</code>. The wordmark is "Naleko People" in Manrope 800, with People in violet and "by Naleko" under it in small tracked capitals. Keep clear space of one circle radius around the lockup; the mark is never smaller than 20px wide.</p>
 <div class="logos">
-  <div style="background:#faf7f2">${mark('#5b4bd6')}<span class="w" style="color:#1b1640">pepla</span></div>
-  <div style="background:#1b1640">${mark('#7d6ff0')}<span class="w" style="color:#faf7f2">pepla</span></div>
-  <div style="background:var(--elevation-surface-sunken)"><img src="assets/pepla-app-icon.svg" width="96" height="96" alt="Pepla app icon, light"><img src="assets/pepla-app-icon-dark.svg" width="96" height="96" alt="Pepla app icon, dark"></div>
+  <div style="background:#faf7f2">${mark('#5b4bd6')}<span class="w" style="color:#1b1640">Naleko <span style="color:#5b4bd6">People</span></span></div>
+  <div style="background:#1b1640">${mark('#7d6ff0')}<span class="w" style="color:#faf7f2">Naleko <span style="color:#7d6ff0">People</span></span></div>
+  <div style="background:var(--elevation-surface-sunken)"><img src="assets/pepla-app-icon.svg" width="96" height="96" alt="Naleko People app icon, light"><img src="assets/pepla-app-icon-dark.svg" width="96" height="96" alt="Naleko People app icon, dark"></div>
 </div>
 
-<footer>Pepla design system · tokens generated from <code>tokens/</code> · built ${new Date().toISOString().slice(0, 10)}</footer>
+<footer>Naleko People design system · tokens generated from <code>tokens/</code> · built ${new Date().toISOString().slice(0, 10)}</footer>
 </div>
 <script>
 const root = document.documentElement;

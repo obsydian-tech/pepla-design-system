@@ -64,7 +64,7 @@ Both buttons take the same appearance and size class. Use primary or default onl
 
 > **Reference only.** In the Angular app this component is built in `src/app/ds` without PrimeNG. The mapping below describes the behaviour to match; it is not a dependency. The app uses no PrimeNG at all: the hard patterns are built on Angular Aria and the Angular CDK (see `docs/verify-design-angular.md`).
 
-PrimeNG runs in unstyled mode; pass-through adds the Pepla classes. `p-splitbutton` renders a main button, a menu button and a `p-tieredmenu`. The key names below follow PrimeNG 19 and are to be checked:
+PrimeNG runs in unstyled mode; pass-through adds the Naleko People classes. `p-splitbutton` renders a main button, a menu button and a `p-tieredmenu`. The key names below follow PrimeNG 19 and are to be checked:
 
 ```ts
 splitbutton: {
@@ -85,7 +85,7 @@ splitbutton: {
 
 Use `<p-splitbutton label="Send contract" [model]="sendOptions" (onClick)="send()" appendTo="body">` and pass the Lucide `chevron-down` through the dropdown icon template. Map `[loading]` on the main half to `aria-busy`, as Button does.
 
-## In Pepla today
+## In Naleko People today
 
 Nothing. No file under `src/app` uses `p-splitbutton` or `SplitButtonModule`. The only `p-menu` is on the TalentFlow intelligence tile (`intelligence-tile.component.html`).
 

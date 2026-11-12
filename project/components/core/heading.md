@@ -46,7 +46,7 @@ Headings have no interactive states. A heading that is also a link (rare) wraps 
 ## Behaviour
 
 - Long headings wrap and are balanced across lines. They never truncate, except a person's name in a narrow card, where the card truncates it and shows the full name in a tooltip.
-- Headings do not change size with data. A page with 1 new hire and a page with 40 use the same title size.
+- Headings do not change size with data. A page with 1 new employee and a page with 40 use the same title size.
 
 ## Content
 
@@ -79,7 +79,7 @@ dialog: { title: { class: 'pp-heading pp-heading--medium' } },    // key to be c
 drawer: { title: { class: 'pp-heading pp-heading--medium' } },    // key to be checked
 ```
 
-## In Pepla today
+## In Naleko People today
 
 There is no shared heading style. Under `src/app`, `<h1>` appears in 26 files, `<h2>` in 37, `<h3>` in 23 and `<h4>` in 3, and each page sizes them with its own class, for example `registration__title` in `new-employee-registration.component.html` and `tf-create__title` in `candidate-create-page.component.html`. Candidate create names its form sections with `<p class="tf-create__section-label">` rather than a heading tag.
 

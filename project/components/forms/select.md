@@ -100,7 +100,7 @@ multiselect: { /* same keys; options carry a pp-checkbox instead of the check */
 
 Set `dropdownIcon` to the Lucide `chevron-down` template; never PrimeIcons.
 
-## In Pepla today
+## In Naleko People today
 
 `p-select` is used in 14 templates: the verifications list and HR dashboard home filters, new employee registration, candidate create, the AI mode panel and most TalentFlow config pages and drawers (routing rules, queue, template, approval chain, locale and branding cards).
 

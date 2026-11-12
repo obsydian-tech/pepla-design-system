@@ -1,4 +1,4 @@
-/* Provisioning bundle. Spec: provisioning-bundle.md
+/* Laptop and access. Spec: provisioning-bundle.md
    Built on pp-card: the card carries pp-bundle. The item list is a size container; items stack below 560px. */
 .pp-bundle { min-width: 0; }
 .pp-bundle__items { container-type: inline-size; display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
