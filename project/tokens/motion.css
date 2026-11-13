@@ -33,6 +33,7 @@
   --motion-site-duration-loop-cue: 2s;
   --motion-site-duration-loop-wash: 16s;
   --motion-site-duration-loop-flow: 14s;
+  --motion-site-duration-loop-flow-reduced: 28s;
 }
 
 @media (prefers-reduced-motion: reduce) {

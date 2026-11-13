@@ -19,10 +19,10 @@ The bottom of every public page and the pinned "on this page" bar of a module pa
 
 ## Where the redraw changes the approved site
 
-- **No flowing hairline.** The old footer line moved its gradient with a looping animation. It is now the static Naleko gradient line.
+- **The footer line flows**, as on the approved site: the gradient slides with a transform on a strip twice its width, so nothing repaints.
 - **The highlight is a neutral block, not a dark pill.** It slides with a translate and a scale, so it stays smooth on a phone. A dark pill needs the label colour to change while it travels, and colour is not a property the site animates.
-- **"Learn" instead of "Resources"**, as in the header.
-- **"Coming soon" as words**, not a pill.
+- **"Resources"** is the approved word. The content audit allows that one label.
+- **"Coming soon" is the same small pill** as the approved site.
 - **The data promise is plain.** "All data stays in South Africa" sits in a neutral chip; mint is kept for what Batsi did.
 - **Legal links are placeholders.** Privacy notice, Terms of use, PAIA manual and Cookie notice point nowhere until the legal text is supplied.
 - **Tap targets.** Every footer link is 44px tall; the old links were 14px text.

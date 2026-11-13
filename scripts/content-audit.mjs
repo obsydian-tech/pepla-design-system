@@ -24,6 +24,10 @@ const BANNED_WORDS = [
   [/\bheadcount\b/i, 'headcount'], [/\bresources?\b(?! (?:the|a))/i, 'resource'], [/\bthe (?:AI|system)\b/i, '"the AI" or "the system" (say Batsi)'],
   [/\bclick here\b/i, 'click here'], [/\bPepla\b/, 'Pepla (a working name; say Naleko People, or Batsi for the agent)'],
 ];
+// The one approved exception to the "resource" word rule (Iggie, 2026-11-13): the public site's menu and footer list is called
+// Resources, and that label is approved wording. Only an element whose whole text is "Resources" is exempt; "Resources for the team" is not.
+export const APPROVED_LABEL = /(?<=>)Resources(?=<)/g;
+export const withoutApprovedLabels = (html) => html.replace(APPROVED_LABEL, '');
 const BAD_BUTTONS = /^(?:OK|Okay|Submit|Click here|Yes|No)$/i;
 const BAD_DATES = [/\b\d{1,2} [A-Z][a-z]{2} \d{2}\b(?!\d)/, /\b\d{4}-\d{2}-\d{2}\b/, /\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/];
 const SA_ID = /(?<![\d•])\d{13}(?!\d)/;
@@ -68,7 +72,7 @@ export function audit() {
       if (/pp-field__required/.test(m[0]) && /pp-field__optional/.test(m[0])) report(m.index, 'content', 'form marks fields with both * and "(optional)": use one style per form');
     }
     // 4. Words we avoid, dates in the house format, IDs masked (rule 6)
-    const visible = html.replace(/<(?:script|style|option)[\s\S]*?<\/(?:script|style|option)>/g, '').replace(/\s(?:datetime|href|id|for|aria-[a-z]+|data-[a-z-]+|class|value|title|placeholder|inputmode|type|name|role)="[^"]*"/g, '');
+    const visible = withoutApprovedLabels(html).replace(/<(?:script|style|option)[\s\S]*?<\/(?:script|style|option)>/g, '').replace(/\s(?:datetime|href|id|for|aria-[a-z]+|data-[a-z-]+|class|value|title|placeholder|inputmode|type|name|role)="[^"]*"/g, '');
     for (const [re, word] of BANNED_WORDS) for (const m of visible.matchAll(new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g'))) report(0, 'words', `"${m[0]}": avoid ${word}`);
     for (const re of BAD_DATES) for (const m of text(visible).matchAll(new RegExp(re.source, 'g'))) report(0, 'dates', `date "${m[0]}": write 3 Nov 2026`);
     for (const m of text(visible).matchAll(new RegExp(SA_ID.source, 'g'))) report(0, 'popia', `13-digit number "${m[0]}" shown in full: mask it (•••••••••0876)`);

@@ -111,7 +111,7 @@
 .pp-site-menu__link:hover::before, .pp-site-menu__link:focus-visible::before { opacity: 1; }
 .pp-site-menu__link > * { position: relative; min-width: 0; }
 .pp-site-menu__name { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-075); font: var(--font-heading-xsmall); }
-.pp-site-menu__soon { font: var(--font-label-small); letter-spacing: var(--font-label-small-tracking); color: var(--color-text-subtlest); }
+.pp-site-menu__soon { display: inline-block; padding: var(--space-025) var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); border: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-label-small); letter-spacing: var(--font-heading-xxsmall-tracking); white-space: nowrap; }
 .pp-site-menu__hint { display: block; margin-top: var(--space-025); font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-site-menu__foot {
   grid-column: 1 / -1;

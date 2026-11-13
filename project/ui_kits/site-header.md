@@ -26,5 +26,5 @@ The header of the public site at desktop and phone size: at the top, after scrol
 - **Real components.** The buttons are the Button component and the logo is the Logo component; the old header drew its own.
 - **No pointer tilt, no logo breathing.** Both are left out of the system on purpose.
 - **A skip link and a focus trap.** The old site had neither.
-- **"Coming soon" as words.** The old site showed it as a pill; here it is plain text, because a status chip is for something that needs a person.
-- **"Learn" instead of "Resources".** The word rules avoid "resource", so the list that holds the Help centre, Security and POPIA and the developer documentation is called Learn. One word to change if the project lead prefers another.
+- **"Coming soon" is a small pill**, as on the approved site.
+- **"Resources"** is the approved site's word; the content audit allows that one label.

@@ -9,7 +9,7 @@ replaces: the public site's mega menu, which animated left, width and height and
 
 # Site menu
 
-The main links in the header. Product, Integrations, Learn and Company open a list; Ask Batsi is a plain link. One shared panel opens under the links: it slides to the link you point at, resizes to fit the list, and the new list fades in with its entries one after another.
+The main links in the header. Product, Integrations, Resources and Company open a list; Ask Batsi is a plain link. One shared panel opens under the links: it slides to the link you point at, resizes to fit the list, and the new list fades in with its entries one after another.
 
 ## Anatomy
 
@@ -18,7 +18,7 @@ The main links in the header. Product, Integrations, Learn and Company open a li
 3. **Trigger** (`pp-site-menu__trigger`): a 40px pill-shaped link or button. A button has a label and `chevron-down` (`pp-site-menu__chevron`, which turns over when open). A link ("Ask Batsi") has the label only.
 4. **Shared background** (`pp-site-menu__morph`) and **arrow** (`pp-site-menu__arrow`): drawn once for the whole menu, before the list. The background is one fixed size (`--layout-site-menu-max` by `--layout-site-menu-height-max`) and is scaled down to the open list.
 5. **Panel** (`pp-site-menu__panel`): one per list, transparent, on the shared background. Three widths: narrow (the default, `--layout-narrow-max`), `pp-site-menu__panel--medium` (`--layout-drawer-width-medium`) and `pp-site-menu__panel--wide` (`--layout-site-menu-max`, two columns). `pp-site-menu__panel--open` for the one showing.
-6. **Entry** (`pp-site-menu__link`): an icon tile, a name (`pp-site-menu__name`), a hint (`pp-site-menu__hint`) and, for something not built yet, "Coming soon" in plain text (`pp-site-menu__soon`). Mint is used only for the entry that is Batsi's own (the MCP server).
+6. **Entry** (`pp-site-menu__link`): an icon tile, a name (`pp-site-menu__name`), a hint (`pp-site-menu__hint`, only where the approved site has one) and, for something not built yet, "Coming soon" in a small pill (`pp-site-menu__soon`). Mint is used only for the entry that is Batsi's own (the MCP server).
 7. **Foot** (`pp-site-menu__foot`): a closing line and one link. Only the Product list has one.
 
 ## States
@@ -44,10 +44,10 @@ The main links in the header. Product, Integrations, Learn and Company open a li
 
 ## Content
 
-- Top level: Product, Ask Batsi, Integrations, Learn, Company.
+- Top level: Product, Ask Batsi, Integrations, Resources, Company.
 - Product: Employee Records, Recruitment, Onboarding and Offboarding, Leave Management, Compliance Management, HR Help Desk (Coming soon), Performance Management (Coming soon), Platform. Foot: "South Africa first: BCEA, UIF, SARS, POPIA" and "See it on a call".
 - Integrations: API, MCP server, Events and webhooks, Payroll providers (Coming soon), Verification providers (Coming soon).
-- Learn: Help centre, Security and POPIA, Developer documentation. The approved site called this list "Resources"; the word rules avoid "resource", so it is "Learn" here.
+- Resources: Help centre, Security and POPIA, Developer documentation. This is the approved site's word. The word rules avoid "resource", so the content audit allows this one label only (see scripts/content-audit.mjs).
 - Company: About Naleko Digital Solutions, Contact.
 - A hint is one short fact in noun form, not a sentence with "you".
 
@@ -71,7 +71,7 @@ Not in the signed-in app. Source: the dropdowns of the approved public site (Con
 ## Do and don't
 
 - Do give every list at most eight entries; a list longer than that is a page.
-- Do put an unbuilt module in the list with "Coming soon" in plain text.
+- Do put an unbuilt module in the list with the "Coming soon" pill.
 - Don't tilt or parallax the panel with the pointer.
 - Don't make Ask Batsi a list. It is a link to the Batsi band on the home page.
 - Don't set a width or height on a panel from a script; set the inputs above.
