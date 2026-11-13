@@ -36,6 +36,7 @@ The menu on a phone: a panel that slides in from the right over a dimmed page. I
 - Opens from the menu button in the header. Closes from the close button, a tap on the blanket, Escape, and when a link is followed.
 - On open, focus moves to the close button and stays inside the panel (a focus trap) while it is open; the page behind cannot scroll. On close, focus returns to the menu button.
 - The panel scrolls inside itself if the list is taller than the screen, and never scrolls the page behind (`overscroll-behavior: contain`).
+- The panel is never the full width: at least 48px of the page stays visible beside it, so there is always something to tap to close it.
 - Safe areas (a notch, the home bar) are added to the padding.
 - The preview script on the UI kit page opens, closes and traps focus; it is preview-only (see Site header). The Angular site uses the CDK.
 

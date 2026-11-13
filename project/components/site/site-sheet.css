@@ -18,7 +18,8 @@
   flex-direction: column;
   gap: var(--space-100);
   box-sizing: border-box;
-  width: min(var(--layout-site-sheet-width), 100%);
+  /* never the full width: a strip of the page stays visible so a tap on it closes the sheet */
+  width: min(var(--layout-site-sheet-width), calc(100% - var(--space-600)));
   padding: max(var(--space-200), env(safe-area-inset-top, 0px)) max(var(--space-250), env(safe-area-inset-right, 0px)) max(var(--space-300), env(safe-area-inset-bottom, 0px)) var(--space-250);
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -50,10 +51,10 @@
 
 /* Frame for kit pages and previews: a box that stands in for the browser window, so a phone-sized or desktop-sized
    header and its sheet can be shown side by side on one page. Not used on the site itself. */
-.pp-site-frame { position: relative; overflow: hidden; height: var(--layout-site-frame-height); background: var(--elevation-surface); border-radius: var(--radius-medium); }
+.pp-site-frame { position: relative; overflow: hidden; contain: paint; isolation: isolate; height: var(--layout-site-frame-height); background: var(--elevation-surface); border-radius: var(--radius-medium); }
 .pp-site-frame--phone { max-width: var(--layout-site-frame-phone); height: calc(var(--layout-site-frame-height) * 1.4); }
 .pp-site-frame--desktop { min-width: var(--layout-site-breakpoint-nav); }
-.pp-site-frame__page { height: 100%; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; }
+.pp-site-frame__page { height: 100%; overflow-x: hidden; overflow-y: auto; }
 .pp-site-frame__content { display: grid; gap: var(--space-200); padding: calc(var(--layout-site-header-height) + var(--space-200)) var(--layout-gutter-phone) var(--space-400); }
 .pp-site-frame > .pp-site-sheet { position: absolute; }
 
