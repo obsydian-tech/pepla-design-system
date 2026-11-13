@@ -6,13 +6,13 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var canHover = matchMedia('(hover:hover)').matches;
 
-  /* On a screen narrower than a desktop frame (1280px), shrink the desktop frames to fit instead of scrolling sideways inside the page. */
+  /* On a screen narrower than a desktop frame (1280px), shrink the desktop frames to fit (a scale, not a zoom: a zoom breaks container queries on iOS) instead of scrolling sideways inside the page. */
   function fit() {
     $$('.kframe--desktop').forEach(function (box) {
       var f = $('.pp-site-frame', box); if (!f) return;
-      f.style.zoom = ''; var avail = box.clientWidth, need = 1280;
+      f.style.removeProperty('--_fit'); var avail = box.clientWidth, need = 1280;
       box.style.minHeight = '';
-      if (avail && avail < need) { f.style.zoom = String(avail / need); box.style.minHeight = '0'; }
+      if (avail && avail < need) { f.style.setProperty('--_fit', (avail / need).toFixed(4)); box.style.minHeight = '0'; }
     });
   }
   fit(); addEventListener('resize', fit);
