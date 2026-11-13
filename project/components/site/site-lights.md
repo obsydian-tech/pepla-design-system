@@ -14,7 +14,7 @@ Soft coloured circles that drift slowly behind a hero or the closing band, so a 
 ## Anatomy
 
 1. **Layer** (`pp-site-lights`): fills its parent and sits behind the content (`z-index: -1`). The parent must create its own stacking context (the hero and band do, with `isolation: isolate`). Clips what drifts out.
-2. **Light** (`pp-site-light`): one circle with a soft edge. Colour: `--violet`, `--mint`, `--coral` or `--sky`, from the `--color-site-orb-*` tokens.
+2. **Light** (`pp-site-light`): one circle with a soft edge and a thin ring inside it, 42% of its size. Colour: `--violet`, `--mint`, `--coral` or `--sky`, from the `--color-site-orb-*` tokens.
 3. **Inputs**: `--_x` and `--_y` set the centre (percent of the parent), `--_size` the diameter (default 44cqw), `--_dx` and `--_dy` how far it drifts (default 6cqw and 3cqw), `--_i` a position 0 to 3 that offsets its start so lights never move together.
 
 ## States

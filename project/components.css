@@ -3186,7 +3186,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   overflow: clip;
   padding-block: calc(var(--space-1000) + var(--space-400));
   border-top: var(--border-width) solid var(--color-border);
-  background: linear-gradient(120deg, var(--color-site-wash-violet), var(--elevation-surface-raised) 30%, var(--color-site-wash-mint) 55%, var(--color-site-canvas) 75%, var(--color-site-wash-violet));
+  background: var(--elevation-surface-raised);
   color: var(--color-text);
   scroll-margin-top: var(--layout-site-header-height);
   container-type: inline-size;
@@ -3199,8 +3199,89 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-band__note { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
 @container (max-width: 520px) {
   .pp-site-band__actions { align-self: stretch; justify-self: stretch; flex-direction: column; }
-  .pp-site-band__actions .pp-button { justify-content: center; }
+  .pp-site-band__actions .pp-site-button { justify-content: center; }
 }
+
+/* The flowing wash: a gradient three times the band's width, slid sideways by transform. */
+.pp-site-band::before {
+  content: "";
+  position: absolute;
+  inset: 0 -200% 0 0;
+  z-index: -1;
+  background: linear-gradient(90deg, var(--color-site-wash-violet), var(--elevation-surface-raised) 15%, var(--color-site-wash-mint) 28%, var(--color-site-canvas) 38%, var(--color-site-wash-violet) 50%, var(--elevation-surface-raised) 65%, var(--color-site-wash-mint) 78%, var(--color-site-canvas) 88%, var(--color-site-wash-violet));
+  animation: pp-site-wash var(--motion-site-duration-loop-wash) ease-in-out infinite alternate;
+}
+@keyframes pp-site-wash {
+  from { transform: translateX(0); }
+  to { transform: translateX(-66.6%); }
+}
+[data-site-still] .pp-site-band::before { animation: none; }
+
+/* ---- site/site-button ---- */
+/* Site button: the public site's own button. Spec: site-button.md. Dark with a mint dot that grows into an arrow circle on hover,
+   or a white line button. The dot grows by scale, never by width, so the hover stays on the compositor. */
+.pp-site-button {
+  --_h: var(--layout-site-button-height);
+  --_dot: var(--layout-site-button-dot);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-100);
+  box-sizing: border-box;
+  min-height: var(--_h);
+  padding: 0 var(--space-250);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-full);
+  font: var(--font-heading-small);
+  letter-spacing: var(--font-heading-small-tracking);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text);
+}
+.pp-site-button--large { --_h: var(--layout-site-button-height-large); --_dot: var(--layout-site-button-dot-large); padding: 0 var(--space-400); }
+
+.pp-site-button--dark { background: var(--color-text); color: var(--color-text-inverse); padding-right: calc(var(--_dot) + var(--space-200)); }
+.pp-site-button--large.pp-site-button--dark { padding-right: calc(var(--_dot) + var(--space-250)); }
+.pp-site-button--dark::before,
+.pp-site-button--dark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(var(--_dot) / 2 + var(--space-075));
+  inline-size: var(--_dot);
+  block-size: var(--_dot);
+  margin: calc(var(--_dot) / -2) calc(var(--_dot) / -2) 0 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+/* The mint dot that grows: a full-size circle held at a quarter of its size until hover. */
+.pp-site-button--dark::before { background: var(--color-brand-mint); transform: scale(.28); transition: transform var(--motion-site-duration-menu) var(--motion-site-easing); }
+/* Its glow: a small dot with a soft shadow that fades out as the circle grows. */
+.pp-site-button--dark::after { inline-size: var(--space-100); block-size: var(--space-100); margin: calc(var(--space-100) / -2) calc(var(--space-100) / -2) 0 0; background: var(--color-brand-mint); box-shadow: 0 0 var(--space-150) var(--color-brand-mint); transition: opacity var(--motion-site-duration-menu) var(--motion-site-easing); }
+.pp-site-button--dark > .lucide {
+  position: absolute;
+  top: 50%;
+  right: calc(var(--_dot) / 2 + var(--space-075));
+  inline-size: var(--size-icon-small);
+  block-size: var(--size-icon-small);
+  margin: calc(var(--size-icon-small) / -2) calc(var(--size-icon-small) / -2) 0 0;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateX(calc(var(--space-050) * -1));
+  transition: opacity var(--motion-site-duration-header) var(--motion-site-easing), transform var(--motion-site-duration-header) var(--motion-site-easing);
+}
+.pp-site-button--dark:hover::before, .pp-site-button--dark:focus-visible::before { transform: scale(1); }
+.pp-site-button--dark:hover::after, .pp-site-button--dark:focus-visible::after { opacity: 0; }
+.pp-site-button--dark:hover > .lucide, .pp-site-button--dark:focus-visible > .lucide { opacity: 1; transform: none; }
+
+.pp-site-button--line { background: var(--elevation-surface-raised); border-color: var(--color-border-input); color: var(--color-text); }
+.pp-site-button--line:hover { border-color: var(--color-text); }
+.pp-site-button--line > .lucide { color: var(--color-text-agent); inline-size: var(--size-icon-medium); block-size: var(--size-icon-medium); }
+.pp-site-button:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+@media (forced-colors: active) { .pp-site-button--dark::before, .pp-site-button--dark::after { display: none; } .pp-site-button--dark > .lucide { opacity: 1; position: static; margin: 0; transform: none; } }
+[data-site-still] .pp-site-button--dark::before, [data-site-still] .pp-site-button--dark::after, [data-site-still] .pp-site-button > .lucide { transition: none; }
 
 /* ---- site/site-caps ---- */
 /* Site capabilities: a row of short columns that sums up what a module does. Spec: site-caps.md. */
@@ -3238,8 +3319,29 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   block-size: var(--border-width);
   background-image: linear-gradient(90deg, var(--color-site-gradient-1), var(--color-site-gradient-2), var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-5), var(--color-site-gradient-6));
 }
+/* Flowing: add data-text and the class below. Two copies of the words, drawn by pseudo-elements, hold the gradient at shifted
+   positions and fade in turn over the static words, so the colours seem to flow. Opacity only. */
+.pp-site-gradient-text--flow { position: relative; }
+.pp-site-gradient-text--flow::before,
+.pp-site-gradient-text--flow::after {
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  position: absolute;
+  inset: 0 0 -.25em 0;
+  background-image: linear-gradient(90deg, var(--color-site-gradient-6), var(--color-site-gradient-5), var(--color-site-gradient-4), var(--color-site-gradient-text-3), var(--color-site-gradient-2), var(--color-site-gradient-1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  pointer-events: none;
+  animation: pp-site-flow var(--motion-site-duration-loop-flow) ease-in-out infinite;
+}
+.pp-site-gradient-text--flow::after { background-image: linear-gradient(90deg, var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-6), var(--color-site-gradient-5), var(--color-site-gradient-2), var(--color-site-gradient-1)); animation-delay: calc(var(--motion-site-duration-loop-flow) / -2); }
+@keyframes pp-site-flow { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+[data-site-still] .pp-site-gradient-text--flow::before, [data-site-still] .pp-site-gradient-text--flow::after { animation: none; opacity: 0; }
 @media (forced-colors: active) {
   .pp-site-gradient-text { color: LinkText; }
+  .pp-site-gradient-text--flow::before, .pp-site-gradient-text--flow::after { display: none; }
 }
 
 /* ---- site/site-header ---- */
@@ -3373,8 +3475,48 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-150); }
 @container (max-width: 520px) {
   .pp-site-hero__actions { align-self: stretch; flex-direction: column; }
-  .pp-site-hero__actions .pp-button { justify-content: center; }
+  .pp-site-hero__actions .pp-site-button { justify-content: center; }
 }
+
+/* Grain: a fine noise tile that jitters in steps, as in the approved hero. Transform only. */
+.pp-site-hero__grain {
+  position: absolute;
+  inset: -50%;
+  z-index: -1;
+  background-image: url("assets/site-grain.png");
+  opacity: .05;
+  pointer-events: none;
+  animation: pp-site-grain var(--motion-site-duration-loop-grain) steps(6) infinite;
+}
+@keyframes pp-site-grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 1%); }
+}
+/* Scroll cue: the word and a line that draws itself down. Desktop widths only. */
+.pp-site-hero__cue {
+  position: absolute;
+  right: max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px));
+  bottom: var(--space-300);
+  display: none;
+  align-items: center;
+  gap: var(--space-150);
+  font: var(--font-label-small);
+  letter-spacing: var(--font-site-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--color-text-subtlest);
+}
+.pp-site-hero__cue::after { content: ""; inline-size: var(--border-width); block-size: var(--space-600); background: linear-gradient(var(--color-text), transparent); transform-origin: top; animation: pp-site-drip var(--motion-site-duration-loop-cue) ease-in-out infinite; }
+@keyframes pp-site-drip {
+  0% { transform: scaleY(0); opacity: 1; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+@container (min-width: 768px) { .pp-site-hero__cue { display: flex; } }
+[data-site-still] .pp-site-hero__grain, [data-site-still] .pp-site-hero__cue::after { animation: none; }
+@media (prefers-reduced-motion: reduce) { .pp-site-hero__grain { animation: none; } }
 
 /* ---- site/site-lights ---- */
 /* Site lights: soft coloured circles that drift behind a hero or a band. Spec: site-lights.md. Transform only. */
@@ -3395,6 +3537,8 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   animation: pp-site-light-drift var(--motion-site-duration-loop-orb) ease-in-out infinite;
   animation-delay: calc(var(--_i, 0) * var(--motion-site-duration-loop-orb-offset));
 }
+/* The thin ring inside each light, as in the approved hero: a circle 42% of the light's size. */
+.pp-site-light::after { content: ""; position: absolute; inset: 29%; border: var(--border-width) solid color-mix(in srgb, var(--_color) 55%, transparent); border-radius: 50%; }
 .pp-site-light--violet { --_color: var(--color-site-orb-violet); }
 .pp-site-light--mint { --_color: var(--color-site-orb-mint); }
 .pp-site-light--coral { --_color: var(--color-site-orb-coral); }
