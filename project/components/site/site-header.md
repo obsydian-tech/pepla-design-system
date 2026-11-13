@@ -15,9 +15,9 @@ The bar at the top of every public page: the logo, the menu ([Site menu](site-me
 
 1. **Header** (`pp-site-header`): sticky at the top, `--layout-site-header-height` tall (72px) and 56px shrunk. It floats over the page, so the first section starts under it.
 2. **Bar** (`pp-site-header__bar`): the content row, its content at most `--layout-site-max` wide, with the site gutter on each side.
-3. **Logo** (`pp-site-header__logo`, with `pp-logo`): the Logo component, default size. A link home.
+3. **Logo** (`pp-site-header__logo`, with `pp-logo`): the Logo component, default size. A link home. The three circles of the mark breathe: each swells to 108% and settles over 6s, one third of a cycle apart (`scale` only; 12s under reduced motion, never still; off in still mode).
 4. **Menu** (`pp-site-header__menu`): holds the [Site menu](site-menu.html). Hidden below 1280px.
-5. **Actions** (`pp-site-header__actions`): Log in (`pp-site-header__login`, a subtle Button), Get started (`pp-site-header__secondary`, a default Button) and Book a demo (`pp-site-header__primary`, the one primary Button, with `arrow-right`). The menu button (`pp-site-header__burger`) is an icon Button with `menu`.
+5. **Actions** (`pp-site-header__actions`): Log in (`pp-site-header__login`, a subtle Button), Get started (`pp-site-header__secondary`, a line [Site button](site-button.html)) and Book a demo (`pp-site-header__primary`, the dark Site button with the growing mint dot and `arrow-right`). The menu button (`pp-site-header__burger`) is an icon Button with `menu`.
 6. **Skip link** (`pp-site-header__skip`): "Skip to content", first in the tab order, seen only while focused.
 7. **Frame** (`pp-site-frame`, `pp-site-frame--desktop`, `pp-site-frame--phone`, `pp-site-frame__page`, `pp-site-frame__content`): a box that stands in for the browser window on kit and spec pages, so a desktop and a phone header can be shown side by side. The site does not use it.
 
@@ -65,7 +65,7 @@ The layout follows the header's own width (a container query), not the window's.
 
 ## PrimeNG mapping
 
-None. The public site does not use PrimeNG. In Angular, `<pp-site-header>` wraps the same classes, uses `pp-logo`, `pp-button` and `pp-site-menu`, and a directive adds the scrolled class.
+None. The public site does not use PrimeNG. In Angular, `<pp-site-header>` wraps the same classes, uses `pp-logo`, `pp-site-button` and `pp-site-menu`, and a directive adds the scrolled class.
 
 ## In Naleko People today
 
@@ -73,7 +73,7 @@ Not in the signed-in app, which has its own top navigation. Source: the header o
 
 ## Do and don't
 
-- Do keep Book a demo as the one primary button, and Get started a default button.
+- Do keep Book a demo as the one dark button, and Get started the line button.
 - Do let the first section start under the header; it is 72px tall and floats.
 - Don't put a lozenge, a role pill or a language switch in the header.
 - Don't animate its height or background colour. Use the scrolled class.

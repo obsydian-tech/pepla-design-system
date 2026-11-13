@@ -57,6 +57,19 @@
   .pp-site-header__burger { display: none; }
 }
 
+/* Logo breathing: the three circles of the mark swell and settle in turn (scale only), as on the approved site. */
+.pp-site-header__logo .pp-logo__mark circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pp-site-breathe var(--motion-site-duration-loop-breathe) ease-in-out infinite;
+}
+.pp-site-header__logo .pp-logo__violet { animation-delay: calc(var(--motion-site-duration-loop-breathe) / -3); }
+.pp-site-header__logo .pp-logo__mint { animation-delay: calc(var(--motion-site-duration-loop-breathe) / -1.5); }
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-header__logo .pp-logo__mark circle { animation-duration: var(--motion-site-duration-loop-breathe-reduced); }
+}
+[data-site-still] .pp-site-header__logo .pp-logo__mark circle { animation: none; }
+
 /* Skip link: hidden until a keyboard focuses it. */
 .pp-site-header__skip {
   position: absolute;

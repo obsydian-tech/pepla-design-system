@@ -48,6 +48,7 @@
 .pp-site-sheet__link:hover { background: var(--color-background-neutral-subtle-hovered); }
 .pp-site-sheet__soon { display: inline-block; padding: var(--space-025) var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); border: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-label-small); letter-spacing: var(--font-heading-xxsmall-tracking); white-space: nowrap; }
 .pp-site-sheet__actions { display: grid; gap: var(--space-100); margin-top: auto; padding-top: var(--space-300); }
+.pp-site-sheet__actions .pp-site-button { justify-content: center; }
 
 /* Frame for kit pages and previews: a box that stands in for the browser window, so a phone-sized or desktop-sized
    header and its sheet can be shown side by side on one page. Not used on the site itself. */

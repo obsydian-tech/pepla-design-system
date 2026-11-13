@@ -59,6 +59,8 @@ export const siteMotion = {
   'motion.site.duration.loop.wash': '16s',     // one slide of the closing band's wash
   'motion.site.duration.loop.flow': '14s',     // one flow of the company-name gradient
   'motion.site.duration.loop.flow.reduced': '28s', // reduced motion: half speed, never still
+  'motion.site.duration.loop.breathe': '6s',   // one breath of the header logo's circles
+  'motion.site.duration.loop.breathe.reduced': '12s', // reduced motion: half speed, never still
 };
 
 export const siteLayout = {
@@ -67,6 +69,7 @@ export const siteLayout = {
   'layout.site.header.height': '72px',
   'layout.site.header.height.shrunk': '56px',
   'layout.site.subnav.height': '56px',
+  'layout.site.menu.perspective': '1200px', // depth for the menu's pointer tilt
   'layout.site.menu.max': '720px',      // the widest the shared menu panel gets
   'layout.site.menu.height.max': '360px', // the tallest it gets: the shared background is this size and scales down to fit each list
   'layout.site.sheet.width': '380px',   // the phone menu sheet, at most
