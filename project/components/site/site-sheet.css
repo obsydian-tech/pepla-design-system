@@ -1,0 +1,65 @@
+/* Site sheet: the phone menu. Spec: site-sheet.md. Slides in from the right over a blanket; opacity and transform only. */
+.pp-site-sheet { position: fixed; inset: 0; z-index: var(--layer-modal); pointer-events: none; }
+.pp-site-sheet--open { pointer-events: auto; }
+.pp-site-sheet__blanket {
+  position: absolute;
+  inset: 0;
+  background: var(--color-blanket);
+  opacity: 0;
+  transition: opacity var(--motion-site-duration-header) var(--motion-site-easing);
+}
+.pp-site-sheet--open .pp-site-sheet__blanket { opacity: 1; }
+.pp-site-sheet__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+  box-sizing: border-box;
+  /* never the full width: a strip of the page stays visible so a tap on it closes the sheet */
+  width: min(var(--layout-site-sheet-width), calc(100% - var(--space-600)));
+  padding: max(var(--space-200), env(safe-area-inset-top, 0px)) max(var(--space-250), env(safe-area-inset-right, 0px)) max(var(--space-300), env(safe-area-inset-bottom, 0px)) var(--space-250);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--elevation-surface-overlay);
+  box-shadow: var(--elevation-shadow-overlay);
+  transform: translateX(100%);
+  transition: transform var(--motion-site-duration-menu) var(--motion-site-easing);
+}
+.pp-site-sheet--open .pp-site-sheet__panel { transform: none; }
+.pp-site-sheet__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-200); }
+.pp-site-sheet__heading { margin: var(--space-200) 0 var(--space-050); font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); text-transform: uppercase; color: var(--color-text-subtlest); }
+.pp-site-sheet__list { display: grid; margin: 0; padding: 0; list-style: none; }
+.pp-site-sheet__link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-100);
+  min-height: var(--size-touch-target);
+  padding: var(--space-100) var(--space-050);
+  border-bottom: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-xsmall);
+  color: var(--color-text);
+  font: var(--font-body-large);
+  text-decoration: none;
+}
+.pp-site-sheet__link:hover { background: var(--color-background-neutral-subtle-hovered); }
+.pp-site-sheet__soon { font: var(--font-label-small); letter-spacing: var(--font-label-small-tracking); color: var(--color-text-subtlest); }
+.pp-site-sheet__actions { display: grid; gap: var(--space-100); margin-top: auto; padding-top: var(--space-300); }
+
+/* Frame for kit pages and previews: a box that stands in for the browser window, so a phone-sized or desktop-sized
+   header and its sheet can be shown side by side on one page. Not used on the site itself. */
+.pp-site-frame { position: relative; overflow: hidden; contain: paint; isolation: isolate; height: var(--layout-site-frame-height); background: var(--elevation-surface); border-radius: var(--radius-medium); }
+.pp-site-frame--phone { max-width: var(--layout-site-frame-phone); height: calc(var(--layout-site-frame-height) * 1.4); }
+.pp-site-frame--desktop { min-width: var(--layout-site-breakpoint-nav); }
+.pp-site-frame__page { height: 100%; overflow-x: hidden; overflow-y: auto; }
+.pp-site-frame__content { display: grid; gap: var(--space-200); padding: calc(var(--layout-site-header-height) + var(--space-200)) var(--layout-gutter-phone) var(--space-400); }
+.pp-site-frame > .pp-site-sheet { position: absolute; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-sheet__panel { transform: none; opacity: 0; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+  .pp-site-sheet--open .pp-site-sheet__panel { opacity: 1; }
+}
+[data-site-still] .pp-site-sheet__blanket, [data-site-still] .pp-site-sheet__panel { transition: none; }

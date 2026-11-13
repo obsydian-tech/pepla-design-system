@@ -66,15 +66,20 @@ const page = (title, body, up) => `<!doctype html>
 const kitHtml = (k, h = 'h1', cls = '') => `<section class="kdoc" id="${k.slug}"><${h}${cls}>${esc(k.meta.name)}</${h}>${marked.parse(k.body.replace(/^\s*# .+\n/, ''))}</section>` +
   k.screens.map((s) => `<div class="kscreen"><div class="klbl">${esc(s.title)} <span class="pp-lozenge">${s.device === 'phone' ? 'Phone' : 'Desktop'}</span></div><div class="kframe kframe--${s.device}">${s.inner}</div></div>`).join('');
 
+// A kit whose frontmatter names a preview script gets it appended to its page. The script lives in scripts/preview/
+// and only drives the live frames on the kit page (scroll, menu, sheet). It is never part of a component or the site.
+const previewScript = (kits) => [...new Set(kits.map((k) => k.meta.preview).filter(Boolean))]
+  .map((n) => `<script>${readFileSync(new URL(`scripts/preview/${n}.js`, ROOT), 'utf8')}</script>`).join('\n');
+
 export function buildKits(kits, DIST) {
   const out = new URL('ui-kits/', DIST);
   mkdirSync(out, { recursive: true });
   for (const k of kits) {
-    writeFileSync(new URL(`${k.slug}.html`, out), page(k.meta.name, inlineIcons(`<div class="kbar"><a href="../kits.html">All UI kits</a>${THEME}</div>` + kitHtml(k)), '../'));
+    writeFileSync(new URL(`${k.slug}.html`, out), page(k.meta.name, inlineIcons(`<div class="kbar"><a href="../kits.html">All UI kits</a>${THEME}</div>` + kitHtml(k)) + previewScript([k]), '../'));
   }
   const toc = `<nav class="ktoc" aria-label="Kits">${kits.map((k) => `<a href="#${k.slug}">${esc(k.meta.name)}</a>`).join('')}</nav>`;
   const intro = `<section class="kdoc"><h1>Naleko People UI kits</h1><p>Today's TalentFlow and Onboarding screens, redrawn only from Naleko People components and tokens: same content and flow, new look. ${kits.reduce((n, k) => n + k.screens.length, 0)} screens in ${kits.length} kits. Use the theme button to see them in dark. Components and foundations: <a href="components.html">all components</a>, <a href="index.html">foundations</a>.</p>${toc}</section>`;
-  writeFileSync(new URL('kits.html', DIST), page('UI kits', inlineIcons(`<div class="kbar"><span></span>${THEME}</div>` + intro + kits.map((k) => kitHtml(k, 'h2', ' class="kname"')).join('')), ''));
+  writeFileSync(new URL('kits.html', DIST), page('UI kits', inlineIcons(`<div class="kbar"><span></span>${THEME}</div>` + intro + kits.map((k) => kitHtml(k, 'h2', ' class="kname"')).join('')) + previewScript(kits), ''));
 }
 
 if (process.argv[1]?.endsWith('kits.mjs')) {
