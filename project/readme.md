@@ -249,6 +249,17 @@ The Angular app runs the same rules on its templates and stylesheets, plus a ban
 | Search | `search` |
 | More actions | `ellipsis` |
 
+## The public site layer
+
+The public marketing site (components in `project/components/site/`, tokens in `tokens/site.mjs`) is built the same way as the platform: only components and tokens, no inline styles, no hand-written SVG, checked by `verify:design` before every merge. What is different:
+
+- **Always light.** Site pages pin `data-theme="light"`. Site tokens carry the same value in both themes.
+- **Its own tokens.** `--color-site-*` (cream canvas, washes, soft lights, the Naleko gradient, the one dark code surface), `--motion-site-*` and `--layout-site-*`. Reduced motion does not zero these: demos and loops keep playing, arrivals fade without moving and lights drift at half speed.
+- **Motion on `transform` and `opacity` only.** Animating a mask, a size or a shadow made the landing page crawl. `scripts/site-audit.mjs` fails any keyframe or transition on another property.
+- **Still mode.** `data-site-still="start"` or `"end"` freezes every loop and shows every arrival, so a screenshot is the same each time. The parity check between the kit pages and the Angular site relies on it.
+- **Site wording.** No "AI Agent", "work email", "Midrand" or "Pepla", no em dash, and the only sample people are John Doe and Jane Smith.
+- **Visible at rest.** Content is never hidden by CSS alone. A page script opts in to hiding arrivals.
+
 ## One Naleko People: how the platform fits together
 
 Naleko People is one product with modules inside it, not a set of apps. Every module feels the same because it is built from the same shell, components and patterns.

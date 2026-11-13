@@ -21,6 +21,7 @@ export const GROUPS = [
   ['navigation', 'Navigation', 'App shell, side and top navigation, tabs, breadcrumbs, pagination, page header'],
   ['data', 'Data', 'Tables, cards, stat cards, description lists, accordions, timelines'],
   ['agent', 'Agent', 'Everything Naleko People\'s AI agents show: proposals, marks, panels'],
+  ['site', 'Public site', 'The marketing site: motion, header, sections, forms and demos'],
   ['records', 'HR records', 'People, documents, verification, deadlines, pipeline, approvals, audit'],
 ];
 

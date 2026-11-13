@@ -13,12 +13,14 @@
 //   markup   a static style="" (only component inputs, --_name: value, may be set inline);
 //            a <style> or <script> block; a class that is not a pp- class a component defines;
 //            a <button>, <input>, <select>, <textarea> or <table> without a pp- class
+//   site     (project/components/site) a keyframe or transition on anything but transform and opacity; banned site words; sample names other than John Doe and Jane Smith
 //   icons    a hand-written <svg> (icons are <i data-lucide>, the mark is <i data-pepla-mark>);
 //            a glyph or emoji standing in for an icon; an arrow used as an icon; a Lucide icon
 //            that is not in the readme's Iconography table
 //
 // Comments are ignored. There is no escape hatch: change the system, not the check.
 import { audit as calm } from './calm-audit.mjs';
+import { auditSite } from './site-audit.mjs';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -157,6 +159,8 @@ export function verify() {
   for (const f of markup) violations.push(...checkMarkup(relative(ROOT, f), readFileSync(f, 'utf8')));
   // Calm screens (readme): how much is on a kit screen, not only what it is made of.
   for (const c of calm()) violations.push({ file: c.file, line: c.screen, rule: `calm:${c.rule}`, text: c.msg });
+  // Public site layer: motion on compositor properties only, site wording and sample names.
+  for (const s of auditSite()) violations.push(s);
   return violations;
 }
 
