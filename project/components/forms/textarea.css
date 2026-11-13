@@ -17,8 +17,9 @@
   font: var(--font-body);
   letter-spacing: var(--font-body-tracking);
   resize: vertical;
-  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
-              border-color var(--motion-duration-fast) var(--motion-easing-standard);
+  transition: background-color var(--motion-duration-medium) var(--motion-easing-standard),
+              border-color var(--motion-duration-medium) var(--motion-easing-standard),
+              box-shadow var(--motion-duration-medium) var(--motion-easing-standard);
 }
 .pp-textarea::placeholder { color: var(--color-text-subtlest); opacity: 1; }
 .pp-textarea:hover { --_bg: var(--color-background-input-hovered); }

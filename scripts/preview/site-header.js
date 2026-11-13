@@ -96,6 +96,13 @@
       /* pointer tilt: the open panel leans up to 1.5deg toward the pointer (rotation only, set as the --_rx and --_ry inputs).
          Only for a real pointer, and never when the visitor asked for less motion or the frame is in still mode. */
       var calm = matchMedia('(prefers-reduced-motion: reduce)').matches || frame.closest('[data-site-still]');
+      /* pointer light: the soft light in the open panel drifts to the pointer (the --_gx and --_gy inputs). It also plays under reduced motion; only still mode holds it. */
+      menu.addEventListener('mousemove', function (e) {
+        if (!cur || !canHover || frame.closest('[data-site-still]')) return;
+        var p = parts(cur).p; if (!p) return;
+        var b = p.getBoundingClientRect(); if (!b.width) return;
+        p.style.setProperty('--_gx', (e.clientX - b.left - b.width / 2).toFixed(0) + 'px'); p.style.setProperty('--_gy', (e.clientY - b.top).toFixed(0) + 'px');
+      });
       menu.addEventListener('mousemove', function (e) {
         if (!cur || !canHover || calm) return;
         var r = morph.getBoundingClientRect(); if (!r.width || !r.height) return;

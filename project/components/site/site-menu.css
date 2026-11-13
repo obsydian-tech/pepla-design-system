@@ -5,6 +5,7 @@
      --_sx --_sy   background size as a fraction of its reference size (unitless, 0 to 1)
      --_ax  where the arrow points, from the left of the menu         (length)
      --_dir which side the panel arrives from: 1 right, -1 left        (unitless)
+     --_gx --_gy  where the soft light sits in the open panel, from its top centre (length; the light drifts there, slowly)
      --_rx --_ry  the tilt that follows the pointer, set on the menu   (angle, within 1.5deg; 0deg when closed or on a touch screen) */
 .pp-site-menu {
   --_ox: calc(var(--layout-site-menu-max) / 2); /* the tilt pivots here, so the background, arrow and panels tilt as one */
@@ -80,6 +81,10 @@
   box-sizing: border-box;
   width: var(--layout-narrow-max);
   padding: var(--space-100);
+  border-radius: var(--radius-medium);
+  overflow: clip;
+  overflow-clip-margin: var(--space-050);
+  isolation: isolate;
   opacity: 0;
   pointer-events: none;
   transform-origin: 0 0;
@@ -144,3 +149,19 @@
 [data-site-still] .pp-site-menu__morph, [data-site-still] .pp-site-menu__arrow,
 [data-site-still] .pp-site-menu__panel, [data-site-still] .pp-site-menu__link,
 [data-site-still] .pp-site-header, [data-site-still] .pp-site-header::before, [data-site-still] .pp-site-header__bar { transition: none; }
+
+/* The soft purple and mint light that follows the pointer inside the open panel. A circle moved by transform only, clipped by the panel. */
+.pp-site-menu__panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 0;
+  inline-size: calc(var(--space-1000) * 6.5);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-brand-violet) 8%, transparent), color-mix(in srgb, var(--color-brand-mint) 5%, transparent) 40%, transparent 70%);
+  pointer-events: none;
+  transform: translate(calc(var(--_gx, 0px) - 50%), calc(var(--_gy, 0px) - 50%));
+  transition: transform var(--motion-site-duration-menu) var(--motion-site-easing);
+}
