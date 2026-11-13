@@ -3178,6 +3178,134 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-confidence-sources__found { grid-column: 2; font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-confidence-sources__found--mismatch { color: var(--color-text-warning); }
 
+/* ---- site/site-band ---- */
+/* Site closing band: the last section before the footer. Spec: site-band.md. */
+.pp-site-band {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-block: calc(var(--space-1000) + var(--space-400));
+  border-top: var(--border-width) solid var(--color-border);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+  scroll-margin-top: var(--layout-site-header-height);
+  container-type: inline-size;
+}
+.pp-site-band__inner { display: grid; justify-items: start; gap: var(--space-400); }
+.pp-site-band__inner .pp-site-eyebrow { margin: 0; }
+.pp-site-band__title { margin: 0; font: var(--font-site-band); letter-spacing: var(--font-site-band-tracking); color: var(--color-text); }
+.pp-site-band__lead { margin: 0; max-width: 52ch; font: var(--font-site-lead); letter-spacing: var(--font-site-lead-tracking); color: var(--color-text-subtle); }
+.pp-site-band__actions { display: flex; flex-wrap: wrap; gap: var(--space-150); }
+.pp-site-band__note { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
+@container (max-width: 520px) {
+  .pp-site-band__actions { align-self: stretch; justify-self: stretch; flex-direction: column; }
+  .pp-site-band__actions .pp-site-button { justify-content: center; }
+}
+
+/* The flowing wash: a gradient three times the band's width, slid sideways by transform. */
+.pp-site-band::before {
+  content: "";
+  position: absolute;
+  inset: 0 -200% 0 0;
+  z-index: -1;
+  background: linear-gradient(90deg, var(--color-site-wash-violet), var(--elevation-surface-raised) 15%, var(--color-site-wash-mint) 28%, var(--color-site-canvas) 38%, var(--color-site-wash-violet) 50%, var(--elevation-surface-raised) 65%, var(--color-site-wash-mint) 78%, var(--color-site-canvas) 88%, var(--color-site-wash-violet));
+  animation: pp-site-wash var(--motion-site-duration-loop-wash) ease-in-out infinite alternate;
+}
+@keyframes pp-site-wash {
+  from { transform: translateX(0); }
+  to { transform: translateX(-66.6%); }
+}
+[data-site-still] .pp-site-band::before { animation: none; }
+
+/* ---- site/site-button ---- */
+/* Site button: the public site's own button. Spec: site-button.md. Dark with a mint dot that grows into an arrow circle on hover,
+   or a white line button. The dot grows by scale, never by width, so the hover stays on the compositor. */
+.pp-site-button {
+  --_h: var(--layout-site-button-height);
+  --_dot: var(--layout-site-button-dot);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-100);
+  box-sizing: border-box;
+  min-height: var(--_h);
+  padding: 0 var(--space-250);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-full);
+  font: var(--font-heading-small);
+  letter-spacing: var(--font-heading-small-tracking);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text);
+}
+.pp-site-button--large { --_h: var(--layout-site-button-height-large); --_dot: var(--layout-site-button-dot-large); padding: 0 var(--space-400); }
+
+.pp-site-button--dark { background: var(--color-text); color: var(--color-text-inverse); padding-right: calc(var(--_dot) + var(--space-200)); }
+.pp-site-button--large.pp-site-button--dark { padding-right: calc(var(--_dot) + var(--space-250)); }
+.pp-site-button--dark::before,
+.pp-site-button--dark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(var(--_dot) / 2 + var(--space-075));
+  inline-size: var(--_dot);
+  block-size: var(--_dot);
+  margin: calc(var(--_dot) / -2) calc(var(--_dot) / -2) 0 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+/* The mint dot that grows: a full-size circle held at a quarter of its size until hover. */
+.pp-site-button--dark::before { background: var(--color-brand-mint); transform: scale(.28); transition: transform var(--motion-site-duration-menu) var(--motion-site-easing); }
+/* Its glow: a small dot with a soft shadow that fades out as the circle grows. */
+.pp-site-button--dark::after { inline-size: var(--space-100); block-size: var(--space-100); margin: calc(var(--space-100) / -2) calc(var(--space-100) / -2) 0 0; background: var(--color-brand-mint); box-shadow: 0 0 var(--space-150) var(--color-brand-mint); transition: opacity var(--motion-site-duration-menu) var(--motion-site-easing); }
+.pp-site-button--dark > .lucide {
+  position: absolute;
+  top: 50%;
+  right: calc(var(--_dot) / 2 + var(--space-075));
+  inline-size: var(--size-icon-small);
+  block-size: var(--size-icon-small);
+  margin: calc(var(--size-icon-small) / -2) calc(var(--size-icon-small) / -2) 0 0;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateX(calc(var(--space-050) * -1));
+  transition: opacity var(--motion-site-duration-header) var(--motion-site-easing), transform var(--motion-site-duration-header) var(--motion-site-easing);
+}
+.pp-site-button--dark:hover::before, .pp-site-button--dark:focus-visible::before { transform: scale(1); }
+.pp-site-button--dark:hover::after, .pp-site-button--dark:focus-visible::after { opacity: 0; }
+.pp-site-button--dark:hover > .lucide, .pp-site-button--dark:focus-visible > .lucide { opacity: 1; transform: none; }
+
+.pp-site-button--line { background: var(--elevation-surface-raised); border-color: var(--color-border-input); color: var(--color-text); }
+.pp-site-button--line:hover { border-color: var(--color-text); }
+.pp-site-button--line > .lucide { color: var(--color-text-agent); inline-size: var(--size-icon-medium); block-size: var(--size-icon-medium); }
+.pp-site-button:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+@media (forced-colors: active) { .pp-site-button--dark::before, .pp-site-button--dark::after { display: none; } .pp-site-button--dark > .lucide { opacity: 1; position: static; margin: 0; transform: none; } }
+[data-site-still] .pp-site-button--dark::before, [data-site-still] .pp-site-button--dark::after, [data-site-still] .pp-site-button > .lucide { transition: none; }
+
+/* ---- site/site-caps ---- */
+/* Site capabilities: a row of short columns that sums up what a module does. Spec: site-caps.md. */
+.pp-site-caps {
+  display: grid;
+  gap: var(--space-300);
+  margin: var(--space-500) 0 0;
+  padding: 0;
+  list-style: none;
+}
+@container (min-width: 768px) { .pp-site-caps { grid-template-columns: repeat(2, 1fr); } }
+@container (min-width: 1080px) { .pp-site-caps { grid-template-columns: repeat(4, 1fr); } }
+.pp-site-caps__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-075);
+  padding-top: var(--space-200);
+  border-top: var(--border-width-selected) solid var(--color-text);
+}
+.pp-site-caps__title { margin: 0; font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); color: var(--color-text); }
+.pp-site-caps__text { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-site-caps__item .pp-lozenge { margin-top: var(--space-050); }
+
 /* ---- site/site-footer ---- */
 /* Site footer. Spec: site-footer.md. Layout follows the footer's own width (container query), so a phone-sized preview on a wide screen lays out like a phone. */
 .pp-site-footer {
@@ -3276,8 +3404,29 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   block-size: var(--border-width);
   background-image: linear-gradient(90deg, var(--color-site-gradient-1), var(--color-site-gradient-2), var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-5), var(--color-site-gradient-6));
 }
+/* Flowing: add data-text and the class below. Two copies of the words, drawn by pseudo-elements, hold the gradient at shifted
+   positions and fade in turn over the static words, so the colours seem to flow. Opacity only. */
+.pp-site-gradient-text--flow { position: relative; }
+.pp-site-gradient-text--flow::before,
+.pp-site-gradient-text--flow::after {
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  position: absolute;
+  inset: 0 0 -.25em 0;
+  background-image: linear-gradient(90deg, var(--color-site-gradient-6), var(--color-site-gradient-5), var(--color-site-gradient-4), var(--color-site-gradient-text-3), var(--color-site-gradient-2), var(--color-site-gradient-1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  pointer-events: none;
+  animation: pp-site-flow var(--motion-site-duration-loop-flow) ease-in-out infinite;
+}
+.pp-site-gradient-text--flow::after { background-image: linear-gradient(90deg, var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-6), var(--color-site-gradient-5), var(--color-site-gradient-2), var(--color-site-gradient-1)); animation-delay: calc(var(--motion-site-duration-loop-flow) / -2); }
+@keyframes pp-site-flow { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+[data-site-still] .pp-site-gradient-text--flow::before, [data-site-still] .pp-site-gradient-text--flow::after { animation: none; opacity: 0; }
 @media (forced-colors: active) {
   .pp-site-gradient-text { color: LinkText; }
+  .pp-site-gradient-text--flow::before, .pp-site-gradient-text--flow::after { display: none; }
 }
 
 /* ---- site/site-header ---- */
@@ -3357,6 +3506,136 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   pointer-events: none;
 }
 .pp-site-header__skip:focus { opacity: 1; transform: none; pointer-events: auto; }
+
+/* ---- site/site-hero ---- */
+/* Site hero: the top of the landing page. Spec: site-hero.md. The header floats over its top padding. */
+.pp-site-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-top: var(--layout-site-header-height);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+  container-type: inline-size;
+}
+/* The ground fades to white where the hero meets the first section. */
+.pp-site-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  block-size: calc(var(--space-1000) * 2);
+  z-index: -1;
+  background: linear-gradient(transparent, var(--elevation-surface-raised));
+  pointer-events: none;
+}
+.pp-site-hero__intro { display: grid; gap: var(--space-200); padding-top: var(--space-500); font: var(--font-body-large); color: var(--color-text-subtle); }
+.pp-site-hero__intro p { margin: 0; max-width: 48ch; }
+.pp-site-hero__intro strong { color: var(--color-text); font-weight: var(--font-weight-semibold); }
+@container (min-width: 1024px) {
+  .pp-site-hero__intro { grid-template-columns: 1fr 1fr; align-items: start; }
+  .pp-site-hero__chips { justify-content: flex-end; }
+}
+.pp-site-hero__chips { display: flex; flex-wrap: wrap; gap: var(--space-100); margin: 0; padding: 0; list-style: none; }
+.pp-site-hero__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-075);
+  padding: var(--space-075) var(--space-150);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--elevation-surface-raised) 80%, transparent);
+  font: var(--font-body-strong);
+  color: var(--color-text);
+}
+.pp-site-hero__chip::before { content: ""; inline-size: var(--space-075); block-size: var(--space-075); border-radius: 50%; background: var(--color-brand-violet); }
+
+.pp-site-hero__main { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-400); padding-block: calc(var(--space-1000) - var(--space-100)) var(--space-1000); }
+@container (min-width: 768px) {
+  .pp-site-hero__main { padding-block: calc(var(--space-1000) + var(--space-600)) calc(var(--space-1000) + var(--space-800)); }
+}
+.pp-site-hero__main .pp-site-eyebrow { margin: 0; }
+.pp-site-hero__title { margin: 0; font: var(--font-site-hero); letter-spacing: var(--font-site-hero-tracking); color: var(--color-text); }
+.pp-site-hero__line { display: block; }
+.pp-site-hero__lead { margin: 0; max-width: 56ch; font: var(--font-site-lead); letter-spacing: var(--font-site-lead-tracking); color: var(--color-text-subtle); }
+.pp-site-hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-150); }
+@container (max-width: 520px) {
+  .pp-site-hero__actions { align-self: stretch; flex-direction: column; }
+  .pp-site-hero__actions .pp-site-button { justify-content: center; }
+}
+
+/* Grain: a fine noise tile that jitters in steps, as in the approved hero. Transform only. */
+.pp-site-hero__grain {
+  position: absolute;
+  inset: -50%;
+  z-index: -1;
+  background-image: url("assets/site-grain.png");
+  opacity: .05;
+  pointer-events: none;
+  animation: pp-site-grain var(--motion-site-duration-loop-grain) steps(6) infinite;
+}
+@keyframes pp-site-grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 1%); }
+}
+/* Scroll cue: the word and a line that draws itself down. Desktop widths only. */
+.pp-site-hero__cue {
+  position: absolute;
+  right: max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px));
+  bottom: var(--space-300);
+  display: none;
+  align-items: center;
+  gap: var(--space-150);
+  font: var(--font-label-small);
+  letter-spacing: var(--font-site-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--color-text-subtlest);
+}
+.pp-site-hero__cue::after { content: ""; inline-size: var(--border-width); block-size: var(--space-600); background: linear-gradient(var(--color-text), transparent); transform-origin: top; animation: pp-site-drip var(--motion-site-duration-loop-cue) ease-in-out infinite; }
+@keyframes pp-site-drip {
+  0% { transform: scaleY(0); opacity: 1; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+@container (min-width: 768px) { .pp-site-hero__cue { display: flex; } }
+[data-site-still] .pp-site-hero__grain, [data-site-still] .pp-site-hero__cue::after { animation: none; }
+@media (prefers-reduced-motion: reduce) { .pp-site-hero__grain { animation: none; } }
+
+/* ---- site/site-lights ---- */
+/* Site lights: soft coloured circles that drift behind a hero or a band. Spec: site-lights.md. Transform only. */
+.pp-site-lights { position: absolute; inset: 0; z-index: -1; overflow: clip; pointer-events: none; }
+.pp-site-light {
+  --_color: var(--color-site-orb-violet);
+  --_size: 44cqw;
+  --_dx: 6cqw;
+  --_dy: 3cqw;
+  position: absolute;
+  left: var(--_x, 50%);
+  top: var(--_y, 50%);
+  inline-size: var(--_size);
+  aspect-ratio: 1;
+  margin: calc(var(--_size) / -2) 0 0 calc(var(--_size) / -2);
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side, var(--_color), transparent);
+  animation: pp-site-light-drift var(--motion-site-duration-loop-orb) ease-in-out infinite;
+  animation-delay: calc(var(--_i, 0) * var(--motion-site-duration-loop-orb-offset));
+}
+/* The thin ring inside each light, as in the approved hero: a circle 42% of the light's size. */
+.pp-site-light::after { content: ""; position: absolute; inset: 29%; border: var(--border-width) solid color-mix(in srgb, var(--_color) 55%, transparent); border-radius: 50%; }
+.pp-site-light--violet { --_color: var(--color-site-orb-violet); }
+.pp-site-light--mint { --_color: var(--color-site-orb-mint); }
+.pp-site-light--coral { --_color: var(--color-site-orb-coral); }
+.pp-site-light--sky { --_color: var(--color-site-orb-sky); }
+@keyframes pp-site-light-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(var(--_dx), var(--_dy)) scale(1.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-light { animation-duration: var(--motion-site-duration-loop-orb-reduced); }
+}
+[data-site-still] .pp-site-light { animation: none; }
 
 /* ---- site/site-menu ---- */
 /* Site menu: the top-level links and the one shared panel that slides, resizes and fades between lists.
@@ -3540,6 +3819,73 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-sweep,
 [data-site-still] .pp-site-pulse { animation: none; }
 
+/* ---- site/site-section ---- */
+/* Site section: the wrapper, grounds and headline block every public site section is built from. Spec: site-section.md.
+   Layout follows the section's own width (container queries), not the window's, so a phone-sized preview on a wide screen lays out like a phone. */
+
+/* Wrap: content is --layout-site-max wide inside the gutters. Used by the hero, every section and the closing band. */
+.pp-site-wrap {
+  box-sizing: border-box;
+  max-width: calc(var(--layout-site-max) + var(--layout-site-gutter-desktop) * 2);
+  margin: 0 auto;
+  padding-left: max(var(--layout-gutter-phone), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px));
+}
+@container (min-width: 768px) {
+  .pp-site-wrap { padding-left: max(var(--layout-site-gutter-desktop), env(safe-area-inset-left, 0px)); padding-right: max(var(--layout-site-gutter-desktop), env(safe-area-inset-right, 0px)); }
+}
+
+.pp-site-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-150);
+  margin: 0 0 var(--space-200);
+  font: var(--font-site-eyebrow);
+  letter-spacing: var(--font-site-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--color-text-brand);
+}
+.pp-site-eyebrow::before { content: ""; flex: none; inline-size: var(--space-400); block-size: var(--border-width-selected); background: currentColor; }
+
+.pp-site-section {
+  position: relative;
+  padding-block: var(--space-800);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+  scroll-margin-top: var(--layout-site-header-height);
+  /* The layout follows the section's own width. */
+  container-type: inline-size;
+}
+@container (min-width: 768px) {
+  .pp-site-section { padding-block: calc(var(--space-1000) + var(--space-300)); }
+}
+.pp-site-section--cream { background: var(--color-site-canvas); }
+.pp-site-section--violet { background: var(--color-site-wash-violet); }
+.pp-site-section--mint { background: var(--color-site-wash-mint); }
+.pp-site-section--coral { background: var(--color-site-wash-coral); }
+/* A section that holds a soft light or a sticky demo clips what it draws outside itself. */
+.pp-site-section--clip { overflow: clip; isolation: isolate; }
+
+.pp-site-section__head { display: grid; gap: var(--space-250); margin-bottom: var(--space-500); }
+@container (min-width: 1024px) {
+  .pp-site-section__head { grid-template-columns: 1.1fr .9fr; align-items: end; }
+}
+.pp-site-section__title { margin: 0; font: var(--font-site-title); letter-spacing: var(--font-site-title-tracking); color: var(--color-text); text-wrap: balance; }
+.pp-site-section__lead { margin: 0; max-width: 46ch; font: var(--font-site-lead); letter-spacing: var(--font-site-lead-tracking); color: var(--color-text-subtle); }
+
+/* Stage for kit and spec pages: a box that stands in for the browser window, as tall as what it holds (no inner scroll),
+   so a whole hero or section shows at once at desktop and phone width. Not used on the site itself. */
+.pp-site-stage { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; position: relative; overflow: clip; contain: paint; isolation: isolate; background: var(--elevation-surface-raised); border-radius: var(--radius-medium); }
+.pp-site-stage--desktop {
+  min-width: var(--layout-site-breakpoint-nav);
+  /* On a screen narrower than 1280px a preview script sets --_fit (the scale) and --_h (the stage's own height). The stage keeps
+     its true 1280px layout and is drawn smaller; the negative margin takes back the room the full size would leave empty. */
+  transform: scale(var(--_fit, 1));
+  transform-origin: 0 0;
+  margin-bottom: calc((var(--_fit, 1) - 1) * var(--_h, 0px));
+}
+.pp-site-stage--phone { inline-size: min(100%, var(--layout-site-frame-phone)); }
+
 /* ---- site/site-sheet ---- */
 /* Site sheet: the phone menu. Spec: site-sheet.md. Slides in from the right over a blanket; opacity and transform only. */
 .pp-site-sheet { position: fixed; inset: 0; z-index: var(--layer-modal); pointer-events: none; }
@@ -3609,6 +3955,46 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-site-sheet--open .pp-site-sheet__panel { opacity: 1; }
 }
 [data-site-still] .pp-site-sheet__blanket, [data-site-still] .pp-site-sheet__panel { transition: none; }
+
+/* ---- site/site-shine ---- */
+/* Site shine: a light that slides across an accent headline. Spec: site-shine.md.
+   The words are plain violet. A narrow window with soft edges slides across them; inside it a mint copy of the same words
+   slides the opposite way at the same speed, so the copy stays put while the window passes over it. Two transforms, nothing else. */
+.pp-site-shine { position: relative; display: block; color: var(--color-text-brand); padding-bottom: .08em; }
+.pp-site-shine--inline { display: inline-block; }
+.pp-site-shine__glow {
+  position: absolute;
+  top: 0;
+  bottom: -.25em; /* reaches below the line so descenders carry the glow too */
+  left: 0;
+  inline-size: 40%;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, var(--color-text), transparent);
+  mask-image: linear-gradient(90deg, transparent, var(--color-text), transparent);
+  animation: pp-site-shine-window var(--motion-site-duration-loop-shine) linear infinite;
+}
+.pp-site-shine__copy {
+  display: block;
+  inline-size: 250%; /* the full width of the shine: the window is 40% of it */
+  color: var(--color-brand-mint);
+  animation: pp-site-shine-copy var(--motion-site-duration-loop-shine) linear infinite;
+}
+@keyframes pp-site-shine-window {
+  0% { transform: translateX(-100%); }
+  70%, 100% { transform: translateX(250%); }
+}
+@keyframes pp-site-shine-copy {
+  0% { transform: translateX(40%); }
+  70%, 100% { transform: translateX(-100%); }
+}
+[data-site-still] .pp-site-shine__glow,
+[data-site-still] .pp-site-shine__copy { animation: none; }
+[data-site-still] .pp-site-shine__glow { display: none; }
+@media (forced-colors: active) {
+  .pp-site-shine { color: LinkText; }
+  .pp-site-shine__glow { display: none; }
+}
 
 /* ---- site/site-subnav ---- */
 /* Site sub-menu: the sticky "on this page" bar of a module page. Spec: site-subnav.md.
