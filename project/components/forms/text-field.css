@@ -18,8 +18,9 @@
   color: var(--color-text);
   font: var(--font-body);
   letter-spacing: var(--font-body-tracking);
-  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
-              border-color var(--motion-duration-fast) var(--motion-easing-standard);
+  transition: background-color var(--motion-duration-medium) var(--motion-easing-standard),
+              border-color var(--motion-duration-medium) var(--motion-easing-standard),
+              box-shadow var(--motion-duration-medium) var(--motion-easing-standard);
 }
 input.pp-text-field { padding: 0 var(--space-150); }
 .pp-text-field:hover { --_bg: var(--color-background-input-hovered); }

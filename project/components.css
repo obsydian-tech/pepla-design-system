@@ -897,8 +897,9 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
   font: var(--font-body);
   letter-spacing: var(--font-body-tracking);
   cursor: pointer;
-  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
-              border-color var(--motion-duration-fast) var(--motion-easing-standard);
+  transition: background-color var(--motion-duration-medium) var(--motion-easing-standard),
+              border-color var(--motion-duration-medium) var(--motion-easing-standard),
+              box-shadow var(--motion-duration-medium) var(--motion-easing-standard);
 }
 .pp-select:hover { --_bg: var(--color-background-input-hovered); }
 .pp-select:has(> .pp-select__input:focus-visible),
@@ -1092,8 +1093,9 @@ legend.pp-field__label { margin-bottom: var(--space-075); }
   color: var(--color-text);
   font: var(--font-body);
   letter-spacing: var(--font-body-tracking);
-  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
-              border-color var(--motion-duration-fast) var(--motion-easing-standard);
+  transition: background-color var(--motion-duration-medium) var(--motion-easing-standard),
+              border-color var(--motion-duration-medium) var(--motion-easing-standard),
+              box-shadow var(--motion-duration-medium) var(--motion-easing-standard);
 }
 input.pp-text-field { padding: 0 var(--space-150); }
 .pp-text-field:hover { --_bg: var(--color-background-input-hovered); }
@@ -1216,8 +1218,9 @@ input.pp-text-field--numeric { font-variant-numeric: tabular-nums; }
   font: var(--font-body);
   letter-spacing: var(--font-body-tracking);
   resize: vertical;
-  transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
-              border-color var(--motion-duration-fast) var(--motion-easing-standard);
+  transition: background-color var(--motion-duration-medium) var(--motion-easing-standard),
+              border-color var(--motion-duration-medium) var(--motion-easing-standard),
+              box-shadow var(--motion-duration-medium) var(--motion-easing-standard);
 }
 .pp-textarea::placeholder { color: var(--color-text-subtlest); opacity: 1; }
 .pp-textarea:hover { --_bg: var(--color-background-input-hovered); }
@@ -4192,6 +4195,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
      --_sx --_sy   background size as a fraction of its reference size (unitless, 0 to 1)
      --_ax  where the arrow points, from the left of the menu         (length)
      --_dir which side the panel arrives from: 1 right, -1 left        (unitless)
+     --_gx --_gy  where the soft light sits in the open panel, from its top centre (length; the light drifts there, slowly)
      --_rx --_ry  the tilt that follows the pointer, set on the menu   (angle, within 1.5deg; 0deg when closed or on a touch screen) */
 .pp-site-menu {
   --_ox: calc(var(--layout-site-menu-max) / 2); /* the tilt pivots here, so the background, arrow and panels tilt as one */
@@ -4267,6 +4271,10 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   box-sizing: border-box;
   width: var(--layout-narrow-max);
   padding: var(--space-100);
+  border-radius: var(--radius-medium);
+  overflow: clip;
+  overflow-clip-margin: var(--space-050);
+  isolation: isolate;
   opacity: 0;
   pointer-events: none;
   transform-origin: 0 0;
@@ -4331,6 +4339,22 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-menu__morph, [data-site-still] .pp-site-menu__arrow,
 [data-site-still] .pp-site-menu__panel, [data-site-still] .pp-site-menu__link,
 [data-site-still] .pp-site-header, [data-site-still] .pp-site-header::before, [data-site-still] .pp-site-header__bar { transition: none; }
+
+/* The soft purple and mint light that follows the pointer inside the open panel. A circle moved by transform only, clipped by the panel. */
+.pp-site-menu__panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 0;
+  inline-size: calc(var(--space-1000) * 6.5);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-brand-violet) 8%, transparent), color-mix(in srgb, var(--color-brand-mint) 5%, transparent) 40%, transparent 70%);
+  pointer-events: none;
+  transform: translate(calc(var(--_gx, 0px) - 50%), calc(var(--_gy, 0px) - 50%));
+  transition: transform var(--motion-site-duration-menu) var(--motion-site-easing);
+}
 
 /* ---- site/site-motion ---- */
 /* Public site motion: arrivals, loops and still mode. Compositor properties only (transform, opacity). */
