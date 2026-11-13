@@ -131,6 +131,7 @@ The Angular app runs the same rules on its templates and stylesheets, plus a ban
 | Settings | `settings` |
 | Overview | `layout-dashboard` |
 | Company or department | `building-2` |
+| Modules switched on for a company | `layout-grid` |
 
 **Roles (matches the role pill)**
 
@@ -142,6 +143,8 @@ The Angular app runs the same rules on its templates and stylesheets, plus a ban
 | IT admin | `laptop` |
 | Workspace admin | `shield` |
 | Employee | `user` |
+| Manager | `user-round-check` |
+| Guest | `user-round` |
 
 **Status**
 
@@ -240,6 +243,7 @@ The Angular app runs the same rules on its templates and stylesheets, plus a ban
 | Collapse the sidebar | `panel-left` |
 | Menu (phone) | `menu` |
 | Notifications | `bell` |
+| Sign in | `log-in` |
 | Sign out | `log-out` |
 | Take a photo | `camera` |
 | Search | `search` |
