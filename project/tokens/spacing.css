@@ -43,5 +43,11 @@
   --layout-drawer-width-large: 720px;
   --layout-gutter-phone: 16px;
   --layout-gutter-desktop: 24px;
+  --layout-site-max: 1200px;
+  --layout-site-gutter-desktop: 40px;
+  --layout-site-header-height: 72px;
+  --layout-site-header-height-shrunk: 56px;
+  --layout-site-subnav-height: 56px;
+  --layout-site-menu-max: 720px;
 }
 /* Breakpoints (min-width, px), for media queries: xxs 0, xs 480, sm 768, md 1024, lg 1440, xl 1768 */

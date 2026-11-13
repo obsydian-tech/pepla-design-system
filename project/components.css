@@ -3178,6 +3178,67 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-confidence-sources__found { grid-column: 2; font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-confidence-sources__found--mismatch { color: var(--color-text-warning); }
 
+/* ---- site/site-gradient ---- */
+/* The Naleko gradient: the company name and the footer hairline. Accent only; the page stays light. */
+.pp-site-gradient-text {
+  background-image: linear-gradient(90deg, var(--color-site-gradient-1), var(--color-site-gradient-2), var(--color-site-gradient-text-3), var(--color-site-gradient-4), var(--color-site-gradient-5), var(--color-site-gradient-6));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.pp-site-gradient-line {
+  display: block;
+  block-size: var(--border-width);
+  background-image: linear-gradient(90deg, var(--color-site-gradient-1), var(--color-site-gradient-2), var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-5), var(--color-site-gradient-6));
+}
+@media (forced-colors: active) {
+  .pp-site-gradient-text { color: LinkText; }
+}
+
+/* ---- site/site-motion ---- */
+/* Public site motion: arrivals, loops and still mode. Compositor properties only (transform, opacity). */
+
+/* Arrival. Visible at rest: a page only hides arrivals once its script has set data-site-reveal on <html>,
+   then adds pp-site-reveal--in as each one scrolls into view. No script, no hidden content. */
+.pp-site-reveal {
+  transition: opacity var(--motion-site-duration-reveal) var(--motion-site-easing) calc(var(--_i, 0) * var(--motion-site-stagger)), transform var(--motion-site-duration-reveal) var(--motion-site-easing) calc(var(--_i, 0) * var(--motion-site-stagger));
+}
+[data-site-reveal] .pp-site-reveal:not(.pp-site-reveal--in) {
+  opacity: 0;
+  transform: translateY(var(--space-300));
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-site-reveal] .pp-site-reveal:not(.pp-site-reveal--in) { transform: none; }
+}
+
+/* Loops: shared by the lights, rings, radar and live dots. */
+@keyframes pp-site-drift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(var(--space-600), var(--space-300)); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes pp-site-turn { to { transform: rotate(360deg); } }
+@keyframes pp-site-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+.pp-site-drift { animation: pp-site-drift var(--motion-site-duration-loop-orb) ease-in-out infinite; }
+.pp-site-turn { animation: pp-site-turn var(--motion-site-duration-loop-turn) linear infinite; }
+.pp-site-sweep { animation: pp-site-turn var(--motion-site-duration-loop-sweep) linear infinite; }
+.pp-site-pulse { animation: pp-site-pulse var(--motion-site-duration-loop-pulse) ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-drift { animation-duration: var(--motion-site-duration-loop-orb-reduced); }
+}
+
+/* Still mode: data-site-still="start" or "end" on a page or a wrapper. Nothing moves, so a screenshot is the same
+   every time. Demos show their first step (start) or their last step (end). */
+[data-site-still] .pp-site-reveal,
+[data-site-still] .pp-site-reveal:not(.pp-site-reveal--in) { opacity: 1; transform: none; transition: none; }
+[data-site-still] .pp-site-drift,
+[data-site-still] .pp-site-turn,
+[data-site-still] .pp-site-sweep,
+[data-site-still] .pp-site-pulse { animation: none; }
+
 /* ---- records/approval-chain ---- */
 /* Approval chain. Spec: approval-chain.md
    Ordered approvers; a line joins the markers; the current step is highlighted. */

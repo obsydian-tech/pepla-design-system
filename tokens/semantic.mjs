@@ -12,6 +12,8 @@
 //   agent   = mint. Only for what Batsi did or proposed. Never success, never decoration.
 //   warmth  = coral. Celebration, highlights, marketing. Never a status, never an error.
 
+import { siteLight, siteDark } from './site.mjs';
+
 const night = {
   sunken: '#0b0920', page: '#110e29', raised: '#1b1640', overlay: '#241e4f', hovered: '#2c2660', pressed: '#352e70',
   border: '#352f63', borderBold: '#8079b0',
@@ -275,6 +277,9 @@ for (const [name, ramp] of Object.entries(accents)) {
   dark[`color.text.accent.${name}`] = `{${ramp}.200}`;
   dark[`color.icon.accent.${name}`] = `{${ramp}.400}`;
 }
+
+Object.assign(light, siteLight);
+Object.assign(dark, siteDark);
 
 // Text on bold fills: which label colour each bold background carries.
 export const onBold = {

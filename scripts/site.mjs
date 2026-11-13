@@ -34,6 +34,7 @@ const groups = [
   ['Borders', (k) => k.startsWith('color.border')],
   ['Backgrounds', (k) => k.startsWith('color.background') && !k.includes('accent')],
   ['Surfaces', (k) => k.startsWith('elevation.surface')],
+  ['Public site', (k) => k.startsWith('color.site')],
   ['Brand marks and overlays', (k) => k.startsWith('color.brand') || k.startsWith('color.blanket') || k.startsWith('color.skeleton')],
 ];
 const swatch = (hex) => `<span class="sw" style="background:${hex}"></span>`;
