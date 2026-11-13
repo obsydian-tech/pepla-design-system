@@ -52,6 +52,12 @@ export const siteMotion = {
   'motion.site.duration.loop.turn': '70s',   // one turn of a ring
   'motion.site.duration.loop.sweep': '6s',   // one sweep of the radar
   'motion.site.duration.loop.pulse': '2400ms', // one breath of a live dot
+  'motion.site.duration.loop.orb.offset': '-9s', // start offset per --_i position, so soft lights never move together
+  'motion.site.duration.loop.shine': '5200ms', // one pass of the light across an accent headline
+  'motion.site.duration.loop.grain': '1400ms', // one jitter of the hero grain
+  'motion.site.duration.loop.cue': '2s',       // one draw of the scroll cue line
+  'motion.site.duration.loop.wash': '16s',     // one slide of the closing band's wash
+  'motion.site.duration.loop.flow': '14s',     // one flow of the company-name gradient
 };
 
 export const siteLayout = {
@@ -65,5 +71,20 @@ export const siteLayout = {
   'layout.site.sheet.width': '380px',   // the phone menu sheet, at most
   'layout.site.breakpoint.nav': '1280px', // the header is at least this wide to show the full menu; below it the menu becomes the sheet (the container query in site-header.css repeats this value)
   'layout.site.frame.height': '560px',  // a preview frame standing in for the browser window
+  'layout.site.button.height': '44px',   // the site's own button
+  'layout.site.button.height.large': '58px',
+  'layout.site.button.dot': '32px',      // the circle a button's mint dot grows into on hover
+  'layout.site.button.dot.large': '44px',
   'layout.site.frame.phone': '390px',   // the phone preview frame's width
+};
+
+// Site type: [weight, size, line height, tracking, family], like `type` in foundations.mjs, except that a size or line
+// height may be a string. The big headings are fluid and follow the width of their section (cqw), not the window,
+// so a phone-sized preview on a wide screen sets type like a phone. Numbers are px; a string is used as written.
+export const siteType = {
+  'site.hero':    [700, 'clamp(46px, 9.6cqw, 140px)', '.98', '-0.04em', 'display'],   // hero headline
+  'site.band':    [800, 'clamp(52px, 11cqw, 168px)', '.98', '-0.045em', 'display'],   // closing band headline
+  'site.title':   [700, 'clamp(32px, 4.6cqw, 56px)', '1.08', '-0.025em', 'display'],  // section headline
+  'site.lead':    [400, 18, 28, '0', 'body'],                                         // line under a headline
+  'site.eyebrow': [700, 12, 16, '0.16em', 'body'],                                    // small caps label above a headline
 };

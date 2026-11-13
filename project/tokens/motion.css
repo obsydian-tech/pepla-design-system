@@ -27,6 +27,12 @@
   --motion-site-duration-loop-turn: 70s;
   --motion-site-duration-loop-sweep: 6s;
   --motion-site-duration-loop-pulse: 2400ms;
+  --motion-site-duration-loop-orb-offset: -9s;
+  --motion-site-duration-loop-shine: 5200ms;
+  --motion-site-duration-loop-grain: 1400ms;
+  --motion-site-duration-loop-cue: 2s;
+  --motion-site-duration-loop-wash: 16s;
+  --motion-site-duration-loop-flow: 14s;
 }
 
 @media (prefers-reduced-motion: reduce) {

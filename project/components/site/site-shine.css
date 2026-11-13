@@ -1,0 +1,38 @@
+/* Site shine: a light that slides across an accent headline. Spec: site-shine.md.
+   The words are plain violet. A narrow window with soft edges slides across them; inside it a mint copy of the same words
+   slides the opposite way at the same speed, so the copy stays put while the window passes over it. Two transforms, nothing else. */
+.pp-site-shine { position: relative; display: block; color: var(--color-text-brand); padding-bottom: .08em; }
+.pp-site-shine--inline { display: inline-block; }
+.pp-site-shine__glow {
+  position: absolute;
+  top: 0;
+  bottom: -.25em; /* reaches below the line so descenders carry the glow too */
+  left: 0;
+  inline-size: 40%;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, var(--color-text), transparent);
+  mask-image: linear-gradient(90deg, transparent, var(--color-text), transparent);
+  animation: pp-site-shine-window var(--motion-site-duration-loop-shine) linear infinite;
+}
+.pp-site-shine__copy {
+  display: block;
+  inline-size: 250%; /* the full width of the shine: the window is 40% of it */
+  color: var(--color-brand-mint);
+  animation: pp-site-shine-copy var(--motion-site-duration-loop-shine) linear infinite;
+}
+@keyframes pp-site-shine-window {
+  0% { transform: translateX(-100%); }
+  70%, 100% { transform: translateX(250%); }
+}
+@keyframes pp-site-shine-copy {
+  0% { transform: translateX(40%); }
+  70%, 100% { transform: translateX(-100%); }
+}
+[data-site-still] .pp-site-shine__glow,
+[data-site-still] .pp-site-shine__copy { animation: none; }
+[data-site-still] .pp-site-shine__glow { display: none; }
+@media (forced-colors: active) {
+  .pp-site-shine { color: LinkText; }
+  .pp-site-shine__glow { display: none; }
+}

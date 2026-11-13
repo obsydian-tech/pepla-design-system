@@ -17,8 +17,8 @@ const ITEM = 'tr, [role="listitem"], li, article, .pp-card, .pp-page-header, .pp
 const STATUS = '.pp-lozenge:not(.pp-deadline--inline), .pp-tag, .pp-confidence-chip';
 const text = (el) => (el?.textContent || '').replace(/\s+/g, ' ').trim();
 const nearest = (el, sel) => { let p = el.parentElement; while (p && !p.matches(sel)) p = p.parentElement; return p; };
-// Overlays (modal, drawer, popup, agent panel, the site's phone menu sheet) are their own surface with their own one primary.
-const SURFACE = '.pp-modal-dialog, .pp-drawer, .pp-popup, .pp-agent-panel, .pp-inline-dialog, .pp-site-sheet, [data-screen]';
+// Overlays (modal, drawer, popup, agent panel, the site's phone menu sheet and its header bar) are their own surface with their own one primary.
+const SURFACE = '.pp-modal-dialog, .pp-drawer, .pp-popup, .pp-agent-panel, .pp-inline-dialog, .pp-site-sheet, .pp-site-header, [data-screen]';
 const LIMITS = {
   primary: 1, // primary buttons per surface
   statusPerItem: 1, // lozenges, tags and confidence chips in one item (not counting items inside it)

@@ -1,0 +1,32 @@
+/* Site lights: soft coloured circles that drift behind a hero or a band. Spec: site-lights.md. Transform only. */
+.pp-site-lights { position: absolute; inset: 0; z-index: -1; overflow: clip; pointer-events: none; }
+.pp-site-light {
+  --_color: var(--color-site-orb-violet);
+  --_size: 44cqw;
+  --_dx: 6cqw;
+  --_dy: 3cqw;
+  position: absolute;
+  left: var(--_x, 50%);
+  top: var(--_y, 50%);
+  inline-size: var(--_size);
+  aspect-ratio: 1;
+  margin: calc(var(--_size) / -2) 0 0 calc(var(--_size) / -2);
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side, var(--_color), transparent);
+  animation: pp-site-light-drift var(--motion-site-duration-loop-orb) ease-in-out infinite;
+  animation-delay: calc(var(--_i, 0) * var(--motion-site-duration-loop-orb-offset));
+}
+/* The thin ring inside each light, as in the approved hero: a circle 42% of the light's size. */
+.pp-site-light::after { content: ""; position: absolute; inset: 29%; border: var(--border-width) solid color-mix(in srgb, var(--_color) 55%, transparent); border-radius: 50%; }
+.pp-site-light--violet { --_color: var(--color-site-orb-violet); }
+.pp-site-light--mint { --_color: var(--color-site-orb-mint); }
+.pp-site-light--coral { --_color: var(--color-site-orb-coral); }
+.pp-site-light--sky { --_color: var(--color-site-orb-sky); }
+@keyframes pp-site-light-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(var(--_dx), var(--_dy)) scale(1.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-light { animation-duration: var(--motion-site-duration-loop-orb-reduced); }
+}
+[data-site-still] .pp-site-light { animation: none; }

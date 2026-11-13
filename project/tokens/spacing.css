@@ -53,6 +53,10 @@
   --layout-site-sheet-width: 380px;
   --layout-site-breakpoint-nav: 1280px;
   --layout-site-frame-height: 560px;
+  --layout-site-button-height: 44px;
+  --layout-site-button-height-large: 58px;
+  --layout-site-button-dot: 32px;
+  --layout-site-button-dot-large: 44px;
   --layout-site-frame-phone: 390px;
 }
 /* Breakpoints (min-width, px), for media queries: xxs 0, xs 480, sm 768, md 1024, lg 1440, xl 1768 */

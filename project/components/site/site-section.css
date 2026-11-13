@@ -1,0 +1,65 @@
+/* Site section: the wrapper, grounds and headline block every public site section is built from. Spec: site-section.md.
+   Layout follows the section's own width (container queries), not the window's, so a phone-sized preview on a wide screen lays out like a phone. */
+
+/* Wrap: content is --layout-site-max wide inside the gutters. Used by the hero, every section and the closing band. */
+.pp-site-wrap {
+  box-sizing: border-box;
+  max-width: calc(var(--layout-site-max) + var(--layout-site-gutter-desktop) * 2);
+  margin: 0 auto;
+  padding-left: max(var(--layout-gutter-phone), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px));
+}
+@container (min-width: 768px) {
+  .pp-site-wrap { padding-left: max(var(--layout-site-gutter-desktop), env(safe-area-inset-left, 0px)); padding-right: max(var(--layout-site-gutter-desktop), env(safe-area-inset-right, 0px)); }
+}
+
+.pp-site-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-150);
+  margin: 0 0 var(--space-200);
+  font: var(--font-site-eyebrow);
+  letter-spacing: var(--font-site-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--color-text-brand);
+}
+.pp-site-eyebrow::before { content: ""; flex: none; inline-size: var(--space-400); block-size: var(--border-width-selected); background: currentColor; }
+
+.pp-site-section {
+  position: relative;
+  padding-block: var(--space-800);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+  scroll-margin-top: var(--layout-site-header-height);
+  /* The layout follows the section's own width. */
+  container-type: inline-size;
+}
+@container (min-width: 768px) {
+  .pp-site-section { padding-block: calc(var(--space-1000) + var(--space-300)); }
+}
+.pp-site-section--cream { background: var(--color-site-canvas); }
+.pp-site-section--violet { background: var(--color-site-wash-violet); }
+.pp-site-section--mint { background: var(--color-site-wash-mint); }
+.pp-site-section--coral { background: var(--color-site-wash-coral); }
+/* A section that holds a soft light or a sticky demo clips what it draws outside itself. */
+.pp-site-section--clip { overflow: clip; isolation: isolate; }
+
+.pp-site-section__head { display: grid; gap: var(--space-250); margin-bottom: var(--space-500); }
+@container (min-width: 1024px) {
+  .pp-site-section__head { grid-template-columns: 1.1fr .9fr; align-items: end; }
+}
+.pp-site-section__title { margin: 0; font: var(--font-site-title); letter-spacing: var(--font-site-title-tracking); color: var(--color-text); text-wrap: balance; }
+.pp-site-section__lead { margin: 0; max-width: 46ch; font: var(--font-site-lead); letter-spacing: var(--font-site-lead-tracking); color: var(--color-text-subtle); }
+
+/* Stage for kit and spec pages: a box that stands in for the browser window, as tall as what it holds (no inner scroll),
+   so a whole hero or section shows at once at desktop and phone width. Not used on the site itself. */
+.pp-site-stage { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; position: relative; overflow: clip; contain: paint; isolation: isolate; background: var(--elevation-surface-raised); border-radius: var(--radius-medium); }
+.pp-site-stage--desktop {
+  min-width: var(--layout-site-breakpoint-nav);
+  /* On a screen narrower than 1280px a preview script sets --_fit (the scale) and --_h (the stage's own height). The stage keeps
+     its true 1280px layout and is drawn smaller; the negative margin takes back the room the full size would leave empty. */
+  transform: scale(var(--_fit, 1));
+  transform-origin: 0 0;
+  margin-bottom: calc((var(--_fit, 1) - 1) * var(--_h, 0px));
+}
+.pp-site-stage--phone { inline-size: min(100%, var(--layout-site-frame-phone)); }
