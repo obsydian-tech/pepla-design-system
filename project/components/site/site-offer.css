@@ -1,0 +1,17 @@
+/* Site offer to onboarding: the offer letter on one side and the employee record it creates on the other.
+   Spec: site-offer.md. When the offer is signed the record's card turns mint and its details fade in one by one. */
+.pp-site-offer { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-150); font: var(--font-body); }
+@container (min-width: 560px) { .pp-site-offer { grid-template-columns: minmax(0, 1fr) var(--space-300) minmax(0, 1fr); align-items: center; } }
+.pp-site-offer__arrow { display: none; place-items: center; color: var(--color-text-subtlest); }
+.pp-site-offer__arrow > .lucide { inline-size: var(--size-icon-large); block-size: var(--size-icon-large); }
+@container (min-width: 560px) { .pp-site-offer__arrow { display: grid; } }
+.pp-site-offer__card { position: relative; isolation: isolate; display: grid; gap: var(--space-100); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); font: var(--font-body-small); }
+.pp-site-offer__card::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: inherit; background: var(--color-background-agent-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-offer__card--live::before { opacity: 1; }
+.pp-site-offer__title { display: flex; align-items: center; justify-content: space-between; gap: var(--space-100); margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); color: var(--color-text); }
+.pp-site-offer__field { display: flex; justify-content: space-between; gap: var(--space-100); padding-bottom: var(--space-050); border-bottom: var(--border-width) dashed var(--color-border); }
+.pp-site-offer__label { color: var(--color-text-subtlest); }
+.pp-site-offer__value { font-weight: var(--font-weight-semibold); text-align: right; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+[data-site-live] .pp-site-offer__value:not(.pp-site-offer__value--in) { opacity: 0; }
+[data-site-still] .pp-site-offer__card::before, [data-site-still] .pp-site-offer__value { transition: none; }
+[data-site-still] .pp-site-offer__value:not(.pp-site-offer__value--in) { opacity: 1; }

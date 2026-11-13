@@ -1,6 +1,8 @@
 /* Site live status: a status pill whose words change as a demo plays ("Uploading", "Reading", "Matches").
    Every state sits on top of the others and the current one fades in. Spec: site-state.md. Opacity only. */
 .pp-site-state { display: inline-grid; justify-items: end; align-items: center; }
+
+.pp-site-state--start { justify-items: start; }
 .pp-site-state__item {
   grid-area: 1 / 1;
   opacity: 0;
