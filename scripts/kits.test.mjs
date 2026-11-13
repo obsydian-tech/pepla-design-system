@@ -36,8 +36,10 @@ for (const k of kits) {
 // A kit's preview script (frontmatter "preview") must exist in scripts/preview/ and stays out of the kit's own markup.
 for (const k of kits.filter((x) => x.meta.preview)) {
   test(`kit ${k.slug}: preview script exists and is preview only`, () => {
-    const src = readFileSync(new URL(`./preview/${k.meta.preview}.js`, import.meta.url), 'utf8');
-    assert.match(src, /PREVIEW ONLY/, 'a preview script says so in its first comment');
-    assert.doesNotMatch(src, /\.style\.(width|height|left|top)\s*=/, 'a preview script sets only classes, attributes and the documented --_ inputs');
+    for (const name of String(k.meta.preview).split(',').map((n) => n.trim())) {
+      const src = readFileSync(new URL(`./preview/${name}.js`, import.meta.url), 'utf8');
+      assert.match(src, /PREVIEW ONLY/, `${name}: a preview script says so in its first comment`);
+      assert.doesNotMatch(src, /\.style\.(width|height|left|top)\s*=/, `${name}: a preview script sets only classes, attributes and the documented --_ inputs`);
+    }
   });
 }

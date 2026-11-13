@@ -3178,6 +3178,91 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-confidence-sources__found { grid-column: 2; font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-confidence-sources__found--mismatch { color: var(--color-text-warning); }
 
+/* ---- site/site-footer ---- */
+/* Site footer. Spec: site-footer.md. Layout follows the footer's own width (container query), so a phone-sized preview on a wide screen lays out like a phone. */
+.pp-site-footer {
+  position: relative;
+  container-type: inline-size;
+  container-name: pp-site-footer;
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+}
+.pp-site-footer__inner {
+  box-sizing: border-box;
+  max-width: calc(var(--layout-site-max) + var(--layout-site-gutter-desktop) * 2);
+  margin: 0 auto;
+  padding: var(--space-800) max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px)) var(--space-400) max(var(--layout-gutter-phone), env(safe-area-inset-left, 0px));
+}
+.pp-site-footer__top { display: grid; gap: var(--space-500); }
+.pp-site-footer__brand { display: grid; gap: var(--space-200); justify-items: start; align-content: start; }
+.pp-site-footer__logo { border-radius: var(--radius-small); }
+.pp-site-footer__about { margin: 0; max-width: 38ch; font: var(--font-body); letter-spacing: var(--font-body-tracking); color: var(--color-text-subtle); }
+.pp-site-footer__pin {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-075);
+  padding: var(--space-050) var(--space-150);
+  border-radius: var(--radius-full);
+  background: var(--color-background-neutral);
+  color: var(--color-text);
+  font: var(--font-label-small);
+  letter-spacing: var(--font-label-small-tracking);
+}
+.pp-site-footer__pin > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
+
+.pp-site-footer__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-400) var(--space-250); }
+.pp-site-footer__col { min-width: 0; }
+.pp-site-footer__heading { margin: 0 0 var(--space-150); font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); text-transform: uppercase; color: var(--color-text-subtlest); }
+.pp-site-footer__list { display: grid; gap: var(--space-025); margin: 0; padding: 0; list-style: none; }
+.pp-site-footer__link {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-050) var(--space-100);
+  min-height: var(--size-touch-target);
+  color: var(--color-text);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+  text-decoration: none;
+  border-radius: var(--radius-xsmall);
+}
+.pp-site-footer__link:hover { text-decoration: underline; text-decoration-thickness: var(--border-width); text-underline-offset: var(--space-050); }
+.pp-site-footer__soon { font: var(--font-label-small); letter-spacing: var(--font-label-small-tracking); color: var(--color-text-subtlest); }
+
+.pp-site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-100) var(--space-300);
+  margin-top: var(--space-600);
+  padding-top: var(--space-250);
+  border-top: var(--border-width) solid var(--color-border);
+  font: var(--font-body-small);
+  letter-spacing: var(--font-body-small-tracking);
+  color: var(--color-text-subtle);
+}
+.pp-site-footer__legal { display: flex; flex-wrap: wrap; gap: 0 var(--space-300); margin: 0; padding: 0; list-style: none; }
+.pp-site-footer__legal-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-touch-target);
+  color: var(--color-text-subtle);
+  text-decoration: none;
+  border-radius: var(--radius-xsmall);
+}
+.pp-site-footer__legal-link:hover { color: var(--color-text); text-decoration: underline; text-decoration-thickness: var(--border-width); }
+.pp-site-footer__copy { display: inline-flex; align-items: center; min-height: var(--size-touch-target); }
+
+@container pp-site-footer (min-width: 768px) {
+  .pp-site-footer__link, .pp-site-footer__legal-link, .pp-site-footer__copy { min-height: var(--size-control-small); }
+  .pp-site-footer__inner { padding-left: max(var(--layout-site-gutter-desktop), env(safe-area-inset-left, 0px)); padding-right: max(var(--layout-site-gutter-desktop), env(safe-area-inset-right, 0px)); }
+  .pp-site-footer__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@container pp-site-footer (min-width: 1080px) {
+  .pp-site-footer__top { grid-template-columns: minmax(0, 0.9fr) minmax(0, 2.1fr); gap: var(--space-600); }
+  .pp-site-footer__cols { grid-template-columns: 1.3fr 0.9fr 1.1fr 1fr 1.2fr; }
+}
+
 /* ---- site/site-gradient ---- */
 /* The Naleko gradient: the company name and the footer hairline. Accent only; the page stays light. */
 .pp-site-gradient-text {
@@ -3511,16 +3596,109 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
    header and its sheet can be shown side by side on one page. Not used on the site itself. */
 .pp-site-frame { position: relative; overflow: hidden; contain: paint; isolation: isolate; height: var(--layout-site-frame-height); background: var(--elevation-surface); border-radius: var(--radius-medium); }
 .pp-site-frame--phone { max-width: var(--layout-site-frame-phone); height: calc(var(--layout-site-frame-height) * 1.4); }
-.pp-site-frame--desktop { min-width: var(--layout-site-breakpoint-nav); }
+/* A desktop frame is always the header's full width. On a narrower screen the preview script sets --_fit (a scale), and the negative margin takes back the height the scale saves. A scale, never a zoom: zoom breaks container queries on iOS. */
+.pp-site-frame--desktop { width: var(--layout-site-breakpoint-nav); transform: scale(var(--_fit, 1)); transform-origin: top left; margin-bottom: calc((var(--_fit, 1) - 1) * var(--layout-site-frame-height)); }
 .pp-site-frame__page { height: 100%; overflow-x: hidden; overflow-y: auto; }
 .pp-site-frame__content { display: grid; gap: var(--space-200); padding: calc(var(--layout-site-header-height) + var(--space-200)) var(--layout-gutter-phone) var(--space-400); }
 .pp-site-frame > .pp-site-sheet { position: absolute; }
+.pp-site-frame__content--flush { padding-top: var(--space-200); padding-bottom: calc(var(--layout-site-frame-height) * 1.2); }
+.pp-site-frame__section { display: grid; gap: var(--space-200); padding-block: var(--space-300); scroll-margin-top: calc(var(--layout-site-header-height-shrunk) + var(--layout-site-subnav-height)); }
 
 @media (prefers-reduced-motion: reduce) {
   .pp-site-sheet__panel { transform: none; opacity: 0; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
   .pp-site-sheet--open .pp-site-sheet__panel { opacity: 1; }
 }
 [data-site-still] .pp-site-sheet__blanket, [data-site-still] .pp-site-sheet__panel { transition: none; }
+
+/* ---- site/site-subnav ---- */
+/* Site sub-menu: the sticky "on this page" bar of a module page. Spec: site-subnav.md.
+   One highlight slides to the section in view: a translate and a scale, never left or width. */
+.pp-site-subnav {
+  position: sticky;
+  top: var(--layout-site-header-height-shrunk);
+  z-index: var(--layer-card); /* under the header (and its open menu), over the page */
+  height: var(--layout-site-subnav-height);
+  box-sizing: border-box;
+  background: color-mix(in srgb, var(--elevation-surface-raised) 86%, transparent);
+  -webkit-backdrop-filter: blur(var(--space-200)) saturate(1.4);
+  backdrop-filter: blur(var(--space-200)) saturate(1.4);
+  border-block: var(--border-width) solid var(--color-border);
+  container-type: inline-size;
+  container-name: pp-site-subnav;
+}
+.pp-site-subnav__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-200);
+  height: 100%;
+  box-sizing: border-box;
+  max-width: calc(var(--layout-site-max) + var(--layout-site-gutter-desktop) * 2);
+  margin: 0 auto;
+  padding: 0 max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px)) 0 max(var(--layout-gutter-phone), env(safe-area-inset-left, 0px));
+}
+.pp-site-subnav__title { display: none; flex: none; margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); white-space: nowrap; }
+.pp-site-subnav__tabs {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--space-025);
+  min-width: 0;
+  height: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  /* a soft edge says there is more to scroll to */
+  -webkit-mask-image: linear-gradient(90deg, transparent, var(--color-text) var(--space-200), var(--color-text) calc(100% - var(--space-300)), transparent);
+  mask-image: linear-gradient(90deg, transparent, var(--color-text) var(--space-200), var(--color-text) calc(100% - var(--space-300)), transparent);
+  padding-inline: var(--space-100);
+}
+.pp-site-subnav__tabs::-webkit-scrollbar { display: none; }
+/* The highlight: a fixed-size block that the page script moves and stretches with --_x and --_sx (unitless, width ÷ the block's own width). */
+.pp-site-subnav__pill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  inline-size: var(--space-1000);
+  block-size: var(--size-control-medium);
+  margin-top: calc(var(--size-control-medium) / -2);
+  border-radius: var(--radius-small);
+  background: var(--color-background-neutral);
+  transform-origin: left center;
+  transform: translateX(var(--_x, 0px)) scaleX(var(--_sx, 1));
+  opacity: 0;
+  transition: transform var(--motion-site-duration-menu) var(--motion-site-easing), opacity var(--motion-site-duration-header) var(--motion-site-easing);
+  pointer-events: none;
+}
+.pp-site-subnav--active .pp-site-subnav__pill { opacity: 1; }
+.pp-site-subnav__link {
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-touch-target);
+  padding: 0 var(--space-200);
+  border-radius: var(--radius-small);
+  color: var(--color-text-subtle);
+  font: var(--font-label);
+  letter-spacing: var(--font-label-tracking);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.pp-site-subnav__link:hover { color: var(--color-text); }
+.pp-site-subnav__link[aria-current="true"] { color: var(--color-text); }
+
+@container pp-site-subnav (min-width: 768px) {
+  .pp-site-subnav__bar { padding-left: max(var(--layout-site-gutter-desktop), env(safe-area-inset-left, 0px)); padding-right: max(var(--layout-site-gutter-desktop), env(safe-area-inset-right, 0px)); }
+}
+@container pp-site-subnav (min-width: 1280px) {
+  .pp-site-subnav__title { display: block; }
+}
+/* Reduced motion: the highlight appears under the new tab instead of travelling. */
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-subnav__pill { transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+}
+[data-site-still] .pp-site-subnav__pill { transition: none; }
 
 /* ---- records/approval-chain ---- */
 /* Approval chain. Spec: approval-chain.md

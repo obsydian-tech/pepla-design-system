@@ -1,0 +1,88 @@
+/* Site sub-menu: the sticky "on this page" bar of a module page. Spec: site-subnav.md.
+   One highlight slides to the section in view: a translate and a scale, never left or width. */
+.pp-site-subnav {
+  position: sticky;
+  top: var(--layout-site-header-height-shrunk);
+  z-index: var(--layer-card); /* under the header (and its open menu), over the page */
+  height: var(--layout-site-subnav-height);
+  box-sizing: border-box;
+  background: color-mix(in srgb, var(--elevation-surface-raised) 86%, transparent);
+  -webkit-backdrop-filter: blur(var(--space-200)) saturate(1.4);
+  backdrop-filter: blur(var(--space-200)) saturate(1.4);
+  border-block: var(--border-width) solid var(--color-border);
+  container-type: inline-size;
+  container-name: pp-site-subnav;
+}
+.pp-site-subnav__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-200);
+  height: 100%;
+  box-sizing: border-box;
+  max-width: calc(var(--layout-site-max) + var(--layout-site-gutter-desktop) * 2);
+  margin: 0 auto;
+  padding: 0 max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px)) 0 max(var(--layout-gutter-phone), env(safe-area-inset-left, 0px));
+}
+.pp-site-subnav__title { display: none; flex: none; margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); white-space: nowrap; }
+.pp-site-subnav__tabs {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--space-025);
+  min-width: 0;
+  height: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  /* a soft edge says there is more to scroll to */
+  -webkit-mask-image: linear-gradient(90deg, transparent, var(--color-text) var(--space-200), var(--color-text) calc(100% - var(--space-300)), transparent);
+  mask-image: linear-gradient(90deg, transparent, var(--color-text) var(--space-200), var(--color-text) calc(100% - var(--space-300)), transparent);
+  padding-inline: var(--space-100);
+}
+.pp-site-subnav__tabs::-webkit-scrollbar { display: none; }
+/* The highlight: a fixed-size block that the page script moves and stretches with --_x and --_sx (unitless, width ÷ the block's own width). */
+.pp-site-subnav__pill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  inline-size: var(--space-1000);
+  block-size: var(--size-control-medium);
+  margin-top: calc(var(--size-control-medium) / -2);
+  border-radius: var(--radius-small);
+  background: var(--color-background-neutral);
+  transform-origin: left center;
+  transform: translateX(var(--_x, 0px)) scaleX(var(--_sx, 1));
+  opacity: 0;
+  transition: transform var(--motion-site-duration-menu) var(--motion-site-easing), opacity var(--motion-site-duration-header) var(--motion-site-easing);
+  pointer-events: none;
+}
+.pp-site-subnav--active .pp-site-subnav__pill { opacity: 1; }
+.pp-site-subnav__link {
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-touch-target);
+  padding: 0 var(--space-200);
+  border-radius: var(--radius-small);
+  color: var(--color-text-subtle);
+  font: var(--font-label);
+  letter-spacing: var(--font-label-tracking);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.pp-site-subnav__link:hover { color: var(--color-text); }
+.pp-site-subnav__link[aria-current="true"] { color: var(--color-text); }
+
+@container pp-site-subnav (min-width: 768px) {
+  .pp-site-subnav__bar { padding-left: max(var(--layout-site-gutter-desktop), env(safe-area-inset-left, 0px)); padding-right: max(var(--layout-site-gutter-desktop), env(safe-area-inset-right, 0px)); }
+}
+@container pp-site-subnav (min-width: 1280px) {
+  .pp-site-subnav__title { display: block; }
+}
+/* Reduced motion: the highlight appears under the new tab instead of travelling. */
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-subnav__pill { transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+}
+[data-site-still] .pp-site-subnav__pill { transition: none; }

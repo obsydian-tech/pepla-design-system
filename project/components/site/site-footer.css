@@ -1,0 +1,83 @@
+/* Site footer. Spec: site-footer.md. Layout follows the footer's own width (container query), so a phone-sized preview on a wide screen lays out like a phone. */
+.pp-site-footer {
+  position: relative;
+  container-type: inline-size;
+  container-name: pp-site-footer;
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+}
+.pp-site-footer__inner {
+  box-sizing: border-box;
+  max-width: calc(var(--layout-site-max) + var(--layout-site-gutter-desktop) * 2);
+  margin: 0 auto;
+  padding: var(--space-800) max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px)) var(--space-400) max(var(--layout-gutter-phone), env(safe-area-inset-left, 0px));
+}
+.pp-site-footer__top { display: grid; gap: var(--space-500); }
+.pp-site-footer__brand { display: grid; gap: var(--space-200); justify-items: start; align-content: start; }
+.pp-site-footer__logo { border-radius: var(--radius-small); }
+.pp-site-footer__about { margin: 0; max-width: 38ch; font: var(--font-body); letter-spacing: var(--font-body-tracking); color: var(--color-text-subtle); }
+.pp-site-footer__pin {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-075);
+  padding: var(--space-050) var(--space-150);
+  border-radius: var(--radius-full);
+  background: var(--color-background-neutral);
+  color: var(--color-text);
+  font: var(--font-label-small);
+  letter-spacing: var(--font-label-small-tracking);
+}
+.pp-site-footer__pin > svg { width: var(--size-icon-small); height: var(--size-icon-small); flex: none; color: var(--color-icon-subtle); }
+
+.pp-site-footer__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-400) var(--space-250); }
+.pp-site-footer__col { min-width: 0; }
+.pp-site-footer__heading { margin: 0 0 var(--space-150); font: var(--font-heading-xxsmall); letter-spacing: var(--font-heading-xxsmall-tracking); text-transform: uppercase; color: var(--color-text-subtlest); }
+.pp-site-footer__list { display: grid; gap: var(--space-025); margin: 0; padding: 0; list-style: none; }
+.pp-site-footer__link {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-050) var(--space-100);
+  min-height: var(--size-touch-target);
+  color: var(--color-text);
+  font: var(--font-body);
+  letter-spacing: var(--font-body-tracking);
+  text-decoration: none;
+  border-radius: var(--radius-xsmall);
+}
+.pp-site-footer__link:hover { text-decoration: underline; text-decoration-thickness: var(--border-width); text-underline-offset: var(--space-050); }
+.pp-site-footer__soon { font: var(--font-label-small); letter-spacing: var(--font-label-small-tracking); color: var(--color-text-subtlest); }
+
+.pp-site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-100) var(--space-300);
+  margin-top: var(--space-600);
+  padding-top: var(--space-250);
+  border-top: var(--border-width) solid var(--color-border);
+  font: var(--font-body-small);
+  letter-spacing: var(--font-body-small-tracking);
+  color: var(--color-text-subtle);
+}
+.pp-site-footer__legal { display: flex; flex-wrap: wrap; gap: 0 var(--space-300); margin: 0; padding: 0; list-style: none; }
+.pp-site-footer__legal-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-touch-target);
+  color: var(--color-text-subtle);
+  text-decoration: none;
+  border-radius: var(--radius-xsmall);
+}
+.pp-site-footer__legal-link:hover { color: var(--color-text); text-decoration: underline; text-decoration-thickness: var(--border-width); }
+.pp-site-footer__copy { display: inline-flex; align-items: center; min-height: var(--size-touch-target); }
+
+@container pp-site-footer (min-width: 768px) {
+  .pp-site-footer__link, .pp-site-footer__legal-link, .pp-site-footer__copy { min-height: var(--size-control-small); }
+  .pp-site-footer__inner { padding-left: max(var(--layout-site-gutter-desktop), env(safe-area-inset-left, 0px)); padding-right: max(var(--layout-site-gutter-desktop), env(safe-area-inset-right, 0px)); }
+  .pp-site-footer__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@container pp-site-footer (min-width: 1080px) {
+  .pp-site-footer__top { grid-template-columns: minmax(0, 0.9fr) minmax(0, 2.1fr); gap: var(--space-600); }
+  .pp-site-footer__cols { grid-template-columns: 1.3fr 0.9fr 1.1fr 1fr 1.2fr; }
+}

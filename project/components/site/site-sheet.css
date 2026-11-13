@@ -53,10 +53,13 @@
    header and its sheet can be shown side by side on one page. Not used on the site itself. */
 .pp-site-frame { position: relative; overflow: hidden; contain: paint; isolation: isolate; height: var(--layout-site-frame-height); background: var(--elevation-surface); border-radius: var(--radius-medium); }
 .pp-site-frame--phone { max-width: var(--layout-site-frame-phone); height: calc(var(--layout-site-frame-height) * 1.4); }
-.pp-site-frame--desktop { min-width: var(--layout-site-breakpoint-nav); }
+/* A desktop frame is always the header's full width. On a narrower screen the preview script sets --_fit (a scale), and the negative margin takes back the height the scale saves. A scale, never a zoom: zoom breaks container queries on iOS. */
+.pp-site-frame--desktop { width: var(--layout-site-breakpoint-nav); transform: scale(var(--_fit, 1)); transform-origin: top left; margin-bottom: calc((var(--_fit, 1) - 1) * var(--layout-site-frame-height)); }
 .pp-site-frame__page { height: 100%; overflow-x: hidden; overflow-y: auto; }
 .pp-site-frame__content { display: grid; gap: var(--space-200); padding: calc(var(--layout-site-header-height) + var(--space-200)) var(--layout-gutter-phone) var(--space-400); }
 .pp-site-frame > .pp-site-sheet { position: absolute; }
+.pp-site-frame__content--flush { padding-top: var(--space-200); padding-bottom: calc(var(--layout-site-frame-height) * 1.2); }
+.pp-site-frame__section { display: grid; gap: var(--space-200); padding-block: var(--space-300); scroll-margin-top: calc(var(--layout-site-header-height-shrunk) + var(--layout-site-subnav-height)); }
 
 @media (prefers-reduced-motion: reduce) {
   .pp-site-sheet__panel { transform: none; opacity: 0; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }

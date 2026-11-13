@@ -40,7 +40,7 @@ body{margin:0;background:var(--elevation-surface-sunken)}
 .kscreen{margin:var(--space-400) 0}
 .kscreen > .klbl{display:flex;gap:var(--space-100);align-items:center;font:var(--font-heading-xsmall);color:var(--color-text-subtle);margin:0 0 var(--space-100)}
 .kframe{background:var(--elevation-surface);color:var(--color-text);border:var(--border-width) solid var(--color-border);border-radius:var(--radius-large);overflow:auto;box-shadow:var(--elevation-shadow-raised)}
-.kframe--desktop{width:100%;max-width:1280px;min-height:720px}
+.kframe--desktop{width:100%;max-width:1280px;min-height:720px;overflow:hidden}
 .kframe--phone{width:390px;max-width:100%;min-height:780px;border-radius:var(--radius-xlarge)}
 .kframe > *{min-height:inherit}
 `;
@@ -68,7 +68,7 @@ const kitHtml = (k, h = 'h1', cls = '') => `<section class="kdoc" id="${k.slug}"
 
 // A kit whose frontmatter names a preview script gets it appended to its page. The script lives in scripts/preview/
 // and only drives the live frames on the kit page (scroll, menu, sheet). It is never part of a component or the site.
-const previewScript = (kits) => [...new Set(kits.map((k) => k.meta.preview).filter(Boolean))]
+const previewScript = (kits) => [...new Set(kits.flatMap((k) => String(k.meta.preview || '').split(',').map((n) => n.trim())).filter(Boolean))]
   .map((n) => `<script>${readFileSync(new URL(`scripts/preview/${n}.js`, ROOT), 'utf8')}</script>`).join('\n');
 
 export function buildKits(kits, DIST) {
