@@ -61,4 +61,9 @@ export const siteLayout = {
   'layout.site.header.height.shrunk': '56px',
   'layout.site.subnav.height': '56px',
   'layout.site.menu.max': '720px',      // the widest the shared menu panel gets
+  'layout.site.menu.height.max': '360px', // the tallest it gets: the shared background is this size and scales down to fit each list
+  'layout.site.sheet.width': '380px',   // the phone menu sheet, at most
+  'layout.site.breakpoint.nav': '1280px', // the header is at least this wide to show the full menu; below it the menu becomes the sheet (the container query in site-header.css repeats this value)
+  'layout.site.frame.height': '560px',  // a preview frame standing in for the browser window
+  'layout.site.frame.phone': '390px',   // the phone preview frame's width
 };

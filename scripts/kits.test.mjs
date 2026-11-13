@@ -32,3 +32,12 @@ for (const k of kits) {
     for (const [, n] of k.html.matchAll(/data-lucide="([a-z0-9-]+)"/g)) assert.ok(hasIcon(n), `${k.slug}: no Lucide icon "${n}"`);
   });
 }
+
+// A kit's preview script (frontmatter "preview") must exist in scripts/preview/ and stays out of the kit's own markup.
+for (const k of kits.filter((x) => x.meta.preview)) {
+  test(`kit ${k.slug}: preview script exists and is preview only`, () => {
+    const src = readFileSync(new URL(`./preview/${k.meta.preview}.js`, import.meta.url), 'utf8');
+    assert.match(src, /PREVIEW ONLY/, 'a preview script says so in its first comment');
+    assert.doesNotMatch(src, /\.style\.(width|height|left|top)\s*=/, 'a preview script sets only classes, attributes and the documented --_ inputs');
+  });
+}

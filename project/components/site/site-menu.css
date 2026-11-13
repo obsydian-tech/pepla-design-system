@@ -1,0 +1,136 @@
+/* Site menu: the top-level links and the one shared panel that slides, resizes and fades between lists.
+   Spec: site-menu.md. The panel's size is a scale of one background (transform), never a width or height change.
+   Inputs set by the page script or the Angular directive on the open panel and on the menu:
+     --_x   how far the panel sits from the left of the menu          (length)
+     --_sx --_sy   background size as a fraction of its reference size (unitless, 0 to 1)
+     --_ax  where the arrow points, from the left of the menu         (length)
+     --_dir which side the panel arrives from: 1 right, -1 left        (unitless) */
+.pp-site-menu { position: relative; }
+.pp-site-menu__item { display: block; }
+.pp-site-menu__list { display: flex; align-items: center; gap: var(--space-050); margin: 0; padding: 0; list-style: none; }
+
+.pp-site-menu__trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-075);
+  min-height: var(--size-control-medium);
+  padding: 0 var(--space-150);
+  border: 0;
+  border-radius: var(--radius-medium);
+  background: transparent;
+  color: var(--color-text);
+  font: var(--font-label);
+  letter-spacing: var(--font-label-tracking);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+/* Hover and open ground: a layer that fades in, so no colour is transitioned. */
+.pp-site-menu__trigger::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-background-brand-subtlest);
+  opacity: 0;
+  transition: opacity var(--motion-site-duration-header) var(--motion-site-easing);
+  pointer-events: none;
+}
+.pp-site-menu__trigger:hover::before, .pp-site-menu__trigger[aria-expanded="true"]::before { opacity: 1; }
+.pp-site-menu__trigger > * { position: relative; }
+.pp-site-menu__chevron { width: var(--size-icon-small); height: var(--size-icon-small); transition: transform var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-menu__trigger[aria-expanded="true"] .pp-site-menu__chevron { transform: rotate(180deg); }
+
+/* The shared background and its arrow: one of each for the whole menu. */
+.pp-site-menu__morph, .pp-site-menu__arrow { position: absolute; top: calc(100% + var(--space-100)); left: 0; pointer-events: none; opacity: 0; }
+.pp-site-menu__morph {
+  width: var(--layout-site-menu-max);
+  height: var(--layout-site-menu-height-max);
+  border-radius: var(--radius-medium);
+  background: var(--elevation-surface-overlay);
+  box-shadow: var(--elevation-shadow-overlay);
+  transform-origin: 0 0;
+  transform: translateX(var(--_x, 0px)) scale(var(--_sx, 1), var(--_sy, 1));
+  transition: transform var(--motion-site-duration-menu) var(--motion-site-easing), opacity var(--motion-site-duration-header) var(--motion-site-easing);
+}
+.pp-site-menu__arrow {
+  width: var(--space-150);
+  height: var(--space-150);
+  margin-top: calc(var(--space-075) * -1);
+  border-radius: var(--radius-xsmall) 0 0 0;
+  background: var(--elevation-surface-overlay);
+  transform: translateX(var(--_ax, 0px)) rotate(45deg);
+  transition: transform var(--motion-site-duration-menu) var(--motion-site-easing), opacity var(--motion-site-duration-header) var(--motion-site-easing);
+}
+.pp-site-menu--open .pp-site-menu__morph, .pp-site-menu--open .pp-site-menu__arrow { opacity: 1; }
+
+/* Panels: transparent, sitting on the shared background. Closed panels are inert and invisible. */
+.pp-site-menu__panel {
+  position: absolute;
+  top: calc(100% + var(--space-100));
+  left: 0;
+  display: grid;
+  gap: var(--space-025);
+  box-sizing: border-box;
+  width: var(--layout-narrow-max);
+  padding: var(--space-100);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(calc(var(--_x, 0px) + var(--_dir, 1) * var(--space-500)));
+  transition: opacity var(--motion-site-duration-header) var(--motion-site-easing), transform var(--motion-site-duration-menu) var(--motion-site-easing);
+}
+.pp-site-menu__panel--medium { width: var(--layout-drawer-width-medium); }
+.pp-site-menu__panel--wide { width: var(--layout-site-menu-max); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pp-site-menu__panel--open { opacity: 1; pointer-events: auto; transform: translateX(var(--_x, 0px)); }
+
+.pp-site-menu__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-150);
+  align-items: start;
+  padding: var(--space-150);
+  border-radius: var(--radius-medium);
+  color: var(--color-text);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(var(--space-075));
+  transition: opacity var(--motion-site-duration-reveal) var(--motion-site-easing) calc(var(--_i, 0) * var(--motion-site-stagger)), transform var(--motion-site-duration-reveal) var(--motion-site-easing) calc(var(--_i, 0) * var(--motion-site-stagger));
+}
+.pp-site-menu__panel--open .pp-site-menu__link { opacity: 1; transform: none; }
+.pp-site-menu__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-background-brand-subtlest);
+  opacity: 0;
+  transition: opacity var(--motion-site-duration-header) var(--motion-site-easing);
+}
+.pp-site-menu__link:hover::before, .pp-site-menu__link:focus-visible::before { opacity: 1; }
+.pp-site-menu__link > * { position: relative; min-width: 0; }
+.pp-site-menu__name { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-075); font: var(--font-heading-xsmall); }
+.pp-site-menu__soon { font: var(--font-label-small); letter-spacing: var(--font-label-small-tracking); color: var(--color-text-subtlest); }
+.pp-site-menu__hint { display: block; margin-top: var(--space-025); font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-site-menu__foot {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-100);
+  margin-top: var(--space-050);
+  padding: var(--space-150) var(--space-150) var(--space-075);
+  border-top: var(--border-width) solid var(--color-border);
+  color: var(--color-text-subtle);
+  font: var(--font-body-small);
+}
+
+/* Reduced motion: the panel fades and still lands where it belongs; it does not fly in from the side. */
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-menu__panel { transform: translateX(var(--_x, 0px)); }
+  .pp-site-menu__link { transform: none; }
+}
+[data-site-still] .pp-site-menu__morph, [data-site-still] .pp-site-menu__arrow,
+[data-site-still] .pp-site-menu__panel, [data-site-still] .pp-site-menu__link,
+[data-site-still] .pp-site-header, [data-site-still] .pp-site-header::before, [data-site-still] .pp-site-header__bar { transition: none; }
