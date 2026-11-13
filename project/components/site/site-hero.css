@@ -50,5 +50,45 @@
 .pp-site-hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-150); }
 @container (max-width: 520px) {
   .pp-site-hero__actions { align-self: stretch; flex-direction: column; }
-  .pp-site-hero__actions .pp-button { justify-content: center; }
+  .pp-site-hero__actions .pp-site-button { justify-content: center; }
 }
+
+/* Grain: a fine noise tile that jitters in steps, as in the approved hero. Transform only. */
+.pp-site-hero__grain {
+  position: absolute;
+  inset: -50%;
+  z-index: -1;
+  background-image: url("assets/site-grain.png");
+  opacity: .05;
+  pointer-events: none;
+  animation: pp-site-grain var(--motion-site-duration-loop-grain) steps(6) infinite;
+}
+@keyframes pp-site-grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 1%); }
+}
+/* Scroll cue: the word and a line that draws itself down. Desktop widths only. */
+.pp-site-hero__cue {
+  position: absolute;
+  right: max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px));
+  bottom: var(--space-300);
+  display: none;
+  align-items: center;
+  gap: var(--space-150);
+  font: var(--font-label-small);
+  letter-spacing: var(--font-site-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--color-text-subtlest);
+}
+.pp-site-hero__cue::after { content: ""; inline-size: var(--border-width); block-size: var(--space-600); background: linear-gradient(var(--color-text), transparent); transform-origin: top; animation: pp-site-drip var(--motion-site-duration-loop-cue) ease-in-out infinite; }
+@keyframes pp-site-drip {
+  0% { transform: scaleY(0); opacity: 1; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+@container (min-width: 768px) { .pp-site-hero__cue { display: flex; } }
+[data-site-still] .pp-site-hero__grain, [data-site-still] .pp-site-hero__cue::after { animation: none; }
+@media (prefers-reduced-motion: reduce) { .pp-site-hero__grain { animation: none; } }

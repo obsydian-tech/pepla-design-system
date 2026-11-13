@@ -21,9 +21,8 @@ The top of the landing page, the four section grounds with their capability colu
 
 ## Where the redraw changes the approved site
 
-- **The light is CSS, not a canvas.** The hero drew its three lights with a script on a canvas. Now they are three circles that drift and swell by transform, in the Site lights component. The lights are a little softer at the edges and move in a calmer loop.
-- **The shine is the same slide, drawn differently.** The old accent line slid a gradient across the words by animating `background-position`, which repaints on every frame. Now a soft window slides across the words with a mint copy sliding the opposite way inside it. It looks the same and runs on the compositor.
-- **No grain, no blur, no scroll cue.** The hero's moving noise layer, the blur on arrival and the "Scroll" cue are left out. Grain and blur each repaint every frame, and the cue is hidden on a phone anyway.
-- **The closing wash is still.** The band's background used to flow with `background-position`. The wash is fixed and the lights move over it.
-- **Real components.** Buttons are the Button component. The "Batsi" tag is the agent Lozenge. The old page drew its own.
+- **The hero light is CSS, not a canvas.** Three circles with a thin ring each drift and swell by transform, in the Site lights component.
+- **The shine, the closing wash, the grain and the scroll cue are all drawn from transforms and opacity.** Same look as the approved site; the old versions animated `background-position`, which repaints on every frame. The shine is a window sliding over the words with a mint copy sliding the other way inside it. The wash is a gradient three times the band's width, slid sideways.
+- **Buttons are the Site button component:** dark with the mint dot that grows into an arrow circle, and the white line button. The dot grows by scale, not by width.
+- **Not restored: the blur on arrival.** The parts fade and rise but do not blur, because blur animates on the main thread and the site check allows only transform and opacity. This one needs Iggie's decision.
 - **The fluid headline follows the section, not the window.** It is sized in `cqw`, so a phone-sized preview on a wide screen sets type like a phone.

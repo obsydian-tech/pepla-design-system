@@ -10,6 +10,27 @@
   block-size: var(--border-width);
   background-image: linear-gradient(90deg, var(--color-site-gradient-1), var(--color-site-gradient-2), var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-5), var(--color-site-gradient-6));
 }
+/* Flowing: add data-text and the class below. Two copies of the words, drawn by pseudo-elements, hold the gradient at shifted
+   positions and fade in turn over the static words, so the colours seem to flow. Opacity only. */
+.pp-site-gradient-text--flow { position: relative; }
+.pp-site-gradient-text--flow::before,
+.pp-site-gradient-text--flow::after {
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  position: absolute;
+  inset: 0 0 -.25em 0;
+  background-image: linear-gradient(90deg, var(--color-site-gradient-6), var(--color-site-gradient-5), var(--color-site-gradient-4), var(--color-site-gradient-text-3), var(--color-site-gradient-2), var(--color-site-gradient-1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  pointer-events: none;
+  animation: pp-site-flow var(--motion-site-duration-loop-flow) ease-in-out infinite;
+}
+.pp-site-gradient-text--flow::after { background-image: linear-gradient(90deg, var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-6), var(--color-site-gradient-5), var(--color-site-gradient-2), var(--color-site-gradient-1)); animation-delay: calc(var(--motion-site-duration-loop-flow) / -2); }
+@keyframes pp-site-flow { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+[data-site-still] .pp-site-gradient-text--flow::before, [data-site-still] .pp-site-gradient-text--flow::after { animation: none; opacity: 0; }
 @media (forced-colors: active) {
   .pp-site-gradient-text { color: LinkText; }
+  .pp-site-gradient-text--flow::before, .pp-site-gradient-text--flow::after { display: none; }
 }

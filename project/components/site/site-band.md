@@ -13,13 +13,13 @@ The last section before the footer: the product name set very large, one sentenc
 
 ## Anatomy
 
-1. **Band** (`pp-site-band`): full width, a container, with a one-pixel rule above. Its ground is a still wash that runs violet, white, mint, cream, violet.
+1. **Band** (`pp-site-band`): full width, a container, with a one-pixel rule above. Its ground is a wash that runs violet, white, mint, cream, violet and slowly flows sideways.
 2. **Lights** (`pp-site-lights`, `pp-site-light`): drift over the wash. See [Site lights](site-lights.html).
 3. **Inner** (`pp-site-band__inner`, with `pp-site-wrap`): a grid, content on the left.
 4. **Eyebrow** (`pp-site-eyebrow`): "Book a demo".
 5. **Title** (`pp-site-band__title`): "Naleko People.", `--font-site-band`: 52px on a phone growing to 168px. "People." is `pp-site-shine pp-site-shine--inline`.
 6. **Lead** (`pp-site-band__lead`): one sentence naming the modules and Ask Batsi.
-7. **Actions** (`pp-site-band__actions`): a large primary Button "Book a demo" with `arrow-right`, and a large default Button "Get started". They stack, full width, below 520px.
+7. **Actions** (`pp-site-band__actions`): a large dark [Site button](site-button.html) "Book a demo" with `arrow-right`, and a large line Site button "Get started". They stack, full width, below 520px.
 8. **Note** (`pp-site-band__note`): one line: what Get started creates and that the Naleko team calls every new company.
 
 ## States
@@ -32,7 +32,7 @@ The last section before the footer: the product name set very large, one sentenc
 
 ## Behaviour
 
-- The wash is a fixed gradient. The approved site moved it with `background-position`; here the lights move over it instead, on the compositor.
+- The wash is a gradient three times the band's width, slid sideways by `transform` (16 seconds, there and back). The approved site moved it with `background-position`, which repaints every frame; this looks the same and stays on the compositor.
 - The band carries `id="demo"` on the page, so every "Book a demo" link on the landing page scrolls to it. `scroll-margin-top` keeps the headline below the header.
 
 ## Content

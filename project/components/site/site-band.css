@@ -5,7 +5,7 @@
   overflow: clip;
   padding-block: calc(var(--space-1000) + var(--space-400));
   border-top: var(--border-width) solid var(--color-border);
-  background: linear-gradient(120deg, var(--color-site-wash-violet), var(--elevation-surface-raised) 30%, var(--color-site-wash-mint) 55%, var(--color-site-canvas) 75%, var(--color-site-wash-violet));
+  background: var(--elevation-surface-raised);
   color: var(--color-text);
   scroll-margin-top: var(--layout-site-header-height);
   container-type: inline-size;
@@ -18,5 +18,20 @@
 .pp-site-band__note { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
 @container (max-width: 520px) {
   .pp-site-band__actions { align-self: stretch; justify-self: stretch; flex-direction: column; }
-  .pp-site-band__actions .pp-button { justify-content: center; }
+  .pp-site-band__actions .pp-site-button { justify-content: center; }
 }
+
+/* The flowing wash: a gradient three times the band's width, slid sideways by transform. */
+.pp-site-band::before {
+  content: "";
+  position: absolute;
+  inset: 0 -200% 0 0;
+  z-index: -1;
+  background: linear-gradient(90deg, var(--color-site-wash-violet), var(--elevation-surface-raised) 15%, var(--color-site-wash-mint) 28%, var(--color-site-canvas) 38%, var(--color-site-wash-violet) 50%, var(--elevation-surface-raised) 65%, var(--color-site-wash-mint) 78%, var(--color-site-canvas) 88%, var(--color-site-wash-violet));
+  animation: pp-site-wash var(--motion-site-duration-loop-wash) ease-in-out infinite alternate;
+}
+@keyframes pp-site-wash {
+  from { transform: translateX(0); }
+  to { transform: translateX(-66.6%); }
+}
+[data-site-still] .pp-site-band::before { animation: none; }
