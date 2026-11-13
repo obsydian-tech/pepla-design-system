@@ -102,3 +102,20 @@
 [data-site-live] .pp-site-step:not(.pp-site-step--in) { opacity: 0; transform: translateY(var(--space-100)); }
 [data-site-still] .pp-site-step, [data-site-still] .pp-site-step:not(.pp-site-step--in) { opacity: 1; transform: none; transition: none; }
 [data-site-still] .pp-site-demo__again { transition: none; }
+
+/* A Batsi tag inside a list item, and the mint tick circle used across demos. */
+.pp-site-demo__item .pp-lozenge { margin-left: var(--space-075); vertical-align: var(--space-025); }
+.pp-site-ok {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  inline-size: var(--size-icon-medium);
+  block-size: var(--size-icon-medium);
+  border-radius: 50%;
+  background: var(--color-brand-mint);
+  color: var(--color-icon-inverse);
+  transition: transform var(--motion-site-duration-pop) var(--motion-site-easing);
+}
+.pp-site-ok > .lucide { inline-size: var(--space-150); block-size: var(--space-150); }
+[data-site-live] .pp-site-ok:not(.pp-site-ok--in) { transform: scale(0); }
+[data-site-still] .pp-site-ok, [data-site-still] .pp-site-ok:not(.pp-site-ok--in) { transform: none; transition: none; }

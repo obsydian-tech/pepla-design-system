@@ -59,5 +59,6 @@
   --layout-site-button-dot: 32px;
   --layout-site-button-dot-large: 44px;
   --layout-site-frame-phone: 390px;
+  --layout-site-phone-width: 330px;
 }
 /* Breakpoints (min-width, px), for media queries: xxs 0, xs 480, sm 768, md 1024, lg 1440, xl 1768 */

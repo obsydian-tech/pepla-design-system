@@ -41,6 +41,10 @@
   --motion-site-duration-loop-batsi-reduced: 80s;
   --motion-site-duration-loop-breathe: 6s;
   --motion-site-duration-loop-breathe-reduced: 12s;
+  --motion-site-duration-loop-read: 1100ms;
+  --motion-site-duration-bar: 1000ms;
+  --motion-site-duration-scan: 1300ms;
+  --motion-site-duration-draw: 1400ms;
 }
 
 @media (prefers-reduced-motion: reduce) {

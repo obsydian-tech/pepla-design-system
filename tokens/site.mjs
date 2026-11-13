@@ -66,6 +66,10 @@ export const siteMotion = {
   'motion.site.duration.loop.batsi.reduced': '80s', // reduced motion: half speed, never still
   'motion.site.duration.loop.breathe': '6s',   // one breath of the header logo's circles
   'motion.site.duration.loop.breathe.reduced': '12s', // reduced motion: half speed, never still
+  'motion.site.duration.loop.read': '1100ms',  // one breath of a "Reading" status
+  'motion.site.duration.bar': '1000ms',        // an upload bar filling
+  'motion.site.duration.scan': '1300ms',       // one pass of the scan light down a document
+  'motion.site.duration.draw': '1400ms',       // a signature being written
 };
 
 export const siteLayout = {
@@ -85,7 +89,11 @@ export const siteLayout = {
   'layout.site.button.dot': '32px',      // the circle a button's mint dot grows into on hover
   'layout.site.button.dot.large': '44px',
   'layout.site.frame.phone': '390px',   // the phone preview frame's width
+  'layout.site.phone.width': '330px',   // the sample phone inside a demo, at most
 };
+
+// Shape: the corner of the sample phone's frame.
+export const siteShape = { 'radius.site.phone': '42px' };
 
 // Site type: [weight, size, line height, tracking, family], like `type` in foundations.mjs, except that a size or line
 // height may be a string. The big headings are fluid and follow the width of their section (cqw), not the window,
@@ -99,4 +107,5 @@ export const siteType = {
   'site.title':   [700, 'clamp(32px, 4.6cqw, 56px)', '1.08', '-0.025em', 'display'],  // section headline
   'site.lead':    [400, 18, 28, '0', 'body'],                                         // line under a headline
   'site.eyebrow': [700, 12, 16, '0.16em', 'body'],                                    // small caps label above a headline
+  'site.group':   [700, 12, 16, '0.08em', 'body'],                                    // small caps label above a group inside a demo panel
 };
