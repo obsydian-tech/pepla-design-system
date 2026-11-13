@@ -10,7 +10,7 @@ a.pp-stat:hover { background: var(--elevation-surface-raised-hovered); border-co
 .pp-stat__meta--danger { color: var(--color-text-danger); }
 .pp-stat__meta--good { color: var(--color-text-success); }
 .pp-stat__meta--agent { color: var(--color-text-agent); }
-.pp-stat-row { display: grid; gap: var(--space-150); grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); }
+.pp-stat-row { display: grid; gap: var(--space-150); grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); }
 
 /* Six compact stats in one row on a wide page (a dashboard strip); fewer on narrower pages */
 .pp-stat-row--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }

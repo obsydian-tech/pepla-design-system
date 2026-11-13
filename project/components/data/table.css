@@ -18,12 +18,17 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-table__empty { padding: var(--space-600) var(--space-200); text-align: center; color: var(--color-text-subtle); }
 .pp-table__restricted { display: inline-flex; align-items: center; gap: var(--space-050); color: var(--color-text-subtlest); }
 .pp-table__restricted svg { width: 14px; height: 14px; }
-/* Phone: rows become stacked cards when the table opts in */
+/* Phone: rows become compact cards when the table opts in. The first cell is the row's title,
+   the other cells sit two to a line with their label above, and the row action stays top right. */
 @media (max-width: 767px) {
   .pp-table--stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .pp-table--stack, .pp-table--stack tbody, .pp-table--stack tr, .pp-table--stack td { display: block; width: 100%; }
-  .pp-table--stack tr { padding: var(--space-150) var(--space-200); border-bottom: var(--border-width) solid var(--color-border); }
-  .pp-table--stack td { border: 0; padding: var(--space-025) 0; text-align: left; }
+  .pp-table--stack, .pp-table--stack tbody { display: block; width: 100%; }
+  .pp-table--stack tr { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-100) var(--space-200); box-sizing: border-box; padding: var(--space-150) var(--space-200); border-bottom: var(--border-width) solid var(--color-border); }
+  .pp-table--stack td { display: block; box-sizing: border-box; min-width: 0; border: 0; padding: 0; text-align: left; overflow-wrap: anywhere; }
+  .pp-table--stack td:first-child { grid-column: 1 / -1; padding-inline-end: var(--space-500); }
   .pp-table--stack td[data-label]::before { content: attr(data-label); display: block; font: var(--font-heading-xxsmall); color: var(--color-text-subtlest); }
+  .pp-table--stack td:first-child::before { display: none; }
   .pp-table--stack td.pp-table__num { text-align: left; }
+  .pp-table--stack td:has(.pp-confidence) { grid-column: 1 / -1; }
+  .pp-table--stack td.pp-table__actions { position: absolute; top: var(--space-150); right: var(--space-150); width: auto; }
 }
