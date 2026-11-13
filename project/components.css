@@ -3178,6 +3178,53 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-confidence-sources__found { grid-column: 2; font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-confidence-sources__found--mismatch { color: var(--color-text-warning); }
 
+/* ---- site/site-band ---- */
+/* Site closing band: the last section before the footer. Spec: site-band.md. */
+.pp-site-band {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-block: calc(var(--space-1000) + var(--space-400));
+  border-top: var(--border-width) solid var(--color-border);
+  background: linear-gradient(120deg, var(--color-site-wash-violet), var(--elevation-surface-raised) 30%, var(--color-site-wash-mint) 55%, var(--color-site-canvas) 75%, var(--color-site-wash-violet));
+  color: var(--color-text);
+  scroll-margin-top: var(--layout-site-header-height);
+  container-type: inline-size;
+}
+.pp-site-band__inner { display: grid; justify-items: start; gap: var(--space-400); }
+.pp-site-band__inner .pp-site-eyebrow { margin: 0; }
+.pp-site-band__title { margin: 0; font: var(--font-site-band); letter-spacing: var(--font-site-band-tracking); color: var(--color-text); }
+.pp-site-band__lead { margin: 0; max-width: 52ch; font: var(--font-site-lead); letter-spacing: var(--font-site-lead-tracking); color: var(--color-text-subtle); }
+.pp-site-band__actions { display: flex; flex-wrap: wrap; gap: var(--space-150); }
+.pp-site-band__note { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
+@container (max-width: 520px) {
+  .pp-site-band__actions { align-self: stretch; justify-self: stretch; flex-direction: column; }
+  .pp-site-band__actions .pp-button { justify-content: center; }
+}
+
+/* ---- site/site-caps ---- */
+/* Site capabilities: a row of short columns that sums up what a module does. Spec: site-caps.md. */
+.pp-site-caps {
+  display: grid;
+  gap: var(--space-300);
+  margin: var(--space-500) 0 0;
+  padding: 0;
+  list-style: none;
+}
+@container (min-width: 768px) { .pp-site-caps { grid-template-columns: repeat(2, 1fr); } }
+@container (min-width: 1080px) { .pp-site-caps { grid-template-columns: repeat(4, 1fr); } }
+.pp-site-caps__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-075);
+  padding-top: var(--space-200);
+  border-top: var(--border-width-selected) solid var(--color-text);
+}
+.pp-site-caps__title { margin: 0; font: var(--font-heading-small); letter-spacing: var(--font-heading-small-tracking); color: var(--color-text); }
+.pp-site-caps__text { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-site-caps__item .pp-lozenge { margin-top: var(--space-050); }
+
 /* ---- site/site-gradient ---- */
 /* The Naleko gradient: the company name and the footer hairline. Accent only; the page stays light. */
 .pp-site-gradient-text {
@@ -3272,6 +3319,94 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   pointer-events: none;
 }
 .pp-site-header__skip:focus { opacity: 1; transform: none; pointer-events: auto; }
+
+/* ---- site/site-hero ---- */
+/* Site hero: the top of the landing page. Spec: site-hero.md. The header floats over its top padding. */
+.pp-site-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-top: var(--layout-site-header-height);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+  container-type: inline-size;
+}
+/* The ground fades to white where the hero meets the first section. */
+.pp-site-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  block-size: calc(var(--space-1000) * 2);
+  z-index: -1;
+  background: linear-gradient(transparent, var(--elevation-surface-raised));
+  pointer-events: none;
+}
+.pp-site-hero__intro { display: grid; gap: var(--space-200); padding-top: var(--space-500); font: var(--font-body-large); color: var(--color-text-subtle); }
+.pp-site-hero__intro p { margin: 0; max-width: 48ch; }
+.pp-site-hero__intro strong { color: var(--color-text); font-weight: var(--font-weight-semibold); }
+@container (min-width: 1024px) {
+  .pp-site-hero__intro { grid-template-columns: 1fr 1fr; align-items: start; }
+  .pp-site-hero__chips { justify-content: flex-end; }
+}
+.pp-site-hero__chips { display: flex; flex-wrap: wrap; gap: var(--space-100); margin: 0; padding: 0; list-style: none; }
+.pp-site-hero__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-075);
+  padding: var(--space-075) var(--space-150);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--elevation-surface-raised) 80%, transparent);
+  font: var(--font-body-strong);
+  color: var(--color-text);
+}
+.pp-site-hero__chip::before { content: ""; inline-size: var(--space-075); block-size: var(--space-075); border-radius: 50%; background: var(--color-brand-violet); }
+
+.pp-site-hero__main { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-400); padding-block: calc(var(--space-1000) - var(--space-100)) var(--space-1000); }
+@container (min-width: 768px) {
+  .pp-site-hero__main { padding-block: calc(var(--space-1000) + var(--space-600)) calc(var(--space-1000) + var(--space-800)); }
+}
+.pp-site-hero__main .pp-site-eyebrow { margin: 0; }
+.pp-site-hero__title { margin: 0; font: var(--font-site-hero); letter-spacing: var(--font-site-hero-tracking); color: var(--color-text); }
+.pp-site-hero__line { display: block; }
+.pp-site-hero__lead { margin: 0; max-width: 56ch; font: var(--font-site-lead); letter-spacing: var(--font-site-lead-tracking); color: var(--color-text-subtle); }
+.pp-site-hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-150); }
+@container (max-width: 520px) {
+  .pp-site-hero__actions { align-self: stretch; flex-direction: column; }
+  .pp-site-hero__actions .pp-button { justify-content: center; }
+}
+
+/* ---- site/site-lights ---- */
+/* Site lights: soft coloured circles that drift behind a hero or a band. Spec: site-lights.md. Transform only. */
+.pp-site-lights { position: absolute; inset: 0; z-index: -1; overflow: clip; pointer-events: none; }
+.pp-site-light {
+  --_color: var(--color-site-orb-violet);
+  --_size: 44cqw;
+  --_dx: 6cqw;
+  --_dy: 3cqw;
+  position: absolute;
+  left: var(--_x, 50%);
+  top: var(--_y, 50%);
+  inline-size: var(--_size);
+  aspect-ratio: 1;
+  margin: calc(var(--_size) / -2) 0 0 calc(var(--_size) / -2);
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side, var(--_color), transparent);
+  animation: pp-site-light-drift var(--motion-site-duration-loop-orb) ease-in-out infinite;
+  animation-delay: calc(var(--_i, 0) * var(--motion-site-duration-loop-orb-offset));
+}
+.pp-site-light--violet { --_color: var(--color-site-orb-violet); }
+.pp-site-light--mint { --_color: var(--color-site-orb-mint); }
+.pp-site-light--coral { --_color: var(--color-site-orb-coral); }
+.pp-site-light--sky { --_color: var(--color-site-orb-sky); }
+@keyframes pp-site-light-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(var(--_dx), var(--_dy)) scale(1.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-light { animation-duration: var(--motion-site-duration-loop-orb-reduced); }
+}
+[data-site-still] .pp-site-light { animation: none; }
 
 /* ---- site/site-menu ---- */
 /* Site menu: the top-level links and the one shared panel that slides, resizes and fades between lists.
@@ -3455,6 +3590,66 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-sweep,
 [data-site-still] .pp-site-pulse { animation: none; }
 
+/* ---- site/site-section ---- */
+/* Site section: the wrapper, grounds and headline block every public site section is built from. Spec: site-section.md.
+   Layout follows the section's own width (container queries), not the window's, so a phone-sized preview on a wide screen lays out like a phone. */
+
+/* Wrap: content is --layout-site-max wide inside the gutters. Used by the hero, every section and the closing band. */
+.pp-site-wrap {
+  box-sizing: border-box;
+  max-width: calc(var(--layout-site-max) + var(--layout-site-gutter-desktop) * 2);
+  margin: 0 auto;
+  padding-left: max(var(--layout-gutter-phone), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--layout-gutter-phone), env(safe-area-inset-right, 0px));
+}
+@container (min-width: 768px) {
+  .pp-site-wrap { padding-left: max(var(--layout-site-gutter-desktop), env(safe-area-inset-left, 0px)); padding-right: max(var(--layout-site-gutter-desktop), env(safe-area-inset-right, 0px)); }
+}
+
+.pp-site-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-150);
+  margin: 0 0 var(--space-200);
+  font: var(--font-site-eyebrow);
+  letter-spacing: var(--font-site-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--color-text-brand);
+}
+.pp-site-eyebrow::before { content: ""; flex: none; inline-size: var(--space-400); block-size: var(--border-width-selected); background: currentColor; }
+
+.pp-site-section {
+  position: relative;
+  padding-block: var(--space-800);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+  scroll-margin-top: var(--layout-site-header-height);
+  /* The layout follows the section's own width. */
+  container-type: inline-size;
+}
+@container (min-width: 768px) {
+  .pp-site-section { padding-block: calc(var(--space-1000) + var(--space-300)); }
+}
+.pp-site-section--cream { background: var(--color-site-canvas); }
+.pp-site-section--violet { background: var(--color-site-wash-violet); }
+.pp-site-section--mint { background: var(--color-site-wash-mint); }
+.pp-site-section--coral { background: var(--color-site-wash-coral); }
+/* A section that holds a soft light or a sticky demo clips what it draws outside itself. */
+.pp-site-section--clip { overflow: clip; isolation: isolate; }
+
+.pp-site-section__head { display: grid; gap: var(--space-250); margin-bottom: var(--space-500); }
+@container (min-width: 1024px) {
+  .pp-site-section__head { grid-template-columns: 1.1fr .9fr; align-items: end; }
+}
+.pp-site-section__title { margin: 0; font: var(--font-site-title); letter-spacing: var(--font-site-title-tracking); color: var(--color-text); text-wrap: balance; }
+.pp-site-section__lead { margin: 0; max-width: 46ch; font: var(--font-site-lead); letter-spacing: var(--font-site-lead-tracking); color: var(--color-text-subtle); }
+
+/* Stage for kit and spec pages: a box that stands in for the browser window, as tall as what it holds (no inner scroll),
+   so a whole hero or section shows at once at desktop and phone width. Not used on the site itself. */
+.pp-site-stage { position: relative; overflow: clip; contain: paint; isolation: isolate; background: var(--elevation-surface-raised); border-radius: var(--radius-medium); }
+.pp-site-stage--desktop { min-width: var(--layout-site-breakpoint-nav); }
+.pp-site-stage--phone { inline-size: min(100%, var(--layout-site-frame-phone)); }
+
 /* ---- site/site-sheet ---- */
 /* Site sheet: the phone menu. Spec: site-sheet.md. Slides in from the right over a blanket; opacity and transform only. */
 .pp-site-sheet { position: fixed; inset: 0; z-index: var(--layer-modal); pointer-events: none; }
@@ -3521,6 +3716,40 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-site-sheet--open .pp-site-sheet__panel { opacity: 1; }
 }
 [data-site-still] .pp-site-sheet__blanket, [data-site-still] .pp-site-sheet__panel { transition: none; }
+
+/* ---- site/site-shine ---- */
+/* Site shine: a light that passes over an accent headline. Spec: site-shine.md.
+   The words are plain violet. Two copies of them, drawn by the element's own pseudo-elements, hold a mint band at
+   different places and fade in and out in turn, so the light seems to travel. Opacity only. */
+.pp-site-shine { position: relative; display: block; color: var(--color-text-brand); padding-bottom: .08em; }
+.pp-site-shine::before,
+.pp-site-shine::after {
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  position: absolute;
+  inset: 0 0 -.25em 0; /* reaches below the line so descenders carry the glow too */
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  animation: pp-site-shine var(--motion-site-duration-loop-shine) ease-in-out infinite;
+}
+.pp-site-shine::before { background-image: linear-gradient(100deg, transparent 5%, var(--color-brand-mint) 28%, transparent 50%); }
+.pp-site-shine::after { background-image: linear-gradient(100deg, transparent 50%, var(--color-brand-mint) 72%, transparent 95%); animation-delay: calc(var(--motion-site-duration-loop-shine) / -2); }
+@keyframes pp-site-shine {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+/* Inline use: a few words inside a line, such as "People." in the band headline. */
+.pp-site-shine--inline { display: inline-block; }
+[data-site-still] .pp-site-shine::before,
+[data-site-still] .pp-site-shine::after { animation: none; opacity: 0; }
+@media (forced-colors: active) {
+  .pp-site-shine { color: LinkText; }
+  .pp-site-shine::before, .pp-site-shine::after { display: none; }
+}
 
 /* ---- records/approval-chain ---- */
 /* Approval chain. Spec: approval-chain.md

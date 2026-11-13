@@ -74,6 +74,12 @@ function build() {
     const cls = name.replace(/\./g, '-');
     classes.push(`.pp-text-${cls} { font: var(--font-${cls}); letter-spacing: var(--font-${cls}-tracking);${name.startsWith('metric') ? ' font-variant-numeric: tabular-nums;' : ''}${name === 'label.small' ? ' text-transform: uppercase;' : ''} }`);
   }
+  // public site type: sizes may be fluid strings (clamp with cqw), so no utility classes and no px suffix on strings
+  const px = (v) => (typeof v === 'number' ? `${v}px` : v);
+  for (const [name, [w, size, line, track, f]] of Object.entries(F.siteType)) {
+    typeVars.push([`font.${name}`, `${w} ${px(size)}/${px(line)} ${fam[f]}`]);
+    typeVars.push([`font.${name}.tracking`, track]);
+  }
   files['typography.css'] = HEAD('type tokens (font shorthand + tracking per style)') + block(':root', typeVars) +
     '\n/* Optional utility classes; components use the variables directly. */\n' + classes.join('\n') + '\n';
 
@@ -92,6 +98,7 @@ function build() {
     color: { light: dtcg(L, 'color'), dark: dtcg(D, 'color') },
     shadow: { light: dtcg(F.shadows.light, 'shadow'), dark: dtcg(F.shadows.dark, 'shadow') },
     typography: Object.fromEntries(Object.entries(F.type).map(([k, [w, s, l, t, f]]) => [k, { $type: 'typography', $value: { fontFamily: F.fonts[`font.family.${f}`], fontWeight: w, fontSize: `${s}px`, lineHeight: `${l}px`, letterSpacing: t } }])),
+    siteTypography: Object.fromEntries(Object.entries(F.siteType).map(([k, [w, s, l, t, f]]) => [k, { $type: 'typography', $value: { fontFamily: F.fonts[`font.family.${f}`], fontWeight: w, fontSize: px(s), lineHeight: px(l), letterSpacing: t } }])),
     space: dtcg(F.space, 'dimension'), shape: dtcg(F.shape, 'dimension'), layout: dtcg(F.layout, 'dimension'),
     motion: dtcg(F.motion, 'other'), layers: dtcg(F.layers, 'number'), breakpoints: F.breakpoints,
   }, null, 2) + '\n';
