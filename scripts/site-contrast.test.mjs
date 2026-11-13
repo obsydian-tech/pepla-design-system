@@ -54,3 +54,16 @@ test('form pieces read: pressed chip, pressed slot, confirmation badge and statu
     assert.ok(r >= 4.5, `${fg} on ${bg} is ${r.toFixed(2)}:1`);
   }
 });
+
+test('demo and Ask Batsi pieces read: chat bubbles, notes, "Logged" line', () => {
+  const pairs = [
+    ['color.text', 'color.background.agent.subtlest'], // Batsi bubble
+    ['color.text.inverse', 'color.background.neutral.bold'], // visitor bubble, pressed question
+    ['color.text.agent', 'elevation.surface.raised'], // "Batsi" name and eyebrow
+    ['color.text.subtle', 'elevation.surface.raised'], // notes, FAQ answers, logged line
+  ];
+  for (const [fg, bg] of pairs) {
+    const r = ratio(fg, bg);
+    assert.ok(r >= 4.5, `${fg} on ${bg} is ${r.toFixed(2)}:1`);
+  }
+});

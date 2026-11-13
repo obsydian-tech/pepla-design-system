@@ -53,6 +53,10 @@
   --font-site-band-tracking: -0.045em;
   --font-site-page: 700 clamp(40px, 6.2cqw, 84px)/1.02 var(--font-family-display);
   --font-site-page-tracking: -0.035em;
+  --font-site-demo: 700 clamp(30px, 3.8cqw, 48px)/1.08 var(--font-family-display);
+  --font-site-demo-tracking: -0.025em;
+  --font-site-faq: 700 40px/62px var(--font-family-display);
+  --font-site-faq-tracking: -0.025em;
   --font-site-title: 700 clamp(32px, 4.6cqw, 56px)/1.08 var(--font-family-display);
   --font-site-title-tracking: -0.025em;
   --font-site-lead: 400 18px/28px var(--font-family-body);

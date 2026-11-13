@@ -20,6 +20,8 @@
   --motion-site-duration-reveal: 700ms;
   --motion-site-duration-menu: 380ms;
   --motion-site-duration-header: 300ms;
+  --motion-site-duration-pop: 450ms;
+  --motion-site-duration-fade: 350ms;
   --motion-site-duration-step: 600ms;
   --motion-site-stagger: 70ms;
   --motion-site-duration-loop-orb: 28s;
@@ -34,6 +36,9 @@
   --motion-site-duration-loop-wash: 16s;
   --motion-site-duration-loop-flow: 14s;
   --motion-site-duration-loop-flow-reduced: 28s;
+  --motion-site-duration-loop-dot: 1s;
+  --motion-site-duration-loop-batsi: 40s;
+  --motion-site-duration-loop-batsi-reduced: 80s;
   --motion-site-duration-loop-breathe: 6s;
   --motion-site-duration-loop-breathe-reduced: 12s;
 }

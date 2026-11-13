@@ -45,6 +45,8 @@ export const siteMotion = {
   'motion.site.duration.reveal': '700ms',    // a section or card arriving
   'motion.site.duration.menu': '380ms',      // the shared menu panel sliding and resizing
   'motion.site.duration.header': '300ms',    // the header shrinking after a scroll
+  'motion.site.duration.pop': '450ms',       // a demo row stepping in, a chat message arriving, an answer opening
+  'motion.site.duration.fade': '350ms',      // a label, an answer or a button fading
   'motion.site.duration.step': '600ms',      // one step of a demo
   'motion.site.stagger': '70ms',             // delay per --_i position inside a group
   'motion.site.duration.loop.orb': '28s',    // one drift of a soft light
@@ -59,6 +61,9 @@ export const siteMotion = {
   'motion.site.duration.loop.wash': '16s',     // one slide of the closing band's wash
   'motion.site.duration.loop.flow': '14s',     // one flow of the company-name gradient
   'motion.site.duration.loop.flow.reduced': '28s', // reduced motion: half speed, never still
+  'motion.site.duration.loop.dot': '1s',        // one bounce of a typing dot
+  'motion.site.duration.loop.batsi': '40s',     // one turn of the glow behind the Ask Batsi band
+  'motion.site.duration.loop.batsi.reduced': '80s', // reduced motion: half speed, never still
   'motion.site.duration.loop.breathe': '6s',   // one breath of the header logo's circles
   'motion.site.duration.loop.breathe.reduced': '12s', // reduced motion: half speed, never still
 };
@@ -89,6 +94,8 @@ export const siteType = {
   'site.hero':    [700, 'clamp(46px, 9.6cqw, 140px)', '.98', '-0.04em', 'display'],   // hero headline
   'site.band':    [800, 'clamp(52px, 11cqw, 168px)', '.98', '-0.045em', 'display'],   // closing band headline
   'site.page':    [700, 'clamp(40px, 6.2cqw, 84px)', '1.02', '-0.035em', 'display'],  // headline of a page that is not the landing page (Get started, Book a demo)
+  'site.demo':    [700, 'clamp(30px, 3.8cqw, 48px)', '1.08', '-0.025em', 'display'],  // headline beside a demo or the Ask Batsi band
+  'site.faq':     [700, 40, 62, '-0.025em', 'display'],                              // headline of the questions section
   'site.title':   [700, 'clamp(32px, 4.6cqw, 56px)', '1.08', '-0.025em', 'display'],  // section headline
   'site.lead':    [400, 18, 28, '0', 'body'],                                         // line under a headline
   'site.eyebrow': [700, 12, 16, '0.16em', 'body'],                                    // small caps label above a headline
