@@ -102,7 +102,7 @@ export function audit() {
       }
 
       // 7. One visible row of filter chips
-      const groups = [...screen.querySelectorAll('[role="group"]')].filter((g) => g.querySelectorAll('[aria-pressed]').length >= 3 && !nearest(g, '.pp-page-header, .pp-modal-dialog, .pp-drawer, .pp-popup'));
+      const groups = [...screen.querySelectorAll('[role="group"]')].filter((g) => g.querySelectorAll('[aria-pressed]').length >= 3 && !nearest(g, '.pp-page-header, .pp-modal-dialog, .pp-drawer, .pp-popup, .pp-site-form-card')); // a form's own pickers (day and time) are not a filter row
       if (groups.length > LIMITS.filterGroups) report('filters', `${groups.length} visible filter groups`);
 
       // 8. No card in a card: a raised card or a stat card inside another card is a box in a box.

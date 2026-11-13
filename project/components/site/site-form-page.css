@@ -1,0 +1,63 @@
+/* Site form page: the top of Get started and Book a demo. Spec: site-form-page.md.
+   It sits inside a Site hero (pp-site-hero) and follows that hero's own width (container queries). */
+.pp-site-form-page__grid {
+  display: grid;
+  gap: var(--space-500);
+  padding-block: var(--space-600) var(--space-800);
+}
+.pp-site-form-page__intro { min-width: 0; }
+.pp-site-form-page__title { margin: var(--space-200) 0 var(--space-250); font: var(--font-site-page); letter-spacing: var(--font-site-page-tracking); color: var(--color-text); text-wrap: balance; }
+.pp-site-form-page__lead { margin: 0 0 var(--space-400); max-width: 52ch; font: var(--font-site-lead); letter-spacing: var(--font-site-lead-tracking); color: var(--color-text-subtle); }
+.pp-site-form-page .pp-site-form-page__facts { justify-content: flex-start; margin-top: var(--space-400); }
+.pp-site-form-page__card { min-width: 0; }
+@container (min-width: 1024px) {
+  .pp-site-form-page__grid {
+    grid-template-columns: 1.08fr .92fr;
+    grid-template-areas: "intro card" "next card";
+    align-content: start;
+    align-items: start;
+    column-gap: var(--space-800);
+    row-gap: 0;
+    padding-block: var(--space-1000) calc(var(--space-1000) + var(--space-400));
+  }
+  .pp-site-form-page__intro { grid-area: intro; }
+  .pp-site-form-page__card { grid-area: card; }
+  .pp-site-form-page__next { grid-area: next; align-self: start; }
+}
+
+/* Breadcrumb: Home, a chevron, the current page. Every level stays visible on a phone. */
+.pp-site-crumb { margin: 0 0 var(--space-300); }
+.pp-site-crumb__list { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-100); margin: 0; padding: 0; list-style: none; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-site-crumb__item { display: inline-flex; align-items: center; gap: var(--space-100); }
+.pp-site-crumb__item > .lucide { inline-size: var(--space-150); block-size: var(--space-150); color: var(--color-text-subtlest); }
+.pp-site-crumb a { display: inline-flex; align-items: center; min-height: var(--size-touch-target); color: var(--color-text-subtle); text-decoration: none; border-radius: var(--radius-xsmall); }
+.pp-site-crumb a:hover { color: var(--color-text-brand); }
+.pp-site-crumb a:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+.pp-site-crumb [aria-current="page"] { color: var(--color-text); }
+
+/* What happens next: three numbered lines under the intro (desktop) or under the card (phone). */
+.pp-site-next {
+  display: grid;
+  gap: var(--space-150);
+  max-width: calc(var(--space-1000) * 6.5);
+  margin: var(--space-100) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pp-site-next;
+  font: var(--font-body-large);
+  color: var(--color-text-subtle);
+}
+.pp-site-next__item { counter-increment: pp-site-next; display: grid; grid-template-columns: calc(var(--space-300) + var(--space-050)) minmax(0, 1fr); gap: var(--space-150); align-items: start; }
+.pp-site-next__item::before {
+  content: counter(pp-site-next);
+  display: grid;
+  place-items: center;
+  inline-size: calc(var(--space-300) + var(--space-050));
+  block-size: calc(var(--space-300) + var(--space-050));
+  border: var(--border-width) solid var(--color-background-brand-subtle);
+  border-radius: 50%;
+  background: var(--color-background-brand-subtlest);
+  color: var(--color-text-brand);
+  font: var(--font-heading-xxsmall);
+}
+.pp-site-next__title { display: block; font-weight: var(--font-weight-semibold); color: var(--color-text); }
