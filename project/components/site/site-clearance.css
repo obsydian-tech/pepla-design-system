@@ -1,0 +1,26 @@
+/* Site not-cleared-to-work list: the box that lists everyone with an expired requirement, the day it is shown for, and the
+   two lines saying who was told. Spec: site-clearance.md. The list and the empty line share one place and swap by opacity
+   and transform; the count is a stack of states that crossfade. */
+.pp-site-clear { display: grid; gap: var(--space-150); font: var(--font-body); }
+.pp-site-clear__box { display: grid; gap: var(--space-150); padding: calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-clear__head { display: flex; align-items: center; gap: var(--space-100); margin: 0; font: var(--font-body-strong); color: var(--color-text); }
+.pp-site-clear__head > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-clear__head > .pp-site-state { margin-left: auto; }
+.pp-site-clear__count { min-inline-size: var(--space-300); text-align: center; font-weight: var(--font-weight-bold); }
+.pp-site-clear__stage { display: grid; }
+.pp-site-clear__empty, .pp-site-clear__who { grid-area: 1 / 1; }
+.pp-site-clear__empty { display: flex; align-items: center; gap: var(--space-100); margin: 0; color: var(--color-text-subtle); }
+.pp-site-clear__empty > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); color: var(--color-text-agent); }
+.pp-site-clear--has .pp-site-clear__empty { opacity: 0; visibility: hidden; }
+.pp-site-clear__who { display: flex; align-items: center; gap: var(--space-150); padding: calc(var(--space-100) + var(--space-025)) calc(var(--space-150) - var(--space-025)); border: var(--border-width) solid var(--color-border-danger); border-radius: var(--radius-medium); background: var(--color-background-danger-subtle); opacity: 0; visibility: hidden; }
+.pp-site-clear--has .pp-site-clear__who { opacity: 1; visibility: visible; animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+.pp-site-clear__avatar { display: grid; flex: none; place-items: center; inline-size: calc(var(--space-300) + var(--space-050)); block-size: calc(var(--space-300) + var(--space-050)); border-radius: 50%; background: var(--elevation-surface-raised); color: var(--color-text-danger); font: var(--font-label-small); font-weight: var(--font-weight-bold); }
+.pp-site-clear__why { display: block; color: var(--color-text-danger); font: var(--font-body-small); }
+.pp-site-clear__told { display: grid; gap: var(--space-075); }
+.pp-site-clear__line { display: flex; align-items: center; gap: var(--space-100); color: var(--color-text-subtle); }
+.pp-site-clear__line > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); color: var(--color-text-agent); }
+
+/* The day the demo is showing: a small violet pill with a dot. */
+.pp-site-day { display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-025) var(--space-100); border-radius: var(--radius-full); background: var(--color-background-brand-subtlest); color: var(--color-text-brand); font: var(--font-label-small); font-variant-numeric: tabular-nums; }
+.pp-site-day__dot { flex: none; inline-size: var(--space-075); block-size: var(--space-075); border-radius: 50%; background: var(--color-text-brand); }
+[data-site-still] .pp-site-clear--has .pp-site-clear__who { animation: none; }
