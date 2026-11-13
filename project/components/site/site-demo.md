@@ -23,6 +23,7 @@ A module section: the words on one side (eyebrow, headline, lead and a short lis
 8. **Row** (`pp-site-demo__row`, with `--brand` for a company's own item): a name (`pp-site-demo__row-name`), a line under it (`pp-site-demo__row-note`) and a **status** (`pp-site-status`, with `--success`, `--brand`, `--warning` or `--danger`; neutral by default).
 9. **Batsi tag** (optional, in a list item): the agent [Lozenge](lozenge.html) with the sparkles icon and "Batsi", after the words.
 10. **Tick** (`pp-site-ok`, with `--in` once shown): the mint circle with a check that scales in. Used inside demo contents.
+11. **Wide variant** (`pp-site-demo__head` and `pp-site-demo__wide`): the words (eyebrow, headline, lead) and the list sit side by side from 1024px, and the sample spans the full width below them. Used by the hiring board. The sample is not inside a panel.
 
 ## States
 

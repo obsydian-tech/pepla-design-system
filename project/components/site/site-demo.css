@@ -119,3 +119,9 @@
 .pp-site-ok > .lucide { inline-size: var(--space-150); block-size: var(--space-150); }
 [data-site-live] .pp-site-ok:not(.pp-site-ok--in) { transform: scale(0); }
 [data-site-still] .pp-site-ok, [data-site-still] .pp-site-ok:not(.pp-site-ok--in) { transform: none; transition: none; }
+
+/* A wide demo: the words and the list sit side by side above a sample that spans the full width (the hiring board). */
+.pp-site-demo__head { display: grid; gap: calc(var(--space-300) + var(--space-050)); }
+@container (min-width: 1024px) { .pp-site-demo__head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: calc(var(--space-800) + var(--space-100)); align-items: start; } }
+.pp-site-demo__head .pp-site-demo__list { margin: 0; }
+.pp-site-demo__wide { display: grid; gap: calc(var(--space-150) + var(--space-025)); margin-top: var(--space-500); min-width: 0; }

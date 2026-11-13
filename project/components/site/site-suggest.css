@@ -1,0 +1,8 @@
+/* Site suggestion: the mint box under a demo where Batsi drafts or suggests something (or says what just happened).
+   Spec: site-suggest.md. It arrives as a demo step (opacity and transform). */
+.pp-site-suggest { display: flex; align-items: flex-start; gap: var(--space-100); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-large); background: var(--color-background-agent-subtlest); color: var(--color-text); font: var(--font-body-small); }
+.pp-site-suggest__icon { display: inline-grid; flex: none; place-items: center; margin-top: var(--space-050); color: var(--color-text-agent); }
+.pp-site-suggest__icon > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-suggest__icon > .pp-site-ok { margin-top: calc(var(--space-025) * -1); }
+.pp-site-suggest__text { min-width: 0; }
+.pp-site-suggest__lead { color: var(--color-text-agent); font-weight: var(--font-weight-semibold); }

@@ -14,7 +14,7 @@ A status pill (or a short line of words) whose text changes while a demo plays: 
 ## Anatomy
 
 1. **Stack** (`pp-site-state`): an inline grid that holds every state in the same cell, right-aligned. It is as wide as the widest state.
-2. **State** (`pp-site-state__item`): one pill or one line of words. A pill is a [Site status](site-demo.html) with its tone (`pp-site-status--success`, `--brand`, `--warning`, `--danger`, or neutral). `pp-site-state__item--on` marks the current one. `pp-site-state__item--pulse` makes the current one breathe while Batsi is working ("Reading").
+2. **State** (`pp-site-state__item`): one pill or one line of words. A pill is a [Site status](site-demo.html) with its tone (`pp-site-status--success`, `--brand`, `--warning`, `--danger`, or neutral). A stack of plain words that sits at the start of a line (a row's reason) takes `pp-site-state--start` so the words align left. `pp-site-state__item--on` marks the current one. `pp-site-state__item--pulse` makes the current one breathe while Batsi is working ("Reading").
 
 ## States
 
