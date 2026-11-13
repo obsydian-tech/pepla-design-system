@@ -1,0 +1,13 @@
+/* Site leave approval: the line manager's side of a leave request. The dates and working days, Batsi's reminder,
+   Approve and Decline, and the log line. Spec: site-approval.md. The status in the panel top is a Site live status;
+   the reminder and the log line arrive as demo steps (opacity and transform). */
+.pp-site-approval { display: grid; gap: var(--space-150); font: var(--font-body); }
+.pp-site-approval__meta { margin: 0; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-approval__decide { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); }
+.pp-site-approval__decide .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-approval__accepted { display: none; align-items: center; gap: var(--space-100); color: var(--color-text-agent); font: var(--font-body-strong); }
+.pp-site-approval__decide--done > .pp-button { display: none; }
+.pp-site-approval__decide--done > .pp-site-approval__accepted { display: inline-flex; }
+.pp-site-approval__log { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-075) var(--space-150); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-full); color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-approval__log > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+[data-site-still] .pp-site-approval__decide .pp-button--pressed { animation: none; }
