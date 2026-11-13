@@ -3725,37 +3725,43 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-sheet__blanket, [data-site-still] .pp-site-sheet__panel { transition: none; }
 
 /* ---- site/site-shine ---- */
-/* Site shine: a light that passes over an accent headline. Spec: site-shine.md.
-   The words are plain violet. Two copies of them, drawn by the element's own pseudo-elements, hold a mint band at
-   different places and fade in and out in turn, so the light seems to travel. Opacity only. */
+/* Site shine: a light that slides across an accent headline. Spec: site-shine.md.
+   The words are plain violet. A narrow window with soft edges slides across them; inside it a mint copy of the same words
+   slides the opposite way at the same speed, so the copy stays put while the window passes over it. Two transforms, nothing else. */
 .pp-site-shine { position: relative; display: block; color: var(--color-text-brand); padding-bottom: .08em; }
-.pp-site-shine::before,
-.pp-site-shine::after {
-  content: attr(data-text);
-  content: attr(data-text) / "";
-  position: absolute;
-  inset: 0 0 -.25em 0; /* reaches below the line so descenders carry the glow too */
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-repeat: no-repeat;
-  opacity: 0;
-  pointer-events: none;
-  animation: pp-site-shine var(--motion-site-duration-loop-shine) ease-in-out infinite;
-}
-.pp-site-shine::before { background-image: linear-gradient(100deg, transparent 5%, var(--color-brand-mint) 28%, transparent 50%); }
-.pp-site-shine::after { background-image: linear-gradient(100deg, transparent 50%, var(--color-brand-mint) 72%, transparent 95%); animation-delay: calc(var(--motion-site-duration-loop-shine) / -2); }
-@keyframes pp-site-shine {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
-}
-/* Inline use: a few words inside a line, such as "People." in the band headline. */
 .pp-site-shine--inline { display: inline-block; }
-[data-site-still] .pp-site-shine::before,
-[data-site-still] .pp-site-shine::after { animation: none; opacity: 0; }
+.pp-site-shine__glow {
+  position: absolute;
+  top: 0;
+  bottom: -.25em; /* reaches below the line so descenders carry the glow too */
+  left: 0;
+  inline-size: 40%;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, var(--color-text), transparent);
+  mask-image: linear-gradient(90deg, transparent, var(--color-text), transparent);
+  animation: pp-site-shine-window var(--motion-site-duration-loop-shine) linear infinite;
+}
+.pp-site-shine__copy {
+  display: block;
+  inline-size: 250%; /* the full width of the shine: the window is 40% of it */
+  color: var(--color-brand-mint);
+  animation: pp-site-shine-copy var(--motion-site-duration-loop-shine) linear infinite;
+}
+@keyframes pp-site-shine-window {
+  0% { transform: translateX(-100%); }
+  70%, 100% { transform: translateX(250%); }
+}
+@keyframes pp-site-shine-copy {
+  0% { transform: translateX(40%); }
+  70%, 100% { transform: translateX(-100%); }
+}
+[data-site-still] .pp-site-shine__glow,
+[data-site-still] .pp-site-shine__copy { animation: none; }
+[data-site-still] .pp-site-shine__glow { display: none; }
 @media (forced-colors: active) {
   .pp-site-shine { color: LinkText; }
-  .pp-site-shine::before, .pp-site-shine::after { display: none; }
+  .pp-site-shine__glow { display: none; }
 }
 
 /* ---- records/approval-chain ---- */

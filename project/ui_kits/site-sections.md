@@ -22,7 +22,7 @@ The top of the landing page, the four section grounds with their capability colu
 ## Where the redraw changes the approved site
 
 - **The light is CSS, not a canvas.** The hero drew its three lights with a script on a canvas. Now they are three circles that drift and swell by transform, in the Site lights component. The lights are a little softer at the edges and move in a calmer loop.
-- **The shine fades instead of sliding.** The old accent line slid a gradient across the words by animating `background-position`, which repaints on every frame. Two copies of the words now hold a mint band at the left and the right and fade in turn. It reads as a light passing, not as a continuous slide.
+- **The shine is the same slide, drawn differently.** The old accent line slid a gradient across the words by animating `background-position`, which repaints on every frame. Now a soft window slides across the words with a mint copy sliding the opposite way inside it. It looks the same and runs on the compositor.
 - **No grain, no blur, no scroll cue.** The hero's moving noise layer, the blur on arrival and the "Scroll" cue are left out. Grain and blur each repaint every frame, and the cue is hidden on a phone anyway.
 - **The closing wash is still.** The band's background used to flow with `background-position`. The wash is fixed and the lights move over it.
 - **Real components.** Buttons are the Button component. The "Batsi" tag is the agent Lozenge. The old page drew its own.
