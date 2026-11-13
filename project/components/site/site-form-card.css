@@ -1,0 +1,25 @@
+/* Site form card: the white card the Get started and Book a demo forms sit in. Spec: site-form-card.md.
+   The fields inside are the design system's own Field, Text field, Select, Textarea and Checkbox. */
+.pp-site-form-card {
+  display: grid;
+  gap: var(--space-200);
+  box-sizing: border-box;
+  min-width: 0;
+  padding: var(--space-300);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-xlarge);
+  background: var(--elevation-surface-raised);
+  box-shadow: var(--elevation-shadow-site-card);
+  color: var(--color-text);
+}
+.pp-site-form-card__form { display: grid; gap: var(--space-200); margin: 0; }
+.pp-site-form-card__form[hidden] { display: none; }
+.pp-site-form-card__title { margin: 0; font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); color: var(--color-text); }
+.pp-site-form-card__sub { margin: calc(var(--space-100) * -1) 0 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-site-form-card__row { display: grid; gap: var(--space-150); }
+@container (min-width: 560px) {
+  .pp-site-form-card__row--two { grid-template-columns: 1fr 1fr; }
+}
+.pp-site-form-card__fine { margin: 0; text-align: center; font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-site-form-card__submit { justify-content: center; inline-size: 100%; }
+.pp-site-form-card .pp-checkbox__label a { color: var(--color-text-brand); font-weight: var(--font-weight-semibold); text-decoration: underline; }

@@ -88,6 +88,7 @@ export const siteLayout = {
 export const siteType = {
   'site.hero':    [700, 'clamp(46px, 9.6cqw, 140px)', '.98', '-0.04em', 'display'],   // hero headline
   'site.band':    [800, 'clamp(52px, 11cqw, 168px)', '.98', '-0.045em', 'display'],   // closing band headline
+  'site.page':    [700, 'clamp(40px, 6.2cqw, 84px)', '1.02', '-0.035em', 'display'],  // headline of a page that is not the landing page (Get started, Book a demo)
   'site.title':   [700, 'clamp(32px, 4.6cqw, 56px)', '1.08', '-0.025em', 'display'],  // section headline
   'site.lead':    [400, 18, 28, '0', 'body'],                                         // line under a headline
   'site.eyebrow': [700, 12, 16, '0.16em', 'body'],                                    // small caps label above a headline

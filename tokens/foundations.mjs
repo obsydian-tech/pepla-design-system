@@ -65,11 +65,13 @@ export const shadows = {
     'elevation.shadow.raised': '0 1px 2px rgba(27, 22, 64, 0.06), 0 0 0 1px rgba(27, 22, 64, 0.04)',
     'elevation.shadow.overflow': '0 0 8px rgba(27, 22, 64, 0.10)',
     'elevation.shadow.overlay': '0 12px 32px rgba(27, 22, 64, 0.10), 0 0 0 1px rgba(27, 22, 64, 0.05)',
+    'elevation.shadow.site.card': '0 40px 80px -48px rgba(27, 22, 64, 0.35)', // the public site's form card, lifted off a soft hero
   },
   dark: {
     'elevation.shadow.raised': '0 1px 2px rgba(0, 0, 0, 0.40), inset 0 0 0 1px rgba(255, 255, 255, 0.04)',
     'elevation.shadow.overflow': '0 0 12px rgba(0, 0, 0, 0.50)',
     'elevation.shadow.overlay': '0 16px 40px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.06)',
+    'elevation.shadow.site.card': '0 40px 80px -48px rgba(27, 22, 64, 0.35)', // the site is always light; same value
   },
 };
 

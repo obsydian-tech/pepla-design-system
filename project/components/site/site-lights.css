@@ -18,6 +18,7 @@
 }
 /* The thin ring inside each light, as in the approved hero: a circle 42% of the light's size. */
 .pp-site-light::after { content: ""; position: absolute; inset: 29%; border: var(--border-width) solid color-mix(in srgb, var(--_color) 55%, transparent); border-radius: 50%; }
+.pp-site-lights--plain .pp-site-light::after { content: none; } /* the form pages draw the lights without rings, as the approved site does */
 .pp-site-light--violet { --_color: var(--color-site-orb-violet); }
 .pp-site-light--mint { --_color: var(--color-site-orb-mint); }
 .pp-site-light--coral { --_color: var(--color-site-orb-coral); }

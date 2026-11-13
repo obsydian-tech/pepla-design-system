@@ -38,3 +38,19 @@ test('gradient text stops reach 3:1 (large text) on white and cream', () => {
 test('the brand sky stop is too pale for text, so text never uses it', () => {
   assert.ok(ratio('color.site.gradient.3', 'elevation.surface.raised') < 3);
 });
+
+test('form pieces read: pressed chip, pressed slot, confirmation badge and statuses', () => {
+  const pairs = [
+    ['color.text.selected', 'color.background.selected'], // pressed chip
+    ['color.text.inverse', 'color.background.neutral.bold'], // pressed slot
+    ['color.text.agent', 'color.background.agent.subtlest'], // badge and "Done"
+    ['color.text.brand', 'color.background.brand.subtlest'], // "Booked" and the next-step number
+    ['color.text.subtle', 'color.background.neutral'], // "After the call"
+    ['color.text', 'color.background.brand.subtlest'], // the call card
+    ['color.text.danger', 'elevation.surface.raised'], // an error line on the card
+  ];
+  for (const [fg, bg] of pairs) {
+    const r = ratio(fg, bg);
+    assert.ok(r >= 4.5, `${fg} on ${bg} is ${r.toFixed(2)}:1`);
+  }
+});
