@@ -19,7 +19,7 @@ The white card the Get started and Book a demo forms sit in. The fields are the 
 4. **Row** (`pp-site-form-card__row`, with `--two` for two columns): fields side by side from 560px.
 5. **Fields**: `pp-field` with a label, a control and, as needed, help and an error line. Required fields carry `required` and no star; optional ones say "(optional)".
 6. **Choices**: a group of chips (modules of interest) and a day and time picker.
-7. **Consent** (`pp-checkbox`): one line with links to the Terms of use and the Privacy notice.
+7. **Consent** (`pp-checkbox` in a `pp-field`): one line with links to the Terms of use and the Privacy notice, and an error line under it.
 8. **Submit** (`pp-site-button pp-site-button--dark pp-site-form-card__submit`): the full-width button.
 9. **Fine print** (`pp-site-form-card__fine`): one centred line under the button (Get started only).
 10. **Confirmation** (`pp-site-confirm`): replaces the form once it is sent. See [Site confirmation](site-confirm.html).
@@ -42,6 +42,7 @@ The white card the Get started and Book a demo forms sit in. The fields are the 
 
 ## Content
 
+- Consent error: "Agree to continue."
 - Labels are short nouns: "Full name", "Role", "Email", "Company name", "Number of employees".
 - Errors say what to do: "Enter a full name.", "Choose a role.", "Enter an email address, such as name@example.com."
 - The field is called "Email" and nothing more specific, so nobody feels a Gmail address is refused.

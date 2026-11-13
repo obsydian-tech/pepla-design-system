@@ -28,7 +28,10 @@
       el.addEventListener('change', function () { setBad(f, false); });
     });
     var box = form.querySelector('.pp-checkbox[data-req] input');
-    if (box) box.addEventListener('change', function () { box.removeAttribute('aria-invalid'); });
+    var boxErr = box && box.closest('.pp-field').querySelector('.pp-field__error');
+    
+
+    if (box) box.addEventListener('change', function () { box.removeAttribute('aria-invalid'); if (boxErr) boxErr.hidden = true; });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -38,7 +41,7 @@
         if (!bad && el.type === 'email') bad = !EMAIL.test(v);
         setBad(f, bad); if (bad && !first) first = el;
       });
-      if (box) { var bad = !box.checked; if (bad) { box.setAttribute('aria-invalid', 'true'); first = first || box; } }
+      if (box) { var bad = !box.checked; if (bad) box.setAttribute('aria-invalid', 'true'); else box.removeAttribute('aria-invalid'); if (boxErr) boxErr.hidden = !bad; if (bad) first = first || box; }
       if (first) { first.focus(); return; }
       var rows = all('.pp-site-slots__row', form), pick = function (r) { var p = r && r.querySelector('[aria-pressed="true"] .pp-site-slot__label'); return p ? p.textContent : ''; };
       done.querySelector('[data-confirm-mail]').textContent = form.querySelector('input[type="email"]').value.trim();
