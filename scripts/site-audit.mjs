@@ -13,6 +13,11 @@ const P = join(ROOT, 'project');
 const lineOf = (t, i) => t.slice(0, i).split('\n').length;
 const strip = (css) => css.replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, ' '));
 
+// One exception: the questions section eases an answer's height on a click (grid-template-rows), as the approved site does.
+// It runs once per click, never in a loop. It is allowed only on the answer wrapper of Site questions.
+export const ALLOWED_LAYOUT_TRANSITIONS = [['grid-template-rows', '.pp-site-faq__a']];
+const selectorBefore = (css, i) => { const open = css.lastIndexOf('{', i); const start = Math.max(css.lastIndexOf('}', open), css.lastIndexOf(';', open)) + 1; return css.slice(start, open); };
+
 export const ALLOWED_ANIMATED = ['transform', 'translate', 'rotate', 'scale', 'opacity'];
 // The sample people the platform kits use. The site uses John Doe and Jane Smith, and "Candidate N" or "Employee N".
 export const OTHER_SAMPLE_NAMES = ['Thandeka', 'Sipho', 'Lerato', 'Kagiso', 'Bongani', 'Nomvula', 'Thabo', 'Tariro', 'Ayanda', 'Kudzai', 'Sizwe', 'Thembeka', 'Nomsa'];
@@ -32,6 +37,7 @@ export function checkSiteCss(file, raw) {
     const props = value.split(',').map((x) => x.trim().split(/\s+/)[0]).filter(Boolean);
     for (const p of props) {
       if (p === 'none' || /^[\d.]/.test(p)) continue;
+      if (ALLOWED_LAYOUT_TRANSITIONS.some(([prop, sel]) => prop === p && selectorBefore(css, m.index).includes(sel))) continue;
       if (!ALLOWED_ANIMATED.includes(p)) report(lineOf(css, m.index + m[1].length), 'site:motion', `transition on "${p}": only ${ALLOWED_ANIMATED.join(', ')}`);
     }
   }

@@ -1,0 +1,70 @@
+/* Site questions: a headline and a line on one side, the questions on the other. Spec: site-faq.md.
+   One answer is open at a time. The answer opens by easing its height (see the spec: the one layout transition the
+   site check allows, on a click, in this component only). */
+.pp-site-faq {
+  padding-block: var(--space-800);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+  scroll-margin-top: calc(var(--layout-site-header-height) + var(--layout-site-subnav-height));
+  container-type: inline-size;
+}
+@container (min-width: 768px) { .pp-site-faq { padding-block: calc(var(--space-1000) + var(--space-200)); } }
+.pp-site-faq__inner { display: grid; gap: var(--space-300); }
+@container (min-width: 1024px) { .pp-site-faq__inner { grid-template-columns: .8fr 1.2fr; column-gap: var(--space-800); align-items: start; } }
+.pp-site-faq__side { min-width: 0; }
+.pp-site-faq__title { margin: 0 0 var(--space-200); font: var(--font-site-faq); letter-spacing: var(--font-site-faq-tracking); color: var(--color-text); }
+.pp-site-faq__lead { margin: 0 0 var(--space-250); max-width: 36ch; font: var(--font-body-large); color: var(--color-text-subtle); }
+
+.pp-site-faq__list { margin: 0; padding: 0; list-style: none; border-top: var(--border-width) solid var(--color-border); }
+.pp-site-faq__item { border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-faq__heading { margin: 0; font: inherit; }
+.pp-site-faq__q {
+  all: unset;
+  box-sizing: border-box;
+  inline-size: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-200);
+  padding: var(--space-250) var(--space-025);
+  font: var(--font-heading-small);
+  letter-spacing: var(--font-heading-small-tracking);
+  color: var(--color-text);
+  cursor: pointer;
+}
+.pp-site-faq__q:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); border-radius: var(--radius-small); }
+
+/* The plus: two bars. Open, it turns half a turn and the vertical bar flattens into a minus. The ring's tint fades in on a layer. */
+.pp-site-faq__mark {
+  position: relative;
+  isolation: isolate;
+  flex: none;
+  inline-size: calc(var(--space-300) + var(--space-050));
+  block-size: calc(var(--space-300) + var(--space-050));
+  border: var(--border-width) solid var(--color-border);
+  border-radius: 50%;
+  transition: transform var(--motion-site-duration-pop) var(--motion-site-easing);
+}
+.pp-site-faq__mark::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--border-width) * -1);
+  z-index: -1;
+  border: var(--border-width) solid var(--color-background-brand-subtle);
+  border-radius: 50%;
+  background: var(--color-background-brand-subtlest);
+  opacity: 0;
+  transition: opacity var(--motion-site-duration-header) var(--motion-site-easing);
+}
+.pp-site-faq__bar { position: absolute; left: 50%; top: 50%; inline-size: var(--space-150); block-size: var(--border-width-selected); margin: calc(var(--border-width-selected) / -2) 0 0 calc(var(--space-150) / -2); border-radius: var(--radius-xsmall); background: var(--color-text-brand); transition: transform var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-faq__bar--v { transform: rotate(90deg); }
+.pp-site-faq__item--open .pp-site-faq__mark { transform: rotate(180deg); }
+.pp-site-faq__item--open .pp-site-faq__mark::before { opacity: 1; }
+.pp-site-faq__item--open .pp-site-faq__bar--v { transform: rotate(0); }
+
+.pp-site-faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-faq__item--open .pp-site-faq__a { grid-template-rows: 1fr; }
+.pp-site-faq__a-in { overflow: hidden; }
+.pp-site-faq__a-text { margin: 0; max-width: 70ch; padding: 0 var(--space-500) var(--space-250) var(--space-025); font: var(--font-body-large); color: var(--color-text-subtle); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-faq__item--open .pp-site-faq__a-text { opacity: 1; transition-delay: var(--motion-site-stagger); }
+[data-site-still] .pp-site-faq__a, [data-site-still] .pp-site-faq__a-text, [data-site-still] .pp-site-faq__mark, [data-site-still] .pp-site-faq__mark::before, [data-site-still] .pp-site-faq__bar { transition: none; }

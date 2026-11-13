@@ -17,6 +17,11 @@ test('a transition on anything else fails, "all" included', () => {
   assert.equal(checkSiteCss('x.css', '.a { transition: all var(--motion-site-duration-menu); }').length, 1);
   assert.equal(checkSiteCss('x.css', '.a { transition: opacity var(--x) var(--y) calc(var(--_i, 0) * var(--z)), transform var(--x); }').length, 0);
 });
+test('an answer may ease its height, only on the questions answer wrapper', () => {
+  assert.equal(checkSiteCss('x.css', '.pp-site-faq__a { transition: grid-template-rows var(--motion-site-duration-pop); }').length, 0);
+  assert.equal(checkSiteCss('x.css', '.pp-site-card { transition: grid-template-rows var(--motion-site-duration-pop); }').length, 1);
+  assert.equal(checkSiteCss('x.css', '.pp-site-faq__a { transition: height var(--motion-site-duration-pop); }').length, 1);
+});
 test('banned words fail', () => {
   for (const bad of ['<p>Ask our AI Agent</p>', '<p>Work email</p>', '<p>Midrand</p>', '<p>Pepla</p>', '<p>One — two</p>']) assert.equal(checkSiteCopy('x.html', bad).length, 1, bad);
   assert.deepEqual(checkSiteCopy('x.html', '<p>Ask Batsi. John Doe and Jane Smith.</p>'), []);
