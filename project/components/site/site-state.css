@@ -3,6 +3,7 @@
 .pp-site-state { display: inline-grid; justify-items: end; align-items: center; }
 
 .pp-site-state--start { justify-items: start; }
+.pp-site-state--end { margin-left: auto; }
 .pp-site-state__item {
   grid-area: 1 / 1;
   opacity: 0;

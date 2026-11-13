@@ -1,0 +1,51 @@
+/* Site team calendar: one month as a grid, with public holidays hatched, a team member's days in mint, and the line
+   manager's approval turning the requested days from dashed to solid violet. Spec: site-calendar.md. Motion is
+   opacity and transform only: a day is a stack of layers (the plain cell, a dashed requested layer, a solid approved
+   layer) and its number is drawn once for each, so every colour change is a fade. */
+.pp-site-calendar { display: grid; gap: var(--space-150); font: var(--font-body); }
+.pp-site-calendar__grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-050); }
+.pp-site-calendar__dow { padding-bottom: var(--space-050); color: var(--color-text-subtlest); font: var(--font-label-small); text-align: center; }
+.pp-site-calendar__day {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  block-size: 38px;
+  padding: var(--space-050) var(--space-050);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-small);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text-subtle);
+  font: var(--font-body-small);
+  font-variant-numeric: tabular-nums;
+}
+@container (min-width: 561px) { .pp-site-calendar__day { block-size: 46px; padding: var(--space-050) var(--space-075); } }
+.pp-site-calendar__day--blank { border-color: transparent; background: transparent; }
+.pp-site-calendar__day--weekend { background: var(--color-background-neutral-subtle); }
+.pp-site-calendar__day--holiday { background: repeating-linear-gradient(135deg, var(--color-background-neutral-subtle) 0 5px, var(--color-background-neutral) 5px 10px); color: var(--color-text-subtlest); }
+.pp-site-calendar__day--holiday::after { content: "PH"; position: absolute; right: var(--space-050); bottom: var(--space-025); color: var(--color-text-subtlest); font: var(--font-label-small); transform: scale(.75); transform-origin: right bottom; }
+.pp-site-calendar__day--team { border-color: var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); color: var(--color-text-agent); }
+/* A day that can be requested and approved: three number layers and two background layers. */
+.pp-site-calendar__layer { position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border-radius: inherit; opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-calendar__layer--requested { border: var(--border-width-selected) dashed var(--color-border-brand); background: var(--color-background-brand-subtlest); }
+.pp-site-calendar__layer--approved { border: var(--border-width-selected) solid var(--color-border-brand); background: var(--color-background-brand-bold); }
+.pp-site-calendar__num { grid-area: 1 / 1; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-calendar__num--requested, .pp-site-calendar__num--approved { opacity: 0; }
+.pp-site-calendar__num--requested { color: var(--color-text-brand); }
+.pp-site-calendar__num--approved { color: var(--color-text-inverse); }
+.pp-site-calendar__day--requested { animation: pp-site-pop var(--motion-site-duration-fade) var(--motion-site-easing) both; }
+.pp-site-calendar__day--requested > .pp-site-calendar__layer--requested { opacity: 1; }
+.pp-site-calendar__day--requested > .pp-site-calendar__num:not(.pp-site-calendar__num--requested) { opacity: 0; }
+.pp-site-calendar__day--requested > .pp-site-calendar__num--requested { opacity: 1; }
+.pp-site-calendar__day--approved > .pp-site-calendar__layer--approved { opacity: 1; }
+.pp-site-calendar__day--approved > .pp-site-calendar__num:not(.pp-site-calendar__num--approved) { opacity: 0; }
+.pp-site-calendar__day--approved > .pp-site-calendar__num--approved { opacity: 1; }
+.pp-site-calendar__legend { display: flex; flex-wrap: wrap; gap: var(--space-075) var(--space-200); margin: 0; padding: 0; list-style: none; color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-calendar__key { display: inline-flex; align-items: center; gap: var(--space-075); }
+.pp-site-calendar__swatch { box-sizing: border-box; inline-size: var(--space-150); block-size: var(--space-150); border-radius: var(--radius-xsmall); background: var(--color-background-brand-bold); }
+.pp-site-calendar__swatch--team { border: var(--border-width) solid var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); }
+.pp-site-calendar__swatch--holiday { background: repeating-linear-gradient(135deg, var(--color-background-neutral-subtle) 0 3px, var(--color-border) 3px 6px); }
+[data-site-still] .pp-site-calendar__layer, [data-site-still] .pp-site-calendar__num { transition: none; }
+[data-site-still] .pp-site-calendar__day--requested { animation: none; }

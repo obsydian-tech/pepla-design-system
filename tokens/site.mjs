@@ -68,6 +68,7 @@ export const siteMotion = {
   'motion.site.duration.loop.breathe.reduced': '12s', // reduced motion: half speed, never still
   'motion.site.duration.loop.read': '1100ms',  // one breath of a "Reading" status
   'motion.site.duration.bar': '1000ms',        // an upload bar filling
+  'motion.site.duration.fill': '800ms',        // a leave balance bar shrinking
   'motion.site.duration.scan': '1300ms',       // one pass of the scan light down a document
   'motion.site.duration.draw': '1400ms',       // a signature being written
 };
@@ -90,10 +91,15 @@ export const siteLayout = {
   'layout.site.button.dot.large': '44px',
   'layout.site.frame.phone': '390px',   // the phone preview frame's width
   'layout.site.phone.width': '330px',   // the sample phone inside a demo, at most
+  'layout.site.request.width': '300px', // the sample leave request phone, at most
 };
 
 // Shape: the corner of the sample phone's frame.
-export const siteShape = { 'radius.site.phone': '42px' };
+export const siteShape = {
+  'radius.site.phone': '42px',
+  'radius.site.request': '36px',       // the sample leave request phone's frame
+  'radius.site.request.screen': '28px', // and the screen inside it
+};
 
 // Site type: [weight, size, line height, tracking, family], like `type` in foundations.mjs, except that a size or line
 // height may be a string. The big headings are fluid and follow the width of their section (cqw), not the window,

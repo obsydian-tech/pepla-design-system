@@ -1,0 +1,14 @@
+/* Site leave balances: a box of leave types, each with the days left. The annual leave line has a bar that
+   shrinks as days come off. Spec: site-balance.md. The bar is a full-width fill that scales (transform), and the number
+   is drawn twice so its colour flash is a fade. */
+.pp-site-balance { display: grid; gap: var(--space-150); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); font: var(--font-body); }
+.pp-site-balance__line { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-050) var(--space-150); align-items: center; }
+.pp-site-balance__num { position: relative; display: inline-grid; justify-items: end; font: var(--font-heading-small); font-family: var(--font-family-display); font-variant-numeric: tabular-nums; }
+.pp-site-balance__num > span { grid-area: 1 / 1; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-balance__flash { color: var(--color-text-brand); opacity: 0; }
+.pp-site-balance__num--flash > .pp-site-balance__flash { opacity: 1; }
+.pp-site-balance__num--flash > :not(.pp-site-balance__flash) { opacity: 0; }
+.pp-site-balance__note { grid-column: 1 / -1; color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-balance__bar { position: relative; overflow: hidden; grid-column: 1 / -1; block-size: var(--space-075); border-radius: var(--radius-full); background: var(--color-background-neutral); }
+.pp-site-balance__fill { position: absolute; inset: 0; background: linear-gradient(90deg, var(--color-brand-violet), var(--color-brand-mint)); transform: scaleX(var(--_fill, 1)); transform-origin: left; transition: transform var(--motion-site-duration-fill) var(--motion-site-easing); }
+[data-site-still] .pp-site-balance__num > span, [data-site-still] .pp-site-balance__fill { transition: none; }
