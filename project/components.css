@@ -3425,6 +3425,28 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-caps__text { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
 .pp-site-caps__item .pp-lozenge { margin-top: var(--space-050); }
 
+/* ---- site/site-checklist ---- */
+/* Site checklist: a list of requests or steps, each with an owner and a due date, that tick off one after another.
+   Used for laptop and access before day one and for an exit. Spec: site-checklist.md. The row highlight and the
+   tick fill are layers that fade in (opacity); the tick itself scales. */
+.pp-site-checklist { display: grid; gap: calc(var(--space-100) - var(--space-025)); font: var(--font-body); }
+.pp-site-checklist__group { margin: var(--space-050) 0 0; font: var(--font-site-group); letter-spacing: var(--font-site-group-tracking); text-transform: uppercase; color: var(--color-text-subtlest); }
+.pp-site-checklist__item { position: relative; isolation: isolate; display: grid; grid-template-columns: calc(var(--space-200) + var(--space-025)) minmax(0, 1fr) auto; gap: var(--space-100) calc(var(--space-100) + var(--space-025)); align-items: center; padding: calc(var(--space-100) + var(--space-025)) var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-medium); background: var(--elevation-surface-raised); color: var(--color-text); }
+.pp-site-checklist__item::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: inherit; background: var(--color-background-brand-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-checklist__item--now::before { opacity: 1; }
+.pp-site-checklist__item--done .pp-site-checklist__text { color: var(--color-text-subtle); }
+.pp-site-checklist__box { position: relative; isolation: isolate; display: grid; place-items: center; inline-size: var(--space-250); block-size: var(--space-250); border: var(--border-width-selected) solid var(--color-border-input); border-radius: var(--radius-small); color: var(--color-icon-inverse); }
+.pp-site-checklist__box::before { content: ""; position: absolute; inset: calc(var(--border-width-selected) * -1); z-index: -1; border-radius: inherit; background: var(--color-brand-mint); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-checklist__box > .lucide { inline-size: var(--space-150); block-size: var(--space-150); opacity: 0; transform: scale(.6); transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing), transform var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-checklist__item--done .pp-site-checklist__box::before { opacity: 1; }
+.pp-site-checklist__item--done .pp-site-checklist__box > .lucide { opacity: 1; transform: none; }
+.pp-site-checklist__owner { font: var(--font-body-small); color: var(--color-text-subtlest); text-align: right; }
+
+/* The line that closes the list. */
+.pp-site-checklist__done { display: flex; align-items: center; gap: var(--space-150); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-large); background: var(--color-background-agent-subtlest); color: var(--color-text-agent); font: var(--font-body-strong); }
+[data-site-still] .pp-site-checklist__item::before, [data-site-still] .pp-site-checklist__box::before, [data-site-still] .pp-site-checklist__box > .lucide { transition: none; }
+[data-site-still] .pp-site-checklist__item--now::before { opacity: 0; }
+
 /* ---- site/site-choices ---- */
 /* Site choices: the chip group and the day and time picker on the site's forms. Spec: site-choices.md.
    Chips and slots are real buttons that carry aria-pressed. The pressed look fades in on a layer behind the label
@@ -3547,6 +3569,44 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-confirm__alt { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
 .pp-site-confirm__alt a { color: var(--color-text-brand); font-weight: var(--font-weight-semibold); }
 
+/* ---- site/site-contract ---- */
+/* Site contract: an employment contract from the company template. Details fill in from the record, the signature is
+   written and probation is set. Spec: site-contract.md. A detail swaps its label for its value by a crossfade, and
+   the signature is revealed by a window that slides across it (transform), never by redrawing a stroke. */
+.pp-site-contract { display: grid; gap: var(--space-150); }
+.pp-site-contract__paper { position: relative; display: grid; gap: calc(var(--space-100) + var(--space-025)); padding: calc(var(--space-200) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-contract__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); color: var(--color-text); }
+.pp-site-contract__line { display: block; inline-size: var(--_w, 100%); block-size: var(--space-075); border-radius: var(--radius-xsmall); background: var(--color-background-neutral); }
+
+/* A detail: its label ("Name") fades to its value ("John Doe") and the pill turns from violet to mint. */
+.pp-site-contract__detail { position: relative; isolation: isolate; display: inline-grid; min-inline-size: var(--space-800); padding: var(--space-025) var(--space-100); border-radius: var(--radius-small); background: var(--color-background-brand-subtlest); font-weight: var(--font-weight-semibold); text-align: center; vertical-align: baseline; }
+.pp-site-contract__detail::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--color-background-agent-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-contract__label, .pp-site-contract__value { grid-area: 1 / 1; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-contract__label { color: var(--color-text-brand); }
+.pp-site-contract__value { color: var(--color-text-agent); opacity: 0; }
+.pp-site-contract__detail--in::before, .pp-site-contract__detail--in .pp-site-contract__value { opacity: 1; }
+.pp-site-contract__detail--in .pp-site-contract__label { opacity: 0; }
+
+/* The signature. */
+.pp-site-contract__sign { display: flex; align-items: flex-end; gap: var(--space-200); margin-top: var(--space-075); padding-top: var(--space-150); border-top: var(--border-width) dashed var(--color-border-input); }
+.pp-site-contract__ink { position: relative; flex: none; overflow: hidden; inline-size: calc(var(--space-1000) + var(--space-500)); block-size: var(--space-500); }
+.pp-site-contract__wipe { position: absolute; inset: 0; overflow: hidden; transition: transform var(--motion-site-duration-draw) var(--motion-site-easing); }
+.pp-site-contract__stroke {
+  position: absolute;
+  inset: 0;
+  background: var(--color-text);
+  -webkit-mask: url("assets/site-signature.svg") center / contain no-repeat;
+  mask: url("assets/site-signature.svg") center / contain no-repeat;
+  transition: transform var(--motion-site-duration-draw) var(--motion-site-easing);
+}
+[data-site-live] .pp-site-contract__ink:not(.pp-site-contract__ink--on) .pp-site-contract__wipe { transform: translateX(-100%); }
+[data-site-live] .pp-site-contract__ink:not(.pp-site-contract__ink--on) .pp-site-contract__stroke { transform: translateX(100%); }
+.pp-site-contract__sign-note { font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-site-contract__probation { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-150); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); font: var(--font-body); color: var(--color-text); }
+.pp-site-contract__probation > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-contract__probation > .pp-site-status { margin-left: auto; }
+[data-site-still] .pp-site-contract__wipe, [data-site-still] .pp-site-contract__stroke, [data-site-still] .pp-site-contract__detail::before, [data-site-still] .pp-site-contract__label, [data-site-still] .pp-site-contract__value { transition: none; }
+
 /* ---- site/site-demo ---- */
 /* Site demo: a module section with its text on one side and a sample panel on the other. Spec: site-demo.md.
    The layout follows the section's own width (container queries). The panel's contents step in one after another. */
@@ -3652,6 +3712,23 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-live] .pp-site-step:not(.pp-site-step--in) { opacity: 0; transform: translateY(var(--space-100)); }
 [data-site-still] .pp-site-step, [data-site-still] .pp-site-step:not(.pp-site-step--in) { opacity: 1; transform: none; transition: none; }
 [data-site-still] .pp-site-demo__again { transition: none; }
+
+/* A Batsi tag inside a list item, and the mint tick circle used across demos. */
+.pp-site-demo__item .pp-lozenge { margin-left: var(--space-075); vertical-align: var(--space-025); }
+.pp-site-ok {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  inline-size: var(--size-icon-medium);
+  block-size: var(--size-icon-medium);
+  border-radius: 50%;
+  background: var(--color-brand-mint);
+  color: var(--color-icon-inverse);
+  transition: transform var(--motion-site-duration-pop) var(--motion-site-easing);
+}
+.pp-site-ok > .lucide { inline-size: var(--space-150); block-size: var(--space-150); }
+[data-site-live] .pp-site-ok:not(.pp-site-ok--in) { transform: scale(0); }
+[data-site-still] .pp-site-ok, [data-site-still] .pp-site-ok:not(.pp-site-ok--in) { transform: none; transition: none; }
 
 /* ---- site/site-faq ---- */
 /* Site questions: a headline and a line on one side, the questions on the other. Spec: site-faq.md.
@@ -4401,6 +4478,166 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-sweep,
 [data-site-still] .pp-site-pulse { animation: none; }
 
+/* ---- site/site-phone ---- */
+/* Site sample phone: the new employee's phone in the Onboarding demo. An email, consent, then three uploads that
+   are read one by one. Spec: site-phone.md. Motion is transform and opacity only: the bar is a full-width fill that
+   scales, and its colour changes by fading a coloured layer in. */
+.pp-site-phone {
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  gap: var(--space-100);
+  inline-size: min(var(--layout-site-phone-width), 100%);
+  margin-inline: auto;
+  padding: calc(var(--space-200) + var(--space-025)) calc(var(--space-150) + var(--space-025)) var(--space-250);
+  border: calc(var(--space-100) + var(--space-025)) solid var(--color-background-neutral-bold);
+  border-radius: var(--radius-site-phone);
+  background: var(--elevation-surface-raised);
+  box-shadow: var(--elevation-shadow-site-card);
+  color: var(--color-text);
+}
+.pp-site-phone::before {
+  content: "";
+  position: absolute;
+  top: var(--space-100);
+  left: 50%;
+  inline-size: calc(var(--space-800) + var(--space-150));
+  block-size: var(--space-075);
+  margin-left: calc((var(--space-800) + var(--space-150)) / -2);
+  border-radius: var(--radius-full);
+  background: var(--color-background-neutral);
+}
+.pp-site-phone__bar { display: flex; justify-content: space-between; padding: var(--space-075) var(--space-050) 0; font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-site-phone__mail { display: grid; gap: var(--space-050); padding: var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); font: var(--font-body); }
+.pp-site-phone__mail-note { font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-site-phone__mail-title { font: var(--font-body-strong); }
+.pp-site-phone__open {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--size-control-medium);
+  margin-top: var(--space-075);
+  padding: var(--space-075) var(--space-150);
+  border-radius: var(--radius-medium);
+  background: var(--color-background-brand-bold);
+  color: var(--color-text-inverse);
+  font: var(--font-label-small);
+}
+.pp-site-phone__open--press { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+
+/* Consent: a tick box whose fill fades in. */
+.pp-site-phone__consent { display: flex; align-items: flex-start; gap: var(--space-150); padding: var(--space-150); border-radius: var(--radius-medium); background: var(--color-background-brand-subtlest); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-phone__box {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: var(--space-200);
+  block-size: var(--space-200);
+  margin-top: var(--space-025);
+  border: var(--border-width-selected) solid var(--color-border-brand);
+  border-radius: var(--radius-xsmall);
+  color: var(--color-icon-inverse);
+}
+.pp-site-phone__box::before { content: ""; position: absolute; inset: calc(var(--border-width-selected) * -1); z-index: -1; border-radius: inherit; background: var(--color-background-brand-bold); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-phone__box > .lucide { inline-size: var(--space-150); block-size: var(--space-150); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-phone__consent--on .pp-site-phone__box::before, .pp-site-phone__consent--on .pp-site-phone__box > .lucide { opacity: 1; }
+
+/* An upload: its name and live status, a bar, and (when a file is rejected) why. */
+.pp-site-phone__doc { display: grid; gap: var(--space-075); padding: var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); font: var(--font-body); }
+.pp-site-phone__doc-row { display: flex; align-items: center; gap: var(--space-100); }
+.pp-site-phone__doc-row .pp-site-state { margin-left: auto; }
+.pp-site-phone__track { position: relative; overflow: hidden; block-size: var(--space-050); border-radius: var(--radius-full); background: var(--color-background-neutral); transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-phone__track--dim { opacity: .4; }
+.pp-site-phone__fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-background-brand-bold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-site-duration-bar) var(--motion-site-easing);
+}
+.pp-site-phone__fill::before, .pp-site-phone__fill::after { content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-phone__fill::before { background: var(--color-background-warning-bold); }
+.pp-site-phone__fill::after { background: var(--color-brand-mint); }
+.pp-site-phone__fill--full { transform: scaleX(1); }
+.pp-site-phone__fill--reset, .pp-site-phone__fill--reset::before, .pp-site-phone__fill--reset::after { transition: none; }
+.pp-site-phone__doc--bad .pp-site-phone__fill::before, .pp-site-phone__doc--ok .pp-site-phone__fill::after { opacity: 1; }
+.pp-site-phone__error { display: none; padding: var(--space-075) calc(var(--space-100) + var(--space-025)); border-radius: var(--radius-small); background: var(--color-background-warning-subtle); color: var(--color-text-warning); font: var(--font-body-small); }
+.pp-site-phone__doc--bad .pp-site-phone__error { display: block; animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+.pp-site-phone__note { margin: 0; text-align: center; font: var(--font-body-small); color: var(--color-text-subtlest); }
+[data-site-still] .pp-site-phone__fill, [data-site-still] .pp-site-phone__fill::before, [data-site-still] .pp-site-phone__fill::after, [data-site-still] .pp-site-phone__box::before, [data-site-still] .pp-site-phone__box > .lucide, [data-site-still] .pp-site-phone__track { transition: none; }
+[data-site-still] .pp-site-phone__open--press, [data-site-still] .pp-site-phone__doc--bad .pp-site-phone__error { animation: none; }
+
+/* ---- site/site-read ---- */
+/* Site document read: Batsi reads an ID document in front of the visitor. A scan light passes over the document,
+   the fields fill in, the checks tick, Batsi suggests a result and a person accepts it. Spec: site-read.md.
+   Everything that appears does so by opacity and transform. */
+.pp-site-read { display: grid; gap: var(--space-150); font: var(--font-body); }
+.pp-site-read__row { display: grid; grid-template-columns: calc(var(--space-1000) + var(--space-600) + var(--space-050)) minmax(0, 1fr); gap: var(--space-200) var(--space-200); align-items: start; }
+@container (max-width: 440px) { .pp-site-read__row { grid-template-columns: minmax(0, 1fr); } }
+
+/* The document: a card with a photo block and four lines, and the scan light. */
+.pp-site-read__doc {
+  position: relative;
+  overflow: hidden;
+  block-size: calc(var(--space-1000) + var(--space-100));
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: linear-gradient(135deg, var(--color-background-accent-blue-subtlest), var(--color-background-agent-subtlest));
+}
+.pp-site-read__doc::before { content: ""; position: absolute; left: calc(var(--space-100) + var(--space-025)); top: var(--space-150); inline-size: 28px; block-size: 36px; border-radius: var(--radius-xsmall); background: var(--color-border-input); }
+.pp-site-read__doc::after {
+  content: "";
+  position: absolute;
+  left: 46px;
+  top: var(--space-200);
+  inline-size: var(--space-800);
+  block-size: var(--space-075);
+  border-radius: var(--radius-xsmall);
+  background: var(--color-border-input);
+  box-shadow: 0 13px 0 var(--color-border-input), 0 26px 0 var(--color-background-neutral-hovered), 0 39px 0 var(--color-background-neutral-hovered);
+}
+.pp-site-read__scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  block-size: 22px;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-brand-mint) 50%, transparent), transparent);
+  transform: translateY(-100%);
+}
+.pp-site-read__doc--go .pp-site-read__scan { animation: pp-site-scan var(--motion-site-duration-scan) var(--motion-site-easing) 2; }
+@keyframes pp-site-scan { to { transform: translateY(400%); } }
+
+/* The fields that fill in from the document. */
+.pp-site-read__fields { display: grid; gap: var(--space-075); font: var(--font-body); }
+.pp-site-read__field { display: flex; justify-content: space-between; gap: var(--space-100); padding-bottom: var(--space-050); border-bottom: var(--border-width) dashed var(--color-border); }
+.pp-site-read__label { color: var(--color-text-subtlest); }
+.pp-site-read__value { font-weight: var(--font-weight-semibold); text-align: right; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing), transform var(--motion-site-duration-fade) var(--motion-site-easing); }
+[data-site-live] .pp-site-read__value:not(.pp-site-read__value--in) { opacity: 0; transform: translateX(var(--space-075)); }
+
+/* The checks. */
+.pp-site-read__checks { display: grid; gap: var(--space-075); }
+.pp-site-read__check { display: flex; align-items: center; gap: var(--space-150); padding: calc(var(--space-100) + var(--space-025)) var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-medium); font: var(--font-body); }
+
+/* Batsi's suggestion, and the person's decision. */
+.pp-site-read__suggest { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-large); background: var(--color-background-agent-subtlest); font: var(--font-body); }
+.pp-site-read__who { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-label-small); color: var(--color-text-agent); }
+.pp-site-read__who > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-read__why { flex-basis: 100%; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-read__decide { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); }
+.pp-site-read__decide .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-read__accepted { display: none; align-items: center; gap: var(--space-100); color: var(--color-text-agent); font: var(--font-body-strong); }
+.pp-site-read__decide--done > .pp-button { display: none; }
+.pp-site-read__decide--done > .pp-site-read__accepted { display: inline-flex; }
+.pp-site-read__log { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-075) var(--space-150); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-full); color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-read__log > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+[data-site-still] .pp-site-read__value { transition: none; }
+[data-site-still] .pp-site-read__value:not(.pp-site-read__value--in) { opacity: 1; transform: none; }
+[data-site-still] .pp-site-read__decide .pp-button--pressed, [data-site-still] .pp-site-read__doc--go .pp-site-read__scan { animation: none; }
+
 /* ---- site/site-section ---- */
 /* Site section: the wrapper, grounds and headline block every public site section is built from. Spec: site-section.md.
    Layout follows the section's own width (container queries), not the window's, so a phone-sized preview on a wide screen lays out like a phone. */
@@ -4579,6 +4816,20 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-site-shine__glow { display: none; }
 }
 
+/* ---- site/site-state ---- */
+/* Site live status: a status pill whose words change as a demo plays ("Uploading", "Reading", "Matches").
+   Every state sits on top of the others and the current one fades in. Spec: site-state.md. Opacity only. */
+.pp-site-state { display: inline-grid; justify-items: end; align-items: center; }
+.pp-site-state__item {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing);
+}
+.pp-site-state__item--on { opacity: 1; }
+.pp-site-state__item--on.pp-site-state__item--pulse { animation: pp-site-pulse var(--motion-site-duration-loop-read) ease-in-out infinite; }
+[data-site-still] .pp-site-state__item { transition: none; }
+[data-site-still] .pp-site-state__item--on.pp-site-state__item--pulse { animation: none; }
+
 /* ---- site/site-subnav ---- */
 /* Site sub-menu: the sticky "on this page" bar of a module page. Spec: site-subnav.md.
    One highlight slides to the section in view: a translate and a scale, never left or width. */
@@ -4668,6 +4919,50 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-site-subnav__pill { transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
 }
 [data-site-still] .pp-site-subnav__pill { transition: none; }
+
+/* ---- site/site-timeline ---- */
+/* Site timeline: what happened and when, one entry after another, with a line that fills down as entries arrive.
+   Used for a missing document that is chased. Spec: site-timeline.md. The line is a full-height fill that scales
+   (transform), and each dot's colour comes from a coloured layer that fades in. */
+.pp-site-timeline { display: grid; gap: var(--space-100); font: var(--font-body); }
+.pp-site-timeline__list { position: relative; display: grid; margin: 0; padding: 0 0 0 var(--space-050); list-style: none; }
+.pp-site-timeline__line, .pp-site-timeline__fill { position: absolute; left: var(--space-150); top: calc(var(--space-100) + var(--space-025)); bottom: var(--space-200); inline-size: var(--space-025); }
+.pp-site-timeline__line { background: var(--color-border); }
+.pp-site-timeline__fill {
+  background: linear-gradient(var(--color-brand-mint), var(--color-brand-violet));
+  transform: scaleY(var(--_fill, 1));
+  transform-origin: top;
+  transition: transform var(--motion-site-duration-step) var(--motion-site-easing);
+}
+.pp-site-timeline__item { position: relative; display: grid; grid-template-columns: calc(var(--space-200) + var(--space-025)) minmax(0, 1fr) auto; gap: var(--space-150) calc(var(--space-150) + var(--space-025)); align-items: start; padding: var(--space-100) 0 calc(var(--space-150) + var(--space-025)); }
+.pp-site-timeline__dot {
+  --_ring: var(--color-brand-mint);
+  --_bg: var(--color-background-agent-subtlest);
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  inline-size: calc(var(--space-200) + var(--space-025));
+  block-size: calc(var(--space-200) + var(--space-025));
+  margin-top: var(--space-025);
+  border: var(--border-width-selected) solid var(--color-border-input);
+  border-radius: 50%;
+  background: var(--elevation-surface-raised);
+}
+.pp-site-timeline__dot::after { content: ""; position: absolute; inset: calc(var(--border-width-selected) * -1); border: var(--border-width-selected) solid var(--_ring); border-radius: 50%; background: var(--_bg); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-timeline__item--hr .pp-site-timeline__dot { --_ring: var(--color-border-warning); --_bg: var(--color-background-warning-subtle); }
+.pp-site-timeline__item--done .pp-site-timeline__dot { --_bg: var(--color-brand-mint); }
+.pp-site-timeline__item.pp-site-step--in .pp-site-timeline__dot::after { opacity: 1; }
+.pp-site-timeline__text { display: grid; min-width: 0; }
+.pp-site-timeline__when { font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-site-timeline__item > .pp-site-status, .pp-site-timeline__item > .pp-lozenge { align-self: start; }
+
+/* Who is still waiting, under the timeline. */
+.pp-site-timeline__waiting { display: grid; gap: var(--space-075); margin-top: var(--space-100); padding-top: var(--space-150); border-top: var(--border-width) solid var(--color-border); }
+.pp-site-timeline__group { font: var(--font-site-group); letter-spacing: var(--font-site-group-tracking); text-transform: uppercase; color: var(--color-text-subtlest); }
+.pp-site-timeline__waiting-row { display: flex; align-items: center; gap: var(--space-150); font: var(--font-body); }
+.pp-site-timeline__waiting-row .pp-site-state, .pp-site-timeline__waiting-row .pp-site-status { margin-left: auto; }
+[data-site-still] .pp-site-timeline__fill { transform: scaleY(1); transition: none; }
+[data-site-still] .pp-site-timeline__dot::after { opacity: 1; transition: none; }
 
 /* ---- records/approval-chain ---- */
 /* Approval chain. Spec: approval-chain.md

@@ -1,0 +1,42 @@
+/* Site timeline: what happened and when, one entry after another, with a line that fills down as entries arrive.
+   Used for a missing document that is chased. Spec: site-timeline.md. The line is a full-height fill that scales
+   (transform), and each dot's colour comes from a coloured layer that fades in. */
+.pp-site-timeline { display: grid; gap: var(--space-100); font: var(--font-body); }
+.pp-site-timeline__list { position: relative; display: grid; margin: 0; padding: 0 0 0 var(--space-050); list-style: none; }
+.pp-site-timeline__line, .pp-site-timeline__fill { position: absolute; left: var(--space-150); top: calc(var(--space-100) + var(--space-025)); bottom: var(--space-200); inline-size: var(--space-025); }
+.pp-site-timeline__line { background: var(--color-border); }
+.pp-site-timeline__fill {
+  background: linear-gradient(var(--color-brand-mint), var(--color-brand-violet));
+  transform: scaleY(var(--_fill, 1));
+  transform-origin: top;
+  transition: transform var(--motion-site-duration-step) var(--motion-site-easing);
+}
+.pp-site-timeline__item { position: relative; display: grid; grid-template-columns: calc(var(--space-200) + var(--space-025)) minmax(0, 1fr) auto; gap: var(--space-150) calc(var(--space-150) + var(--space-025)); align-items: start; padding: var(--space-100) 0 calc(var(--space-150) + var(--space-025)); }
+.pp-site-timeline__dot {
+  --_ring: var(--color-brand-mint);
+  --_bg: var(--color-background-agent-subtlest);
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  inline-size: calc(var(--space-200) + var(--space-025));
+  block-size: calc(var(--space-200) + var(--space-025));
+  margin-top: var(--space-025);
+  border: var(--border-width-selected) solid var(--color-border-input);
+  border-radius: 50%;
+  background: var(--elevation-surface-raised);
+}
+.pp-site-timeline__dot::after { content: ""; position: absolute; inset: calc(var(--border-width-selected) * -1); border: var(--border-width-selected) solid var(--_ring); border-radius: 50%; background: var(--_bg); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-timeline__item--hr .pp-site-timeline__dot { --_ring: var(--color-border-warning); --_bg: var(--color-background-warning-subtle); }
+.pp-site-timeline__item--done .pp-site-timeline__dot { --_bg: var(--color-brand-mint); }
+.pp-site-timeline__item.pp-site-step--in .pp-site-timeline__dot::after { opacity: 1; }
+.pp-site-timeline__text { display: grid; min-width: 0; }
+.pp-site-timeline__when { font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-site-timeline__item > .pp-site-status, .pp-site-timeline__item > .pp-lozenge { align-self: start; }
+
+/* Who is still waiting, under the timeline. */
+.pp-site-timeline__waiting { display: grid; gap: var(--space-075); margin-top: var(--space-100); padding-top: var(--space-150); border-top: var(--border-width) solid var(--color-border); }
+.pp-site-timeline__group { font: var(--font-site-group); letter-spacing: var(--font-site-group-tracking); text-transform: uppercase; color: var(--color-text-subtlest); }
+.pp-site-timeline__waiting-row { display: flex; align-items: center; gap: var(--space-150); font: var(--font-body); }
+.pp-site-timeline__waiting-row .pp-site-state, .pp-site-timeline__waiting-row .pp-site-status { margin-left: auto; }
+[data-site-still] .pp-site-timeline__fill { transform: scaleY(1); transition: none; }
+[data-site-still] .pp-site-timeline__dot::after { opacity: 1; transition: none; }

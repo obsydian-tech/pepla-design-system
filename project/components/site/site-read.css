@@ -1,0 +1,66 @@
+/* Site document read: Batsi reads an ID document in front of the visitor. A scan light passes over the document,
+   the fields fill in, the checks tick, Batsi suggests a result and a person accepts it. Spec: site-read.md.
+   Everything that appears does so by opacity and transform. */
+.pp-site-read { display: grid; gap: var(--space-150); font: var(--font-body); }
+.pp-site-read__row { display: grid; grid-template-columns: calc(var(--space-1000) + var(--space-600) + var(--space-050)) minmax(0, 1fr); gap: var(--space-200) var(--space-200); align-items: start; }
+@container (max-width: 440px) { .pp-site-read__row { grid-template-columns: minmax(0, 1fr); } }
+
+/* The document: a card with a photo block and four lines, and the scan light. */
+.pp-site-read__doc {
+  position: relative;
+  overflow: hidden;
+  block-size: calc(var(--space-1000) + var(--space-100));
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: linear-gradient(135deg, var(--color-background-accent-blue-subtlest), var(--color-background-agent-subtlest));
+}
+.pp-site-read__doc::before { content: ""; position: absolute; left: calc(var(--space-100) + var(--space-025)); top: var(--space-150); inline-size: 28px; block-size: 36px; border-radius: var(--radius-xsmall); background: var(--color-border-input); }
+.pp-site-read__doc::after {
+  content: "";
+  position: absolute;
+  left: 46px;
+  top: var(--space-200);
+  inline-size: var(--space-800);
+  block-size: var(--space-075);
+  border-radius: var(--radius-xsmall);
+  background: var(--color-border-input);
+  box-shadow: 0 13px 0 var(--color-border-input), 0 26px 0 var(--color-background-neutral-hovered), 0 39px 0 var(--color-background-neutral-hovered);
+}
+.pp-site-read__scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  block-size: 22px;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-brand-mint) 50%, transparent), transparent);
+  transform: translateY(-100%);
+}
+.pp-site-read__doc--go .pp-site-read__scan { animation: pp-site-scan var(--motion-site-duration-scan) var(--motion-site-easing) 2; }
+@keyframes pp-site-scan { to { transform: translateY(400%); } }
+
+/* The fields that fill in from the document. */
+.pp-site-read__fields { display: grid; gap: var(--space-075); font: var(--font-body); }
+.pp-site-read__field { display: flex; justify-content: space-between; gap: var(--space-100); padding-bottom: var(--space-050); border-bottom: var(--border-width) dashed var(--color-border); }
+.pp-site-read__label { color: var(--color-text-subtlest); }
+.pp-site-read__value { font-weight: var(--font-weight-semibold); text-align: right; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing), transform var(--motion-site-duration-fade) var(--motion-site-easing); }
+[data-site-live] .pp-site-read__value:not(.pp-site-read__value--in) { opacity: 0; transform: translateX(var(--space-075)); }
+
+/* The checks. */
+.pp-site-read__checks { display: grid; gap: var(--space-075); }
+.pp-site-read__check { display: flex; align-items: center; gap: var(--space-150); padding: calc(var(--space-100) + var(--space-025)) var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-medium); font: var(--font-body); }
+
+/* Batsi's suggestion, and the person's decision. */
+.pp-site-read__suggest { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-large); background: var(--color-background-agent-subtlest); font: var(--font-body); }
+.pp-site-read__who { display: inline-flex; align-items: center; gap: var(--space-050); font: var(--font-label-small); color: var(--color-text-agent); }
+.pp-site-read__who > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-read__why { flex-basis: 100%; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-read__decide { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); }
+.pp-site-read__decide .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-read__accepted { display: none; align-items: center; gap: var(--space-100); color: var(--color-text-agent); font: var(--font-body-strong); }
+.pp-site-read__decide--done > .pp-button { display: none; }
+.pp-site-read__decide--done > .pp-site-read__accepted { display: inline-flex; }
+.pp-site-read__log { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-075) var(--space-150); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-full); color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-read__log > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+[data-site-still] .pp-site-read__value { transition: none; }
+[data-site-still] .pp-site-read__value:not(.pp-site-read__value--in) { opacity: 1; transform: none; }
+[data-site-still] .pp-site-read__decide .pp-button--pressed, [data-site-still] .pp-site-read__doc--go .pp-site-read__scan { animation: none; }
