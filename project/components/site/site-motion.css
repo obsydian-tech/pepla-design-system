@@ -20,6 +20,7 @@
   100% { transform: translate(0, 0); }
 }
 @keyframes pp-site-turn { to { transform: rotate(360deg); } }
+@keyframes pp-site-breathe { 50% { transform: scale(1.08); } }
 @keyframes pp-site-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: .4; }

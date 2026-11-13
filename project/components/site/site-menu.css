@@ -4,8 +4,13 @@
      --_x   how far the panel sits from the left of the menu          (length)
      --_sx --_sy   background size as a fraction of its reference size (unitless, 0 to 1)
      --_ax  where the arrow points, from the left of the menu         (length)
-     --_dir which side the panel arrives from: 1 right, -1 left        (unitless) */
-.pp-site-menu { position: relative; }
+     --_dir which side the panel arrives from: 1 right, -1 left        (unitless)
+     --_rx --_ry  the tilt that follows the pointer, set on the menu   (angle, within 1.5deg; 0deg when closed or on a touch screen) */
+.pp-site-menu {
+  --_ox: calc(var(--layout-site-menu-max) / 2); /* the tilt pivots here, so the background, arrow and panels tilt as one */
+  position: relative;
+  perspective: var(--layout-site-menu-perspective);
+}
 .pp-site-menu__item { display: block; }
 .pp-site-menu__list { display: flex; align-items: center; gap: var(--space-050); margin: 0; padding: 0; list-style: none; }
 
@@ -51,7 +56,7 @@
   background: var(--elevation-surface-overlay);
   box-shadow: var(--elevation-shadow-overlay);
   transform-origin: 0 0;
-  transform: translateX(var(--_x, 0px)) scale(var(--_sx, 1), var(--_sy, 1));
+  transform: translateX(var(--_ox)) rotateX(var(--_rx, 0deg)) rotateY(var(--_ry, 0deg)) translateX(calc(var(--_ox) * -1)) translateX(var(--_x, 0px)) scale(var(--_sx, 1), var(--_sy, 1));
   transition: transform var(--motion-site-duration-menu) var(--motion-site-easing), opacity var(--motion-site-duration-header) var(--motion-site-easing);
 }
 .pp-site-menu__arrow {
@@ -60,7 +65,7 @@
   margin-top: calc(var(--space-075) * -1);
   border-radius: var(--radius-xsmall) 0 0 0;
   background: var(--elevation-surface-overlay);
-  transform: translateX(var(--_ax, 0px)) rotate(45deg);
+  transform: translateX(var(--_ox)) rotateX(var(--_rx, 0deg)) rotateY(var(--_ry, 0deg)) translateX(calc(var(--_ox) * -1)) translateX(var(--_ax, 0px)) rotate(45deg);
   transition: transform var(--motion-site-duration-menu) var(--motion-site-easing), opacity var(--motion-site-duration-header) var(--motion-site-easing);
 }
 .pp-site-menu--open .pp-site-menu__morph, .pp-site-menu--open .pp-site-menu__arrow { opacity: 1; }
@@ -77,12 +82,13 @@
   padding: var(--space-100);
   opacity: 0;
   pointer-events: none;
-  transform: translateX(calc(var(--_x, 0px) + var(--_dir, 1) * var(--space-500)));
+  transform-origin: 0 0;
+  transform: translateX(var(--_ox)) rotateX(var(--_rx, 0deg)) rotateY(var(--_ry, 0deg)) translateX(calc(var(--_ox) * -1)) translateX(calc(var(--_x, 0px) + var(--_dir, 1) * var(--space-500)));
   transition: opacity var(--motion-site-duration-header) var(--motion-site-easing), transform var(--motion-site-duration-menu) var(--motion-site-easing);
 }
 .pp-site-menu__panel--medium { width: var(--layout-drawer-width-medium); }
 .pp-site-menu__panel--wide { width: var(--layout-site-menu-max); grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.pp-site-menu__panel--open { opacity: 1; pointer-events: auto; transform: translateX(var(--_x, 0px)); }
+.pp-site-menu__panel--open { opacity: 1; pointer-events: auto; transform: translateX(var(--_ox)) rotateX(var(--_rx, 0deg)) rotateY(var(--_ry, 0deg)) translateX(calc(var(--_ox) * -1)) translateX(var(--_x, 0px)); }
 
 .pp-site-menu__link {
   position: relative;
@@ -129,8 +135,12 @@
 /* Reduced motion: the panel fades and still lands where it belongs; it does not fly in from the side. */
 @media (prefers-reduced-motion: reduce) {
   .pp-site-menu__panel { transform: translateX(var(--_x, 0px)); }
+  .pp-site-menu__morph { transform: translateX(var(--_x, 0px)) scale(var(--_sx, 1), var(--_sy, 1)); }
+  .pp-site-menu__arrow { transform: translateX(var(--_ax, 0px)) rotate(45deg); }
   .pp-site-menu__link { transform: none; }
 }
+[data-site-still] .pp-site-menu__morph { transform: translateX(var(--_x, 0px)) scale(var(--_sx, 1), var(--_sy, 1)); }
+[data-site-still] .pp-site-menu__arrow { transform: translateX(var(--_ax, 0px)) rotate(45deg); }
 [data-site-still] .pp-site-menu__morph, [data-site-still] .pp-site-menu__arrow,
 [data-site-still] .pp-site-menu__panel, [data-site-still] .pp-site-menu__link,
 [data-site-still] .pp-site-header, [data-site-still] .pp-site-header::before, [data-site-still] .pp-site-header__bar { transition: none; }

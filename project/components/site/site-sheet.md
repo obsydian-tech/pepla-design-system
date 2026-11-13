@@ -19,7 +19,7 @@ The menu on a phone: a panel that slides in from the right over a dimmed page. I
 4. **Head** (`pp-site-sheet__head`): the small logo and a close button (an icon Button with `x`).
 5. **Headings and lists** (`pp-site-sheet__heading`, `pp-site-sheet__list`): "Product" lists the modules, "More" lists Ask Batsi, Integrations, Resources, Company and Log in.
 6. **Link** (`pp-site-sheet__link`): a row at least 44px tall with a hairline under it. "Coming soon" (`pp-site-sheet__soon`) is a small pill after the name.
-7. **Actions** (`pp-site-sheet__actions`): Book a demo (the one primary, large, full width, `arrow-right`) and Get started (default, large, full width), at the bottom.
+7. **Actions** (`pp-site-sheet__actions`): Book a demo (the dark large Site button, full width, `arrow-right`) and Get started (the large line Site button, full width), at the bottom.
 
 ## States
 
@@ -64,6 +64,6 @@ Not in the signed-in app. Source: the phone menu of the approved public site (Co
 ## Do and don't
 
 - Do keep the sheet one level deep. A person sees every link without opening a second panel.
-- Do keep Book a demo as the one primary button on the sheet.
+- Do keep Book a demo as the one dark button on the sheet.
 - Don't put the sheet and the menu on the same page width: the menu shows from 1280px, the sheet below it.
 - Don't add a language switch or a search field here.

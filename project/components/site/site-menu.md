@@ -42,6 +42,10 @@ The main links in the header. Product, Integrations, Resources and Company open 
 - Each entry arrives `--motion-site-stagger` after the one before, set through `--_i` on the entry.
 - The preview script on the UI kit page does the measuring and the opening; it is preview-only (see Site header). The Angular site does the same in a directive.
 
+## Pointer tilt
+
+With a mouse, the open background, arrow and panel lean up to 1.5deg left or right and 1.2deg up or down toward the pointer, on a shared pivot, as on the approved site. The page script (or the Angular directive) sets `--_rx` and `--_ry` on the menu and resets them to `0deg` when the menu closes. Rotation only, in `transform`, with `perspective` from `--layout-site-menu-perspective`. It does nothing on a touch screen, under reduced motion or in still mode.
+
 ## Content
 
 - Top level: Product, Ask Batsi, Integrations, Resources, Company.
@@ -66,12 +70,12 @@ None. The public site does not use PrimeNG. In Angular, `<pp-site-menu>` uses th
 
 ## In Naleko People today
 
-Not in the signed-in app. Source: the dropdowns of the approved public site (Concept D), which moved the panel with `left`, `width` and `height`, slid a highlight block with `width` and `height`, tilted with the pointer (not carried over) and used hand-drawn icons and literal colours.
+Not in the signed-in app. Source: the dropdowns of the approved public site (Concept D), which moved the panel with `left`, `width` and `height`, slid a highlight block with `width` and `height`, tilted with the pointer (carried over as rotation only) and used hand-drawn icons and literal colours.
 
 ## Do and don't
 
 - Do give every list at most eight entries; a list longer than that is a page.
 - Do put an unbuilt module in the list with the "Coming soon" pill.
-- Don't tilt or parallax the panel with the pointer.
+- Don't tilt more than 1.5deg, don't parallax, and don't tilt on a touch screen.
 - Don't make Ask Batsi a list. It is a link to the Batsi band on the home page.
 - Don't set a width or height on a panel from a script; set the inputs above.

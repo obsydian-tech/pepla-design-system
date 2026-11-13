@@ -65,6 +65,7 @@
       clearTimeout(closeT);
       if (!cur) return;
       var b = parts(cur).b; setOpen(cur, false); cur = null; menu.classList.remove('pp-site-menu--open');
+      menu.style.setProperty('--_rx', '0deg'); menu.style.setProperty('--_ry', '0deg');
       if (returnFocus) b.focus();
     }
     if (menu && items.length) {
@@ -92,6 +93,15 @@
         if (items.indexOf(li) < 0) li.addEventListener('mouseenter', function () { if (canHover && cur) closeT = setTimeout(function () { close(); }, 120); });
       });
       menu.addEventListener('mouseleave', function () { if (canHover) closeT = setTimeout(function () { close(); }, 220); });
+      /* pointer tilt: the open panel leans up to 1.5deg toward the pointer (rotation only, set as the --_rx and --_ry inputs).
+         Only for a real pointer, and never when the visitor asked for less motion or the frame is in still mode. */
+      var calm = matchMedia('(prefers-reduced-motion: reduce)').matches || frame.closest('[data-site-still]');
+      menu.addEventListener('mousemove', function (e) {
+        if (!cur || !canHover || calm) return;
+        var r = morph.getBoundingClientRect(); if (!r.width || !r.height) return;
+        var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        if (y > 0) { menu.style.setProperty('--_ry', ((x - .5) * 3).toFixed(2) + 'deg'); menu.style.setProperty('--_rx', ((.5 - y) * 2.4).toFixed(2) + 'deg'); }
+      });
       document.addEventListener('click', function (e) { if (cur && !menu.contains(e.target)) close(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && cur && frame.contains(document.activeElement || frame)) close(true); });
     }

@@ -29,7 +29,7 @@ The motion of the public site: sections and cards arriving, and the slow loops b
 ## Behaviour
 
 - The page script, not the CSS, decides when an item is in view. It sets `data-site-reveal` once, then adds `pp-site-reveal--in` at about 15% in view, once per item.
-- Reduced motion: arrivals fade without moving, `pp-site-drift` runs at half speed (`--motion-site-duration-loop-orb-reduced`), and rings, radar and pulses keep playing, slowly. Demos keep playing. Grain, logo breathing, flying cards and menu tilt are not part of the design system at all.
+- Reduced motion: arrivals fade without moving, `pp-site-drift` runs at half speed (`--motion-site-duration-loop-orb-reduced`), and rings, radar and pulses keep playing, slowly. Demos keep playing. Grain, flying cards and the demo motion follow their own pages. The header logo's breathing runs at half speed (`--motion-site-duration-loop-breathe-reduced`), and the menu tilt stops.
 - Never animate anything other than `transform` and `opacity`. The site check fails a keyframe or transition that does.
 
 ## Content

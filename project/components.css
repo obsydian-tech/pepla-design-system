@@ -3514,6 +3514,19 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-site-header__burger { display: none; }
 }
 
+/* Logo breathing: the three circles of the mark swell and settle in turn (scale only), as on the approved site. */
+.pp-site-header__logo .pp-logo__mark circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pp-site-breathe var(--motion-site-duration-loop-breathe) ease-in-out infinite;
+}
+.pp-site-header__logo .pp-logo__violet { animation-delay: calc(var(--motion-site-duration-loop-breathe) / -3); }
+.pp-site-header__logo .pp-logo__mint { animation-delay: calc(var(--motion-site-duration-loop-breathe) / -1.5); }
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-header__logo .pp-logo__mark circle { animation-duration: var(--motion-site-duration-loop-breathe-reduced); }
+}
+[data-site-still] .pp-site-header__logo .pp-logo__mark circle { animation: none; }
+
 /* Skip link: hidden until a keyboard focuses it. */
 .pp-site-header__skip {
   position: absolute;
@@ -3669,8 +3682,13 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
      --_x   how far the panel sits from the left of the menu          (length)
      --_sx --_sy   background size as a fraction of its reference size (unitless, 0 to 1)
      --_ax  where the arrow points, from the left of the menu         (length)
-     --_dir which side the panel arrives from: 1 right, -1 left        (unitless) */
-.pp-site-menu { position: relative; }
+     --_dir which side the panel arrives from: 1 right, -1 left        (unitless)
+     --_rx --_ry  the tilt that follows the pointer, set on the menu   (angle, within 1.5deg; 0deg when closed or on a touch screen) */
+.pp-site-menu {
+  --_ox: calc(var(--layout-site-menu-max) / 2); /* the tilt pivots here, so the background, arrow and panels tilt as one */
+  position: relative;
+  perspective: var(--layout-site-menu-perspective);
+}
 .pp-site-menu__item { display: block; }
 .pp-site-menu__list { display: flex; align-items: center; gap: var(--space-050); margin: 0; padding: 0; list-style: none; }
 
@@ -3716,7 +3734,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   background: var(--elevation-surface-overlay);
   box-shadow: var(--elevation-shadow-overlay);
   transform-origin: 0 0;
-  transform: translateX(var(--_x, 0px)) scale(var(--_sx, 1), var(--_sy, 1));
+  transform: translateX(var(--_ox)) rotateX(var(--_rx, 0deg)) rotateY(var(--_ry, 0deg)) translateX(calc(var(--_ox) * -1)) translateX(var(--_x, 0px)) scale(var(--_sx, 1), var(--_sy, 1));
   transition: transform var(--motion-site-duration-menu) var(--motion-site-easing), opacity var(--motion-site-duration-header) var(--motion-site-easing);
 }
 .pp-site-menu__arrow {
@@ -3725,7 +3743,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   margin-top: calc(var(--space-075) * -1);
   border-radius: var(--radius-xsmall) 0 0 0;
   background: var(--elevation-surface-overlay);
-  transform: translateX(var(--_ax, 0px)) rotate(45deg);
+  transform: translateX(var(--_ox)) rotateX(var(--_rx, 0deg)) rotateY(var(--_ry, 0deg)) translateX(calc(var(--_ox) * -1)) translateX(var(--_ax, 0px)) rotate(45deg);
   transition: transform var(--motion-site-duration-menu) var(--motion-site-easing), opacity var(--motion-site-duration-header) var(--motion-site-easing);
 }
 .pp-site-menu--open .pp-site-menu__morph, .pp-site-menu--open .pp-site-menu__arrow { opacity: 1; }
@@ -3742,12 +3760,13 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   padding: var(--space-100);
   opacity: 0;
   pointer-events: none;
-  transform: translateX(calc(var(--_x, 0px) + var(--_dir, 1) * var(--space-500)));
+  transform-origin: 0 0;
+  transform: translateX(var(--_ox)) rotateX(var(--_rx, 0deg)) rotateY(var(--_ry, 0deg)) translateX(calc(var(--_ox) * -1)) translateX(calc(var(--_x, 0px) + var(--_dir, 1) * var(--space-500)));
   transition: opacity var(--motion-site-duration-header) var(--motion-site-easing), transform var(--motion-site-duration-menu) var(--motion-site-easing);
 }
 .pp-site-menu__panel--medium { width: var(--layout-drawer-width-medium); }
 .pp-site-menu__panel--wide { width: var(--layout-site-menu-max); grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.pp-site-menu__panel--open { opacity: 1; pointer-events: auto; transform: translateX(var(--_x, 0px)); }
+.pp-site-menu__panel--open { opacity: 1; pointer-events: auto; transform: translateX(var(--_ox)) rotateX(var(--_rx, 0deg)) rotateY(var(--_ry, 0deg)) translateX(calc(var(--_ox) * -1)) translateX(var(--_x, 0px)); }
 
 .pp-site-menu__link {
   position: relative;
@@ -3794,8 +3813,12 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 /* Reduced motion: the panel fades and still lands where it belongs; it does not fly in from the side. */
 @media (prefers-reduced-motion: reduce) {
   .pp-site-menu__panel { transform: translateX(var(--_x, 0px)); }
+  .pp-site-menu__morph { transform: translateX(var(--_x, 0px)) scale(var(--_sx, 1), var(--_sy, 1)); }
+  .pp-site-menu__arrow { transform: translateX(var(--_ax, 0px)) rotate(45deg); }
   .pp-site-menu__link { transform: none; }
 }
+[data-site-still] .pp-site-menu__morph { transform: translateX(var(--_x, 0px)) scale(var(--_sx, 1), var(--_sy, 1)); }
+[data-site-still] .pp-site-menu__arrow { transform: translateX(var(--_ax, 0px)) rotate(45deg); }
 [data-site-still] .pp-site-menu__morph, [data-site-still] .pp-site-menu__arrow,
 [data-site-still] .pp-site-menu__panel, [data-site-still] .pp-site-menu__link,
 [data-site-still] .pp-site-header, [data-site-still] .pp-site-header::before, [data-site-still] .pp-site-header__bar { transition: none; }
@@ -3823,6 +3846,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   100% { transform: translate(0, 0); }
 }
 @keyframes pp-site-turn { to { transform: rotate(360deg); } }
+@keyframes pp-site-breathe { 50% { transform: scale(1.08); } }
 @keyframes pp-site-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: .4; }
@@ -3962,6 +3986,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-sheet__link:hover { background: var(--color-background-neutral-subtle-hovered); }
 .pp-site-sheet__soon { display: inline-block; padding: var(--space-025) var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); border: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-label-small); letter-spacing: var(--font-heading-xxsmall-tracking); white-space: nowrap; }
 .pp-site-sheet__actions { display: grid; gap: var(--space-100); margin-top: auto; padding-top: var(--space-300); }
+.pp-site-sheet__actions .pp-site-button { justify-content: center; }
 
 /* Frame for kit pages and previews: a box that stands in for the browser window, so a phone-sized or desktop-sized
    header and its sheet can be shown side by side on one page. Not used on the site itself. */
