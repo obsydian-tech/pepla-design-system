@@ -58,6 +58,7 @@ export const siteMotion = {
   'motion.site.duration.loop.cue': '2s',       // one draw of the scroll cue line
   'motion.site.duration.loop.wash': '16s',     // one slide of the closing band's wash
   'motion.site.duration.loop.flow': '14s',     // one flow of the company-name gradient
+  'motion.site.duration.loop.flow.reduced': '28s', // reduced motion: half speed, never still
 };
 
 export const siteLayout = {

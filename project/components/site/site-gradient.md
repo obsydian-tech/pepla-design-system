@@ -14,7 +14,7 @@ The Naleko Digital Solutions gradient: navy, blue, sky, violet and magenta in on
 ## Anatomy
 
 1. **Text** (`pp-site-gradient-text`): the company name in a heading or a line of text. Colour comes from the `--color-site-gradient-*` tokens. Add `pp-site-gradient-text--flow` and `data-text` (the same words) and the colours flow: two copies of the words hold the gradient at shifted positions and fade in turn over the static words, every 14 seconds (opacity only).
-2. **Line** (`pp-site-gradient-line`): a one-pixel rule, used above the footer.
+2. **Line** (`pp-site-gradient-line`): a one-pixel rule. `pp-site-gradient-line--flow` is the two-pixel line above the footer: the gradient flows along it, as on the approved site.
 
 ## States
 
@@ -26,6 +26,7 @@ The Naleko Digital Solutions gradient: navy, blue, sky, violet and magenta in on
 ## Behaviour
 
 - Not interactive. The flowing version replaces the approved site's `background-position` slide, which repaints the text on every frame, with two opacity fades. It is slower and softer, but the colours move as before. Under reduced motion it keeps flowing, as the approved site's gradient did.
+- The flowing line is animated with a transform only (a strip four times the line's width slides left by half its width every 14 seconds), so it costs no paint. Reduced motion keeps it moving at half speed; still mode (`data-site-still`) stops it.
 
 ## Content
 

@@ -3355,7 +3355,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   border-radius: var(--radius-xsmall);
 }
 .pp-site-footer__link:hover { text-decoration: underline; text-decoration-thickness: var(--border-width); text-underline-offset: var(--space-050); }
-.pp-site-footer__soon { font: var(--font-label-small); letter-spacing: var(--font-label-small-tracking); color: var(--color-text-subtlest); }
+.pp-site-footer__soon { display: inline-block; padding: var(--space-025) var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); border: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-label-small); letter-spacing: var(--font-heading-xxsmall-tracking); white-space: nowrap; }
 
 .pp-site-footer__bottom {
   display: flex;
@@ -3424,6 +3424,31 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-gradient-text--flow::after { background-image: linear-gradient(90deg, var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-6), var(--color-site-gradient-5), var(--color-site-gradient-2), var(--color-site-gradient-1)); animation-delay: calc(var(--motion-site-duration-loop-flow) / -2); }
 @keyframes pp-site-flow { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 [data-site-still] .pp-site-gradient-text--flow::before, [data-site-still] .pp-site-gradient-text--flow::after { animation: none; opacity: 0; }
+/* The flowing line, as on the approved site. The gradient is drawn on a strip four times the line's width (two tiles of the
+   nine-stop gradient, which ends where it starts) and the strip slides left by half its width, so the loop has no seam.
+   Transform only: nothing repaints. */
+.pp-site-gradient-line--flow {
+  position: relative;
+  overflow: hidden;
+  block-size: var(--border-width-selected);
+  background: none;
+}
+.pp-site-gradient-line--flow::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inline-size: 400%;
+  background-image: linear-gradient(90deg, var(--color-site-gradient-1), var(--color-site-gradient-2), var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-5), var(--color-site-gradient-6), var(--color-site-gradient-4), var(--color-site-gradient-2), var(--color-site-gradient-1));
+  background-size: 50% 100%;
+  opacity: .85;
+  animation: pp-site-line-flow var(--motion-site-duration-loop-flow) linear infinite;
+}
+@keyframes pp-site-line-flow { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .pp-site-gradient-line--flow::before { animation-duration: var(--motion-site-duration-loop-flow-reduced); }
+}
+[data-site-still] .pp-site-gradient-line--flow::before { animation: none; }
 @media (forced-colors: active) {
   .pp-site-gradient-text { color: LinkText; }
   .pp-site-gradient-text--flow::before, .pp-site-gradient-text--flow::after { display: none; }
@@ -3751,7 +3776,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-menu__link:hover::before, .pp-site-menu__link:focus-visible::before { opacity: 1; }
 .pp-site-menu__link > * { position: relative; min-width: 0; }
 .pp-site-menu__name { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-075); font: var(--font-heading-xsmall); }
-.pp-site-menu__soon { font: var(--font-label-small); letter-spacing: var(--font-label-small-tracking); color: var(--color-text-subtlest); }
+.pp-site-menu__soon { display: inline-block; padding: var(--space-025) var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); border: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-label-small); letter-spacing: var(--font-heading-xxsmall-tracking); white-space: nowrap; }
 .pp-site-menu__hint { display: block; margin-top: var(--space-025); font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-site-menu__foot {
   grid-column: 1 / -1;
@@ -3935,7 +3960,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   text-decoration: none;
 }
 .pp-site-sheet__link:hover { background: var(--color-background-neutral-subtle-hovered); }
-.pp-site-sheet__soon { font: var(--font-label-small); letter-spacing: var(--font-label-small-tracking); color: var(--color-text-subtlest); }
+.pp-site-sheet__soon { display: inline-block; padding: var(--space-025) var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); border: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-label-small); letter-spacing: var(--font-heading-xxsmall-tracking); white-space: nowrap; }
 .pp-site-sheet__actions { display: grid; gap: var(--space-100); margin-top: auto; padding-top: var(--space-300); }
 
 /* Frame for kit pages and previews: a box that stands in for the browser window, so a phone-sized or desktop-sized

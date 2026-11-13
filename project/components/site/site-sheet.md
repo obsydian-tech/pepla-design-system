@@ -17,8 +17,8 @@ The menu on a phone: a panel that slides in from the right over a dimmed page. I
 2. **Blanket** (`pp-site-sheet__blanket`): the dimmed page behind, `--color-blanket`. A tap closes the sheet.
 3. **Panel** (`pp-site-sheet__panel`): `role="dialog"`, `aria-modal="true"`, at most `--layout-site-sheet-width` (380px) wide and the full height.
 4. **Head** (`pp-site-sheet__head`): the small logo and a close button (an icon Button with `x`).
-5. **Headings and lists** (`pp-site-sheet__heading`, `pp-site-sheet__list`): "Product" lists the modules, "More" lists Ask Batsi, Integrations, Learn, Company and Log in.
-6. **Link** (`pp-site-sheet__link`): a row at least 44px tall with a hairline under it. "Coming soon" (`pp-site-sheet__soon`) is plain text after the name.
+5. **Headings and lists** (`pp-site-sheet__heading`, `pp-site-sheet__list`): "Product" lists the modules, "More" lists Ask Batsi, Integrations, Resources, Company and Log in.
+6. **Link** (`pp-site-sheet__link`): a row at least 44px tall with a hairline under it. "Coming soon" (`pp-site-sheet__soon`) is a small pill after the name.
 7. **Actions** (`pp-site-sheet__actions`): Book a demo (the one primary, large, full width, `arrow-right`) and Get started (default, large, full width), at the bottom.
 
 ## States

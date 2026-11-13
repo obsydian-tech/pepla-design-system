@@ -4,9 +4,15 @@
 // no 13-digit ID shown in full.   Full list: node scripts/content-audit.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { audit } from './content-audit.mjs';
+import { audit, withoutApprovedLabels } from './content-audit.mjs';
 
 test('content rules hold on every screen and example', () => {
   const v = audit();
   assert.equal(v.length, 0, '\n' + v.map((x) => `${x.file}:${x.line} [${x.rule}] ${x.msg}`).join('\n'));
+});
+
+test('the Resources exception covers the exact label only', () => {
+  assert.equal(withoutApprovedLabels('<span>Resources</span>'), '<span></span>');
+  assert.equal(withoutApprovedLabels('<p>Resources for the team</p>'), '<p>Resources for the team</p>');
+  assert.equal(withoutApprovedLabels('<p>More Resources</p>'), '<p>More Resources</p>');
 });

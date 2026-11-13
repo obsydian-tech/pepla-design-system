@@ -46,7 +46,7 @@
   border-radius: var(--radius-xsmall);
 }
 .pp-site-footer__link:hover { text-decoration: underline; text-decoration-thickness: var(--border-width); text-underline-offset: var(--space-050); }
-.pp-site-footer__soon { font: var(--font-label-small); letter-spacing: var(--font-label-small-tracking); color: var(--color-text-subtlest); }
+.pp-site-footer__soon { display: inline-block; padding: var(--space-025) var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); border: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-label-small); letter-spacing: var(--font-heading-xxsmall-tracking); white-space: nowrap; }
 
 .pp-site-footer__bottom {
   display: flex;
