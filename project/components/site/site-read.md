@@ -42,7 +42,7 @@ Batsi reads an ID document in front of the visitor. A scan light passes over the
 ## Content
 
 - Copied from the approved page: the field names and values, the three checks, "Suggested by Batsi", "Matches", "Confidence: High", the reason, both button labels, "Accepted by Jane Smith, 09:42" and the log line.
-- The ID number is always masked: "Masked · ends 0861". The sample person is John Doe; the decider is Jane Smith.
+- The ID number is always hidden: "Hidden · ends 0861". The sample person is John Doe; the decider is Jane Smith.
 
 ## Accessibility
 
@@ -61,5 +61,5 @@ The HR document check in the signed-in kits (ID read, checks, Batsi's suggestion
 ## Do and don't
 
 - Do show Batsi's suggestion with its reason, and a person's decision after it.
-- Do mask the ID number.
+- Do hide the ID number.
 - Don't let Batsi accept on its own.

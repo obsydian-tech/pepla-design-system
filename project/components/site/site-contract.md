@@ -38,8 +38,8 @@ An employment contract from the company template. Its details fill in from the e
 
 ## Content
 
-- Copied from the approved page: "Contract of employment", "Employee: John Doe", "Position: Sales Consultant", "Start date: 1 December 2026", "Salary: Masked", the signature note, "Probation ends 31 May 2027" and "Reminder 1 May: confirm or extend probation".
-- Salary is always masked.
+- Copied from the approved page: "Contract of employment", "Employee: John Doe", "Position: Sales Consultant", "Start date: 1 December 2026", "Salary: Hidden", the signature note, "Probation ends 31 May 2027" and "Reminder 1 May: confirm or extend probation".
+- Salary is always hidden.
 
 ## Accessibility
 
@@ -57,5 +57,5 @@ The contract and probation step of onboarding.
 ## Do and don't
 
 - Do fill every detail from the record.
-- Do mask salary.
+- Do hide salary.
 - Don't draw the signature by animating a stroke.
