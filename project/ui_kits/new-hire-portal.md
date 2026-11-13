@@ -31,3 +31,10 @@ The new employee's side of Naleko People, redrawn for a phone: Ayanda Zulu, who 
 - **Dates (content rules).** Dates read "1 Dec 2026", and recent ones "10 Nov".
 - **No emoji.** The waving hand in the greeting goes.
 - **Phone layout.** Some components follow the screen width, not the frame, so the consent terms and the description lists are set to one column for this kit.
+
+## Onboarding improvements (agreed 13 Nov 2026)
+
+- **Four steps.** Progress shows Invited, Documents, In review and Verified, with "2 of 4 steps done". Training and Onboarded go until the backend has them.
+- **Due date.** The checklist says when the ID and bank letter are due, a week before the start date.
+- **HR decides every document.** Batsi reads the ID and bank letter; HR decides each document.
+- **Desktop and phone.** Consent, the checklist, upload and progress are drawn at both sizes. The desktop versions use the side navigation.
