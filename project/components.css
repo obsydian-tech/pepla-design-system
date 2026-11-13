@@ -3324,6 +3324,18 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   letter-spacing: var(--font-label-tracking);
   cursor: pointer;
 }
+.pp-site-chip, .pp-site-slot { display: inline-grid; align-items: center; }
+.pp-site-chip { text-align: center; }
+/* The label is drawn twice in one grid cell: the resting one and a pressed one (semibold, in the pressed colour, hidden from
+   assistive technology). Pressing fades one out and the other in, so the label's colour fades like the fill, and the
+   button never changes width. */
+.pp-site-chip__label, .pp-site-slot__label { grid-area: 1 / 1; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-chip__label--on, .pp-site-slot__label--on { font-weight: var(--font-weight-semibold); opacity: 0; }
+.pp-site-chip { --_on: var(--color-text-selected); }
+.pp-site-slot { --_on: var(--color-text-inverse); }
+.pp-site-chip__label--on, .pp-site-slot__label--on { color: var(--_on); }
+[aria-pressed="true"] > .pp-site-chip__label:not(.pp-site-chip__label--on), [aria-pressed="true"] > .pp-site-slot__label:not(.pp-site-slot__label--on) { opacity: 0; }
+[aria-pressed="true"] > .pp-site-chip__label--on, [aria-pressed="true"] > .pp-site-slot__label--on { opacity: 1; }
 .pp-site-chip { padding: var(--space-100) var(--space-150); border-radius: var(--radius-full); }
 .pp-site-slot { padding: var(--space-100) var(--space-150); border-radius: var(--radius-medium); text-align: left; }
 .pp-site-chip::before, .pp-site-slot::before {
@@ -3339,11 +3351,9 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 }
 .pp-site-chip { --_pressed-bg: var(--color-background-selected); --_pressed-border: var(--color-border-selected); }
 .pp-site-slot { --_pressed-bg: var(--color-background-neutral-bold); --_pressed-border: var(--color-background-neutral-bold); }
-.pp-site-chip[aria-pressed="true"] { color: var(--color-text-selected); font-weight: var(--font-weight-semibold); }
-.pp-site-slot[aria-pressed="true"] { color: var(--color-text-inverse); font-weight: var(--font-weight-semibold); }
-.pp-site-chip[aria-pressed="true"]::before, .pp-site-slot[aria-pressed="true"]::before { opacity: 1; }
+.pp-site-chip.pp-site-chip[aria-pressed="true"]::before, .pp-site-slot[aria-pressed="true"]::before { opacity: 1; }
 .pp-site-chip:focus-visible, .pp-site-slot:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
-[data-site-still] .pp-site-chip::before, [data-site-still] .pp-site-slot::before { transition: none; }
+[data-site-still] .pp-site-chip::before, [data-site-still] .pp-site-slot::before, [data-site-still] .pp-site-chip__label, [data-site-still] .pp-site-slot__label { transition: none; }
 
 .pp-site-slots { display: grid; gap: var(--space-150); }
 .pp-site-slots__row { display: flex; flex-wrap: wrap; gap: var(--space-100); }

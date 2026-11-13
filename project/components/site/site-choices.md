@@ -2,7 +2,7 @@
 name: Site choices
 group: site
 status: ready
-classes: pp-site-chips, pp-site-chip, pp-site-slots, pp-site-slot
+classes: pp-site-chips, pp-site-chip, pp-site-chip__label, pp-site-slots, pp-site-slot, pp-site-slot__label
 primeng: none (public site only, no PrimeNG)
 replaces: the public site's .chips and .slots, which faded colours with a transition the site check does not allow
 ---
@@ -14,9 +14,9 @@ Two pickers for the public forms: chips, where a visitor ticks the modules they 
 ## Anatomy
 
 1. **Chip group** (`pp-site-chips`, `role="group"`, named by its label): wrapping rounded chips.
-2. **Chip** (`pp-site-chip`, a `button` with `aria-pressed`): any number can be pressed.
+2. **Chip** (`pp-site-chip`, a `button` with `aria-pressed`): any number can be pressed. Its label is written twice, as `pp-site-chip__label` and a copy `pp-site-chip__label pp-site-chip__label--on` with `aria-hidden="true"`, so the colour fades.
 3. **Slot picker** (`pp-site-slots`, named by its label): a row of days (`pp-site-slots__row`, `role="group"`, named "Day" by a visually hidden word), a row of times (named "Time" the same way) and a note (`pp-site-slots__note`).
-4. **Slot** (`pp-site-slot`, a `button` with `aria-pressed`): one day or one time. Exactly one day and one time are pressed.
+4. **Slot** (`pp-site-slot`, a `button` with `aria-pressed`, labelled the same two-copy way with `pp-site-slot__label`): one day or one time. Exactly one day and one time are pressed.
 
 ## States
 
@@ -30,7 +30,7 @@ Two pickers for the public forms: chips, where a visitor ticks the modules they 
 ## Behaviour
 
 - A chip toggles on click. A slot selects on click and clears the other in its row.
-- The pressed look fades in by opacity on a layer behind the label (380ms of `--motion-site-duration-header`). The label's own colour changes at once.
+- The pressed look fades in by opacity (300ms of `--motion-site-duration-header`): the fill and border on a layer behind the label, the label by crossfading its two copies. This matches the approved site's 0.2s colour fade, and the button keeps its width.
 - The default slot is the second day and the second time.
 - Days are the next five working days from today (no weekends), shown as "Mon 16 Nov". Times are 09:00, 10:00, 11:00, 14:00, 15:00 South African time.
 

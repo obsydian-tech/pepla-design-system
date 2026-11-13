@@ -40,11 +40,12 @@
       });
       if (box) { var bad = !box.checked; if (bad) { box.setAttribute('aria-invalid', 'true'); first = first || box; } }
       if (first) { first.focus(); return; }
-      var rows = all('.pp-site-slots__row', form), pick = function (r) { var p = r && r.querySelector('[aria-pressed="true"]'); return p ? p.textContent : ''; };
+      var rows = all('.pp-site-slots__row', form), pick = function (r) { var p = r && r.querySelector('[aria-pressed="true"] .pp-site-slot__label'); return p ? p.textContent : ''; };
       done.querySelector('[data-confirm-mail]').textContent = form.querySelector('input[type="email"]').value.trim();
       done.querySelector('[data-confirm-when]').textContent = pick(rows[0]) + ', ' + pick(rows[1]);
       form.hidden = true; done.hidden = false; done.focus();
-      if (typeof window.fitFrames === 'function') window.fitFrames();
+      /* As on the approved site, the page scrolls so the card sits just under the header. */
+      window.scrollTo({ top: card.getBoundingClientRect().top + window.scrollY - 110, behavior: 'smooth' });
     });
   });
 })();
