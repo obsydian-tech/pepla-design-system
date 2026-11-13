@@ -25,6 +25,7 @@
 .pp-notification__text { color: var(--color-text-subtle); overflow-wrap: anywhere; }
 .pp-notification__text strong { font-weight: var(--font-weight-semibold); color: var(--color-text); }
 .pp-notification__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-050) var(--space-150); font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-notification__meta > .pp-confidence { max-width: 100%; white-space: normal; text-align: start; }
 .pp-notification__action { font: var(--font-label); color: var(--color-link); text-decoration: none; }
 .pp-notification__action:hover { text-decoration: underline; }
 .pp-notification__dot { width: var(--space-100); height: var(--space-100); margin-top: var(--space-075); border-radius: var(--radius-full); }

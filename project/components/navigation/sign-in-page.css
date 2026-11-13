@@ -1,0 +1,31 @@
+/* Sign-in page. Spec: sign-in-page.md */
+.pp-sign-in {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  min-height: 100%;
+  padding: var(--space-800) var(--layout-gutter-phone) var(--space-600);
+  background: var(--elevation-surface-sunken);
+  color: var(--color-text);
+}
+.pp-sign-in__panel { display: flex; flex-direction: column; gap: var(--space-300); width: 100%; max-width: 400px; }
+.pp-sign-in__card {
+  display: flex; flex-direction: column; gap: var(--space-300);
+  padding: var(--space-400);
+  background: var(--elevation-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-large);
+}
+.pp-sign-in__heading { display: flex; flex-direction: column; gap: var(--space-100); }
+.pp-sign-in__title { margin: 0; font: var(--font-heading-large); letter-spacing: var(--font-heading-large-tracking); color: var(--color-text); }
+.pp-sign-in__lead { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-sign-in__company { font: var(--font-label); color: var(--color-text-subtle); }
+.pp-sign-in__actions { display: flex; flex-direction: column; gap: var(--space-150); }
+.pp-sign-in__actions > .pp-button { box-sizing: border-box; width: 100%; justify-content: center; }
+.pp-sign-in__footer { margin: 0; font: var(--font-body-small); color: var(--color-text-subtle); }
+/* Phone: less space above, the card keeps its padding */
+.pp-sign-in--phone { padding: var(--space-500) var(--layout-gutter-phone) var(--space-400); }
+.pp-sign-in--phone > .pp-sign-in__panel > .pp-sign-in__card { padding: var(--space-300); }
+@media (max-width: 767px) {
+  .pp-sign-in { padding: var(--space-500) var(--layout-gutter-phone) var(--space-400); }
+}

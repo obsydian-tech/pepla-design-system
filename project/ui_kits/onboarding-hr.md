@@ -38,3 +38,11 @@ The HR side of Naleko People at Mokoena Logistics, redrawn: Thandeka Dlamini's h
 - **Required fields.** The red asterisks go. The form says "All fields are required unless marked optional."
 - **Support handover is said in words.** The chat says when Batsi answered and when it passed the chat to HR, and why.
 - **Notifications as a page.** The notifications panel component is capped at 400 pixels, so the full page puts the notification list in a card.
+
+## Onboarding improvements (agreed 13 Nov 2026)
+
+- **Four stages.** The employee table and counts use Invited, Documents, In review and Verified. Training and Onboarded go until the backend has them.
+- **Overdue, not due this week.** Pending documents show how many are overdue against their due date.
+- **Invite link.** Registered says when the link was sent and when it expires, and has Resend link. No password is created or shown.
+- **HR decides every document.** Notifications say Batsi has read the document and HR decides; nothing is approved by Batsi alone.
+- **Desktop and phone.** Every screen in the onboarding journey (HR home, the new employee steps, Registered, Employee detail, Verifications list, Verification detail, Notifications) is drawn at both sizes. The phone versions use the compact top navigation and the menu.
