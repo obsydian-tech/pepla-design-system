@@ -15,7 +15,7 @@ Thandeka Dlamini's admin area for Mokoena Logistics, redrawn in Naleko People: t
 
 - **Overview** (`overview/admin-overview-page.component.html`). The four counts and the overdue candidates. Uses app shell, side and top navigation, role pill, page header, stat card, card, table, person, deadline chip, lozenge.
 - **Users and roles** (`users/admin-users-page.component.html`, `users/components/role-pill`). Search, the status filter, and every user with roles, status, the date added and actions. Uses page header, search, button (pressed buttons as filter chips), table, person, role pill, lozenge, button.
-- **Add user** (`users/components/add-user-drawer`). Work email with an error, first and last name, and the roles, over the users list. Uses drawer, field, text field, field error, checkbox, button.
+- **Add user** (`users/components/add-user-drawer`). Email with an error, first and last name, and the roles, over the users list. Uses drawer, field, text field, field error, checkbox, button.
 - **Edit roles** (`users/components/edit-roles-drawer`). The person's roles, and what happens to the role they use now. Uses drawer, checkbox, inline message, button.
 - **Tenant settings** (`tenant-settings/admin-tenant-settings.component.html` and its five cards). Branding and identity with the logo and the accent colour preview, seniority levels, workflow templates, approval chains and locale. Uses card, icon tile, avatar, form layout, text field, select, tenant branding preview, table, tag, role pill, config version badge, inline message.
 - **Edit an approval chain** (`tenant-settings/components/approval-chain-drawer`). The senior offer and IT setup chains, step by step. Uses drawer, select, checkbox, badge, button, inline message.

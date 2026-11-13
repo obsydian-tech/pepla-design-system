@@ -31,7 +31,7 @@ The sign-in page is the layout for every screen a person sees before they are in
 
 ## Behaviour
 
-- Sign-in asks only for the work email and password, then the second step when the account has one. Admins always have a second step.
+- Sign-in asks only for the email and password, then the second step when the account has one. Any email address works, including Gmail; the product never asks for a work email. Admins always have a second step, and set it up before they reach the Admin area (see the Set up two-step sign-in screen in the Sign-in and invite kit).
 - An invite link opens Set your password with the email filled in and read-only. The link works once and expires after 7 days (a company setting).
 - After the password is set, the person goes straight into Naleko People: HR to Today, a new employee to their own home.
 - An expired or used link shows the Link expired state. It never shows a form that will fail.
