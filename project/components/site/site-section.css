@@ -53,6 +53,13 @@
 
 /* Stage for kit and spec pages: a box that stands in for the browser window, as tall as what it holds (no inner scroll),
    so a whole hero or section shows at once at desktop and phone width. Not used on the site itself. */
-.pp-site-stage { position: relative; overflow: clip; contain: paint; isolation: isolate; background: var(--elevation-surface-raised); border-radius: var(--radius-medium); }
-.pp-site-stage--desktop { min-width: var(--layout-site-breakpoint-nav); }
+.pp-site-stage { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; position: relative; overflow: clip; contain: paint; isolation: isolate; background: var(--elevation-surface-raised); border-radius: var(--radius-medium); }
+.pp-site-stage--desktop {
+  min-width: var(--layout-site-breakpoint-nav);
+  /* On a screen narrower than 1280px a preview script sets --_fit (the scale) and --_h (the stage's own height). The stage keeps
+     its true 1280px layout and is drawn smaller; the negative margin takes back the room the full size would leave empty. */
+  transform: scale(var(--_fit, 1));
+  transform-origin: 0 0;
+  margin-bottom: calc((var(--_fit, 1) - 1) * var(--_h, 0px));
+}
 .pp-site-stage--phone { inline-size: min(100%, var(--layout-site-frame-phone)); }
