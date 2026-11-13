@@ -21,7 +21,7 @@
 .pp-sign-in__lead { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
 .pp-sign-in__company { font: var(--font-label); color: var(--color-text-subtle); }
 .pp-sign-in__actions { display: flex; flex-direction: column; gap: var(--space-150); }
-.pp-sign-in__actions > .pp-button { width: 100%; justify-content: center; }
+.pp-sign-in__actions > .pp-button { box-sizing: border-box; width: 100%; justify-content: center; }
 .pp-sign-in__footer { margin: 0; font: var(--font-body-small); color: var(--color-text-subtle); }
 /* Phone: less space above, the card keeps its padding */
 .pp-sign-in--phone { padding: var(--space-500) var(--layout-gutter-phone) var(--space-400); }

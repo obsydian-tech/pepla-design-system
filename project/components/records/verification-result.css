@@ -7,4 +7,5 @@
 .pp-verification__check--unsure > svg { color: var(--color-icon-warning); }
 .pp-verification__check-note { color: var(--color-text-subtle); }
 .pp-verification__by { display: inline-flex; align-items: center; gap: var(--space-100); flex-wrap: wrap; }
-.pp-verification .pp-dl { grid-template-columns: minmax(96px, 160px) 1fr; }
+.pp-verification .pp-dl { grid-template-columns: minmax(96px, 160px) minmax(0, 1fr); }
+@media (max-width: 479px) { .pp-verification .pp-dl { grid-template-columns: minmax(0, 1fr); } }
