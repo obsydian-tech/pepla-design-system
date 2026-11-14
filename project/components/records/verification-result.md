@@ -26,13 +26,14 @@ The result of an ID, bank or qualification check: everything matches, needs a lo
 | Matches | bold success, `shield-check`, "Matches" | all `check` |
 | Needs a look | bold warning, `triangle-alert`, "Needs a look" | at least one `--unsure` (`triangle-alert`) |
 | Doesn't match | bold warning, `triangle-alert`, "Doesn't match" | at least one `--mismatch` (`x`) |
-| Checking | agent lozenge "Batsi is checking" | none yet; skeleton lines |
+| Being checked | neutral lozenge, `clock`, "Being checked" | none yet; the file is still being read (ONB-07) |
 
 ## Behaviour
 
 - A "Needs a look" or "Doesn't match" result always ends with HR's decision: accept, or ask for a new document (rule 2). The check never rejects a document on its own. The decision and who made it are added to "By".
 - "Show ID number" reveals the full number in place, is logged with who and when (rule 6), and hides again when the person leaves the page.
 - Batsi's result is a flag, never a verdict: HR sees it and decides before the new employee is told anything.
+- "Being checked" shows only while the file is still being read. It has no checks, no footer and no decision yet. A document that could not be read shows "Needs a look".
 
 ## Content
 
