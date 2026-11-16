@@ -1,0 +1,14 @@
+/* Site platform layout: the landing page's Platform section puts the Settings · Modules card beside the app frame.
+   Spec: site-platform.md. Each card is its own container, so the app frame follows its card's width. */
+.pp-site-platform { display: grid; gap: var(--space-200); }
+@container (min-width: 1080px) { .pp-site-platform { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: start; gap: var(--space-250); } }
+.pp-site-platform__card { overflow: hidden; min-width: 0; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-site-card); container-type: inline-size; }
+.pp-site-platform__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: calc(var(--space-150) + var(--space-025)) calc(var(--space-200) + var(--space-025)); border-bottom: var(--border-width) solid var(--color-border); font: var(--font-body); }
+.pp-site-platform__title { font: var(--font-body-strong); }
+.pp-site-platform__note { margin-left: auto; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-platform__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: var(--space-100) calc(var(--space-200) + var(--space-025)); border-top: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-platform__again { display: inline-flex; align-items: center; gap: var(--space-075); min-height: var(--size-touch-target); margin-left: auto; padding: 0; border: 0; background: none; color: var(--color-text-brand); font: var(--font-label-small); cursor: pointer; }
+.pp-site-platform__again > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-platform__again:hover { text-decoration: underline; }
+.pp-site-platform__again:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+.pp-site-platform + .pp-site-caps { margin-top: var(--space-500); }

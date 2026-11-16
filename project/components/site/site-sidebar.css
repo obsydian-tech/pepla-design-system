@@ -1,0 +1,10 @@
+/* Site sidebar preview: the app's sidebar as a row of chips under the modules list. A module's chip appears when the
+   module is switched on. Spec: site-sidebar.md. */
+.pp-site-sidebar { display: flex; flex-wrap: wrap; gap: var(--space-100); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--color-site-wash-violet); }
+.pp-site-sidebar__label { flex-basis: 100%; color: var(--color-text-subtle); font: var(--font-site-group); font-size: .875em; text-transform: uppercase; }
+.pp-site-sidebar__item { display: inline-flex; align-items: center; padding: var(--space-075) calc(var(--space-150) - var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-full); background: var(--elevation-surface-raised); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-sidebar__item--current { border-color: var(--color-background-neutral-bold); background: var(--color-background-neutral-bold); color: var(--color-text-inverse); }
+.pp-site-sidebar__item--module { border-color: var(--color-background-brand-subtle); background: var(--color-background-brand-subtlest); color: var(--color-text-brand); }
+[data-site-live] .pp-site-sidebar__item--module:not(.pp-site-sidebar__item--in) { display: none; }
+[data-site-live] .pp-site-sidebar__item--in { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+[data-site-still] .pp-site-sidebar__item--in { animation: none; }
