@@ -41,3 +41,13 @@
 [data-site-still] .pp-site-board__card::before, [data-site-still] .pp-site-board__card::after, [data-site-still] .pp-site-board__log { transition: none; }
 [data-site-still] .pp-site-board__card--moved .pp-site-board__why { animation: none; }
 [data-site-still] .pp-site-board__log { opacity: 1; }
+
+/* At risk (landing): a coral border and ring, and a coral flag. Done: the flag turns mint and the border mint. Both borders
+   are layers that fade; the flag pops in. */
+.pp-site-board__flag { display: none; box-sizing: border-box; inline-size: max-content; max-inline-size: 100%; padding: var(--space-025) var(--space-075); border-radius: var(--radius-xsmall); background: var(--color-background-danger-subtle); color: var(--color-text-danger); font: var(--font-label-small); }
+.pp-site-board__card--risk::before { opacity: 1; border-color: var(--color-border-danger); box-shadow: 0 0 0 var(--space-050) color-mix(in srgb, var(--color-border-danger) 12%, transparent); }
+.pp-site-board__card--done::before { opacity: 0; border-color: var(--color-border-danger); box-shadow: 0 0 0 var(--space-050) color-mix(in srgb, var(--color-border-danger) 12%, transparent); }
+.pp-site-board__card--done::after { opacity: 1; }
+.pp-site-board__card--risk .pp-site-board__flag, .pp-site-board__card--done .pp-site-board__flag { display: block; animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+.pp-site-board__card--done .pp-site-board__flag { background: var(--color-background-agent-subtlest); color: var(--color-text-agent); }
+[data-site-still] .pp-site-board__card--risk .pp-site-board__flag, [data-site-still] .pp-site-board__card--done .pp-site-board__flag { animation: none; }

@@ -1,0 +1,18 @@
+/* Site hiring: the landing Recruitment section's hiring board with Batsi's draft beside it. Spec: site-hiring.md.
+   The draft card is dim until Batsi speaks (an opacity fade); the board is a Site hiring board. */
+.pp-site-hiring { display: grid; gap: var(--space-200); min-width: 0; container-type: inline-size; }
+@container (min-width: 1080px) { .pp-site-hiring { grid-template-columns: minmax(0, 1fr) var(--layout-site-hiring-side); align-items: start; } }
+.pp-site-hiring__side { display: grid; gap: var(--space-150); align-content: start; min-width: 0; }
+.pp-site-hiring__draft { display: grid; gap: var(--space-150); padding: var(--space-200); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); font: var(--font-body); color: var(--color-text); opacity: .35; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-hiring__draft--on { opacity: 1; }
+.pp-site-hiring__who { display: flex; align-items: center; gap: var(--space-075); font: var(--font-label-small); color: var(--color-text-agent); }
+.pp-site-hiring__who > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-hiring__text { margin: 0; }
+.pp-site-hiring__body { min-block-size: calc(var(--space-800) - var(--space-050)); margin: 0; padding: var(--space-150) var(--space-150); border-radius: var(--radius-medium); background: var(--color-background-agent-subtlest); font: var(--font-body); color: var(--color-text-subtle); }
+.pp-site-hiring__body:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+.pp-site-hiring__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); }
+.pp-site-hiring__row .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-hiring__ok { display: none; font: var(--font-body-small); color: var(--color-text-agent); }
+.pp-site-hiring__draft--sent .pp-site-hiring__ok { display: inline; }
+.pp-site-hiring__draft--sent .pp-site-hiring__row .pp-button { display: none; }
+[data-site-still] .pp-site-hiring__draft { transition: none; }

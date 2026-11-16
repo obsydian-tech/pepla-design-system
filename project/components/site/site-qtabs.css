@@ -1,0 +1,37 @@
+/* Site question tabs: the landing Ask Batsi band's numbered sample questions. One is selected at a time and a bar under
+   it fills while its conversation plays; pressing one stops the auto play. Spec: site-qtabs.md. The selected card (white,
+   mint border, shadow) is a layer that fades in; the bar fills by scaling across, never by width. */
+.pp-site-qtabs { display: grid; gap: var(--space-100); }
+.pp-site-qtabs__tab {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: var(--space-150);
+  box-sizing: border-box;
+  min-height: var(--size-touch-target);
+  margin: 0;
+  padding: var(--space-200) var(--space-200);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-large);
+  background: color-mix(in srgb, var(--elevation-surface-raised) 70%, transparent);
+  color: var(--color-text);
+  font: var(--font-body-large);
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+  cursor: pointer;
+}
+.pp-site-qtabs__tab::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: inherit; opacity: 0; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-qtabs__tab:hover::before { opacity: 1; }
+.pp-site-qtabs__tab::after { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: inherit; background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-raised); opacity: 0; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-qtabs__tab[aria-selected="true"]::after { opacity: 1; }
+.pp-site-qtabs__tab:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+.pp-site-qtabs__n { flex: none; inline-size: calc(var(--space-250) + var(--space-025)); font: var(--font-label-small); font-family: var(--font-family-display); color: var(--color-text-subtlest); }
+.pp-site-qtabs__tab[aria-selected="true"] .pp-site-qtabs__n { color: var(--color-text-agent); }
+.pp-site-qtabs__bar { position: absolute; left: 0; right: 0; bottom: 0; block-size: var(--border-width-selected); background: linear-gradient(90deg, var(--color-brand-violet), var(--color-brand-mint)); transform: scaleX(0); transform-origin: left; }
+.pp-site-qtabs__tab[aria-selected="true"] .pp-site-qtabs__bar { animation: pp-site-qtabs-fill var(--_dur, var(--motion-site-duration-question)) linear forwards; }
+.pp-site-qtabs--paused .pp-site-qtabs__bar { animation-play-state: paused; }
+@keyframes pp-site-qtabs-fill { to { transform: scaleX(1); } }
+[data-site-still] .pp-site-qtabs__tab::before, [data-site-still] .pp-site-qtabs__tab::after { transition: none; }
+[data-site-still] .pp-site-qtabs__tab[aria-selected="true"] .pp-site-qtabs__bar { animation: none; transform: scaleX(1); }

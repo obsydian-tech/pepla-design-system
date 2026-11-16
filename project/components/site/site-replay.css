@@ -1,0 +1,5 @@
+/* Site replay: the "Play again" text button under a landing demo, with the rotate icon. Spec: site-replay.md. */
+.pp-site-replay { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); min-height: var(--size-touch-target); margin: 0; padding: 0; border: 0; background: none; color: var(--color-text-brand); font: var(--font-label); cursor: pointer; }
+.pp-site-replay > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-replay:hover { text-decoration: underline; }
+.pp-site-replay:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }

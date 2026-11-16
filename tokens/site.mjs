@@ -91,6 +91,7 @@ export const siteMotion = {
   'motion.site.duration.fill': '800ms',        // a leave balance bar shrinking
   'motion.site.duration.scan': '1300ms',       // one pass of the scan light down a document
   'motion.site.duration.draw': '1400ms',       // a signature being written
+  'motion.site.duration.question': '11s',      // one sample question on the landing Ask Batsi band, before the next one plays
 };
 
 export const siteLayout = {
@@ -116,6 +117,8 @@ export const siteLayout = {
   'layout.site.radar': '980px',         // the radar behind the Compliance section, at most
   'layout.site.rings': '1100px',        // the rings behind the Onboarding section, at most
   'layout.site.story.views': '276px',   // the space the pinned card keeps for its step views
+  'layout.site.chat.tall': '520px',     // the landing Ask Batsi conversation's body, at least, so answers never move the page
+  'layout.site.hiring.side': '290px',   // the Batsi draft column beside the landing hiring board
 };
 
 // Shape: the corner of the sample phone's frame.

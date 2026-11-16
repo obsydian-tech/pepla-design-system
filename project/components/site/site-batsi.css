@@ -11,7 +11,7 @@
   container-type: inline-size;
 }
 @container (min-width: 768px) { .pp-site-batsi { padding-block: calc(var(--space-1000) + var(--space-400)); } }
-.pp-site-batsi .pp-site-eyebrow { color: var(--color-text-agent); }
+.pp-site-batsi:not(.pp-site-batsi--landing) .pp-site-eyebrow { color: var(--color-text-agent); }
 .pp-site-batsi__split { display: grid; gap: var(--space-500); align-items: center; }
 @container (min-width: 1024px) {
   .pp-site-batsi__split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); column-gap: calc(var(--space-800) + var(--space-100)); }
@@ -112,3 +112,21 @@
 @keyframes pp-site-dot { 50% { opacity: 1; transform: translateY(calc(var(--space-025) * -1)); } }
 [data-site-still] .pp-site-chat__msg, [data-site-still] .pp-site-chat__typing, [data-site-still] .pp-site-chat__logged { animation: none; }
 [data-site-still] .pp-site-chat__typing > i { animation: none; opacity: 1; }
+
+/* Landing: the larger section headline, the conversation's "Jane Smith, HR" and a body tall enough that answers never move
+   the page; a coral "!" before a row that waits, and the mint dot on a log line. */
+.pp-site-batsi--landing .pp-site-batsi__title { font: var(--font-site-title); letter-spacing: var(--font-site-title-tracking); }
+.pp-site-batsi--landing .pp-site-batsi__text { gap: var(--space-300); }
+.pp-site-batsi--landing .pp-site-batsi__text > .pp-link { justify-self: start; }
+.pp-site-chat__by { font: var(--font-body); font-weight: var(--font-weight-regular); color: var(--color-text-subtle); }
+.pp-site-chat--tall .pp-site-chat__body { min-block-size: var(--layout-site-chat-tall); }
+.pp-site-chat__wait { flex: none; display: grid; place-items: center; inline-size: calc(var(--space-200) + var(--space-025)); block-size: calc(var(--space-200) + var(--space-025)); box-sizing: border-box; border: calc(var(--border-width) * 1.5) solid var(--color-border-danger); border-radius: 50%; color: var(--color-text-danger); font: var(--font-label-small); }
+.pp-site-chat__dot { inline-size: var(--space-100); block-size: var(--space-100); border-radius: 50%; background: var(--color-brand-mint); }
+.pp-site-chat--tall .pp-site-chat__row { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+[data-site-still] .pp-site-chat--tall .pp-site-chat__row { animation: none; }
+/* At phone width the top bar wraps instead of squeezing, and long rows wrap inside their message. */
+.pp-site-chat__top { flex-wrap: wrap; row-gap: var(--space-050); }
+.pp-site-chat__name, .pp-site-chat__note { white-space: nowrap; }
+.pp-site-chat__body { grid-template-columns: minmax(0, 1fr); }
+.pp-site-chat__row { min-width: 0; flex-wrap: wrap; row-gap: var(--space-050); }
+.pp-site-chat__row .pp-site-status { flex: none; }
