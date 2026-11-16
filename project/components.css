@@ -4668,10 +4668,6 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-hiring__ok { display: none; font: var(--font-body-small); color: var(--color-text-agent); }
 .pp-site-hiring__draft--sent .pp-site-hiring__ok { display: inline; }
 .pp-site-hiring__draft--sent .pp-site-hiring__row .pp-button { display: none; }
-.pp-site-hiring__again { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); min-height: var(--size-touch-target); padding: 0; border: 0; background: none; color: var(--color-text-brand); font: var(--font-label); cursor: pointer; }
-.pp-site-hiring__again > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
-.pp-site-hiring__again:hover { text-decoration: underline; }
-.pp-site-hiring__again:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
 [data-site-still] .pp-site-hiring__draft { transition: none; }
 
 /* ---- site/site-integrations ---- */
@@ -5383,6 +5379,13 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-register__note { grid-column: 1; font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-site-register__row > .pp-site-status { grid-row: 1 / 3; grid-column: 2; font-variant-numeric: tabular-nums; }
 [data-site-still] .pp-site-register__filter::before, [data-site-still] .pp-site-register__label { transition: none; }
+
+/* ---- site/site-replay ---- */
+/* Site replay: the "Play again" text button under a landing demo, with the rotate icon. Spec: site-replay.md. */
+.pp-site-replay { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); min-height: var(--size-touch-target); margin: 0; padding: 0; border: 0; background: none; color: var(--color-text-brand); font: var(--font-label); cursor: pointer; }
+.pp-site-replay > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-replay:hover { text-decoration: underline; }
+.pp-site-replay:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
 
 /* ---- site/site-request ---- */
 /* Site leave request: the employee's phone in the Leave demo. A leave type and two dates are filled in, the working days

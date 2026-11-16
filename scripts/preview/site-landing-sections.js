@@ -87,7 +87,7 @@
     }
     send.addEventListener('click', function () { R.stop(); D.textContent = TXT; sendIt(); });
     edit.addEventListener('click', function () { D.setAttribute('contenteditable', 'true'); D.focus(); });
-    one('.pp-site-hiring__again', sec).addEventListener('click', play);
+    one('.pp-site-replay', sec).addEventListener('click', play);
     onView(cols, play, 0.4);
   });
 })();

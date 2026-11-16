@@ -15,8 +15,4 @@
 .pp-site-hiring__ok { display: none; font: var(--font-body-small); color: var(--color-text-agent); }
 .pp-site-hiring__draft--sent .pp-site-hiring__ok { display: inline; }
 .pp-site-hiring__draft--sent .pp-site-hiring__row .pp-button { display: none; }
-.pp-site-hiring__again { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); min-height: var(--size-touch-target); padding: 0; border: 0; background: none; color: var(--color-text-brand); font: var(--font-label); cursor: pointer; }
-.pp-site-hiring__again > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
-.pp-site-hiring__again:hover { text-decoration: underline; }
-.pp-site-hiring__again:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
 [data-site-still] .pp-site-hiring__draft { transition: none; }

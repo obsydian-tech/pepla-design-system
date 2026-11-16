@@ -2,7 +2,7 @@
 name: Site hiring
 group: site
 status: ready
-classes: pp-site-hiring, pp-site-hiring__side, pp-site-hiring__draft, pp-site-hiring__draft--on, pp-site-hiring__draft--sent, pp-site-hiring__who, pp-site-hiring__text, pp-site-hiring__body, pp-site-hiring__row, pp-site-hiring__ok, pp-site-hiring__again
+classes: pp-site-hiring, pp-site-hiring__side, pp-site-hiring__draft, pp-site-hiring__draft--on, pp-site-hiring__draft--sent, pp-site-hiring__who, pp-site-hiring__text, pp-site-hiring__body, pp-site-hiring__row, pp-site-hiring__ok
 primeng: none (public site only, no PrimeNG)
 replaces: the landing page's .board-wrap, .side, .bcard and .replay
 ---
@@ -15,7 +15,7 @@ The landing Recruitment section's hiring board with Batsi's draft beside it: a c
 
 1. **Grid** (`pp-site-hiring`): a Site hiring board, and a side column (`__side`) of 290px from 1080px of width (`layout.site.hiring.side`).
 2. **Draft card** (`__draft`, a polite live region): "Batsi" and the sparkle (`__who`), what Batsi noticed (`__text`), the draft (`__body`), and a row (`__row`) with two small Buttons and the sent line (`__ok`).
-3. **Play again** (`__again`): a text button with the rotate icon.
+3. **Play again**: a [Site replay](site-replay.html) button.
 
 ## States
 
