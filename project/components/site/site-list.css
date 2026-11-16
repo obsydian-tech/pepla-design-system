@@ -1,0 +1,11 @@
+/* Site settings list: a short list of settings rows with a status on the right (onboarding documents, public
+   holidays). A row the company added is tinted violet. Spec: site-list.md. */
+.pp-site-list { display: grid; gap: var(--space-100); color: var(--color-text); font: var(--font-body); }
+.pp-site-list__head { display: flex; align-items: center; gap: var(--space-100); font: var(--font-body-strong); }
+.pp-site-list__head > .pp-site-status { margin-left: auto; }
+.pp-site-list__row { display: flex; align-items: center; gap: calc(var(--space-150) - var(--space-025)); padding: calc(var(--space-150) - var(--space-025)) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-list__row > .pp-site-status { margin-left: auto; }
+.pp-site-list__row--company { border-color: var(--color-background-brand-subtle); background: var(--color-background-brand-subtlest); }
+.pp-site-list__row--dated { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto; }
+.pp-site-list__row--dated > .pp-site-status { margin-left: 0; }
+.pp-site-list__date { font: var(--font-body-strong); font-variant-numeric: tabular-nums; }
