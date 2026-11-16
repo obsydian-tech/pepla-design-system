@@ -1,0 +1,13 @@
+/* Site related modules: "Works together with" on a Learn more page. A headline and three module cards (Site module
+   cards, pp-site-tile) in one row from 768px. Spec: site-related.md. Layout only; the cards bring their own hover. */
+.pp-site-related {
+  padding-block: var(--space-800);
+  background: var(--color-site-canvas);
+  color: var(--color-text);
+  container-type: inline-size;
+}
+@container (min-width: 768px) { .pp-site-related { padding-block: calc(var(--space-1000) + var(--space-200)); } }
+.pp-site-related__title { margin: 0 0 var(--space-300); font: var(--font-site-faq); letter-spacing: var(--font-site-faq-tracking); color: var(--color-text); }
+.pp-site-related__list { display: grid; margin: 0; padding: 0; list-style: none; gap: calc(var(--space-150) + var(--space-025)); grid-template-columns: 1fr; }
+@container (min-width: 768px) { .pp-site-related__list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pp-site-related__list > li { display: grid; min-width: 0; }
