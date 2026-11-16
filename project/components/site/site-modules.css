@@ -1,0 +1,21 @@
+/* Site modules: the Settings · Modules list where Naleko switches modules on for a company. Each row is a design system
+   toggle (label first, switch at the end); its line under the name says Off or On. Spec: site-modules.md. */
+.pp-site-modules { display: grid; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); color: var(--color-text); font: var(--font-body); }
+.pp-site-modules--flush { border: 0; border-radius: 0; }
+.pp-site-modules__row { display: flex; align-items: center; gap: var(--space-150); box-sizing: border-box; min-height: var(--size-touch-target); padding: calc(var(--space-150) - var(--space-025)) calc(var(--space-150) + var(--space-025)); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-modules--flush .pp-site-modules__row { padding-inline: calc(var(--space-200) + var(--space-025)); }
+.pp-site-modules__row:last-child { border-bottom: 0; }
+.pp-site-modules__row > .pp-toggle { flex: 1; align-items: center; min-width: 0; min-height: 0; padding: 0; }
+.pp-site-modules__row .pp-toggle__label { padding-top: 0; font: var(--font-body-strong); cursor: default; }
+.pp-site-modules__row .pp-toggle__description { display: grid; }
+/* Employee Records comes with every company: its switch is on and cannot be changed, but its words stay readable. */
+.pp-site-modules__row--included .pp-toggle:has(.pp-toggle__input:disabled) .pp-toggle__label { color: var(--color-text); cursor: default; }
+.pp-site-modules__row--included .pp-toggle:has(.pp-toggle__input:disabled) .pp-toggle__description { color: var(--color-text-brand); cursor: default; }
+.pp-site-modules__on { color: var(--color-text-brand); }
+.pp-site-modules__row--soon { color: var(--color-text-subtle); }
+.pp-site-modules__name { font: var(--font-body-strong); }
+.pp-site-modules__row > .pp-site-status { margin-left: auto; }
+.pp-site-modules__row--press .pp-toggle__input { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+[data-site-still] .pp-site-modules__row--press .pp-toggle__input { animation: none; }
+/* Its switch looks on but faded, as on the approved site: the toggle's own track and thumb inputs, at 55%. */
+.pp-site-modules__row--included .pp-toggle__input:disabled { --_track: var(--color-background-brand-bold); --_thumb: var(--color-icon-inverse); opacity: .55; cursor: default; }

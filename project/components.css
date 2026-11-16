@@ -3181,6 +3181,43 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-confidence-sources__found { grid-column: 2; font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-confidence-sources__found--mismatch { color: var(--color-text-warning); }
 
+/* ---- site/site-app ---- */
+/* Site app frame: a small sample of the Naleko People app, a sidebar and the Today list, used where the landing page shows
+   the app following the module settings. Spec: site-app.md. Module items fade and rise into their place (opacity and
+   transform), so nothing slides open. Under 480px of width the sidebar becomes a row of items above the list. */
+.pp-site-app { display: grid; grid-template-columns: 190px minmax(0, 1fr); min-height: 530px; color: var(--color-text); font: var(--font-body); }
+.pp-site-app__nav { display: flex; flex-direction: column; gap: var(--space-025); padding: calc(var(--space-150) + var(--space-025)) calc(var(--space-100) + var(--space-025)); border-right: var(--border-width) solid var(--color-border); background: var(--color-site-wash-violet); }
+.pp-site-app__company { display: flex; align-items: center; gap: var(--space-100); padding: var(--space-075) var(--space-100) var(--space-150); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.pp-site-app__mark { flex: none; inline-size: calc(var(--space-250) - var(--space-025)); block-size: calc(var(--space-250) - var(--space-025)); box-sizing: border-box; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: var(--radius-small); background: var(--color-background-brand-subtlest); }
+.pp-site-app__item { position: relative; isolation: isolate; display: flex; align-items: center; gap: var(--space-100); padding: var(--space-075) var(--space-100); border-radius: var(--radius-medium); color: var(--color-text-subtle); font: var(--font-body-small); transition: opacity var(--motion-site-duration-pop) var(--motion-site-easing), transform var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-app__item > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); color: var(--color-icon-subtle); }
+.pp-site-app__item--current { background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-raised); color: var(--color-text); font-weight: var(--font-weight-semibold); }
+.pp-site-app__item--current > .lucide { color: var(--color-icon-brand); }
+/* A module that was just switched on is tinted for a moment: the tint is a layer that fades. */
+.pp-site-app__item::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--color-background-brand-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-app__item--new::before { opacity: 1; }
+[data-site-live] .pp-site-app__item--module:not(.pp-site-app__item--in) { opacity: 0; transform: translateY(var(--space-050)); }
+.pp-site-app__spacer { flex: 1; min-height: var(--space-150); }
+.pp-site-app__main { display: grid; gap: var(--space-100); align-content: start; min-width: 0; padding: calc(var(--space-200) + var(--space-025)); }
+.pp-site-app__title { margin: 0; font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); }
+.pp-site-app__sub { margin: 0 0 var(--space-075); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-app__idle { margin: 0; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-app__task { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-075) var(--space-150); padding: calc(var(--space-150) - var(--space-025)) var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); font: var(--font-body-small); }
+.pp-site-app__module { flex-basis: 100%; color: var(--color-text-subtle); font: var(--font-site-group); font-size: .875em; text-transform: uppercase; }
+.pp-site-app__task > .pp-site-status { margin-left: auto; }
+[data-site-live] .pp-site-app__task:not(.pp-site-app__task--in) { display: none; }
+[data-site-live] .pp-site-app__task--in { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+[data-site-still] .pp-site-app__item, [data-site-still] .pp-site-app__item::before { transition: none; }
+[data-site-still] .pp-site-app__task--in { animation: none; }
+@container (max-width: 480px) {
+  .pp-site-app { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .pp-site-app__nav { flex-direction: row; flex-wrap: wrap; gap: var(--space-050); padding: calc(var(--space-100) + var(--space-025)); border-right: 0; border-bottom: var(--border-width) solid var(--color-border); }
+  .pp-site-app__company { flex-basis: 100%; padding: var(--space-025) var(--space-050) var(--space-075); }
+  .pp-site-app__spacer { display: none; }
+  .pp-site-app__item { padding: var(--space-050) var(--space-100); }
+  .pp-site-app__main { min-height: 300px; }
+}
+
 /* ---- site/site-approval ---- */
 /* Site leave approval: the line manager's side of a leave request. The dates and working days, Batsi's reminder,
    Approve and Decline, and the log line. Spec: site-approval.md. The status in the panel top is a Site live status;
@@ -4427,6 +4464,25 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 }
 [data-site-still] .pp-site-light { animation: none; }
 
+/* ---- site/site-list ---- */
+/* Site settings list: a short list of settings rows with a status on the right (onboarding documents, public
+   holidays). A row the company added is tinted violet. Spec: site-list.md. */
+.pp-site-list { display: grid; gap: var(--space-100); color: var(--color-text); font: var(--font-body); }
+.pp-site-list__head { display: flex; align-items: center; gap: var(--space-100); font: var(--font-body-strong); }
+.pp-site-list__head > .pp-site-status { margin-left: auto; }
+.pp-site-list__row { display: flex; align-items: center; gap: calc(var(--space-150) - var(--space-025)); padding: calc(var(--space-150) - var(--space-025)) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-list__row > .pp-site-status { margin-left: auto; }
+.pp-site-list__row--company { border-color: var(--color-background-brand-subtle); background: var(--color-background-brand-subtlest); }
+.pp-site-list__row--dated { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto; }
+.pp-site-list__row--dated > .pp-site-status { margin-left: 0; }
+.pp-site-list__date { font: var(--font-body-strong); font-variant-numeric: tabular-nums; }
+
+/* ---- site/site-log ---- */
+/* Site log line: the dashed pill under a demo that says what was logged ("Logged: 4 modules switched on by Naleko").
+   Spec: site-log.md. It steps in with pp-site-step like the other parts of a demo. */
+.pp-site-log { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-075) var(--space-150); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-full); color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-log > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+
 /* ---- site/site-menu ---- */
 /* Site menu: the top-level links and the one shared panel that slides, resizes and fades between lists.
    Spec: site-menu.md. The panel's size is a scale of one background (transform), never a width or height change.
@@ -4596,6 +4652,29 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   transition: transform var(--motion-site-duration-menu) var(--motion-site-easing);
 }
 
+/* ---- site/site-modules ---- */
+/* Site modules: the Settings · Modules list where Naleko switches modules on for a company. Each row is a design system
+   toggle (label first, switch at the end); its line under the name says Off or On. Spec: site-modules.md. */
+.pp-site-modules { display: grid; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); color: var(--color-text); font: var(--font-body); }
+.pp-site-modules--flush { border: 0; border-radius: 0; }
+.pp-site-modules__row { display: flex; align-items: center; gap: var(--space-150); box-sizing: border-box; min-height: var(--size-touch-target); padding: calc(var(--space-150) - var(--space-025)) calc(var(--space-150) + var(--space-025)); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-modules--flush .pp-site-modules__row { padding-inline: calc(var(--space-200) + var(--space-025)); }
+.pp-site-modules__row:last-child { border-bottom: 0; }
+.pp-site-modules__row > .pp-toggle { flex: 1; align-items: center; min-width: 0; min-height: 0; padding: 0; }
+.pp-site-modules__row .pp-toggle__label { padding-top: 0; font: var(--font-body-strong); cursor: default; }
+.pp-site-modules__row .pp-toggle__description { display: grid; }
+/* Employee Records comes with every company: its switch is on and cannot be changed, but its words stay readable. */
+.pp-site-modules__row--included .pp-toggle:has(.pp-toggle__input:disabled) .pp-toggle__label { color: var(--color-text); cursor: default; }
+.pp-site-modules__row--included .pp-toggle:has(.pp-toggle__input:disabled) .pp-toggle__description { color: var(--color-text-brand); cursor: default; }
+.pp-site-modules__on { color: var(--color-text-brand); }
+.pp-site-modules__row--soon { color: var(--color-text-subtle); }
+.pp-site-modules__name { font: var(--font-body-strong); }
+.pp-site-modules__row > .pp-site-status { margin-left: auto; }
+.pp-site-modules__row--press .pp-toggle__input { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+[data-site-still] .pp-site-modules__row--press .pp-toggle__input { animation: none; }
+/* Its switch looks on but faded, as on the approved site: the toggle's own track and thumb inputs, at 55%. */
+.pp-site-modules__row--included .pp-toggle__input:disabled { --_track: var(--color-background-brand-bold); --_thumb: var(--color-icon-inverse); opacity: .55; cursor: default; }
+
 /* ---- site/site-motion ---- */
 /* Public site motion: arrivals, loops and still mode. Compositor properties only (transform, opacity). */
 
@@ -4751,6 +4830,22 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-phone__note { margin: 0; text-align: center; font: var(--font-body-small); color: var(--color-text-subtlest); }
 [data-site-still] .pp-site-phone__fill, [data-site-still] .pp-site-phone__fill::before, [data-site-still] .pp-site-phone__fill::after, [data-site-still] .pp-site-phone__box::before, [data-site-still] .pp-site-phone__box > .lucide, [data-site-still] .pp-site-phone__track { transition: none; }
 [data-site-still] .pp-site-phone__open--press, [data-site-still] .pp-site-phone__doc--bad .pp-site-phone__error { animation: none; }
+
+/* ---- site/site-platform ---- */
+/* Site platform layout: the landing page's Platform section puts the Settings · Modules card beside the app frame.
+   Spec: site-platform.md. Each card is its own container, so the app frame follows its card's width. */
+.pp-site-platform { display: grid; gap: var(--space-200); }
+@container (min-width: 1080px) { .pp-site-platform { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: start; gap: var(--space-250); } }
+.pp-site-platform__card { overflow: hidden; min-width: 0; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-site-card); container-type: inline-size; }
+.pp-site-platform__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: calc(var(--space-150) + var(--space-025)) calc(var(--space-200) + var(--space-025)); border-bottom: var(--border-width) solid var(--color-border); font: var(--font-body); }
+.pp-site-platform__title { font: var(--font-body-strong); }
+.pp-site-platform__note { margin-left: auto; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-platform__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: var(--space-100) calc(var(--space-200) + var(--space-025)); border-top: var(--border-width) solid var(--color-border); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-platform__again { display: inline-flex; align-items: center; gap: var(--space-075); min-height: var(--size-touch-target); margin-left: auto; padding: 0; border: 0; background: none; color: var(--color-text-brand); font: var(--font-label-small); cursor: pointer; }
+.pp-site-platform__again > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-platform__again:hover { text-decoration: underline; }
+.pp-site-platform__again:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+.pp-site-platform + .pp-site-caps { margin-top: var(--space-500); }
 
 /* ---- site/site-read ---- */
 /* Site document read: Batsi reads an ID document in front of the visitor. A scan light passes over the document,
@@ -4961,6 +5056,21 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-risk__item > .pp-site-state:last-child, .pp-site-risk__item > .pp-site-status { grid-row: 1 / 3; grid-column: 2; }
 [data-site-still] .pp-site-risk__item::before { transition: none; }
 
+/* ---- site/site-roles ---- */
+/* Site roles and access: five role buttons (site slots) and a box that shows what the chosen role can see.
+   Spec: site-roles.md. The box's rows pop in each time a role is shown. */
+.pp-site-roles { display: grid; gap: var(--space-150); color: var(--color-text); font: var(--font-body); }
+.pp-site-roles__box { display: grid; gap: var(--space-100); align-content: start; min-height: 236px; padding: calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-roles__name { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-site-roles__text { margin: 0; color: var(--color-text-subtle); }
+.pp-site-roles__access { display: grid; gap: var(--space-075); }
+.pp-site-roles__item { display: flex; align-items: center; gap: var(--space-100); padding: var(--space-100) calc(var(--space-150) - var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-medium); }
+.pp-site-roles__item > .pp-site-status { margin-left: auto; }
+[data-site-live] .pp-site-roles__item { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+[data-site-still] .pp-site-roles__item { animation: none; }
+/* The role buttons are round-ended with a light border, as on the approved page. */
+.pp-site-roles .pp-site-slot { border-color: var(--color-border); border-radius: var(--radius-full); }
+
 /* ---- site/site-score ---- */
 /* Site scorecard: panel members score a candidate against the same criteria; averages settle, and a person decides.
    Spec: site-score.md. A score arrives by opacity and a small scale (transform). */
@@ -5170,6 +5280,18 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-site-shine { color: LinkText; }
   .pp-site-shine__glow { display: none; }
 }
+
+/* ---- site/site-sidebar ---- */
+/* Site sidebar preview: the app's sidebar as a row of chips under the modules list. A module's chip appears when the
+   module is switched on. Spec: site-sidebar.md. */
+.pp-site-sidebar { display: flex; flex-wrap: wrap; gap: var(--space-100); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--color-site-wash-violet); }
+.pp-site-sidebar__label { flex-basis: 100%; color: var(--color-text-subtle); font: var(--font-site-group); font-size: .875em; text-transform: uppercase; }
+.pp-site-sidebar__item { display: inline-flex; align-items: center; padding: var(--space-075) calc(var(--space-150) - var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-full); background: var(--elevation-surface-raised); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-sidebar__item--current { border-color: var(--color-background-neutral-bold); background: var(--color-background-neutral-bold); color: var(--color-text-inverse); }
+.pp-site-sidebar__item--module { border-color: var(--color-background-brand-subtle); background: var(--color-background-brand-subtlest); color: var(--color-text-brand); }
+[data-site-live] .pp-site-sidebar__item--module:not(.pp-site-sidebar__item--in) { display: none; }
+[data-site-live] .pp-site-sidebar__item--in { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+[data-site-still] .pp-site-sidebar__item--in { animation: none; }
 
 /* ---- site/site-state ---- */
 /* Site live status: a status pill whose words change as a demo plays ("Uploading", "Reading", "Matches").
