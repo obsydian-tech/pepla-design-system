@@ -39,3 +39,4 @@
 @container (min-width: 641px) { .pp-site-audit--card .pp-site-audit__row { grid-template-columns: calc(var(--space-500) + var(--space-050)) 160px minmax(0, 1fr); padding-inline: var(--space-250); } }
 [data-site-still] .pp-site-audit__row::before { transition: none; }
 [data-site-still] .pp-site-audit__row--new, [data-site-still] .pp-site-audit__what .pp-button--pressed { animation: none; }
+.pp-site-audit__list--hero { min-block-size: calc(var(--space-1000) * 3 + var(--space-200) + var(--space-050)); }

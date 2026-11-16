@@ -2,7 +2,7 @@
 name: Site form page
 group: site
 status: ready
-classes: pp-site-form-page, pp-site-crumb, pp-site-next
+classes: pp-site-form-page, pp-site-crumb, pp-site-next, pp-site-form-page--learn
 primeng: none (public site only, no PrimeNG)
 replaces: the public site's .fm-hero grid, .crumb and .fm-next, which used inline styles, hand-written svg and literal sizes
 ---
@@ -22,6 +22,10 @@ The top of Get started and Book a demo: a breadcrumb, the headline, a lead, thre
 7. **Facts** (`pp-site-form-page__facts` on a `pp-site-hero__chips` list): three short chips with a violet dot.
 8. **Card** (`pp-site-form-page__card`): holds a [Site form card](site-form-card.html).
 9. **Next steps** (`pp-site-next`, with `pp-site-form-page__next`): three numbered lines, each a bold title and one sentence.
+
+## Variants
+
+- `pp-site-form-page--learn`: the top of a Learn more page. The intro has the page's two buttons (`pp-site-hero__actions`) and the built-for pills, and the card column holds a [Site hero card](site-hcard.html) level with the middle of the words. Recruitment and Onboarding add [Site rings](site-rings.html) (`--hero`) behind it.
 
 ## States
 

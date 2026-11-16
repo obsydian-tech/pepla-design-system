@@ -2,7 +2,7 @@
 name: Site rings
 group: site
 status: ready
-classes: pp-site-rings, pp-site-rings__group, pp-site-rings__group--outer, pp-site-rings__circle, pp-site-rings__circle--coral, pp-site-rings__circle--violet, pp-site-rings__circle--mint, pp-site-rings__circle--dot
+classes: pp-site-rings, pp-site-rings__group, pp-site-rings__group--outer, pp-site-rings__circle, pp-site-rings__circle--coral, pp-site-rings__circle--violet, pp-site-rings__circle--mint, pp-site-rings__circle--dot, pp-site-rings--hero
 primeng: none (public site only, no PrimeNG)
 replaces: the landing page's .rings svg, whose circles had literal stroke colours
 ---
@@ -16,6 +16,10 @@ Three pastel circles that turn slowly behind a section, and a dotted circle that
 1. **Rings** (`pp-site-rings`, `aria-hidden`): placed first in a section with `pp-site-section--clip`, to the right, at most 1100px (`layout.site.rings`), at 55% opacity.
 2. **Groups** (`__group`, `__group--outer`): each turns around the centre.
 3. **Circles** (`__circle`): `--_x` and `--_r` place them on a 600-unit square; `--coral`, `--violet`, `--mint` (`color.site.ring.*`) and `--dot` (dotted).
+
+## Variants
+
+- `pp-site-rings--hero`: at the top of the Recruitment and Onboarding Learn more pages, higher and further out, behind the hero card, as on the approved pages.
 
 ## States
 

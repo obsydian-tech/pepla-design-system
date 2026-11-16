@@ -23,6 +23,9 @@
   .pp-site-form-page__intro { grid-area: intro; }
   .pp-site-form-page__card { grid-area: card; }
   .pp-site-form-page__next { grid-area: next; align-self: start; }
+  /* A Learn more page's top: the hero card sits level with the middle of the words, as on the approved pages. */
+  .pp-site-form-page--learn .pp-site-form-page__grid { grid-template-areas: "intro card"; align-items: center; }
+  .pp-site-form-page--learn .pp-site-form-page__card { align-self: center; }
 }
 
 /* Breadcrumb: Home, a chevron, the current page. Every level stays visible on a phone. */

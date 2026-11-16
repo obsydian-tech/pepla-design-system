@@ -3295,6 +3295,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 @container (min-width: 641px) { .pp-site-audit--card .pp-site-audit__row { grid-template-columns: calc(var(--space-500) + var(--space-050)) 160px minmax(0, 1fr); padding-inline: var(--space-250); } }
 [data-site-still] .pp-site-audit__row::before { transition: none; }
 [data-site-still] .pp-site-audit__row--new, [data-site-still] .pp-site-audit__what .pp-button--pressed { animation: none; }
+.pp-site-audit__list--hero { min-block-size: calc(var(--space-1000) * 3 + var(--space-200) + var(--space-050)); }
 
 /* ---- site/site-balance ---- */
 /* Site leave balances: a box of leave types, each with the days left. The annual leave line has a bar that
@@ -4330,6 +4331,9 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-site-form-page__intro { grid-area: intro; }
   .pp-site-form-page__card { grid-area: card; }
   .pp-site-form-page__next { grid-area: next; align-self: start; }
+  /* A Learn more page's top: the hero card sits level with the middle of the words, as on the approved pages. */
+  .pp-site-form-page--learn .pp-site-form-page__grid { grid-template-areas: "intro card"; align-items: center; }
+  .pp-site-form-page--learn .pp-site-form-page__card { align-self: center; }
 }
 
 /* Breadcrumb: Home, a chevron, the current page. Every level stays visible on a phone. */
@@ -4437,6 +4441,114 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-site-gradient-text { color: LinkText; }
   .pp-site-gradient-text--flow::before, .pp-site-gradient-text--flow::after { display: none; }
 }
+
+/* ---- site/site-hcard ---- */
+/* Site hero card: the sample card beside the headline at the top of each Learn more page. A head with an avatar, a
+   name and a status, a body (a hiring pipeline, onboarding steps, a register, a balance, an audit log or module
+   switches) and a note under it. Spec: site-hcard.md. Only opacity and transform move. */
+.pp-site-hcard {
+  display: grid;
+  gap: var(--space-200);
+  min-width: 0;
+  padding: calc(var(--space-250) + var(--space-025));
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-xlarge);
+  background: color-mix(in srgb, var(--elevation-surface-raised) 92%, transparent);
+  backdrop-filter: blur(var(--space-150));
+  -webkit-backdrop-filter: blur(var(--space-150));
+  box-shadow: var(--elevation-shadow-site-card);
+  font: var(--font-body);
+  color: var(--color-text);
+}
+.pp-site-hcard__head { display: flex; align-items: center; gap: calc(var(--space-150) + var(--space-025)); min-width: 0; }
+.pp-site-hcard__head > .pp-site-status { margin-left: auto; }
+.pp-site-hcard__avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  inline-size: calc(var(--space-500) + var(--space-075));
+  aspect-ratio: 1;
+  border: var(--border-width) solid var(--color-background-brand-subtle);
+  border-radius: 50%;
+  background: var(--color-background-brand-subtlest);
+  color: var(--color-text-brand);
+  font: var(--font-site-tile);
+  font-weight: var(--font-weight-bold);
+}
+.pp-site-hcard__avatar > .lucide { inline-size: var(--space-250); block-size: var(--space-250); }
+.pp-site-hcard__who { min-width: 0; }
+.pp-site-hcard__name { display: block; font: var(--font-site-tile); letter-spacing: var(--font-site-tile-tracking); }
+.pp-site-hcard__sub { display: block; font: var(--font-body-small); color: var(--color-text-subtle); }
+
+/* Note: a violet wash with a status and one line; mint once things are good, coral while something is overdue. */
+.pp-site-hcard__note {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: var(--space-100);
+  min-block-size: calc(var(--space-500) + var(--space-025));
+  padding: calc(var(--space-100) + var(--space-025)) var(--space-150);
+  overflow: hidden;
+  border-radius: var(--radius-large);
+  background: var(--color-background-brand-subtlest);
+}
+.pp-site-hcard__note::before, .pp-site-hcard__note::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--color-background-agent-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-hcard__note::after { background: var(--color-background-danger-subtle); }
+.pp-site-hcard__note--good::before { opacity: 1; }
+.pp-site-hcard__note--late::after { opacity: 1; }
+.pp-site-hcard__note > .pp-site-status { flex: none; }
+
+/* Meter: how far along, with a count under it. */
+.pp-site-hcard__meter { position: relative; overflow: hidden; block-size: var(--space-100); border-radius: var(--radius-full); background: var(--color-background-neutral); }
+.pp-site-hcard__fill { position: absolute; inset: 0; background: linear-gradient(90deg, var(--color-brand-violet), var(--color-brand-mint)); transform: scaleX(var(--_p, 0)); transform-origin: left; transition: transform var(--motion-site-duration-fill) var(--motion-site-easing); }
+.pp-site-hcard__count { display: flex; justify-content: space-between; margin-top: var(--space-075); font: var(--font-body-small); color: var(--color-text-subtle); font-variant-numeric: tabular-nums; }
+
+/* Steps: one row per step; done rows fill their mark with mint, the current row lifts on a violet wash. */
+.pp-site-hcard__steps { display: grid; gap: var(--space-075); margin: 0; padding: 0; list-style: none; }
+.pp-site-hcard__step {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--space-100) + var(--space-025));
+  padding: calc(var(--space-100) + var(--space-025)) var(--space-150);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-large);
+  background: var(--elevation-surface-raised);
+}
+.pp-site-hcard__step::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: inherit; background: var(--color-background-brand-subtlest); box-shadow: var(--elevation-shadow-raised); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-hcard__step--now::before { opacity: 1; }
+.pp-site-hcard__mark { position: relative; display: grid; place-items: center; flex: none; inline-size: var(--space-250); aspect-ratio: 1; box-sizing: border-box; border: var(--border-width-selected) solid var(--color-background-neutral-pressed); border-radius: 50%; color: var(--color-text-inverse); }
+.pp-site-hcard__mark::before { content: ""; position: absolute; inset: calc(var(--border-width-selected) * -1); border-radius: 50%; background: var(--color-brand-mint); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-hcard__mark::after { content: ""; position: absolute; inset: calc(var(--border-width-selected) * -1); border-radius: 50%; box-shadow: 0 0 0 var(--space-050) var(--color-background-brand-subtle), inset 0 0 0 var(--border-width-selected) var(--color-brand-violet); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-hcard__mark > .lucide { position: relative; inline-size: var(--space-150); block-size: var(--space-150); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-hcard__step--done .pp-site-hcard__mark::before, .pp-site-hcard__step--done .pp-site-hcard__mark > .lucide { opacity: 1; }
+.pp-site-hcard__step--now .pp-site-hcard__mark::after { opacity: 1; }
+.pp-site-hcard__owner { margin-left: auto; font: var(--font-body-small); color: var(--color-text-subtle); white-space: nowrap; }
+
+/* Pipeline: one line per hiring stage, a bar that grows to the count, and the count. */
+.pp-site-hcard__pipe { display: grid; gap: var(--space-100); margin: 0; padding: 0; list-style: none; }
+.pp-site-hcard__stage { display: grid; grid-template-columns: calc(var(--space-1000) + var(--space-200)) minmax(0, 1fr) var(--space-400); gap: var(--space-150); align-items: center; }
+.pp-site-hcard__label { font: var(--font-body-strong); color: var(--color-text-subtle); }
+.pp-site-hcard__bar { position: relative; overflow: hidden; block-size: calc(var(--space-100) + var(--space-025)); border-radius: var(--radius-full); background: var(--color-background-neutral); }
+.pp-site-hcard__grow { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, var(--color-brand-violet), var(--color-background-brand-bold)); transform: scaleX(var(--_p, 0)); transform-origin: left; transition: transform var(--motion-site-duration-fill) var(--motion-site-easing); }
+.pp-site-hcard__stage--hired .pp-site-hcard__grow { background: linear-gradient(90deg, var(--color-brand-mint), var(--color-site-ring-mint)); }
+.pp-site-hcard__stage--out .pp-site-hcard__grow { background: var(--color-background-neutral-pressed); }
+.pp-site-hcard__num { font: var(--font-body-strong); font-family: var(--font-family-display); text-align: right; font-variant-numeric: tabular-nums; }
+.pp-site-hcard__stage--bump .pp-site-hcard__num { color: var(--color-text-brand); }
+
+/* Box: a bordered panel inside the card, for a balance with a line under it. */
+.pp-site-hcard__box { display: grid; gap: var(--space-100); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-hcard__box > .pp-site-balance { padding: 0; border: 0; background: none; }
+.pp-site-hcard__small { font: var(--font-body-small); color: var(--color-text-subtle); }
+
+[data-site-still] .pp-site-hcard__note::before, [data-site-still] .pp-site-hcard__note::after, [data-site-still] .pp-site-hcard__step::before,
+[data-site-still] .pp-site-hcard__mark::before, [data-site-still] .pp-site-hcard__mark::after, [data-site-still] .pp-site-hcard__mark > .lucide,
+[data-site-still] .pp-site-hcard__fill, [data-site-still] .pp-site-hcard__grow { transition: none; }
+@media (prefers-reduced-motion: reduce) { .pp-site-hcard__fill, .pp-site-hcard__grow { transition-duration: var(--motion-site-duration-fade); } }
+/* A failing count in the head is solid coral, as on the approved Compliance page. */
+.pp-site-hcard__head > .pp-site-status--danger { background: var(--color-background-danger-bold); color: var(--color-text-inverse); }
 
 /* ---- site/site-header ---- */
 /* Site header. Spec: site-header.md. Compositor properties only: the shrink is two translations, the frost is an opacity. */
@@ -4720,6 +4832,13 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 /* On a washed row the status stands out: solid coral when overdue, white with a mint edge once renewed. */
 .pp-site-ledger__row--late > .pp-site-status--danger { background: var(--color-background-danger-bold); color: var(--color-text-inverse); }
 .pp-site-ledger__row--renewed > .pp-site-status--success { background: var(--elevation-surface-raised); box-shadow: inset 0 0 0 var(--border-width) var(--color-background-agent-subtle-hovered); }
+/* Tiles: the rows as separate rounded tiles with no card around them, as in a Learn more page's hero card. */
+.pp-site-ledger--tiles { overflow: visible; border: 0; border-radius: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; }
+.pp-site-ledger--tiles .pp-site-ledger__list { display: grid; gap: var(--space-100); }
+.pp-site-ledger--tiles .pp-site-ledger__row { overflow: hidden; gap: var(--space-025) var(--space-150); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-ledger--tiles .pp-site-ledger__row:last-child { border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-ledger--tiles .pp-site-ledger__row::before { box-shadow: inset 0 0 0 var(--border-width) var(--color-border-danger), inset var(--border-width-selected) 0 0 var(--color-border-danger); }
+.pp-site-ledger--tiles .pp-site-ledger__row::after { box-shadow: inset 0 0 0 var(--border-width) var(--color-brand-mint), inset var(--border-width-selected) 0 0 var(--color-brand-mint); }
 
 /* ---- site/site-lights ---- */
 /* Site lights: soft coloured circles that drift behind a hero or a band. Spec: site-lights.md. Transform only. */
@@ -5550,6 +5669,8 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-rings__circle--dot { --_c: var(--color-site-ring-dot); border-style: dotted; }
 @media (prefers-reduced-motion: reduce) { .pp-site-rings__group, .pp-site-rings__group--outer { animation-duration: var(--motion-site-duration-loop-turn-reduced); } }
 [data-site-still] .pp-site-rings__group { animation: none; }
+/* On a Learn more page's top the rings sit higher and further out, behind the hero card. */
+.pp-site-rings--hero { right: -18%; top: -6%; inline-size: min(88%, var(--layout-site-rings)); opacity: .5; }
 
 /* ---- site/site-risk ---- */
 /* Site risk list: the candidates Batsi has flagged, one row each with the reason and a status, under a count.
