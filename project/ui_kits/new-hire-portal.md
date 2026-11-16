@@ -14,6 +14,8 @@ The new employee's side of Naleko People, redrawn for a phone: Ayanda Zulu, who 
 ## Screens
 
 - **Home: consent** (`employee-dashboard.component.html`, step 1). The greeting, the two-step tracker and the declaration to accept before upload. Uses app shell (phone), page header, tag, progress tracker, consent capture, checkbox, link, button.
+- **Home: consent accepted** (phone, desktop). After the employee agrees: the tracker shows Consent done and Documents current, and the form is replaced by the record of consent, "You agreed to the privacy notice (version 2026-11-1).", with the time and a link to read the notice again. Uses page header, progress tracker, consent capture (record), link.
+- **Privacy notice** (phone, desktop). The full notice, version 2026-11-1, one card for each of its ten sections, and a link back to Today. Uses page header, card, link.
 - **Onboarding progress** (`components/onboarding-stepper`). Steps done as a count, what is happening now, and the six-step journey. Uses page header, progress bar, section message, card, icon tile, progress tracker (vertical).
 - **Documents: checklist** (`components/document-checklist`, `components/document-row`, step 2). The four documents with one returned, one to upload, one with HR and one verified. Uses page header, tag, progress tracker, document checklist, document row, progress bar, lozenge, button.
 - **Documents: upload a qualification** (`components/document-row`, upload state). One file with HR and one still uploading. Uses breadcrumbs, page header, file upload, file list, lozenge, progress bar, inline message, button.
@@ -21,6 +23,7 @@ The new employee's side of Naleko People, redrawn for a phone: Ayanda Zulu, who 
 
 ## Where the redraw changes today's app
 
+- **The consent says where documents are read.** The ID and bank letter are read by an Amazon service in Ireland, and the consent says so. A person in HR at the employer decides every document. The first visit says "Welcome, Ayanda" with no progress line, since nothing is done yet.
 - **The consent names who is involved.** Today's text names Naleko. The redraw names the employer, Mokoena Logistics, and Naleko People, says where the data is kept, and cites POPIA in plain words.
 - **One journey, not two.** Today the stepper and a separate journey list show the same steps. The redraw merges them into one vertical tracker that says when each step was done.
 - **Progress as a count.** The progress percentage becomes "2 of 6 steps done" and "1 of 4 complete".
