@@ -67,6 +67,10 @@
   --font-site-group-tracking: 0.08em;
   --font-site-code: 400 13.5px/1.75 var(--font-family-code);
   --font-site-code-tracking: 0;
+  --font-site-tile: 700 18px/1.2 var(--font-family-display);
+  --font-site-tile-tracking: -0.01em;
+  --font-site-mark: 800 26px/1.2 var(--font-family-display);
+  --font-site-mark-tracking: -0.02em;
 }
 
 /* Optional utility classes; components use the variables directly. */

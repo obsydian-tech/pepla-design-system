@@ -1,0 +1,37 @@
+/* Site module cards: one card per module in a grid, a dashed card for a module that is coming, and the Ask Batsi
+   card that types sample questions. Hover lifts the card; its border, shadow and icon colour are layers that fade.
+   Spec: site-tile.md. */
+.pp-site-tiles { display: grid; gap: calc(var(--space-150) + var(--space-025)); grid-template-columns: 1fr; }
+@container (min-width: 640px) { .pp-site-tiles { grid-template-columns: 1fr 1fr; } }
+@container (min-width: 1080px) { .pp-site-tiles { grid-template-columns: repeat(4, 1fr); } }
+.pp-site-tile { position: relative; isolation: isolate; display: flex; flex-direction: column; gap: calc(var(--space-100) + var(--space-025)); min-block-size: 200px; box-sizing: border-box; padding: calc(var(--space-250) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); color: var(--color-text); text-decoration: none; transition: transform var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-tile::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: inherit; box-shadow: var(--elevation-shadow-site-card); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); pointer-events: none; }
+.pp-site-tile:hover, .pp-site-tile:focus-visible { transform: translateY(calc(var(--space-050) * -1)); }
+.pp-site-tile:hover::before, .pp-site-tile:focus-visible::before { opacity: 1; }
+.pp-site-tile:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--space-025); }
+.pp-site-tile__icon { position: relative; isolation: isolate; display: grid; place-items: center; inline-size: calc(var(--space-500) + var(--space-025)); block-size: calc(var(--space-500) + var(--space-025)); box-sizing: border-box; border-radius: var(--radius-large); background: var(--color-site-wash-violet); color: var(--color-text-brand); }
+.pp-site-tile__icon::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--color-background-brand-bold); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+/* The icon is drawn twice; the white copy fades in over the coloured one. */
+.pp-site-tile__glyph { grid-area: 1 / 1; display: grid; }
+.pp-site-tile__glyph > .lucide { inline-size: var(--size-icon-medium); block-size: var(--size-icon-medium); }
+.pp-site-tile__glyph--on { color: var(--color-icon-inverse); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-tile:hover .pp-site-tile__icon::before, .pp-site-tile:hover .pp-site-tile__glyph--on,
+.pp-site-tile:focus-visible .pp-site-tile__icon::before, .pp-site-tile:focus-visible .pp-site-tile__glyph--on { opacity: 1; }
+.pp-site-tile__title { margin: 0; font: var(--font-site-tile); letter-spacing: var(--font-site-tile-tracking); }
+.pp-site-tile__text { margin: 0; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-tile__more { display: inline-flex; align-items: center; gap: var(--space-075); margin-top: auto; color: var(--color-text-brand); font: var(--font-body-strong); }
+.pp-site-tile__more > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); transition: transform var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-tile:hover .pp-site-tile__more > .lucide { transform: translateX(3px); }
+/* Coming soon: a dashed card in neutral colours. */
+.pp-site-tile--later { border-style: dashed; border-color: var(--color-border-input); }
+.pp-site-tile--later .pp-site-tile__icon { color: var(--color-text-subtlest); }
+.pp-site-tile--later .pp-site-tile__icon::before { background: var(--color-background-neutral-bold); }
+.pp-site-tile--later .pp-site-tile__more { color: var(--color-text-subtlest); }
+/* Ask Batsi: mint, with a box where sample questions type themselves. */
+.pp-site-tile--batsi { border-color: var(--color-background-agent-subtle-hovered); background: radial-gradient(120% 90% at 100% 0%, var(--color-background-agent-subtlest), var(--elevation-surface-raised) 70%); }
+.pp-site-tile--batsi .pp-site-tile__icon { border: var(--border-width) solid var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); color: var(--color-text-agent); }
+.pp-site-tile--batsi .pp-site-tile__icon::before { inset: calc(var(--border-width) * -1); background: var(--color-background-agent-bold); }
+.pp-site-tile--batsi .pp-site-tile__more { color: var(--color-text-agent); }
+.pp-site-tile__ask { min-block-size: calc(var(--space-400) + var(--space-075)); box-sizing: border-box; padding: var(--space-100) calc(var(--space-100) + var(--space-025)); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-large); background: var(--elevation-surface-raised); color: var(--color-text-agent); font: var(--font-body); }
+.pp-site-tile__ask::after { content: ""; display: inline-block; inline-size: 1.5px; block-size: 1em; margin-left: 2px; vertical-align: -2px; background: currentColor; animation: pp-site-blink var(--motion-site-duration-loop-caret) steps(1) infinite; }
+[data-site-still] .pp-site-tile, [data-site-still] .pp-site-tile::before, [data-site-still] .pp-site-tile__icon::before, [data-site-still] .pp-site-tile__glyph--on, [data-site-still] .pp-site-tile__more > .lucide { transition: none; }

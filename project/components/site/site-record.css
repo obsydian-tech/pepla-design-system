@@ -1,0 +1,7 @@
+/* Site record pill: the one employee record every module reads and writes, with a live dot. Spec: site-record.md. */
+.pp-site-record { display: inline-flex; align-items: center; gap: calc(var(--space-100) + var(--space-025)); margin-bottom: calc(var(--space-250) + var(--space-025)); padding: var(--space-100) calc(var(--space-150) + var(--space-025)) var(--space-100) var(--space-100); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-full); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-raised); color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-record__name { color: var(--color-text); font-weight: var(--font-weight-semibold); }
+/* The live dot's ring is a layer that grows and fades. */
+.pp-site-record__live { position: relative; flex: none; inline-size: var(--space-100); block-size: var(--space-100); border-radius: 50%; background: var(--color-border-agent); }
+.pp-site-record__live::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; opacity: 0; animation: pp-site-ping var(--motion-site-duration-loop-ping) infinite; }
+[data-site-still] .pp-site-record__live::after { animation: none; }

@@ -1,0 +1,33 @@
+/* Site radar: rings, a turning sweep and blips behind the Compliance section. One blip turns coral while a licence is
+   overdue. Opacity and transform only. Spec: site-radar.md. */
+.pp-site-radar {
+  --_ring: calc(var(--space-500) + var(--space-250));
+  position: absolute;
+  z-index: -1;
+  inset-inline-end: -16%;
+  inset-block-start: 46%;
+  inline-size: min(120%, var(--layout-site-radar));
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background: repeating-radial-gradient(circle at center, transparent 0 calc(var(--_ring) - var(--border-width)), var(--color-site-radar-line) calc(var(--_ring) - var(--border-width)) var(--_ring));
+}
+/* The sweep turns; the mask over it fades the edge into the section. */
+.pp-site-radar::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, var(--color-site-radar-sweep), transparent 22%); animation: pp-site-turn var(--motion-site-duration-loop-sweep) linear infinite; }
+.pp-site-radar::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, transparent 36%, var(--elevation-surface-raised) 71%); }
+.pp-site-radar__ax { position: absolute; left: 50%; top: 14%; bottom: 14%; inline-size: var(--border-width); background: linear-gradient(transparent, var(--color-site-radar-line), transparent); }
+.pp-site-radar__ax--h { left: 14%; right: 14%; top: 50%; bottom: auto; inline-size: auto; block-size: var(--border-width); background: linear-gradient(90deg, transparent, var(--color-site-radar-line), transparent); }
+/* A blip: --_x and --_y place it, --_d delays its flash so the blips light one after another. Its ring is a layer that
+   grows and fades. */
+.pp-site-radar__blip { position: absolute; z-index: 1; left: var(--_x); top: var(--_y); inline-size: calc(var(--space-100) + var(--space-025)); block-size: calc(var(--space-100) + var(--space-025)); margin: calc((var(--space-100) + var(--space-025)) / -2) 0 0 calc((var(--space-100) + var(--space-025)) / -2); border-radius: 50%; background: var(--color-site-radar-blip); opacity: .25; animation: pp-site-blip var(--motion-site-duration-loop-sweep) var(--_d, 0s) infinite; }
+.pp-site-radar__blip::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; opacity: 0; animation: pp-site-blip-ring var(--motion-site-duration-loop-sweep) var(--_d, 0s) infinite; }
+.pp-site-radar__blip--late { background: var(--color-site-radar-late); opacity: 0; animation: none; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-radar__blip--late::after { animation: none; }
+.pp-site-radar--overdue .pp-site-radar__blip--late { opacity: 1; }
+.pp-site-radar--overdue .pp-site-radar__blip--late::after { animation: pp-site-ping var(--motion-site-duration-loop-ping-late) infinite; }
+@keyframes pp-site-blip { 0%, 100% { opacity: .25; } 6% { opacity: 1; } 40% { opacity: .45; } }
+@keyframes pp-site-blip-ring { 0% { opacity: .45; transform: scale(1); } 6%, 100% { opacity: 0; transform: scale(3); } }
+[data-site-still] .pp-site-radar::before, [data-site-still] .pp-site-radar__blip, [data-site-still] .pp-site-radar__blip::after { animation: none; }
+/* A frame that shows the radar without the register beside it sets --_h on the section, so the rings have room. */
+.pp-site-section:has(> .pp-site-radar) { min-block-size: var(--_h, auto); }

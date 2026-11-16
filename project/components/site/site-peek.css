@@ -1,0 +1,20 @@
+/* Site Ask Batsi peek: a small chat panel that opens from the hero's Ask Batsi button and plays a short sample
+   conversation. It is a Site Ask Batsi chat (pp-site-chat) that floats at the bottom right. Spec: site-peek.md. */
+.pp-site-peek {
+  position: fixed;
+  z-index: var(--layer-dialog);
+  inset-inline-end: max(var(--space-200), env(safe-area-inset-right, 0px));
+  inset-block-end: calc(var(--space-200) + env(safe-area-inset-bottom, 0px));
+  inline-size: min(var(--layout-site-peek-width), calc(100% - var(--space-400)));
+  opacity: 0;
+  transform: translateY(var(--space-200)) scale(.98);
+  pointer-events: none;
+  transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing), transform var(--motion-site-duration-pop) var(--motion-site-easing);
+}
+.pp-site-peek--open { opacity: 1; transform: none; pointer-events: auto; }
+.pp-site-peek .pp-site-chat__top { padding: var(--space-150) var(--space-200); }
+.pp-site-peek .pp-site-chat__body { min-block-size: 0; padding: var(--space-200); }
+.pp-site-peek .pp-site-chat__msg { font: var(--font-body); }
+.pp-site-peek__close { flex: none; }
+/* In place: in the page flow and open, for a spec page or a frame that shows the panel on its own. */
+.pp-site-peek--static { position: relative; inset: auto; margin: var(--space-200) auto; opacity: 1; transform: none; pointer-events: auto; }

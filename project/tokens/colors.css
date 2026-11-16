@@ -180,6 +180,12 @@
   --color-site-orb-coral: #ffaf9a4d;
   --color-site-orb-sky: #7dd1ff4d;
   --color-site-glow-violet: #5b4bd61a;
+  --color-site-pilot-text: #f3f0f8;
+  --color-site-pilot-link: #aeebe0;
+  --color-site-radar-line: #2bb3a338;
+  --color-site-radar-sweep: #2bb3a333;
+  --color-site-radar-blip: #7dd9cb;
+  --color-site-radar-late: #ff7a59;
   --color-site-code-surface: #110e29;
   --color-site-code-surface-raised: #1b1640;
   --color-site-code-border: #352f63;
@@ -375,6 +381,12 @@
   --color-site-orb-coral: #ffaf9a4d;
   --color-site-orb-sky: #7dd1ff4d;
   --color-site-glow-violet: #5b4bd61a;
+  --color-site-pilot-text: #f3f0f8;
+  --color-site-pilot-link: #aeebe0;
+  --color-site-radar-line: #2bb3a338;
+  --color-site-radar-sweep: #2bb3a333;
+  --color-site-radar-blip: #7dd9cb;
+  --color-site-radar-late: #ff7a59;
   --color-site-code-surface: #110e29;
   --color-site-code-surface-raised: #1b1640;
   --color-site-code-border: #352f63;
@@ -571,6 +583,12 @@
     --color-site-orb-coral: #ffaf9a4d;
     --color-site-orb-sky: #7dd1ff4d;
     --color-site-glow-violet: #5b4bd61a;
+    --color-site-pilot-text: #f3f0f8;
+    --color-site-pilot-link: #aeebe0;
+    --color-site-radar-line: #2bb3a338;
+    --color-site-radar-sweep: #2bb3a333;
+    --color-site-radar-blip: #7dd9cb;
+    --color-site-radar-late: #ff7a59;
     --color-site-code-surface: #110e29;
     --color-site-code-surface-raised: #1b1640;
     --color-site-code-border: #352f63;

@@ -29,6 +29,14 @@ export const siteLight = {
   'color.site.orb.sky': 'alpha({sky.300}, 30)',
   // The violet light behind the Integrations section (it follows the pointer).
   'color.site.glow.violet': 'alpha({violet.700}, 10)',
+  // The pilot bar above the header: pale words and a mint link on the ink ground.
+  'color.site.pilot.text': '{ink.100}',
+  'color.site.pilot.link': '{mint.200}',
+  // The radar behind the Compliance section: rings, sweep and blips in mint; a late licence in coral.
+  'color.site.radar.line': 'alpha({mint.500}, 22)',
+  'color.site.radar.sweep': 'alpha({mint.500}, 20)',
+  'color.site.radar.blip': '{mint.300}',
+  'color.site.radar.late': '{coral.400}',
   // The code editor: the one dark surface on the site.
   'color.site.code.surface': '#110e29',
   'color.site.code.surface.raised': '#1b1640',
@@ -66,6 +74,7 @@ export const siteMotion = {
   'motion.site.duration.loop.flow.reduced': '28s', // reduced motion: half speed, never still
   'motion.site.duration.loop.dot': '1s',        // one bounce of a typing dot
   'motion.site.duration.loop.caret': '1s',      // one blink of the code editor's caret
+  'motion.site.duration.loop.ping.late': '1600ms', // one ring of the late licence's blip on the radar
   'motion.site.duration.loop.batsi': '40s',     // one turn of the glow behind the Ask Batsi band
   'motion.site.duration.loop.batsi.reduced': '80s', // reduced motion: half speed, never still
   'motion.site.duration.loop.breathe': '6s',   // one breath of the header logo's circles
@@ -96,6 +105,8 @@ export const siteLayout = {
   'layout.site.frame.phone': '390px',   // the phone preview frame's width
   'layout.site.phone.width': '330px',   // the sample phone inside a demo, at most
   'layout.site.request.width': '300px', // the sample leave request phone, at most
+  'layout.site.peek.width': '380px',    // the Ask Batsi peek panel, at most
+  'layout.site.radar': '980px',         // the radar behind the Compliance section, at most
 };
 
 // Shape: the corner of the sample phone's frame.
@@ -119,4 +130,6 @@ export const siteType = {
   'site.eyebrow': [700, 12, 16, '0.16em', 'body'],                                    // small caps label above a headline
   'site.group':   [700, 12, 16, '0.08em', 'body'],                                    // small caps label above a group inside a demo panel
   'site.code':    [400, '13.5px', '1.75', '0', 'code'],                               // the code in the site's code editor
+  'site.tile':    [700, 18, '1.2', '-0.01em', 'display'],                             // the name on a module card
+  'site.mark':    [800, 26, '1.2', '-0.02em', 'display'],                             // the company name on the About card
 };

@@ -1,0 +1,6 @@
+/* Site pilot bar: one line above the header that says pilot companies are welcome, with a link to Book a demo.
+   Spec: site-pilot.md. */
+.pp-site-pilot { padding-block: calc(var(--space-100) + var(--space-025)); background: var(--color-background-neutral-bold); color: var(--color-site-pilot-text); font: var(--font-body); text-align: center; }
+.pp-site-pilot__link { margin-left: var(--space-100); color: var(--color-site-pilot-link); font-weight: var(--font-weight-semibold); white-space: nowrap; text-decoration: none; }
+.pp-site-pilot__link:hover { text-decoration: underline; }
+.pp-site-pilot__link:focus-visible { outline: var(--border-width-focused) solid var(--color-site-pilot-link); outline-offset: var(--space-025); border-radius: var(--radius-xsmall); }
