@@ -43,7 +43,7 @@ The word carries the meaning; the bars only repeat it (rule 4). Score with a lib
 ## Behaviour
 
 - Never block paste, and never block autofill. People paste from password managers; blocking it makes passwords weaker.
-- Never block typing past a length, and never trim spaces. Spaces are allowed, so a sentence works as a password.
+- Never block typing past a length, and never trim spaces. Spaces are allowed.
 - The eye button switches the input between `password` and `text` and keeps the cursor where it was. Focus stays in the input.
 - The password hides again when the form is submitted or the person leaves the page.
 - Strength updates as the person types, at most every 300ms. Show it only for new passwords, never on sign in.
@@ -54,7 +54,7 @@ The word carries the meaning; the bars only repeat it (rule 4). Score with a lib
 ## Content
 
 - Labels: "Password" on sign in; "New password" and "Confirm new password" when setting one. No placeholder.
-- Help states the rule once, as a fact: "At least 12 characters. A short sentence is easy to remember."
+- Help states the rule once, as a fact: "At least 12 characters, with an upper case letter, a lower case letter, a number and a symbol."
 - Do not list rules people cannot see being met. If there is a rule, show its progress in the strength line.
 - Button labels: "Show password" and "Hide password". If a form has two password fields, name them: "Show new password".
 
