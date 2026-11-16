@@ -19,7 +19,8 @@ The block every landing section is built from: a full-width ground, content at m
 4. **Eyebrow** (`pp-site-eyebrow`): the small label above a headline, in capitals with a short rule before it. Names the section: "Recruitment", "Platform".
 5. **Title** (`pp-site-section__title`): the headline, `--font-site-title`, 32px on a phone growing to 56px.
 6. **Lead** (`pp-site-section__lead`): one or two sentences, 46 characters wide, subtle text.
-7. **Stage** (`pp-site-stage`, `--desktop`, `--phone`): a box that stands in for the browser window on kit and spec pages, as tall as its content. The site does not use it.
+7. **Anchor** (`pp-site-section__anchor`): an empty, hidden span at the top of a section that a link can point at when one section answers to more than one address, such as `#mcp` and `#events` on Integrations. It lands below the header like the section does.
+8. **Stage** (`pp-site-stage`, `--desktop`, `--phone`): a box that stands in for the browser window on kit and spec pages, as tall as its content. The site does not use it.
 
 ## Grounds
 

@@ -34,6 +34,8 @@
   /* The layout follows the section's own width. */
   container-type: inline-size;
 }
+/* A second address for the section (#mcp on Integrations): sits at the section's top and lands below the header. */
+.pp-site-section__anchor { position: absolute; inset-block-start: 0; scroll-margin-top: var(--layout-site-header-height); }
 @container (min-width: 768px) {
   .pp-site-section { padding-block: calc(var(--space-1000) + var(--space-300)); }
 }
