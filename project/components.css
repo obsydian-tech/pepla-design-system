@@ -4926,6 +4926,16 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-notes__dot { flex: none; inline-size: var(--space-100); block-size: var(--space-100); border-radius: 50%; background: var(--color-background-brand-bold); }
 .pp-site-notes__dot--agent { background: var(--color-border-agent); }
 
+/* ---- site/site-offboard ---- */
+/* Site offboarding band: one line on how every exit is recorded, with its four parts. Spec: site-offboard.md. */
+.pp-site-offboard { position: relative; display: grid; gap: var(--space-150); margin-top: calc(var(--space-300) + var(--space-050)); padding: calc(var(--space-250) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--color-site-wash-violet); }
+@container (min-width: 1024px) { .pp-site-offboard { grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-300); } }
+.pp-site-offboard__title { margin: 0; font: var(--font-heading-medium); }
+.pp-site-offboard__text { margin: 0; color: var(--color-text-subtle); font: var(--font-body-large); }
+.pp-site-offboard__chips { display: flex; flex-wrap: wrap; gap: var(--space-075); margin: 0; padding: 0; list-style: none; }
+.pp-site-offboard__chip { padding: var(--space-050) calc(var(--space-100) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-full); background: var(--elevation-surface-raised); font: var(--font-body-small); }
+.pp-site-offboard + .pp-link { margin-top: calc(var(--space-300) + var(--space-050)); }
+
 /* ---- site/site-offer ---- */
 /* Site offer to onboarding: the offer letter on one side and the employee record it creates on the other.
    Spec: site-offer.md. When the offer is signed the record's card turns mint and its details fade in one by one. */
@@ -4966,6 +4976,32 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-peek__close { flex: none; }
 /* In place: in the page flow and open, for a spec page or a frame that shows the panel on its own. */
 .pp-site-peek--static { position: relative; inset: auto; margin: var(--space-200) auto; opacity: 1; transform: none; pointer-events: auto; }
+
+/* ---- site/site-person ---- */
+/* Site person card: one new employee's onboarding at a glance. A progress bar, the current step in words and, from
+   1024px, a view of the step's detail that fades in when the step changes. Spec: site-person.md. */
+.pp-site-person { display: grid; gap: var(--space-150); padding: calc(var(--space-200) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: color-mix(in srgb, var(--elevation-surface-raised) 94%, transparent); -webkit-backdrop-filter: blur(calc(var(--space-100) + var(--space-025))); backdrop-filter: blur(calc(var(--space-100) + var(--space-025))); box-shadow: var(--elevation-shadow-site-card); font: var(--font-body); }
+@container (min-width: 1024px) { .pp-site-person { gap: calc(var(--space-200) + var(--space-025)); padding: var(--space-300); } }
+.pp-site-person__head { display: flex; align-items: center; gap: var(--space-150); }
+.pp-site-person__name { display: block; font: var(--font-site-tile); letter-spacing: var(--font-site-tile-tracking); }
+.pp-site-person__role { color: var(--color-text-subtlest); font: var(--font-body); }
+.pp-site-person__head > .pp-site-state { margin-left: auto; white-space: nowrap; }
+/* The bar fills by scaling across (transform), never by width. --_p is the share done, 0 to 1. */
+.pp-site-person__meter { overflow: hidden; block-size: var(--space-100); border-radius: var(--radius-full); background: var(--color-site-wash-violet); }
+.pp-site-person__fill { display: block; block-size: 100%; background: linear-gradient(90deg, var(--color-background-brand-bold), var(--color-border-agent)); transform: scaleX(var(--_p, 0)); transform-origin: left; transition: transform var(--motion-site-duration-step) var(--motion-site-easing); }
+.pp-site-person__count { display: flex; justify-content: space-between; margin-top: var(--space-075); color: var(--color-text-subtlest); font: var(--font-body); font-variant-numeric: tabular-nums; }
+.pp-site-person__now { padding: calc(var(--space-100) + var(--space-025)) var(--space-150); border-radius: var(--radius-large); background: var(--color-site-wash-violet); color: var(--color-text); font: var(--font-body); }
+/* The step views: shown from 1024px; one at a time fades and rises in. */
+.pp-site-person__views { position: relative; display: none; min-block-size: var(--layout-site-story-views); }
+@container (min-width: 1024px) { .pp-site-person__views { display: block; } }
+.pp-site-person__view { position: absolute; inset: 0; display: grid; align-content: start; gap: var(--space-100); opacity: 0; transform: translateY(var(--space-100)); pointer-events: none; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing), transform var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-person__view--on { opacity: 1; transform: none; pointer-events: auto; }
+.pp-site-person__label { margin: 0 0 var(--space-025); color: var(--color-text-subtlest); font: var(--font-site-group); letter-spacing: var(--font-site-group-tracking); text-transform: uppercase; }
+.pp-site-person__row { display: flex; align-items: center; gap: calc(var(--space-100) + var(--space-025)); padding: calc(var(--space-100) + var(--space-025)) calc(var(--space-150) - var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); font: var(--font-body); }
+.pp-site-person__row > .pp-site-status { margin-left: auto; }
+.pp-site-person__follow { display: flex; align-items: center; gap: var(--space-100); padding: var(--space-100) calc(var(--space-150) - var(--space-025)); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-large); color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-person__follow > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); color: var(--color-text-agent); }
+[data-site-still] .pp-site-person__fill, [data-site-still] .pp-site-person__view { transition: none; }
 
 /* ---- site/site-phone ---- */
 /* Site sample phone: the new employee's phone in the Onboarding demo. An email, consent, then three uploads that
@@ -5355,6 +5391,21 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-residency--card .pp-site-residency__pin { padding: var(--space-100) var(--space-150); border-radius: var(--radius-medium); }
 [data-site-still] .pp-site-residency__dot::after { animation: none; opacity: 0; }
 
+/* ---- site/site-rings ---- */
+/* Site rings: three pastel circles that turn slowly behind the Onboarding section, and a dotted circle that turns the
+   other way. Transform only. Spec: site-rings.md. */
+.pp-site-rings { position: absolute; z-index: -1; right: -22%; top: 4%; inline-size: min(92%, var(--layout-site-rings)); aspect-ratio: 1; opacity: .55; pointer-events: none; }
+.pp-site-rings__group { position: absolute; inset: 0; animation: pp-site-turn var(--motion-site-duration-loop-turn) linear infinite; }
+.pp-site-rings__group--outer { animation-duration: var(--motion-site-duration-loop-turn-slow); animation-direction: reverse; }
+/* A circle: --_x is its centre across the box (the box is 600 units wide), --_r its radius. */
+.pp-site-rings__circle { position: absolute; left: calc((var(--_x) - var(--_r)) / 600 * 100%); top: calc((300 - var(--_r)) / 600 * 100%); inline-size: calc(var(--_r) * 2 / 600 * 100%); aspect-ratio: 1; box-sizing: border-box; border: var(--border-width) solid var(--_c); border-radius: 50%; }
+.pp-site-rings__circle--coral { --_c: var(--color-site-ring-coral); }
+.pp-site-rings__circle--violet { --_c: var(--color-site-ring-violet); }
+.pp-site-rings__circle--mint { --_c: var(--color-site-ring-mint); }
+.pp-site-rings__circle--dot { --_c: var(--color-site-ring-dot); border-style: dotted; }
+@media (prefers-reduced-motion: reduce) { .pp-site-rings__group, .pp-site-rings__group--outer { animation-duration: var(--motion-site-duration-loop-turn-reduced); } }
+[data-site-still] .pp-site-rings__group { animation: none; }
+
 /* ---- site/site-risk ---- */
 /* Site risk list: the candidates Batsi has flagged, one row each with the reason and a status, under a count.
    Spec: site-risk.md. A row's mint "fixed" look is a layer that fades in (opacity). */
@@ -5630,6 +5681,34 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-state__item--on.pp-site-state__item--pulse { animation: pp-site-pulse var(--motion-site-duration-loop-read) ease-in-out infinite; }
 [data-site-still] .pp-site-state__item { transition: none; }
 [data-site-still] .pp-site-state__item--on.pp-site-state__item--pulse { animation: none; }
+
+/* ---- site/site-story ---- */
+/* Site story: a card pinned on one side while the steps scroll past on the other. The step in the middle of the screen
+   is the current one; the card follows it. Step colours change on layers that fade. Spec: site-story.md. */
+.pp-site-story { position: relative; display: grid; gap: calc(var(--space-300) + var(--space-050)); margin-top: var(--space-600); }
+@container (min-width: 1024px) { .pp-site-story { grid-template-columns: 1fr 1fr; gap: calc(var(--space-500) + var(--space-200)); } }
+.pp-site-story__pin { position: sticky; top: var(--layout-site-header-height); z-index: var(--layer-card); align-self: start; }
+@container (min-width: 1024px) { .pp-site-story__pin { top: calc(var(--layout-site-header-height) + var(--space-400)); } }
+.pp-site-story__steps { position: relative; display: grid; gap: var(--space-150); margin: 0; padding: 0; list-style: none; }
+.pp-site-story__step { position: relative; isolation: isolate; display: grid; grid-template-columns: var(--space-500) 1fr; gap: var(--space-200); padding: calc(var(--space-250) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: color-mix(in srgb, var(--elevation-surface-raised) 70%, transparent); }
+@container (min-width: 1024px) { .pp-site-story__step { min-block-size: 200px; align-content: start; } }
+/* The current step: white, a violet border and a shadow, on a layer that fades in. */
+.pp-site-story__step::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: inherit; background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-site-card); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-story__step--active::before { opacity: 1; }
+.pp-site-story__step--key, .pp-site-story__step--key::before { border-color: var(--color-background-agent-subtle-hovered); }
+/* The number: grey ring; violet while current, mint once done. The fills and the white digit are layers that fade. */
+.pp-site-story__n { position: relative; isolation: isolate; display: grid; place-items: center; inline-size: var(--space-500); block-size: var(--space-500); box-sizing: border-box; border: calc(var(--border-width) * 1.5) solid var(--color-border-input); border-radius: 50%; color: var(--color-text-subtlest); font: var(--font-heading-small); font-family: var(--font-family-display); font-weight: var(--font-weight-bold); }
+.pp-site-story__n::before, .pp-site-story__n::after { content: ""; position: absolute; inset: calc(var(--border-width) * -1.5); z-index: -1; border-radius: 50%; background: var(--color-background-brand-bold); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-story__n::after { background: var(--color-border-agent); }
+.pp-site-story__digit { grid-area: 1 / 1; }
+.pp-site-story__digit--on { color: var(--color-text-inverse); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-story__step--active .pp-site-story__n::before, .pp-site-story__step--done .pp-site-story__n::after,
+.pp-site-story__step--active .pp-site-story__digit--on, .pp-site-story__step--done .pp-site-story__digit--on { opacity: 1; }
+.pp-site-story__title { margin: 0; font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); }
+.pp-site-story__em { color: var(--color-text-agent); font-style: normal; }
+.pp-site-story__text { margin: var(--space-050) 0 0; color: var(--color-text-subtle); font: var(--font-body-large); }
+.pp-site-story__step .pp-lozenge { margin-top: calc(var(--space-100) + var(--space-025)); }
+[data-site-still] .pp-site-story__step::before, [data-site-still] .pp-site-story__n::before, [data-site-still] .pp-site-story__n::after, [data-site-still] .pp-site-story__digit--on { transition: none; }
 
 /* ---- site/site-subnav ---- */
 /* Site sub-menu: the sticky "on this page" bar of a module page. Spec: site-subnav.md.

@@ -186,6 +186,10 @@
   --color-site-radar-sweep: #2bb3a333;
   --color-site-radar-blip: #7dd9cb;
   --color-site-radar-late: #ff7a59;
+  --color-site-ring-coral: #ffd0c4;
+  --color-site-ring-violet: #d6d9ff;
+  --color-site-ring-mint: #aeebe0;
+  --color-site-ring-dot: #e7e1f2;
   --color-site-code-surface: #110e29;
   --color-site-code-surface-raised: #1b1640;
   --color-site-code-border: #352f63;
@@ -387,6 +391,10 @@
   --color-site-radar-sweep: #2bb3a333;
   --color-site-radar-blip: #7dd9cb;
   --color-site-radar-late: #ff7a59;
+  --color-site-ring-coral: #ffd0c4;
+  --color-site-ring-violet: #d6d9ff;
+  --color-site-ring-mint: #aeebe0;
+  --color-site-ring-dot: #e7e1f2;
   --color-site-code-surface: #110e29;
   --color-site-code-surface-raised: #1b1640;
   --color-site-code-border: #352f63;
@@ -589,6 +597,10 @@
     --color-site-radar-sweep: #2bb3a333;
     --color-site-radar-blip: #7dd9cb;
     --color-site-radar-late: #ff7a59;
+    --color-site-ring-coral: #ffd0c4;
+    --color-site-ring-violet: #d6d9ff;
+    --color-site-ring-mint: #aeebe0;
+    --color-site-ring-dot: #e7e1f2;
     --color-site-code-surface: #110e29;
     --color-site-code-surface-raised: #1b1640;
     --color-site-code-border: #352f63;
