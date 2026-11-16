@@ -136,7 +136,7 @@ export const siteType = {
   'site.band':    [800, 'clamp(52px, 11cqw, 168px)', '.98', '-0.045em', 'display'],   // closing band headline
   'site.page':    [700, 'clamp(40px, 6.2cqw, 84px)', '1.02', '-0.035em', 'display'],  // headline of a page that is not the landing page (Get started, Book a demo)
   'site.demo':    [700, 'clamp(30px, 3.8cqw, 48px)', '1.08', '-0.025em', 'display'],  // headline beside a demo or the Ask Batsi band
-  'site.faq':     [700, 40, 62, '-0.025em', 'display'],                              // headline of the questions section
+  'site.faq':     [700, 'clamp(28px, 3.4cqw, 40px)', '1.55', '-0.025em', 'display'], // headline of the questions section
   'site.title':   [700, 'clamp(32px, 4.6cqw, 56px)', '1.08', '-0.025em', 'display'],  // section headline
   'site.lead':    [400, 18, 28, '0', 'body'],                                         // line under a headline
   'site.eyebrow': [700, 12, 16, '0.16em', 'body'],                                    // small caps label above a headline

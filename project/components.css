@@ -5543,6 +5543,21 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-register__row > .pp-site-status { grid-row: 1 / 3; grid-column: 2; font-variant-numeric: tabular-nums; }
 [data-site-still] .pp-site-register__filter::before, [data-site-still] .pp-site-register__label { transition: none; }
 
+/* ---- site/site-related ---- */
+/* Site related modules: "Works together with" on a Learn more page. A headline and three module cards (Site module
+   cards, pp-site-tile) in one row from 768px. Spec: site-related.md. Layout only; the cards bring their own hover. */
+.pp-site-related {
+  padding-block: var(--space-800);
+  background: var(--color-site-canvas);
+  color: var(--color-text);
+  container-type: inline-size;
+}
+@container (min-width: 768px) { .pp-site-related { padding-block: calc(var(--space-1000) + var(--space-200)); } }
+.pp-site-related__title { margin: 0 0 var(--space-300); font: var(--font-site-faq); letter-spacing: var(--font-site-faq-tracking); color: var(--color-text); }
+.pp-site-related__list { display: grid; margin: 0; padding: 0; list-style: none; gap: calc(var(--space-150) + var(--space-025)); grid-template-columns: 1fr; }
+@container (min-width: 768px) { .pp-site-related__list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pp-site-related__list > li { display: grid; min-width: 0; }
+
 /* ---- site/site-replay ---- */
 /* Site replay: the "Play again" text button under a landing demo, with the rotate icon. Spec: site-replay.md. */
 .pp-site-replay { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); min-height: var(--size-touch-target); margin: 0; padding: 0; border: 0; background: none; color: var(--color-text-brand); font: var(--font-label); cursor: pointer; }
@@ -5977,6 +5992,21 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-story__text { margin: var(--space-050) 0 0; color: var(--color-text-subtle); font: var(--font-body-large); }
 .pp-site-story__step .pp-lozenge { margin-top: calc(var(--space-100) + var(--space-025)); }
 [data-site-still] .pp-site-story__step::before, [data-site-still] .pp-site-story__n::before, [data-site-still] .pp-site-story__n::after, [data-site-still] .pp-site-story__digit--on { transition: none; }
+
+/* ---- site/site-strip ---- */
+/* Site trust strip: one line of ticked facts under the Ask Batsi band on a Learn more page, with a link to Security
+   and POPIA at the end. Spec: site-strip.md. Nothing moves. */
+.pp-site-strip {
+  padding-block: calc(var(--space-400) + var(--space-050));
+  border-bottom: var(--border-width) solid var(--color-border);
+  background: var(--elevation-surface-raised);
+  color: var(--color-text);
+  container-type: inline-size;
+}
+.pp-site-strip__inner { display: flex; flex-wrap: wrap; align-items: center; gap: calc(var(--space-150) + var(--space-025)) var(--space-400); }
+.pp-site-strip__item { display: inline-flex; align-items: center; gap: calc(var(--space-100) + var(--space-025)); font: var(--font-body); color: var(--color-text-subtle); }
+.pp-site-strip__item > .lucide { flex: none; inline-size: var(--size-icon-medium); block-size: var(--size-icon-medium); color: var(--color-text-brand); }
+.pp-site-strip__inner > .pp-link { margin-left: auto; min-block-size: var(--space-500); }
 
 /* ---- site/site-subnav ---- */
 /* Site sub-menu: the sticky "on this page" bar of a module page. Spec: site-subnav.md.
