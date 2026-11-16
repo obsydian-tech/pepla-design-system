@@ -1,4 +1,4 @@
-/* PREVIEW ONLY. Drives the live frames on the "Site header" UI kit page: scroll shrink, the shared menu panel, the phone sheet.
+/* PREVIEW ONLY. Drives the live frames on the "Site header" UI kit page, and the header of a whole assembled page: scroll shrink, the shared menu panel, the phone sheet.
    It is not part of any component and is never shipped to the site. The Angular site does the same with a directive.
    Everything here sets classes, attributes and the documented --_ inputs; it never sets a width, height or position. */
 (function () {
@@ -17,15 +17,18 @@
   }
   fit(); addEventListener('resize', fit);
 
-  $$('.pp-site-frame').forEach(function (frame) {
-    var page = $('.pp-site-frame__page', frame), header = $('.pp-site-header', frame);
+  /* A frame scrolls inside itself. A whole assembled page (a stage marked data-site-page, as on the "Site landing page"
+     kit) scrolls with the kit page, so its header counts as scrolled once the stage's top has passed 24px above the window. */
+  $$('.pp-site-frame, .pp-site-stage[data-site-page]').forEach(function (frame) {
+    var whole = frame.hasAttribute('data-site-page');
+    var page = whole ? $('[data-site-main]', frame) : $('.pp-site-frame__page', frame), header = $('.pp-site-header', frame);
     if (!page || !header) return;
 
     /* 1. scrolled: frosted and shorter after 24px. A frame that starts scrolled is scrolled for real. */
     var startsScrolled = header.classList.contains('pp-site-header--scrolled');
-    function onScroll() { header.classList.toggle('pp-site-header--scrolled', page.scrollTop > 24); }
-    page.addEventListener('scroll', onScroll, { passive: true });
-    if (startsScrolled) page.scrollTop = 80;
+    function onScroll() { header.classList.toggle('pp-site-header--scrolled', whole ? frame.getBoundingClientRect().top < -24 : page.scrollTop > 24); }
+    if (whole) { addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
+    else { page.addEventListener('scroll', onScroll, { passive: true }); if (startsScrolled) page.scrollTop = 80; }
 
     /* 2. the shared menu */
     var menu = $('.pp-site-menu', header), morph = menu && $('.pp-site-menu__morph', menu), cur = null, closeT = null;
@@ -119,6 +122,8 @@
       var panel = $('.pp-site-sheet__panel', sheet), x = $('.pp-site-sheet__head .pp-button', sheet);
       var focusables = function () { return $$('a[href], button', panel).filter(function (el) { return el.offsetParent !== null; }); };
       var openSheet = function () {
+        /* on a whole page the sheet covers the stage, so bring the stage's top into view first */
+        if (whole && frame.getBoundingClientRect().top < 0) frame.scrollIntoView({ block: 'start' });
         sheet.classList.add('pp-site-sheet--open'); sheet.removeAttribute('inert'); page.setAttribute('inert', '');
         burger.setAttribute('aria-expanded', 'true'); x.focus();
       };
@@ -130,7 +135,7 @@
       burger.addEventListener('click', openSheet);
       x.addEventListener('click', closeSheet);
       $('.pp-site-sheet__blanket', sheet).addEventListener('click', closeSheet);
-      sheet.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.pp-site-sheet__link')) { e.preventDefault(); closeSheet(); } });
+      sheet.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('.pp-site-sheet__link'); if (a) { if (!whole || a.getAttribute('href') === '#') e.preventDefault(); closeSheet(); } });
       sheet.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') { closeSheet(); return; }
         if (e.key !== 'Tab') return;

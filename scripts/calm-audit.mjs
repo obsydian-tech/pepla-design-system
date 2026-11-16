@@ -18,7 +18,9 @@ const STATUS = '.pp-lozenge:not(.pp-deadline--inline), .pp-tag, .pp-confidence-c
 const text = (el) => (el?.textContent || '').replace(/\s+/g, ' ').trim();
 const nearest = (el, sel) => { let p = el.parentElement; while (p && !p.matches(sel)) p = p.parentElement; return p; };
 // Overlays (modal, drawer, popup, agent panel, the site's phone menu sheet and its header bar) are their own surface with their own one primary.
+// So is each section of a whole assembled site page ([data-site-main] > section): it is checked as one screen on its own kit page.
 const SURFACE = '.pp-modal-dialog, .pp-drawer, .pp-popup, .pp-agent-panel, .pp-inline-dialog, .pp-site-sheet, .pp-site-header, [data-screen]';
+const surfaceOf = (el) => { let p = el.parentElement; while (p && !p.matches(SURFACE) && !(p.tagName === 'SECTION' && p.parentElement?.hasAttribute('data-site-main'))) p = p.parentElement; return p; };
 const LIMITS = {
   primary: 1, // primary buttons per surface
   statusPerItem: 1, // lozenges, tags and confidence chips in one item (not counting items inside it)
@@ -43,7 +45,7 @@ export function audit() {
       const surfaces = new Map();
       for (const b of screen.querySelectorAll('.pp-button--primary')) {
         if (nearest(b, '.pp-top-navigation')) report('primary', `primary button in the top navigation: "${text(b)}"`);
-        const s = nearest(b, SURFACE) || screen;
+        const s = surfaceOf(b) || screen;
         surfaces.set(s, [...(surfaces.get(s) || []), text(b)]);
       }
       for (const [, labels] of surfaces) if (labels.length > LIMITS.primary) report('primary', `${labels.length} primary buttons on one surface: ${labels.map((l) => `"${l}"`).join(', ')}`);
