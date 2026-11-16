@@ -1,0 +1,29 @@
+/* Site ledger: the landing certificate register. Days count down, the reminders at 60, 30 and 7 days light up, and a
+   licence goes overdue. Spec: site-ledger.md. A row's coral and mint washes are layers that fade; chips and reminder
+   pills swap at once. */
+.pp-site-ledger { overflow: hidden; min-width: 0; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: color-mix(in srgb, var(--elevation-surface-raised) 92%, transparent); backdrop-filter: blur(var(--space-150)); -webkit-backdrop-filter: blur(var(--space-150)); box-shadow: var(--elevation-shadow-site-card); font: var(--font-body); color: var(--color-text); }
+.pp-site-ledger__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-150); padding: var(--space-200) var(--space-250); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-ledger__title { font-weight: var(--font-weight-semibold); }
+.pp-site-ledger__today { display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-025) var(--space-150); border-radius: var(--radius-full); background: var(--color-background-brand-subtlest); color: var(--color-text-brand); font: var(--font-label-small); font-variant-numeric: tabular-nums; }
+.pp-site-ledger__today::before { content: ""; inline-size: var(--space-075); block-size: var(--space-075); border-radius: 50%; background: var(--color-text-brand); }
+.pp-site-ledger__note { margin-left: auto; font: var(--font-body-small); color: var(--color-text-subtle); }
+.pp-site-ledger__list { margin: 0; padding: 0; list-style: none; }
+.pp-site-ledger__row { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-100) var(--space-150); padding: var(--space-200) var(--space-250); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-ledger__row:last-child { border-bottom: 0; }
+.pp-site-ledger__row::before, .pp-site-ledger__row::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--color-background-danger-subtle); box-shadow: inset var(--border-width-selected) 0 0 var(--color-border-danger); opacity: 0; transition: opacity var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-ledger__row::after { background: var(--color-background-agent-subtlest); box-shadow: inset var(--border-width-selected) 0 0 var(--color-brand-mint); }
+.pp-site-ledger__row--late::before { opacity: 1; }
+.pp-site-ledger__row--renewed::after { opacity: 1; }
+.pp-site-ledger__name { display: block; font: var(--font-body-strong); }
+.pp-site-ledger__sub { display: block; font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-site-ledger__row > .pp-site-status { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pp-site-ledger__pips { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-075); font: var(--font-body-small); color: var(--color-text-subtlest); }
+.pp-site-ledger__pip { display: inline-flex; align-items: center; gap: var(--space-050); padding: var(--space-025) var(--space-100); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-full); font-variant-numeric: tabular-nums; }
+.pp-site-ledger__pip--sent { border-style: solid; border-color: var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); color: var(--color-text-agent); }
+.pp-site-ledger__pip--sent::before { content: ""; inline-size: var(--space-075); block-size: var(--space-075); border-radius: 50%; background: var(--color-brand-mint); }
+.pp-site-ledger__pip--hit { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+[data-site-still] .pp-site-ledger__row::before, [data-site-still] .pp-site-ledger__row::after { transition: none; }
+[data-site-still] .pp-site-ledger__pip--hit { animation: none; }
+/* On a washed row the status stands out: solid coral when overdue, white with a mint edge once renewed. */
+.pp-site-ledger__row--late > .pp-site-status--danger { background: var(--color-background-danger-bold); color: var(--color-text-inverse); }
+.pp-site-ledger__row--renewed > .pp-site-status--success { background: var(--elevation-surface-raised); box-shadow: inset 0 0 0 var(--border-width) var(--color-background-agent-subtle-hovered); }

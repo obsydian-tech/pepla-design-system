@@ -1,0 +1,17 @@
+/* Site watch: the landing Compliance section's register with the Not cleared to work box and Batsi's renewal card beside
+   it, and Play again. Spec: site-watch.md. */
+.pp-site-watch { display: grid; gap: var(--space-200); min-width: 0; }
+@container (min-width: 1080px) { .pp-site-watch { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: start; gap: calc(var(--space-250) - var(--space-050)); } }
+.pp-site-watch__side { display: grid; gap: var(--space-150); align-content: start; min-width: 0; }
+
+/* Batsi's renewal card: dim until Batsi acts, then the lines, the read licence and the suggestion arrive. */
+.pp-site-watch__renew { display: grid; gap: var(--space-150); padding: var(--space-200); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); font: var(--font-body); color: var(--color-text-subtle); opacity: .35; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-watch__renew--on { opacity: 1; }
+.pp-site-watch__who { display: flex; align-items: center; gap: var(--space-075); font: var(--font-label-small); color: var(--color-text-agent); }
+.pp-site-watch__who > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-watch__idle { margin: 0; color: var(--color-text-subtlest); }
+.pp-site-watch__renew--on .pp-site-watch__idle { display: none; }
+.pp-site-watch__line { display: flex; align-items: flex-start; gap: var(--space-100); margin: 0; }
+.pp-site-watch__line > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); margin-top: var(--space-050); color: var(--color-text-agent); }
+[data-site-live] .pp-site-watch__renew .pp-site-step:not(.pp-site-step--in) { display: none; }
+[data-site-still] .pp-site-watch__renew { transition: none; }
