@@ -37,6 +37,11 @@ export const siteLight = {
   'color.site.radar.sweep': 'alpha({mint.500}, 20)',
   'color.site.radar.blip': '{mint.300}',
   'color.site.radar.late': '{coral.400}',
+  // The rings behind the Onboarding section: three pastel circles and a dotted outer circle.
+  'color.site.ring.coral': '{coral.200}',
+  'color.site.ring.violet': '{violet.200}',
+  'color.site.ring.mint': '{mint.200}',
+  'color.site.ring.dot': '{ink.200}',
   // The code editor: the one dark surface on the site.
   'color.site.code.surface': '#110e29',
   'color.site.code.surface.raised': '#1b1640',
@@ -62,6 +67,8 @@ export const siteMotion = {
   'motion.site.duration.loop.orb': '28s',    // one drift of a soft light
   'motion.site.duration.loop.orb.reduced': '56s', // reduced motion: half speed, never still
   'motion.site.duration.loop.turn': '70s',   // one turn of a ring
+  'motion.site.duration.loop.turn.slow': '95s', // one turn of the outer ring, the other way
+  'motion.site.duration.loop.turn.reduced': '240s', // reduced motion: the rings turn very slowly, never still
   'motion.site.duration.loop.sweep': '6s',   // one sweep of the radar
   'motion.site.duration.loop.pulse': '2400ms', // one breath of a live dot
   'motion.site.duration.loop.ping': '2200ms',  // one ring growing out of a live dot (where the data is kept, the employee record)
@@ -107,6 +114,8 @@ export const siteLayout = {
   'layout.site.request.width': '300px', // the sample leave request phone, at most
   'layout.site.peek.width': '380px',    // the Ask Batsi peek panel, at most
   'layout.site.radar': '980px',         // the radar behind the Compliance section, at most
+  'layout.site.rings': '1100px',        // the rings behind the Onboarding section, at most
+  'layout.site.story.views': '276px',   // the space the pinned card keeps for its step views
 };
 
 // Shape: the corner of the sample phone's frame.

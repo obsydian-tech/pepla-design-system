@@ -27,6 +27,8 @@
   --motion-site-duration-loop-orb: 28s;
   --motion-site-duration-loop-orb-reduced: 56s;
   --motion-site-duration-loop-turn: 70s;
+  --motion-site-duration-loop-turn-slow: 95s;
+  --motion-site-duration-loop-turn-reduced: 240s;
   --motion-site-duration-loop-sweep: 6s;
   --motion-site-duration-loop-pulse: 2400ms;
   --motion-site-duration-loop-ping: 2200ms;

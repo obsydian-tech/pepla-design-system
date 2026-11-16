@@ -1,0 +1,13 @@
+/* Site rings: three pastel circles that turn slowly behind the Onboarding section, and a dotted circle that turns the
+   other way. Transform only. Spec: site-rings.md. */
+.pp-site-rings { position: absolute; z-index: -1; right: -22%; top: 4%; inline-size: min(92%, var(--layout-site-rings)); aspect-ratio: 1; opacity: .55; pointer-events: none; }
+.pp-site-rings__group { position: absolute; inset: 0; animation: pp-site-turn var(--motion-site-duration-loop-turn) linear infinite; }
+.pp-site-rings__group--outer { animation-duration: var(--motion-site-duration-loop-turn-slow); animation-direction: reverse; }
+/* A circle: --_x is its centre across the box (the box is 600 units wide), --_r its radius. */
+.pp-site-rings__circle { position: absolute; left: calc((var(--_x) - var(--_r)) / 600 * 100%); top: calc((300 - var(--_r)) / 600 * 100%); inline-size: calc(var(--_r) * 2 / 600 * 100%); aspect-ratio: 1; box-sizing: border-box; border: var(--border-width) solid var(--_c); border-radius: 50%; }
+.pp-site-rings__circle--coral { --_c: var(--color-site-ring-coral); }
+.pp-site-rings__circle--violet { --_c: var(--color-site-ring-violet); }
+.pp-site-rings__circle--mint { --_c: var(--color-site-ring-mint); }
+.pp-site-rings__circle--dot { --_c: var(--color-site-ring-dot); border-style: dotted; }
+@media (prefers-reduced-motion: reduce) { .pp-site-rings__group, .pp-site-rings__group--outer { animation-duration: var(--motion-site-duration-loop-turn-reduced); } }
+[data-site-still] .pp-site-rings__group { animation: none; }

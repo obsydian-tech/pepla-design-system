@@ -15,7 +15,7 @@
       var avail = box.clientWidth, need = 1280;
       if (avail && avail < need) {
         f.style.setProperty('--_h', f.offsetHeight + 'px'); f.style.setProperty('--_fit', (avail / need).toFixed(4));
-        box.style.minHeight = '0'; box.style.overflow = 'hidden';
+        box.style.minHeight = '0'; box.style.overflow = 'clip';
       }
     });
   }

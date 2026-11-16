@@ -41,6 +41,8 @@ body{margin:0;background:var(--elevation-surface-sunken)}
 .kscreen > .klbl{display:flex;gap:var(--space-100);align-items:center;font:var(--font-heading-xsmall);color:var(--color-text-subtle);margin:0 0 var(--space-100)}
 .kframe{background:var(--elevation-surface);color:var(--color-text);border:var(--border-width) solid var(--color-border);border-radius:var(--radius-large);overflow:auto;box-shadow:var(--elevation-shadow-raised)}
 .kframe--desktop{width:100%;max-width:1280px;min-height:720px;overflow:hidden}
+/* A site frame clips instead of scrolling, so a pinned (sticky) part inside it sticks to the window as on the site. */
+.kframe:has(.pp-site-stage){overflow:clip}
 .kframe--phone{width:390px;max-width:100%;min-height:780px;border-radius:var(--radius-xlarge)}
 .kframe > *{min-height:inherit}
 `;
