@@ -3181,6 +3181,26 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-confidence-sources__found { grid-column: 2; font: var(--font-body-small); color: var(--color-text-subtle); }
 .pp-confidence-sources__found--mismatch { color: var(--color-text-warning); }
 
+/* ---- site/site-about ---- */
+/* Site About: the company beside a card that lists what it promises. The card's top edge is the flowing Naleko
+   gradient line. Spec: site-about.md. */
+.pp-site-about { display: grid; gap: var(--space-400); }
+@container (min-width: 1024px) { .pp-site-about { grid-template-columns: 1fr 1fr; align-items: center; gap: calc(var(--space-500) + var(--space-200)); } }
+.pp-site-about .pp-site-section__lead { margin-top: calc(var(--space-200) + var(--space-025)); }
+/* The flowing name is one box, so its fading copies wrap with it. */
+.pp-site-about .pp-site-section__title .pp-site-gradient-text--flow { display: inline-block; }
+.pp-site-about .pp-link { margin-top: var(--space-250); }
+.pp-site-about__card { position: relative; overflow: hidden; padding: calc(var(--space-300) + var(--space-050)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-site-card); }
+/* Used with pp-site-gradient-line pp-site-gradient-line--flow. */
+.pp-site-about__card > .pp-site-about__line { position: absolute; inset: 0 0 auto; block-size: calc(var(--border-width-selected) * 2.5); }
+.pp-site-about__mark { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-100) calc(var(--space-100) + var(--space-025)); margin-bottom: calc(var(--space-200) + var(--space-025)); }
+.pp-site-about__name { font: var(--font-site-mark); letter-spacing: var(--font-site-mark-tracking); }
+.pp-site-about__sub { color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-about__list { display: grid; margin: 0; padding: 0; list-style: none; }
+.pp-site-about__item { display: flex; align-items: center; gap: var(--space-150); padding-block: calc(var(--space-150) + var(--space-025)); border-top: var(--border-width) solid var(--color-border); font: var(--font-body-large); }
+/* Each dot shows one part of the brand gradient: --_p picks the part. */
+.pp-site-about__dot { flex: none; inline-size: calc(var(--space-100) + var(--space-025)); block-size: calc(var(--space-100) + var(--space-025)); border-radius: 50%; background-image: linear-gradient(90deg, var(--color-site-gradient-1), var(--color-site-gradient-2), var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-5), var(--color-site-gradient-6), var(--color-site-gradient-4), var(--color-site-gradient-2), var(--color-site-gradient-1)); background-size: 900% 100%; background-position: var(--_p, 0%) 0; }
+
 /* ---- site/site-app ---- */
 /* Site app frame: a small sample of the Naleko People app, a sidebar and the Today list, used where the landing page shows
    the app following the module settings. Spec: site-app.md. Module items fade and rise into their place (opacity and
@@ -4899,6 +4919,13 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-sweep,
 [data-site-still] .pp-site-pulse { animation: none; }
 
+/* ---- site/site-notes ---- */
+/* Site notes: short facts in a row under a section, each after a coloured dot. Spec: site-notes.md. */
+.pp-site-notes { display: flex; flex-wrap: wrap; gap: calc(var(--space-100) + var(--space-025)) calc(var(--space-250) + var(--space-025)); margin: calc(var(--space-300) + var(--space-025)) 0 0; padding: 0; list-style: none; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-notes__item { display: inline-flex; align-items: center; gap: var(--space-100); }
+.pp-site-notes__dot { flex: none; inline-size: var(--space-100); block-size: var(--space-100); border-radius: 50%; background: var(--color-background-brand-bold); }
+.pp-site-notes__dot--agent { background: var(--color-border-agent); }
+
 /* ---- site/site-offer ---- */
 /* Site offer to onboarding: the offer letter on one side and the employee record it creates on the other.
    Spec: site-offer.md. When the offer is signed the record's card turns mint and its details fade in one by one. */
@@ -4917,6 +4944,28 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-live] .pp-site-offer__value:not(.pp-site-offer__value--in) { opacity: 0; }
 [data-site-still] .pp-site-offer__card::before, [data-site-still] .pp-site-offer__value { transition: none; }
 [data-site-still] .pp-site-offer__value:not(.pp-site-offer__value--in) { opacity: 1; }
+
+/* ---- site/site-peek ---- */
+/* Site Ask Batsi peek: a small chat panel that opens from the hero's Ask Batsi button and plays a short sample
+   conversation. It is a Site Ask Batsi chat (pp-site-chat) that floats at the bottom right. Spec: site-peek.md. */
+.pp-site-peek {
+  position: fixed;
+  z-index: var(--layer-dialog);
+  inset-inline-end: max(var(--space-200), env(safe-area-inset-right, 0px));
+  inset-block-end: calc(var(--space-200) + env(safe-area-inset-bottom, 0px));
+  inline-size: min(var(--layout-site-peek-width), calc(100% - var(--space-400)));
+  opacity: 0;
+  transform: translateY(var(--space-200)) scale(.98);
+  pointer-events: none;
+  transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing), transform var(--motion-site-duration-pop) var(--motion-site-easing);
+}
+.pp-site-peek--open { opacity: 1; transform: none; pointer-events: auto; }
+.pp-site-peek .pp-site-chat__top { padding: var(--space-150) var(--space-200); }
+.pp-site-peek .pp-site-chat__body { min-block-size: 0; padding: var(--space-200); }
+.pp-site-peek .pp-site-chat__msg { font: var(--font-body); }
+.pp-site-peek__close { flex: none; }
+/* In place: in the page flow and open, for a spec page or a frame that shows the panel on its own. */
+.pp-site-peek--static { position: relative; inset: auto; margin: var(--space-200) auto; opacity: 1; transform: none; pointer-events: auto; }
 
 /* ---- site/site-phone ---- */
 /* Site sample phone: the new employee's phone in the Onboarding demo. An email, consent, then three uploads that
@@ -5010,6 +5059,14 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-phone__fill, [data-site-still] .pp-site-phone__fill::before, [data-site-still] .pp-site-phone__fill::after, [data-site-still] .pp-site-phone__box::before, [data-site-still] .pp-site-phone__box > .lucide, [data-site-still] .pp-site-phone__track { transition: none; }
 [data-site-still] .pp-site-phone__open--press, [data-site-still] .pp-site-phone__doc--bad .pp-site-phone__error { animation: none; }
 
+/* ---- site/site-pilot ---- */
+/* Site pilot bar: one line above the header that says pilot companies are welcome, with a link to Book a demo.
+   Spec: site-pilot.md. */
+.pp-site-pilot { padding-block: calc(var(--space-100) + var(--space-025)); background: var(--color-background-neutral-bold); color: var(--color-site-pilot-text); font: var(--font-body); text-align: center; }
+.pp-site-pilot__link { margin-left: var(--space-100); color: var(--color-site-pilot-link); font-weight: var(--font-weight-semibold); white-space: nowrap; text-decoration: none; }
+.pp-site-pilot__link:hover { text-decoration: underline; }
+.pp-site-pilot__link:focus-visible { outline: var(--border-width-focused) solid var(--color-site-pilot-link); outline-offset: var(--space-025); border-radius: var(--radius-xsmall); }
+
 /* ---- site/site-platform ---- */
 /* Site platform layout: the landing page's Platform section puts the Settings · Modules card beside the app frame.
    Spec: site-platform.md. Each card is its own container, so the app frame follows its card's width. */
@@ -5037,6 +5094,41 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-queue__row > .pp-site-state, .pp-site-queue__row > .pp-site-status { margin-left: auto; }
 .pp-site-queue__name { font: var(--font-body-strong); }
 .pp-site-queue__note { color: var(--color-text-subtle); font: var(--font-body-small); }
+
+/* ---- site/site-radar ---- */
+/* Site radar: rings, a turning sweep and blips behind the Compliance section. One blip turns coral while a licence is
+   overdue. Opacity and transform only. Spec: site-radar.md. */
+.pp-site-radar {
+  --_ring: calc(var(--space-500) + var(--space-250));
+  position: absolute;
+  z-index: -1;
+  inset-inline-end: -16%;
+  inset-block-start: 46%;
+  inline-size: min(120%, var(--layout-site-radar));
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background: repeating-radial-gradient(circle at center, transparent 0 calc(var(--_ring) - var(--border-width)), var(--color-site-radar-line) calc(var(--_ring) - var(--border-width)) var(--_ring));
+}
+/* The sweep turns; the mask over it fades the edge into the section. */
+.pp-site-radar::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, var(--color-site-radar-sweep), transparent 22%); animation: pp-site-turn var(--motion-site-duration-loop-sweep) linear infinite; }
+.pp-site-radar::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, transparent 36%, var(--elevation-surface-raised) 71%); }
+.pp-site-radar__ax { position: absolute; left: 50%; top: 14%; bottom: 14%; inline-size: var(--border-width); background: linear-gradient(transparent, var(--color-site-radar-line), transparent); }
+.pp-site-radar__ax--h { left: 14%; right: 14%; top: 50%; bottom: auto; inline-size: auto; block-size: var(--border-width); background: linear-gradient(90deg, transparent, var(--color-site-radar-line), transparent); }
+/* A blip: --_x and --_y place it, --_d delays its flash so the blips light one after another. Its ring is a layer that
+   grows and fades. */
+.pp-site-radar__blip { position: absolute; z-index: 1; left: var(--_x); top: var(--_y); inline-size: calc(var(--space-100) + var(--space-025)); block-size: calc(var(--space-100) + var(--space-025)); margin: calc((var(--space-100) + var(--space-025)) / -2) 0 0 calc((var(--space-100) + var(--space-025)) / -2); border-radius: 50%; background: var(--color-site-radar-blip); opacity: .25; animation: pp-site-blip var(--motion-site-duration-loop-sweep) var(--_d, 0s) infinite; }
+.pp-site-radar__blip::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; opacity: 0; animation: pp-site-blip-ring var(--motion-site-duration-loop-sweep) var(--_d, 0s) infinite; }
+.pp-site-radar__blip--late { background: var(--color-site-radar-late); opacity: 0; animation: none; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-radar__blip--late::after { animation: none; }
+.pp-site-radar--overdue .pp-site-radar__blip--late { opacity: 1; }
+.pp-site-radar--overdue .pp-site-radar__blip--late::after { animation: pp-site-ping var(--motion-site-duration-loop-ping-late) infinite; }
+@keyframes pp-site-blip { 0%, 100% { opacity: .25; } 6% { opacity: 1; } 40% { opacity: .45; } }
+@keyframes pp-site-blip-ring { 0% { opacity: .45; transform: scale(1); } 6%, 100% { opacity: 0; transform: scale(3); } }
+[data-site-still] .pp-site-radar::before, [data-site-still] .pp-site-radar__blip, [data-site-still] .pp-site-radar__blip::after { animation: none; }
+/* A frame that shows the radar without the register beside it sets --_h on the section, so the rings have room. */
+.pp-site-section:has(> .pp-site-radar) { min-block-size: var(--_h, auto); }
 
 /* ---- site/site-read ---- */
 /* Site document read: Batsi reads an ID document in front of the visitor. A scan light passes over the document,
@@ -5105,6 +5197,15 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-read__value { transition: none; }
 [data-site-still] .pp-site-read__value:not(.pp-site-read__value--in) { opacity: 1; transform: none; }
 [data-site-still] .pp-site-read__decide .pp-button--pressed, [data-site-still] .pp-site-read__doc--go .pp-site-read__scan { animation: none; }
+
+/* ---- site/site-record ---- */
+/* Site record pill: the one employee record every module reads and writes, with a live dot. Spec: site-record.md. */
+.pp-site-record { display: inline-flex; align-items: center; gap: calc(var(--space-100) + var(--space-025)); margin-bottom: calc(var(--space-250) + var(--space-025)); padding: var(--space-100) calc(var(--space-150) + var(--space-025)) var(--space-100) var(--space-100); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-full); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-raised); color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-record__name { color: var(--color-text); font-weight: var(--font-weight-semibold); }
+/* The live dot's ring is a layer that grows and fades. */
+.pp-site-record__live { position: relative; flex: none; inline-size: var(--space-100); block-size: var(--space-100); border-radius: 50%; background: var(--color-border-agent); }
+.pp-site-record__live::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; opacity: 0; animation: pp-site-ping var(--motion-site-duration-loop-ping) infinite; }
+[data-site-still] .pp-site-record__live::after { animation: none; }
 
 /* ---- site/site-register ---- */
 /* Site certificate register: one row per certificate with the days left, and the three filters above them. Spec: site-register.md.
@@ -5629,6 +5730,45 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-suggest__icon > .pp-site-ok { margin-top: calc(var(--space-025) * -1); }
 .pp-site-suggest__text { min-width: 0; }
 .pp-site-suggest__lead { color: var(--color-text-agent); font-weight: var(--font-weight-semibold); }
+
+/* ---- site/site-tile ---- */
+/* Site module cards: one card per module in a grid, a dashed card for a module that is coming, and the Ask Batsi
+   card that types sample questions. Hover lifts the card; its border, shadow and icon colour are layers that fade.
+   Spec: site-tile.md. */
+.pp-site-tiles { display: grid; gap: calc(var(--space-150) + var(--space-025)); grid-template-columns: 1fr; }
+@container (min-width: 640px) { .pp-site-tiles { grid-template-columns: 1fr 1fr; } }
+@container (min-width: 1080px) { .pp-site-tiles { grid-template-columns: repeat(4, 1fr); } }
+.pp-site-tile { position: relative; isolation: isolate; display: flex; flex-direction: column; gap: calc(var(--space-100) + var(--space-025)); min-block-size: 200px; box-sizing: border-box; padding: calc(var(--space-250) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); color: var(--color-text); text-decoration: none; transition: transform var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-tile::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: inherit; box-shadow: var(--elevation-shadow-site-card); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); pointer-events: none; }
+.pp-site-tile:hover, .pp-site-tile:focus-visible { transform: translateY(calc(var(--space-050) * -1)); }
+.pp-site-tile:hover::before, .pp-site-tile:focus-visible::before { opacity: 1; }
+.pp-site-tile:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--space-025); }
+.pp-site-tile__icon { position: relative; isolation: isolate; display: grid; place-items: center; inline-size: calc(var(--space-500) + var(--space-025)); block-size: calc(var(--space-500) + var(--space-025)); box-sizing: border-box; border-radius: var(--radius-large); background: var(--color-site-wash-violet); color: var(--color-text-brand); }
+.pp-site-tile__icon::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--color-background-brand-bold); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+/* The icon is drawn twice; the white copy fades in over the coloured one. */
+.pp-site-tile__glyph { grid-area: 1 / 1; display: grid; }
+.pp-site-tile__glyph > .lucide { inline-size: var(--size-icon-medium); block-size: var(--size-icon-medium); }
+.pp-site-tile__glyph--on { color: var(--color-icon-inverse); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-tile:hover .pp-site-tile__icon::before, .pp-site-tile:hover .pp-site-tile__glyph--on,
+.pp-site-tile:focus-visible .pp-site-tile__icon::before, .pp-site-tile:focus-visible .pp-site-tile__glyph--on { opacity: 1; }
+.pp-site-tile__title { margin: 0; font: var(--font-site-tile); letter-spacing: var(--font-site-tile-tracking); }
+.pp-site-tile__text { margin: 0; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-tile__more { display: inline-flex; align-items: center; gap: var(--space-075); margin-top: auto; color: var(--color-text-brand); font: var(--font-body-strong); }
+.pp-site-tile__more > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); transition: transform var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-tile:hover .pp-site-tile__more > .lucide { transform: translateX(3px); }
+/* Coming soon: a dashed card in neutral colours. */
+.pp-site-tile--later { border-style: dashed; border-color: var(--color-border-input); }
+.pp-site-tile--later .pp-site-tile__icon { color: var(--color-text-subtlest); }
+.pp-site-tile--later .pp-site-tile__icon::before { background: var(--color-background-neutral-bold); }
+.pp-site-tile--later .pp-site-tile__more { color: var(--color-text-subtlest); }
+/* Ask Batsi: mint, with a box where sample questions type themselves. */
+.pp-site-tile--batsi { border-color: var(--color-background-agent-subtle-hovered); background: radial-gradient(120% 90% at 100% 0%, var(--color-background-agent-subtlest), var(--elevation-surface-raised) 70%); }
+.pp-site-tile--batsi .pp-site-tile__icon { border: var(--border-width) solid var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); color: var(--color-text-agent); }
+.pp-site-tile--batsi .pp-site-tile__icon::before { inset: calc(var(--border-width) * -1); background: var(--color-background-agent-bold); }
+.pp-site-tile--batsi .pp-site-tile__more { color: var(--color-text-agent); }
+.pp-site-tile__ask { min-block-size: calc(var(--space-400) + var(--space-075)); box-sizing: border-box; padding: var(--space-100) calc(var(--space-100) + var(--space-025)); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-large); background: var(--elevation-surface-raised); color: var(--color-text-agent); font: var(--font-body); }
+.pp-site-tile__ask::after { content: ""; display: inline-block; inline-size: 1.5px; block-size: 1em; margin-left: 2px; vertical-align: -2px; background: currentColor; animation: pp-site-blink var(--motion-site-duration-loop-caret) steps(1) infinite; }
+[data-site-still] .pp-site-tile, [data-site-still] .pp-site-tile::before, [data-site-still] .pp-site-tile__icon::before, [data-site-still] .pp-site-tile__glyph--on, [data-site-still] .pp-site-tile__more > .lucide { transition: none; }
 
 /* ---- site/site-timeline ---- */
 /* Site timeline: what happened and when, one entry after another, with a line that fills down as entries arrive.

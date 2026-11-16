@@ -1,0 +1,18 @@
+/* Site About: the company beside a card that lists what it promises. The card's top edge is the flowing Naleko
+   gradient line. Spec: site-about.md. */
+.pp-site-about { display: grid; gap: var(--space-400); }
+@container (min-width: 1024px) { .pp-site-about { grid-template-columns: 1fr 1fr; align-items: center; gap: calc(var(--space-500) + var(--space-200)); } }
+.pp-site-about .pp-site-section__lead { margin-top: calc(var(--space-200) + var(--space-025)); }
+/* The flowing name is one box, so its fading copies wrap with it. */
+.pp-site-about .pp-site-section__title .pp-site-gradient-text--flow { display: inline-block; }
+.pp-site-about .pp-link { margin-top: var(--space-250); }
+.pp-site-about__card { position: relative; overflow: hidden; padding: calc(var(--space-300) + var(--space-050)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-site-card); }
+/* Used with pp-site-gradient-line pp-site-gradient-line--flow. */
+.pp-site-about__card > .pp-site-about__line { position: absolute; inset: 0 0 auto; block-size: calc(var(--border-width-selected) * 2.5); }
+.pp-site-about__mark { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-100) calc(var(--space-100) + var(--space-025)); margin-bottom: calc(var(--space-200) + var(--space-025)); }
+.pp-site-about__name { font: var(--font-site-mark); letter-spacing: var(--font-site-mark-tracking); }
+.pp-site-about__sub { color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-about__list { display: grid; margin: 0; padding: 0; list-style: none; }
+.pp-site-about__item { display: flex; align-items: center; gap: var(--space-150); padding-block: calc(var(--space-150) + var(--space-025)); border-top: var(--border-width) solid var(--color-border); font: var(--font-body-large); }
+/* Each dot shows one part of the brand gradient: --_p picks the part. */
+.pp-site-about__dot { flex: none; inline-size: calc(var(--space-100) + var(--space-025)); block-size: calc(var(--space-100) + var(--space-025)); border-radius: 50%; background-image: linear-gradient(90deg, var(--color-site-gradient-1), var(--color-site-gradient-2), var(--color-site-gradient-3), var(--color-site-gradient-4), var(--color-site-gradient-5), var(--color-site-gradient-6), var(--color-site-gradient-4), var(--color-site-gradient-2), var(--color-site-gradient-1)); background-size: 900% 100%; background-position: var(--_p, 0%) 0; }

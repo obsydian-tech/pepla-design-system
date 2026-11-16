@@ -1,0 +1,5 @@
+/* Site notes: short facts in a row under a section, each after a coloured dot. Spec: site-notes.md. */
+.pp-site-notes { display: flex; flex-wrap: wrap; gap: calc(var(--space-100) + var(--space-025)) calc(var(--space-250) + var(--space-025)); margin: calc(var(--space-300) + var(--space-025)) 0 0; padding: 0; list-style: none; color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-notes__item { display: inline-flex; align-items: center; gap: var(--space-100); }
+.pp-site-notes__dot { flex: none; inline-size: var(--space-100); block-size: var(--space-100); border-radius: 50%; background: var(--color-background-brand-bold); }
+.pp-site-notes__dot--agent { background: var(--color-border-agent); }
