@@ -27,7 +27,7 @@ The new employee's side of Naleko People, redrawn for a phone: Ayanda Zulu, who 
 - **The consent names who is involved.** Today's text names Naleko. The redraw names the employer, Mokoena Logistics, and Naleko People, says where the data is kept, and cites POPIA in plain words.
 - **One journey, not two.** Today the stepper and a separate journey list show the same steps. The redraw merges them into one vertical tracker that says when each step was done.
 - **Progress as a count.** The progress percentage becomes "2 of 6 steps done" and "1 of 4 complete".
-- **Status is an icon and a word (rule 4).** Coloured document badges become lozenges: "Matches", "With HR", "Needs a new copy", "Not uploaded yet".
+- **Status is an icon and a word (rule 4).** Coloured document badges become lozenges: "Accepted", "With HR", "Needs a new copy", "Not uploaded yet".
 - **A returned document says why and who.** The rejected bank letter says who returned it, when, and what to upload instead.
 - **ID number masked (rule 6).** The ID shows as "ID ending 4417", never in full.
 - **Batsi, in mint only (rule 1).** Checks Batsi makes say "Checked by Batsi". Checks HR makes by hand say so.
