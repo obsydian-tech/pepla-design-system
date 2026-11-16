@@ -121,5 +121,5 @@ var MOVES=[["c4", 2, "Moved by Jane Smith", "Sales Consultant", false], ["c1", 4
   }
 
   var ENGINE = { board: board, score: score, follow: follow, risk: risk, offer: offer };
-  $$('.pp-site-demo[data-demo]').forEach(function (sec) { var e = ENGINE[sec.getAttribute('data-demo')]; if (e) e(sec); });
+  $$('.pp-site-demo[data-demo]').forEach(function (sec) { var pg = sec.closest('[data-site-module]'); if (pg && pg.getAttribute('data-site-module') !== 'recruitment') return; /* a whole-site kit page holds every module's demos */ var e = ENGINE[sec.getAttribute('data-demo')]; if (e) e(sec); });
 })();

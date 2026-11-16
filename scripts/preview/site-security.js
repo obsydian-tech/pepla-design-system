@@ -146,5 +146,5 @@
   }
 
   var ENGINE = { 'sec-appr': appr, 'sec-audit': audit, 'sec-mask': mask, 'sec-consent': consent, 'sec-res': res, 'sec-trust': trust };
-  $$('[data-demo]').forEach(function (sec) { var e = ENGINE[sec.getAttribute('data-demo')]; if (e) e(sec); });
+  $$('[data-demo]').forEach(function (sec) { var pg = sec.closest('[data-site-module]'); if (pg && pg.getAttribute('data-site-module') !== 'security') return; /* a whole-site kit page holds every module's demos */ var e = ENGINE[sec.getAttribute('data-demo')]; if (e) e(sec); });
 })();
