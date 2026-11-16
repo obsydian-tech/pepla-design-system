@@ -1,0 +1,35 @@
+/* Site app frame: a small sample of the Naleko People app, a sidebar and the Today list, used where the landing page shows
+   the app following the module settings. Spec: site-app.md. Module items fade and rise into their place (opacity and
+   transform), so nothing slides open. Under 480px of width the sidebar becomes a row of items above the list. */
+.pp-site-app { display: grid; grid-template-columns: 190px minmax(0, 1fr); min-height: 530px; color: var(--color-text); font: var(--font-body); }
+.pp-site-app__nav { display: flex; flex-direction: column; gap: var(--space-025); padding: calc(var(--space-150) + var(--space-025)) calc(var(--space-100) + var(--space-025)); border-right: var(--border-width) solid var(--color-border); background: var(--color-site-wash-violet); }
+.pp-site-app__company { display: flex; align-items: center; gap: var(--space-100); padding: var(--space-075) var(--space-100) var(--space-150); font: var(--font-body-small); font-weight: var(--font-weight-semibold); }
+.pp-site-app__mark { flex: none; inline-size: calc(var(--space-250) - var(--space-025)); block-size: calc(var(--space-250) - var(--space-025)); box-sizing: border-box; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: var(--radius-small); background: var(--color-background-brand-subtlest); }
+.pp-site-app__item { position: relative; isolation: isolate; display: flex; align-items: center; gap: var(--space-100); padding: var(--space-075) var(--space-100); border-radius: var(--radius-medium); color: var(--color-text-subtle); font: var(--font-body-small); transition: opacity var(--motion-site-duration-pop) var(--motion-site-easing), transform var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-app__item > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); color: var(--color-icon-subtle); }
+.pp-site-app__item--current { background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-raised); color: var(--color-text); font-weight: var(--font-weight-semibold); }
+.pp-site-app__item--current > .lucide { color: var(--color-icon-brand); }
+/* A module that was just switched on is tinted for a moment: the tint is a layer that fades. */
+.pp-site-app__item::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--color-background-brand-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-app__item--new::before { opacity: 1; }
+[data-site-live] .pp-site-app__item--module:not(.pp-site-app__item--in) { opacity: 0; transform: translateY(var(--space-050)); }
+.pp-site-app__spacer { flex: 1; min-height: var(--space-150); }
+.pp-site-app__main { display: grid; gap: var(--space-100); align-content: start; min-width: 0; padding: calc(var(--space-200) + var(--space-025)); }
+.pp-site-app__title { margin: 0; font: var(--font-heading-medium); letter-spacing: var(--font-heading-medium-tracking); }
+.pp-site-app__sub { margin: 0 0 var(--space-075); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-app__idle { margin: 0; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-app__task { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-075) var(--space-150); padding: calc(var(--space-150) - var(--space-025)) var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); font: var(--font-body-small); }
+.pp-site-app__module { flex-basis: 100%; color: var(--color-text-subtle); font: var(--font-site-group); font-size: .875em; text-transform: uppercase; }
+.pp-site-app__task > .pp-site-status { margin-left: auto; }
+[data-site-live] .pp-site-app__task:not(.pp-site-app__task--in) { display: none; }
+[data-site-live] .pp-site-app__task--in { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+[data-site-still] .pp-site-app__item, [data-site-still] .pp-site-app__item::before { transition: none; }
+[data-site-still] .pp-site-app__task--in { animation: none; }
+@container (max-width: 480px) {
+  .pp-site-app { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .pp-site-app__nav { flex-direction: row; flex-wrap: wrap; gap: var(--space-050); padding: calc(var(--space-100) + var(--space-025)); border-right: 0; border-bottom: var(--border-width) solid var(--color-border); }
+  .pp-site-app__company { flex-basis: 100%; padding: var(--space-025) var(--space-050) var(--space-075); }
+  .pp-site-app__spacer { display: none; }
+  .pp-site-app__item { padding: var(--space-050) var(--space-100); }
+  .pp-site-app__main { min-height: 300px; }
+}
