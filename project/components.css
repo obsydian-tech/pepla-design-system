@@ -3726,6 +3726,37 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-confirm__alt { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
 .pp-site-confirm__alt a { color: var(--color-text-brand); font-weight: var(--font-weight-semibold); }
 
+/* ---- site/site-connect ---- */
+/* Site connection panel: the Naleko People side of an integration (the approval queue, the AI assistant's allowed tools,
+   the event deliveries). Items arrive one by one as the code beside it runs. Spec: site-connect.md. */
+.pp-site-connect { overflow: hidden; min-width: 0; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-site-card); color: var(--color-text); font: var(--font-body); }
+.pp-site-connect[hidden] { display: none; }
+.pp-site-connect__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: calc(var(--space-150) + var(--space-025)) calc(var(--space-200) + var(--space-025)); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-connect__title { font: var(--font-body-strong); }
+.pp-site-connect__note { margin-left: auto; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-connect__body { display: grid; gap: calc(var(--space-100) + var(--space-025)); align-content: start; min-height: 120px; padding: var(--space-200) calc(var(--space-200) + var(--space-025)) calc(var(--space-200) + var(--space-025)); }
+@container (min-width: 1080px) { .pp-site-connect__body { min-height: 200px; } }
+.pp-site-connect__idle { margin: 0; color: var(--color-text-subtle); }
+.pp-site-connect__idle[hidden] { display: none; }
+.pp-site-connect__item { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-075) calc(var(--space-100) + var(--space-025)); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); }
+.pp-site-connect__item--batsi { border-color: var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); color: var(--color-text-subtle); }
+[data-site-live] .pp-site-connect__item:not(.pp-site-connect__item--in) { display: none; }
+[data-site-live] .pp-site-connect__item--in { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+.pp-site-connect__name { font: var(--font-body-strong); }
+.pp-site-connect__meta { flex-basis: 100%; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-connect__code { color: var(--color-text-brand); font: var(--font-code); font-weight: var(--font-weight-semibold); overflow-wrap: anywhere; }
+.pp-site-connect__item > .pp-site-state, .pp-site-connect__item > .pp-site-status, .pp-site-connect__item > .pp-button, .pp-site-connect__tool > .pp-site-status { margin-left: auto; }
+.pp-site-connect__item .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-connect__tools { display: grid; gap: var(--space-100); }
+/* A tool the assistant is calling is tinted violet: the tint is a layer that fades. */
+.pp-site-connect__tool { position: relative; isolation: isolate; display: flex; flex-wrap: wrap; align-items: center; gap: calc(var(--space-100) + var(--space-025)); padding: calc(var(--space-100) + var(--space-025)) var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); font: var(--font-body-small); }
+.pp-site-connect__tool::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: inherit; background: var(--color-background-brand-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-connect__tool--hit::before { opacity: 1; }
+.pp-site-connect__foot { margin: 0; color: var(--color-text-subtle); font: var(--font-body-small); }
+[data-site-still] .pp-site-connect__item--in, [data-site-still] .pp-site-connect__item .pp-button--pressed { animation: none; }
+[data-site-still] .pp-site-connect__tool::before { transition: none; }
+.pp-site-connect__item > .pp-button[hidden] { display: none; }
+
 /* ---- site/site-contract ---- */
 /* Site contract: an employment contract from the company template. Details fill in from the record, the signature is
    written and probation is set. Spec: site-contract.md. A detail swaps its label for its value by a crossfade, and
@@ -3892,6 +3923,45 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 @container (min-width: 1024px) { .pp-site-demo__head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: calc(var(--space-800) + var(--space-100)); align-items: start; } }
 .pp-site-demo__head .pp-site-demo__list { margin: 0; }
 .pp-site-demo__wide { display: grid; gap: calc(var(--space-150) + var(--space-025)); margin-top: var(--space-500); min-width: 0; }
+
+/* ---- site/site-editor ---- */
+/* Site code editor: the one dark surface on the site. A window bar with the file name, three tabs (REST API, MCP
+   server, Events), the code typing itself in with a blinking caret, and a foot with Play again. Spec: site-editor.md.
+   The chosen tab's underline and label colour fade on layers and copies (opacity only). */
+.pp-site-editor { overflow: hidden; min-width: 0; border-radius: var(--radius-xlarge); background: var(--color-site-code-surface); box-shadow: var(--elevation-shadow-site-card); color: var(--color-site-code-text); }
+.pp-site-editor__bar { display: flex; align-items: center; gap: var(--space-100); padding: var(--space-150) var(--space-200); }
+.pp-site-editor__dot { flex: none; inline-size: calc(var(--space-100) + var(--space-025)); block-size: calc(var(--space-100) + var(--space-025)); border-radius: 50%; background: var(--color-site-code-border); }
+.pp-site-editor__file { min-width: 0; margin-left: auto; overflow: hidden; color: var(--color-site-code-subtle); font: var(--font-code); text-overflow: ellipsis; white-space: nowrap; }
+.pp-site-editor__tabs { display: flex; gap: var(--space-050); padding: 0 calc(var(--space-100) + var(--space-025)); overflow-x: auto; border-bottom: var(--border-width) solid var(--color-site-code-border); }
+.pp-site-editor__tab { position: relative; display: inline-grid; min-height: var(--size-touch-target); margin: 0; padding: var(--space-100) calc(var(--space-150) + var(--space-025)) var(--space-150); border: 0; background: none; font: var(--font-label); letter-spacing: var(--font-label-tracking); font-weight: var(--font-weight-semibold); white-space: nowrap; cursor: pointer; }
+/* The label is drawn twice: the resting one (subtle) and the chosen one (white), crossfading. */
+.pp-site-editor__label { grid-area: 1 / 1; color: var(--color-site-code-subtle); transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-editor__label--on { color: var(--color-text-inverse); opacity: 0; }
+.pp-site-editor__tab:hover .pp-site-editor__label:not(.pp-site-editor__label--on),
+.pp-site-editor__tab[aria-selected="true"] .pp-site-editor__label:not(.pp-site-editor__label--on) { opacity: 0; }
+.pp-site-editor__tab:hover .pp-site-editor__label--on,
+.pp-site-editor__tab[aria-selected="true"] .pp-site-editor__label--on { opacity: 1; }
+.pp-site-editor__tab::after { content: ""; position: absolute; left: var(--space-150); right: var(--space-150); bottom: calc(var(--border-width) * -1); block-size: var(--space-025); border-radius: var(--radius-full); background: var(--color-brand-mint); opacity: 0; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-editor__tab[aria-selected="true"]::after { opacity: 1; }
+.pp-site-editor__tab:focus-visible { outline: var(--border-width-focused) solid var(--color-brand-mint); outline-offset: calc(var(--space-050) * -1); border-radius: var(--radius-medium); }
+.pp-site-editor__code { box-sizing: border-box; min-height: calc(17.5em + var(--space-500) + var(--space-050)); margin: 0; padding: calc(var(--space-250) - var(--space-050)) calc(var(--space-250) + var(--space-025)) var(--space-300); overflow-x: auto; color: var(--color-site-code-text); font: var(--font-site-code); white-space: pre; }
+.pp-site-editor__k { color: var(--color-site-code-keyword); }
+.pp-site-editor__s { color: var(--color-site-code-string); }
+.pp-site-editor__c { color: var(--color-site-code-subtle); font-style: italic; }
+.pp-site-editor__f { color: var(--color-site-code-key); }
+.pp-site-editor__n { color: var(--color-site-code-number); }
+.pp-site-editor__caret { display: inline-block; inline-size: .55em; block-size: 1.2em; margin-left: var(--border-width); vertical-align: -.25em; background: var(--color-brand-mint); animation: pp-site-blink var(--motion-site-duration-loop-caret) steps(1) infinite; }
+.pp-site-editor__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: var(--space-050) var(--space-200); border-top: var(--border-width) solid var(--color-site-code-border); color: var(--color-site-code-subtle); font: var(--font-body-small); }
+.pp-site-editor__live { flex: none; inline-size: var(--space-100); block-size: var(--space-100); border-radius: 50%; background: var(--color-brand-mint); }
+.pp-site-editor__again { display: inline-flex; align-items: center; gap: var(--space-075); min-height: var(--size-touch-target); margin-left: auto; padding: 0; border: 0; background: none; color: var(--color-site-code-keyword); font: var(--font-label-small); cursor: pointer; }
+.pp-site-editor__again > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-editor__again:hover { text-decoration: underline; }
+.pp-site-editor__again:focus-visible { outline: var(--border-width-focused) solid var(--color-brand-mint); outline-offset: var(--focus-ring-offset); }
+@container (max-width: 640px) {
+  .pp-site-editor__code { min-height: calc(17.5em + var(--space-400) + var(--space-050)); padding: var(--space-200) var(--space-200) var(--space-250); font-size: .71875em; }
+}
+[data-site-still] .pp-site-editor__label, [data-site-still] .pp-site-editor__tab::after { transition: none; }
+[data-site-still] .pp-site-editor__caret { animation: none; }
 
 /* ---- site/site-faq ---- */
 /* Site questions: a headline and a line on one side, the questions on the other. Spec: site-faq.md.
@@ -4141,6 +4211,12 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   font: var(--font-heading-xxsmall);
 }
 .pp-site-next__title { display: block; font-weight: var(--font-weight-semibold); color: var(--color-text); }
+
+/* ---- site/site-glow ---- */
+/* Site glow: a soft violet light with a fine grid showing through it, behind a section (Integrations). Spec: site-glow.md.
+   The preview script moves the light and the grid with transform; nothing else moves. */
+.pp-site-glow { position: absolute; left: 0; top: 0; z-index: -1; inline-size: 1100px; block-size: 1100px; overflow: hidden; border-radius: 50%; background: radial-gradient(closest-side, var(--color-site-glow-violet), transparent); pointer-events: none; mask-image: radial-gradient(closest-side, var(--color-text) 30%, transparent); will-change: transform; }
+.pp-site-glow__grid { position: absolute; left: 0; top: 0; inline-size: 3200px; block-size: 3200px; opacity: .6; background-image: linear-gradient(var(--color-background-brand-subtle) var(--border-width), transparent var(--border-width)), linear-gradient(90deg, var(--color-background-brand-subtle) var(--border-width), transparent var(--border-width)); background-size: 44px 44px; will-change: transform; }
 
 /* ---- site/site-gradient ---- */
 /* The Naleko gradient: the company name and the footer hairline. Accent only; the page stays light. */
@@ -4392,6 +4468,13 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-hero__grain, [data-site-still] .pp-site-hero__cue::after { animation: none; }
 @media (prefers-reduced-motion: reduce) { .pp-site-hero__grain { animation: none; } }
 
+/* ---- site/site-integrations ---- */
+/* Site integrations layout: the landing page's Integrations section puts the code editor beside the Naleko People
+   panel, over a violet light and a fine grid that follow the pointer (or drift on their own). Spec: site-integrations.md. */
+.pp-site-integrations { display: grid; gap: var(--space-200); }
+@container (min-width: 1080px) { .pp-site-integrations { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: start; gap: var(--space-250); } }
+.pp-site-integrations__side { display: grid; gap: var(--space-150); align-content: start; min-width: 0; }
+
 /* ---- site/site-lights ---- */
 /* Site lights: soft coloured circles that drift behind a hero or a band. Spec: site-lights.md. Transform only. */
 .pp-site-lights { position: absolute; inset: 0; z-index: -1; overflow: clip; pointer-events: none; }
@@ -4620,6 +4703,7 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 }
 @keyframes pp-site-turn { to { transform: rotate(360deg); } }
 @keyframes pp-site-breathe { 50% { transform: scale(1.08); } }
+@keyframes pp-site-blink { 50% { opacity: 0; } }
 @keyframes pp-site-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: .4; }
@@ -5170,6 +5254,14 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   .pp-site-shine { color: LinkText; }
   .pp-site-shine__glow { display: none; }
 }
+
+/* ---- site/site-soon ---- */
+/* Site coming soon row: names of connectors or modules that are coming, each with a "Coming soon" status.
+   Spec: site-soon.md. */
+.pp-site-soon { display: flex; flex-wrap: wrap; align-items: center; gap: calc(var(--space-100) + var(--space-025)) calc(var(--space-250) + var(--space-050)); margin-top: calc(var(--space-250) + var(--space-050)); color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-soon__item { display: inline-flex; align-items: center; gap: var(--space-100); }
+.pp-site-soon__name { color: var(--color-text); font: var(--font-body-strong); }
+.pp-site-caps + .pp-site-soon { margin-top: calc(var(--space-250) + var(--space-050)); }
 
 /* ---- site/site-state ---- */
 /* Site live status: a status pill whose words change as a demo plays ("Uploading", "Reading", "Matches").

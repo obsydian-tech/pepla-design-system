@@ -1,0 +1,29 @@
+/* Site connection panel: the Naleko People side of an integration (the approval queue, the AI assistant's allowed tools,
+   the event deliveries). Items arrive one by one as the code beside it runs. Spec: site-connect.md. */
+.pp-site-connect { overflow: hidden; min-width: 0; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-site-card); color: var(--color-text); font: var(--font-body); }
+.pp-site-connect[hidden] { display: none; }
+.pp-site-connect__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: calc(var(--space-150) + var(--space-025)) calc(var(--space-200) + var(--space-025)); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-connect__title { font: var(--font-body-strong); }
+.pp-site-connect__note { margin-left: auto; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-connect__body { display: grid; gap: calc(var(--space-100) + var(--space-025)); align-content: start; min-height: 120px; padding: var(--space-200) calc(var(--space-200) + var(--space-025)) calc(var(--space-200) + var(--space-025)); }
+@container (min-width: 1080px) { .pp-site-connect__body { min-height: 200px; } }
+.pp-site-connect__idle { margin: 0; color: var(--color-text-subtle); }
+.pp-site-connect__idle[hidden] { display: none; }
+.pp-site-connect__item { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-075) calc(var(--space-100) + var(--space-025)); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); }
+.pp-site-connect__item--batsi { border-color: var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); color: var(--color-text-subtle); }
+[data-site-live] .pp-site-connect__item:not(.pp-site-connect__item--in) { display: none; }
+[data-site-live] .pp-site-connect__item--in { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+.pp-site-connect__name { font: var(--font-body-strong); }
+.pp-site-connect__meta { flex-basis: 100%; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-connect__code { color: var(--color-text-brand); font: var(--font-code); font-weight: var(--font-weight-semibold); overflow-wrap: anywhere; }
+.pp-site-connect__item > .pp-site-state, .pp-site-connect__item > .pp-site-status, .pp-site-connect__item > .pp-button, .pp-site-connect__tool > .pp-site-status { margin-left: auto; }
+.pp-site-connect__item .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-connect__tools { display: grid; gap: var(--space-100); }
+/* A tool the assistant is calling is tinted violet: the tint is a layer that fades. */
+.pp-site-connect__tool { position: relative; isolation: isolate; display: flex; flex-wrap: wrap; align-items: center; gap: calc(var(--space-100) + var(--space-025)); padding: calc(var(--space-100) + var(--space-025)) var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); font: var(--font-body-small); }
+.pp-site-connect__tool::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-brand-subtle); border-radius: inherit; background: var(--color-background-brand-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-connect__tool--hit::before { opacity: 1; }
+.pp-site-connect__foot { margin: 0; color: var(--color-text-subtle); font: var(--font-body-small); }
+[data-site-still] .pp-site-connect__item--in, [data-site-still] .pp-site-connect__item .pp-button--pressed { animation: none; }
+[data-site-still] .pp-site-connect__tool::before { transition: none; }
+.pp-site-connect__item > .pp-button[hidden] { display: none; }

@@ -1,0 +1,6 @@
+/* Site coming soon row: names of connectors or modules that are coming, each with a "Coming soon" status.
+   Spec: site-soon.md. */
+.pp-site-soon { display: flex; flex-wrap: wrap; align-items: center; gap: calc(var(--space-100) + var(--space-025)) calc(var(--space-250) + var(--space-050)); margin-top: calc(var(--space-250) + var(--space-050)); color: var(--color-text-subtle); font: var(--font-body); }
+.pp-site-soon__item { display: inline-flex; align-items: center; gap: var(--space-100); }
+.pp-site-soon__name { color: var(--color-text); font: var(--font-body-strong); }
+.pp-site-caps + .pp-site-soon { margin-top: calc(var(--space-250) + var(--space-050)); }

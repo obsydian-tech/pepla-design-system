@@ -1,0 +1,37 @@
+/* Site code editor: the one dark surface on the site. A window bar with the file name, three tabs (REST API, MCP
+   server, Events), the code typing itself in with a blinking caret, and a foot with Play again. Spec: site-editor.md.
+   The chosen tab's underline and label colour fade on layers and copies (opacity only). */
+.pp-site-editor { overflow: hidden; min-width: 0; border-radius: var(--radius-xlarge); background: var(--color-site-code-surface); box-shadow: var(--elevation-shadow-site-card); color: var(--color-site-code-text); }
+.pp-site-editor__bar { display: flex; align-items: center; gap: var(--space-100); padding: var(--space-150) var(--space-200); }
+.pp-site-editor__dot { flex: none; inline-size: calc(var(--space-100) + var(--space-025)); block-size: calc(var(--space-100) + var(--space-025)); border-radius: 50%; background: var(--color-site-code-border); }
+.pp-site-editor__file { min-width: 0; margin-left: auto; overflow: hidden; color: var(--color-site-code-subtle); font: var(--font-code); text-overflow: ellipsis; white-space: nowrap; }
+.pp-site-editor__tabs { display: flex; gap: var(--space-050); padding: 0 calc(var(--space-100) + var(--space-025)); overflow-x: auto; border-bottom: var(--border-width) solid var(--color-site-code-border); }
+.pp-site-editor__tab { position: relative; display: inline-grid; min-height: var(--size-touch-target); margin: 0; padding: var(--space-100) calc(var(--space-150) + var(--space-025)) var(--space-150); border: 0; background: none; font: var(--font-label); letter-spacing: var(--font-label-tracking); font-weight: var(--font-weight-semibold); white-space: nowrap; cursor: pointer; }
+/* The label is drawn twice: the resting one (subtle) and the chosen one (white), crossfading. */
+.pp-site-editor__label { grid-area: 1 / 1; color: var(--color-site-code-subtle); transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-editor__label--on { color: var(--color-text-inverse); opacity: 0; }
+.pp-site-editor__tab:hover .pp-site-editor__label:not(.pp-site-editor__label--on),
+.pp-site-editor__tab[aria-selected="true"] .pp-site-editor__label:not(.pp-site-editor__label--on) { opacity: 0; }
+.pp-site-editor__tab:hover .pp-site-editor__label--on,
+.pp-site-editor__tab[aria-selected="true"] .pp-site-editor__label--on { opacity: 1; }
+.pp-site-editor__tab::after { content: ""; position: absolute; left: var(--space-150); right: var(--space-150); bottom: calc(var(--border-width) * -1); block-size: var(--space-025); border-radius: var(--radius-full); background: var(--color-brand-mint); opacity: 0; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-editor__tab[aria-selected="true"]::after { opacity: 1; }
+.pp-site-editor__tab:focus-visible { outline: var(--border-width-focused) solid var(--color-brand-mint); outline-offset: calc(var(--space-050) * -1); border-radius: var(--radius-medium); }
+.pp-site-editor__code { box-sizing: border-box; min-height: calc(17.5em + var(--space-500) + var(--space-050)); margin: 0; padding: calc(var(--space-250) - var(--space-050)) calc(var(--space-250) + var(--space-025)) var(--space-300); overflow-x: auto; color: var(--color-site-code-text); font: var(--font-site-code); white-space: pre; }
+.pp-site-editor__k { color: var(--color-site-code-keyword); }
+.pp-site-editor__s { color: var(--color-site-code-string); }
+.pp-site-editor__c { color: var(--color-site-code-subtle); font-style: italic; }
+.pp-site-editor__f { color: var(--color-site-code-key); }
+.pp-site-editor__n { color: var(--color-site-code-number); }
+.pp-site-editor__caret { display: inline-block; inline-size: .55em; block-size: 1.2em; margin-left: var(--border-width); vertical-align: -.25em; background: var(--color-brand-mint); animation: pp-site-blink var(--motion-site-duration-loop-caret) steps(1) infinite; }
+.pp-site-editor__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: var(--space-050) var(--space-200); border-top: var(--border-width) solid var(--color-site-code-border); color: var(--color-site-code-subtle); font: var(--font-body-small); }
+.pp-site-editor__live { flex: none; inline-size: var(--space-100); block-size: var(--space-100); border-radius: 50%; background: var(--color-brand-mint); }
+.pp-site-editor__again { display: inline-flex; align-items: center; gap: var(--space-075); min-height: var(--size-touch-target); margin-left: auto; padding: 0; border: 0; background: none; color: var(--color-site-code-keyword); font: var(--font-label-small); cursor: pointer; }
+.pp-site-editor__again > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-editor__again:hover { text-decoration: underline; }
+.pp-site-editor__again:focus-visible { outline: var(--border-width-focused) solid var(--color-brand-mint); outline-offset: var(--focus-ring-offset); }
+@container (max-width: 640px) {
+  .pp-site-editor__code { min-height: calc(17.5em + var(--space-400) + var(--space-050)); padding: var(--space-200) var(--space-200) var(--space-250); font-size: .71875em; }
+}
+[data-site-still] .pp-site-editor__label, [data-site-still] .pp-site-editor__tab::after { transition: none; }
+[data-site-still] .pp-site-editor__caret { animation: none; }
