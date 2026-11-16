@@ -127,5 +127,5 @@
   }
 
   var ENGINE = { phone: phone, read: read, follow: follow, contract: contract, laptop: checklist, exit: checklist };
-  $$('.pp-site-demo[data-demo]').forEach(function (sec) { var e = ENGINE[sec.getAttribute('data-demo')]; if (e) e(sec); });
+  $$('.pp-site-demo[data-demo]').forEach(function (sec) { var pg = sec.closest('[data-site-module]'); if (pg && pg.getAttribute('data-site-module') !== 'onboarding') return; /* a whole-site kit page holds every module's demos */ var e = ENGINE[sec.getAttribute('data-demo')]; if (e) e(sec); });
 })();

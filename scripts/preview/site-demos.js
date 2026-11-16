@@ -12,7 +12,7 @@
   }
 
   /* Demo: steps in one by one, then "Play again" appears. Only sections marked data-live play on their own. */
-  all('.pp-site-demo').forEach(function (sec) {
+  all('.pp-site-demo:not([data-demo])').forEach(function (sec) { /* a module's own demo (data-demo) has its own script */
     var R = runner(), steps = all('.pp-site-step', sec), again = one('.pp-site-demo__again', sec);
     function play() {
       R.stop(); sec.setAttribute('data-site-live', '');

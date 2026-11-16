@@ -98,5 +98,5 @@
   }
 
   var ENGINE = { 'plat-mod': mod, 'plat-tpl': tpl, 'plat-hol': hol, 'plat-roles': roles, 'plat-landing': landing };
-  $$('[data-demo]').forEach(function (sec) { var e = ENGINE[sec.getAttribute('data-demo')]; if (e) e(sec); });
+  $$('[data-demo]').forEach(function (sec) { var pg = sec.closest('[data-site-module]'); if (pg && pg.getAttribute('data-site-module') !== 'platform') return; /* a whole-site kit page holds every module's demos */ var e = ENGINE[sec.getAttribute('data-demo')]; if (e) e(sec); });
 })();

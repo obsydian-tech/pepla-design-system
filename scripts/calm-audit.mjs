@@ -105,7 +105,11 @@ export function audit() {
 
       // 7. One visible row of filter chips
       const groups = [...screen.querySelectorAll('[role="group"]')].filter((g) => g.querySelectorAll('[aria-pressed]').length >= 3 && !g.matches('.pp-site-demo__panel') && !nearest(g, '.pp-page-header, .pp-modal-dialog, .pp-drawer, .pp-popup, .pp-site-form-card')); // a form's own pickers (day and time) are not a filter row, and a demo panel only groups its sample: the filter row inside it counts
-      if (groups.length > LIMITS.filterGroups) report('filters', `${groups.length} visible filter groups`);
+      // On a whole site page each section is its own surface, as for primary buttons.
+      const perSurface = new Map();
+      for (const g of groups) { const s = surfaceOf(g) || screen; perSurface.set(s, (perSurface.get(s) || 0) + 1); }
+      const most = Math.max(0, ...perSurface.values());
+      if (most > LIMITS.filterGroups) report('filters', `${most} visible filter groups`);
 
       // 8. No card in a card: a raised card or a stat card inside another card is a box in a box.
       // A sunken card is the one quiet group a card may hold.
