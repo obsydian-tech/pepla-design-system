@@ -2,7 +2,7 @@
 name: Site audit log
 group: site
 status: ready
-classes: pp-site-audit, pp-site-audit--card
+classes: pp-site-audit, pp-site-audit--card, pp-site-audit__list--hero
 primeng: none (public site only, no PrimeNG)
 replaces: the public site's .log, .log-head, .log-body, .lrow and .log-foot on the Security page and the landing page's Trust section, which used literal colours and sizes and a pending row tinted with a literal colour
 ---

@@ -27,3 +27,10 @@
 /* On a washed row the status stands out: solid coral when overdue, white with a mint edge once renewed. */
 .pp-site-ledger__row--late > .pp-site-status--danger { background: var(--color-background-danger-bold); color: var(--color-text-inverse); }
 .pp-site-ledger__row--renewed > .pp-site-status--success { background: var(--elevation-surface-raised); box-shadow: inset 0 0 0 var(--border-width) var(--color-background-agent-subtle-hovered); }
+/* Tiles: the rows as separate rounded tiles with no card around them, as in a Learn more page's hero card. */
+.pp-site-ledger--tiles { overflow: visible; border: 0; border-radius: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; }
+.pp-site-ledger--tiles .pp-site-ledger__list { display: grid; gap: var(--space-100); }
+.pp-site-ledger--tiles .pp-site-ledger__row { overflow: hidden; gap: var(--space-025) var(--space-150); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-ledger--tiles .pp-site-ledger__row:last-child { border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-ledger--tiles .pp-site-ledger__row::before { box-shadow: inset 0 0 0 var(--border-width) var(--color-border-danger), inset var(--border-width-selected) 0 0 var(--color-border-danger); }
+.pp-site-ledger--tiles .pp-site-ledger__row::after { box-shadow: inset 0 0 0 var(--border-width) var(--color-brand-mint), inset var(--border-width-selected) 0 0 var(--color-brand-mint); }

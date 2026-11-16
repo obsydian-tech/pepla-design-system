@@ -11,3 +11,5 @@
 .pp-site-rings__circle--dot { --_c: var(--color-site-ring-dot); border-style: dotted; }
 @media (prefers-reduced-motion: reduce) { .pp-site-rings__group, .pp-site-rings__group--outer { animation-duration: var(--motion-site-duration-loop-turn-reduced); } }
 [data-site-still] .pp-site-rings__group { animation: none; }
+/* On a Learn more page's top the rings sit higher and further out, behind the hero card. */
+.pp-site-rings--hero { right: -18%; top: -6%; inline-size: min(88%, var(--layout-site-rings)); opacity: .5; }
