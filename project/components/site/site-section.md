@@ -28,6 +28,7 @@ The block every landing section is built from: a full-width ground, content at m
 | (none) | White | The default. Most sections. |
 | `pp-site-section--cream` | Cream | Every second section, so neighbours differ. |
 | `pp-site-section--violet` | Violet wash | The Ask Batsi section and the Trust section's end. |
+| `pp-site-section--violet-fade` | Violet wash that fades in from white and back out | The landing page's Trust and POPIA section. |
 | `pp-site-section--mint` | Mint wash | A section about something Batsi did. |
 | `pp-site-section--coral` | Coral wash | Overdue and urgent only. Not yet used on the site. |
 

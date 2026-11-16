@@ -1,0 +1,23 @@
+/* Site hidden personal data: ID number, bank account and salary hidden, with Show on the ID number. Show swaps the
+   hidden value for the real one (two copies that crossfade, so the colour never transitions), logs the view, and the
+   value hides again. Spec: site-hidden.md. */
+.pp-site-hidden { display: grid; gap: var(--space-100); font: var(--font-body); color: var(--color-text); }
+.pp-site-hidden__title { display: flex; align-items: center; gap: var(--space-100); margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-site-hidden__title > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); color: var(--color-icon-subtle); }
+.pp-site-hidden__row { display: flex; flex-wrap: nowrap; align-items: center; gap: var(--space-100); box-sizing: border-box; min-height: var(--size-touch-target); padding: var(--space-075) var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-medium); background: var(--elevation-surface-raised); }
+.pp-site-hidden__label { min-width: 76px; color: var(--color-text-subtle); }
+.pp-site-hidden__value { display: inline-grid; white-space: nowrap; font: var(--font-body-strong); font-variant-numeric: tabular-nums; letter-spacing: var(--size-tracking-masked); }
+.pp-site-hidden__copy { grid-area: 1 / 1; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-hidden__copy--shown { color: var(--color-text-brand); opacity: 0; }
+.pp-site-hidden__value--shown > .pp-site-hidden__copy { opacity: 0; }
+.pp-site-hidden__value--shown > .pp-site-hidden__copy--shown { opacity: 1; }
+.pp-site-hidden__row > .pp-button { margin-left: auto; }
+.pp-site-hidden__row .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-hidden__note { margin: 0; min-height: 1lh; color: var(--color-text-subtle); font: var(--font-body-small); }
+
+/* As a card on its own (the landing page's Trust section). */
+.pp-site-hidden--card { padding: var(--space-200); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+[data-site-still] .pp-site-hidden__copy { transition: none; }
+[data-site-still] .pp-site-hidden__row .pp-button--pressed { animation: none; }
+.pp-site-hidden__log { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-075) var(--space-150); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-full); color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-hidden__log > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }

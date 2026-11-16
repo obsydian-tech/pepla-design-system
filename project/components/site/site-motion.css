@@ -21,6 +21,11 @@
 }
 @keyframes pp-site-turn { to { transform: rotate(360deg); } }
 @keyframes pp-site-breathe { 50% { transform: scale(1.08); } }
+/* A live dot's ring: grows out of the dot and fades (the approved site drew it with a growing box-shadow). */
+@keyframes pp-site-ping {
+  0% { opacity: .5; transform: scale(1); }
+  70%, 100% { opacity: 0; transform: scale(2.6); }
+}
 @keyframes pp-site-blink { 50% { opacity: 0; } }
 @keyframes pp-site-pulse {
   0%, 100% { opacity: 1; }

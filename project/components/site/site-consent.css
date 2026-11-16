@@ -1,0 +1,20 @@
+/* Site POPIA consent: the privacy notice is agreed to first, and only then does the upload unlock. Spec: site-consent.md.
+   The agreed wash and the tick fill are layers that fade in; the locked upload is faded with opacity; the upload's
+   words and status are stacks that crossfade. Nothing changes colour by transition. */
+.pp-site-consent { display: grid; gap: var(--space-150); font: var(--font-body); color: var(--color-text); }
+.pp-site-consent__notice { position: relative; isolation: isolate; display: grid; gap: var(--space-150); padding: var(--space-200); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-consent__notice::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: inherit; background: var(--color-background-agent-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-consent__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-site-consent__text { margin: 0; color: var(--color-text-subtle); }
+.pp-site-consent__agree { display: flex; align-items: center; gap: var(--space-150); }
+.pp-site-consent__box { position: relative; isolation: isolate; display: grid; flex: none; place-items: center; inline-size: var(--size-icon-medium); block-size: var(--size-icon-medium); box-sizing: border-box; border: var(--border-width-selected) solid var(--color-border-input); border-radius: var(--radius-xsmall); color: var(--color-icon-inverse); }
+.pp-site-consent__box::before { content: ""; position: absolute; inset: calc(var(--border-width-selected) * -1); z-index: -1; border-radius: inherit; background: var(--color-brand-mint); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-consent__box > .lucide { inline-size: var(--space-150); block-size: var(--space-150); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-consent--agreed .pp-site-consent__notice::before, .pp-site-consent--agreed .pp-site-consent__box::before, .pp-site-consent--agreed .pp-site-consent__box > .lucide { opacity: 1; }
+.pp-site-consent__upload { display: flex; align-items: center; gap: var(--space-150); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-large); background: var(--elevation-surface-raised); color: var(--color-text-subtle); transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-consent__upload > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-consent__upload > .pp-site-state--start { flex: 1; }
+.pp-site-consent__upload--locked { opacity: .55; }
+[data-site-still] .pp-site-consent__notice::before, [data-site-still] .pp-site-consent__box::before, [data-site-still] .pp-site-consent__box > .lucide, [data-site-still] .pp-site-consent__upload { transition: none; }
+.pp-site-consent__log { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-075) var(--space-150); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-full); color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-consent__log > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }

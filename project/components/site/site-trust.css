@@ -1,0 +1,21 @@
+/* Site trust layout: the landing page's Trust and POPIA section puts the audit log beside a column of cards
+   (hidden personal data, where the data is kept, Play again). Spec: site-trust.md. Layout only. */
+.pp-site-trust { display: grid; gap: var(--space-200); }
+@container (min-width: 1080px) { .pp-site-trust { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); align-items: start; gap: var(--space-250); } }
+.pp-site-trust__side { display: grid; gap: var(--space-150); align-content: start; min-width: 0; }
+.pp-site-trust__again {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-075);
+  min-height: var(--size-touch-target);
+  padding: var(--space-050) var(--space-100);
+  border: 0;
+  background: none;
+  color: var(--color-text-brand);
+  font: var(--font-label-small);
+  cursor: pointer;
+}
+.pp-site-trust__again > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-trust__again:hover { text-decoration: underline; }
+.pp-site-trust__again:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }

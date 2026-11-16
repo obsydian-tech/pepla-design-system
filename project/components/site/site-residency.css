@@ -1,0 +1,17 @@
+/* Site data residency: where the data is kept. A pin with a live dot and the place, then what is stored there.
+   Spec: site-residency.md. The dot's ring grows and fades (transform and opacity) in a loop. */
+.pp-site-residency { display: grid; gap: var(--space-100); font: var(--font-body); color: var(--color-text); }
+.pp-site-residency__title { display: flex; align-items: center; gap: var(--space-100); margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-site-residency__title > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); color: var(--color-icon-subtle); }
+.pp-site-residency__pin { display: flex; align-items: center; gap: var(--space-150); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-large); background: var(--color-background-agent-subtlest); color: var(--color-text-agent); font: var(--font-body-strong); }
+.pp-site-residency__dot { position: relative; flex: none; inline-size: calc(var(--space-100) + var(--space-025)); block-size: calc(var(--space-100) + var(--space-025)); border-radius: 50%; background: var(--color-brand-mint); }
+.pp-site-residency__dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--color-brand-mint); animation: pp-site-ping var(--motion-site-duration-loop-ping) var(--motion-site-easing) infinite; }
+.pp-site-residency__text { margin: 0; color: var(--color-text-subtle); }
+.pp-site-residency__list { display: grid; gap: var(--space-100); }
+.pp-site-residency__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-150); padding: calc(var(--space-150) - var(--space-025)) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-residency__row > .pp-site-status { margin-left: auto; }
+
+/* As a card on its own (the landing page's Trust section). */
+.pp-site-residency--card { padding: var(--space-200); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-residency--card .pp-site-residency__pin { padding: var(--space-100) var(--space-150); border-radius: var(--radius-medium); }
+[data-site-still] .pp-site-residency__dot::after { animation: none; opacity: 0; }

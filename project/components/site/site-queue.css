@@ -1,0 +1,10 @@
+/* Site approval queue: what waits for a person to approve. A suggestion from Batsi and a write that came in through
+   the API, each as an item that steps in. Spec: site-queue.md. The Approve and Reject buttons, the accepted line and
+   the log line are a Site leave approval decision under the items. */
+.pp-site-queue { display: grid; gap: var(--space-100); font: var(--font-body); }
+.pp-site-queue__item { display: grid; gap: var(--space-075); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); color: var(--color-text); }
+.pp-site-queue__item--agent { border-color: var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); }
+.pp-site-queue__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); }
+.pp-site-queue__row > .pp-site-state, .pp-site-queue__row > .pp-site-status { margin-left: auto; }
+.pp-site-queue__name { font: var(--font-body-strong); }
+.pp-site-queue__note { color: var(--color-text-subtle); font: var(--font-body-small); }
