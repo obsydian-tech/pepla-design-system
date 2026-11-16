@@ -65,5 +65,7 @@
   --layout-site-radar: 980px;
   --layout-site-rings: 1100px;
   --layout-site-story-views: 276px;
+  --layout-site-chat-tall: 520px;
+  --layout-site-hiring-side: 290px;
 }
 /* Breakpoints (min-width, px), for media queries: xxs 0, xs 480, sm 768, md 1024, lg 1440, xl 1768 */

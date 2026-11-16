@@ -2,7 +2,7 @@
 name: Site hiring board
 group: site
 status: ready
-classes: pp-site-board
+classes: pp-site-board, pp-site-board__flag, pp-site-board__card--risk, pp-site-board__card--done
 primeng: none (public site only, no PrimeNG)
 replaces: the public site's .rb, .rb-board, .rb-col and .cand, which changed border colours by transition and drew the board from a script
 ---
@@ -28,6 +28,8 @@ One hiring board for one role: six stage columns, a card for each candidate. Can
 | Moved | `--moved`: a violet border fades in over the grey one and the reason chip pops in |
 | Hired | `--win`: a mint border and a mint chip |
 | Logged | The log line fades in and "Play again" appears |
+| At risk (landing) | `--risk`: a coral border and ring fade in and the coral flag (`__flag`, "No reply in 5 days") pops in |
+| Done (landing) | `--done`: the coral layer fades out, a mint border fades in and the flag turns mint ("Reminder sent") |
 | Still | Cards stay in their final columns, with their reasons; nothing slides |
 
 ## Behaviour

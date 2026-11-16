@@ -51,6 +51,7 @@
   --motion-site-duration-fill: 800ms;
   --motion-site-duration-scan: 1300ms;
   --motion-site-duration-draw: 1400ms;
+  --motion-site-duration-question: 11s;
 }
 
 @media (prefers-reduced-motion: reduce) {

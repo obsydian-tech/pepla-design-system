@@ -2,7 +2,7 @@
 name: Site Ask Batsi band
 group: site
 status: ready
-classes: pp-site-batsi, pp-site-ask, pp-site-chat, pp-site-batsi__split, pp-site-batsi__text, pp-site-batsi__title, pp-site-batsi__lead, pp-site-batsi__vis
+classes: pp-site-batsi, pp-site-batsi--landing, pp-site-ask, pp-site-chat, pp-site-chat--tall, pp-site-chat__by, pp-site-chat__wait, pp-site-chat__dot, pp-site-batsi__split, pp-site-batsi__text, pp-site-batsi__title, pp-site-batsi__lead, pp-site-batsi__vis
 primeng: none (public site only, no PrimeNG)
 replaces: the public site's .lm-batsi, .qchips and .chat, which used a blurred glow with a literal colour, colour transitions and inline svg
 ---
@@ -20,7 +20,8 @@ A band on a module page where a visitor presses a sample question and watches Ba
 5. **Conversation** (`pp-site-chat`): a frosted card with a top bar (`pp-site-chat__top`: the Batsi icon and name `pp-site-chat__name`, and "Sample data" `pp-site-chat__note`) and a body (`pp-site-chat__body`, a polite live region).
 6. **Messages**: the visitor's (`pp-site-chat__msg--me`, dark, right) and Batsi's (`pp-site-chat__msg--ai`, mint, left) with "Batsi" and the sparkle icon (`pp-site-chat__who`), result rows (`pp-site-chat__rows`, `pp-site-chat__row` with a `pp-site-status`), a question (`pp-site-chat__ask`) and actions (`pp-site-chat__actions` with two small [Buttons](button.html)).
 7. **Typing** (`pp-site-chat__typing`): three dots before an answer.
-8. **Log line** (`pp-site-chat__logged`): a dashed pill, "Approved by Jane Smith · logged".
+8. **Log line** (`pp-site-chat__logged`): a dashed pill, "Approved by Jane Smith · logged". On the landing page it starts with a mint dot (`pp-site-chat__dot`).
+9. **Landing** (`pp-site-batsi--landing`): the section headline size, numbered [Site question tabs](site-qtabs.html) instead of chips, [Site facts](site-facts.html) and a Link. Its conversation is `pp-site-chat--tall` (the body keeps 520px, `layout.site.chat.tall`, so answers never move the page; rows rise in one by one), the top bar names who asks (`pp-site-chat__by`, "· Jane Smith, HR"), and a row that waits starts with a coral "!" (`pp-site-chat__wait`) where a done row has a tick (Site ok).
 
 ## States
 

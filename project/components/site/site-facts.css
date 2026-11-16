@@ -1,0 +1,4 @@
+/* Site facts: a short row of ticked facts under a band's questions. Spec: site-facts.md. */
+.pp-site-facts { display: flex; flex-wrap: wrap; gap: var(--space-100) calc(var(--space-200) + var(--space-025)); margin: 0; padding: 0; list-style: none; font: var(--font-body); color: var(--color-text-subtle); }
+.pp-site-facts__item { display: inline-flex; align-items: center; gap: var(--space-100); }
+.pp-site-facts__item > .lucide { flex: none; inline-size: var(--size-icon-medium); block-size: var(--size-icon-medium); color: var(--color-text-agent); }
