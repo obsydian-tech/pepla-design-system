@@ -54,6 +54,7 @@ export const siteMotion = {
   'motion.site.duration.loop.turn': '70s',   // one turn of a ring
   'motion.site.duration.loop.sweep': '6s',   // one sweep of the radar
   'motion.site.duration.loop.pulse': '2400ms', // one breath of a live dot
+  'motion.site.duration.loop.ping': '2200ms',  // one ring growing out of a live dot (where the data is kept, the employee record)
   'motion.site.duration.loop.orb.offset': '-9s', // start offset per --_i position, so soft lights never move together
   'motion.site.duration.loop.shine': '5200ms', // one pass of the light across an accent headline
   'motion.site.duration.loop.grain': '1400ms', // one jitter of the hero grain

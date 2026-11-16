@@ -1,0 +1,41 @@
+/* Site audit log: entries arrive one after another, each with a time, who did it (person or Batsi) and what happened.
+   One entry can wait for approval and carry an Approve button. Spec: site-audit.md. Entries arrive as demo pops
+   (opacity and transform); the waiting wash is a layer that fades out, so nothing changes colour by transition. */
+.pp-site-audit { display: grid; gap: var(--space-150); font: var(--font-body); color: var(--color-text); }
+.pp-site-audit__list { display: grid; align-content: start; margin: 0; padding: 0; list-style: none; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-audit__list--tall { min-block-size: 300px; }
+.pp-site-audit__row {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: calc(var(--space-500) + var(--space-050)) 150px minmax(0, 1fr);
+  gap: var(--space-150);
+  align-items: center;
+  padding: calc(var(--space-150) - var(--space-025)) var(--space-200);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+.pp-site-audit__row:last-child { border-bottom: 0; }
+.pp-site-audit__row::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--color-background-warning-subtle); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-audit__row--waiting::before { opacity: .45; }
+[data-site-live] .pp-site-audit__row--new { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+@container (max-width: 640px) {
+  .pp-site-audit__row { grid-template-columns: calc(var(--space-500) + var(--space-050)) minmax(0, 1fr); row-gap: var(--space-050); }
+  .pp-site-audit__what { grid-column: 1 / -1; }
+}
+.pp-site-audit__time { color: var(--color-text-subtle); font: var(--font-body-small); font-variant-numeric: tabular-nums; }
+.pp-site-audit__what { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); min-width: 0; color: var(--color-text-subtle); }
+.pp-site-audit__what .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-audit__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-100); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-audit__export { display: inline-flex; align-items: center; gap: var(--space-075); color: var(--color-text-brand); font-weight: var(--font-weight-semibold); }
+.pp-site-audit__export > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+
+/* As a card on its own (the landing page's Trust section): a head line, the entries without their own frame, a foot. */
+.pp-site-audit--card { gap: 0; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-site-card); min-width: 0; }
+.pp-site-audit__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: calc(var(--space-150) + var(--space-025)) var(--space-250); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-audit__title { font: var(--font-body-strong); }
+.pp-site-audit__note { margin-left: auto; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-audit--card > .pp-site-audit__list { border: 0; border-radius: 0; min-block-size: 430px; }
+.pp-site-audit--card > .pp-site-audit__foot { padding: var(--space-150) var(--space-250); border-top: var(--border-width) solid var(--color-border); }
+@container (min-width: 641px) { .pp-site-audit--card .pp-site-audit__row { grid-template-columns: calc(var(--space-500) + var(--space-050)) 160px minmax(0, 1fr); padding-inline: var(--space-250); } }
+[data-site-still] .pp-site-audit__row::before { transition: none; }
+[data-site-still] .pp-site-audit__row--new, [data-site-still] .pp-site-audit__what .pp-button--pressed { animation: none; }

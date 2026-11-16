@@ -41,6 +41,8 @@
 .pp-site-section--violet { background: var(--color-site-wash-violet); }
 .pp-site-section--mint { background: var(--color-site-wash-mint); }
 .pp-site-section--coral { background: var(--color-site-wash-coral); }
+/* The violet wash fading in from white and back out (the landing page's Trust and POPIA section). */
+.pp-site-section--violet-fade { background: linear-gradient(var(--elevation-surface-raised), var(--color-site-wash-violet) 30%, var(--color-site-wash-violet) 70%, var(--elevation-surface-raised)); }
 /* A section that holds a soft light or a sticky demo clips what it draws outside itself. */
 .pp-site-section--clip { overflow: clip; isolation: isolate; }
 

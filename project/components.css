@@ -3196,6 +3196,49 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-approval__log > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
 [data-site-still] .pp-site-approval__decide .pp-button--pressed { animation: none; }
 
+/* ---- site/site-audit ---- */
+/* Site audit log: entries arrive one after another, each with a time, who did it (person or Batsi) and what happened.
+   One entry can wait for approval and carry an Approve button. Spec: site-audit.md. Entries arrive as demo pops
+   (opacity and transform); the waiting wash is a layer that fades out, so nothing changes colour by transition. */
+.pp-site-audit { display: grid; gap: var(--space-150); font: var(--font-body); color: var(--color-text); }
+.pp-site-audit__list { display: grid; align-content: start; margin: 0; padding: 0; list-style: none; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-audit__list--tall { min-block-size: 300px; }
+.pp-site-audit__row {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: calc(var(--space-500) + var(--space-050)) 150px minmax(0, 1fr);
+  gap: var(--space-150);
+  align-items: center;
+  padding: calc(var(--space-150) - var(--space-025)) var(--space-200);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+.pp-site-audit__row:last-child { border-bottom: 0; }
+.pp-site-audit__row::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--color-background-warning-subtle); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-audit__row--waiting::before { opacity: .45; }
+[data-site-live] .pp-site-audit__row--new { animation: pp-site-pop var(--motion-site-duration-pop) var(--motion-site-easing) both; }
+@container (max-width: 640px) {
+  .pp-site-audit__row { grid-template-columns: calc(var(--space-500) + var(--space-050)) minmax(0, 1fr); row-gap: var(--space-050); }
+  .pp-site-audit__what { grid-column: 1 / -1; }
+}
+.pp-site-audit__time { color: var(--color-text-subtle); font: var(--font-body-small); font-variant-numeric: tabular-nums; }
+.pp-site-audit__what { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); min-width: 0; color: var(--color-text-subtle); }
+.pp-site-audit__what .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-audit__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-100); color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-audit__export { display: inline-flex; align-items: center; gap: var(--space-075); color: var(--color-text-brand); font-weight: var(--font-weight-semibold); }
+.pp-site-audit__export > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+
+/* As a card on its own (the landing page's Trust section): a head line, the entries without their own frame, a foot. */
+.pp-site-audit--card { gap: 0; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); box-shadow: var(--elevation-shadow-site-card); min-width: 0; }
+.pp-site-audit__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); padding: calc(var(--space-150) + var(--space-025)) var(--space-250); border-bottom: var(--border-width) solid var(--color-border); }
+.pp-site-audit__title { font: var(--font-body-strong); }
+.pp-site-audit__note { margin-left: auto; color: var(--color-text-subtle); font: var(--font-body-small); }
+.pp-site-audit--card > .pp-site-audit__list { border: 0; border-radius: 0; min-block-size: 430px; }
+.pp-site-audit--card > .pp-site-audit__foot { padding: var(--space-150) var(--space-250); border-top: var(--border-width) solid var(--color-border); }
+@container (min-width: 641px) { .pp-site-audit--card .pp-site-audit__row { grid-template-columns: calc(var(--space-500) + var(--space-050)) 160px minmax(0, 1fr); padding-inline: var(--space-250); } }
+[data-site-still] .pp-site-audit__row::before { transition: none; }
+[data-site-still] .pp-site-audit__row--new, [data-site-still] .pp-site-audit__what .pp-button--pressed { animation: none; }
+
 /* ---- site/site-balance ---- */
 /* Site leave balances: a box of leave types, each with the days left. The annual leave line has a bar that
    shrinks as days come off. Spec: site-balance.md. The bar is a full-width fill that scales (transform), and the number
@@ -3725,6 +3768,28 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-confirm__step--now .pp-site-confirm__status { background: var(--color-background-brand-subtlest); color: var(--color-text-brand); }
 .pp-site-confirm__alt { margin: 0; font: var(--font-body); color: var(--color-text-subtle); }
 .pp-site-confirm__alt a { color: var(--color-text-brand); font-weight: var(--font-weight-semibold); }
+
+/* ---- site/site-consent ---- */
+/* Site POPIA consent: the privacy notice is agreed to first, and only then does the upload unlock. Spec: site-consent.md.
+   The agreed wash and the tick fill are layers that fade in; the locked upload is faded with opacity; the upload's
+   words and status are stacks that crossfade. Nothing changes colour by transition. */
+.pp-site-consent { display: grid; gap: var(--space-150); font: var(--font-body); color: var(--color-text); }
+.pp-site-consent__notice { position: relative; isolation: isolate; display: grid; gap: var(--space-150); padding: var(--space-200); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-consent__notice::before { content: ""; position: absolute; inset: calc(var(--border-width) * -1); z-index: -1; border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: inherit; background: var(--color-background-agent-subtlest); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-consent__title { margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-site-consent__text { margin: 0; color: var(--color-text-subtle); }
+.pp-site-consent__agree { display: flex; align-items: center; gap: var(--space-150); }
+.pp-site-consent__box { position: relative; isolation: isolate; display: grid; flex: none; place-items: center; inline-size: var(--size-icon-medium); block-size: var(--size-icon-medium); box-sizing: border-box; border: var(--border-width-selected) solid var(--color-border-input); border-radius: var(--radius-xsmall); color: var(--color-icon-inverse); }
+.pp-site-consent__box::before { content: ""; position: absolute; inset: calc(var(--border-width-selected) * -1); z-index: -1; border-radius: inherit; background: var(--color-brand-mint); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-consent__box > .lucide { inline-size: var(--space-150); block-size: var(--space-150); opacity: 0; transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-consent--agreed .pp-site-consent__notice::before, .pp-site-consent--agreed .pp-site-consent__box::before, .pp-site-consent--agreed .pp-site-consent__box > .lucide { opacity: 1; }
+.pp-site-consent__upload { display: flex; align-items: center; gap: var(--space-150); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-large); background: var(--elevation-surface-raised); color: var(--color-text-subtle); transition: opacity var(--motion-site-duration-fade) var(--motion-site-easing); }
+.pp-site-consent__upload > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-consent__upload > .pp-site-state--start { flex: 1; }
+.pp-site-consent__upload--locked { opacity: .55; }
+[data-site-still] .pp-site-consent__notice::before, [data-site-still] .pp-site-consent__box::before, [data-site-still] .pp-site-consent__box > .lucide, [data-site-still] .pp-site-consent__upload { transition: none; }
+.pp-site-consent__log { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-075) var(--space-150); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-full); color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-consent__log > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
 
 /* ---- site/site-contract ---- */
 /* Site contract: an employment contract from the company template. Details fill in from the record, the signature is
@@ -4392,6 +4457,31 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 [data-site-still] .pp-site-hero__grain, [data-site-still] .pp-site-hero__cue::after { animation: none; }
 @media (prefers-reduced-motion: reduce) { .pp-site-hero__grain { animation: none; } }
 
+/* ---- site/site-hidden ---- */
+/* Site hidden personal data: ID number, bank account and salary hidden, with Show on the ID number. Show swaps the
+   hidden value for the real one (two copies that crossfade, so the colour never transitions), logs the view, and the
+   value hides again. Spec: site-hidden.md. */
+.pp-site-hidden { display: grid; gap: var(--space-100); font: var(--font-body); color: var(--color-text); }
+.pp-site-hidden__title { display: flex; align-items: center; gap: var(--space-100); margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-site-hidden__title > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); color: var(--color-icon-subtle); }
+.pp-site-hidden__row { display: flex; flex-wrap: nowrap; align-items: center; gap: var(--space-100); box-sizing: border-box; min-height: var(--size-touch-target); padding: var(--space-075) var(--space-150); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-medium); background: var(--elevation-surface-raised); }
+.pp-site-hidden__label { min-width: 76px; color: var(--color-text-subtle); }
+.pp-site-hidden__value { display: inline-grid; white-space: nowrap; font: var(--font-body-strong); font-variant-numeric: tabular-nums; letter-spacing: var(--size-tracking-masked); }
+.pp-site-hidden__copy { grid-area: 1 / 1; transition: opacity var(--motion-site-duration-header) var(--motion-site-easing); }
+.pp-site-hidden__copy--shown { color: var(--color-text-brand); opacity: 0; }
+.pp-site-hidden__value--shown > .pp-site-hidden__copy { opacity: 0; }
+.pp-site-hidden__value--shown > .pp-site-hidden__copy--shown { opacity: 1; }
+.pp-site-hidden__row > .pp-button { margin-left: auto; }
+.pp-site-hidden__row .pp-button--pressed { animation: pp-site-press var(--motion-site-duration-pop) var(--motion-site-easing); }
+.pp-site-hidden__note { margin: 0; min-height: 1lh; color: var(--color-text-subtle); font: var(--font-body-small); }
+
+/* As a card on its own (the landing page's Trust section). */
+.pp-site-hidden--card { padding: var(--space-200); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+[data-site-still] .pp-site-hidden__copy { transition: none; }
+[data-site-still] .pp-site-hidden__row .pp-button--pressed { animation: none; }
+.pp-site-hidden__log { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-075); padding: var(--space-075) var(--space-150); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-full); color: var(--color-text-subtlest); font: var(--font-body-small); }
+.pp-site-hidden__log > .lucide { flex: none; inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+
 /* ---- site/site-lights ---- */
 /* Site lights: soft coloured circles that drift behind a hero or a band. Spec: site-lights.md. Transform only. */
 .pp-site-lights { position: absolute; inset: 0; z-index: -1; overflow: clip; pointer-events: none; }
@@ -4620,6 +4710,11 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 }
 @keyframes pp-site-turn { to { transform: rotate(360deg); } }
 @keyframes pp-site-breathe { 50% { transform: scale(1.08); } }
+/* A live dot's ring: grows out of the dot and fades (the approved site drew it with a growing box-shadow). */
+@keyframes pp-site-ping {
+  0% { opacity: .5; transform: scale(1); }
+  70%, 100% { opacity: 0; transform: scale(2.6); }
+}
 @keyframes pp-site-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: .4; }
@@ -4751,6 +4846,18 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-phone__note { margin: 0; text-align: center; font: var(--font-body-small); color: var(--color-text-subtlest); }
 [data-site-still] .pp-site-phone__fill, [data-site-still] .pp-site-phone__fill::before, [data-site-still] .pp-site-phone__fill::after, [data-site-still] .pp-site-phone__box::before, [data-site-still] .pp-site-phone__box > .lucide, [data-site-still] .pp-site-phone__track { transition: none; }
 [data-site-still] .pp-site-phone__open--press, [data-site-still] .pp-site-phone__doc--bad .pp-site-phone__error { animation: none; }
+
+/* ---- site/site-queue ---- */
+/* Site approval queue: what waits for a person to approve. A suggestion from Batsi and a write that came in through
+   the API, each as an item that steps in. Spec: site-queue.md. The Approve and Reject buttons, the accepted line and
+   the log line are a Site leave approval decision under the items. */
+.pp-site-queue { display: grid; gap: var(--space-100); font: var(--font-body); }
+.pp-site-queue__item { display: grid; gap: var(--space-075); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); color: var(--color-text); }
+.pp-site-queue__item--agent { border-color: var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); }
+.pp-site-queue__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-100); }
+.pp-site-queue__row > .pp-site-state, .pp-site-queue__row > .pp-site-status { margin-left: auto; }
+.pp-site-queue__name { font: var(--font-body-strong); }
+.pp-site-queue__note { color: var(--color-text-subtle); font: var(--font-body-small); }
 
 /* ---- site/site-read ---- */
 /* Site document read: Batsi reads an ID document in front of the visitor. A scan light passes over the document,
@@ -4949,6 +5056,25 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-req__down > .lucide { inline-size: var(--size-icon-medium); block-size: var(--size-icon-medium); }
 [data-site-still] .pp-site-req__box::before { transition: none; }
 
+/* ---- site/site-residency ---- */
+/* Site data residency: where the data is kept. A pin with a live dot and the place, then what is stored there.
+   Spec: site-residency.md. The dot's ring grows and fades (transform and opacity) in a loop. */
+.pp-site-residency { display: grid; gap: var(--space-100); font: var(--font-body); color: var(--color-text); }
+.pp-site-residency__title { display: flex; align-items: center; gap: var(--space-100); margin: 0; font: var(--font-heading-xsmall); letter-spacing: var(--font-heading-xsmall-tracking); }
+.pp-site-residency__title > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); color: var(--color-icon-subtle); }
+.pp-site-residency__pin { display: flex; align-items: center; gap: var(--space-150); padding: var(--space-150) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-background-agent-subtle-hovered); border-radius: var(--radius-large); background: var(--color-background-agent-subtlest); color: var(--color-text-agent); font: var(--font-body-strong); }
+.pp-site-residency__dot { position: relative; flex: none; inline-size: calc(var(--space-100) + var(--space-025)); block-size: calc(var(--space-100) + var(--space-025)); border-radius: 50%; background: var(--color-brand-mint); }
+.pp-site-residency__dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--color-brand-mint); animation: pp-site-ping var(--motion-site-duration-loop-ping) var(--motion-site-easing) infinite; }
+.pp-site-residency__text { margin: 0; color: var(--color-text-subtle); }
+.pp-site-residency__list { display: grid; gap: var(--space-100); }
+.pp-site-residency__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-150); padding: calc(var(--space-150) - var(--space-025)) calc(var(--space-150) + var(--space-025)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-residency__row > .pp-site-status { margin-left: auto; }
+
+/* As a card on its own (the landing page's Trust section). */
+.pp-site-residency--card { padding: var(--space-200); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-large); background: var(--elevation-surface-raised); }
+.pp-site-residency--card .pp-site-residency__pin { padding: var(--space-100) var(--space-150); border-radius: var(--radius-medium); }
+[data-site-still] .pp-site-residency__dot::after { animation: none; opacity: 0; }
+
 /* ---- site/site-risk ---- */
 /* Site risk list: the candidates Batsi has flagged, one row each with the reason and a status, under a count.
    Spec: site-risk.md. A row's mint "fixed" look is a layer that fades in (opacity). */
@@ -5037,6 +5163,8 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-section--violet { background: var(--color-site-wash-violet); }
 .pp-site-section--mint { background: var(--color-site-wash-mint); }
 .pp-site-section--coral { background: var(--color-site-wash-coral); }
+/* The violet wash fading in from white and back out (the landing page's Trust and POPIA section). */
+.pp-site-section--violet-fade { background: linear-gradient(var(--elevation-surface-raised), var(--color-site-wash-violet) 30%, var(--color-site-wash-violet) 70%, var(--elevation-surface-raised)); }
 /* A section that holds a soft light or a sticky demo clips what it draws outside itself. */
 .pp-site-section--clip { overflow: clip; isolation: isolate; }
 
@@ -5331,6 +5459,39 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
 .pp-site-timeline__waiting-row .pp-site-state, .pp-site-timeline__waiting-row .pp-site-status { margin-left: auto; }
 [data-site-still] .pp-site-timeline__fill { transform: scaleY(1); transition: none; }
 [data-site-still] .pp-site-timeline__dot::after { opacity: 1; transition: none; }
+
+/* ---- site/site-trust ---- */
+/* Site trust layout: the landing page's Trust and POPIA section puts the audit log beside a column of cards
+   (hidden personal data, where the data is kept, Play again). Spec: site-trust.md. Layout only. */
+.pp-site-trust { display: grid; gap: var(--space-200); }
+@container (min-width: 1080px) { .pp-site-trust { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); align-items: start; gap: var(--space-250); } }
+.pp-site-trust__side { display: grid; gap: var(--space-150); align-content: start; min-width: 0; }
+.pp-site-trust__again {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-075);
+  min-height: var(--size-touch-target);
+  padding: var(--space-050) var(--space-100);
+  border: 0;
+  background: none;
+  color: var(--color-text-brand);
+  font: var(--font-label-small);
+  cursor: pointer;
+}
+.pp-site-trust__again > .lucide { inline-size: var(--size-icon-small); block-size: var(--size-icon-small); }
+.pp-site-trust__again:hover { text-decoration: underline; }
+.pp-site-trust__again:focus-visible { outline: var(--border-width-focused) solid var(--color-border-focused); outline-offset: var(--focus-ring-offset); }
+
+/* ---- site/site-who ---- */
+/* Site who did it: the name on an audit entry or a queue item, with a small tag that says whether a person or Batsi
+   (an agent) did it. Spec: site-who.md. Static: it never animates. */
+.pp-site-who { display: inline-flex; align-items: center; gap: var(--space-075); font: var(--font-body-strong); letter-spacing: var(--font-body-strong-tracking); white-space: nowrap; }
+.pp-site-who__kind { padding: 0 var(--space-075); border: var(--border-width) solid; border-radius: var(--radius-xsmall); font: var(--font-site-group); font-size: .875em; letter-spacing: var(--font-site-group-tracking); text-transform: uppercase; }
+.pp-site-who--agent { color: var(--color-text-agent); }
+.pp-site-who--agent > .pp-site-who__kind { border-color: var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); }
+.pp-site-who--person { color: var(--color-text-brand); }
+.pp-site-who--person > .pp-site-who__kind { border-color: var(--color-background-brand-subtle); background: var(--color-background-brand-subtlest); }
 
 /* ---- records/approval-chain ---- */
 /* Approval chain. Spec: approval-chain.md

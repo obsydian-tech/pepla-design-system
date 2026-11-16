@@ -1,0 +1,8 @@
+/* Site who did it: the name on an audit entry or a queue item, with a small tag that says whether a person or Batsi
+   (an agent) did it. Spec: site-who.md. Static: it never animates. */
+.pp-site-who { display: inline-flex; align-items: center; gap: var(--space-075); font: var(--font-body-strong); letter-spacing: var(--font-body-strong-tracking); white-space: nowrap; }
+.pp-site-who__kind { padding: 0 var(--space-075); border: var(--border-width) solid; border-radius: var(--radius-xsmall); font: var(--font-site-group); font-size: .875em; letter-spacing: var(--font-site-group-tracking); text-transform: uppercase; }
+.pp-site-who--agent { color: var(--color-text-agent); }
+.pp-site-who--agent > .pp-site-who__kind { border-color: var(--color-background-agent-subtle-hovered); background: var(--color-background-agent-subtlest); }
+.pp-site-who--person { color: var(--color-text-brand); }
+.pp-site-who--person > .pp-site-who__kind { border-color: var(--color-background-brand-subtle); background: var(--color-background-brand-subtlest); }
