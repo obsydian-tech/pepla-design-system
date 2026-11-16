@@ -15,7 +15,7 @@ A password field is a Text field whose value is hidden as it is typed, with an e
 
 1. **Field**: a `pp-text-field` wrapper with `pp-password`, holding a `pp-text-field__input` of `type="password"`. Label, help and error come from Field.
 2. **Show/hide button**: a `pp-text-field__action` with `eye` (show) or `eye-off` (hide). 32px, 44px hit area on touch, 48px on phone.
-3. **Help** (new passwords): the rule, said once: "At least 12 characters."
+3. **Help** (new passwords): the rule, said once: "At least 12 characters, with an upper case letter, a lower case letter, a number and a symbol."
 4. **Strength hint** (new passwords): `pp-password-strength`, four bars and a line with an icon and a word.
 5. **Caps Lock notice** (optional): `pp-password-caps`, `triangle-alert` and "Caps Lock is on".
 
@@ -28,7 +28,7 @@ A password field is a Text field whose value is hidden as it is typed, with an e
 | Good | `3` | 3, success | `check` "Good." |
 | Strong | `4` | 4, success | `circle-check` "Strong." |
 
-The word carries the meaning; the bars only repeat it (rule 4). Score with a library that checks common and breached passwords, not with rules about symbols and capitals.
+The word carries the meaning; the bars only repeat it (rule 4). Score with a library that checks common and breached passwords. The strength line is separate from the pool rule in the help text, which is checked on submit.
 
 ## States
 
@@ -43,18 +43,18 @@ The word carries the meaning; the bars only repeat it (rule 4). Score with a lib
 ## Behaviour
 
 - Never block paste, and never block autofill. People paste from password managers; blocking it makes passwords weaker.
-- Never block typing past a length, and never trim spaces. Spaces are allowed, so a sentence works as a password.
+- Never block typing past a length, and never trim spaces. Spaces are allowed.
 - The eye button switches the input between `password` and `text` and keeps the cursor where it was. Focus stays in the input.
 - The password hides again when the form is submitted or the person leaves the page.
 - Strength updates as the person types, at most every 300ms. Show it only for new passwords, never on sign in.
-- Check the minimum length on blur and on submit, and say what is missing: "Use at least 12 characters. You have 8."
+- Check the minimum length on blur and on submit, and say what is missing: "Use at least 12 characters. You have 8." Missing character types get their own lines: "Add a number."
 - Confirming a new password is optional. If you ask for it, compare on blur of the second field, and suggest showing both to compare.
 - Sign-in errors never say which part was wrong: "That employee number or password is not right."
 
 ## Content
 
 - Labels: "Password" on sign in; "New password" and "Confirm new password" when setting one. No placeholder.
-- Help states the rule once, as a fact: "At least 12 characters. A short sentence is easy to remember."
+- Help states the rule once, as a fact: "At least 12 characters, with an upper case letter, a lower case letter, a number and a symbol."
 - Do not list rules people cannot see being met. If there is a rule, show its progress in the strength line.
 - Button labels: "Show password" and "Hide password". If a form has two password fields, name them: "Show new password".
 

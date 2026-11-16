@@ -11,7 +11,7 @@ The screens a person sees before they are inside Naleko People, each at desktop 
 
 ## Screens
 
-- **HR sign in**. Email and password for Mokoena Logistics. Uses sign-in page, logo, field, text field, password, button.
+- **Sign in**. Email and password for Mokoena Logistics. Uses sign-in page, logo, field, text field, password, button.
 - **Invite email**. The welcome email Ayanda Zulu gets, with one button to set a password, who sent it and when the link expires. Uses sign-in page, logo, button.
 - **Set your password**. The email filled in and read-only, a new password with its help text. Uses sign-in page, field, text field, password, button.
 - **Link expired**. No form; who can send a new link. Uses sign-in page, button.
