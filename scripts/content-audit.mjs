@@ -64,8 +64,9 @@ export function audit() {
       const label = text(m[2]);
       if (!label && !/aria-label(?:ledby)?="/.test(m[1])) report(m.index, 'a11y', 'icon-only button without aria-label');
       if (BAD_BUTTONS.test(label)) report(m.index, 'content', `button says "${label}": buttons say the outcome`);
-      // A short acronym ("HR") is not shouting, even when a pressed-state copy repeats it ("HR HR").
-      if (label && label.split(/\s+/).some((w) => w.length > 3) && label === label.toUpperCase() && /[A-Z]/.test(label)) report(m.index, 'content', `button in capitals: "${label}"`);
+      // Acronyms are not shouting, even when a pressed-state copy repeats them ("HR HR", "REST API REST API").
+      const ACRONYMS = /^(?:HR|ID|API|REST|MCP|UIF|CSV|SARS|POPIA|BCEA)$/;
+      if (label && label.split(/\s+/).some((w) => w.length > 3 && !ACRONYMS.test(w)) && label === label.toUpperCase() && /[A-Z]/.test(label)) report(m.index, 'content', `button in capitals: "${label}"`);
     }
     // 3b. One way to mark fields per form (form-layout.md): "(optional)" on the few optional fields, or * on the
     // few required ones, never both

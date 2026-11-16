@@ -27,6 +27,8 @@ export const siteLight = {
   'color.site.orb.mint': 'alpha({mint.300}, 40)',
   'color.site.orb.coral': 'alpha({coral.300}, 30)',
   'color.site.orb.sky': 'alpha({sky.300}, 30)',
+  // The violet light behind the Integrations section (it follows the pointer).
+  'color.site.glow.violet': 'alpha({violet.700}, 10)',
   // The code editor: the one dark surface on the site.
   'color.site.code.surface': '#110e29',
   'color.site.code.surface.raised': '#1b1640',
@@ -62,6 +64,7 @@ export const siteMotion = {
   'motion.site.duration.loop.flow': '14s',     // one flow of the company-name gradient
   'motion.site.duration.loop.flow.reduced': '28s', // reduced motion: half speed, never still
   'motion.site.duration.loop.dot': '1s',        // one bounce of a typing dot
+  'motion.site.duration.loop.caret': '1s',      // one blink of the code editor's caret
   'motion.site.duration.loop.batsi': '40s',     // one turn of the glow behind the Ask Batsi band
   'motion.site.duration.loop.batsi.reduced': '80s', // reduced motion: half speed, never still
   'motion.site.duration.loop.breathe': '6s',   // one breath of the header logo's circles
@@ -114,4 +117,5 @@ export const siteType = {
   'site.lead':    [400, 18, 28, '0', 'body'],                                         // line under a headline
   'site.eyebrow': [700, 12, 16, '0.16em', 'body'],                                    // small caps label above a headline
   'site.group':   [700, 12, 16, '0.08em', 'body'],                                    // small caps label above a group inside a demo panel
+  'site.code':    [400, '13.5px', '1.75', '0', 'code'],                               // the code in the site's code editor
 };
