@@ -11,7 +11,7 @@ import { hasIcon } from './lib.mjs';
 const kits = loadKits();
 const tokenCss = ['palette', 'colors', 'typography', 'spacing', 'shape', 'motion', 'layers'].map((n) => readFileSync(new URL(`../project/tokens/${n}.css`, import.meta.url), 'utf8')).join('\n');
 const defined = new Set([...tokenCss.matchAll(/(--[a-z0-9-]+)\s*:/g)].map((m) => m[1]));
-const components = ['components.css', 'tokens/base.css', 'tokens/typography.css'].map((n) => readFileSync(new URL(`../project/${n}`, import.meta.url), 'utf8')).join('\n');
+const components = ['components.css', 'site.css', 'tokens/base.css', 'tokens/typography.css'].map((n) => readFileSync(new URL(`../project/${n}`, import.meta.url), 'utf8')).join('\n');
 const known = new Set([...components.matchAll(/\.(pp-[a-z0-9_-]+)/g)].map((m) => m[1]));
 const RAW = /#[0-9a-fA-F]{3,8}\b|\brgba?\(|\bhsla?\(|\boklch\(|\bhwb\(/;
 

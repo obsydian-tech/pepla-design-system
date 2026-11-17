@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { loadComponents, bundleCss } from './components.mjs';
+import { loadComponents, bundleCss, bundleSiteCss } from './components.mjs';
 import { hasIcon } from './lib.mjs';
 
 const list = loadComponents();
@@ -49,4 +49,16 @@ for (const c of list) {
 test('project/components.css matches the component sources', () => {
   const onDisk = readFileSync(new URL('../project/components.css', import.meta.url), 'utf8');
   assert.equal(onDisk, bundleCss(list), 'project/components.css is stale. Run npm run build.');
+});
+
+test('project/site.css matches the site component sources', () => {
+  const onDisk = readFileSync(new URL('../project/site.css', import.meta.url), 'utf8');
+  assert.equal(onDisk, bundleSiteCss(list), 'project/site.css is stale. Run npm run build.');
+});
+
+test('components.css holds no site rule and site.css holds only site rules', () => {
+  assert.doesNotMatch(bundleCss(list), /pp-site/, 'components.css must not contain pp-site text');
+  const site = list.filter((c) => c.group === 'site' && c.css);
+  assert.ok(site.length > 0, 'the site group has no CSS');
+  assert.doesNotMatch(bundleSiteCss(list), /^\/\* ---- (?!site\/)/m, 'site.css holds a block from another group');
 });
