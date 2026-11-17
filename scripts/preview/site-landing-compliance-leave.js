@@ -3,10 +3,10 @@
 (function () {
   var one = function (s, r) { return (r || document).querySelector(s); };
   var all = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function runner() { var t = []; return { at: function (ms, f) { t.push(setTimeout(f, reduce ? 0 : ms)); }, stop: function () { t.forEach(clearTimeout); t = []; } }; }
+  /* Reduced motion: demos, fades and slow light keep playing. Only large movement stops (none in this script). */
+  function runner() { var t = []; return { at: function (ms, f) { t.push(setTimeout(f, ms)); }, stop: function () { t.forEach(clearTimeout); t = []; } }; }
   function onView(el, fn, th) {
-    if (reduce || !('IntersectionObserver' in window)) { fn(); return; }
+    if (!('IntersectionObserver' in window)) { fn(); return; }
     var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { fn(); o.disconnect(); } }, { threshold: th });
     o.observe(el);
   }
@@ -28,7 +28,7 @@
       else { c.className = 'pp-site-status pp-site-status--' + (d <= 30 ? 'warning' : 'success'); c.textContent = d + (d === 1 ? ' day' : ' days'); }
       all('.pp-site-ledger__pip', r).forEach(function (p) {
         var on = d <= +p.getAttribute('data-r');
-        if (on && !p.classList.contains('pp-site-ledger__pip--sent') && !reduce) { p.classList.add('pp-site-ledger__pip--hit'); setTimeout(function () { p.classList.remove('pp-site-ledger__pip--hit'); }, 500); }
+        if (on && !p.classList.contains('pp-site-ledger__pip--sent')) { p.classList.add('pp-site-ledger__pip--hit'); setTimeout(function () { p.classList.remove('pp-site-ledger__pip--hit'); }, 500); }
         p.classList.toggle('pp-site-ledger__pip--sent', on);
       });
       r.classList.toggle('pp-site-ledger__row--late', d < 0);
@@ -89,7 +89,7 @@
       if (!sub.disabled) { flds.forEach(function (f) { f.classList.add('pp-site-request__field--set'); }); count.classList.add('pp-site-request__count--on'); sent(true); }
       JD.forEach(function (n) { d(n).classList.remove('pp-site-calendar__day--requested'); d(n).classList.add('pp-site-calendar__day--approved'); });
       dd.classList.add('pp-site-approval__decide--done'); state(st, 'done'); step(nudge, true);
-      var v = 15; (function dn() { if (v <= 11) { toast.classList.add('pp-site-request__toast--on'); return; } v--; bal(v); num.classList.add('pp-site-balance__num--flash'); setTimeout(dn, reduce ? 0 : 220); })();
+      var v = 15; (function dn() { if (v <= 11) { toast.classList.add('pp-site-request__toast--on'); return; } v--; bal(v); num.classList.add('pp-site-balance__num--flash'); setTimeout(dn, 220); })();
     }
     function play() {
       reset();

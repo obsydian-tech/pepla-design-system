@@ -3,10 +3,11 @@
 (function () {
   var one = function (s, r) { return (r || document).querySelector(s); };
   var all = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function runner() { var t = []; return { at: function (ms, f) { t.push(setTimeout(f, reduce ? 0 : ms)); }, stop: function () { t.forEach(clearTimeout); t = []; } }; }
+  /* Reduced motion: demos, fades and slow light keep playing. Only large movement stops (here: a card flying between columns). */
+  var noFly = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function runner() { var t = []; return { at: function (ms, f) { t.push(setTimeout(f, ms)); }, stop: function () { t.forEach(clearTimeout); t = []; } }; }
   function onView(el, fn, th) {
-    if (reduce || !('IntersectionObserver' in window)) { fn(); return; }
+    if (!('IntersectionObserver' in window)) { fn(); return; }
     var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { fn(); o.disconnect(); } }, { threshold: th });
     o.observe(el);
   }
@@ -31,7 +32,7 @@
     function finish(sent, m) {
       var a = one('.pp-site-chat__actions', m); if (!a) return; a.remove(); var s = S[cur];
       el('pp-site-chat__msg pp-site-chat__msg--me', sent ? s.go : 'Not now');
-      setTimeout(function () { el('pp-site-chat__logged', sent ? '<span class="pp-site-chat__dot" aria-hidden="true"></span>' + s.done + ' Approved by Jane Smith, 09:42' : 'Nothing sent. Batsi will ask again tomorrow at 09:00.'); }, reduce ? 0 : 450);
+      setTimeout(function () { el('pp-site-chat__logged', sent ? '<span class="pp-site-chat__dot" aria-hidden="true"></span>' + s.done + ' Approved by Jane Smith, 09:42' : 'Nothing sent. Batsi will ask again tomorrow at 09:00.'); }, 450);
     }
     function play(i) {
       R.stop(); body.innerHTML = ''; cur = i; var s = S[i];
@@ -48,7 +49,7 @@
         one('.pp-site-chat__actions', m).addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; pause(); finish(b.classList.contains('pp-button--primary'), m); });
         if (auto) R.at(2600, function () { var g = one('.pp-button--primary', m); if (g) { g.classList.add('pp-button--pressed'); R.at(400, function () { finish(true, m); }); } });
       });
-      if (auto && !reduce) R.at(DUR, function () { play((cur + 1) % S.length); });
+      if (auto) R.at(DUR, function () { play((cur + 1) % S.length); });
     }
     btns.forEach(function (b, i) { b.addEventListener('click', function () { pause(); play(i); }); });
     onView(one('.pp-site-chat', sec), function () { play(0); }, 0.35);
@@ -65,7 +66,7 @@
     function count() { all('.pp-site-board__col', cols).forEach(function (c) { one('.pp-site-board__count', c).textContent = all('.pp-site-board__card', c).length; }); }
     function move(id, ci) {
       var e = card(id), a = e.getBoundingClientRect(), c = col(ci); c.insertBefore(e, c.children[1] || null); count();
-      e.classList.add('pp-site-board__card--moved'); if (reduce) return;
+      e.classList.add('pp-site-board__card--moved'); if (noFly) return;
       var b = e.getBoundingClientRect(); e.animate([{ transform: 'translate(' + (a.left - b.left) + 'px,' + (a.top - b.top) + 'px)' }, { transform: 'none' }], { duration: 700, easing: 'cubic-bezier(.22,.7,.2,1)' });
     }
     function reset() {
@@ -82,7 +83,7 @@
       R.at(600, function () { move('c4', 2); });
       R.at(1800, function () { move('c1', 4); one('.pp-site-board__note', card('c1')).textContent = 'Offer signed · starts 1 Dec'; });
       R.at(3000, function () { card('c3').classList.add('pp-site-board__card--risk'); });
-      R.at(3800, function () { B.classList.add('pp-site-hiring__draft--on'); if (reduce) D.textContent = TXT; else type(0); });
+      R.at(3800, function () { B.classList.add('pp-site-hiring__draft--on'); type(0); });
       R.at(7600, function () { send.classList.add('pp-button--pressed'); R.at(400, sendIt); });
     }
     send.addEventListener('click', function () { R.stop(); D.textContent = TXT; sendIt(); });
