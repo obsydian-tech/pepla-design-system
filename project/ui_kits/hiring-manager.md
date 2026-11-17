@@ -22,6 +22,7 @@ The hiring manager's side of Naleko People at Mokoena Logistics, redrawn: Sipho 
 - **Review the IT setup (phone)**. The same page at 390 pixels wide.
 - **IT setup progress** (`pages/hm-bundle-progress/hm-bundle-progress.component.html`). Readiness, what Batsi noticed, each item with its owner and deadline, the action needed and the activity log. Uses person header, progress bar, section message (agent), laptop and access, person, lozenge, deadline chip, textarea, timeline, button.
 - **IT setup progress (phone)**. The same page stacked in one column at 390 pixels wide.
+- **Redrawn 17 Nov (no new words).** The "Action needed" card and the inline note form are gone. Batsi's note carries the one action, Escalate to the IT manager, and Add a note to the item, which opens the note in a drawer (**Add a note to the item**, a full page on a phone).
 - **Provisioning on a phone** (same page as Provisioning). The counts and the three setups stacked. Uses app shell (phone), stat card, card, progress bar, lozenge, deadline chip, button.
 
 ## Where the redraw changes today's app

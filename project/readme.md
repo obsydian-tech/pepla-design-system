@@ -131,6 +131,7 @@ The Angular app runs the same rules on its templates and stylesheets, plus a ban
 | Settings | `settings` |
 | Overview | `layout-dashboard` |
 | Company or department | `building-2` |
+| Roles (open roles to hire for) | `briefcase` |
 | Modules switched on for a company | `layout-grid` |
 
 **Roles (matches the role pill)**
