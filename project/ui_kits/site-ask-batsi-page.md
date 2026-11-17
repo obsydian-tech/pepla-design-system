@@ -18,7 +18,7 @@ Uses Site header, Site menu, Site sheet, Site hero, Site form page, Site Ask Bat
 
 ## Where the words come from
 
-Approved wording is reused as it stands: the landing's Ask Batsi headline, lead, three questions, three facts and chat; the Onboarding "Documents read and matched" section; the Security "Approvals" and "Audit trail" sections; the Security trust strip, two "Works together with" lines and the "Can Batsi act without approval?" answer. Every other line on the page is proposed and waits for approval. The proposed lines are listed in `site-kit/ASK-BATSI-WORDING.md`.
+Approved wording is reused as it stands: the landing's Ask Batsi headline, lead, three questions, three facts and chat; the Onboarding "Documents read and matched" section; the Security "Approvals" and "Audit trail" sections; the Security trust strip, two "Works together with" lines and the "Can Batsi act without approval?" answer. Every other line on the page was proposed and approved on 17 Nov 2026. The lines are listed in `site-kit/ASK-BATSI-WORDING.md`, section A.
 
 ## What the page claims, and where it is true in the code
 
