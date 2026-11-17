@@ -38,6 +38,6 @@ th[aria-sort="ascending"] .pp-table__sort, th[aria-sort="descending"] .pp-table_
   /* Roles, fields and menus need the whole line, so they are never squeezed into half of it. */
   /* A text action such as View is too wide to sit beside the title, so it takes its own line. */
   .pp-table--stack td.pp-table__actions:has(.pp-button--link) { position: static; grid-column: 1 / -1; }
-  .pp-table--stack td:has(.pp-confidence, .pp-role-group, .pp-text-field, .pp-select) { grid-column: 1 / -1; }
+  .pp-table--stack td:has(.pp-confidence, .pp-role-group, .pp-text-field, .pp-textarea, .pp-select) { grid-column: 1 / -1; }
   .pp-table--stack td.pp-table__actions { position: absolute; top: var(--space-150); right: var(--space-150); width: auto; }
 }
