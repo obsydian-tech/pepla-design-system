@@ -16,7 +16,7 @@ A kanban board of hiring stages for one role. Each column is a stage with a coun
 1. **Board** (`__board`): an `<ol>` of columns, in stage order. It scrolls sideways when the columns do not fit.
 2. **Column** (`__column`): header with the stage name, a `pp-badge` count and, when needed, an alert line (`__column-alert`): "1 interview feedback overdue", "1 waiting over 5 days".
 3. **Cards** (`__cards`): a `<ul>` of candidate cards, or an empty line "No one yet".
-4. **Card** (`__card`): a drag handle (`grip-vertical`), `pp-person` with the name as a link and one meta line, at most one lozenge (a deadline, a status, or an agent lozenge), and a "Move" icon button (`arrow-right-left`).
+4. **Card** (`__card`): a drag handle (`grip-vertical`), `pp-person` with the name as a link and one meta line, at most one lozenge (a deadline, a status, or an agent lozenge), and a "Move" icon button (`arrow-right-left`, named "Move {first name}").
 5. **Stage picker** (`__picker`, phone only): a select listing each stage with its count.
 6. **Live region**: a hidden `aria-live="polite"` element that announces moves.
 
@@ -34,9 +34,11 @@ A kanban board of hiring stages for one role. Each column is a stage with a coun
 
 ## Behaviour
 
-- **Drag**: pick a card up by its handle or body and drop it in another column. The move saves at once and shows a flag with "Undo" for 5 seconds.
-- **Keyboard and phone**: the "Move" button opens a menu of the other stages ("Move to Offer"). Focus returns to the card in its new column. The live region says "Bongani Mthembu moved to Offer".
-- Some moves need more: moving to Offer opens the offer form; moving to "Not hired" asks for a reason. Those open a dialog instead of moving straight away.
+- **Drag**: pick a card up by its handle or body and drop it in another column. A drop never moves the card: the card stays where it was and the Move dialog opens with the column it was dropped on in "Move to". The card moves only when a reason is given and the screen saves the move.
+- **Move button** (keyboard and phone): opens the same Move dialog, "Move {first name}", with "Move to" on the card's own stage. Cancel, Close and Escape leave the card where it was and return focus to the button.
+- **Move dialog**: "Move to" (every stage, in order) and "Why? (required)" with the help "Saved with your name and the time." Moving to an earlier stage adds "Moving back a stage needs a reason too." The Move button stays off until there is a reason and a different stage.
+- The board asks the screen to move the card (`moveRequested`, with the reason) and the screen updates the stages after it saves. The board never changes them itself in this mode.
+- Some moves need more: moving to Offer opens the offer form; moving to "Not hired" has its own dialog. The screen opens those after the Move dialog.
 - Batsi never moves a card (rule 2). It may book interviews or chase interview feedback; those show as agent lozenges on the card.
 - Every move is audited with who, when, from and to (rule 7).
 - The stage picker on phone keeps the chosen stage when the person comes back.
@@ -51,9 +53,9 @@ A kanban board of hiring stages for one role. Each column is a stage with a coun
 ## Accessibility
 
 - The board is an `<ol>` labelled with the role; each column is labelled by its heading.
-- Dragging is never the only way: every card has a "Move" button named with the person ("Move Bongani Mthembu to another stage").
+- Dragging is never the only way: every card has a "Move" button named with the person ("Move Bongani"). The Move dialog is a modal dialog named by its title; focus starts inside it and returns to the card's Move button on close.
 - Counts have words for screen readers: the badge's hidden label (`pp-badge__label`, " candidates"), as on every badge.
-- The live region announces each move and each undo.
+- The live region announces each applied move.
 - The phone picker is a real `<select>` with a visible label.
 
 ## PrimeNG mapping
@@ -68,7 +70,7 @@ PrimeNG has no board. Build it with Angular CDK drag and drop:
         <li *cdkDragPlaceholder class="pp-pipeline__placeholder"></li>
 ```
 
-The "Move" menu is `p-menu` (popup) with the Dropdown menu pass-through (keys to be checked). The phone picker is a native select, or `p-select` with the Select pass-through.
+The Move dialog is a Modal dialog with a Select and a Textarea. The phone picker is a native select, or `p-select` with the Select pass-through.
 
 ## In Naleko People today
 

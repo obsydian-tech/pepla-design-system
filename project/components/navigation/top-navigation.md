@@ -9,19 +9,20 @@ replaces: the 5 app shells' top bars, the topbar notification dropdown
 
 # Top navigation
 
-The top navigation is the 56px bar across the top of every Naleko People app: search on the left, notifications and the person's account on the right. On phone it also holds the menu button that opens the side navigation.
+The top navigation is the 56px bar across the top of every Naleko People app: the Modules button and search on the left, notifications and the person's account on the right. On phone it also holds the menu button that opens the side navigation.
 
 ## Anatomy
 
 1. **Bar**: 56px (`--layout-topbar-height`), raised surface, a 1px border below, sticky at the top.
 2. **Menu button** (phone): `menu`, opens the side navigation as a drawer.
 3. **Mark** (phone): the Naleko People mark, links home. On desktop the mark lives in the side navigation.
-4. **Search**: a pill field, up to 480px, `search` icon, placeholder that names what it finds, a `/` shortcut hint. On phone it shrinks to an icon button that opens full-screen search.
-5. **Notifications**: `bell` icon button with a count badge; opens the notification list in a Popup.
-6. **Account**: the person's initials in a 32px circle; opens the avatar Dropdown menu. The menu names the role the person is acting as and lets them switch; the bar never shows a role pill.
-7. **Ask Batsi** (optional): a default button with the `sparkles` icon, before Notifications, that opens the Agent panel.
+4. **Modules button** (`pp-top-navigation__launcher`): a default button at the left end of the bar, before the mark and search, with the `layout-grid` icon and the word "Modules". It opens the list of the modules the person's company has (Popup on desktop, Drawer on phone). On phone it shows the icon alone, as a 44px button, and its name stays "Modules". It is only in the bar of apps that have more than one module.
+5. **Search**: a pill field, up to 480px, `search` icon, placeholder that names what it finds, a `/` shortcut hint. On phone it shrinks to an icon button that opens full-screen search.
+6. **Notifications**: `bell` icon button with a count badge; opens the notification list in a Popup.
+7. **Account**: the person's initials in a 32px circle; opens the avatar Dropdown menu. The menu names the role the person is acting as and lets them switch; the bar never shows a role pill.
+8. **Ask Batsi** (optional): a default button with the `sparkles` icon, before Notifications, that opens the Agent panel.
 
-Nothing else goes in the bar. Page actions such as "Add candidate" belong in the page header, so a screen has one primary button, not one in the bar and one on the page.
+The bar holds the Modules button, search, notifications and the account, and Ask Batsi where it is on. Nothing else goes in the bar. Page actions such as "Add candidate" belong in the page header, so a screen has one primary button, not one in the bar and one on the page.
 
 ## Appearances
 
@@ -45,6 +46,7 @@ Nothing else goes in the bar. Page actions such as "Add candidate" belong in the
 - `/` focuses search from anywhere outside a field. Escape clears and leaves search.
 - The notification Popup lists the newest 10, marks them read when it closes, and links to the full list. Agent items carry `sparkles` in mint; deadline items say the deadline in words.
 - On phone, every icon button is 44px; search opens a full-screen search view.
+- The Modules button has `aria-haspopup="dialog"` and `aria-expanded`; the Popup or Drawer it opens returns focus to it on close.
 - The bar never holds page actions; those belong in the Page header.
 
 ## Content
@@ -58,6 +60,7 @@ Nothing else goes in the bar. Page actions such as "Add candidate" belong in the
 - A `<header>` landmark; search is a labelled `input type="search"`.
 - Icon buttons have `aria-label`; the count badge is `aria-hidden` because the label carries it.
 - The notification and account buttons have `aria-haspopup` and `aria-expanded`. Popups close on Escape and return focus to their button.
+- The Modules button is named "Modules" on desktop and phone. Its word is hidden on phone, not its name.
 - The menu button has `aria-expanded` and `aria-controls` pointing at the side navigation.
 - New notifications are announced politely, at most once a minute, through a hidden `role="status"` region.
 
@@ -82,6 +85,6 @@ The shared `topbar` (HR dashboard) has the notification dropdown, built as its o
 
 ## Do and don't
 
-- **Do** keep the bar to search, notifications and account. **Don't** add page actions or tabs to it.
+- **Do** keep the bar to the Modules button, search, notifications and account. **Don't** add page actions or tabs to it.
 - **Do** put the count in the bell's label. **Don't** use a red dot with no number.
 - **Do** show the mark here on phone only. **Don't** show two marks on desktop.
