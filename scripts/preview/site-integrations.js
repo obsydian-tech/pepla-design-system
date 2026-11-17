@@ -102,7 +102,7 @@
     function put(x, y) { lt.style.transform = 'translate(' + (x - R) + 'px,' + (y - R) + 'px)'; gr.style.transform = 'translate(' + (R - x) + 'px,' + (R - y) + 'px)'; }
     sec.addEventListener('pointermove', function (e) { if (e.pointerType !== 'mouse') return; var r = sec.getBoundingClientRect(); px = [e.clientX - r.left, e.clientY - r.top]; put(px[0], px[1]); });
     sec.addEventListener('pointerleave', function () { px = null; });
-    var slow = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches ? 0.5 : 1;
+    var slow = 1; /* slow light keeps its full pace under reduced motion; it is never slowed or stilled */
     function drift(now) {
       raf = 0; if (!vis) return;
       if (!px) { var t = (now - t0) / 1000 * slow; put(sec.clientWidth * (0.62 + 0.2 * Math.sin(t / 5)), sec.clientHeight * (0.4 + 0.16 * Math.cos(t / 6.5))); }
