@@ -22,7 +22,7 @@ Every screen below has a desktop frame and a phone frame (title plus "(phone)").
 - **Seniority levels** (new). Level, label, description and experience guide, moved from Tenant settings.
 - **Interviews per level** (new). Interviews and panel size per level.
 - **Scoring weights** (page "What the panel scores"). The criteria that are scored and the 1 to 5 scale in words. Weights are gone.
-- **Not hired** (new). The eight reasons, each on or off.
+- **Not hired** (new). The eight reasons, each on or off, and a Second confirmation card with one switch each for Junior, Mid and Senior, off by default.
 - **SLA thresholds** (page "Time limits"). Time limits per step and one reminder level, "Due soon".
 - **Intelligence rules** (page "Flags"). The 13 flags with threshold, who is told and an on or off switch.
 - **Mood scale** (new). Mood on or off and its three values.
@@ -30,6 +30,8 @@ Every screen below has a desktop frame and a phone frame (title plus "(phone)").
 - **Keeping data** (new). "Remove Not hired candidates after 6 months".
 - **Agent keys** (new). Keys with their scopes (Read, Draft, Propose), Create key and Revoke.
 - **Create key** (new). The drawer, a full page on a phone.
+- **Revoke key** (new). The small dialog Revoke opens: "Revoke {key name}?", Cancel and Revoke.
+- **Key created** (new). The dialog shown once after Create key: "Copy this key now. It is shown once and cannot be shown again.", Copy key and Done.
 
 Every Recruitment settings screen carries the config version badge, and every table stacks into cards on a phone. Screen titles stay as they were so card checks still match; the page headings use the approved Recruitment settings words.
 
