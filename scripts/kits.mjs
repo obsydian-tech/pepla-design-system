@@ -80,7 +80,7 @@ export function buildKits(kits, DIST) {
     writeFileSync(new URL(`${k.slug}.html`, out), page(k.meta.name, inlineIcons(`<div class="kbar"><a href="../kits.html">All UI kits</a>${THEME}</div>` + kitHtml(k)) + previewScript([k]), '../'));
   }
   const toc = `<nav class="ktoc" aria-label="Kits">${kits.map((k) => `<a href="#${k.slug}">${esc(k.meta.name)}</a>`).join('')}</nav>`;
-  const intro = `<section class="kdoc"><h1>Naleko People UI kits</h1><p>Today's TalentFlow and Onboarding screens, redrawn only from Naleko People components and tokens: same content and flow, new look. ${kits.reduce((n, k) => n + k.screens.length, 0)} screens in ${kits.length} kits. Use the theme button to see them in dark. Components and foundations: <a href="components.html">all components</a>, <a href="index.html">foundations</a>.</p>${toc}</section>`;
+  const intro = `<section class="kdoc"><h1>Naleko People UI kits</h1><p>Today's Recruitment and Onboarding screens, redrawn only from Naleko People components and tokens: same content and flow, new look. ${kits.reduce((n, k) => n + k.screens.length, 0)} screens in ${kits.length} kits. Use the theme button to see them in dark. Components and foundations: <a href="components.html">all components</a>, <a href="index.html">foundations</a>.</p>${toc}</section>`;
   writeFileSync(new URL('kits.html', DIST), page('UI kits', inlineIcons(`<div class="kbar"><span></span>${THEME}</div>` + intro + kits.map((k) => kitHtml(k, 'h2', ' class="kname"')).join('')) + previewScript(kits), ''));
 }
 

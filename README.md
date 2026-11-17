@@ -41,4 +41,4 @@ Structure is modelled on large public design systems (Atlassian's in particular)
 
 ## Roadmap
 
-1. Foundations (this) · 2. Core components · 3. Naleko People components: agent, HR records, POPIA · 4. UI kits from the TalentFlow and Onboarding screens · 5. Adoption: the Angular 19 `pp-*` components and the app's `verify:design` ([spec](docs/verify-design-angular.md)); this repo's own `verify:design` is in place
+1. Foundations (this) · 2. Core components · 3. Naleko People components: agent, HR records, POPIA · 4. UI kits from the Recruitment and Onboarding screens · 5. Adoption: the Angular 19 `pp-*` components and the app's `verify:design` ([spec](docs/verify-design-angular.md)); this repo's own `verify:design` is in place

@@ -8,7 +8,7 @@ Naleko People is the HR platform for teams under 100 in South Africa, Zimbabwe a
 
 - Brand: the locked "Naleko People: name, pitch and look" board (11 Nov 2026). Name, pitch, mark, palette and fonts are final.
 - Structure: modelled on the structure and depth of large public design systems (Atlassian's in particular): layered tokens, foundations, component anatomy, content and accessibility rules. **No Atlassian code, styles, icons, assets or text are used**; their licence only covers products that integrate with Atlassian.
-- Examples: the existing TalentFlow and Onboarding screens in `obsydian-tech/hr-portal`, redrawn in Naleko People.
+- Examples: the existing Recruitment and Onboarding screens in `obsydian-tech/hr-portal`, redrawn in Naleko People.
 
 ## The only way to build UI
 
