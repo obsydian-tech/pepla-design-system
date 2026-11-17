@@ -14,5 +14,5 @@
   .pp-page-header__title { font: var(--font-heading-large); letter-spacing: var(--font-heading-large-tracking); }
   .pp-page-header__description { font: var(--font-body); }
   .pp-page-header__actions { width: 100%; }
-  .pp-page-header__actions > .pp-button--primary { flex: 1; min-height: var(--size-control-large); }
+  .pp-page-header__actions > .pp-button--primary { flex: 1 1 auto; min-width: max-content; min-height: var(--size-control-large); }
 }
