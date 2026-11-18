@@ -33,7 +33,7 @@ One line of short facts under the Ask Batsi band on a Learn more page: who decid
 
 ## Content
 
-- Four facts, copied from the approved page. The first changes per page ("A person makes every hiring decision", "A person accepts every renewal" and so on).
+- Four facts, copied from the approved page. The first changes per page ("A person accepts every renewal" and so on). The Recruitment page shows three facts: "A person makes every hiring decision" is hidden until the code makes it true.
 - The link reads "Security and POPIA".
 
 ## Accessibility
