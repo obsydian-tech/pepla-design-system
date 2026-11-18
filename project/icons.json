@@ -622,6 +622,11 @@
       "group": "Actions and navigation"
     },
     {
+      "name": "maximize-2",
+      "meaning": "Expand the agent panel to a full page",
+      "group": "Actions and navigation"
+    },
+    {
       "name": "menu",
       "meaning": "Menu (phone)",
       "group": "Actions and navigation"

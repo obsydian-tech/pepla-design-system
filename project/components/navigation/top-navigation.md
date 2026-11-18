@@ -20,7 +20,7 @@ The top navigation is the 56px bar across the top of every Naleko People app: th
 5. **Search**: a pill field, up to 480px, `search` icon, placeholder that names what it finds, a `/` shortcut hint. On phone it shrinks to an icon button that opens full-screen search.
 6. **Notifications**: `bell` icon button with a count badge; opens the notification list in a Popup.
 7. **Account**: the person's initials in a 32px circle; opens the avatar Dropdown menu. The menu names the role the person is acting as and lets them switch; the bar never shows a role pill.
-8. **Ask Batsi** (optional): a default button with the `sparkles` icon, before Notifications, that opens the Agent panel.
+8. **Ask Batsi** (optional): a default button with the `sparkles` icon, before Notifications, that opens the Agent panel. It is the only way in: there is no floating bubble. On phone it shows the icon alone, as a 44px subtle button, named "Ask Batsi". When proposals wait for the person it carries the same small count badge as Notifications, and its name says so ("Ask Batsi, 2 waiting"). Proposed, not approved.
 
 The bar holds the Modules button, search, notifications and the account, and Ask Batsi where it is on. Nothing else goes in the bar. Page actions such as "Add candidate" belong in the page header, so a screen has one primary button, not one in the bar and one on the page.
 

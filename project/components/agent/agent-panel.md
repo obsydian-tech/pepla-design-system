@@ -2,7 +2,7 @@
 name: Agent panel
 group: agent
 status: ready
-classes: pp-agent-panel, pp-agent-panel--inline, pp-agent-panel--sheet, pp-agent-panel__suggestions, pp-agent-panel__suggestion
+classes: pp-agent-panel, pp-agent-panel--inline, pp-agent-panel--sheet, pp-agent-panel--page, pp-agent-panel__suggestions, pp-agent-panel__suggestion
 primeng: reference only (built without PrimeNG) — Drawer (p-drawer) for the shell; the content is a plain Angular template
 replaces: the hr-dashboard AI Assistant drawer (app-ai-mode-panel), the TalentFlow AI chat drawer (tf-ai-chat-panel) and the employee chat widget (app-chat-widget)
 ---
@@ -14,7 +14,7 @@ The agent panel is where a person talks with Batsi. It opens from the right on d
 ## Anatomy
 
 1. **Panel**: raised surface, opens from the right, the drawer's medium width. On phone a full-screen sheet.
-2. **Header**: the agent avatar (`pp-avatar--agent`, the only mint avatar), the title "Naleko People", one line of context ("Looking at Kagiso Molefe"), and Close.
+2. **Header**: the agent avatar (proposed: an Expand button, `maximize-2`, next to Close, opens the same conversation on the full page) (`pp-avatar--agent`, the only mint avatar), the title "Naleko People", one line of context ("Looking at Kagiso Molefe"), and Close.
 3. **Conversation** (`pp-agent-panel__log`): on the cream ground, newest at the bottom, grouped by day.
    - **Person's message**: right-aligned, neutral bubble.
    - **Batsi's message**: left-aligned, white bubble with a border. Not mint: mint is for Batsi's work, not its words.
@@ -30,6 +30,7 @@ The agent panel is where a person talks with Batsi. It opens from the right on d
 | --- | --- | --- |
 | `pp-agent-panel` | The app's one panel to talk to Batsi, opened from the top bar or a record | A second chat with a different name on another page |
 | `pp-agent-panel--inline` | In docs and in a page layout where the panel is part of the page, not an overlay | On phone |
+| `pp-agent-panel--page` | Proposed: the full-page chat (AI chat mode). The same conversation as a centred reading column with a rounded composer, beside the list of past chats. The header has no Close; it has "Back" | Inside the app shell's normal pages |
 | `pp-agent-panel--sheet` | Docs only: shows the phone layout at desktop width. In the app, the media query does this | In app templates |
 
 ## States
