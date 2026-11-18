@@ -70,3 +70,6 @@
 .pp-agent-panel--page .pp-agent-panel__input-row { padding: var(--space-100); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-xlarge); background: var(--elevation-surface-raised); }
 .pp-agent-panel--page .pp-agent-panel__input-row .pp-textarea { border: 0; box-shadow: none; background: transparent; }
 .pp-agent-panel--page .pp-agent-panel__hint { text-align: center; }
+
+/* Phone: a list of chats fills the width */
+.pp-app-shell--phone .pp-side-navigation--inline { width: 100%; border: 0; height: auto; }
