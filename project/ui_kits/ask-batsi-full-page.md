@@ -21,4 +21,4 @@ Every sentence comes from `ask-batsi-chat/words.json`; new ones are marked propo
 - **Full page chat: an earlier chat.** A past chat opened from the list, with its approved outcome.
 - **Full page chat: past chats (phone)** and **a proposal waits for you (phone).** The list first; a chat opens full screen with Back.
 
-Delete chat (button in the chat header) and Delete all my chats (bottom of the list of chats) are drawn. The question that asks "are you sure" before deleting is not drawn yet: its words are not decided.
+Delete chat (button in the chat header) and Delete all my chats (bottom of the list of chats) are drawn. The "are you sure" step before deleting (a danger modal dialog, three screens) is drawn with proposed wording, not approved yet.
