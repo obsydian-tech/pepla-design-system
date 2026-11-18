@@ -18,6 +18,7 @@ The new employee's side of Naleko People, redrawn for a phone: Ayanda Zulu, who 
 - **Privacy notice** (phone, desktop). The full notice, version 2026-11-1, one card for each of its ten sections, and a link back to Today. Uses page header, card, link.
 - **Onboarding progress** (`components/onboarding-stepper`). Steps done as a count, what is happening now, and the six-step journey. Uses page header, progress bar, section message, card, icon tile, progress tracker (vertical).
 - **Documents: checklist** (`components/document-checklist`, `components/document-row`, step 2). The four documents with one returned, one to upload, one with HR and one verified. Uses page header, tag, progress tracker, document checklist, document row, progress bar, lozenge, button.
+- **Documents: ID sent back** and **Documents: certificate sent back** (phone, desktop). The National ID and the matric certificate each sent back with no reason recorded ("Uploaded 10 Nov 2026 · Returned 10 Nov"), with the buttons "Upload a new ID" and "Upload a new certificate". Uses page header, progress tracker, document checklist, document row, progress bar, lozenge, button.
 - **Documents: upload a qualification** (`components/document-row`, upload state). One file with HR and one still uploading. Uses breadcrumbs, page header, file upload, file list, lozenge, progress bar, inline message, button.
 - **Highlights: your details** (`components/employee-highlights`). Her details and her HR partner. Uses person header, avatar, lozenge, card, icon tile, description list, person, link, button.
 
