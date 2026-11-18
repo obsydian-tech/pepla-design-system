@@ -242,6 +242,7 @@ The Angular app runs the same rules on its templates and stylesheets, plus a ban
 | Previous page | `chevron-left` |
 | Switch (company, select) | `chevrons-up-down` |
 | Collapse the sidebar | `panel-left` |
+| Expand the agent panel to a full page | `maximize-2` |
 | Menu (phone) | `menu` |
 | Notifications | `bell` |
 | Sign in | `log-in` |
