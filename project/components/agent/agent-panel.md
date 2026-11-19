@@ -61,7 +61,7 @@ The agent panel is where a person talks with Batsi. It opens from the right on d
 - Title: "Naleko People". Never "AI Assistant", "TalentFlow AI", "Beta" or "Powered by" a model name.
 - Batsi speaks as "I" in its own messages and names people by first name.
 - Working line: what Batsi is doing, in words: "Batsi is reading 6 onboarding checklists". Never "Thinking…".
-- Composer placeholder says what to ask about: "Ask Batsi about Kagiso".
+- Composer placeholder says what to ask about: "Ask Batsi about Kagiso". A long one wraps and the box grows to show all of it (never cut off, up to four lines). The hint under the box is never cut off either; on a phone the sheet is as tall as the visible screen.
 
 ## Accessibility
 
