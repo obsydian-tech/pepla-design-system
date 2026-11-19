@@ -52,6 +52,7 @@ On phone (under 768px) every dialog becomes a bottom sheet: full width, rounded 
 - One dialog at a time. Never open a dialog from a dialog.
 - Escape and the close button cancel. A click on the blanket cancels only when nothing has been typed.
 - Danger confirms never close on a blanket click.
+- A closable danger dialog shows the Close (x) button in its header and closes on Escape, the same as Close and the safe button: nothing is sent and focus returns to the control that opened it. A danger dialog that is not closable has no Close button and ignores Escape, as it always did.
 - After a successful action the dialog closes and a Flag confirms ("Offer withdrawn"). If the action can be undone, prefer the Flag's Undo over a confirm dialog.
 - Long bodies scroll inside the dialog; the page under it never scrolls.
 
@@ -67,7 +68,7 @@ On phone (under 768px) every dialog becomes a bottom sheet: full width, rounded 
 - `role="dialog"` (or `role="alertdialog"` for danger confirms), `aria-modal="true"`, `aria-labelledby` on the title, `aria-describedby` on the body for confirms.
 - Focus moves into the dialog on open: to the first field, or to the least destructive button in a confirm ("Keep offer").
 - Focus is trapped inside while open; Tab cycles through the dialog only.
-- Escape closes it unless it is working. On close, focus returns to the control that opened it.
+- Escape closes it unless it is working, or unless it is a danger dialog that is not closable. A closable danger dialog's Close button is `aria-label="Close"`. On close, focus returns to the control that opened it.
 - The page behind gets `inert`, so screen readers can't reach it.
 
 ## PrimeNG mapping
