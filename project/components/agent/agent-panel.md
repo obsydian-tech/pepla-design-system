@@ -48,6 +48,7 @@ The agent panel is where a person talks with Batsi. It opens from the right on d
 
 - One panel for all of Naleko People, everywhere. Its context line changes with the page ("Looking at Kagiso Molefe", "Getting started").
 - Enter sends; Shift+Enter adds a line. On phone the Send button is 48px (`pp-button--large`).
+- The message box and the header never scroll away. Only the conversation scrolls, in its own area between them, in the side panel, the phone sheet and the full page. On the full page the app shell stops scrolling (`pp-app-shell__main` holds the panel edge to edge) and the list of past chats scrolls in its own column. A long answer never pushes the box off screen.
 - The log scrolls to the newest message when one arrives, unless the person has scrolled up; then a "New message" button appears at the bottom.
 - Stop cancels Batsi's current work. Nothing it had started is applied.
 - Proposals follow the proposal card rules (rule 2). Approving from the panel is the same call, the same audit entry and the same outcome as on the card.
