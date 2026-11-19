@@ -32,6 +32,11 @@ test('spec: a danger dialog that is not closable has no Close and ignores Escape
   assert.ok(/no Close/i.test(s) && /(ignores|no) Escape/i.test(s), `that sentence must say no Close button and Escape ignored: "${s}"`);
 });
 
+test('spec: the general Escape rule names the exception', () => {
+  const s = sentences(behaviour).find((x) => /^- Escape and the close button cancel/.test(x) || /Escape and the close button cancel/.test(x));
+  assert.ok(s && /except[^.]*danger[^.]*not closable/i.test(s), `the general Escape line must carry the danger exception: "${s}"`);
+});
+
 test('spec: a click outside a danger dialog never closes it, and nothing says otherwise', () => {
   assert.match(spec, /Danger confirms never close on a blanket click/);
   for (const x of spec.split('\n').flatMap(sentences).filter((y) => /(blanket|outside)/i.test(y) && /danger/i.test(y))) assert.ok(/never|not|nothing|ignored/i.test(x), `a sentence lets a click outside close a danger dialog: "${x}"`);

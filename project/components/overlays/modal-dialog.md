@@ -50,9 +50,9 @@ On phone (under 768px) every dialog becomes a bottom sheet: full width, rounded 
 ## Behaviour
 
 - One dialog at a time. Never open a dialog from a dialog.
-- Escape and the close button cancel. A click on the blanket cancels only when nothing has been typed.
+- Escape and the close button cancel, except on a danger dialog that is not closable. A click on the blanket cancels only when nothing has been typed.
 - Danger confirms never close on a blanket click.
-- A closable danger dialog shows the Close (x) button in its header and closes on Escape, the same as Close and the safe button: nothing is sent and focus returns to the control that opened it. A danger dialog that is not closable has no Close button and ignores Escape, as it always did.
+- A closable danger dialog shows the Close (x) button in its header and closes on Escape, the same as Close and the safe button: nothing is sent and focus returns to the control that opened it. A danger dialog that is not closable has no Close button and ignores Escape.
 - After a successful action the dialog closes and a Flag confirms ("Offer withdrawn"). If the action can be undone, prefer the Flag's Undo over a confirm dialog.
 - Long bodies scroll inside the dialog; the page under it never scrolls.
 
