@@ -27,7 +27,7 @@ test('spec: a closable danger dialog shows Close and closes on Escape', () => {
 });
 
 test('spec: a danger dialog that is not closable has no Close and ignores Escape', () => {
-  const s = sentences(behaviour).find((x) => /not closable/i.test(x));
+  const s = sentences(behaviour).find((x) => /not closable/i.test(x) && /has no Close/i.test(x));
   assert.ok(s, 'Behaviour must have a sentence about a danger dialog that is not closable');
   assert.ok(/no Close/i.test(s) && /(ignores|no) Escape/i.test(s), `that sentence must say no Close button and Escape ignored: "${s}"`);
 });
