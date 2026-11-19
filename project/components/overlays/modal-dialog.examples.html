@@ -16,6 +16,24 @@
     </div>
   </div>
 </section>
+<section data-example="Destructive confirm that can be closed: Close and Escape">
+  <div class="pp-blanket pp-blanket--inline">
+    <div class="pp-modal-dialog pp-modal-dialog--small pp-modal-dialog--danger pp-modal-dialog--inline" role="alertdialog" aria-modal="true" aria-labelledby="md-1b-t" aria-describedby="md-1b-d">
+      <div class="pp-modal-dialog__header">
+        <i data-lucide="triangle-alert"></i>
+        <h2 class="pp-modal-dialog__title" id="md-1b-t">Delete this chat?</h2>
+        <button class="pp-button pp-button--subtle pp-button--icon pp-modal-dialog__close" type="button" aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="pp-modal-dialog__body" id="md-1b-d">
+        <p>This removes the chat for good. The audit log keeps that a chat was deleted, not what it said.</p>
+      </div>
+      <div class="pp-modal-dialog__footer">
+        <button class="pp-button pp-button--default" type="button">Cancel</button>
+        <button class="pp-button pp-button--danger" type="button">Delete chat</button>
+      </div>
+    </div>
+  </div>
+</section>
 <section data-example="Medium, with a close button">
   <div class="pp-blanket pp-blanket--inline">
     <div class="pp-modal-dialog pp-modal-dialog--inline" role="dialog" aria-modal="true" aria-labelledby="md-2-t">
