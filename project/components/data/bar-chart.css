@@ -1,0 +1,10 @@
+/* Bar chart: words and number on every bar, one colour, nothing moves. */
+.pp-bar-chart { margin: 0; display: grid; gap: var(--space-100); }
+.pp-bar-chart__title { font-weight: var(--font-weight-semibold); }
+.pp-bar-chart__bars { display: grid; gap: var(--space-075); }
+.pp-bar-chart__row { display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr) auto; align-items: center; gap: var(--space-100); }
+.pp-bar-chart__label { overflow-wrap: anywhere; }
+.pp-bar-chart__track { display: block; height: var(--space-150); background: var(--color-background-neutral); border-radius: var(--radius-xsmall); }
+.pp-bar-chart__bar { display: block; width: var(--_share, 0%); height: 100%; background: var(--color-background-brand-bold); border-radius: var(--radius-xsmall); }
+.pp-bar-chart__value { font-variant-numeric: tabular-nums; }
+.pp-bar-chart, .pp-bar-chart * { transition: none; animation: none; }
