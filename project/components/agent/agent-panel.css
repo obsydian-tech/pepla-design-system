@@ -90,3 +90,12 @@ body:has(.pp-app-shell:not(.pp-app-shell--inline) .pp-agent-panel--page) { overf
 
 /* Phone: a list of chats fills the width */
 .pp-app-shell--phone .pp-side-navigation--inline { width: 100%; border: 0; height: auto; }
+
+/* Batsi's answer blocks (CHAT-08): paragraphs, lists, facts, checks, a table and a chart inside Batsi's bubble. */
+.pp-agent-panel__p { margin: 0 0 var(--space-100); white-space: pre-line; overflow-wrap: anywhere; }
+.pp-agent-panel__p:last-child { margin-bottom: 0; }
+.pp-agent-panel__list { margin: 0 0 var(--space-100); padding-inline-start: var(--space-250); overflow-wrap: anywhere; }
+.pp-agent-panel__block-title { margin: var(--space-100) 0 var(--space-050); font-weight: var(--font-weight-semibold); }
+.pp-agent-panel__more { margin: var(--space-050) 0 0; }
+.pp-agent-panel__table { width: 100%; }
+@media (max-width: 599.98px) { .pp-agent-panel__table.pp-table--stack tr { grid-template-columns: minmax(0, 1fr); } }

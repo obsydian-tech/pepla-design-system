@@ -137,3 +137,43 @@
     </form>
   </aside>
 </section>
+
+<section data-example="An answer drawn as a table and a chart">
+  <aside class="pp-agent-panel pp-agent-panel--inline pp-measure-form" aria-labelledby="ap-5-t">
+    <div class="pp-agent-panel__header">
+      <span class="pp-avatar pp-avatar--agent" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+      <div class="pp-agent-panel__heading">
+        <span class="pp-agent-panel__title" role="heading" aria-level="3" id="ap-5-t">Batsi</span>
+        <span class="pp-agent-panel__context">Getting started</span>
+      </div>
+      <button class="pp-button pp-button--subtle pp-button--icon" type="button" aria-label="Close Batsi"><i data-lucide="x"></i></button>
+    </div>
+    <div class="pp-agent-panel__log" role="log" aria-label="Conversation with Batsi">
+      <div class="pp-agent-panel__message pp-agent-panel__message--pepla">
+        <span class="pp-visually-hidden">Batsi said:</span>
+        <div class="pp-agent-panel__bubble">
+          <p class="pp-agent-panel__p">Here are the people in onboarding, in the order of their start date.</p>
+          <div class="pp-table-wrap">
+            <table class="pp-table pp-table--compact pp-table--stack pp-agent-panel__table">
+              <thead><tr><th scope="col">Employee</th><th scope="col">Step</th><th scope="col">Start date</th><th scope="col">HR partner</th></tr></thead>
+              <tbody>
+                <tr><td data-label="Employee"><a href="#thandeka">Thandeka Dlamini</a></td><td data-label="Step">Documents</td><td data-label="Start date">7 Sep 2026</td><td data-label="HR partner">Not assigned</td></tr>
+                <tr><td data-label="Employee"><a href="#kagiso">Kagiso Molefe</a></td><td data-label="Step">In review</td><td data-label="Start date">14 Sep 2026</td><td data-label="HR partner">Lindiwe Khumalo</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="pp-agent-panel__more">Showing 2 of 6.</p>
+          <figure class="pp-bar-chart">
+            <figcaption class="pp-bar-chart__title">People by step</figcaption>
+            <div class="pp-bar-chart__bars" aria-hidden="true">
+              <div class="pp-bar-chart__row"><span class="pp-bar-chart__label">Invited</span><span class="pp-bar-chart__track"><span class="pp-bar-chart__bar" style="--_share: 33%"></span></span><span class="pp-bar-chart__value">1</span></div>
+              <div class="pp-bar-chart__row"><span class="pp-bar-chart__label">Documents</span><span class="pp-bar-chart__track"><span class="pp-bar-chart__bar" style="--_share: 100%"></span></span><span class="pp-bar-chart__value">3</span></div>
+              <div class="pp-bar-chart__row"><span class="pp-bar-chart__label">In review</span><span class="pp-bar-chart__track"><span class="pp-bar-chart__bar" style="--_share: 67%"></span></span><span class="pp-bar-chart__value">2</span></div>
+            </div>
+            <table class="pp-visually-hidden"><caption>People by step</caption><tbody><tr><th scope="row">Invited</th><td>1</td></tr><tr><th scope="row">Documents</th><td>3</td></tr><tr><th scope="row">In review</th><td>2</td></tr></tbody></table>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </aside>
+</section>
