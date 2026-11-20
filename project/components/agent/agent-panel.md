@@ -14,7 +14,7 @@ The agent panel is where a person talks with Batsi. It opens from the right on d
 ## Anatomy
 
 1. **Panel**: raised surface, opens from the right, the drawer's medium width. On phone a full-screen sheet.
-2. **Header**: the agent avatar (proposed: an Expand button, `maximize-2`, next to Close, opens the same conversation on the full page) (`pp-avatar--agent`, the only mint avatar), the title "Naleko People", one line of context ("Looking at Kagiso Molefe"), and Close.
+2. **Header**: the agent avatar (proposed: an Expand button, `maximize-2`, next to Close, opens the same conversation on the full page) (`pp-avatar--agent`, the only mint avatar), the title "Naleko People", one line of context ("Looking at Kagiso Molefe"), and Close. In the side panel (not the full page) an optional **New chat** button (`plus`, small subtle, the same words as the full page's New chat) sits before Expand and Close: it clears the conversation and opens a blank chat. Without it the panel shows no button, so a screen that has no chats keeps today's header.
 3. **Conversation** (`pp-agent-panel__log`): on the cream ground, newest at the bottom, grouped by day.
    - **Person's message**: right-aligned, neutral bubble.
    - **Batsi's message**: left-aligned, white bubble with a border. Not mint: mint is for Batsi's work, not its words.
