@@ -131,3 +131,44 @@
     </ol>
   </div>
 </section>
+<section data-example="Card with More actions">
+  <div class="pp-pipeline pp-measure-narrow">
+    <ol class="pp-pipeline__board" aria-label="Hiring stages for Sales rep">
+      <li class="pp-pipeline__column pp-pipeline__column--current" aria-labelledby="pb3-c1">
+        <div class="pp-pipeline__column-header">
+          <span class="pp-pipeline__column-name" role="heading" aria-level="3" id="pb3-c1">Interview</span>
+          <span class="pp-badge">2<span class="pp-badge__label"> candidates</span></span>
+        </div>
+        <ul class="pp-pipeline__cards">
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--green" aria-hidden="true">BM</span><span class="pp-person__text"><a class="pp-person__name" href="#bongani">Bongani Mthembu</a><span class="pp-person__meta">2 of 3 interviews</span></span></span>
+            </div>
+            <span class="pp-pipeline__card-actions">
+              <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move Bongani" aria-haspopup="dialog"><i data-lucide="arrow-right-left"></i></button>
+              <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="More actions for Bongani" aria-haspopup="menu" aria-expanded="true" aria-controls="pb3-menu"><i data-lucide="ellipsis"></i></button>
+            </span>
+          </li>
+          <li>
+            <div class="pp-dropdown-menu pp-dropdown-menu--inline pp-dropdown-menu--end" id="pb3-menu" role="menu" aria-label="More actions for Bongani">
+              <ul class="pp-dropdown-menu__section" role="group">
+                <li role="none"><button class="pp-dropdown-menu__item" role="menuitem" type="button"><i data-lucide="user-x"></i><span>Not hired</span></button></li>
+              </ul>
+            </div>
+          </li>
+          <li class="pp-pipeline__card">
+            <span class="pp-pipeline__handle" aria-hidden="true"><i data-lucide="grip-vertical"></i></span>
+            <div class="pp-pipeline__card-body">
+              <span class="pp-person"><span class="pp-avatar pp-avatar--small pp-avatar--sky" aria-hidden="true">TN</span><span class="pp-person__text"><a class="pp-person__name" href="#tendai">Tendai Ncube</a><span class="pp-person__meta">1 of 2 interviews</span></span></span>
+            </div>
+            <span class="pp-pipeline__card-actions">
+              <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="Move Tendai" aria-haspopup="dialog"><i data-lucide="arrow-right-left"></i></button>
+              <button class="pp-button pp-button--subtle pp-button--icon pp-button--small" type="button" aria-label="More actions for Tendai" aria-haspopup="menu" aria-expanded="false"><i data-lucide="ellipsis"></i></button>
+            </span>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>

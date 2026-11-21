@@ -14,7 +14,7 @@ The Hire side of hiring at Mokoena Logistics, redrawn as the Hire UX rework: Tod
 ## Screens
 
 - **Dashboard.** One worklist "My actions today" (Batsi flags and actions merged), three stats, pipeline by stage. Uses stat card, card, agent proposal card (compact rows), table, lozenge.
-- **Pipeline, list** and **Pipeline, board.** One page with a List and Board switch; views as tabs; one toolbar; five stage columns, Not hired is a button with a count. No drag and drop is needed: each card has a Move button. Uses page header, breadcrumbs, button group, tabs, search, select, table, pipeline board, person, lozenge, deadline chip.
+- **Pipeline, list** and **Pipeline, board.** One page with a List and Board switch; views as tabs; one toolbar; five stage columns, Not hired is a button with a count. No drag and drop is needed: each card has a Move button and a More actions button ("More actions for {first name}") whose menu the page fills ("Pipeline, card menu" shows it open with Not hired). Uses page header, breadcrumbs, button group, tabs, search, select, table, pipeline board, person, lozenge, deadline chip.
 - **Candidates.** Everyone who applied, in any stage. Uses tabs, search, select, table, person.
 - **Add candidate** (drawer over the board). Five fields and an optional CV. Uses drawer, text field, select, file upload.
 - **Roles** and **Open a role.** The role table and the form, with the Close role refusal as a section message.
