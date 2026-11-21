@@ -2,7 +2,7 @@
 name: Pipeline board
 group: records
 status: ready
-classes: pp-pipeline, pp-pipeline__picker, __board, __column, __column--current, __column--drop-target, __column-header, __column-name, __column-alert, __column-alert--warning, __cards, __card, __card--dragging, __handle, __card-body, __placeholder, __empty
+classes: pp-pipeline, pp-pipeline__card-actions, pp-pipeline__picker, __board, __column, __column--current, __column--drop-target, __column-header, __column-name, __column-alert, __column-alert--warning, __cards, __card, __card--dragging, __handle, __card-body, __placeholder, __empty
 primeng: none for the board; Angular CDK drag and drop (cdkDropList, cdkDrag); Menu (p-menu) for the move menu
 replaces: the pipeline page's kanban view
 ---
@@ -16,7 +16,7 @@ A kanban board of hiring stages for one role. Each column is a stage with a coun
 1. **Board** (`__board`): an `<ol>` of columns, in stage order. It scrolls sideways when the columns do not fit.
 2. **Column** (`__column`): header with the stage name, a `pp-badge` count and, when needed, an alert line (`__column-alert`): "1 interview feedback overdue", "1 waiting over 5 days".
 3. **Cards** (`__cards`): a `<ul>` of candidate cards, or an empty line "No one yet".
-4. **Card** (`__card`): a drag handle (`grip-vertical`), `pp-person` with the name as a link and one meta line, at most one lozenge (a deadline, a status, or an agent lozenge), and a "Move" icon button (`arrow-right-left`, named "Move {first name}").
+4. **Card** (`__card`): a drag handle (`grip-vertical`), `pp-person` with the name as a link and one meta line, at most one lozenge (a deadline, a status, or an agent lozenge), a "Move" icon button (`arrow-right-left`, named "Move {first name}") and, when the page gives the board a card menu, a "More actions" icon button (`ellipsis`, named "More actions for {first name}") beside it. Both sit in `__card-actions`.
 5. **Stage picker** (`__picker`, phone only): a select listing each stage with its count.
 6. **Live region**: a hidden `aria-live="polite"` element that announces moves.
 
@@ -37,6 +37,7 @@ A kanban board of hiring stages for one role. Each column is a stage with a coun
 - **Drag**: pick a card up by its handle or body and drop it in another column. A drop never moves the card: the card stays where it was and the Move dialog opens with the column it was dropped on in "Move to". The card moves only when a reason is given and the screen saves the move.
 - **Move button** (keyboard and phone): opens the same Move dialog, "Move {first name}", with "Move to" on the card's own stage. Cancel, Close and Escape leave the card where it was and return focus to the button.
 - **Move dialog**: "Move to" (every stage, in order) and "Why? (required)" with the help "Saved with your name and the time." Moving to an earlier stage adds "Moving back a stage needs a reason too." The Move button stays off until there is a reason and a different stage.
+- **More actions** (optional, per card): the page gives the board the menu items for a card (an id and a label each) and the board shows the button only when it has them. The button opens a Dropdown menu named "More actions for {first name}", aligned to the end. Picking an item closes the menu, returns focus to the button and reports the pick to the page (`cardAction`, with the card and the item's id). The board runs nothing itself: the page opens its own dialog, for example "Not hired" or "Cancel". With no items the button is not shown. The menu follows the Dropdown menu rules: Up and Down move, Escape closes, a danger item is last.
 - The board asks the screen to move the card (`moveRequested`, with the reason) and the screen updates the stages after it saves. The board never changes them itself in this mode.
 - Some moves need more: moving to Offer opens the offer form; moving to "Not hired" has its own dialog. The screen opens those after the Move dialog.
 - Batsi never moves a card (rule 2). It may book interviews or chase interview feedback; those show as agent lozenges on the card.
@@ -47,13 +48,14 @@ A kanban board of hiring stages for one role. Each column is a stage with a coun
 
 - Stage names are short nouns: "Applied", "Interview", "Offer", "Hired".
 - Column alerts count people and say the problem: "1 interview feedback overdue". Never "SLA breach".
+- Menu items come from the page, in the page's words: verb plus object, sentence case ("Not hired", "Cancel"). The board has no words of its own for them.
 - Card meta is one fact: "Applied 4 Nov", "Interviewed 3 Nov", or the place.
 - One lozenge per card: the most urgent thing.
 
 ## Accessibility
 
 - The board is an `<ol>` labelled with the role; each column is labelled by its heading.
-- Dragging is never the only way: every card has a "Move" button named with the person ("Move Bongani"). The Move dialog is a modal dialog named by its title; focus starts inside it and returns to the card's Move button on close.
+- Dragging is never the only way: every card has a "Move" button named with the person ("Move Bongani"). The menu button is named the same way ("More actions for Bongani"). The Move dialog is a modal dialog named by its title; focus starts inside it and returns to the card's Move button on close.
 - Counts have words for screen readers: the badge's hidden label (`pp-badge__label`, " candidates"), as on every badge.
 - The live region announces each applied move.
 - The phone picker is a real `<select>` with a visible label.
