@@ -9,7 +9,7 @@ source: features/talent-flow/pages/hm-dashboard, features/talent-flow/components
 
 Every screen sits in the one Naleko People sidebar (see "One Naleko People" in the readme); only the selected module changes.
 
-The hiring manager's side of Naleko People at Mokoena Logistics, redrawn: Sipho Ndlovu's list of tasks, the feedback he gives on an interview, the IT setup for his new employees, the review of a setup Batsi drafted, and the progress of one that is being set up. Every screen except Provisioning is drawn on a phone as well. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change.
+The hiring manager's side of Naleko People at Mokoena Logistics, redrawn: Sipho Ndlovu's list of tasks, the Decisions tab (each candidate waiting on a decision, with the Decide button, still a ⟦W-14⟧ gap for Iggie's words), the feedback he gives on an interview, the IT setup for his new employees, the review of a setup Batsi drafted, and the progress of one that is being set up. Every screen except Provisioning is drawn on a phone as well. The content, fields and steps are the ones in today's Angular templates. Only the look and the rule-driven details change.
 
 ## Screens
 
