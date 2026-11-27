@@ -51,6 +51,7 @@ Score words, used everywhere a score appears:
 - Criterion names in sentence case: "Technical ability", "Culture fit".
 - Weights as "Counts for 30%".
 - Score lines read "8 of 10, strong"; overall reads "7.4 out of 10".
+- On a panel summary a row has no word: its score line reads "3.0 out of 5", the score as given, always one decimal ("3.0", not "3"). The bar still follows the number. Every other row keeps the word ("8 of 10, strong").
 
 ## Accessibility
 
